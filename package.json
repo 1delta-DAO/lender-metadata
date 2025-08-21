@@ -1,0 +1,26 @@
+{
+  "name": "lender-metadata",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "update": "node dist/scripts/update-dataset.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "imports": {
+    "#lib/*": "./dist/lib/*.js",
+    "#scripts/*": "./dist/scripts/*.js"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "typescript": "^5.5.4",
+    "vitest": "^1.6.0"
+  }
+}

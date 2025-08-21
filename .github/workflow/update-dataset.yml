@@ -1,0 +1,41 @@
+name: update-dataset
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # every 30 minutes; change as needed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm ci
+      - name: Build and run update script
+        env:
+          UPSTREAM_URL: ${{ secrets.UPSTREAM_URL }}  # set this in repo secrets
+        run: |
+          npm run build
+          npm run update
+
+      - name: Commit & push if changed
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "data-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add -A
+            git commit -m "chore(data): update $(date -u +'%Y-%m-%dT%H:%M:%SZ') [skip ci]"
+            git push
+          else
+            echo "No changes."
+          fi
