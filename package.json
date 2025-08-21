@@ -15,9 +15,6 @@
     "#lib/*": "./dist/lib/*.js",
     "#scripts/*": "./dist/scripts/*.js"
   },
-  "dependencies": {
-    "zod": "^3.23.8"
-  },
   "devDependencies": {
     "@types/node": "^20.14.9",
     "typescript": "^5.5.4",

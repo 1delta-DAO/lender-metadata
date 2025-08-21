@@ -1,5 +1,5 @@
 import { sha256Hex } from "#lib/hash";
-import { writeTextIfChanged } from "#lib/io";
+import { readTextIfExists, writeTextIfChanged } from "#lib/io";
 const query = (first, skip, chainId) => `
 query GetMarkets {
   markets(first: ${first}, skip: ${skip}, where:  {
@@ -60,58 +60,95 @@ async function fetchMorphoMarkets(chainId) {
 //     .map((char) => map[char] || "")
 //     .join("");
 // }
-function numberToBpsSuperscript(input) {
+/** Load existing file if present; otherwise return empty structure */
+async function loadExisting(path = "data/latest.json") {
+    const raw = await readTextIfExists(path);
+    if (!raw)
+        return { names: {}, shortNames: {} };
+    // Be liberal in what we accept; validate shape, but default missing maps.
+    const parsed = JSON.parse(raw);
+    return {
+        names: parsed.names ?? {},
+        shortNames: parsed.shortNames ?? {},
+    };
+}
+function numberToBps(input) {
     const bps = Math.round(parseFloat(input.toString()) * 100); // e.g. 94.5 → 9450
     return bps.toString(); // toSuperscriptDigits(bps);
 }
-async function getEnums() {
-    const chainid = "1";
-    const mbData = await fetchMorphoMarkets(chainid);
-    const arr = mbData.markets.items;
-    let namesMap = {};
-    let shortNamesMap = {};
-    for (const el of arr) {
+/** Build fresh data from upstream only (no merging here) */
+async function buildIncoming() {
+    const chainids = ["1", "8453", "137", "42161"];
+    const mbData = await Promise.all(chainids.map((id) => fetchMorphoMarkets(id)));
+    const items = mbData.flatMap((b) => b.markets.items ?? []);
+    const names = {};
+    const shortNames = {};
+    for (const el of items) {
         const hash = el.uniqueKey;
         const enumName = `MORPHO_BLUE_${hash.slice(2).toUpperCase()}`;
-        if (el.loanAsset?.symbol && el.collateralAsset?.symbol) {
-            const nameEnum = `${"Morpho " +
-                el.collateralAsset.symbol +
-                "-" +
-                el.loanAsset.symbol +
-                " " +
-                numberToBpsSuperscript((Number(el.lltv) / 1e18) * 100)}`;
-            const nameEnumShort = `${"MB " +
-                el.collateralAsset.symbol +
-                "-" +
-                el.loanAsset.symbol +
-                " " +
-                numberToBpsSuperscript((Number(el.lltv) / 1e18) * 100)}`;
-            namesMap[enumName] = nameEnum;
-            shortNamesMap[enumName] = nameEnumShort;
-        }
+        const loanSym = el.loanAsset?.symbol;
+        const collSym = el.collateralAsset?.symbol;
+        if (!loanSym || !collSym)
+            continue;
+        const bps = numberToBps(el.lltv);
+        const longName = `Morpho ${collSym}-${loanSym} ${bps}`;
+        const shortName = `MB ${collSym}-${loanSym} ${bps}`;
+        names[enumName] = longName;
+        shortNames[enumName] = shortName;
     }
-    return { names: namesMap, shortNames: shortNamesMap };
+    return { names, shortNames };
 }
-async function fetchUpstream() {
-    return getEnums();
+/** Append-only merge: keep existing manual edits; only add NEW keys from incoming */
+function appendOnlyMerge(existing, incoming) {
+    const mergedNames = { ...existing.names };
+    const mergedShort = { ...existing.shortNames };
+    let added = 0;
+    for (const [k, v] of Object.entries(incoming.names)) {
+        if (!(k in mergedNames)) {
+            mergedNames[k] = v; // add new key
+            added++;
+        }
+        // else: do NOT overwrite existing manual value
+    }
+    for (const [k, v] of Object.entries(incoming.shortNames)) {
+        if (!(k in mergedShort)) {
+            mergedShort[k] = v; // add new key
+        }
+        // else: do NOT overwrite existing manual value
+    }
+    // Optional: make diffs stable by sorting keys
+    const sortRec = (rec) => Object.fromEntries(Object.entries(rec).sort(([a], [b]) => a.localeCompare(b)));
+    return {
+        merged: { names: sortRec(mergedNames), shortNames: sortRec(mergedShort) },
+        added,
+    };
 }
+// async function fetchUpstream(): Promise<unknown> {
+//   return getEnums();
+// }
 async function main() {
-    const data = await fetchUpstream();
-    // Serialize and derive a stable content hash
-    const payload = JSON.stringify(data, null, 2) + "\n";
+    // 1) Build fresh incoming from upstream
+    const incoming = await buildIncoming();
+    // 2) Load existing stored data (manual edits live here)
+    const existing = await loadExisting("data/latest.json");
+    // 3) Append-only merge (manual edits win)
+    const { merged, added } = appendOnlyMerge(existing, incoming);
+    // 4) Serialize and write if changed
+    const payload = JSON.stringify(merged, null, 2) + "\n";
     const sha = sha256Hex(payload);
     const manifest = {
         version: sha.slice(0, 12),
         generatedAt: new Date().toISOString(),
         sha256: sha,
+        added, // for logs/inspection
     };
     const wroteData = await writeTextIfChanged("data/latest.json", payload);
     const wroteManifest = await writeTextIfChanged("data/manifest.json", JSON.stringify(manifest, null, 2) + "\n");
     if (wroteData === "skipped" && wroteManifest === "skipped") {
-        console.log("No changes in dataset.");
+        console.log("No changes (append-only, added=0).");
     }
     else {
-        console.log("Dataset updated:", manifest);
+        console.log("Dataset updated (append-only):", manifest);
     }
 }
 main().catch((err) => {
