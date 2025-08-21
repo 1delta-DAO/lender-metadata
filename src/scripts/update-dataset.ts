@@ -1,6 +1,6 @@
-import { StoredData } from "#lib/schema";
+import { ReturnData, StoredData } from "#lib/schema";
 import { sha256Hex } from "#lib/hash";
-import { readTextIfExists, writeTextIfChanged } from "#lib/io";
+import { readTextIfExists, write, writeTextIfChanged } from "#lib/io";
 
 const query = (first: number, skip: number, chainId: string) => `
 query GetMarkets {
@@ -14,11 +14,16 @@ query GetMarkets {
     items {
       uniqueKey
       lltv
+      oracleAddress
       loanAsset {
+        address
         symbol
+        decimals
       }
       collateralAsset {
+        address
         symbol
+        decimals
       }
     }
   }
@@ -90,20 +95,46 @@ function numberToBps(input: number | string): string {
 }
 
 /** Build fresh data from upstream only (no merging here) */
-async function buildIncoming(): Promise<StoredData> {
-  const chainids = ["1", "8453", "137", "42161"];
+async function buildIncoming(): Promise<ReturnData> {
+  const chainids = ["1", "137", "8453", "42161", "747474"];
   const mbData = await Promise.all(
     chainids.map((id) => fetchMorphoMarkets(id))
   );
 
-  const items = mbData.flatMap((b) => b.markets.items ?? []);
+  const items = mbData
+    .map((data, i) =>
+      data.markets.items.map((a: any) => ({ ...a, chainId: chainids[i] }))
+    )
+    .flatMap((b) => b);
 
   const names: Record<string, string> = {};
   const shortNames: Record<string, string> = {};
+  const oracles: Record<string, any[]> = {};
 
   for (const el of items) {
     const hash: string = el.uniqueKey;
     const enumName = `MORPHO_BLUE_${hash.slice(2).toUpperCase()}`;
+
+    const chainId = el.chainId;
+    if (!oracles[chainId]) oracles[chainId] = [];
+
+    const oracle = el.oracleAddress;
+    const loanAsset = el.loanAsset.address.toLowerCase();
+    const collateralAsset = el.collateralAsset?.address.toLowerCase();
+    const loanAssetDecimals = el.loanAsset.decimals;
+    const collateralAssetDecimals = el.collateralAsset?.decimals;
+    if (
+      collateralAsset &&
+      loanAsset &&
+      oracle !== "0x0000000000000000000000000000000000000000"
+    )
+      oracles[chainId].push({
+        oracle,
+        loanAsset,
+        collateralAsset,
+        loanAssetDecimals,
+        collateralAssetDecimals,
+      });
 
     const loanSym = el.loanAsset?.symbol;
     const collSym = el.collateralAsset?.symbol;
@@ -118,7 +149,7 @@ async function buildIncoming(): Promise<StoredData> {
     shortNames[enumName] = shortName;
   }
 
-  return { names, shortNames };
+  return { names, shortNames, oracles };
 }
 
 /** Append-only merge: keep existing manual edits; only add NEW keys from incoming */
@@ -163,7 +194,7 @@ function appendOnlyMerge(
 
 async function main(): Promise<void> {
   // 1) Build fresh incoming from upstream
-  const incoming = await buildIncoming();
+  const { oracles, ...incoming } = await buildIncoming();
 
   // 2) Load existing stored data (manual edits live here)
   const existing = await loadExisting("data/latest.json");
@@ -181,7 +212,16 @@ async function main(): Promise<void> {
     added, // for logs/inspection
   };
 
+  // write labels
   const wroteData = await writeTextIfChanged("data/latest.json", payload);
+
+  // always override oracles
+  await write(
+    "data/morpho-oracles.json",
+    JSON.stringify(oracles, null, 2) + "\n"
+  );
+
+  // create manifest
   const wroteManifest = await writeTextIfChanged(
     "data/manifest.json",
     JSON.stringify(manifest, null, 2) + "\n"
