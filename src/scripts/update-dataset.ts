@@ -1,6 +1,7 @@
 import { ReturnData, StoredData } from "#lib/schema";
 import { sha256Hex } from "#lib/hash";
 import { readTextIfExists, write, writeTextIfChanged } from "#lib/io";
+import { DEFAULTS, DEFAULTS_SHORT } from "#lib/defaults";
 
 const query = (first: number, skip: number, chainId: string) => `
 query GetMarkets {
@@ -157,8 +158,8 @@ function appendOnlyMerge(
   existing: StoredData,
   incoming: StoredData
 ): { merged: StoredData; added: number } {
-  const mergedNames = { ...existing.names };
-  const mergedShort = { ...existing.shortNames };
+  const mergedNames = { ...DEFAULTS, ...existing.names };
+  const mergedShort = { ...DEFAULTS_SHORT, ...existing.shortNames };
 
   let added = 0;
 

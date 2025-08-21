@@ -1,5 +1,6 @@
 import { sha256Hex } from "#lib/hash";
 import { readTextIfExists, write, writeTextIfChanged } from "#lib/io";
+import { DEFAULTS, DEFAULTS_SHORT } from "#lib/defaults";
 const query = (first, skip, chainId) => `
 query GetMarkets {
   markets(first: ${first}, skip: ${skip}, where:  {
@@ -126,8 +127,8 @@ async function buildIncoming() {
 }
 /** Append-only merge: keep existing manual edits; only add NEW keys from incoming */
 function appendOnlyMerge(existing, incoming) {
-    const mergedNames = { ...existing.names };
-    const mergedShort = { ...existing.shortNames };
+    const mergedNames = { ...DEFAULTS, ...existing.names };
+    const mergedShort = { ...DEFAULTS_SHORT, ...existing.shortNames };
     let added = 0;
     for (const [k, v] of Object.entries(incoming.names)) {
         if (!(k in mergedNames)) {
