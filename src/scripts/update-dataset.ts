@@ -91,7 +91,7 @@ async function loadExisting(path = "data/latest.json"): Promise<StoredData> {
 }
 
 function numberToBps(input: number | string): string {
-  const bps = Math.round(parseFloat(input.toString()) * 100); // e.g. 94.5 → 9450
+  const bps = Math.round((Number(input) / 1e18) * 100); // e.g. 94.5 → 9450
   return bps.toString(); // toSuperscriptDigits(bps);
 }
 
