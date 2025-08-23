@@ -2,17 +2,16 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ES2022",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "Node",
     "lib": ["ES2022", "DOM"],
     "strict": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "baseUrl": ".",
-    "paths": {
-      "#lib/*": ["src/lib/*.ts"],
-      "#scripts/*": ["src/scripts/*.ts"]
-    },
-    "types": ["vitest/globals"]
+    "outDir": "dist",
+    "rootDir": "src",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
-  "include": ["src/**/*.ts", "test/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["test/**/*"]
 }

@@ -7,15 +7,11 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "update": "node dist/scripts/update-dataset.js",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "update": "node dist/update-dataset.js",
     "test": "vitest run",
     "test:watch": "vitest"
-  },
-  "imports": {
-    "#lib/*": "./dist/lib/*.js",
-    "#scripts/*": "./dist/scripts/*.js"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",
