@@ -16,9 +16,9 @@ export interface DataUpdater {
   name: string;
   defaults: any;
   targetFile?: string; // Optional custom target file path (fallback for single file)
-  fetchData(): Promise<{[file: string]: Partial<any>}>;
+  fetchData(): Promise<{ [file: string]: Partial<any> }>;
   transformData?(data: any): Partial<any>;
-  mergeData?(oldData: any, data: any): Partial<any>;
+  mergeData?(oldData: any, data: any, fileKey: string): Partial<any>;
 }
 
 export interface UpdateOptions {

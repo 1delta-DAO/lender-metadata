@@ -109,8 +109,8 @@ export class DataManager {
         let result;
         if (updater.mergeData) {
           // Use custom merge function if provided
-          const customMerged = updater.mergeData(existing, transformedData);
-          result = mergeData(existing, customMerged, defaults, options);
+          result = updater.mergeData(existing, transformedData, fileKey) as any;
+          // result = mergeData(existing, customMerged, defaults, options);
         } else {
           // Use standard merge
           result = mergeData(existing, transformedData, defaults, options);
@@ -150,7 +150,6 @@ export class DataManager {
    */
   async updateAll(options: UpdateOptions = {}): Promise<void> {
     const allResults: MultiFileUpdateResult[] = [];
-    const additionalData: Record<string, any> = {};
 
     for (const updater of this.updaters) {
       console.log(`Processing ${updater.name}...`);
@@ -179,7 +178,7 @@ export class DataManager {
     }
 
     // Write all results to their respective files
-    await this.writeAllResults(allResults, additionalData, options);
+    await this.writeAllResults(allResults);
   }
 
   /**
@@ -283,9 +282,7 @@ export class DataManager {
    * Write results for individual updater files
    */
   private async writeAllResults(
-    allResults: MultiFileUpdateResult[],
-    additionalData: Record<string, any>,
-    options: UpdateOptions = {}
+    allResults: MultiFileUpdateResult[]
   ): Promise<void> {
     const writtenFiles: string[] = [];
     const allFileResults: UpdateResult<any>[] = [];

@@ -1,10 +1,10 @@
 // ============================================================================
 // Data Updaters
 // ============================================================================
-import { DEFAULTS, DEFAULTS_SHORT } from "../defaults.js";
-import { numberToBps } from "../utils.js";
-const labelsFile = "./lender-labels.json";
-const oraclesFile = "./morpho-oracles.json";
+import { DEFAULTS, DEFAULTS_SHORT } from "./defaults.js";
+import { mergeData, numberToBps } from "../utils.js";
+const labelsFile = "./data/lender-labels.json";
+const oraclesFile = "./data/morpho-oracles.json";
 export class MorphoBlueUpdater {
     name = "Morpho Blue Markets";
     query(first, skip, chainId) {
@@ -95,6 +95,15 @@ export class MorphoBlueUpdater {
             shortNames[enumName] = shortName;
         }
         return { [labelsFile]: { names, shortNames }, [oraclesFile]: oracles };
+    }
+    mergeData(oldData, data, fileKey) {
+        if (fileKey === labelsFile) {
+            return mergeData(oldData, data, this.defaults[labelsFile]);
+        }
+        if (fileKey === oraclesFile) {
+            return data;
+        }
+        throw new Error("Bad File");
     }
     defaults = {
         [labelsFile]: { names: DEFAULTS, shortNames: DEFAULTS_SHORT },

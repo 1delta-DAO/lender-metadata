@@ -72,8 +72,8 @@ export class DataManager {
                 let result;
                 if (updater.mergeData) {
                     // Use custom merge function if provided
-                    const customMerged = updater.mergeData(existing, transformedData);
-                    result = mergeData(existing, customMerged, defaults, options);
+                    result = updater.mergeData(existing, transformedData, fileKey);
+                    // result = mergeData(existing, customMerged, defaults, options);
                 }
                 else {
                     // Use standard merge
@@ -108,7 +108,6 @@ export class DataManager {
      */
     async updateAll(options = {}) {
         const allResults = [];
-        const additionalData = {};
         for (const updater of this.updaters) {
             console.log(`Processing ${updater.name}...`);
             try {
@@ -126,7 +125,7 @@ export class DataManager {
             }
         }
         // Write all results to their respective files
-        await this.writeAllResults(allResults, additionalData, options);
+        await this.writeAllResults(allResults);
     }
     /**
      * Update and merge all sources into files based on their data structure
@@ -205,7 +204,7 @@ export class DataManager {
     /**
      * Write results for individual updater files
      */
-    async writeAllResults(allResults, additionalData, options = {}) {
+    async writeAllResults(allResults) {
         const writtenFiles = [];
         const allFileResults = [];
         // Flatten all results

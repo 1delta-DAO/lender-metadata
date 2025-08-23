@@ -1,5 +1,8 @@
 import { DataUpdater } from "../types.js";
 
+const tokensFile = "./data/aave-tokens.json";
+const oraclesFile = "./data/aave-oracles.json";
+
 // Example of another updater (you can add more like this)
 export class CustomProtocolUpdater implements DataUpdater {
   name = "Aave";
@@ -8,7 +11,7 @@ export class CustomProtocolUpdater implements DataUpdater {
     // Placeholder for another data source
     // This could fetch from another API, parse files, etc.
     return {
-      "./aave-labels.json": {
+      [tokensFile]: {
         names: {
           // Example: "CUSTOM_PROTOCOL_ABC123": "Custom Protocol Market ABC"
         },
@@ -16,7 +19,7 @@ export class CustomProtocolUpdater implements DataUpdater {
           // Example: "CUSTOM_PROTOCOL_ABC123": "CP ABC"
         },
       },
-      "./aave-oracles.json": {},
+      [oraclesFile]: {},
     };
   }
 
