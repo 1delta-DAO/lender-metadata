@@ -22,5 +22,9 @@ export class AaveUpdater implements DataUpdater {
     };
   }
 
+  mergeData(oldData: any, data: any, fileKey: string): Partial<any> {
+    return data;
+  }
+
   defaults = {};
 }
