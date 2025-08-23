@@ -1,21 +1,32 @@
 {
-  "version": "2025-08-23T11-34-12-641Z",
-  "generatedAt": "2025-08-23T11:34:12.641Z",
+  "version": "2025-08-23T12-32-51-317Z",
+  "generatedAt": "2025-08-23T12:32:51.318Z",
   "totalAdded": 735,
   "totalUpdated": 0,
   "updatedFiles": [
-    "data/morpho-blue-markets-latest.json",
-    "data/aave-latest.json"
+    "./lender-labels.json",
+    "./morpho-oracles.json",
+    "./aave-labels.json",
+    "./aave-oracles.json"
   ],
-  "additionalFiles": [],
   "results": [
     {
-      "targetFile": "data/morpho-blue-markets-latest.json",
-      "added": 735,
+      "targetFile": "./lender-labels.json",
+      "added": 730,
       "updated": 0
     },
     {
-      "targetFile": "data/aave-latest.json",
+      "targetFile": "./morpho-oracles.json",
+      "added": 5,
+      "updated": 0
+    },
+    {
+      "targetFile": "./aave-labels.json",
+      "added": 0,
+      "updated": 0
+    },
+    {
+      "targetFile": "./aave-oracles.json",
       "added": 0,
       "updated": 0
     }

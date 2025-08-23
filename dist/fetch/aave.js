@@ -5,12 +5,15 @@ export class CustomProtocolUpdater {
         // Placeholder for another data source
         // This could fetch from another API, parse files, etc.
         return {
-            names: {
-            // Example: "CUSTOM_PROTOCOL_ABC123": "Custom Protocol Market ABC"
+            "./aave-labels.json": {
+                names: {
+                // Example: "CUSTOM_PROTOCOL_ABC123": "Custom Protocol Market ABC"
+                },
+                shortNames: {
+                // Example: "CUSTOM_PROTOCOL_ABC123": "CP ABC"
+                },
             },
-            shortNames: {
-            // Example: "CUSTOM_PROTOCOL_ABC123": "CP ABC"
-            },
+            "./aave-oracles.json": {},
         };
     }
     defaults = {};

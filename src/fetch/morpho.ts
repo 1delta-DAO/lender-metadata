@@ -3,9 +3,11 @@
 // ============================================================================
 
 import { DEFAULTS, DEFAULTS_SHORT } from "../defaults.js";
-import { ReturnData } from "../schema.js";
 import { DataUpdater } from "../types.js";
 import { numberToBps } from "../utils.js";
+
+const labelsFile = "./lender-labels.json";
+const oraclesFile = "./morpho-oracles.json";
 
 export class MorphoBlueUpdater implements DataUpdater {
   name = "Morpho Blue Markets";
@@ -63,7 +65,7 @@ export class MorphoBlueUpdater implements DataUpdater {
     return data.data;
   }
 
-  async fetchData(): Promise<ReturnData> {
+  async fetchData(): Promise<any> {
     const chainids = ["1", "137", "8453", "42161", "747474"];
     const mbData = await Promise.all(
       chainids.map((id) => this.fetchMorphoMarkets(id))
@@ -118,8 +120,11 @@ export class MorphoBlueUpdater implements DataUpdater {
       shortNames[enumName] = shortName;
     }
 
-    return { names, shortNames, oracles };
+    return { [labelsFile]: { names, shortNames }, [oraclesFile]: oracles };
   }
 
-  defaults = { names: DEFAULTS, shortNames: DEFAULTS_SHORT, oracles: {} };
+  defaults = {
+    [labelsFile]: { names: DEFAULTS, shortNames: DEFAULTS_SHORT },
+    [oraclesFile]: {},
+  };
 }

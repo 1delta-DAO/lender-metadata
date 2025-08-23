@@ -3,9 +3,14 @@
 // ============================================================================
 
 import { writeTextIfChanged, write } from "./io.js";
-import { DataUpdater, UpdateOptions, UpdateResult } from "./types.js";
 import { loadExisting, mergeData } from "./utils.js";
 import { sha256Hex } from "./hash.js";
+import {
+  DataUpdater,
+  MultiFileUpdateResult,
+  UpdateOptions,
+  UpdateResult,
+} from "./types.js";
 
 export class DataManager {
   private updaters: DataUpdater[] = [];
@@ -15,7 +20,7 @@ export class DataManager {
   }
 
   /**
-   * Get the target file path for an updater
+   * Get the target file path for an updater (fallback for single file operations)
    */
   private getTargetFile(
     updater: DataUpdater,
@@ -40,12 +45,37 @@ export class DataManager {
   }
 
   /**
-   * Update data from a specific source
+   * Get default file paths based on the data keys and updater name
+   */
+  private getFilePathsForData(fileDataMap: { [file: string]: any }): {
+    [file: string]: string;
+  } {
+    const filePaths: { [file: string]: string } = {};
+
+    for (const fileKey of Object.keys(fileDataMap)) {
+      // If fileKey is already a path (contains / or .json), use it directly
+      if (fileKey.includes("/") || fileKey.endsWith(".json")) {
+        filePaths[fileKey] = fileKey;
+      } else {
+        // Otherwise, generate a path based on updater name and file key
+        filePaths[fileKey] = `data/${fileKey}.json`;
+      }
+    }
+
+    return filePaths;
+  }
+
+  /**
+   * Update data from a specific source to multiple files
    */
   async updateFromSource(
     updaterName: string,
     options: UpdateOptions = {}
-  ): Promise<{ success: boolean; result?: UpdateResult<any>; error?: string }> {
+  ): Promise<{
+    success: boolean;
+    result?: MultiFileUpdateResult;
+    error?: string;
+  }> {
     const updater = this.updaters.find((u) => u.name === updaterName);
     if (!updater) {
       return { success: false, error: `Updater '${updaterName}' not found` };
@@ -53,34 +83,58 @@ export class DataManager {
 
     try {
       console.log(`Fetching data from ${updater.name}...`);
-      const incomingData = await updater.fetchData();
+      const fileDataMap = await updater.fetchData();
 
-      // Apply transformData if available
-      const transformedData = updater.transformData
-        ? updater.transformData(incomingData)
-        : incomingData;
+      // Get file paths for each data key
+      const filePaths = this.getFilePathsForData(fileDataMap);
 
-      const targetFile = this.getTargetFile(updater, options);
-      const existing = await loadExisting(targetFile);
+      const results: { [file: string]: UpdateResult<any> } = {};
+      let totalAdded = 0;
+      let totalUpdated = 0;
 
-      // Use the updater's defaults
-      const defaults = updater.defaults || {};
+      // Process each file
+      for (const [fileKey, incomingData] of Object.entries(fileDataMap)) {
+        const targetFile = filePaths[fileKey];
 
-      let result;
-      if (updater.mergeData) {
-        // Use custom merge function if provided
-        const customMerged = updater.mergeData(existing, transformedData);
-        result = mergeData(existing, customMerged, defaults, options);
-      } else {
-        // Use standard merge
-        result = mergeData(existing, transformedData, defaults, options);
+        // Apply transformData if available
+        const transformedData = updater.transformData
+          ? updater.transformData(incomingData)
+          : incomingData;
+
+        const existing = await loadExisting(targetFile);
+
+        // Use the updater's defaults
+        const defaults = updater.defaults || {};
+
+        let result;
+        if (updater.mergeData) {
+          // Use custom merge function if provided
+          const customMerged = updater.mergeData(existing, transformedData);
+          result = mergeData(existing, customMerged, defaults, options);
+        } else {
+          // Use standard merge
+          result = mergeData(existing, transformedData, defaults, options);
+        }
+
+        results[fileKey] = {
+          ...result,
+          targetFile,
+        };
+
+        totalAdded += result.added;
+        totalUpdated += result.updated;
+
+        console.log(
+          `  ${fileKey}: +${result.added} added, ${result.updated} updated -> ${targetFile}`
+        );
       }
 
       return {
         success: true,
         result: {
-          ...result,
-          targetFile,
+          results,
+          totalAdded,
+          totalUpdated,
         },
       };
     } catch (error) {
@@ -92,10 +146,10 @@ export class DataManager {
   }
 
   /**
-   * Update data from all sources, each to their own target file
+   * Update data from all sources, each to their respective files
    */
   async updateAll(options: UpdateOptions = {}): Promise<void> {
-    const results: UpdateResult<any>[] = [];
+    const allResults: MultiFileUpdateResult[] = [];
     const additionalData: Record<string, any> = {};
 
     for (const updater of this.updaters) {
@@ -105,9 +159,13 @@ export class DataManager {
         const updateResult = await this.updateFromSource(updater.name, options);
 
         if (updateResult.success && updateResult.result) {
-          results.push(updateResult.result);
+          allResults.push(updateResult.result);
           console.log(
-            `  ${updater.name}: +${updateResult.result.added} added, ${updateResult.result.updated} updated -> ${updateResult.result.targetFile}`
+            `  ${updater.name}: +${updateResult.result.totalAdded} added, ${
+              updateResult.result.totalUpdated
+            } updated across ${
+              Object.keys(updateResult.result.results).length
+            } files`
           );
         } else {
           console.error(
@@ -121,105 +179,126 @@ export class DataManager {
     }
 
     // Write all results to their respective files
-    await this.writeAllResults(results, additionalData, options);
+    await this.writeAllResults(allResults, additionalData, options);
   }
 
   /**
-   * Update and merge all sources into a single target file
+   * Update and merge all sources into files based on their data structure
    */
-  async updateAllToSingleFile(
-    targetFile: string = "data/latest.json",
-    options: UpdateOptions = {}
-  ): Promise<void> {
-    // Start with empty data structure - we'll merge updater defaults as we go
-    let currentData: any = {};
-    let totalAdded = 0;
-    let totalUpdated = 0;
-
-    // Collect all additional data (like oracles) separately
-    const additionalData: Record<string, any> = {};
+  async updateAllByDataType(options: UpdateOptions = {}): Promise<void> {
+    // Group data by file type across all updaters
+    const consolidatedData: { [fileType: string]: any[] } = {};
+    const fileTypeToPath: { [fileType: string]: string } = {};
 
     for (const updater of this.updaters) {
       console.log(`Processing ${updater.name}...`);
 
       try {
-        const incomingData = await updater.fetchData();
+        const fileDataMap = await updater.fetchData();
 
-        // Apply transformData if available
-        const transformedData = updater.transformData
-          ? updater.transformData(incomingData)
-          : incomingData;
+        // Process each file type from this updater
+        for (const [fileKey, incomingData] of Object.entries(fileDataMap)) {
+          // Apply transformData if available
+          const transformedData = updater.transformData
+            ? updater.transformData(incomingData)
+            : incomingData;
 
-        // Use updater's specific defaults for this merge
-        const updaterDefaults = updater.defaults || {};
-
-        let dataToMerge = transformedData;
-        if (updater.mergeData) {
-          // Use custom merge function if provided
-          dataToMerge = updater.mergeData(currentData, transformedData);
-        }
-
-        // Separate known fields from additional data
-        const { oracles, ...knownFields } = dataToMerge as any;
-
-        // Merge the known fields with updater-specific defaults
-        const result = mergeData(
-          currentData,
-          knownFields,
-          updaterDefaults,
-          options
-        );
-        currentData = result.data;
-        totalAdded += result.added;
-        totalUpdated += result.updated;
-
-        // Collect additional data (like oracles)
-        if (oracles) {
-          additionalData.oracles = { ...additionalData.oracles, ...oracles };
-        }
-
-        // Collect any other additional fields
-        for (const [key, value] of Object.entries(dataToMerge)) {
-          if (key !== "names" && key !== "shortNames" && key !== "oracles") {
-            if (!additionalData[key]) {
-              additionalData[key] = {};
+          if (!consolidatedData[fileKey]) {
+            consolidatedData[fileKey] = [];
+            // Determine file path for this file type
+            if (fileKey.includes("/") || fileKey.endsWith(".json")) {
+              fileTypeToPath[fileKey] = fileKey;
+            } else {
+              fileTypeToPath[fileKey] = `data/${fileKey}.json`;
             }
-            Object.assign(additionalData[key], value);
           }
-        }
 
-        console.log(
-          `  ${updater.name}: +${result.added} added, ${result.updated} updated`
-        );
+          consolidatedData[fileKey].push({
+            updaterName: updater.name,
+            data: transformedData,
+            defaults: updater.defaults || {},
+            mergeData: updater.mergeData,
+          });
+        }
       } catch (error) {
-        console.error(`Failed to update from ${updater.name}:`, error);
+        console.error(`Failed to process ${updater.name}:`, error);
       }
     }
 
-    // Write the combined result
-    await this.writeResults(
-      {
+    // Now merge and write each file type
+    const results: { [fileType: string]: UpdateResult<any> } = {};
+    let totalAdded = 0;
+    let totalUpdated = 0;
+
+    for (const [fileType, updaterDataList] of Object.entries(
+      consolidatedData
+    )) {
+      const targetFile = fileTypeToPath[fileType];
+      const existing = await loadExisting(targetFile);
+
+      let currentData = existing;
+      let fileAdded = 0;
+      let fileUpdated = 0;
+
+      // Merge data from all updaters for this file type
+      for (const updaterData of updaterDataList) {
+        let dataToMerge = updaterData.data;
+
+        if (updaterData.mergeData) {
+          // Use custom merge function if provided
+          dataToMerge = updaterData.mergeData(currentData, updaterData.data);
+        }
+
+        const result = mergeData(
+          currentData,
+          dataToMerge,
+          updaterData.defaults,
+          options
+        );
+        currentData = result.data;
+        fileAdded += result.added;
+        fileUpdated += result.updated;
+
+        console.log(
+          `  ${updaterData.updaterName} -> ${fileType}: +${result.added} added, ${result.updated} updated`
+        );
+      }
+
+      results[fileType] = {
         data: currentData,
-        added: totalAdded,
-        updated: totalUpdated,
+        added: fileAdded,
+        updated: fileUpdated,
         targetFile,
-      },
-      additionalData
-    );
+      };
+
+      totalAdded += fileAdded;
+      totalUpdated += fileUpdated;
+    }
+
+    // Write all consolidated results
+    await this.writeConsolidatedResults(results, totalAdded, totalUpdated);
   }
 
   /**
    * Write results for individual updater files
    */
   private async writeAllResults(
-    results: UpdateResult<any>[],
+    allResults: MultiFileUpdateResult[],
     additionalData: Record<string, any>,
     options: UpdateOptions = {}
   ): Promise<void> {
     const writtenFiles: string[] = [];
+    const allFileResults: UpdateResult<any>[] = [];
+
+    // Flatten all results
+    for (const multiResult of allResults) {
+      for (const result of Object.values(multiResult.results)) {
+        allFileResults.push(result);
+      }
+    }
 
     // Write each result to its target file
-    for (const result of results) {
+    for (const result of allFileResults) {
       const payload = JSON.stringify(result.data, null, 2) + "\n";
       const wrote = await writeTextIfChanged(result.targetFile, payload);
 
@@ -228,20 +307,9 @@ export class DataManager {
       }
     }
 
-    // Write additional data files
-    const additionalWrites: string[] = [];
-    for (const [key, data] of Object.entries(additionalData)) {
-      if (data && Object.keys(data).length > 0) {
-        const filename = `data/${key}.json`;
-        const content = JSON.stringify(data, null, 2) + "\n";
-        await write(filename, content);
-        additionalWrites.push(filename);
-      }
-    }
-
     // Create a summary manifest
-    const totalAdded = results.reduce((sum, r) => sum + r.added, 0);
-    const totalUpdated = results.reduce((sum, r) => sum + r.updated, 0);
+    const totalAdded = allResults.reduce((sum, r) => sum + r.totalAdded, 0);
+    const totalUpdated = allResults.reduce((sum, r) => sum + r.totalUpdated, 0);
 
     const manifest = {
       version: new Date().toISOString().replace(/[:.]/g, "-"),
@@ -249,8 +317,7 @@ export class DataManager {
       totalAdded,
       totalUpdated,
       updatedFiles: writtenFiles,
-      additionalFiles: additionalWrites,
-      results: results.map((r) => ({
+      results: allFileResults.map((r) => ({
         targetFile: r.targetFile,
         added: r.added,
         updated: r.updated,
@@ -263,64 +330,65 @@ export class DataManager {
     );
 
     // Log results
-    if (writtenFiles.length === 0 && additionalWrites.length === 0) {
+    if (writtenFiles.length === 0) {
       console.log("No changes detected across all updaters.");
     } else {
       console.log("Update completed:", {
         totalAdded,
         totalUpdated,
         filesUpdated: writtenFiles.length,
-        additionalFiles: additionalWrites.length,
       });
     }
   }
 
   /**
-   * Write results for single file updates (legacy support)
+   * Write consolidated results (for updateAllByDataType)
    */
-  private async writeResults(
-    result: UpdateResult<any>,
-    additionalData: Record<string, any>
+  private async writeConsolidatedResults(
+    results: { [fileType: string]: UpdateResult<any> },
+    totalAdded: number,
+    totalUpdated: number
   ): Promise<void> {
-    // Write main data
-    const payload = JSON.stringify(result.data, null, 2) + "\n";
+    const writtenFiles: string[] = [];
 
-    const sha = sha256Hex(payload);
-    const manifest = {
-      version: sha.slice(0, 12),
-      generatedAt: new Date().toISOString(),
-      sha256: sha,
-      added: result.added,
-      updated: result.updated,
-      targetFile: result.targetFile,
-    };
+    // Write each file type
+    for (const [fileType, result] of Object.entries(results)) {
+      const payload = JSON.stringify(result.data, null, 2) + "\n";
+      const wrote = await writeTextIfChanged(result.targetFile, payload);
 
-    const wroteData = await writeTextIfChanged(result.targetFile, payload);
-
-    // Write additional data files
-    const additionalWrites: string[] = [];
-    for (const [key, data] of Object.entries(additionalData)) {
-      if (data && Object.keys(data).length > 0) {
-        const filename = `data/${key}.json`;
-        const content = JSON.stringify(data, null, 2) + "\n";
-        await write(filename, content);
-        additionalWrites.push(filename);
+      if (wrote !== "skipped") {
+        writtenFiles.push(result.targetFile);
       }
     }
 
-    const wroteManifest = await writeTextIfChanged(
-      "data/manifest.json",
+    // Create manifest
+    const manifest = {
+      version: new Date().toISOString().replace(/[:.]/g, "-"),
+      generatedAt: new Date().toISOString(),
+      totalAdded,
+      totalUpdated,
+      updatedFiles: writtenFiles,
+      fileTypes: Object.keys(results),
+      results: Object.entries(results).map(([fileType, result]) => ({
+        fileType,
+        targetFile: result.targetFile,
+        added: result.added,
+        updated: result.updated,
+      })),
+    };
+
+    await writeTextIfChanged(
+      "data/consolidated-manifest.json",
       JSON.stringify(manifest, null, 2) + "\n"
     );
 
-    if (wroteData === "skipped" && wroteManifest === "skipped") {
-      console.log("No changes detected.");
-    } else {
-      console.log("Dataset updated:", manifest);
-      if (additionalWrites.length > 0) {
-        console.log("Additional files written:", additionalWrites);
-      }
-    }
+    // Log results
+    console.log("Consolidated update completed:", {
+      totalAdded,
+      totalUpdated,
+      filesUpdated: writtenFiles.length,
+      fileTypes: Object.keys(results).length,
+    });
   }
 
   /**

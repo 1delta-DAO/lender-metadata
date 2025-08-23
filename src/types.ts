@@ -9,14 +9,14 @@ export type DisplayData = {
 };
 
 // ============================================================================
-// Core Types & Interfaces
+// Types and Interfaces
 // ============================================================================
 
 export interface DataUpdater {
   name: string;
   defaults: any;
-  targetFile?: string; // Optional custom target file path
-  fetchData(): Promise<Partial<any>>;
+  targetFile?: string; // Optional custom target file path (fallback for single file)
+  fetchData(): Promise<{[file: string]: Partial<any>}>;
   transformData?(data: any): Partial<any>;
   mergeData?(oldData: any, data: any): Partial<any>;
 }
@@ -34,3 +34,8 @@ export interface UpdateResult<T = any> {
   targetFile: string;
 }
 
+export interface MultiFileUpdateResult {
+  results: { [file: string]: UpdateResult<any> };
+  totalAdded: number;
+  totalUpdated: number;
+}

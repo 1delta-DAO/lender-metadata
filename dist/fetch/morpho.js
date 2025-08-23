@@ -3,6 +3,8 @@
 // ============================================================================
 import { DEFAULTS, DEFAULTS_SHORT } from "../defaults.js";
 import { numberToBps } from "../utils.js";
+const labelsFile = "./lender-labels.json";
+const oraclesFile = "./morpho-oracles.json";
 export class MorphoBlueUpdater {
     name = "Morpho Blue Markets";
     query(first, skip, chainId) {
@@ -92,7 +94,10 @@ export class MorphoBlueUpdater {
             names[enumName] = longName;
             shortNames[enumName] = shortName;
         }
-        return { names, shortNames, oracles };
+        return { [labelsFile]: { names, shortNames }, [oraclesFile]: oracles };
     }
-    defaults = { names: DEFAULTS, shortNames: DEFAULTS_SHORT, oracles: {} };
+    defaults = {
+        [labelsFile]: { names: DEFAULTS, shortNames: DEFAULTS_SHORT },
+        [oraclesFile]: {},
+    };
 }
