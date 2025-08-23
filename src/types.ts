@@ -29,8 +29,6 @@ export interface UpdateOptions {
 
 export interface UpdateResult<T = any> {
   data: T;
-  added: number;
-  updated: number;
   targetFile: string;
 }
 

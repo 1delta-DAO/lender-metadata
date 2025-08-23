@@ -73,7 +73,7 @@ export class DataManager {
     options: UpdateOptions = {}
   ): Promise<{
     success: boolean;
-    result?: MultiFileUpdateResult;
+    results?: { [file: string]: UpdateResult<any> };
     error?: string;
   }> {
     const updater = this.updaters.find((u) => u.name === updaterName);
@@ -101,7 +101,10 @@ export class DataManager {
           ? updater.transformData(incomingData)
           : incomingData;
 
-        const existing = await loadExisting(targetFile);
+        let existing: any = {};
+        try {
+          existing = await loadExisting(targetFile);
+        } catch {}
 
         // Use the updater's defaults
         const defaults = updater.defaults || {};
@@ -117,7 +120,7 @@ export class DataManager {
         }
 
         results[fileKey] = {
-          ...result,
+          data: result,
           targetFile,
         };
 
@@ -131,11 +134,7 @@ export class DataManager {
 
       return {
         success: true,
-        result: {
-          results,
-          totalAdded,
-          totalUpdated,
-        },
+        results,
       };
     } catch (error) {
       return {
@@ -157,13 +156,11 @@ export class DataManager {
       try {
         const updateResult = await this.updateFromSource(updater.name, options);
 
-        if (updateResult.success && updateResult.result) {
-          allResults.push(updateResult.result);
+        if (updateResult.success && updateResult.results) {
+          allResults.push(updateResult.results as any);
           console.log(
-            `  ${updater.name}: +${updateResult.result.totalAdded} added, ${
-              updateResult.result.totalUpdated
-            } updated across ${
-              Object.keys(updateResult.result.results).length
+            `${updateResult.results} updated across ${
+              Object.keys(updateResult.results).length
             } files`
           );
         } else {
@@ -236,8 +233,6 @@ export class DataManager {
       const existing = await loadExisting(targetFile);
 
       let currentData = existing;
-      let fileAdded = 0;
-      let fileUpdated = 0;
 
       // Merge data from all updaters for this file type
       for (const updaterData of updaterDataList) {
@@ -254,28 +249,17 @@ export class DataManager {
           updaterData.defaults,
           options
         );
-        currentData = result.data;
-        fileAdded += result.added;
-        fileUpdated += result.updated;
-
-        console.log(
-          `  ${updaterData.updaterName} -> ${fileType}: +${result.added} added, ${result.updated} updated`
-        );
+        currentData = result;
       }
 
       results[fileType] = {
         data: currentData,
-        added: fileAdded,
-        updated: fileUpdated,
         targetFile,
       };
-
-      totalAdded += fileAdded;
-      totalUpdated += fileUpdated;
     }
 
     // Write all consolidated results
-    await this.writeConsolidatedResults(results, totalAdded, totalUpdated);
+    await this.writeConsolidatedResults(results);
   }
 
   /**
@@ -289,7 +273,7 @@ export class DataManager {
 
     // Flatten all results
     for (const multiResult of allResults) {
-      for (const result of Object.values(multiResult.results)) {
+      for (const result of Object.values(multiResult)) {
         allFileResults.push(result);
       }
     }
@@ -305,19 +289,13 @@ export class DataManager {
     }
 
     // Create a summary manifest
-    const totalAdded = allResults.reduce((sum, r) => sum + r.totalAdded, 0);
-    const totalUpdated = allResults.reduce((sum, r) => sum + r.totalUpdated, 0);
 
     const manifest = {
       version: new Date().toISOString().replace(/[:.]/g, "-"),
       generatedAt: new Date().toISOString(),
-      totalAdded,
-      totalUpdated,
       updatedFiles: writtenFiles,
       results: allFileResults.map((r) => ({
         targetFile: r.targetFile,
-        added: r.added,
-        updated: r.updated,
       })),
     };
 
@@ -331,8 +309,6 @@ export class DataManager {
       console.log("No changes detected across all updaters.");
     } else {
       console.log("Update completed:", {
-        totalAdded,
-        totalUpdated,
         filesUpdated: writtenFiles.length,
       });
     }
@@ -341,11 +317,9 @@ export class DataManager {
   /**
    * Write consolidated results (for updateAllByDataType)
    */
-  private async writeConsolidatedResults(
-    results: { [fileType: string]: UpdateResult<any> },
-    totalAdded: number,
-    totalUpdated: number
-  ): Promise<void> {
+  private async writeConsolidatedResults(results: {
+    [fileType: string]: UpdateResult<any>;
+  }): Promise<void> {
     const writtenFiles: string[] = [];
 
     // Write each file type
@@ -362,15 +336,11 @@ export class DataManager {
     const manifest = {
       version: new Date().toISOString().replace(/[:.]/g, "-"),
       generatedAt: new Date().toISOString(),
-      totalAdded,
-      totalUpdated,
       updatedFiles: writtenFiles,
       fileTypes: Object.keys(results),
       results: Object.entries(results).map(([fileType, result]) => ({
         fileType,
         targetFile: result.targetFile,
-        added: result.added,
-        updated: result.updated,
       })),
     };
 
@@ -381,8 +351,6 @@ export class DataManager {
 
     // Log results
     console.log("Consolidated update completed:", {
-      totalAdded,
-      totalUpdated,
       filesUpdated: writtenFiles.length,
       fileTypes: Object.keys(results).length,
     });

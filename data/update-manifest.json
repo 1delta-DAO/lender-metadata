@@ -1,30 +1,26 @@
 {
-  "version": "2025-08-23T13-37-04-589Z",
-  "generatedAt": "2025-08-23T13:37:04.589Z",
-  "totalAdded": null,
-  "totalUpdated": null,
+  "version": "2025-08-23T17-19-53-443Z",
+  "generatedAt": "2025-08-23T17:19:53.444Z",
   "updatedFiles": [
-    "./data/lender-labels.json",
-    "./data/morpho-oracles.json"
+    "./data/morpho-oracles.json",
+    "./data/aave-addresses.json",
+    "./data/aave-oracles.json"
   ],
   "results": [
     {
-      "targetFile": "./data/lender-labels.json",
-      "added": 730,
-      "updated": 0
+      "targetFile": "./data/lender-labels.json"
     },
     {
       "targetFile": "./data/morpho-oracles.json"
     },
     {
-      "targetFile": "./data/aave-tokens.json",
-      "added": 0,
-      "updated": 0
+      "targetFile": "./data/aave-addresses.json"
     },
     {
-      "targetFile": "./data/aave-oracles.json",
-      "added": 0,
-      "updated": 0
+      "targetFile": "./data/aave-tokens.json"
+    },
+    {
+      "targetFile": "./data/aave-oracles.json"
     }
   ]
 }

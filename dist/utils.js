@@ -86,12 +86,7 @@ export function mergeData(existing, incoming, defaults = {}, options = {}) {
     const result = deepMerge(baseData, incoming, options);
     // Sort records if they contain string-keyed objects (for stable diffs)
     const sortedData = sortObjectKeys(result.merged);
-    return {
-        data: sortedData,
-        added: result.added,
-        updated: result.updated,
-        targetFile: "",
-    };
+    return sortedData;
 }
 /** Recursively sort object keys for stable diffs */
 function sortObjectKeys(obj) {
@@ -104,4 +99,7 @@ function sortObjectKeys(obj) {
         sorted[key] = sortObjectKeys(value);
     }
     return sorted;
+}
+export function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }

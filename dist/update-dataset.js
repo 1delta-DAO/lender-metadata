@@ -1,6 +1,6 @@
 import { DataManager } from "./data-manager.js";
 import { MorphoBlueUpdater } from "./fetch/morpho.js";
-import { CustomProtocolUpdater } from "./fetch/aave.js";
+import { AaveUpdater } from "./fetch/aave.js";
 // ============================================================================
 // Usage Examples & Main Function
 // ============================================================================
@@ -8,7 +8,7 @@ async function main() {
     const manager = new DataManager();
     // Register updaters
     manager.registerUpdater(new MorphoBlueUpdater());
-    manager.registerUpdater(new CustomProtocolUpdater());
+    manager.registerUpdater(new AaveUpdater());
     // You can now update from specific sources:
     // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });
     // Or update from all sources (with append-only behavior):

@@ -115,7 +115,7 @@ export function mergeData<T>(
   incoming: Partial<T>,
   defaults: Partial<T> = {},
   options: UpdateOptions = {}
-): UpdateResult<T> {
+): T {
   // Apply defaults first
   const baseData = { ...defaults, ...existing } as T;
 
@@ -125,12 +125,7 @@ export function mergeData<T>(
   // Sort records if they contain string-keyed objects (for stable diffs)
   const sortedData = sortObjectKeys(result.merged);
 
-  return {
-    data: sortedData,
-    added: result.added,
-    updated: result.updated,
-    targetFile: "",
-  };
+  return sortedData;
 }
 
 /** Recursively sort object keys for stable diffs */
@@ -149,4 +144,8 @@ function sortObjectKeys<T>(obj: T): T {
   }
 
   return sorted;
+}
+
+export function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

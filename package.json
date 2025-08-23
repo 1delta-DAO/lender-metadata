@@ -19,6 +19,9 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@1delta/asset-registry": "^0.0.184"
+    "@1delta/asset-registry": "^0.0.184",
+    "@1delta/providers": "^0.0.10",
+    "lodash": "^4.17.21",
+    "viem": "^2.34.0"
   }
 }
