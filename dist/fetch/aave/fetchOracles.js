@@ -56,5 +56,5 @@ export async function fetchAaveTypePriceOracles() {
         forkMap[fork] = dataMap;
         dataMap = {};
     }
-    return { forkMap };
+    return forkMap;
 }

@@ -2,9 +2,8 @@
 // Main Data Manager
 // ============================================================================
 
-import { writeTextIfChanged, write } from "./io.js";
+import { writeTextIfChanged } from "./io.js";
 import { loadExisting, mergeData } from "./utils.js";
-import { sha256Hex } from "./hash.js";
 import {
   DataUpdater,
   MultiFileUpdateResult,

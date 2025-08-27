@@ -5,9 +5,58 @@
 import { DEFAULTS, DEFAULTS_SHORT } from "./defaults.js";
 import { DataUpdater } from "../types.js";
 import { mergeData, numberToBps } from "../utils.js";
+import { MORPHO_BLUE_POOL_DATA } from "@1delta/asset-registry";
 
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-oracles.json";
+const poolsFile = "./data/morpho-pools.json";
+
+/**
+ * Merges old and new data maps based on unique combinations of loanAsset and collateralAsset
+ * @param {Object} oldDataMap - The old data map with chainId keys
+ * @param {Object} newDataMap - The new data map with chainId keys
+ * @returns {Object} Merged data map with new data taking precedence
+ */
+function mergeOracleDataMaps(oldDataMap: any, newDataMap: any) {
+  const merged: any = {};
+
+  // Get all unique chain IDs from both maps
+  const allChainIds = new Set([
+    ...Object.keys(oldDataMap || {}),
+    ...Object.keys(newDataMap || {}),
+  ]);
+
+  for (const chainId of allChainIds) {
+    const oldEntries = oldDataMap[chainId] || [];
+    const newEntries = newDataMap[chainId] || [];
+
+    // Create a map for quick lookup using loanAsset + collateralAsset as key
+    const entryMap = new Map();
+
+    // Add old entries first
+    for (const entry of oldEntries) {
+      const key = `${entry.loanAsset}-${entry.collateralAsset}`;
+      entryMap.set(key, entry);
+    }
+
+    // Add new entries (will overwrite old ones with same key)
+    for (const entry of newEntries) {
+      const key = `${entry.loanAsset}-${entry.collateralAsset}`;
+      entryMap.set(key, entry);
+    }
+
+    // Convert back to array and sort for consistency
+    merged[chainId] = Array.from(entryMap.values()).sort((a, b) => {
+      // Sort by loanAsset first, then by collateralAsset
+      if (a.loanAsset !== b.loanAsset) {
+        return a.loanAsset.localeCompare(b.loanAsset);
+      }
+      return a.collateralAsset.localeCompare(b.collateralAsset);
+    });
+  }
+
+  return merged;
+}
 
 export class MorphoBlueUpdater implements DataUpdater {
   name = "Morpho Blue Markets";
@@ -120,7 +169,11 @@ export class MorphoBlueUpdater implements DataUpdater {
       shortNames[enumName] = shortName;
     }
 
-    return { [labelsFile]: { names, shortNames }, [oraclesFile]: oracles };
+    return {
+      [labelsFile]: { names, shortNames },
+      [oraclesFile]: oracles,
+      [poolsFile]: MORPHO_BLUE_POOL_DATA,
+    };
   }
 
   mergeData(oldData: any, data: any, fileKey: string): Partial<any> {
@@ -129,7 +182,7 @@ export class MorphoBlueUpdater implements DataUpdater {
     }
 
     if (fileKey === oraclesFile) {
-      return data;
+      return mergeOracleDataMaps(oldData, data);
     }
 
     throw new Error("Bad File");

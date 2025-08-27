@@ -1,0 +1,758 @@
+{
+  "AAVE_V3": {
+    "1": {
+      "pool": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+      "protocolDataProvider": "0x41393e5e337606dc3821075Af65AeE84D7688CBD"
+    },
+    "10": {
+      "pool": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "protocolDataProvider": "0x7F23D86Ee20D869112572136221e173428DD740B"
+    },
+    "56": {
+      "pool": "0x6807dc923806fE8Fd134338EABCA509979a7e0cB",
+      "protocolDataProvider": "0x23dF2a19384231aFD114b036C14b6b03324D79BC"
+    },
+    "100": {
+      "pool": "0xb50201558B00496A145fE76f7424749556E326D8",
+      "protocolDataProvider": "0x57038C3e3Fe0a170BB72DE2fD56E98e4d1a69717"
+    },
+    "137": {
+      "pool": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "protocolDataProvider": "0x7F23D86Ee20D869112572136221e173428DD740B"
+    },
+    "146": {
+      "pool": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+      "protocolDataProvider": "0x306c124fFba5f2Bc0BcAf40D249cf19D492440b9"
+    },
+    "324": {
+      "pool": "0x78e30497a3c7527d953c6B1E3541b021A98Ac43c",
+      "protocolDataProvider": "0x5F2A704cE47B373c908fE8A29514249469b52b99"
+    },
+    "1088": {
+      "pool": "0x90df02551bB792286e8D4f13E0e357b4Bf1D6a57",
+      "protocolDataProvider": "0xC01372469A17b6716A38F00c277533917B6859c0"
+    },
+    "1868": {
+      "pool": "0xDd3d7A7d03D9fD9ef45f3E587287922eF65CA38B",
+      "protocolDataProvider": "0xa0208CE8356ad6C5EC6dFb8996c9A6B828212022"
+    },
+    "8453": {
+      "pool": "0xA238Dd80C259a72e81d7e4664a9801593F98d1c5",
+      "protocolDataProvider": "0xd82a47fdebB5bf5329b09441C3DaB4b5df2153Ad"
+    },
+    "42161": {
+      "pool": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "protocolDataProvider": "0x7F23D86Ee20D869112572136221e173428DD740B"
+    },
+    "42220": {
+      "pool": "0x3E59A31363E2ad014dcbc521c4a0d5757d9f3402",
+      "protocolDataProvider": "0x33b7d355613110b4E842f5f7057Ccd36fb4cee28"
+    },
+    "43114": {
+      "pool": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "protocolDataProvider": "0x7F23D86Ee20D869112572136221e173428DD740B"
+    },
+    "59144": {
+      "pool": "0xc47b8C00b0f69a36fa203Ffeac0334874574a8Ac",
+      "protocolDataProvider": "0x9eEBf28397D8bECC999472fC8838CBbeF54aebf6"
+    },
+    "534352": {
+      "pool": "0x11fCfe756c05AD438e312a7fd934381537D3cFfe",
+      "protocolDataProvider": "0xe2108b60623C6Dcf7bBd535bD15a451fd0811f7b"
+    },
+    "1666600000": {
+      "pool": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "protocolDataProvider": "0x69FA688f1Dc47d4B5d8029D5a35FB7a548310654"
+    }
+  },
+  "AAVE_V3_PRIME": {
+    "1": {
+      "pool": "0x4e033931ad43597d96D6bcc25c280717730B58B1",
+      "protocolDataProvider": "0x08795CFE08C7a81dCDFf482BbAAF474B240f31cD"
+    }
+  },
+  "AAVE_V3_ETHER_FI": {
+    "1": {
+      "pool": "0x0AA97c284e98396202b6A04024F5E2c65026F3c0",
+      "protocolDataProvider": "0xE7d490885A68f00d9886508DF281D67263ed5758"
+    }
+  },
+  "AAVE_V2": {
+    "137": {
+      "pool": "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf",
+      "protocolDataProvider": "0x7551b5D2763519d4e37e8B81929D336De671d46d"
+    }
+  },
+  "LENDLE": {
+    "5000": {
+      "pool": "0xCFa5aE7c2CE8Fadc6426C1ff872cA45378Fb7cF3",
+      "protocolDataProvider": "0x552b9e4bae485C4B7F540777d7D25614CdB84773"
+    }
+  },
+  "LENDLE_CMETH": {
+    "5000": {
+      "pool": "0xd9a41322336133f2b026a65F2426647BD0Bf690C",
+      "protocolDataProvider": "0x578970728E36298E610df41AEa8e9A690427262c"
+    }
+  },
+  "LENDLE_SUSDE": {
+    "5000": {
+      "pool": "0xA9c90b947a45E70451a9C16a8D5BeC2F855DbD1d",
+      "protocolDataProvider": "0xaDB43eF86581a517CED608839d4D24E49d41187c"
+    }
+  },
+  "LENDLE_PT_CMETH": {
+    "5000": {
+      "pool": "0x5d7b73f9271c40ff737f98B8F818e7477761041f",
+      "protocolDataProvider": "0x40025ad3f5438aC971e61Ba97F9Ab1B8b818900d"
+    }
+  },
+  "HANA": {
+    "167000": {
+      "pool": "0x4aB85Bf9EA548410023b25a13031E91B4c4f3b91",
+      "protocolDataProvider": "0x9E3D95b518f68349464da1b6dbd0B94DB59addc1"
+    }
+  },
+  "AURELIUS": {
+    "5000": {
+      "pool": "0x7c9C6F5BEd9Cfe5B9070C7D3322CF39eAD2F9492",
+      "protocolDataProvider": "0xedB4f24e4b74a6B1e20e2EAf70806EAC19E1FA54"
+    }
+  },
+  "TAKOTAKO": {
+    "167000": {
+      "pool": "0x3A2Fd8a16030fFa8D66E47C3f1C0507c673C841e",
+      "protocolDataProvider": "0x3bD0baC54f4Ca268Fc03a4DdcF9d292cbF8D2AF0"
+    }
+  },
+  "TAKOTAKO_ETH": {
+    "167000": {
+      "pool": "0xe882a56b8c0C1a5561Febf846614B88718Dc5D9E",
+      "protocolDataProvider": "0x0604a6157A4480d9267B13BB615DF32a40d9f57e"
+    }
+  },
+  "MERIDIAN": {
+    "167000": {
+      "pool": "0x1697A950a67d9040464287b88fCa6cb5FbEC09BA",
+      "protocolDataProvider": "0xef6881676d7fC7bd6E09927f833a9ACAAab0bA07"
+    }
+  },
+  "SPARK": {
+    "1": {
+      "pool": "0xC13e21B648A5Ee794902342038FF3aDAB66BE987",
+      "protocolDataProvider": "0xFc21d6d146E6086B8359705C8b28512a983db0cb"
+    },
+    "100": {
+      "pool": "0x2Dae5307c5E3FD1CF5A72Cb6F698f915860607e0",
+      "protocolDataProvider": "0x2a002054A06546bB5a264D57A81347e23Af91D18"
+    }
+  },
+  "RHOMBUS": {
+    "8217": {
+      "pool": "0xc17bDf95aBD73B851917B6233090E025427e1e84",
+      "protocolDataProvider": "0x3eFC37753ec2501b406F3443cFD8D406B52abEa6"
+    }
+  },
+  "KLAP": {
+    "8217": {
+      "pool": "0x1b9c074111ec65E1342Ea844f7273D5449D2194B",
+      "protocolDataProvider": "0x1C08Af0455A4D90667172D87D23E60669f90eA4E"
+    }
+  },
+  "RMM": {
+    "100": {
+      "pool": "0xFb9b496519fCa8473fba1af0850B6B8F476BFdB3",
+      "protocolDataProvider": "0x11B45acC19656c6C52f93d8034912083AC7Dd756"
+    }
+  },
+  "SAKE": {
+    "1868": {
+      "pool": "0x3C3987A310ee13F7B8cBBe21D97D4436ba5E4B5f",
+      "protocolDataProvider": "0x2BECa16DAa6Decf9C6F85eBA8F0B35696A3200b3"
+    }
+  },
+  "SAKE_ASTAR": {
+    "1868": {
+      "pool": "0x0Bd12d3C4E794cf9919618E2bC71Bdd0C4FF1cF6",
+      "protocolDataProvider": "0x3b5FDb25672A0ea560E66905B97d0c818a00f5eb"
+    }
+  },
+  "LAYERBANK_V3": {
+    "43111": {
+      "pool": "0xfeAce246DC83Ba5E4E95A67b1357D6Fd7C3C088f",
+      "protocolDataProvider": "0x8D45801736F3504BEfA35ABEf8bc7a1C4d610651"
+    }
+  },
+  "COLEND": {
+    "1116": {
+      "pool": "0x0CEa9F0F49F30d376390e480ba32f903B43B19C5",
+      "protocolDataProvider": "0x567AF83d912C85c7a66d093e41D92676fA9076E3"
+    }
+  },
+  "COLEND_LSTBTC": {
+    "1116": {
+      "pool": "0x29A462DC59d7e624E1A3295b9d38416908bae1F4",
+      "protocolDataProvider": "0x8E43DF2503c69b090D385E36032814c73b746e3d"
+    }
+  },
+  "PAC": {
+    "81457": {
+      "pool": "0xd2499b3c8611E36ca89A70Fda2A72C49eE19eAa8",
+      "protocolDataProvider": "0x742316f430002D067dC273469236D0F3670bE446"
+    }
+  },
+  "HYPERLEND": {
+    "999": {
+      "pool": "0x00A89d7a5A02160f20150EbEA7a2b5E4879A1A8b",
+      "protocolDataProvider": "0x5481bf8d3946E6A3168640c1D7523eB59F055a29"
+    }
+  },
+  "HYPURRFI": {
+    "999": {
+      "pool": "0xceCcE0EB9DD2Ef7996e01e25DD70e461F918A14b",
+      "protocolDataProvider": "0x895C799a5bbdCb63B80bEE5BD94E7b9138D977d6"
+    }
+  },
+  "HYPERYIELD": {
+    "999": {
+      "pool": "0xC0Fd3F8e8b0334077c9f342671be6f1a53001F12",
+      "protocolDataProvider": "0x022F164dDBa35a994ad0f001705e9c187156E244"
+    }
+  },
+  "RADIANT_V2": {
+    "1": {
+      "pool": "0xA950974f64aA33f27F6C5e017eEE93BF7588ED07",
+      "protocolDataProvider": "0x362f3BB63Cff83bd169aE1793979E9e537993813"
+    },
+    "56": {
+      "pool": "0xCcf31D54C3A94f67b8cEFF8DD771DE5846dA032c",
+      "protocolDataProvider": "0x6bc6acb905c1216b0119c87bf9e178ce298310fa"
+    },
+    "8453": {
+      "pool": "0x30798cFe2CCa822321ceed7e6085e633aAbC492F",
+      "protocolDataProvider": "0xd184c5315b728c1c990f59ddd275c8155f8e255c"
+    },
+    "42161": {
+      "pool": "0xE23B4AE3624fB6f7cDEF29bC8EAD912f1Ede6886",
+      "protocolDataProvider": "0x790c039fcabed1a5a91517e11f03e26720c1b368"
+    }
+  },
+  "AVALON_SOLVBTC": {
+    "1": {
+      "pool": "0xCfe357D2dE5aa5dAB5fEf255c911D150d0246423",
+      "protocolDataProvider": "0x934AD5Bd415CBB128cB288749593877cF3B54CD3"
+    },
+    "56": {
+      "pool": "0xf9278C7c4AEfAC4dDfd0D496f7a1C39cA6BCA6d4",
+      "protocolDataProvider": "0x672b19DdA450120C505214D149Ee7F7B6DEd8C39"
+    },
+    "34443": {
+      "pool": "0x7454E4ACC4B7294F740e33B81224f50C28C29301",
+      "protocolDataProvider": "0xC5b05b7092257Ee3eEAf013198d30F1E8179B6C9"
+    },
+    "167000": {
+      "pool": "0x9dd29AA2BD662E6b569524ba00C55be39e7B00fB",
+      "protocolDataProvider": "0xF6Aa54a5b60c324602C9359E8221423793e5205d"
+    },
+    "21000000": {
+      "pool": "0xd63C731c8fBC672B69257f70C47BD8e82C9efBb8",
+      "protocolDataProvider": "0xf0d077728D424Ee6C6Eba82d23ce56C2e91E57Ea"
+    }
+  },
+  "AVALON_PUMPBTC": {
+    "1": {
+      "pool": "0x1c8091b280650aFc454939450699ECAA67C902d9",
+      "protocolDataProvider": "0x2eE0438BCC1876cEA2c6fc43dD21417cF3D1c2eF"
+    },
+    "56": {
+      "pool": "0xeCaC6332e2De19e8c8e6Cd905cb134E980F18cC4",
+      "protocolDataProvider": "0x58c937fa2D147117dB43d187f9411151edfFf03c"
+    },
+    "7000": {
+      "pool": "0x7454E4ACC4B7294F740e33B81224f50C28C29301",
+      "protocolDataProvider": "0xC5b05b7092257Ee3eEAf013198d30F1E8179B6C9"
+    },
+    "42161": {
+      "pool": "0x4B801fb6f0830D070f40aff9ADFC8f6939Cc1F8D",
+      "protocolDataProvider": "0x2c4aEB7C9f0D196a51136B3c7bec49cB2DBD1966"
+    },
+    "21000000": {
+      "pool": "0xdef0EB584700Fc81C73ACcd555cB6cea5FB85C3e",
+      "protocolDataProvider": "0x867885c1dB3020E25A86Db7e20E35dC7b81d76A2"
+    }
+  },
+  "AVALON_SWELLBTC": {
+    "1": {
+      "pool": "0xE0E468687703dD02BEFfB0BE13cFB109529F38e0",
+      "protocolDataProvider": "0x87Ed94868f6fbaA834Db81a1C5854c445caCaB67"
+    }
+  },
+  "AVALON_EBTC_LBTC": {
+    "1": {
+      "pool": "0xCfe357D2dE5aa5dAB5fEf255c911D150d0246423",
+      "protocolDataProvider": "0x934AD5Bd415CBB128cB288749593877cF3B54CD3"
+    }
+  },
+  "AVALON_UNIBTC": {
+    "56": {
+      "pool": "0x795Ae4Bd3B63aA8657a7CC2b3e45Fb0F7c9ED9Cc",
+      "protocolDataProvider": "0xF828A73cB00072843241C6294ed778F26854fe5C"
+    },
+    "4200": {
+      "pool": "0x155d50D9c1D589631eA4E2eaD744CE82622AD9D3",
+      "protocolDataProvider": "0x623700Fee1dF64088f258e2c4DAB4D6aEac4dDA6"
+    },
+    "4689": {
+      "pool": "0x99a05a9210B2861ccED5db7696eED3f4D73EB70c",
+      "protocolDataProvider": "0x28292e1ca36e400FB7d0B66AaA99EB808E3Cb8cB"
+    },
+    "34443": {
+      "pool": "0x2c373aAB54b547Be9b182e795bed34cF9955dc34",
+      "protocolDataProvider": "0x8F016F5dac399F20B34E35CBaF1dFf12eeE2dE74"
+    },
+    "60808": {
+      "pool": "0x6d8fE6EAa893860aA1B877A8cA4f0A6cbd4249f7",
+      "protocolDataProvider": "0x100AC26ad2c253B18375f1dC4BC0EeeB66DEBc88"
+    },
+    "200901": {
+      "pool": "0xC486115C7db399F0e080A3713BF01B65CC8A5b64",
+      "protocolDataProvider": "0x898D0EF6E20B7597728AEB41169c22608Fe4b234"
+    }
+  },
+  "AVALON": {
+    "146": {
+      "pool": "0x974E2B16ddbF0ae6F78b4534353c2871213f2Dc9",
+      "protocolDataProvider": "0x23f02C2eeFe2010298Ab74059393326d3df59a02"
+    },
+    "223": {
+      "pool": "0xC0843a5A8527FD7221256893D4a4305145937E8c",
+      "protocolDataProvider": "0x4Ea93E846b8C6E7b3D5a5BEDF4fe6B8AED58FCEe"
+    },
+    "1116": {
+      "pool": "0x67197DE79B2a8Fc301bAB591C78aE5430b9704fd",
+      "protocolDataProvider": "0x802CB61844325dc9A161bC3A498E3BE1B7b6FE00"
+    },
+    "1329": {
+      "pool": "0xE5eB6aBbA365A49C8624532acaed54A47cc36D3C",
+      "protocolDataProvider": "0x16b9b88B773C1a1aBA6D305e0560171405d45121"
+    },
+    "2345": {
+      "pool": "0x4B801fb6f0830D070f40aff9ADFC8f6939Cc1F8D",
+      "protocolDataProvider": "0x2c4aEB7C9f0D196a51136B3c7bec49cB2DBD1966"
+    },
+    "4200": {
+      "pool": "0xEA5c99A3cca5f95Ef6870A1B989755f67B6B1939",
+      "protocolDataProvider": "0x5F314b36412765f3E1016632fD1Ad528929536CA"
+    },
+    "4689": {
+      "pool": "0x29ee512B76F58FF4d281c49c7D1B6B248c79f009",
+      "protocolDataProvider": "0xBa77520d38953BF6a8395D118CfF714Ed672533f"
+    },
+    "7000": {
+      "pool": "0x6935B1196426586b527c8D13Ce42ff12eEc2A5fC",
+      "protocolDataProvider": "0xA34F1a928024E3609C8968fEA90C747e8D1fA20f"
+    },
+    "8217": {
+      "pool": "0xCf1af042f2A071DF60a64ed4BdC9c7deE40780Be",
+      "protocolDataProvider": "0xddD3D480521bc027596e078BCd1b838d50Daa076"
+    },
+    "8453": {
+      "pool": "0x6374a1F384737bcCCcD8fAE13064C18F7C8392e5",
+      "protocolDataProvider": "0xA9D15C669940a757Ab76C6604f2f8f1e198f7D50"
+    },
+    "42161": {
+      "pool": "0xe1ee45DB12ac98d16F1342a03c93673d74527b55",
+      "protocolDataProvider": "0xEc579d2cE07401258710199Ff12a5bb56e086a6F"
+    },
+    "167000": {
+      "pool": "0xA7f1c55530B1651665C15d8104663B3f03E3386f",
+      "protocolDataProvider": "0x43248dF19B9B55f7b488CF68A1224308Af2D81eC"
+    },
+    "200901": {
+      "pool": "0xEA5c99A3cca5f95Ef6870A1B989755f67B6B1939",
+      "protocolDataProvider": "0x5F314b36412765f3E1016632fD1Ad528929536CA"
+    },
+    "534352": {
+      "pool": "0xA90FB5234A659b7e5738775F8B48f8f833b3451C",
+      "protocolDataProvider": "0x18cbe70602Ee17f79D56971F685E9EaF49DA53F2"
+    },
+    "21000000": {
+      "pool": "0xd412D77A4920317ffb3F5deBAD29B1662FBA53DF",
+      "protocolDataProvider": "0x56552f4407113894Bfce34b5b88C57b941AFc519"
+    }
+  },
+  "AVALON_USDA": {
+    "146": {
+      "pool": "0xD33Ee43551167cdd15Ef9CF87ceecC0fF69Cc922",
+      "protocolDataProvider": "0x1C6E9510055B71429022B997E6602FbaEEb0481F"
+    },
+    "1329": {
+      "pool": "0xC1bFbF4E0AdCA79790bfa0A557E4080F05e2B438",
+      "protocolDataProvider": "0x5EcDC2432ED77cD8E2cE6183712c5cc712c40ec0"
+    },
+    "4689": {
+      "pool": "0xaB82814E4c5bC2Ede88DB334276dFe01a4BcCFd0",
+      "protocolDataProvider": "0xDB52DD393e3a5e95d3B7C7e1C42cC06bb807A369"
+    },
+    "8217": {
+      "pool": "0x65bB26fa8D2774313202029619767A3727C98B1b",
+      "protocolDataProvider": "0x2884F533E9f8102FD05D903968213502294CC273"
+    },
+    "167000": {
+      "pool": "0xC1bFbF4E0AdCA79790bfa0A557E4080F05e2B438",
+      "protocolDataProvider": "0x5EcDC2432ED77cD8E2cE6183712c5cc712c40ec0"
+    },
+    "200901": {
+      "pool": "0xA51d264A033cD0D3205CD4C6D51310dA841D15DE",
+      "protocolDataProvider": "0x7FaDb6f954E19476E18790Dc0178056A2E3c1454"
+    },
+    "21000000": {
+      "pool": "0xf659a3fa012f5847067239a6009309323011815d",
+      "protocolDataProvider": "0xa15c0c3D6Ad3FeE623BEd68391923c9Ff79a50c3"
+    }
+  },
+  "AVALON_SKAIA": {
+    "8217": {
+      "pool": "0x4659F938458afB37F3340270FC9CdFe665809c1b",
+      "protocolDataProvider": "0x276c5119f63119921667842dA3B71EE10Ac486eA"
+    }
+  },
+  "AVALON_USDX": {
+    "56": {
+      "pool": "0x77fF9B0cdbb6039b9D42d92d7289110E6CCD3890",
+      "protocolDataProvider": "0x9515dC23bBE46f9C9885D24Fa276745A11b7f9D8"
+    }
+  },
+  "AVALON_XAUM": {
+    "56": {
+      "pool": "0x4B801fb6f0830D070f40aff9ADFC8f6939Cc1F8D",
+      "protocolDataProvider": "0x2c4aEB7C9f0D196a51136B3c7bec49cB2DBD1966"
+    }
+  },
+  "AVALON_LBTC": {
+    "56": {
+      "pool": "0x390166389f5D30281B9bDE086805eb3c9A10F46F",
+      "protocolDataProvider": "0x5b9b3C211B81627Cc6b46824CB26829F31A587dc"
+    },
+    "21000000": {
+      "pool": "0xC1bFbF4E0AdCA79790bfa0A557E4080F05e2B438",
+      "protocolDataProvider": "0x5EcDC2432ED77cD8E2cE6183712c5cc712c40ec0"
+    }
+  },
+  "AVALON_WBTC": {
+    "56": {
+      "pool": "0xF8718Fc27eF04633B7EB372F778348dE02642207",
+      "protocolDataProvider": "0x0226930497e39CD40d76EDCBE7DbaE6062C0b7c0"
+    }
+  },
+  "AVALON_LISTA": {
+    "56": {
+      "pool": "0x54925C6dDeB73A962B3C3A21B10732eD5548e43a",
+      "protocolDataProvider": "0x5157f63bE7808DEB090Eee7762e917745896A09E"
+    }
+  },
+  "AVALON_STBTC": {
+    "56": {
+      "pool": "0x05C194eE95370ED803B1526f26EFd98C79078ab5",
+      "protocolDataProvider": "0x56F817eF5D1945E0772496020ff0F72c3984B351"
+    }
+  },
+  "AVALON_UNIIOTX": {
+    "4689": {
+      "pool": "0x4B801fb6f0830D070f40aff9ADFC8f6939Cc1F8D",
+      "protocolDataProvider": "0x2c4aEB7C9f0D196a51136B3c7bec49cB2DBD1966"
+    }
+  },
+  "AVALON_BOB": {
+    "60808": {
+      "pool": "0x35B3F1BFe7cbE1e95A3DC2Ad054eB6f0D4c879b6",
+      "protocolDataProvider": "0xfabb0fDca4348d5A40EB1BB74AEa86A1C4eAd7E2"
+    }
+  },
+  "AVALON_OBTC": {
+    "1116": {
+      "pool": "0x2f3552CE2F071B642Deeae5c84eD2EEe3Ed08D43",
+      "protocolDataProvider": "0x5c78EbB34cC5b52146D107365A66E37a677Fcf50"
+    }
+  },
+  "AVALON_UBTC": {
+    "1116": {
+      "pool": "0x7f6f0e50dB09C49027314103aa5a8F6Db862dBd0",
+      "protocolDataProvider": "0x2752237ccC6aB5e4B9e9BFca57D7a6956aF4FE3d"
+    }
+  },
+  "AVALON_LORENZO": {
+    "200901": {
+      "pool": "0xeD6d6d18F20f8b419B5442C43D3e48EE568dEc14",
+      "protocolDataProvider": "0x4c25c261Fe47bC216113D140BaF72B05E151bcE4"
+    }
+  },
+  "AVALON_BEETS": {
+    "146": {
+      "pool": "0x6CCE1BC3fe54C9B1915e5f01ee076E4c4C3Cdd19",
+      "protocolDataProvider": "0x28350E38f241d7F24106CE5eaB1684D6ebEB4700"
+    }
+  },
+  "AVALON_INNOVATION": {
+    "4200": {
+      "pool": "0xdCB0FAA822B99B87E630BF47399C5a0bF3C642cf",
+      "protocolDataProvider": "0x883cb2E2d9c5D4D9aF5b0d37fc39Fa2284405682"
+    }
+  },
+  "MOONCAKE": {
+    "8453": {
+      "pool": "0x6aBEa1a2B47f09C779Cb3D52B85097cB2BFaBcb0",
+      "protocolDataProvider": "0x32aB5e8ad83d4afbEe7103d7ed4A9CAF7B76F195"
+    },
+    "59144": {
+      "pool": "0x5DB340cEfE09a9fFD1883f572C09917De5bcA230",
+      "protocolDataProvider": "0x593C2d762B1CDe79101D946Ca7816eeaF17Ad744"
+    }
+  },
+  "NEREUS": {
+    "43114": {
+      "pool": "0xB9257597EDdfA0eCaff04FF216939FBc31AAC026",
+      "protocolDataProvider": "0xec090929fBc1B285fc9b3c8EBB92fbc62F01D804"
+    }
+  },
+  "KINZA": {
+    "1": {
+      "pool": "0xeA14474946C59Dee1F103aD517132B3F19Cef1bE",
+      "protocolDataProvider": "0xE44990a8a732605Eddc0870597d2Cf4A2637F038"
+    },
+    "56": {
+      "pool": "0xcB0620b181140e57D1C0D8b724cde623cA963c8C",
+      "protocolDataProvider": "0x09Ddc4AE826601b0F9671b9edffDf75e7E6f5D61"
+    },
+    "204": {
+      "pool": "0x3Aadc38eBAbD6919Fbd00C118Ae6808CBfE441CB",
+      "protocolDataProvider": "0xBb5f2d30c0fC9B0f71f7B19DaF19e7Cf3D23eb5E"
+    },
+    "5000": {
+      "pool": "0x5757b15f60331eF3eDb11b16ab0ae72aE678Ed51",
+      "protocolDataProvider": "0x18cc2c55b429EE08748951bBD33FF2e68c95ec38"
+    }
+  },
+  "ZEROLEND_STABLECOINS_RWA": {
+    "1": {
+      "pool": "0xD3a4DA66EC15a001466F324FA08037f3272BDbE8",
+      "protocolDataProvider": "0x298ECDcb0369Aef75cBbdA3e46a224Cfe622E287"
+    }
+  },
+  "ZEROLEND_ETH_LRTS": {
+    "1": {
+      "pool": "0x3BC3D34C32cc98bf098D832364Df8A222bBaB4c0",
+      "protocolDataProvider": "0x47223D4eA966a93b2cC96FFB4D42c22651FADFcf"
+    }
+  },
+  "ZEROLEND_BTC_LRTS": {
+    "1": {
+      "pool": "0xCD2b31071119D7eA449a9D211AC8eBF7Ee97F987",
+      "protocolDataProvider": "0x31063F7CA8ef4089Db0dEdf8D6e35690B468A611"
+    }
+  },
+  "ZEROLEND": {
+    "169": {
+      "pool": "0x2f9bB73a8e98793e26Cb2F6C4ad037BDf1C6B269",
+      "protocolDataProvider": "0x67f93d36792c49a4493652B91ad4bD59f428AD15"
+    },
+    "196": {
+      "pool": "0xfFd79D05D5dc37E221ed7d3971E75ed5930c6580",
+      "protocolDataProvider": "0x97e59722318F1324008484ACA9C343863792cBf6"
+    },
+    "324": {
+      "pool": "0x4d9429246EA989C9CeE203B43F6d1C7D83e3B8F8",
+      "protocolDataProvider": "0xB73550bC1393207960A385fC8b34790e5133175E"
+    },
+    "2741": {
+      "pool": "0xFC1ef22b9458F112Ef4EB6BF1c537776f0341185",
+      "protocolDataProvider": "0x8EEAE4dD40EBee7Bb6471c47d4d867539CF53ccF"
+    },
+    "8453": {
+      "pool": "0x766f21277087E18967c1b10bF602d8Fe56d0c671",
+      "protocolDataProvider": "0xA754b2f1535287957933db6e2AEE2b2FE6f38588"
+    },
+    "43111": {
+      "pool": "0xdB7e029394a7cdbE27aBdAAf4D15e78baC34d6E8",
+      "protocolDataProvider": "0x9698FdF843cbe4531610aC231B0047d9FFc13bC6"
+    },
+    "48900": {
+      "pool": "0x2774C8B95CaB474D0d21943d83b9322Fb1cE9cF5",
+      "protocolDataProvider": "0xA754b2f1535287957933db6e2AEE2b2FE6f38588"
+    },
+    "59144": {
+      "pool": "0x2f9bB73a8e98793e26Cb2F6C4ad037BDf1C6B269",
+      "protocolDataProvider": "0x67f93d36792c49a4493652B91ad4bD59f428AD15"
+    },
+    "80094": {
+      "pool": "0xE96Feed449e1E5442937812f97dB63874Cd7aB84",
+      "protocolDataProvider": "0x26416E170aDb35B0d23800602cf98853dBDeB74F"
+    },
+    "81457": {
+      "pool": "0xa70B0F3C2470AbBE104BdB3F3aaa9C7C54BEA7A8",
+      "protocolDataProvider": "0xc6DF4ddDBFaCb866e78Dcc01b813A41C15A08C10"
+    },
+    "21000000": {
+      "pool": "0x927b3A8e5068840C9758b0b88207b28aeeb7a3fd",
+      "protocolDataProvider": "0x2f7e54ff5d45f77bFfa11f2aee67bD7621Eb8a93"
+    }
+  },
+  "ZEROLEND_CROAK": {
+    "59144": {
+      "pool": "0xc6ff96AefD1cC757d56e1E8Dcc4633dD7AA5222D",
+      "protocolDataProvider": "0x9aFB91a3cfB9aBc8Cbc8429aB57b6593FE36E173"
+    }
+  },
+  "ZEROLEND_FOXY": {
+    "59144": {
+      "pool": "0xbDAa004A456E7f2dAff00FfcDCbEaD5da27B7966",
+      "protocolDataProvider": "0xEe9ec60657B714E3FAC5255a5443AC5EC7Ba5bB0"
+    }
+  },
+  "GRANARY": {
+    "1": {
+      "pool": "0xB702cE183b4E1Faa574834715E5D4a6378D0eEd3",
+      "protocolDataProvider": "0x33c62BC416309F010c4941163aBEa3725e4645BF"
+    },
+    "10": {
+      "pool": "0x8FD4aF47E4E63d1D2D45582c3286b4BD9Bb95DfE",
+      "protocolDataProvider": "0x9546F673eF71Ff666ae66d01Fd6E7C6Dae5a9995"
+    },
+    "56": {
+      "pool": "0x7171054f8d148Fe1097948923C91A6596fC29032",
+      "protocolDataProvider": "0x7Fb479624ca336bA8f2dc66439F8683330eE2880"
+    },
+    "250": {
+      "pool": "0x65FA36Fe0a7C0d346Dd02b7217Fdd6E6C5aaA269",
+      "protocolDataProvider": "0x9D9f273373aa5759820ea4e59b90AC74c34EA79c"
+    },
+    "1088": {
+      "pool": "0x65dEc665ea1e96Ee5203DB321b5Cd413b81B2bd2",
+      "protocolDataProvider": "0x10615D451a5b91C92ce8538703E7AABA5d5cCC4D"
+    },
+    "8453": {
+      "pool": "0xB702cE183b4E1Faa574834715E5D4a6378D0eEd3",
+      "protocolDataProvider": "0xed984A0E9c12Ee27602314191Fc4487A702bB83f"
+    },
+    "42161": {
+      "pool": "0x102442A3BA1e441043154Bc0B8A2e2FB5E0F94A7",
+      "protocolDataProvider": "0x96bCFB86F1bFf315c13e00D850e2FAeA93CcD3e7"
+    },
+    "43114": {
+      "pool": "0xB702cE183b4E1Faa574834715E5D4a6378D0eEd3",
+      "protocolDataProvider": "0xed984A0E9c12Ee27602314191Fc4487A702bB83f"
+    },
+    "59144": {
+      "pool": "0x871AfF0013bE6218B61b28b274a6F53DB131795F",
+      "protocolDataProvider": "0xd2abC5d7841d49C40Fd35A1Ec832ee1daCC8D339"
+    }
+  },
+  "LORE": {
+    "534352": {
+      "pool": "0x4cE1A1eC13DBd9084B1A741b036c061b2d58dABf",
+      "protocolDataProvider": "0xb17844F6E50f4eE8f8FeC7d9BA200B0E034b8236"
+    }
+  },
+  "LENDOS": {
+    "43111": {
+      "pool": "0xaA397b29510a7219A0f3f7cE3eb53A09bc2A924c",
+      "protocolDataProvider": "0xfBF6Aab10f696F3BA098BBE4EA9CF2503FC0f358"
+    },
+    "245022934": {
+      "pool": "0x3b2f6889bfac2b984754969116cd1d04447d012d",
+      "protocolDataProvider": "0x3a1ca459f21d8facf9a30bc4773f5dbf07c1191d"
+    }
+  },
+  "YLDR": {
+    "1": {
+      "pool": "0x6447c4390457CaD03Ec1BaA4254CEe1A3D9e1Bbd",
+      "protocolDataProvider": "0x2a61760f0413C7FC9e3120E3d51c961f6bb17452"
+    },
+    "137": {
+      "pool": "0x8183D4e0561cBdc6acC0Bdb963c352606A2Fa76F",
+      "protocolDataProvider": "0xb9d350537A63B7e5cb02B44e230e093C0abB2707"
+    },
+    "8453": {
+      "pool": "0x5425afd90bd1aad68d5badcb80390101a2750bc5",
+      "protocolDataProvider": "0x4b17E8DA6A9138Ff0B0CcD2eB2E1279646e3dFc8"
+    },
+    "42161": {
+      "pool": "0x54aD657851b6Ae95bA3380704996CAAd4b7751A3",
+      "protocolDataProvider": "0x6b69CB817AFa481FF80cb954feAA3be0835b36f9"
+    }
+  },
+  "IRONCLAD": {
+    "34443": {
+      "pool": "0xB702cE183b4E1Faa574834715E5D4a6378D0eEd3",
+      "protocolDataProvider": "0x29563f73De731Ae555093deb795ba4D1E584e42E"
+    }
+  },
+  "MOLEND": {
+    "34443": {
+      "pool": "0x04c3F4C9B12b1041b2fD2e481452E7c861Fe1FF8",
+      "protocolDataProvider": "0xf18146EB3C9DE2d88E60464f9648EeE901B58b79"
+    }
+  },
+  "SEISMIC": {
+    "81457": {
+      "pool": "0x83d55e27b8033b6D5874CBb3c9252c4Bfdb2bC75",
+      "protocolDataProvider": "0xe74564807d6cE2e5F256b45737C861ec52c48FB4"
+    }
+  },
+  "POLTER": {
+    "146": {
+      "pool": "0x4dE3E7E8bE48D6094cFA34323e6cC22308D56b52",
+      "protocolDataProvider": "0x60E790911F35226ADA3B80dC7DeAF5D8A6502131"
+    },
+    "8453": {
+      "pool": "0x33CA62504cebAB919f0FCa94562413ee121A9798",
+      "protocolDataProvider": "0x11b518f695a2A1236803B2976a1Ec3FBAe783A78"
+    }
+  },
+  "MAGSIN": {
+    "146": {
+      "pool": "0x73B635843352aF89278bDe2213866C457C94b271",
+      "protocolDataProvider": "0x90f187d91d53324e69215A6a1B9a506A9022AD1b"
+    }
+  },
+  "AGAVE": {
+    "100": {
+      "pool": "0x5E15d5E33d318dCEd84Bfe3F4EACe07909bE6d9c",
+      "protocolDataProvider": "0x24dCbd376Db23e4771375092344f5CbEA3541FC0"
+    }
+  },
+  "MOOLA": {
+    "42220": {
+      "pool": "0x970b12522CA9b4054807a2c5B736149a5BE6f670",
+      "protocolDataProvider": "0x43d067ed784D9DD2ffEda73775e2CC4c560103A1"
+    }
+  },
+  "XLEND": {
+    "10": {
+      "pool": "0x345D2827f36621b02B783f7D5004B4a2fec00186",
+      "protocolDataProvider": "0xCC61E9470B5f0CE21a3F6255c73032B47AaeA9C0"
+    },
+    "8453": {
+      "pool": "0x09b11746DFD1b5a8325e30943F8B3D5000922E03",
+      "protocolDataProvider": "0x1566DA4640b6a0b32fF309b07b8df6Ade40fd98D"
+    }
+  },
+  "KLAYBANK": {
+    "8217": {
+      "pool": "0x4B6Ece52D0EF60aE054f45c45D6bA4F7a0C2cC67",
+      "protocolDataProvider": "0xf9438f2b1c63d8dac24311256f5483d7f7575863"
+    }
+  },
+  "VALAS": {
+    "56": {
+      "pool": "0xE29A55A6AEFf5C8B1beedE5bCF2F0Cb3AF8F91f5",
+      "protocolDataProvider": "0xce434378adacc51d54312c872113d687ac19b516"
+    }
+  },
+  "PHIAT": {
+    "369": {
+      "pool": "0xc14b5de7fbdff428f64aa9e7e240ea342ee9a3a3",
+      "protocolDataProvider": "0xf9438f2b1c63D8dAC24311256F5483D7f7575863"
+    }
+  }
+}
