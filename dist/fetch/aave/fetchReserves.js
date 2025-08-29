@@ -43,7 +43,7 @@ export async function fetchAaveTypeTokenData() {
                 throw e;
             }
             // assign reserves
-            reservesMap[fork][chain] = data;
+            reservesMap[fork][chain] = data.map((r) => r.toLowerCase());
             const AaveLenderTokens = (await client.multicall({
                 allowFailure: false,
                 contracts: data.map((addr) => ({

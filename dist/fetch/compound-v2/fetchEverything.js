@@ -59,7 +59,7 @@ export async function fetchCompoundV2TypeTokenData() {
                 return result.result;
             });
             // assign reserves
-            reserves[fork][chain] = Reserves;
+            reserves[fork][chain] = Reserves.map((r) => r.toLowerCase());
             const dataOnChain = Object.assign({}, ...Reserves.map((a, i) => {
                 return {
                     [a.toLowerCase()]: data[i].toLowerCase(),

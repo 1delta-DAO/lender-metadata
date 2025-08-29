@@ -19,10 +19,15 @@ type CompoundV3Map = {
 };
 
 // @ts-ignore
-BigInt.prototype["toJSON"] = function () { return this.toString() }
+BigInt.prototype["toJSON"] = function () {
+  return this.toString();
+};
 
 // store maps
-export async function fetchCompoundV3Data(): Promise<{ compoundBaseData: any, compoundReserves:any }> {
+export async function fetchCompoundV3Data(): Promise<{
+  compoundBaseData: any;
+  compoundReserves: any;
+}> {
   let cometDataMap: CompoundV3Map = {};
   let compoundReserves: any = {};
   let compoundBaseData: any = {};
@@ -84,7 +89,9 @@ export async function fetchCompoundV3Data(): Promise<{ compoundBaseData: any, co
       if (!compoundBaseData[cometKeys[i]]) compoundBaseData[cometKeys[i]] = {};
       if (!compoundReserves[cometKeys[i]]) compoundReserves[cometKeys[i]] = {};
 
-      compoundReserves[cometKeys[i]][chain] = [baseAsset, ...underlyings];
+      compoundReserves[cometKeys[i]][chain] = [baseAsset, ...underlyings].map(
+        (r) => r.toLowerCase()
+      );
       compoundBaseData[cometKeys[i]][chain] = { baseAsset, baseBorrowMin };
       cometDataMap[cometKeys[i]][chain] = {
         baseAsset,

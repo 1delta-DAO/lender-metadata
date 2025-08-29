@@ -9,7 +9,7 @@ import { MORPHO_BLUE_POOL_DATA } from "@1delta/asset-registry";
 
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-oracles.json";
-const poolsFile = "./data/morpho-pools.json";
+const poolsFile = "./config/morpho-pools.json";
 
 /**
  * Merges old and new data maps based on unique combinations of loanAsset and collateralAsset
