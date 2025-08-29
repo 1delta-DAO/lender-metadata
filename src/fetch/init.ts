@@ -3,7 +3,7 @@ import { DataUpdater } from "../types.js";
 import { fetchInitData } from "./init/fetchEverything.js";
 
 const config = "./data/init-config.json";
-const pools = "./data/init-pools.json";
+const pools = "./config/init-pools.json";
 
 // Example of another updater (you can add more like this)
 export class InitUpdater implements DataUpdater {

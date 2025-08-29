@@ -146,7 +146,10 @@ export class MorphoBlueUpdater {
             return mergeData(oldData, data, this.defaults[labelsFile]);
         }
         if (fileKey === oraclesFile) {
-            return mergeOracleDataMaps(oldData, data);
+            return mergeOracleDataMaps(data, this.defaults[oraclesFile]);
+        }
+        if (fileKey === poolsFile) {
+            return data;
         }
         throw new Error("Bad File");
     }

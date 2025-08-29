@@ -182,7 +182,11 @@ export class MorphoBlueUpdater implements DataUpdater {
     }
 
     if (fileKey === oraclesFile) {
-      return mergeOracleDataMaps(oldData, data);
+      return mergeOracleDataMaps(data, this.defaults[oraclesFile]);
+    }
+
+    if (fileKey === poolsFile) {
+      return data;
     }
 
     throw new Error("Bad File");

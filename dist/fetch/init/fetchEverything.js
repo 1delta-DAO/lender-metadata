@@ -1,6 +1,10 @@
 import { INIT_CONFIG_PER_CHAIN_MAP } from "@1delta/asset-registry";
 import { getEvmClient } from "@1delta/providers";
 import { INIT_ABIS, InitFetchFunctions } from "./abi.js";
+// @ts-ignore
+BigInt.prototype["toJSON"] = function () {
+    return this.toString();
+};
 function uniqueStrings(arr) {
     return [...new Set(arr)];
 }

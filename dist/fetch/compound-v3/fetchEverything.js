@@ -4,6 +4,8 @@
 import { COMETS_PER_CHAIN_MAP } from "@1delta/asset-registry";
 import { COMET_ABIS, CompoundV3FetchFunctions } from "./abi.js";
 import { getEvmClient } from "@1delta/providers";
+// @ts-ignore
+BigInt.prototype["toJSON"] = function () { return this.toString(); };
 // store maps
 export async function fetchCompoundV3Data() {
     let cometDataMap = {};
@@ -57,6 +59,10 @@ export async function fetchCompoundV3Data() {
             const underlyings = cometIndexes.map((i) => underlyingDatas[i].asset.toLowerCase());
             if (!cometDataMap[cometKeys[i]])
                 cometDataMap[cometKeys[i]] = {};
+            if (!compoundBaseData[cometKeys[i]])
+                compoundBaseData[cometKeys[i]] = {};
+            if (!compoundReserves[cometKeys[i]])
+                compoundReserves[cometKeys[i]] = {};
             compoundReserves[cometKeys[i]][chain] = [baseAsset, ...underlyings];
             compoundBaseData[cometKeys[i]][chain] = { baseAsset, baseBorrowMin };
             cometDataMap[cometKeys[i]][chain] = {
