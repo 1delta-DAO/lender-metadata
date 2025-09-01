@@ -14,13 +14,13 @@
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@types/node": "^20.14.9",
+    "@types/node": "^24.3.0",
     "typescript": "^5.5.4",
-    "vitest": "^1.6.0"
+    "vitest": "^3.2.4"
   },
   "dependencies": {
-    "@1delta/asset-registry": "^0.0.184",
-    "@1delta/providers": "^0.0.10",
+    "@1delta/asset-registry": "^0.0.191",
+    "@1delta/providers": "^0.0.11",
     "lodash": "^4.17.21",
     "viem": "^2.34.0"
   }
