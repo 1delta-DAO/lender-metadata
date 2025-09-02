@@ -1,4 +1,3 @@
-import { COMETS_PER_CHAIN_MAP } from "@1delta/asset-registry";
 import { fetchCompoundV3Data } from "./compound-v3/fetchEverything.js";
 const pools = "./config/compound-v3-pools.json";
 const baseData = "./data/compound-v3-base-data.json";
@@ -7,7 +6,7 @@ const reserves = "./data/compound-v3-reserves.json";
 export class CompoundV3Updater {
     name = "Compound V3";
     async fetchData() {
-        const { compoundReserves, compoundBaseData } = await fetchCompoundV3Data();
+        const { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP } = await fetchCompoundV3Data();
         console.log("compoundReserves, compoundBaseData", compoundReserves, compoundBaseData);
         // Placeholder for another data source
         // This could fetch from another API, parse files, etc.

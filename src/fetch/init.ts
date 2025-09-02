@@ -1,4 +1,3 @@
-import { INIT_CONFIG_PER_CHAIN_MAP } from "@1delta/asset-registry";
 import { DataUpdater } from "../types.js";
 import { fetchInitData } from "./init/fetchEverything.js";
 
@@ -10,7 +9,7 @@ export class InitUpdater implements DataUpdater {
   name = "Init";
 
   async fetchData(): Promise<Partial<any>> {
-    const { initDataMap } = await fetchInitData();
+    const { initDataMap, INIT_CONFIG_PER_CHAIN_MAP } = await fetchInitData();
     // Placeholder for another data source
     // This could fetch from another API, parse files, etc.
     return {

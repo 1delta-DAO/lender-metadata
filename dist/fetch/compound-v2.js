@@ -1,4 +1,3 @@
-import { COMPOUND_V2_COMPTROLLERS } from "@1delta/asset-registry";
 import { fetchCompoundV2TypeTokenData } from "./compound-v2/fetchEverything.js";
 const pools = "./config/compound-v2-pools.json";
 const tokens = "./data/compound-v2-c-tokens.json";
@@ -7,7 +6,7 @@ const reservesPath = "./data/compound-v2-reserves.json";
 export class CompoundV2Updater {
     name = "Compound V2";
     async fetchData() {
-        const { cTokens, reserves } = await fetchCompoundV2TypeTokenData();
+        const { cTokens, reserves, COMPOUND_V2_COMPTROLLERS } = await fetchCompoundV2TypeTokenData();
         // Placeholder for another data source
         // This could fetch from another API, parse files, etc.
         return {

@@ -1,4 +1,3 @@
-import { AAVE_FORK_POOL_DATA } from "@1delta/asset-registry";
 import { DataUpdater } from "../types.js";
 import { fetchAaveTypePriceOracles } from "./aave/fetchOracles.js";
 import { fetchAaveTypeTokenData } from "./aave/fetchReserves.js";
@@ -13,8 +12,9 @@ export class AaveUpdater implements DataUpdater {
   name = "Aave";
 
   async fetchData(): Promise<Partial<any>> {
-    const { reserves, tokens } = await fetchAaveTypeTokenData();
-    const oracles = await fetchAaveTypePriceOracles();
+    const { reserves, tokens, AAVE_FORK_POOL_DATA } =
+      await fetchAaveTypeTokenData();
+    const oracles = await fetchAaveTypePriceOracles(AAVE_FORK_POOL_DATA);
     // Placeholder for another data source
     // This could fetch from another API, parse files, etc.
     return {

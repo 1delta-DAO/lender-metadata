@@ -1,14 +1,15 @@
 // aproach for compound
 // get number of reserves and base asset from comet
 // fetch underlyings per index
-import { COMPOUND_V2_COMPTROLLERS } from "@1delta/asset-registry";
-import { getEvmClient } from "@1delta/providers";
+import { getEvmClientWithCustomRpcs } from "@1delta/providers";
 import { COMPTROLLER_ABIS, CompoundV2FetchFunctions } from "./abi.js";
+import { readJsonFile } from "../utils/index.js";
 // aproach for compound V2
 // get cToken list from pool
 // fetch underlying per cToken
 // store maps
 export async function fetchCompoundV2TypeTokenData() {
+    const COMPOUND_V2_COMPTROLLERS = await readJsonFile("./config/compound-v2-pools.json");
     const forks = Object.keys(COMPOUND_V2_COMPTROLLERS);
     let cTokens = {};
     let reserves = {};
@@ -19,7 +20,7 @@ export async function fetchCompoundV2TypeTokenData() {
         let dataMap = {};
         reserves[fork] = {};
         for (const chain of chains) {
-            const client = getEvmClient(chain);
+            const client = getEvmClientWithCustomRpcs(chain);
             const address = addressSet[chain];
             let data;
             console.log("fetching for", chain, fork);
@@ -70,5 +71,5 @@ export async function fetchCompoundV2TypeTokenData() {
         cTokens[fork] = dataMap;
         dataMap = {};
     }
-    return { cTokens, reserves };
+    return { cTokens, reserves, COMPOUND_V2_COMPTROLLERS };
 }

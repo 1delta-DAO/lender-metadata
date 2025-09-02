@@ -1,14 +1,16 @@
 import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { AAVE_ABIS, AaveFetchFunctions } from "./abi.js";
-import { AAVE_FORK_POOL_DATA, Lender } from "@1delta/asset-registry";
-import { getEvmClient } from "@1delta/providers";
+import { Lender } from "@1delta/asset-registry";
+import { getEvmClientWithCustomRpcs } from "@1delta/providers";
+import { readJsonFile } from "../utils/index.js";
 const forkHasNoSToken = (ledner) => ledner === Lender.YLDR;
 // aproach for aave
 // get reserve list from pool
 // fetch tokens per reserve from address provider
 // store maps
 export async function fetchAaveTypeTokenData() {
+    const AAVE_FORK_POOL_DATA = await readJsonFile("./config/aave-pools.json");
     const forks = Object.keys(AAVE_FORK_POOL_DATA);
     let forkMap = {};
     let reservesMap = {};
@@ -20,7 +22,7 @@ export async function fetchAaveTypeTokenData() {
         reservesMap[fork] = {};
         const hasNoSToken = forkHasNoSToken(fork);
         for (const chain of chains) {
-            const client = getEvmClient(chain);
+            const client = getEvmClientWithCustomRpcs(chain);
             const addresses = addressSet[chain];
             let data;
             console.log("fetching for", chain, fork);
@@ -78,5 +80,5 @@ export async function fetchAaveTypeTokenData() {
         forkMap[fork] = dataMap;
         dataMap = {};
     }
-    return { tokens: forkMap, reserves: reservesMap };
+    return { tokens: forkMap, reserves: reservesMap, AAVE_FORK_POOL_DATA };
 }

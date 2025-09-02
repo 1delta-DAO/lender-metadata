@@ -1,6 +1,6 @@
-import { INIT_CONFIG_PER_CHAIN_MAP } from "@1delta/asset-registry";
 import { getEvmClient } from "@1delta/providers";
 import { INIT_ABIS, InitFetchFunctions } from "./abi.js";
+import { readJsonFile } from "../utils/index.js";
 // @ts-ignore
 BigInt.prototype["toJSON"] = function () {
     return this.toString();
@@ -15,6 +15,7 @@ const defaultModeSearch = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // store maps
 export async function fetchInitData() {
     let initDataMap = {};
+    const INIT_CONFIG_PER_CHAIN_MAP = await readJsonFile("./config/init-pools.json");
     const forks = Object.keys(INIT_CONFIG_PER_CHAIN_MAP);
     for (const fork of forks) {
         initDataMap[fork] = {};
@@ -75,5 +76,5 @@ export async function fetchInitData() {
             };
         }
     }
-    return { initDataMap };
+    return { initDataMap, INIT_CONFIG_PER_CHAIN_MAP };
 }

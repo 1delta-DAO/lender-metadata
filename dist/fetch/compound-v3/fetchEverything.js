@@ -1,9 +1,9 @@
 // aproach for compound
 // get number of reserves and base asset from comet
 // fetch underlyings per index
-import { COMETS_PER_CHAIN_MAP } from "@1delta/asset-registry";
 import { COMET_ABIS, CompoundV3FetchFunctions } from "./abi.js";
-import { getEvmClient } from "@1delta/providers";
+import { getEvmClientWithCustomRpcs } from "@1delta/providers";
+import { readJsonFile } from "../utils/index.js";
 // @ts-ignore
 BigInt.prototype["toJSON"] = function () {
     return this.toString();
@@ -13,10 +13,11 @@ export async function fetchCompoundV3Data() {
     let cometDataMap = {};
     let compoundReserves = {};
     let compoundBaseData = {};
+    const COMETS_PER_CHAIN_MAP = await readJsonFile("./config/compound-v3-pools.json");
     const chains = Object.keys(COMETS_PER_CHAIN_MAP);
     for (const chain of chains) {
         const comets = Object.values(COMETS_PER_CHAIN_MAP[chain]);
-        const client = getEvmClient(chain);
+        const client = getEvmClientWithCustomRpcs(chain);
         const CometMetas = (await client.multicall({
             allowFailure: false,
             contracts: comets
@@ -76,5 +77,5 @@ export async function fetchCompoundV3Data() {
             };
         }
     }
-    return { compoundReserves, compoundBaseData };
+    return { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP };
 }

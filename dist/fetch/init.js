@@ -1,4 +1,3 @@
-import { INIT_CONFIG_PER_CHAIN_MAP } from "@1delta/asset-registry";
 import { fetchInitData } from "./init/fetchEverything.js";
 const config = "./data/init-config.json";
 const pools = "./config/init-pools.json";
@@ -6,7 +5,7 @@ const pools = "./config/init-pools.json";
 export class InitUpdater {
     name = "Init";
     async fetchData() {
-        const { initDataMap } = await fetchInitData();
+        const { initDataMap, INIT_CONFIG_PER_CHAIN_MAP } = await fetchInitData();
         // Placeholder for another data source
         // This could fetch from another API, parse files, etc.
         return {

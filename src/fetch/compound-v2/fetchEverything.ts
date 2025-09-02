@@ -2,9 +2,9 @@
 // get number of reserves and base asset from comet
 // fetch underlyings per index
 
-import { COMPOUND_V2_COMPTROLLERS } from "@1delta/asset-registry";
-import { getEvmClient } from "@1delta/providers";
+import { getEvmClientWithCustomRpcs } from "@1delta/providers";
 import { COMPTROLLER_ABIS, CompoundV2FetchFunctions } from "./abi.js";
+import { readJsonFile } from "../utils/index.js";
 
 type CTokenMap = { [chainId: string]: { [address: string]: string } };
 
@@ -19,7 +19,11 @@ type ReservesMap = { [fork: string]: { [chain: string | number]: string[] } };
 export async function fetchCompoundV2TypeTokenData(): Promise<{
   cTokens: CompoundV2ForkMap;
   reserves: ReservesMap;
+  COMPOUND_V2_COMPTROLLERS: any;
 }> {
+  const COMPOUND_V2_COMPTROLLERS = await readJsonFile(
+    "./config/compound-v2-pools.json"
+  );
   const forks = Object.keys(COMPOUND_V2_COMPTROLLERS);
   let cTokens: CompoundV2ForkMap = {};
   let reserves: ReservesMap = {};
@@ -30,7 +34,7 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
     let dataMap: CTokenMap = {};
     reserves[fork] = {};
     for (const chain of chains) {
-      const client = getEvmClient(chain);
+      const client = getEvmClientWithCustomRpcs(chain);
       const address = addressSet[chain];
       let data: any;
       console.log("fetching for", chain, fork);
@@ -88,5 +92,5 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
     cTokens[fork] = dataMap;
     dataMap = {};
   }
-  return { cTokens, reserves };
+  return { cTokens, reserves, COMPOUND_V2_COMPTROLLERS };
 }

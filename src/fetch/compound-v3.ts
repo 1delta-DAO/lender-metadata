@@ -1,4 +1,3 @@
-import { COMETS_PER_CHAIN_MAP } from "@1delta/asset-registry";
 import { DataUpdater } from "../types.js";
 import { fetchCompoundV3Data } from "./compound-v3/fetchEverything.js";
 
@@ -11,12 +10,9 @@ export class CompoundV3Updater implements DataUpdater {
   name = "Compound V3";
 
   async fetchData(): Promise<Partial<any>> {
-    const { compoundReserves, compoundBaseData } = await fetchCompoundV3Data();
-    console.log(
-      "compoundReserves, compoundBaseData",
-      compoundReserves,
-      compoundBaseData
-    );
+    const { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP } =
+      await fetchCompoundV3Data();
+
     // Placeholder for another data source
     // This could fetch from another API, parse files, etc.
     return {

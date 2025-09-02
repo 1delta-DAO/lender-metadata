@@ -3,7 +3,7 @@
 // ============================================================================
 import { DEFAULTS, DEFAULTS_SHORT } from "./defaults.js";
 import { mergeData, numberToBps } from "../utils.js";
-import { MORPHO_BLUE_POOL_DATA } from "@1delta/asset-registry";
+import { readJsonFile } from "./utils/index.js";
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
@@ -135,6 +135,7 @@ export class MorphoBlueUpdater {
             names[enumName] = longName;
             shortNames[enumName] = shortName;
         }
+        const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
         return {
             [labelsFile]: { names, shortNames },
             [oraclesFile]: oracles,

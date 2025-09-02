@@ -1,5 +1,4 @@
-import { AAVE_FORK_POOL_DATA } from "@1delta/asset-registry";
-import { getEvmClient } from "@1delta/providers";
+import { getEvmClientWithCustomRpcs } from "@1delta/providers";
 import { AAVE_ABIS, AaveFetchFunctions } from "./abi.js";
 import { sleep } from "../../utils.js";
 
@@ -11,7 +10,9 @@ type AaveOracleMap = { [fork: string]: OracleMap };
 // get reserve list from pool
 // fetch tokens per reserve from address provider
 // store maps
-export async function fetchAaveTypePriceOracles(): Promise<AaveOracleMap> {
+export async function fetchAaveTypePriceOracles(
+  AAVE_FORK_POOL_DATA: any
+): Promise<AaveOracleMap> {
   const forks = Object.keys(AAVE_FORK_POOL_DATA);
   let forkMap: AaveOracleMap = {};
   for (const fork of forks) {
@@ -20,7 +21,7 @@ export async function fetchAaveTypePriceOracles(): Promise<AaveOracleMap> {
     const chains = Object.keys(addressSet);
     let dataMap: OracleMap = {};
     for (const chain of chains) {
-      const client = getEvmClient(chain);
+      const client = getEvmClientWithCustomRpcs(chain);
       const addresses = addressSet[chain];
       console.log("fetching for", chain, fork);
       let aProvider = "0x";

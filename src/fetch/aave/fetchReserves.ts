@@ -1,8 +1,9 @@
 import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { AAVE_ABIS, AaveFetchFunctions } from "./abi.js";
-import { AAVE_FORK_POOL_DATA, Lender } from "@1delta/asset-registry";
-import { getEvmClient } from "@1delta/providers";
+import { Lender } from "@1delta/asset-registry";
+import { getEvmClientWithCustomRpcs } from "@1delta/providers";
+import { readJsonFile } from "../utils/index.js";
 
 interface AaveTokens {
   aToken: string;
@@ -25,7 +26,9 @@ const forkHasNoSToken = (ledner: String) => ledner === Lender.YLDR;
 export async function fetchAaveTypeTokenData(): Promise<{
   tokens: AaveForkMap;
   reserves: ReservesMap;
+  AAVE_FORK_POOL_DATA: any;
 }> {
+  const AAVE_FORK_POOL_DATA = await readJsonFile("./config/aave-pools.json");
   const forks = Object.keys(AAVE_FORK_POOL_DATA);
   let forkMap: AaveForkMap = {};
   let reservesMap: ReservesMap = {};
@@ -37,7 +40,7 @@ export async function fetchAaveTypeTokenData(): Promise<{
     reservesMap[fork] = {};
     const hasNoSToken = forkHasNoSToken(fork);
     for (const chain of chains) {
-      const client = getEvmClient(chain);
+      const client = getEvmClientWithCustomRpcs(chain);
       const addresses = addressSet[chain];
       let data: any;
       console.log("fetching for", chain, fork);
@@ -103,5 +106,5 @@ export async function fetchAaveTypeTokenData(): Promise<{
     forkMap[fork] = dataMap;
     dataMap = {};
   }
-  return { tokens: forkMap, reserves: reservesMap };
+  return { tokens: forkMap, reserves: reservesMap, AAVE_FORK_POOL_DATA };
 }
