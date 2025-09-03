@@ -7,22 +7,21 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "update": "node dist/scripts/update-dataset.js",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "update": "node dist/update-dataset.js",
     "test": "vitest run",
     "test:watch": "vitest"
   },
-  "imports": {
-    "#lib/*": "./dist/lib/*.js",
-    "#scripts/*": "./dist/scripts/*.js"
-  },
   "devDependencies": {
-    "@types/node": "^20.14.9",
+    "@types/node": "^24.3.0",
     "typescript": "^5.5.4",
-    "vitest": "^1.6.0"
+    "vitest": "^3.2.4"
   },
   "dependencies": {
-    "@1delta/asset-registry": "^0.0.184"
+    "@1delta/asset-registry": "^0.0.191",
+    "@1delta/providers": "^0.0.11",
+    "lodash": "^4.17.21",
+    "viem": "^2.34.0"
   }
 }

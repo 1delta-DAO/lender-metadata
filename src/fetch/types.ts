@@ -9,8 +9,10 @@ export interface MrophoOracleInfo {
   collateralAssetDecimals: number;
 }
 
-export type ReturnData = {
-  names: NameMap;
-  shortNames: NameMap;
+export type LabelsAndOracles = {
+  labels: { names: NameMap; shortNames: NameMap };
   oracles: { [chainId: string]: MrophoOracleInfo[] };
 };
+
+export type Labels = { names: NameMap; shortNames: NameMap };
+export type Oracles = { [chainId: string]: MrophoOracleInfo[] };

@@ -1,0 +1,124 @@
+{
+  "COMPOUND_V3_USDC": {
+    "1": {
+      "baseAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "baseBorrowMin": "100000000"
+    },
+    "10": {
+      "baseAsset": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "baseBorrowMin": "100000"
+    },
+    "130": {
+      "baseAsset": "0x078d782b760474a361dda0af3839290b0ef57ad6",
+      "baseBorrowMin": "1000000"
+    },
+    "8453": {
+      "baseAsset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "baseBorrowMin": "1"
+    },
+    "42161": {
+      "baseAsset": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "baseBorrowMin": "1"
+    },
+    "534352": {
+      "baseAsset": "0x06efdbff2a14a7c8e15944d1f4a48f9f95f663a4",
+      "baseBorrowMin": "1000"
+    }
+  },
+  "COMPOUND_V3_WETH": {
+    "1": {
+      "baseAsset": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "baseBorrowMin": "100000000000000000"
+    },
+    "10": {
+      "baseAsset": "0x4200000000000000000000000000000000000006",
+      "baseBorrowMin": "1000000000000"
+    },
+    "130": {
+      "baseAsset": "0x4200000000000000000000000000000000000006",
+      "baseBorrowMin": "10000000000000000"
+    },
+    "2020": {
+      "baseAsset": "0xc99a6a985ed2cac1ef41640596c5a5f9f4e19ef5",
+      "baseBorrowMin": "1000000000000000"
+    },
+    "8453": {
+      "baseAsset": "0x4200000000000000000000000000000000000006",
+      "baseBorrowMin": "1000000000000"
+    },
+    "42161": {
+      "baseAsset": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+      "baseBorrowMin": "1000000000000"
+    }
+  },
+  "COMPOUND_V3_USDT": {
+    "1": {
+      "baseAsset": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "baseBorrowMin": "100000000"
+    },
+    "10": {
+      "baseAsset": "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+      "baseBorrowMin": "100000"
+    },
+    "137": {
+      "baseAsset": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+      "baseBorrowMin": "1000000"
+    },
+    "42161": {
+      "baseAsset": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+      "baseBorrowMin": "1000000"
+    }
+  },
+  "COMPOUND_V3_WSTETH": {
+    "1": {
+      "baseAsset": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "baseBorrowMin": "100000000000000000"
+    }
+  },
+  "COMPOUND_V3_USDS": {
+    "1": {
+      "baseAsset": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+      "baseBorrowMin": "10000000000000000000"
+    }
+  },
+  "COMPOUND_V3_WBTC": {
+    "1": {
+      "baseAsset": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "baseBorrowMin": "100000"
+    }
+  },
+  "COMPOUND_V3_USDCE": {
+    "137": {
+      "baseAsset": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "baseBorrowMin": "100000000"
+    },
+    "42161": {
+      "baseAsset": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+      "baseBorrowMin": "100000000"
+    }
+  },
+  "COMPOUND_V3_WRON": {
+    "2020": {
+      "baseAsset": "0xe514d9deb7966c8be0ca922de8a064264ea6bcd4",
+      "baseBorrowMin": "1000000000000000000"
+    }
+  },
+  "COMPOUND_V3_USDE": {
+    "5000": {
+      "baseAsset": "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34",
+      "baseBorrowMin": "100000000000000000000"
+    }
+  },
+  "COMPOUND_V3_USDBC": {
+    "8453": {
+      "baseAsset": "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+      "baseBorrowMin": "1"
+    }
+  },
+  "COMPOUND_V3_AERO": {
+    "8453": {
+      "baseAsset": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
+      "baseBorrowMin": "1000000000000000000"
+    }
+  }
+}

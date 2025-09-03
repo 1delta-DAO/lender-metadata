@@ -1,0 +1,55 @@
+{
+  "version": "2025-09-03T16-29-48-592Z",
+  "generatedAt": "2025-09-03T16:29:48.592Z",
+  "updatedFiles": [
+    "./data/lender-labels.json",
+    "./data/morpho-oracles.json"
+  ],
+  "results": [
+    {
+      "targetFile": "./data/lender-labels.json"
+    },
+    {
+      "targetFile": "./data/morpho-oracles.json"
+    },
+    {
+      "targetFile": "./config/morpho-pools.json"
+    },
+    {
+      "targetFile": "./data/aave-reserves.json"
+    },
+    {
+      "targetFile": "./data/aave-tokens.json"
+    },
+    {
+      "targetFile": "./data/aave-oracles.json"
+    },
+    {
+      "targetFile": "./config/aave-pools.json"
+    },
+    {
+      "targetFile": "./data/compound-v3-base-data.json"
+    },
+    {
+      "targetFile": "./data/compound-v3-reserves.json"
+    },
+    {
+      "targetFile": "./config/compound-v3-pools.json"
+    },
+    {
+      "targetFile": "./data/compound-v2-c-tokens.json"
+    },
+    {
+      "targetFile": "./data/compound-v2-reserves.json"
+    },
+    {
+      "targetFile": "./config/compound-v2-pools.json"
+    },
+    {
+      "targetFile": "./data/init-config.json"
+    },
+    {
+      "targetFile": "./config/init-pools.json"
+    }
+  ]
+}
