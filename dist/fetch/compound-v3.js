@@ -7,7 +7,6 @@ export class CompoundV3Updater {
     name = "Compound V3";
     async fetchData() {
         const { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP } = await fetchCompoundV3Data();
-        console.log("compoundReserves, compoundBaseData", compoundReserves, compoundBaseData);
         // Placeholder for another data source
         // This could fetch from another API, parse files, etc.
         return {
