@@ -1,6 +1,6 @@
 import { getEvmClient } from "@1delta/providers";
 import { parseAbi } from "viem";
-import { decodeMarkets } from "./decoder";
+import { decodeMarkets } from "./decoder.js";
 import { Chain } from "@1delta/asset-registry";
 
 const MORPHO_LENS: { [c: string]: string } = {
@@ -64,7 +64,6 @@ const MORPHO_MARKETS: { [chain: string]: string[] } = {
   ],
 };
 
-
 const getListUrl = (chainId: string) =>
   `https://raw.githubusercontent.com/1delta-DAO/asset-lists/main/${chainId}.json`;
 
@@ -109,8 +108,9 @@ export async function getMarketsOnChain(chainId: string, pools: any) {
       data.push({
         uniqueKey,
         loanAsset,
+        lltv,
         collateralAsset,
-        oracleAddress: market.oracle,
+        oracleAddress: oracle,
       });
     }
   });
