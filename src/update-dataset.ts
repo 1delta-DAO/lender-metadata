@@ -1,5 +1,5 @@
 import { DataManager } from "./data-manager.js";
-import { MorphoBlueUpdater } from "./fetch/morpho.js";
+import { MorphoBlueUpdater } from "./fetch/morpho/morpho.js";
 import { AaveUpdater } from "./fetch/aave.js";
 import { CompoundV3Updater } from "./fetch/compound-v3.js";
 import { InitUpdater } from "./fetch/init.js";

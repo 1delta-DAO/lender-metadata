@@ -2,14 +2,18 @@
 // Data Updaters
 // ============================================================================
 
-import { DEFAULTS, DEFAULTS_SHORT } from "./defaults.js";
-import { DataUpdater } from "../types.js";
-import { mergeData, numberToBps } from "../utils.js";
-import { readJsonFile } from "./utils/index.js";
+import { DEFAULTS, DEFAULTS_SHORT } from "../defaults.js";
+import { DataUpdater } from "../../types.js";
+import { mergeData, numberToBps } from "../../utils.js";
+import { readJsonFile } from "../utils/index.js";
+import { Chain } from "@1delta/asset-registry";
+import { getMarketsOnChain } from "./fetchMorphoOnChain.js";
 
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
+
+const cannotUseApi = (chainId: string) => chainId === Chain.HYPEREVM;
 
 /**
  * Merges old and new data maps based on unique combinations of loanAsset and collateralAsset
@@ -115,9 +119,14 @@ export class MorphoBlueUpdater implements DataUpdater {
   }
 
   async fetchData(): Promise<any> {
-    const chainids = ["1", "137", "8453", "42161", "747474"];
+    const chainids = ["1", "137", "999", "8453", "42161", "747474"];
+    const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
     const mbData = await Promise.all(
-      chainids.map((id) => this.fetchMorphoMarkets(id))
+      chainids.map((id) =>
+        cannotUseApi(id)
+          ? getMarketsOnChain(id, MORPHO_BLUE_POOL_DATA)
+          : this.fetchMorphoMarkets(id)
+      )
     );
 
     const items = mbData
@@ -168,7 +177,6 @@ export class MorphoBlueUpdater implements DataUpdater {
       names[enumName] = longName;
       shortNames[enumName] = shortName;
     }
-    const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
     return {
       [labelsFile]: { names, shortNames },
       [oraclesFile]: oracles,
