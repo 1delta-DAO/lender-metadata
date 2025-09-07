@@ -14,7 +14,9 @@ const oraclesFile = "./data/morpho-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
 
 const cannotUseApi = (chainId: string) =>
-  chainId === Chain.HYPEREVM || chainId === Chain.OP_MAINNET;
+  chainId === Chain.HYPEREVM ||
+  chainId === Chain.OP_MAINNET ||
+  chainId === Chain.SONEIUM;
 
 /**
  * Merges old and new data maps based on unique combinations of loanAsset and collateralAsset
@@ -120,7 +122,16 @@ export class MorphoBlueUpdater implements DataUpdater {
   }
 
   async fetchData(): Promise<any> {
-    const chainids = ["1", "10", "137", "999", "8453", "42161", "747474"];
+    const chainids = [
+      "1",
+      "10",
+      "137",
+      "999",
+      "1868",
+      "8453",
+      "42161",
+      "747474",
+    ];
     const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
     const mbData = await Promise.all(
       chainids.map((id) =>

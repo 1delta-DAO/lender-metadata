@@ -3,13 +3,14 @@ import { parseAbi } from "viem";
 import { decodeMarkets } from "./decoder.js";
 import { Chain } from "@1delta/asset-registry";
 const MORPHO_LENS = {
-    [Chain.BASE]: "0x98542B95B44a4732EffB1F4F01A696F1546236d3",
-    [Chain.POLYGON_MAINNET]: "0x105eb87D2b3127f43B1b4C0F125dbEb0EDF3d6C6",
+    [Chain.BASE]: "0x05f3f58716a88A52493Be45aA0871c55b3748f18",
+    [Chain.POLYGON_MAINNET]: "0x04102873b1A80647879Aa8B8a119F07aE08f457a",
     [Chain.OP_MAINNET]: "0x61895aEB0a42679E2Df8EE64334C405a8d47D244",
-    [Chain.ARBITRUM_ONE]: "0xF64F862Fb7D687411585e06C08711B612e156530",
-    [Chain.KATANA]: "0xcB6Eb8df68153cebF60E1872273Ef52075a5C297",
+    [Chain.ARBITRUM_ONE]: "0xeaC918F73Ba5b11D21D31a72BD00ca4A22865C3f",
+    [Chain.KATANA]: "0xCe434378adacC51d54312c872113D687Ac19B516",
     [Chain.HYPEREVM]: "0x6Bc6aCB905c1216B0119C87Bf9E178ce298310FA",
-    [Chain.ETHEREUM_MAINNET]: "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2",
+    [Chain.SONEIUM]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
+    [Chain.ETHEREUM_MAINNET]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
 };
 const MORPHO_MARKETS = {
     [Chain.HYPEREVM]: [
@@ -61,9 +62,16 @@ const MORPHO_MARKETS = {
         "0xf25db2433ae650155eae04ebd8b3795d19bfcb318d22926a8a5e746e8028e0a8",
     ],
     [Chain.OP_MAINNET]: [
-        '0x173b66359f0741b1c7f1963075cd271c739b6dc73b658e108a54ce6febeb279b',
-        '0x67840b3ace736fe47ab919ad003e0330da50536f61f9fcb96af80d0f37a57070',
-        '0xc7ae57c1998c67a4c21804df606db1309b68a518ba5acc8b1dc3ffcb1b26b071',
+        "0x173b66359f0741b1c7f1963075cd271c739b6dc73b658e108a54ce6febeb279b",
+        "0x67840b3ace736fe47ab919ad003e0330da50536f61f9fcb96af80d0f37a57070",
+        "0xc7ae57c1998c67a4c21804df606db1309b68a518ba5acc8b1dc3ffcb1b26b071",
+    ],
+    [Chain.SONEIUM]: [
+        "0xc35eda4e57363a5679949be05c65b81c2c274bfcd21173344d99726147236614",
+        "0x80a26251892573c16d88f2aabd447bc46d918daa035e1bbaedc9ca315bfb3275",
+        "0x87f0a5e65f1cfb879d2d5e7300691332ba227f3babe8fbd4bd2cbca862d8ae5e",
+        "0xebaf3dc6fa2fb3f78d18c87adcc37c06fe64874c5b2d69619ef7696088780df9",
+        "0x5869019d7ec9f92db2e90c0156b542cda7c0a679c626eac842aa5117a0483d4a",
     ],
 };
 const getListUrl = (chainId) => `https://raw.githubusercontent.com/1delta-DAO/asset-lists/main/${chainId}.json`;

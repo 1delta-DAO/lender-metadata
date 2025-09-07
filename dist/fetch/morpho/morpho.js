@@ -9,7 +9,9 @@ import { getMarketsOnChain } from "./fetchMorphoOnChain.js";
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
-const cannotUseApi = (chainId) => chainId === Chain.HYPEREVM || chainId === Chain.OP_MAINNET;
+const cannotUseApi = (chainId) => chainId === Chain.HYPEREVM ||
+    chainId === Chain.OP_MAINNET ||
+    chainId === Chain.SONEIUM;
 /**
  * Merges old and new data maps based on unique combinations of loanAsset and collateralAsset
  * @param {Object} oldDataMap - The old data map with chainId keys
@@ -98,7 +100,16 @@ export class MorphoBlueUpdater {
         return data.data;
     }
     async fetchData() {
-        const chainids = ["1", "10", "137", "999", "8453", "42161", "747474"];
+        const chainids = [
+            "1",
+            "10",
+            "137",
+            "999",
+            "1868",
+            "8453",
+            "42161",
+            "747474",
+        ];
         const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
         const mbData = await Promise.all(chainids.map((id) => cannotUseApi(id)
             ? getMarketsOnChain(id, MORPHO_BLUE_POOL_DATA)
