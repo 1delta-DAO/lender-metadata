@@ -1111,6 +1111,50 @@
       }
     }
   },
+  "AAVE_V3_HORIZON": {
+    "1": {
+      "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": {
+        "aToken": "0x946281a2d0dd6e650d08f74833323d66ae4c8b12",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xdec2401c9b0b2e480e627e2a712c11addbf46e3e"
+      },
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
+        "aToken": "0x68215b6533c47ff9f7125ac95adf00fe4a62f79e",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x4139ecbe83d78ef5eff0a6eda6f894be9d590fc7"
+      },
+      "0x8292bb45bf1ee4d140127049757c2e0ff06317ed": {
+        "aToken": "0xe3190143eb552456f88464662f0c0c4ac67a77eb",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xace8a1c0ec12ae81814377491265b47f4ee5d3dd"
+      },
+      "0x43415eb6ff9db7e26a15b704e7a3edce97d31c4e": {
+        "aToken": "0x4e58a2e433a739726134c83d2f07b2562e8dfdb3",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xc435b02dcbef2e9bde55e28d39f53ddbe0760a2c"
+      },
+      "0x14d60e7fdc0d71d8611742720e4c50e7a974020c": {
+        "aToken": "0x08b798c40b9ab931356d9ab4235f548325c4cb80",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xa0ec4758d806a3f41532c8e97ea0c85940182b0f"
+      },
+      "0x136471a34f6ef19fe571effc1ca711fdb8e49f2b": {
+        "aToken": "0xc167932ac4eec2b65844ef00d31b4550250536a5",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x818d560bf1e54f92d1089710f9f4b29c2e6c9248"
+      },
+      "0x8c213ee79581ff4984583c6a801e5263418c4b86": {
+        "aToken": "0x844f07ab09aa5dbdce6a9b1206ce150e1eadaccb",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x327f61fa4be6f578db5cc51e40da4ec4361a349c"
+      },
+      "0x5a0f93d040de44e78f251b03c43be9cf317dcf64": {
+        "aToken": "0xb0ec6c4482ac1ef77be239c0ac833cf37a27c876",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x7bd81b1e0137fc0fa013b1de2be81180814c5deb"
+      }
+    }
+  },
   "AAVE_V2": {
     "137": {
       "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063": {

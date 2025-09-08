@@ -77,6 +77,12 @@
       "protocolDataProvider": "0xE7d490885A68f00d9886508DF281D67263ed5758"
     }
   },
+  "AAVE_V3_HORIZON": {
+    "1": {
+      "pool": "0xAe05Cd22df81871bc7cC2a04BeCfb516bFe332C8",
+      "protocolDataProvider": "0x53519c32f73fE1797d10210c4950fFeBa3b21504"
+    }
+  },
   "AAVE_V2": {
     "137": {
       "pool": "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf",
