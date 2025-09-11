@@ -1,7 +1,7 @@
 import { getEvmClient } from "@1delta/providers";
 import { parseAbi } from "viem";
 import { decodeMarkets } from "./decoder.js";
-import { Chain } from "@1delta/asset-registry";
+import { Chain } from "@1delta/chain-registry";
 const MORPHO_LENS = {
     [Chain.BASE]: "0x05f3f58716a88A52493Be45aA0871c55b3748f18",
     [Chain.POLYGON_MAINNET]: "0x04102873b1A80647879Aa8B8a119F07aE08f457a",

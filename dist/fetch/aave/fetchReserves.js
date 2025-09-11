@@ -1,7 +1,7 @@
 import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { AAVE_ABIS, AaveFetchFunctions } from "./abi.js";
-import { Lender } from "@1delta/asset-registry";
+import { Lender } from "@1delta/lender-registry";
 import { getEvmClientWithCustomRpcs } from "@1delta/providers";
 import { readJsonFile } from "../utils/index.js";
 const forkHasNoSToken = (ledner) => ledner === Lender.YLDR;

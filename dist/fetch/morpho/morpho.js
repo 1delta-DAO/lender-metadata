@@ -4,7 +4,7 @@
 import { DEFAULTS, DEFAULTS_SHORT } from "../defaults.js";
 import { mergeData, numberToBps } from "../../utils.js";
 import { readJsonFile } from "../utils/index.js";
-import { Chain } from "@1delta/asset-registry";
+import { Chain } from "@1delta/chain-registry";
 import { getMarketsOnChain } from "./fetchMorphoOnChain.js";
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-oracles.json";

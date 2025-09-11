@@ -1,4 +1,4 @@
-import { Lender } from "@1delta/asset-registry";
+import { Lender } from "@1delta/lender-registry";
 export const DEFAULTS = {
     [Lender.AAVE_V3]: "Aave V3",
     [Lender.AAVE_V2]: "Aave V2",
