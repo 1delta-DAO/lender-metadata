@@ -20,8 +20,9 @@
   },
   "dependencies": {
     "@1delta/chain-registry": "^0.0.1",
+    "@1delta/data-sdk": "^0.0.8",
     "@1delta/lender-registry": "^0.0.5",
-    "@1delta/providers": "^0.0.13",
+    "@1delta/providers": "^0.0.14",
     "lodash": "^4.17.21",
     "viem": "^2.34.0"
   }
