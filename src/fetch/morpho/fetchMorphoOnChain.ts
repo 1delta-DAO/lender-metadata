@@ -83,6 +83,7 @@ const MORPHO_MARKETS: { [chain: string]: string[] } = {
     "0xebeabb17bd69d4b8ed6929a821d69478b564f4cc604d0995944c9da8b5cb3f04",
     "0xed00791e29eb08c9bc0d8b389fe1f00084699baf2a785ba2a42e915706b17b82",
     "0xf25db2433ae650155eae04ebd8b3795d19bfcb318d22926a8a5e746e8028e0a8",
+    "0xfbe436e9aa361487f0c3e4ff94c88aea72887a4482c6b8bcfec60a8584cdb05e",
   ],
   [Chain.OP_MAINNET]: [
     "0x173b66359f0741b1c7f1963075cd271c739b6dc73b658e108a54ce6febeb279b",
