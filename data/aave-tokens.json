@@ -929,6 +929,11 @@
         "aToken": "0xf611aeb5013fd2c0511c9cd55c7dc5c1140741a6",
         "sToken": "0x0000000000000000000000000000000000000000",
         "vToken": "0x38d693ce1df5aadf7bc62595a37d667ad57922e5"
+      },
+      "0xc891eb4cbdeff6e073e859e987815ed1505c2acd": {
+        "aToken": "0x8a9fde6925a839f6b1932d16b36ac026f8d3fbdb",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x5d557b07776d12967914379c71a1310e917c7555"
       }
     },
     "59144": {
@@ -2597,6 +2602,11 @@
         "aToken": "0x48a278aa1eab4de5b74897230ae57fb9e7b1497a",
         "sToken": "0x0000000000000000000000000000000000000000",
         "vToken": "0x3f6f19e098e3c0c996d11ce4d4816ac470c40708"
+      },
+      "0xb88339cb7199b77e23db6e890353e22632ba630f": {
+        "aToken": "0x744e4f26ee30213989216e1632d9be3547c4885b",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xd612513cb3b2c52abcd6d4b338374c09ada4657d"
       }
     }
   },
@@ -2681,6 +2691,11 @@
         "aToken": "0x3b967db41b6be6a42b3f42077ee707af2f45713e",
         "sToken": "0xc35ec8b5afe1fdd3259bf53879cf3364b2a14ed0",
         "vToken": "0x201153bcfadfa658d81724bc7b6688782506871a"
+      },
+      "0xb88339cb7199b77e23db6e890353e22632ba630f": {
+        "aToken": "0x280535137dd84080d97d0826c577b4019d8e1beb",
+        "sToken": "0x4cb411281a87dbfa7c25b09d8094926828b13cdc",
+        "vToken": "0x27949aaed7fa3231fad190b7c035f557f82dabdc"
       }
     }
   },
@@ -2950,6 +2965,16 @@
         "aToken": "0xcbb44d744a12676797033bbd65c6b3d61f02f183",
         "sToken": "0x8cb12fcf5d9f0c86541c70b1d119d48214e933d6",
         "vToken": "0x7f93220b3c307b428dbb7a90ac56bcee3b257b64"
+      },
+      "0x47c031236e19d024b42f8ae6780e44a573170703": {
+        "aToken": "0x97a786fa951712ab10c16681a5acd9fabcea285e",
+        "sToken": "0x8f5ecae4f562469c8a393eda34285b26267f397a",
+        "vToken": "0x29adee4bde1f1b8faf278806e3974f22fae64f01"
+      },
+      "0x70d95587d40a2caf56bd97485ab3eec10bee6336": {
+        "aToken": "0x7fa17fad637bbe6b58e6cec266687006e137bce7",
+        "sToken": "0x785e1094b1bd684b77d6b35d1743673a551c265b",
+        "vToken": "0x2b2b3d665e88d78b47615e7d43b298a39135268f"
       }
     }
   },
