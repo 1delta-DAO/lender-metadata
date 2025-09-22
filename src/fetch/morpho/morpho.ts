@@ -129,6 +129,7 @@ export class MorphoBlueUpdater implements DataUpdater {
       "999",
       "1868",
       "8453",
+      "43111",
       "42161",
       "747474",
     ];

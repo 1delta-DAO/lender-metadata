@@ -3,6 +3,7 @@ import { parseAbi } from "viem";
 import { decodeMarkets } from "./decoder.js";
 import { Chain } from "@1delta/chain-registry";
 const MORPHO_LENS = {
+    [Chain.HEMI_NETWORK]: "0x1170Ef5B1A7f9c4F0ce34Ddf66CC0e6090Fd107E",
     [Chain.BASE]: "0x05f3f58716a88A52493Be45aA0871c55b3748f18",
     [Chain.POLYGON_MAINNET]: "0x04102873b1A80647879Aa8B8a119F07aE08f457a",
     [Chain.OP_MAINNET]: "0x61895aEB0a42679E2Df8EE64334C405a8d47D244",
@@ -94,6 +95,14 @@ const MORPHO_MARKETS = {
         "0x87f0a5e65f1cfb879d2d5e7300691332ba227f3babe8fbd4bd2cbca862d8ae5e",
         "0xebaf3dc6fa2fb3f78d18c87adcc37c06fe64874c5b2d69619ef7696088780df9",
         "0x5869019d7ec9f92db2e90c0156b542cda7c0a679c626eac842aa5117a0483d4a",
+    ],
+    [Chain.HEMI_NETWORK]: [
+        "0x36931ab4ffe6fed55ab0624afd2bf6eb1cebdbd6d5c98334e949841e402f86ff",
+        "0x08abb2b634eb6454a5819dbaa5c0229136989a9990ed757727c406dbcb4e606b",
+        "0xf1b97d86baa12ef4622eeca186a49fa7f7ea1ac2aa55ea4c20a26e815ddd6bc6",
+        "0xb7dd4c2e7c164de474b28c354cddb137deb0ce2583b925d20c33322074c22178",
+        "0x4b670128dfaa02a92f833bb9b99949262b685c2d3f55d4f7c97da1849d2b6355",
+        "0x7c985a3ba92fa76a362f661b37a68c9955490eb659b7905aab6019b91042b452",
     ],
 };
 const getListUrl = (chainId) => `https://raw.githubusercontent.com/1delta-DAO/asset-lists/main/${chainId}.json`;
