@@ -16,6 +16,7 @@ const poolsFile = "./config/morpho-pools.json";
 const cannotUseApi = (chainId: string) =>
   chainId === Chain.HYPEREVM ||
   chainId === Chain.OP_MAINNET ||
+  chainId === Chain.HEMI_NETWORK ||
   chainId === Chain.SONEIUM;
 
 /**

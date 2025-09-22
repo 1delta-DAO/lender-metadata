@@ -11,6 +11,7 @@ const oraclesFile = "./data/morpho-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
 const cannotUseApi = (chainId) => chainId === Chain.HYPEREVM ||
     chainId === Chain.OP_MAINNET ||
+    chainId === Chain.HEMI_NETWORK ||
     chainId === Chain.SONEIUM;
 /**
  * Merges old and new data maps based on unique combinations of loanAsset and collateralAsset
@@ -107,6 +108,7 @@ export class MorphoBlueUpdater {
             "999",
             "1868",
             "8453",
+            "43111",
             "42161",
             "747474",
         ];
