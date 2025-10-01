@@ -1,12 +1,13 @@
 {
-  "version": "2025-09-30T10-58-00-131Z",
-  "generatedAt": "2025-09-30T10:58:00.131Z",
+  "version": "2025-10-01T14-01-27-366Z",
+  "generatedAt": "2025-10-01T14:01:27.366Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-oracles.json",
     "./data/aave-reserves.json",
     "./data/aave-tokens.json",
-    "./data/aave-oracles.json"
+    "./data/aave-oracles.json",
+    "./config/aave-pools.json"
   ],
   "results": [
     {
