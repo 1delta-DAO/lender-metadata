@@ -1,11 +1,13 @@
 {
-  "version": "2025-10-08T10-04-07-678Z",
-  "generatedAt": "2025-10-08T10:04:07.678Z",
+  "version": "2025-10-09T20-13-47-158Z",
+  "generatedAt": "2025-10-09T20:13:47.158Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-oracles.json",
-    "./data/compound-v2-c-tokens.json",
-    "./data/compound-v2-reserves.json"
+    "./data/aave-reserves.json",
+    "./data/aave-tokens.json",
+    "./data/compound-v3-base-data.json",
+    "./data/compound-v3-reserves.json"
   ],
   "results": [
     {

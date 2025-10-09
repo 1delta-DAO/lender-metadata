@@ -20,6 +20,10 @@
       "baseAsset": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
       "baseBorrowMin": "1"
     },
+    "59144": {
+      "baseAsset": "0x176211869ca2b568f2a7d4ee941e073a821ee1ff",
+      "baseBorrowMin": "1000000"
+    },
     "534352": {
       "baseAsset": "0x06efdbff2a14a7c8e15944d1f4a48f9f95f663a4",
       "baseBorrowMin": "1000"
@@ -49,6 +53,10 @@
     "42161": {
       "baseAsset": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
       "baseBorrowMin": "1000000000000"
+    },
+    "59144": {
+      "baseAsset": "0xe5d7c2a44ffddf6b295a15c148167daaaf5cf34f",
+      "baseBorrowMin": "10000000000000000"
     }
   },
   "COMPOUND_V3_USDT": {
