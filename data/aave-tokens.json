@@ -1577,6 +1577,160 @@
       }
     }
   },
+  "LENDLE_SUSDE_USDT": {
+    "5000": {
+      "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2": {
+        "aToken": "0xf93bc96f96bb12a5f2461990ba2de322001d1314",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xdc5e6851e2974e9aece4614a20162c43f7fe05fa"
+      },
+      "0x201eba5cc46d216ce6dc03f6a759e8e766e956ae": {
+        "aToken": "0xa5309f42ca457b2145092ac7ccef33838232c187",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x5b19cdf2ba4f9c23e4ea1cca74d6e2b3f21f02ab"
+      }
+    }
+  },
+  "LENDLE_METH_WETH": {
+    "5000": {
+      "0xcda86a272531e8640cd7f1a92c01839911b90bb0": {
+        "aToken": "0x69871f4c3081dc1747e19c86273cb7827fef4c52",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xdaf138f0aec91863c3bcf579b03a58b40a208bcd"
+      },
+      "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111": {
+        "aToken": "0xe12ebe0f7bb0264dde0b7dfd071eb6c08510988c",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x87aa23a250033d68149076ba99a3a17b0e226936"
+      }
+    }
+  },
+  "LENDLE_METH_USDE": {
+    "5000": {
+      "0xcda86a272531e8640cd7f1a92c01839911b90bb0": {
+        "aToken": "0x025606ed9ed50e14f7d26dff0fc8a6a2b7149dd8",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xd943da6f6cb40af1c367516e1364a790a9073ac6"
+      },
+      "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34": {
+        "aToken": "0x59b2f0aae2128610b0aa8f10f46337c039c589c6",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x9a0834a893ad596b8ed295b9d4b3a2237c7c6343"
+      }
+    }
+  },
+  "LENDLE_CMETH_WETH": {
+    "5000": {
+      "0xe6829d9a7ee3040e1276fa75293bde931859e8fa": {
+        "aToken": "0x3a128c1edbcaa8da3a68d9c35621956fed54b7fb",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x96b76c21fbdbf85f486f847207b197b1f5e456de"
+      },
+      "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111": {
+        "aToken": "0xc67cf25fc70d3f95eec7795fd35b9ef8bbd1bd73",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x7a09d7c669c325d88a2afee9be17d4f6517acdc7"
+      }
+    }
+  },
+  "LENDLE_CMETH_USDE": {
+    "5000": {
+      "0xe6829d9a7ee3040e1276fa75293bde931859e8fa": {
+        "aToken": "0x55c46af22b64b8a466433730cec1f2f1f79e7c1f",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x71fe3d4d85dc47e773424917d04fb09c52d5d5c6"
+      },
+      "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34": {
+        "aToken": "0x422028e5af77909c6ae37ff9afa413916635bee4",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x2e92474289000679b20a8fb4e6c9356ab10c1a6e"
+      }
+    }
+  },
+  "LENDLE_CMETH_WMNT": {
+    "5000": {
+      "0xe6829d9a7ee3040e1276fa75293bde931859e8fa": {
+        "aToken": "0x04af8b7419be56381f4fb97326f77312378e31f3",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xe0c90dc5b22a4eee1aa7c8b5b17ddd75f2f694e4"
+      },
+      "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8": {
+        "aToken": "0x7128883bd1fdb932d4daa4676be96a4378559f8a",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x24c04f2e3b6f2d66d4e823cdb2331291be246012"
+      }
+    }
+  },
+  "LENDLE_FBTC_WETH": {
+    "5000": {
+      "0xc96de26018a54d51c097160568752c4e3bd6c364": {
+        "aToken": "0x6f057dde1d984c2850e48d083d07629fb5192ea8",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x3cdfc22b8740afbcfbf610ba906ca751246243cd"
+      },
+      "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111": {
+        "aToken": "0xe37f6909c507741005bac1d2c74cd17e16a0caef",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xd8902164cb06e217a81de80307d0e86b30463941"
+      }
+    }
+  },
+  "LENDLE_FBTC_USDE": {
+    "5000": {
+      "0xc96de26018a54d51c097160568752c4e3bd6c364": {
+        "aToken": "0x7fdaca61ae0a320a8da3b4d67debd6554fa1bc56",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x21bd8afefe853cb493dc6d56cc1473c367845732"
+      },
+      "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34": {
+        "aToken": "0xd37101aad875ee1b1c630cb080752ae19ae284ac",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x1775233bae456db49eceb351a9dda0c21d3d8011"
+      }
+    }
+  },
+  "LENDLE_FBTC_WMNT": {
+    "5000": {
+      "0xc96de26018a54d51c097160568752c4e3bd6c364": {
+        "aToken": "0x835173165e78d6dfd39eb59fb651a961e3729643",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x27194a3a5a8f68745c1de6ad8d4f567551af0ac4"
+      },
+      "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8": {
+        "aToken": "0x395ee48e72b63cc63cb1e9725a6eb9f6e0e9104e",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x4d43a0ce8d268b969b22d640ede588612779a6a7"
+      }
+    }
+  },
+  "LENDLE_WMNT_WETH": {
+    "5000": {
+      "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8": {
+        "aToken": "0x3b7f9b064fc284ebaa2349be4831853be71a39c7",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x3d2db868ae6bf09d05d40c2a5c71bf51ba5d6ecb"
+      },
+      "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111": {
+        "aToken": "0x9c8f2331365cc9147d4a8b7347123664cc8aa0a8",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xb11ecac1ca15a01a8e3e852b254a9a1bb7884f95"
+      }
+    }
+  },
+  "LENDLE_WMNT_USDE": {
+    "5000": {
+      "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8": {
+        "aToken": "0xf1965cec21bf576f4daa0ac56d8512b60c3cae8d",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x0ea491b40fcb5e596a6890522391bbaefff6b7c1"
+      },
+      "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34": {
+        "aToken": "0x6b45202af001b7c89df38d9a9bcb1e3f1f286ab2",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0x28c1eecf3b7dce7235b1e0985f73f89de1c7d783"
+      }
+    }
+  },
   "LENDLE_PT_CMETH": {
     "5000": {
       "0x698eb002a4ec013a33286f7f2ba0be3970e66455": {

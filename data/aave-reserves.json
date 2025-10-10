@@ -369,6 +369,72 @@
       "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34"
     ]
   },
+  "LENDLE_SUSDE_USDT": {
+    "5000": [
+      "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2",
+      "0x201eba5cc46d216ce6dc03f6a759e8e766e956ae"
+    ]
+  },
+  "LENDLE_METH_WETH": {
+    "5000": [
+      "0xcda86a272531e8640cd7f1a92c01839911b90bb0",
+      "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111"
+    ]
+  },
+  "LENDLE_METH_USDE": {
+    "5000": [
+      "0xcda86a272531e8640cd7f1a92c01839911b90bb0",
+      "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34"
+    ]
+  },
+  "LENDLE_CMETH_WETH": {
+    "5000": [
+      "0xe6829d9a7ee3040e1276fa75293bde931859e8fa",
+      "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111"
+    ]
+  },
+  "LENDLE_CMETH_USDE": {
+    "5000": [
+      "0xe6829d9a7ee3040e1276fa75293bde931859e8fa",
+      "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34"
+    ]
+  },
+  "LENDLE_CMETH_WMNT": {
+    "5000": [
+      "0xe6829d9a7ee3040e1276fa75293bde931859e8fa",
+      "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8"
+    ]
+  },
+  "LENDLE_FBTC_WETH": {
+    "5000": [
+      "0xc96de26018a54d51c097160568752c4e3bd6c364",
+      "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111"
+    ]
+  },
+  "LENDLE_FBTC_USDE": {
+    "5000": [
+      "0xc96de26018a54d51c097160568752c4e3bd6c364",
+      "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34"
+    ]
+  },
+  "LENDLE_FBTC_WMNT": {
+    "5000": [
+      "0xc96de26018a54d51c097160568752c4e3bd6c364",
+      "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8"
+    ]
+  },
+  "LENDLE_WMNT_WETH": {
+    "5000": [
+      "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8",
+      "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111"
+    ]
+  },
+  "LENDLE_WMNT_USDE": {
+    "5000": [
+      "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8",
+      "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34"
+    ]
+  },
   "LENDLE_PT_CMETH": {
     "5000": [
       "0x698eb002a4ec013a33286f7f2ba0be3970e66455",

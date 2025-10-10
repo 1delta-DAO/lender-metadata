@@ -119,6 +119,72 @@
       "protocolDataProvider": "0xaDB43eF86581a517CED608839d4D24E49d41187c"
     }
   },
+  "LENDLE_SUSDE_USDT": {
+    "5000": {
+      "pool": "0x82ca5d1117C8499b731423711272C5ad05Ad693a",
+      "protocolDataProvider": "0x7E1E69937a38ec0EAb971CD1636943e534C657Ef"
+    }
+  },
+  "LENDLE_METH_WETH": {
+    "5000": {
+      "pool": "0x9CdF3c151BE88921544902088fdb54DDf08431d1",
+      "protocolDataProvider": "0x6B99F330Bd277e17a092922Fb8036c9B000F9365"
+    }
+  },
+  "LENDLE_METH_USDE": {
+    "5000": {
+      "pool": "0xA11A13DE301C3f17c3892786720179750a25450A",
+      "protocolDataProvider": "0xc156E06e7e94a31250eF2DDeEe338f1E36C3b956"
+    }
+  },
+  "LENDLE_CMETH_WETH": {
+    "5000": {
+      "pool": "0x6815B0570ea49ccC09F4d910787b0993013DBDAA",
+      "protocolDataProvider": "0x7e31765855d6251837122e042c02518F4e1Bc3f3"
+    }
+  },
+  "LENDLE_CMETH_USDE": {
+    "5000": {
+      "pool": "0xEE50fb458a41C628E970657e6d0f01728c64545D",
+      "protocolDataProvider": "0xBE584AfCcAd0882d24F6cF2c27BC997b49A6c367"
+    }
+  },
+  "LENDLE_CMETH_WMNT": {
+    "5000": {
+      "pool": "0x256eCC6C2b013BFc8e5Af0AD9DF8ebd10122d018",
+      "protocolDataProvider": "0x60b6642207a157455746cFaF7273B4b2691e5416"
+    }
+  },
+  "LENDLE_FBTC_WETH": {
+    "5000": {
+      "pool": "0x9f2eb80B3c49A5037Fa97d9Ff85CdE1cE45A7fa0",
+      "protocolDataProvider": "0x84a04bca517C77d06D2A01b44431Ccff114e82a4"
+    }
+  },
+  "LENDLE_FBTC_USDE": {
+    "5000": {
+      "pool": "0x42C5EbFD934923Cc2aB6a3FD91A0d92B6064DFBc",
+      "protocolDataProvider": "0xAba0f27208F05f5063887767c547e12B1235Dc41"
+    }
+  },
+  "LENDLE_FBTC_WMNT": {
+    "5000": {
+      "pool": "0x5CAd26932A8D17Ba0540EeeCb3ABAdf7722DA9a0",
+      "protocolDataProvider": "0xa53480df32d65B76cD6fCb2399786d0CFf65FD54"
+    }
+  },
+  "LENDLE_WMNT_WETH": {
+    "5000": {
+      "pool": "0xeaFF9A5F8676D20F5F1C391902d9584C1b6f33f5",
+      "protocolDataProvider": "0x79Ef83f6635Ea6BdFB0B3F7022f783ad97019F31"
+    }
+  },
+  "LENDLE_WMNT_USDE": {
+    "5000": {
+      "pool": "0xecce86d3D3f1b33Fe34794708B7074CDe4aBe9d4",
+      "protocolDataProvider": "0x69d09E0051669072914eC0bB9308aC670e214bD9"
+    }
+  },
   "LENDLE_PT_CMETH": {
     "5000": {
       "pool": "0x5d7b73f9271c40ff737f98B8F818e7477761041f",
