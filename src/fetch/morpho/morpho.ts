@@ -12,6 +12,7 @@ import { getMarketsOnChain } from "./fetchMorphoOnChain.js";
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
+const curatorsFile = "./data/morpho-curators.json";
 
 const cannotUseApi = (chainId: string) =>
   chainId === Chain.OP_MAINNET ||
@@ -68,6 +69,14 @@ function mergeOracleDataMaps(oldDataMap: any, newDataMap: any) {
 export class MorphoBlueUpdater implements DataUpdater {
   name = "Morpho Blue Markets";
 
+  // to-do: add this to supplyingVaults.state and check the market.id and calculate correctly
+  // allocation {
+  //   supplyAssets
+  //   supplyAssetsUsd
+  //   market {
+  //     id
+  //   }
+  // }
   private query(first: number, skip: number, chainId: string): string {
     return `
     query GetMarkets {
@@ -79,6 +88,7 @@ export class MorphoBlueUpdater implements DataUpdater {
       orderDirection: Desc
       ) {
         items {
+          id
           uniqueKey
           lltv
           oracleAddress
@@ -91,6 +101,16 @@ export class MorphoBlueUpdater implements DataUpdater {
             address
             symbol
             decimals
+          }
+          supplyingVaults {
+            state {
+              curators {
+                id,
+                image,
+                verified,
+                name
+              }
+            }
           }
         }
       }
@@ -151,6 +171,7 @@ export class MorphoBlueUpdater implements DataUpdater {
     const names: Record<string, string> = {};
     const shortNames: Record<string, string> = {};
     const oracles: Record<string, any[]> = {};
+    const curators: Record<string, Record<string, any[]>> = {};
 
     for (const el of items) {
       const hash: string = el.uniqueKey;
@@ -189,11 +210,26 @@ export class MorphoBlueUpdater implements DataUpdater {
 
       names[enumName] = longName;
       shortNames[enumName] = shortName;
+
+      // curators
+      if (!!el.supplyingVaults && el.supplyingVaults.length > 0) {
+        if (!curators[chainId]) curators[chainId] = {};
+        const uniqueCuratorList = Array.from(
+          new Map(
+            el.supplyingVaults
+              .flatMap((vault: any) => vault?.state?.curators || [])
+              .map((curator: any) => [curator.id, curator])
+          ).values()
+        );
+        curators[chainId][enumName] = uniqueCuratorList
+      }
     }
+
     return {
       [labelsFile]: { names, shortNames },
       [oraclesFile]: oracles,
       [poolsFile]: MORPHO_BLUE_POOL_DATA,
+      [curatorsFile]: curators,
     };
   }
 
@@ -210,11 +246,16 @@ export class MorphoBlueUpdater implements DataUpdater {
       return data;
     }
 
+    if (fileKey === curatorsFile) {
+      return mergeData(oldData, data, this.defaults[oraclesFile]);
+    }
+
     throw new Error("Bad File");
   }
 
   defaults = {
     [labelsFile]: { names: DEFAULTS, shortNames: DEFAULTS_SHORT },
     [oraclesFile]: {},
+    [curatorsFile]: {},
   };
 }
