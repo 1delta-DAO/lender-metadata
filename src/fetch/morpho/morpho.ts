@@ -247,7 +247,7 @@ export class MorphoBlueUpdater implements DataUpdater {
     }
 
     if (fileKey === curatorsFile) {
-      return mergeData(oldData, data, this.defaults[oraclesFile]);
+      return mergeData(oldData, data, this.defaults[curatorsFile]);
     }
 
     throw new Error("Bad File");
