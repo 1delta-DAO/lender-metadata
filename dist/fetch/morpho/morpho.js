@@ -201,7 +201,10 @@ export class MorphoBlueUpdater {
             return data;
         }
         if (fileKey === curatorsFile) {
-            return mergeData(oldData, data, this.defaults[oraclesFile]);
+            console.log(' this.defaults[curatorsFile]', this.defaults[curatorsFile]);
+            const d = mergeData(oldData, data, this.defaults[curatorsFile]);
+            console.log('conso', oldData.names, data.names);
+            return d;
         }
         throw new Error("Bad File");
     }

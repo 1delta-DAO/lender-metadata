@@ -3,7 +3,7 @@
 // ============================================================================
 import { readTextIfExists } from "./io.js";
 import { StoredData } from "./fetch/types.js";
-import { UpdateOptions, UpdateResult } from "./types.js";
+import { UpdateOptions } from "./types.js";
 
 /** Load existing file if present; otherwise return empty structure */
 export async function loadExisting(
