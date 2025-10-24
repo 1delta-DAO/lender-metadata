@@ -6,6 +6,7 @@ import { mergeData, numberToBps } from "../../utils.js";
 import { readJsonFile } from "../utils/index.js";
 import { Chain } from "@1delta/chain-registry";
 import { getMarketsOnChain } from "./fetchMorphoOnChain.js";
+import { Lender } from "@1delta/lender-registry";
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
@@ -164,8 +165,8 @@ export class MorphoBlueUpdater {
                     if (!loanSym || !collSym)
                         continue;
                     const bps = numberToBps(el.lltv);
-                    const protocolPrefix = fork === "MOOLAH" ? "Moolah" : "Morpho";
-                    const shortPrefix = fork === "MOOLAH" ? "ML" : "MB";
+                    const protocolPrefix = fork === Lender.LISTA_DAO ? "Lista" : "Morpho";
+                    const shortPrefix = fork === Lender.LISTA_DAO ? "LD" : "MB";
                     const longName = `${protocolPrefix} ${collSym}-${loanSym} ${bps}`;
                     const shortName = `${shortPrefix} ${collSym}-${loanSym} ${bps}`;
                     names[enumName] = longName;

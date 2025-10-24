@@ -2,6 +2,7 @@ import { getEvmClient } from "@1delta/providers"
 import { parseAbi } from "viem"
 import { decodeMarkets } from "./decoder.js"
 import { Chain } from "@1delta/chain-registry"
+import { Lender } from "@1delta/lender-registry"
 
 const MORPHO_LENS: { [c: string]: string } = {
     [Chain.HEMI_NETWORK]: "0x1170Ef5B1A7f9c4F0ce34Ddf66CC0e6090Fd107E",
@@ -15,11 +16,11 @@ const MORPHO_LENS: { [c: string]: string } = {
     [Chain.ETHEREUM_MAINNET]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
 }
 
-export const MOOLAH_LENS: { [c: string]: string } = {
+export const LISTA_LENS: { [c: string]: string } = {
     [Chain.BNB_SMART_CHAIN_MAINNET]: "0xFc98b3157f0447DfbB9FdBE7d072F7DdacA1E27C",
 }
 
-export const MOOLAH_MARKETS: { [chain: string]: string[] } = {
+export const LISTA_MARKETS: { [chain: string]: string[] } = {
     [Chain.BNB_SMART_CHAIN_MAINNET]: [
         "0x2292a4820cdf330b88ba079671484d228db4a07957db9bc24e3f1c0b42c44b84",
         "0xa6a01504ccb6a0e3832e1fae31cc4f606a7c38cd76071f27befd013b8e46e78e",
@@ -251,14 +252,14 @@ export async function getMarketsOnChain(chainId: string, pools: any) {
         let functionName: string = ""
 
         // Determine which markets and lens to use based on fork
-        if (forkName === "MORPHO_BLUE") {
+        if (forkName === Lender.MORPHO_BLUE) {
             markets = MORPHO_MARKETS[chainId] ?? []
             lensAddress = MORPHO_LENS[chainId]
             abi = parseAbi(["function getMarketDataCompact(address morpho, bytes32[] calldata marketsIds) external view returns (bytes memory data)"])
             functionName = "getMarketDataCompact"
-        } else if (forkName === "MOOLAH") {
-            markets = MOOLAH_MARKETS[chainId] ?? []
-            lensAddress = MOOLAH_LENS[chainId]
+        } else if (forkName === Lender.LISTA_DAO) {
+            markets = LISTA_MARKETS[chainId] ?? []
+            lensAddress = LISTA_LENS[chainId]
             abi = parseAbi([
                 "function getMoolahMarketDataCompact(address morpho, bytes32[] calldata marketsIds) external view returns (bytes memory data)",
             ])
