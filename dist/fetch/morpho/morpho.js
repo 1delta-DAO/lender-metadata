@@ -10,9 +10,12 @@ const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
 const curatorsFile = "./data/morpho-curators.json";
-const cannotUseApi = (chainId) => chainId === Chain.OP_MAINNET ||
-    chainId === Chain.HEMI_NETWORK ||
-    chainId === Chain.SONEIUM;
+const cannotUseApi = (chainId, fork) => {
+    if (fork === "MORPHO_BLUE") {
+        return chainId === Chain.OP_MAINNET || chainId === Chain.HEMI_NETWORK || chainId === Chain.SONEIUM;
+    }
+    return true; // can't use api for moolah
+};
 /**
  * Merges old and new data maps based on unique combinations of loanAsset and collateralAsset
  * @param {Object} oldDataMap - The old data map with chainId keys
@@ -22,10 +25,7 @@ const cannotUseApi = (chainId) => chainId === Chain.OP_MAINNET ||
 function mergeOracleDataMaps(oldDataMap, newDataMap) {
     const merged = {};
     // Get all unique chain IDs from both maps
-    const allChainIds = new Set([
-        ...Object.keys(oldDataMap || {}),
-        ...Object.keys(newDataMap || {}),
-    ]);
+    const allChainIds = new Set([...Object.keys(oldDataMap || {}), ...Object.keys(newDataMap || {})]);
     for (const chainId of allChainIds) {
         const oldEntries = oldDataMap[chainId] || [];
         const newEntries = newDataMap[chainId] || [];
@@ -120,67 +120,64 @@ export class MorphoBlueUpdater {
         return data.data;
     }
     async fetchData() {
-        const chainids = [
-            "1",
-            "10",
-            "137",
-            "999",
-            "1868",
-            "8453",
-            "43111",
-            "42161",
-            "747474",
-        ];
+        const chainids = ["1", "10", "56", "137", "999", "1868", "8453", "43111", "42161", "747474"];
         const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
-        const mbData = await Promise.all(chainids.map((id) => cannotUseApi(id)
-            ? getMarketsOnChain(id, MORPHO_BLUE_POOL_DATA)
-            : this.fetchMorphoMarkets(id)));
-        const items = mbData
-            .map((data, i) => data.markets.items.map((a) => ({ ...a, chainId: chainids[i] })))
-            .flatMap((b) => b);
+        const forks = Object.keys(MORPHO_BLUE_POOL_DATA);
         const names = {};
         const shortNames = {};
         const oracles = {};
         const curators = {};
-        for (const el of items) {
-            const hash = el.uniqueKey;
-            const enumName = `MORPHO_BLUE_${hash.slice(2).toUpperCase()}`;
-            const chainId = el.chainId;
-            if (!oracles[chainId])
-                oracles[chainId] = [];
-            const oracle = el.oracleAddress;
-            const loanAsset = el.loanAsset.address.toLowerCase();
-            const collateralAsset = el.collateralAsset?.address.toLowerCase();
-            const loanAssetDecimals = el.loanAsset.decimals;
-            const collateralAssetDecimals = el.collateralAsset?.decimals;
-            if (collateralAsset &&
-                loanAsset &&
-                oracle !== "0x0000000000000000000000000000000000000000") {
-                oracles[chainId].push({
-                    oracle,
-                    loanAsset,
-                    collateralAsset,
-                    loanAssetDecimals,
-                    collateralAssetDecimals,
-                });
-            }
-            const loanSym = el.loanAsset?.symbol;
-            const collSym = el.collateralAsset?.symbol;
-            if (!loanSym || !collSym)
-                continue;
-            const bps = numberToBps(el.lltv);
-            const longName = `Morpho ${collSym}-${loanSym} ${bps}`;
-            const shortName = `MB ${collSym}-${loanSym} ${bps}`;
-            names[enumName] = longName;
-            shortNames[enumName] = shortName;
-            // curators
-            if (!!el.supplyingVaults && el.supplyingVaults.length > 0) {
-                if (!curators[chainId])
-                    curators[chainId] = {};
-                const uniqueCuratorList = Array.from(new Map(el.supplyingVaults
-                    .flatMap((vault) => vault?.state?.curators || [])
-                    .map((curator) => [curator.id, curator])).values());
-                curators[chainId][enumName] = uniqueCuratorList;
+        for (const fork of forks) {
+            const forkConfig = MORPHO_BLUE_POOL_DATA[fork];
+            for (const chainId of chainids) {
+                if (!forkConfig[chainId])
+                    continue;
+                let marketData;
+                if (cannotUseApi(chainId, fork)) {
+                    marketData = await getMarketsOnChain(chainId, { [fork]: forkConfig });
+                }
+                else {
+                    marketData = await this.fetchMorphoMarkets(chainId);
+                }
+                const items = marketData.markets?.items || [];
+                for (const el of items) {
+                    const hash = el.uniqueKey;
+                    const enumName = `${fork}_${hash.slice(2).toUpperCase()}`;
+                    if (!oracles[chainId])
+                        oracles[chainId] = [];
+                    const oracle = el.oracleAddress;
+                    const loanAsset = el.loanAsset.address.toLowerCase();
+                    const collateralAsset = el.collateralAsset?.address.toLowerCase();
+                    const loanAssetDecimals = el.loanAsset.decimals;
+                    const collateralAssetDecimals = el.collateralAsset?.decimals;
+                    if (collateralAsset && loanAsset && oracle !== "0x0000000000000000000000000000000000000000") {
+                        oracles[chainId].push({
+                            oracle,
+                            loanAsset,
+                            collateralAsset,
+                            loanAssetDecimals,
+                            collateralAssetDecimals,
+                        });
+                    }
+                    const loanSym = el.loanAsset?.symbol;
+                    const collSym = el.collateralAsset?.symbol;
+                    if (!loanSym || !collSym)
+                        continue;
+                    const bps = numberToBps(el.lltv);
+                    const protocolPrefix = fork === "MOOLAH" ? "Moolah" : "Morpho";
+                    const shortPrefix = fork === "MOOLAH" ? "ML" : "MB";
+                    const longName = `${protocolPrefix} ${collSym}-${loanSym} ${bps}`;
+                    const shortName = `${shortPrefix} ${collSym}-${loanSym} ${bps}`;
+                    names[enumName] = longName;
+                    shortNames[enumName] = shortName;
+                    // curators
+                    if (!!el.supplyingVaults && el.supplyingVaults.length > 0) {
+                        if (!curators[chainId])
+                            curators[chainId] = {};
+                        const uniqueCuratorList = Array.from(new Map(el.supplyingVaults.flatMap((vault) => vault?.state?.curators || []).map((curator) => [curator.id, curator])).values());
+                        curators[chainId][enumName] = uniqueCuratorList;
+                    }
+                }
             }
         }
         return {
@@ -201,10 +198,7 @@ export class MorphoBlueUpdater {
             return data;
         }
         if (fileKey === curatorsFile) {
-            console.log(' this.defaults[curatorsFile]', this.defaults[curatorsFile]);
-            const d = mergeData(oldData, data, this.defaults[curatorsFile]);
-            console.log('conso', oldData.names, data.names);
-            return d;
+            return mergeData(oldData, data, this.defaults[curatorsFile]);
         }
         throw new Error("Bad File");
     }
