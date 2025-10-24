@@ -16,7 +16,7 @@ const MORPHO_LENS: { [c: string]: string } = {
 }
 
 export const MOOLAH_LENS: { [c: string]: string } = {
-    [Chain.BNB_SMART_CHAIN_MAINNET]: "0xb222Bc69465F12929e1A1D3d901C5623C42fA7Ef",
+    [Chain.BNB_SMART_CHAIN_MAINNET]: "0xFc98b3157f0447DfbB9FdBE7d072F7DdacA1E27C",
 }
 
 export const MOOLAH_MARKETS: { [chain: string]: string[] } = {
