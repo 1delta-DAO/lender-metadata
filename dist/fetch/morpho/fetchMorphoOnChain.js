@@ -2,6 +2,7 @@ import { getEvmClient } from "@1delta/providers";
 import { parseAbi } from "viem";
 import { decodeMarkets } from "./decoder.js";
 import { Chain } from "@1delta/chain-registry";
+import { Lender } from "@1delta/lender-registry";
 const MORPHO_LENS = {
     [Chain.HEMI_NETWORK]: "0x1170Ef5B1A7f9c4F0ce34Ddf66CC0e6090Fd107E",
     [Chain.BASE]: "0x05f3f58716a88A52493Be45aA0871c55b3748f18",
@@ -12,6 +13,111 @@ const MORPHO_LENS = {
     [Chain.HYPEREVM]: "0x6Bc6aCB905c1216B0119C87Bf9E178ce298310FA",
     [Chain.SONEIUM]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
     [Chain.ETHEREUM_MAINNET]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
+};
+export const LISTA_LENS = {
+    [Chain.BNB_SMART_CHAIN_MAINNET]: "0xFc98b3157f0447DfbB9FdBE7d072F7DdacA1E27C",
+};
+export const LISTA_MARKETS = {
+    [Chain.BNB_SMART_CHAIN_MAINNET]: [
+        "0x2292a4820cdf330b88ba079671484d228db4a07957db9bc24e3f1c0b42c44b84",
+        "0xa6a01504ccb6a0e3832e1fae31cc4f606a7c38cd76071f27befd013b8e46e78e",
+        "0x93e0995138222571035a6deadd617efad2f2400d69067a0d1fc74b179657046a",
+        "0xf3a85dfdf8c44398c49401aa8f4dc3be20bff806b9da2e902d3b379790a312c6",
+        "0x9a7d48f4d5a39353ff9d34c4cefc2dc933bcc11e8be1a503db0910678763c394",
+        "0xb060b526bd2fc99150cff9d6f7e7fab88d5d67e35cf262215f986d62a2fba99e",
+        "0x763c26da46ff4b72e38fd9935538dbdc5379996c7f9fa4489d245adf45e65eef",
+        "0x78d8882695ecc12b1cbaf0e09fa681eef7f89984711e34c91a5d99f51fbe28c5",
+        "0x78d4cf129bf7e4d61a53a3b1c6c6e6ecaaec4a1f3bf1c176b904b2e8ec932bb3",
+        "0x4f9f51fb2cedc44d94fadafb0ebf56ce429a66e72a1d3a80e8903c7bfe09a233",
+        "0x0c604931198d645ed4ebfaa5d3ced8e11528ec004ef2e6c8fb968d8fbdf902b4",
+        "0x8358cc1bf5d19d624bca71db95c077420278234cc9710f9d801c2946bb3c95d5",
+        "0x0e9ce37ed19824e0698b8cf1855bef55cefdc82f37c321c3812d90135f476709",
+        "0x869861f50ecec64d1a75a24ebb118071c5e60122ee263e4ad44546d762c818f9",
+        "0x10a30e6ecc9119aa45b79355b5c75edef77c91528131462205bbac457f3dc274",
+        "0x68f3b098525f043efa59863b1e6ccfb3b9c9eaa698011af78aec0f7ee1e74958",
+        "0xfff455af65ca5548a56d061aa344938b1ebf1baccef2d1ff57c59269f475539c",
+        "0x1e971ef571126edf3a2cfc5bb75137b9d204c09fa4565b7397a4f2c6e79f7abe",
+        "0x60e2142a6689170196ab9b6d477a44dc5ed9477957e1046da274edda8e778cd6",
+        "0x9296f6b16f26036cadab212cc3569490637021728d96cd61637e7dc14525630b",
+        "0x4c8c4dc9d93756111b914027d6e712aed1d3d0fa57b26332b476b245723a6b6e",
+        "0xff10de0835d2f15456bc31c8a04346fa5b481ecf7d3b9d16106bbd45069ed1c1",
+        "0xd9c00925089bfdfa28fd1e9ee734da1461d0b1b9bed9647f6e7ec5acb9d20fc6",
+        "0x970bbb364473bace0004b4e8171f95b37e44e9103bf2d65579eaedd0f9f10294",
+        "0x59bdfd8308fa61a080bfb3e8b0e9b1922248336c1d8742d5c40eecfab261685a",
+        "0x97252720b962a8f6984a8a1e0d5713ac3308bf7e7ef0deaa7a49769743904b06",
+        "0x92a0b35f1cdccf6e8b8f07d1ee59568f84222f38eaeef4083a359ceb4468362c",
+        "0xdf9ad2d18a115cc0ee9239a174a4f0d1b22d7d1393ec71e37638f8f7be68f78c",
+        "0x2bb68bc7f70186f3d4f16db6a19986df6c6cdea3e589c1ae3d30b56b0632c5ec",
+        "0xe4f13e0f056e811b79ca4598bbf8756c7b5d5483e57373036674bc4d24b32a8d",
+        "0x2e865d41371fb021130dc872741c70564d0f5ea4856ff1542163a8b59b0b524d",
+        "0x769813deb1d1e0999fea8db4fa4b03f8ba2a822bfb082f8c30f3d9578c0acdb5",
+        "0x91448288effa647bb24f0ef3eaa999d3e1007dcc76c7cdc6d8136038c7bb8fcb",
+        "0x49c84acd4492ebb13e577adbd7e653fc7dfc2195af45562fc71b111722f6f02f",
+        "0xed20ae46f7f909622225cdf9f301854bd46d74f639ab07bba723e5431ab27653",
+        "0xcc31249ac8d2ccaa0950a812156d3aa0f06f0918ab5763d8b11a54711aac78ed",
+        "0x6350ccd3fe864c1c750f2b5d99b81d1fd712250a650808d2f6e17651b1047e37",
+        "0x3b13048e4b7550330862055e7c81a62b81f283111003eaa2825f54e77e35a23b",
+        "0x24ef5f94def28b34f08e192a810aecd393ea4969eec031ec268de008e8a3bc70",
+        "0xff66db2dcd564ed68063c779e018d25ad1a31af372bd85e4acd770d9b985f5d4",
+        "0x7fed7ee489225e577836f7fc0f641359ab801292610b6afce3b47fc6087cb9e3",
+        "0x9161680af48565835df016a2b2f4987a6793a545758d0379d9e0d7479db07973",
+        "0x642b55769bec1f4e0d8687e24c3db885ae446f6fbb124decae96b6c0ea37f4f1",
+        "0x099a8d12861248c9ab5460f21ed1169d3f5447a8432d016c75019037f24ed9cf",
+        "0x699b2f053a8d301e47fdde812abaf36268b74d6f8e6b8e2d3164954b5ba8e3e5",
+        "0x8a1fffce64f5b29d59e7ebfd7a927e29acdb932cc73508c9861157eeef9b8e1a",
+        "0x975f4cf3db16812d995f60e19bec91a96108d47429237acc8d208bc0519c5b19",
+        "0xd384584abf6504425c9873f34a63372625d46cd1f2e79aeedc77475cacaca922",
+        "0x417eef8a15b54c61c64026d13ff067611579d95d392c969cac919115b5a379a2",
+        "0x98736236a21390ea3697d1776974c4adcd7d8fe2961c9296cb744c3627b8b349",
+        "0xfd073c4948f943af46af445c715802a711a1f6ab3fae2d902bd89ca612a98c07",
+        "0xe2fac994ce98526fbc986a2f3877efddd114a09f790d679eb1cd978c3e050e55",
+        "0x90607b6f2025dd56756d0e54e04e749f863f3663435949668f9c65eee1ccad7b",
+        "0x174a1298d2f4a0baaef5524dfe61f4a16690eb0eddb0d3c19078acfaeda71ac4",
+        "0x2b87aedf2672376147a71cf09d3b7c776f92e6c52d22a12fe1322bb205892961",
+        "0xd6df9bb9ed780d18239e6ddd7c6d17f3c9bee4443149a10ec70bf8ef2a93052f",
+        "0x35ce501c9de47e409c9162b1d8e515a859a7f0c6482d23746c7696fa47849edd",
+        "0xf4859576d776ccbc5c7848228da8edd47902d351b1195787742bf5a2927dfe8c",
+        "0x178d759d9798fe68515d6671d7230c65c2c5538b2d4e23a0e08b337e79018960",
+        "0x5166d134305e09a4605c875f57c6344cc2af34e595942d112e13b5005997055d",
+        "0x169a54980294ed1343d1d2bac1f279924a572ab0f2097214672565f06a275d19",
+        "0x4522789ae88efdbbf289021548be7a0e98bf501f7a7765dd822090fb068cdccb",
+        "0x8bf69f18eb2ad0ca4defa8e8ae8d5c1516118561e543a448dcdcdc860ed1fa47",
+        "0x32f51c0ef2ab59481fc355b522c6638f39c03a820b37d981709a0a654455c1e8",
+        "0xdf6046e4442d873576d16313f634a44a3a621ddc69fdf973ba5025ca427a5e5b",
+        "0x5058916e33f0cd1b1e6b35943a1c322ea8ebca3cfec7636fd97bf3ad077384bb",
+        "0xd2c3aaada06ed9db2cf6f74831dbc65c115c8d2652b19a66b5510f7697a77e4a",
+        "0xe3fe92dd549a7ca1de5b5edf53f2d2300b0cc145390f8b06dab694380f216354",
+        "0x155bad1b463ec4c4bcfd01ac96ce7d346544174da8550f93e98b6bb68377ef24",
+        "0x492bef0bc2f8af11388ba0393d557a2bb9a0a17fa776746edb15ae2206071263",
+        "0x0a55356620b49a0f46971fbde5663ea3cd6522fef33287bce2af46bd50d7f9ec",
+        "0x1945e1e315e1d4c6f3a46186259d77c45c433ad73f9f39bb895a4f0d5702843b",
+        "0xd6c21aa96745a2bbfa4c44622de70db5c6aba2e419a04e39492c3e818bf8cad5",
+        "0x8df489b72324481ad81e6e34efc63ed9ad0f17ce392a9a0f62a63c7af8719cec",
+        "0xb4414852df68f609f4af78d3db26d3d1b4b8b3e1ff9bf0a551a5df5512518409",
+        "0x77847c67f226bb35ab9e90a2e4f7d38c843580e41189a865e6d80377680747a9",
+        "0xcdac2f0341fd96b3f2c69b5a71b8575cda964716434a29805c9ce5c6914189a5",
+        "0xf5851e3064736fe04791d094f24bfb1cb1890d402ab66c0c7657edc9f5a64a4a",
+        "0x5dafe6bc0d68f8e449e20a982387138203cd794218edf6b88342de93da363486",
+        "0xe1d29487971d885780b451e4bcec8e234149cdf641b9c2c96146445f917c3c05",
+        "0xbf9b7ccbd4a052c47a80966e78d94ebcccfa42fd844ab63e4caf462a46e77463",
+        "0xd50ab52aa3e0c116ce4ac0cf2e712322cef72d042c6890086f0af9c49b26cbc3",
+        "0x5bd6e57058349afef09fb956734786b5b52d443bd97eb6bb9b3a5dfd8931abe6",
+        "0x7024975b01054a099391a7335367b04ca419592dc0f5b94ef93d5da8d1fe570a",
+        "0x7de811eba4fa1cf2f417d5d64ab3f06bae3fb900561963954ac1ae9a5d757fd8",
+        "0x6d70b29dfe8c8b1f9963d8a46b756055baf6269701fb0293d117149d9deb8235",
+        "0x01c052192714cc60cced5ee7b8692df04bd352fa1badc8e3b5ba1ea150d61981",
+        "0x42597f4698410b304910a0942da5f3da553b4abd57cd546fdec0ad18270529d9",
+        "0xe5aca112f38ec0deaa2a245d481572b123fcf61594562db46ac479939bb26785",
+        "0xef5adf75aa2171a6b95fb9a09b69d6c4e2624576bfb60961a4a8f3a5e1aa9fa8",
+        "0x7fd2702981745ba53bbf24343f58bcf82202ffebe3329933059731d360b2b55e",
+        "0xc42d3ff5778cf2385e5c9d318824a334afeb9715dad2dcd28742b2a062798eae",
+        "0x0fc58322696aed5e7684583ff7c55a0a8c58225e5ceb47e3c5536acf5138414c",
+        "0xd97241d7e1f99e4375089571d6fc136596154cb8d8b894f0715839b8d10793db",
+        "0xe8d896709e520cfc51e0b6fb4ed5ad35d78824f1b721719822e8a5044f6870bd",
+        "0x811bf77b2067da21bfaeb2c89f71c9d1a9893d7b175b776bf363f9df4bb2604b",
+        "0x70050ea2ef94b1317a2c8a9c258991f67627e55d6e04934f8de7a9fa19eb4275",
+        "0x6bc2c834705eb30ba7122f5d5b5f540eb95565e42fee1c0472f3f76aedb7d12d",
+    ],
 };
 const MORPHO_MARKETS = {
     [Chain.HYPEREVM]: [
@@ -124,42 +230,62 @@ async function getDeltaTokenList(chain) {
     return list;
 }
 export async function getMarketsOnChain(chainId, pools) {
-    const markets = MORPHO_MARKETS[chainId] ?? [];
     const tokens = await getDeltaTokenList(chainId);
-    const abi = parseAbi([
-        "function getMarketDataCompact(address morpho, bytes32[] calldata marketsIds) external view returns (bytes memory data)",
-    ]);
     const provider = getEvmClient(chainId);
-    const mb = pools.MORPHO_BLUE?.[chainId];
-    if (!mb)
-        return [];
-    const returnData = await provider.simulateContract({
-        abi,
-        functionName: "getMarketDataCompact",
-        address: MORPHO_LENS[chainId],
-        args: [mb, markets],
-    });
-    const decoded = decodeMarkets(returnData.result ?? "0x");
     const data = [];
-    decoded.forEach((market, i) => {
-        const uniqueKey = markets[i];
-        const { lltv, irm, oracle, loanToken, collateralToken, ...state } = market;
-        if (collateralToken && loanToken && oracle) {
-            const m = "MORPHO_BLUE_" + uniqueKey.slice(2).toUpperCase();
-            // @ts-ignore
-            if (!data[m])
-                data[m] = { data: {} };
-            // get assets from list
-            const loanAsset = tokens[loanToken.toLowerCase()];
-            const collateralAsset = tokens[collateralToken.toLowerCase()];
-            data.push({
-                uniqueKey,
-                loanAsset,
-                lltv,
-                collateralAsset,
-                oracleAddress: oracle,
+    for (const [forkName, forkData] of Object.entries(pools)) {
+        const poolAddress = forkData[chainId];
+        if (!poolAddress)
+            continue;
+        let markets = [];
+        let lensAddress = "";
+        let abi;
+        let functionName = "";
+        // Determine which markets and lens to use based on fork
+        if (forkName === Lender.MORPHO_BLUE) {
+            markets = MORPHO_MARKETS[chainId] ?? [];
+            lensAddress = MORPHO_LENS[chainId];
+            abi = parseAbi(["function getMarketDataCompact(address morpho, bytes32[] calldata marketsIds) external view returns (bytes memory data)"]);
+            functionName = "getMarketDataCompact";
+        }
+        else if (forkName === Lender.LISTA_DAO) {
+            markets = LISTA_MARKETS[chainId] ?? [];
+            lensAddress = LISTA_LENS[chainId];
+            abi = parseAbi([
+                "function getMoolahMarketDataCompact(address morpho, bytes32[] calldata marketsIds) external view returns (bytes memory data)",
+            ]);
+            functionName = "getMoolahMarketDataCompact";
+        }
+        if (!lensAddress || markets.length === 0 || !functionName)
+            continue;
+        try {
+            const returnData = await provider.simulateContract({
+                abi,
+                functionName,
+                address: lensAddress,
+                args: [poolAddress, markets],
+            });
+            const decoded = decodeMarkets(returnData.result ?? "0x");
+            decoded.forEach((market, i) => {
+                const uniqueKey = markets[i];
+                const { lltv, irm, oracle, loanToken, collateralToken, ...state } = market;
+                if (collateralToken && loanToken && oracle) {
+                    // get assets from list
+                    const loanAsset = tokens[loanToken.toLowerCase()];
+                    const collateralAsset = tokens[collateralToken.toLowerCase()];
+                    data.push({
+                        uniqueKey,
+                        loanAsset,
+                        lltv,
+                        collateralAsset,
+                        oracleAddress: oracle,
+                    });
+                }
             });
         }
-    });
+        catch (error) {
+            console.warn(`Failed to fetch ${forkName} markets for chain ${chainId}:`, error);
+        }
+    }
     return { markets: { items: data } };
 }
