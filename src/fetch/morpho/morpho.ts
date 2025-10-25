@@ -69,21 +69,20 @@ function sortEntriesById(data: DataStructure): DataStructure {
 function mergeOracleDataMaps(oldDataMap: any, newDataMap: any) {
   let merged: any = {};
 
-  // Get all unique forks from both maps
-  const allForks = new Set([
+  // iterate over chains
+  const allChainIds = new Set([
     ...Object.keys(oldDataMap || {}),
     ...Object.keys(newDataMap || {}),
   ]);
-
-  for (const fork of allForks) {
-    // iterate over chains
-    const allChainIds = new Set([
-      ...Object.keys(oldDataMap[fork] || {}),
-      ...Object.keys(newDataMap[fork] || {}),
+  for (const chainId of allChainIds) {
+    // Get all unique forks from both maps
+    const allForks = new Set([
+      ...Object.keys(oldDataMap[chainId] || {}),
+      ...Object.keys(newDataMap[chainId] || {}),
     ]);
-    for (const chainId of allChainIds) {
-      const oldEntries = oldDataMap[fork]?.[chainId] || [];
-      const newEntries = newDataMap[fork]?.[chainId] || [];
+    for (const fork of allForks) {
+      const oldEntries = oldDataMap[chainId]?.[fork] || [];
+      const newEntries = newDataMap[chainId]?.[fork] || [];
 
       // Create a map for quick lookup using loanAsset + collateralAsset as key
       const entryMap = new Map();
