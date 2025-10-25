@@ -14,10 +14,10 @@ async function main(): Promise<void> {
 
   // Register updaters
   manager.registerUpdater(new MorphoBlueUpdater());
-  manager.registerUpdater(new AaveUpdater());
-  manager.registerUpdater(new CompoundV3Updater());
-  manager.registerUpdater(new CompoundV2Updater());
-  manager.registerUpdater(new InitUpdater());
+  // manager.registerUpdater(new AaveUpdater());
+  // manager.registerUpdater(new CompoundV3Updater());
+  // manager.registerUpdater(new CompoundV2Updater());
+  // manager.registerUpdater(new InitUpdater());
 
   // You can now update from specific sources:
   // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });
