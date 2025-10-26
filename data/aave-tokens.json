@@ -6916,6 +6916,89 @@
       }
     }
   },
+  "PRIME_FI": {
+    "50": {
+      "0xfa2958cb79b0491cc627c1557f441ef849ca8eb1": {
+        "aToken": "0xb9a14b24c6e669d24e76dab65f7c4dc52f68741c",
+        "sToken": "0xa679a608bddd118ff4da4a8bd1c67877dc0e97bc",
+        "vToken": "0xdbed51f298901987651faf1daed8bb575942d406"
+      },
+      "0xcda5b77e2e2268d9e09c874c1b9a4c3f07b37555": {
+        "aToken": "0x2a50be4df06202a239384e828d6e67f9f2fa954e",
+        "sToken": "0x1811d261c05de6c7470d9de6a56b895427151127",
+        "vToken": "0xaae0d3c0b4aa454ceb5b5346ba1e95a86395d656"
+      },
+      "0x951857744785e80e2de051c32ee7b25f9c458c42": {
+        "aToken": "0x1ff5e0037b478547715a4ce337d9fcff86a30401",
+        "sToken": "0x4481f22a369b1a7272026d5892a4beec505de5fb",
+        "vToken": "0xc12bdd620a54149df6b73fad9726d387402a9066"
+      },
+      "0x9b8e12b0bac165b86967e771d98b520ec3f665a6": {
+        "aToken": "0x834695a5d33967f8cc27e6d15684c0aa36ca4375",
+        "sToken": "0x42c48209f2899ffed336c67e04ee21121f12b681",
+        "vToken": "0x47c4d740016411bb8f5c9d9bdb3f866c9b46e0a4"
+      },
+      "0x81b244d0be055ef3bef1b09b7826cc2b108b2cbd": {
+        "aToken": "0x3a577f9789fc81c2ea0b81b9e02b6dbc67158a37",
+        "sToken": "0xde4ac0d2caee918f215fa60122067833254bd0e2",
+        "vToken": "0xd9ba32e8a4955e4fbbbdd61f121b2f81ca7bbfe8"
+      }
+    },
+    "999": {
+      "0xb88339cb7199b77e23db6e890353e22632ba630f": {
+        "aToken": "0x386f40c2a8485d6572cb74a736a0763c0521095b",
+        "sToken": "0x485f14382c920885f9da1aab0e15e7d92d20bfcc",
+        "vToken": "0x009a18797c9c7eb06811d4cdc44881f3c5fa748a"
+      },
+      "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb": {
+        "aToken": "0x5fc1737115ecb6850be0a4f0ce25b7f98231cab9",
+        "sToken": "0xe870b24cab6621b588958f8a625ab38100cf5260",
+        "vToken": "0xd00fe535b82f215989178609286610fe666e5365"
+      },
+      "0x5555555555555555555555555555555555555555": {
+        "aToken": "0xcf4642ef89683d0299b59738b1cc3ac0177348ba",
+        "sToken": "0x78dbff862d2b61141595cae61f861aa4b8f8df97",
+        "vToken": "0x9601c465c3c404465d968a2dda10fd807f2b2d5c"
+      },
+      "0xbe6727b535545c67d5caa73dea54865b92cf7907": {
+        "aToken": "0x6e811aa146f961c918d14be9ed9c0cd68f447a6e",
+        "sToken": "0x37c48affe87857a0fcbfc32742101036b56046ee",
+        "vToken": "0x71f719166c403ac15f55567babdd19b7da1e8817"
+      },
+      "0x9fdbda0a5e284c32744d2f17ee5c74b284993463": {
+        "aToken": "0x98b7056e0e0521b7ba32f4ac8af8e1249789d2d6",
+        "sToken": "0xe73997e0e71c6b7ce920222d4abd21b3b26fdb80",
+        "vToken": "0xd218a5f74af42d9b1a879e2349e751deafe3114c"
+      },
+      "0x7bbcf1b600565ae023a1806ef637af4739de3255": {
+        "aToken": "0x07cb5aa0c467df9b3a38df3fbfd465c454905690",
+        "sToken": "0x575e9e2ffabe88f7896a246735905949f95f6b83",
+        "vToken": "0x182cfb49ad159f8c770ef7ad9ff56f3e61b9a9fa"
+      }
+    },
+    "8453": {
+      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+        "aToken": "0xb9a14b24c6e669d24e76dab65f7c4dc52f68741c",
+        "sToken": "0xa679a608bddd118ff4da4a8bd1c67877dc0e97bc",
+        "vToken": "0xdbed51f298901987651faf1daed8bb575942d406"
+      },
+      "0x4200000000000000000000000000000000000006": {
+        "aToken": "0x2a50be4df06202a239384e828d6e67f9f2fa954e",
+        "sToken": "0x1811d261c05de6c7470d9de6a56b895427151127",
+        "vToken": "0xaae0d3c0b4aa454ceb5b5346ba1e95a86395d656"
+      },
+      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
+        "aToken": "0x1ff5e0037b478547715a4ce337d9fcff86a30401",
+        "sToken": "0x4481f22a369b1a7272026d5892a4beec505de5fb",
+        "vToken": "0xc12bdd620a54149df6b73fad9726d387402a9066"
+      },
+      "0x7bbcf1b600565ae023a1806ef637af4739de3255": {
+        "aToken": "0x834695a5d33967f8cc27e6d15684c0aa36ca4375",
+        "sToken": "0x42c48209f2899ffed336c67e04ee21121f12b681",
+        "vToken": "0x47c4d740016411bb8f5c9d9bdb3f866c9b46e0a4"
+      }
+    }
+  },
   "U235": {
     "534352": {
       "0xf55bec9cafdbe8730f096aa55dad6d22d44099df": {

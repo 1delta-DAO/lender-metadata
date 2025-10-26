@@ -15,6 +15,7 @@ const cannotUseApi = (chainId, fork) => {
     if (fork === "MORPHO_BLUE") {
         return (chainId === Chain.OP_MAINNET ||
             chainId === Chain.HEMI_NETWORK ||
+            chainId === Chain.BERACHAIN ||
             chainId === Chain.SONEIUM);
     }
     return true; // can't use api for moolah

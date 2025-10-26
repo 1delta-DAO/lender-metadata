@@ -20,6 +20,7 @@ const cannotUseApi = (chainId: string, fork: string) => {
     return (
       chainId === Chain.OP_MAINNET ||
       chainId === Chain.HEMI_NETWORK ||
+      chainId === Chain.BERACHAIN ||
       chainId === Chain.SONEIUM
     );
   }

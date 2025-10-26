@@ -221,6 +221,14 @@ const MORPHO_MARKETS = {
         "0x4b670128dfaa02a92f833bb9b99949262b685c2d3f55d4f7c97da1849d2b6355",
         "0x7c985a3ba92fa76a362f661b37a68c9955490eb659b7905aab6019b91042b452",
     ],
+    [Chain.BERACHAIN]: [
+        "0x04d3b8b00c6f3b75481492b76139473e2368339ee58587df65684fdb9103984e",
+        "0x950962c1cf2591f15806e938bfde9b5f9fbbfcc5fb640030952c08b536f1f167",
+        "0x1ba7904c73d337c39cb88b00180dffb215fc334a6ff47bbe829cd9ee2af00c97",
+        "0x63c2a7c20192095c15d1d668ccce6912999b01ea60eeafcac66eca32015674dd",
+        "0x1f05d324f604bd1654ec040311d2ac4f5820ecfd1801a3d19d2c6f09d4f7a614",
+        "0x594de722a090f8d0df41087c23e2187fb69d9cd6b7b425c6dd56ddc1cff545f0",
+    ],
 };
 const getListUrl = (chainId) => `https://raw.githubusercontent.com/1delta-DAO/asset-lists/main/${chainId}.json`;
 async function getDeltaTokenList(chain) {
