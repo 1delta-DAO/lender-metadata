@@ -13,6 +13,7 @@ const MORPHO_LENS = {
     [Chain.HYPEREVM]: "0x6Bc6aCB905c1216B0119C87Bf9E178ce298310FA",
     [Chain.SONEIUM]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
     [Chain.ETHEREUM_MAINNET]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
+    [Chain.BERACHAIN]: "0x7a59ddbB76521E8982Fa3A08598C9a83b14A6C07",
 };
 export const LISTA_LENS = {
     [Chain.BNB_SMART_CHAIN_MAINNET]: "0xFc98b3157f0447DfbB9FdBE7d072F7DdacA1E27C",
@@ -253,7 +254,9 @@ export async function getMarketsOnChain(chainId, pools) {
         if (forkName === Lender.MORPHO_BLUE) {
             markets = MORPHO_MARKETS[chainId] ?? [];
             lensAddress = MORPHO_LENS[chainId];
-            abi = parseAbi(["function getMarketDataCompact(address morpho, bytes32[] calldata marketsIds) external view returns (bytes memory data)"]);
+            abi = parseAbi([
+                "function getMarketDataCompact(address morpho, bytes32[] calldata marketsIds) external view returns (bytes memory data)",
+            ]);
             functionName = "getMarketDataCompact";
         }
         else if (forkName === Lender.LISTA_DAO) {

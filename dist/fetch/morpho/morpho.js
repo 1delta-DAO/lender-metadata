@@ -163,6 +163,7 @@ export class MorphoBlueUpdater {
             "8453",
             "43111",
             "42161",
+            "80094",
             "747474",
         ];
         const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
