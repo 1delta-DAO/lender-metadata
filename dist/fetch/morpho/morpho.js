@@ -10,6 +10,7 @@ import { Lender } from "@1delta/lender-registry";
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-type-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
+const marketsFile = "./config/morpho-type-markets.json";
 const curatorsFile = "./data/morpho-curators.json";
 const cannotUseApi = (chainId, fork) => {
     if (fork === "MORPHO_BLUE") {
@@ -167,6 +168,7 @@ export class MorphoBlueUpdater {
             "747474",
         ];
         const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
+        const MORPHO_BLUE_MARKETS = await readJsonFile(marketsFile);
         const forks = Object.keys(MORPHO_BLUE_POOL_DATA);
         const names = {};
         const shortNames = {};
@@ -179,7 +181,7 @@ export class MorphoBlueUpdater {
                     continue;
                 let marketData;
                 if (cannotUseApi(chainId, fork)) {
-                    marketData = await getMarketsOnChain(chainId, { [fork]: forkConfig });
+                    marketData = await getMarketsOnChain(chainId, { [fork]: forkConfig }, MORPHO_BLUE_MARKETS);
                 }
                 else {
                     marketData = await this.fetchMorphoMarkets(chainId);
