@@ -1,10 +1,13 @@
 {
-  "version": "2025-10-31T12-35-40-883Z",
-  "generatedAt": "2025-10-31T12:35:40.883Z",
+  "version": "2025-11-01T10-14-53-927Z",
+  "generatedAt": "2025-11-01T10:14:53.927Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-type-oracles.json",
-    "./data/morpho-curators.json"
+    "./data/morpho-curators.json",
+    "./data/compound-v2-c-tokens.json",
+    "./data/compound-v2-reserves.json",
+    "./config/compound-v2-pools.json"
   ],
   "results": [
     {
