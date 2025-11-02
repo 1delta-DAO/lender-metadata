@@ -1454,14 +1454,6 @@
         "name": "Yearn"
       }
     ],
-    "MORPHO_BLUE_6D388FF5D62B779FC3579C8449B5DD84A893DF668A9A64D2ADED1BEE36887B57": [
-      {
-        "id": "steakhouse-financial",
-        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
-        "verified": true,
-        "name": "Steakhouse Financial"
-      }
-    ],
     "MORPHO_BLUE_6DF56ABB95E9F3F96049448E1C98D208DEB1ADD8A3D0C7A23E5E5466DBA4EDBD": [
       {
         "id": "steakhouse-financial",
@@ -2086,12 +2078,6 @@
         "name": "9Summits"
       },
       {
-        "id": "clearstar",
-        "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
-        "verified": true,
-        "name": "Clearstar"
-      },
-      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -2124,12 +2110,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/avantgarde.svg",
         "verified": true,
         "name": "Avantgarde"
-      },
-      {
-        "id": "clearstar",
-        "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
-        "verified": true,
-        "name": "Clearstar"
       },
       {
         "id": "hyperithm",
@@ -2618,6 +2598,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
         "verified": true,
         "name": "Yearn"
+      }
+    ],
+    "MORPHO_BLUE_B3E1073BD0F794B671D967D6CC9FB4D2C228093DDCBCACFD98C4F95169CF9299": [
+      {
+        "id": "hyperithm",
+        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
+        "verified": true,
+        "name": "Hyperithm"
       }
     ],
     "MORPHO_BLUE_B5B0FF0FCCF16DFF5BEF6D2D001D60F5C4AB49DF1020A01073D3AD635C80E8D5": [
@@ -3690,12 +3678,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
         "verified": true,
         "name": "B.Protocol"
-      },
-      {
-        "id": "clearstar",
-        "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
-        "verified": true,
-        "name": "Clearstar"
       },
       {
         "id": "gauntlet",
