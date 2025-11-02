@@ -882,5 +882,31 @@
       "pool": "0xeb787d93fD7C6f5995977Ec89303B5CFE6668682",
       "protocolDataProvider": "0xeB3C203418f0cb55b351C3E45A5C4f47bE5DA77A"
     }
+  },
+  "PLUTOS": {
+    "137": {
+      "pool": "0x93BEF731821B2E534cCFBD330734d35de34fa418",
+      "protocolDataProvider": "0x6A9b632010226F9bBbf2B6cb8B6990bE3F90cb0e"
+    },
+    "8453": {
+      "pool": "0xf072795653316fd7Fb15b2e4fF4e273385986ac2",
+      "protocolDataProvider": "0x7dcb86dC49543E14A98F80597696fe5f444f58bC"
+    },
+    "9745": {
+      "pool": "0x3775Df2Ac7fbf5ED636595aeFEd4544B9fA14C0a",
+      "protocolDataProvider": "0x9C48A6D3e859ab124A8873D73b2678354D0B4c0A"
+    },
+    "42161": {
+      "pool": "0xDdc98fF53945e334Ecca339b4DD8847b3769e8f0",
+      "protocolDataProvider": "0x0F65a7fBCb69074cF8BE8De1E01Ef573da34bD59"
+    },
+    "43111": {
+      "pool": "0xDdc98fF53945e334Ecca339b4DD8847b3769e8f0",
+      "protocolDataProvider": "0x0F65a7fBCb69074cF8BE8De1E01Ef573da34bD59"
+    },
+    "747474": {
+      "pool": "0x56f543bFF654193EcFb8fB9D5e7D1C30eDB69288",
+      "protocolDataProvider": "0x4DC446e349bDA9516033E11D63f1851d6B5Fd492"
+    }
   }
 }

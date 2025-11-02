@@ -1,12 +1,11 @@
 {
-  "version": "2025-11-02T14-14-47-527Z",
-  "generatedAt": "2025-11-02T14:14:47.528Z",
+  "version": "2025-11-02T14-42-10-864Z",
+  "generatedAt": "2025-11-02T14:42:10.864Z",
   "updatedFiles": [
     "./data/morpho-type-oracles.json",
-    "./data/morpho-curators.json",
-    "./data/compound-v2-c-tokens.json",
-    "./data/compound-v2-reserves.json",
-    "./config/compound-v2-pools.json"
+    "./data/aave-reserves.json",
+    "./data/aave-tokens.json",
+    "./data/aave-oracles.json"
   ],
   "results": [
     {
@@ -22,6 +21,27 @@
       "targetFile": "./data/morpho-curators.json"
     },
     {
+      "targetFile": "./data/aave-reserves.json"
+    },
+    {
+      "targetFile": "./data/aave-tokens.json"
+    },
+    {
+      "targetFile": "./data/aave-oracles.json"
+    },
+    {
+      "targetFile": "./config/aave-pools.json"
+    },
+    {
+      "targetFile": "./data/compound-v3-base-data.json"
+    },
+    {
+      "targetFile": "./data/compound-v3-reserves.json"
+    },
+    {
+      "targetFile": "./config/compound-v3-pools.json"
+    },
+    {
       "targetFile": "./data/compound-v2-c-tokens.json"
     },
     {
@@ -29,6 +49,12 @@
     },
     {
       "targetFile": "./config/compound-v2-pools.json"
+    },
+    {
+      "targetFile": "./data/init-config.json"
+    },
+    {
+      "targetFile": "./config/init-pools.json"
     }
   ]
 }
