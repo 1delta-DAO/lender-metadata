@@ -1,6 +1,7 @@
 import { getEvmClientWithCustomRpcs } from "@1delta/providers";
 import { AAVE_ABIS, AaveFetchFunctions } from "./abi.js";
 import { sleep } from "../../utils.js";
+import { Lender } from "@1delta/lender-registry";
 
 type OracleMap = { [chainId: string]: string };
 
@@ -16,6 +17,7 @@ export async function fetchAaveTypePriceOracles(
   const forks = Object.keys(AAVE_FORK_POOL_DATA);
   let forkMap: AaveOracleMap = {};
   for (const fork of forks) {
+    if (fork === Lender.KLAYBANK) continue;
     // @ts-ignore
     const addressSet = AAVE_FORK_POOL_DATA[fork];
     const chains = Object.keys(addressSet);
