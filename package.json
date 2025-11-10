@@ -21,8 +21,8 @@
   "dependencies": {
     "@1delta/chain-registry": "^0.0.2",
     "@1delta/data-sdk": "^0.0.10",
-    "@1delta/lender-registry": "^0.0.10",
-    "@1delta/providers": "^0.0.31",
+    "@1delta/lender-registry": "^0.0.11",
+    "@1delta/providers": "^0.0.32",
     "lodash": "^4.17.21",
     "viem": "^2.38.6"
   }
