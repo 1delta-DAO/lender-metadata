@@ -1,10 +1,11 @@
 {
-  "version": "2025-11-10T09-36-07-843Z",
-  "generatedAt": "2025-11-10T09:36:07.844Z",
+  "version": "2025-11-10T13-07-41-178Z",
+  "generatedAt": "2025-11-10T13:07:41.178Z",
   "updatedFiles": [
-    "./data/aave-oracles.json",
-    "./data/compound-v2-c-tokens.json",
-    "./data/compound-v2-reserves.json"
+    "./data/lender-labels.json",
+    "./data/morpho-type-oracles.json",
+    "./data/morpho-curators.json",
+    "./data/aave-oracles.json"
   ],
   "results": [
     {
