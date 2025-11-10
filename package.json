@@ -14,15 +14,15 @@
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@types/node": "^24.9.2",
+    "@types/node": "^24.10.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.6"
+    "vitest": "^4.0.8"
   },
   "dependencies": {
     "@1delta/chain-registry": "^0.0.2",
     "@1delta/data-sdk": "^0.0.10",
-    "@1delta/lender-registry": "^0.0.9",
-    "@1delta/providers": "^0.0.30",
+    "@1delta/lender-registry": "^0.0.10",
+    "@1delta/providers": "^0.0.31",
     "lodash": "^4.17.21",
     "viem": "^2.38.6"
   }

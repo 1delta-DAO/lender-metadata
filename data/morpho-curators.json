@@ -148,6 +148,20 @@
         "name": "Gauntlet"
       }
     ],
+    "MORPHO_BLUE_0EED5A89C7D397D02FD0B9B8E42811CA67E50ED5AEAA4F22E506516C716CFBBF": [
+      {
+        "id": "mev-capital",
+        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
+        "verified": true,
+        "name": "MEV Capital"
+      },
+      {
+        "id": "singularv",
+        "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
+        "verified": true,
+        "name": "SingularV"
+      }
+    ],
     "MORPHO_BLUE_0FC05005F1A0346BC2F29BD5E1DA2023D7F93B4A95E211526EA3205329C9D079": [
       {
         "id": "gauntlet",
@@ -852,20 +866,6 @@
         "name": "MEV Capital"
       }
     ],
-    "MORPHO_BLUE_50A88868A780B6DFE8330AC4088F38DB93D1BAD7E9A03BDA6605A9ABE36936AF": [
-      {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
-        "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "relend-network",
-        "image": "https://cdn.morpho.org/v2/assets/images/relend.png",
-        "verified": true,
-        "name": "Relend Network"
-      }
-    ],
     "MORPHO_BLUE_50ECCF3CE146EAE380DE93D362A2DA80F81EE8ACD72AC91EA0DE141CAE08E395": [
       {
         "id": "gauntlet",
@@ -1294,12 +1294,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
         "name": "MEV Capital"
-      },
-      {
-        "id": "pangolins",
-        "image": "https://cdn.morpho.org/v2/assets/images/pangolins.svg",
-        "verified": true,
-        "name": "Pangolins"
       },
       {
         "id": "re7-labs",
@@ -1776,14 +1770,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
-      }
-    ],
-    "MORPHO_BLUE_8EBCAF72C7CD75E8C621EC77EC343B3152C48908C4A6E217DA82FE6AF23C1928": [
-      {
-        "id": "m11c",
-        "image": "https://cdn.morpho.org/v2/assets/images/m11c.png",
-        "verified": true,
-        "name": "M11C"
       }
     ],
     "MORPHO_BLUE_921AFAEDABC6597AC12CE8C0F1A8D562A2326C401EF1E3C77E861988890FC3CE": [
@@ -2598,6 +2584,14 @@
         "name": "Steakhouse Financial"
       }
     ],
+    "MORPHO_BLUE_BD2A27358BDAF3FB902A0AD17F86D4633F9AC5377941298720B37A4D90DEAB96": [
+      {
+        "id": "llamarisk",
+        "image": "https://cdn.morpho.org/v2/assets/images/llamarisk.svg",
+        "verified": true,
+        "name": "LlamaRisk"
+      }
+    ],
     "MORPHO_BLUE_BED987DD46049ADB1FF34DE8EF761A9DA3B08890FA7FFF629EA9B66D049DE823": [
       {
         "id": "keyrock",
@@ -2966,20 +2960,6 @@
         "name": "Steakhouse Financial"
       }
     ],
-    "MORPHO_BLUE_D67812AD1888E232E5CF91D77785FBF33C226F0497E0CFA96D1B991F8314E8E1": [
-      {
-        "id": "9summits",
-        "image": "https://cdn.morpho.org/v2/assets/images/9summits.png",
-        "verified": true,
-        "name": "9Summits"
-      },
-      {
-        "id": "singularv",
-        "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
-        "verified": true,
-        "name": "SingularV"
-      }
-    ],
     "MORPHO_BLUE_D9E34B1EED46D123AC1B69B224DE1881DBC88798BC7B70F504920F62F58F28CC": [
       {
         "id": "9summits",
@@ -3200,12 +3180,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
         "name": "MEV Capital"
-      },
-      {
-        "id": "pangolins",
-        "image": "https://cdn.morpho.org/v2/assets/images/pangolins.svg",
-        "verified": true,
-        "name": "Pangolins"
       },
       {
         "id": "relend-network",
@@ -3516,6 +3490,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
         "verified": true,
         "name": "RE7 Labs"
+      }
+    ],
+    "MORPHO_BLUE_F6AFD03C76BA631FF376892050A6BB0D50431644C57A6DD98E61891CA90BBE41": [
+      {
+        "id": "mev-capital",
+        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
+        "verified": true,
+        "name": "MEV Capital"
       }
     ],
     "MORPHO_BLUE_F78B7D3A62437F78097745A5E3117A50C56A02EC5F072CBA8D988A129C6D4FB6": [
