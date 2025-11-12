@@ -330,14 +330,6 @@
         "name": "Clearstar"
       }
     ],
-    "MORPHO_BLUE_218330D3957CE196EC9829F8BFAF0D30D1DCA34CE38CF1FAA9A034F275692F86": [
-      {
-        "id": "steakhouse-financial",
-        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
-        "verified": true,
-        "name": "Steakhouse Financial"
-      }
-    ],
     "MORPHO_BLUE_21B67F89513DA0B0C94AF8778134A1BA3F762F944F16208B42CC0663B07EAF05": [
       {
         "id": "steakhouse-financial",
@@ -734,20 +726,6 @@
         "name": "Steakhouse Financial"
       }
     ],
-    "MORPHO_BLUE_423CB007534AC88FEBB8CE39F544AB303E8B757F8415ED891FC76550F8F4C965": [
-      {
-        "id": "gauntlet",
-        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
-        "verified": true,
-        "name": "Gauntlet"
-      },
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
-      }
-    ],
     "MORPHO_BLUE_43E925E52D7873FA8ACAC90DD5F246087D55B3A34C344B71884A6352491FF459": [
       {
         "id": "9summits",
@@ -878,6 +856,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
+      }
+    ],
+    "MORPHO_BLUE_5223AE739E3ADCDB665919AC249983914AABB1B2991137F243BDE79E65B87BC6": [
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
       }
     ],
     "MORPHO_BLUE_54CEBD0C5D5AD84F551A883991C39C470E081A20452EAEF47EEC2377FFAE9F98": [
@@ -1590,6 +1576,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
         "verified": true,
         "name": "Yearn"
+      }
+    ],
+    "MORPHO_BLUE_87520C1ED853F77141A260F0CB6ED35F7825928AEA20357D64F041253BFFCD04": [
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
       }
     ],
     "MORPHO_BLUE_8A71A66AC828C2B6D4F8ACCCE5859ABA0822B502F3833BEC4AFF09479AFFFFDB": [
@@ -2356,12 +2350,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
         "name": "MEV Capital"
-      },
-      {
-        "id": "steakhouse-financial",
-        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
-        "verified": true,
-        "name": "Steakhouse Financial"
       },
       {
         "id": "yearn",
@@ -3154,6 +3142,12 @@
     ],
     "MORPHO_BLUE_E475337D11BE1DB07F7C5A156E511F05D1844308E66E17D2BA5DA0839D3B34D9": [
       {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      },
+      {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
@@ -3342,6 +3336,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_EF225FEE0F37D8827E2F6DA31B85F1A4AE8AB0AF45F856B85F487A97FDFECBEA": [
+      {
+        "id": "alphaping",
+        "image": "https://cdn.morpho.org/v2/assets/images/alphaping.png",
+        "verified": true,
+        "name": "AlphaPing"
       }
     ],
     "MORPHO_BLUE_EF2C308B5ABECF5C8750A1AA82B47C558005FEB7A03F4F8E1AD682D71AC8D0BA": [
@@ -6726,6 +6728,12 @@
         "name": "Hyperithm"
       },
       {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
+      },
+      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -6940,6 +6948,12 @@
         "name": "Hyperithm"
       },
       {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
+      },
+      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -7126,6 +7140,12 @@
         "name": "Hyperithm"
       },
       {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
+      },
+      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -7202,6 +7222,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
+      },
+      {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
       },
       {
         "id": "mev-capital",
@@ -7314,6 +7340,12 @@
         "name": "Hyperithm"
       },
       {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
+      },
+      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -7408,6 +7440,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
+      },
+      {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
       },
       {
         "id": "mev-capital",
