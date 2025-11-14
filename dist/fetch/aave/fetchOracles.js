@@ -16,8 +16,9 @@ export async function fetchAaveTypePriceOracles(AAVE_FORK_POOL_DATA) {
         const chains = Object.keys(addressSet);
         let dataMap = {};
         if (fork === Lender.KLAYBANK) {
-            dataMap[Chain.KAIA_MAINNET] =
-                "0xa4BCd83C6d6C75ED9E029cde2DD24bAc2f3C5B59";
+            forkMap[Lender.KLAYBANK] = {
+                [Chain.KAIA_MAINNET]: "0xa4BCd83C6d6C75ED9E029cde2DD24bAc2f3C5B59",
+            };
             continue;
         }
         for (const chain of chains) {

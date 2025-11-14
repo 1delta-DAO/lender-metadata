@@ -2,15 +2,16 @@ name: update-dataset
 
 on:
   schedule:
-    - cron: '*/120 * * * *'   # every 120 minutes;
+    - cron: '*/120 * * * *'   # every 120 minutes
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write   # needed to push new branches
 
 jobs:
   run:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,7 +21,9 @@ jobs:
         with:
           node-version: '20'
 
-      - run: npm ci
+      - name: Install dependencies
+        run: npm ci
+
       - name: Build and run update script
         env:
           UPSTREAM_URL: ${{ secrets.UPSTREAM_URL }}  # set this in repo secrets
@@ -28,14 +31,24 @@ jobs:
           npm run build
           npm run update
 
+      - name: Compute branch name
+        id: vars
+        run: echo "BRANCH_NAME=update-dataset-$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
+
       - name: Commit & push if changed
+        env:
+          BRANCH_NAME: ${{ env.BRANCH_NAME }}
         run: |
           if [[ -n "$(git status --porcelain)" ]]; then
-            git config user.name "data-bot"
-            git config user.email "actions@users.noreply.github.com"
-            git add -A
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+
+            # Commit only data changes (adjust if needed)
+            git checkout -b "$BRANCH_NAME"
+            git add data/**
             git commit -m "chore(data): update $(date -u +'%Y-%m-%dT%H:%M:%SZ') [skip ci]"
-            git push
+            git push origin "$BRANCH_NAME"
+            echo "Pushed branch: $BRANCH_NAME"
           else
             echo "No changes."
           fi
