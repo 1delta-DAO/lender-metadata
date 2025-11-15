@@ -1,8 +1,8 @@
-import { getEvmClientWithCustomRpcs } from "@1delta/providers";
 import { AAVE_ABIS, AaveFetchFunctions } from "./abi.js";
 import { sleep } from "../../utils.js";
 import { Lender } from "@1delta/lender-registry";
 import { Chain } from "@1delta/chain-registry";
+import { multicallRetry } from "../utils/index.js";
 // aproach for aave
 // get reserve list from pool
 // fetch tokens per reserve from address provider
@@ -22,12 +22,12 @@ export async function fetchAaveTypePriceOracles(AAVE_FORK_POOL_DATA) {
             continue;
         }
         for (const chain of chains) {
-            const client = getEvmClientWithCustomRpcs(chain);
             const addresses = addressSet[chain];
             console.log("fetching for", chain, fork);
             let aProvider = "0x";
             try {
-                const [addressProvider] = (await client.multicall({
+                const [addressProvider] = (await multicallRetry({
+                    chainId: chain,
                     allowFailure: false,
                     contracts: [
                         {
@@ -46,7 +46,8 @@ export async function fetchAaveTypePriceOracles(AAVE_FORK_POOL_DATA) {
                 continue;
             }
             // assign reserves
-            const [oracleAddress] = (await client.multicall({
+            const [oracleAddress] = (await multicallRetry({
+                chainId: chain,
                 allowFailure: false,
                 contracts: [
                     {

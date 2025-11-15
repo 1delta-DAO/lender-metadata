@@ -2,9 +2,8 @@
 // get number of reserves and base asset from comet
 // fetch underlyings per index
 
-import { getEvmClientWithCustomRpcs } from "@1delta/providers";
 import { COMPTROLLER_ABIS, CompoundV2FetchFunctions } from "./abi.js";
-import { readJsonFile } from "../utils/index.js";
+import { multicallRetry, readJsonFile } from "../utils/index.js";
 
 type CTokenMap = { [chainId: string]: { [address: string]: string } };
 
@@ -34,12 +33,12 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
     let dataMap: CTokenMap = {};
     reserves[fork] = {};
     for (const chain of chains) {
-      const client = getEvmClientWithCustomRpcs(chain);
       const address = addressSet[chain];
       let data: any;
       console.log("fetching for", chain, fork);
       try {
-        const [DataMarkets] = (await client.multicall({
+        const [DataMarkets] = (await multicallRetry({
+          chainId: chain,
           allowFailure: false,
           contracts: [
             {
@@ -63,17 +62,15 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
       }));
 
       // set allowFailure to true to prevent the entire call from failing for tokens that do not have an underlying function
-      const underlyingResults = (await client.multicall({
-        allowFailure: true,
+      const underlyingResults = (await multicallRetry({
+        chainId: chain,
+        allowFailure: false,
         contracts: underlyingCalls,
       })) as any[];
 
       // if the call fails, return address 0 as the underlying
       const Reserves = underlyingResults.map((result: any) => {
-        if (result.status === "failure") {
-          return "0x0000000000000000000000000000000000000000";
-        }
-        return result.result;
+        return result;
       });
 
       // assign reserves

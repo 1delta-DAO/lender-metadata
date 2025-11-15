@@ -2,8 +2,7 @@
 // get number of reserves and base asset from comet
 // fetch underlyings per index
 import { COMET_ABIS, CompoundV3FetchFunctions } from "./abi.js";
-import { getEvmClientWithCustomRpcs } from "@1delta/providers";
-import { readJsonFile } from "../utils/index.js";
+import { multicallRetry, readJsonFile } from "../utils/index.js";
 // @ts-ignore
 BigInt.prototype["toJSON"] = function () {
     return this.toString();
@@ -17,8 +16,8 @@ export async function fetchCompoundV3Data() {
     const chains = Object.keys(COMETS_PER_CHAIN_MAP);
     for (const chain of chains) {
         const comets = Object.values(COMETS_PER_CHAIN_MAP[chain]);
-        const client = getEvmClientWithCustomRpcs(chain);
-        const CometMetas = (await client.multicall({
+        const CometMetas = (await multicallRetry({
+            chainId: chain,
             allowFailure: false,
             contracts: comets
                 .map((comet) => [
@@ -50,7 +49,8 @@ export async function fetchCompoundV3Data() {
             const nAssets = numAssetsesult;
             const baseAsset = baseAssetResult.toLowerCase();
             const cometIndexes = Array.from({ length: nAssets }, (_, i) => i);
-            const underlyingDatas = (await client.multicall({
+            const underlyingDatas = (await multicallRetry({
+                chainId: chain,
                 allowFailure: false,
                 contracts: cometIndexes.map((i) => ({
                     abi: COMET_ABIS,

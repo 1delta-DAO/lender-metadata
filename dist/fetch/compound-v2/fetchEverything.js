@@ -1,9 +1,8 @@
 // aproach for compound
 // get number of reserves and base asset from comet
 // fetch underlyings per index
-import { getEvmClientWithCustomRpcs } from "@1delta/providers";
 import { COMPTROLLER_ABIS, CompoundV2FetchFunctions } from "./abi.js";
-import { readJsonFile } from "../utils/index.js";
+import { multicallRetry, readJsonFile } from "../utils/index.js";
 // aproach for compound V2
 // get cToken list from pool
 // fetch underlying per cToken
@@ -20,12 +19,12 @@ export async function fetchCompoundV2TypeTokenData() {
         let dataMap = {};
         reserves[fork] = {};
         for (const chain of chains) {
-            const client = getEvmClientWithCustomRpcs(chain);
             const address = addressSet[chain];
             let data;
             console.log("fetching for", chain, fork);
             try {
-                const [DataMarkets] = (await client.multicall({
+                const [DataMarkets] = (await multicallRetry({
+                    chainId: chain,
                     allowFailure: false,
                     contracts: [
                         {
@@ -48,7 +47,8 @@ export async function fetchCompoundV2TypeTokenData() {
                 args: [],
             }));
             // set allowFailure to true to prevent the entire call from failing for tokens that do not have an underlying function
-            const underlyingResults = (await client.multicall({
+            const underlyingResults = (await multicallRetry({
+                chainId: chain,
                 allowFailure: true,
                 contracts: underlyingCalls,
             }));

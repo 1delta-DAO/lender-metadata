@@ -1,8 +1,8 @@
-import { getEvmClient } from "@1delta/providers";
 import { parseAbi } from "viem";
 import { decodeMarkets } from "./decoder.js";
 import { Chain } from "@1delta/chain-registry";
 import { Lender } from "@1delta/lender-registry";
+import { simulateContractRetry } from "../utils/index.js";
 
 const MORPHO_LENS: { [c: string]: string } = {
   [Chain.HEMI_NETWORK]: "0x1170Ef5B1A7f9c4F0ce34Ddf66CC0e6090Fd107E",
@@ -16,6 +16,7 @@ const MORPHO_LENS: { [c: string]: string } = {
   [Chain.ETHEREUM_MAINNET]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
   [Chain.BERACHAIN]: "0x7a59ddbB76521E8982Fa3A08598C9a83b14A6C07",
   [Chain.UNICHAIN]: "0xA453ba397c61B0c292EA3959A858821145B2707F",
+  [Chain.SEI_NETWORK]: "0xcB6Eb8df68153cebF60E1872273Ef52075a5C297",
 };
 
 export const LISTA_LENS: { [c: string]: string } = {
@@ -38,7 +39,6 @@ export async function getMarketsOnChain(
   marketsListOveride: any = undefined
 ) {
   const tokens = await getDeltaTokenList(chainId);
-  const provider = getEvmClient(chainId);
 
   const data: any[] = [];
 
@@ -71,12 +71,16 @@ export async function getMarketsOnChain(
     if (!lensAddress || markets.length === 0 || !functionName) continue;
 
     try {
-      const returnData = await provider.simulateContract({
-        abi,
-        functionName,
-        address: lensAddress as any,
-        args: [poolAddress, markets] as any,
-      });
+      const returnData = await simulateContractRetry(
+        {
+          chainId,
+          abi,
+          functionName,
+          address: lensAddress as any,
+          args: [poolAddress, markets] as any,
+        },
+        4
+      );
 
       const decoded = decodeMarkets(
         (returnData.result as unknown as string) ?? "0x"

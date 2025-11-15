@@ -1,8 +1,8 @@
-import { getEvmClient } from "@1delta/providers";
 import { parseAbi } from "viem";
 import { decodeMarkets } from "./decoder.js";
 import { Chain } from "@1delta/chain-registry";
 import { Lender } from "@1delta/lender-registry";
+import { simulateContractRetry } from "../utils/index.js";
 const MORPHO_LENS = {
     [Chain.HEMI_NETWORK]: "0x1170Ef5B1A7f9c4F0ce34Ddf66CC0e6090Fd107E",
     [Chain.BASE]: "0x05f3f58716a88A52493Be45aA0871c55b3748f18",
@@ -15,6 +15,7 @@ const MORPHO_LENS = {
     [Chain.ETHEREUM_MAINNET]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
     [Chain.BERACHAIN]: "0x7a59ddbB76521E8982Fa3A08598C9a83b14A6C07",
     [Chain.UNICHAIN]: "0xA453ba397c61B0c292EA3959A858821145B2707F",
+    [Chain.SEI_NETWORK]: "0xcB6Eb8df68153cebF60E1872273Ef52075a5C297",
 };
 export const LISTA_LENS = {
     [Chain.BNB_SMART_CHAIN_MAINNET]: "0xFc98b3157f0447DfbB9FdBE7d072F7DdacA1E27C",
@@ -28,7 +29,6 @@ async function getDeltaTokenList(chain) {
 }
 export async function getMarketsOnChain(chainId, pools, marketsListOveride = undefined) {
     const tokens = await getDeltaTokenList(chainId);
-    const provider = getEvmClient(chainId);
     const data = [];
     for (const [forkName, forkData] of Object.entries(pools)) {
         const poolAddress = forkData[chainId];
@@ -58,12 +58,13 @@ export async function getMarketsOnChain(chainId, pools, marketsListOveride = und
         if (!lensAddress || markets.length === 0 || !functionName)
             continue;
         try {
-            const returnData = await provider.simulateContract({
+            const returnData = await simulateContractRetry({
+                chainId,
                 abi,
                 functionName,
                 address: lensAddress,
                 args: [poolAddress, markets],
-            });
+            }, 4);
             const decoded = decodeMarkets(returnData.result ?? "0x");
             decoded.forEach((market, i) => {
                 const uniqueKey = markets[i];

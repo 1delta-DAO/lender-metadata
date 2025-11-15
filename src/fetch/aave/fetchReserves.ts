@@ -2,8 +2,7 @@ import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { AAVE_ABIS, AaveFetchFunctions } from "./abi.js";
 import { Lender } from "@1delta/lender-registry";
-import { getEvmClientWithCustomRpcs } from "@1delta/providers";
-import { readJsonFile } from "../utils/index.js";
+import { multicallRetry, readJsonFile } from "../utils/index.js";
 
 interface AaveTokens {
   aToken: string;
@@ -40,12 +39,12 @@ export async function fetchAaveTypeTokenData(): Promise<{
     reservesMap[fork] = {};
     const hasNoSToken = forkHasNoSToken(fork);
     for (const chain of chains) {
-      const client = getEvmClientWithCustomRpcs(chain);
       const addresses = addressSet[chain];
       let data: any;
       console.log("fetching for", chain, fork);
       try {
-        const [DataReserves] = (await client.multicall({
+        const [DataReserves] = (await multicallRetry({
+          chainId: chain,
           allowFailure: false,
           contracts: [
             {
@@ -64,7 +63,8 @@ export async function fetchAaveTypeTokenData(): Promise<{
       // assign reserves
       reservesMap[fork][chain] = data.map((r: any) => r.toLowerCase());
 
-      const AaveLenderTokens = (await client.multicall({
+      const AaveLenderTokens = (await multicallRetry({
+        chainId: chain,
         allowFailure: false,
         contracts: data.map((addr: any) => ({
           abi: AAVE_ABIS(hasNoSToken),
