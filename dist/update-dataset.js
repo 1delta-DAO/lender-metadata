@@ -21,6 +21,7 @@ async function main() {
     await manager.updateAll({ appendOnly: true });
     // Or update with full overwrite capability:
     // await manager.updateAll({ appendOnly: false });
+    process.exit(0); // <-- brute force
 }
 // Run if this is the main module
 main().catch((err) => {

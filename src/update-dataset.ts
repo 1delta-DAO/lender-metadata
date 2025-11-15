@@ -27,6 +27,7 @@ async function main(): Promise<void> {
 
   // Or update with full overwrite capability:
   // await manager.updateAll({ appendOnly: false });
+  process.exit(0); // <-- brute force
 }
 
 // Run if this is the main module
