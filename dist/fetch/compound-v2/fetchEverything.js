@@ -49,15 +49,12 @@ export async function fetchCompoundV2TypeTokenData() {
             // set allowFailure to true to prevent the entire call from failing for tokens that do not have an underlying function
             const underlyingResults = (await multicallRetry({
                 chainId: chain,
-                allowFailure: true,
+                allowFailure: false,
                 contracts: underlyingCalls,
             }));
             // if the call fails, return address 0 as the underlying
             const Reserves = underlyingResults.map((result) => {
-                if (result.status === "failure") {
-                    return "0x0000000000000000000000000000000000000000";
-                }
-                return result.result;
+                return result;
             });
             // assign reserves
             reserves[fork][chain] = Reserves.map((r) => r.toLowerCase());
