@@ -1,9 +1,10 @@
 {
-  "version": "2025-11-15T17-15-55-182Z",
-  "generatedAt": "2025-11-15T17:15:55.182Z",
+  "version": "2025-11-15T20-09-45-125Z",
+  "generatedAt": "2025-11-15T20:09:45.125Z",
   "updatedFiles": [
-    "./data/compound-v2-c-tokens.json",
-    "./data/compound-v2-reserves.json"
+    "./data/lender-labels.json",
+    "./data/morpho-type-oracles.json",
+    "./data/morpho-curators.json"
   ],
   "results": [
     {
@@ -38,15 +39,6 @@
     },
     {
       "targetFile": "./config/compound-v3-pools.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-c-tokens.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-reserves.json"
-    },
-    {
-      "targetFile": "./config/compound-v2-pools.json"
     },
     {
       "targetFile": "./data/init-config.json"
