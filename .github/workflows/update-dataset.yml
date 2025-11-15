@@ -2,7 +2,7 @@ name: update-dataset
 
 on:
   schedule:
-    - cron: '*/120 * * * *'   # every 120 minutes
+    - cron: '*/240 * * * *'   # every 240 minutes
   workflow_dispatch:
 
 permissions:
