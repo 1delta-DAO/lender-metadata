@@ -1,12 +1,10 @@
 {
-  "version": "2025-11-15T14-41-36-287Z",
-  "generatedAt": "2025-11-15T14:41:36.287Z",
+  "version": "2025-11-15T16-19-06-274Z",
+  "generatedAt": "2025-11-15T16:19:06.274Z",
   "updatedFiles": [
-    "./data/aave-reserves.json",
-    "./data/aave-tokens.json",
-    "./data/aave-oracles.json",
-    "./data/compound-v2-c-tokens.json",
-    "./data/compound-v2-reserves.json"
+    "./data/morpho-type-oracles.json",
+    "./data/morpho-curators.json",
+    "./data/aave-oracles.json"
   ],
   "results": [
     {
@@ -41,15 +39,6 @@
     },
     {
       "targetFile": "./config/compound-v3-pools.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-c-tokens.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-reserves.json"
-    },
-    {
-      "targetFile": "./config/compound-v2-pools.json"
     },
     {
       "targetFile": "./data/init-config.json"
