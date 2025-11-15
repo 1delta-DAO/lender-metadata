@@ -22,7 +22,8 @@ const cannotUseApi = (chainId: string, fork: string) => {
       chainId === Chain.OP_MAINNET ||
       chainId === Chain.HEMI_NETWORK ||
       chainId === Chain.BERACHAIN ||
-      chainId === Chain.SONEIUM
+      chainId === Chain.SONEIUM ||
+      chainId === Chain.SEI_NETWORK
     );
   }
   return true; // can't use api for moolah
@@ -225,7 +226,11 @@ export class MorphoBlueUpdater implements DataUpdater {
         let marketData: any;
 
         if (cannotUseApi(chainId, fork)) {
-          marketData = await getMarketsOnChain(chainId, { [fork]: forkConfig }, MORPHO_BLUE_MARKETS);
+          marketData = await getMarketsOnChain(
+            chainId,
+            { [fork]: forkConfig },
+            MORPHO_BLUE_MARKETS
+          );
         } else {
           marketData = await this.fetchMorphoMarkets(chainId);
         }
