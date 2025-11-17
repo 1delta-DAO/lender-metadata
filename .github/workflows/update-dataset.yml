@@ -18,6 +18,7 @@ jobs:
               with:
                   fetch-depth: 0
                   token: ${{ secrets.GH_PAT }}
+                  ref: main
 
             - uses: actions/setup-node@v4
               with:
@@ -46,7 +47,8 @@ jobs:
                     git config user.name "github-actions[bot]"
                     git config user.email "github-actions[bot]@users.noreply.github.com"
 
-                    # Commit only data changes (adjust if needed)
+                    git checkout main
+                    git pull origin main
                     git checkout -b "$BRANCH_NAME"
                     git add data/**
                     git commit -m "chore(data): update $(date -u +'%Y-%m-%dT%H:%M:%SZ') [skip ci]"
