@@ -70,5 +70,4 @@ jobs:
 
                   Branch: $BRANCH_NAME" \
                     --base ${{ github.ref_name }} \
-                    --head "main" \
-                    --label "automated,data-update"
+                    --head "main"
