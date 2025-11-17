@@ -1,55 +1,75 @@
 name: update-dataset
 
 on:
-  workflow_dispatch:   # manual run
-  schedule:
-    - cron: "0 2 * * *" # optional nightly job
+    workflow_dispatch: # manual run
+    schedule:
+        - cron: "0 2 * * *" # optional nightly job
 
 permissions:
-  contents: write       # allow pushing a branch
-  pull-requests: write  # allow creating a PR
+    contents: write # allow pushing a branch
+    pull-requests: write # allow creating a PR
 
 jobs:
-  run:
-    runs-on: ubuntu-latest
+    run:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  token: ${{ secrets.GH_PAT }}
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
 
-      - name: Install dependencies
-        run: npm ci
+            - name: Install dependencies
+              run: npm ci
 
-      - name: Build and run update script
-        env:
-          UPSTREAM_URL: ${{ secrets.UPSTREAM_URL }}  # set this in repo secrets
-        run: |
-          npm run build
-          npm run update
+            - name: Build and run update script
+              env:
+                  UPSTREAM_URL: ${{ secrets.UPSTREAM_URL }} # set this in repo secrets
+              run: |
+                  npm run build
+                  npm run update
 
-      - name: Compute branch name
-        id: vars
-        run: echo "BRANCH_NAME=update-dataset-$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
+            - name: Compute branch name
+              id: vars
+              run: echo "BRANCH_NAME=update-dataset-$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
 
-      - name: Commit & push if changed
-        env:
-          BRANCH_NAME: ${{ env.BRANCH_NAME }}
-        run: |
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
+            - name: Commit & push if changed
+              id: commit
+              env:
+                  BRANCH_NAME: ${{ env.BRANCH_NAME }}
+              run: |
+                  if [[ -n "$(git status --porcelain)" ]]; then
+                    git config user.name "github-actions[bot]"
+                    git config user.email "github-actions[bot]@users.noreply.github.com"
 
-            # Commit only data changes (adjust if needed)
-            git checkout -b "$BRANCH_NAME"
-            git add data/**
-            git commit -m "chore(data): update $(date -u +'%Y-%m-%dT%H:%M:%SZ') [skip ci]"
-            git push origin "$BRANCH_NAME"
-            echo "Pushed branch: $BRANCH_NAME"
-          else
-            echo "No changes."
-          fi
+                    # Commit only data changes (adjust if needed)
+                    git checkout -b "$BRANCH_NAME"
+                    git add data/**
+                    git commit -m "chore(data): update $(date -u +'%Y-%m-%dT%H:%M:%SZ') [skip ci]"
+                    git push origin "$BRANCH_NAME"
+                    echo "Pushed branch: $BRANCH_NAME"
+                    echo "has_changes=true" >> $GITHUB_OUTPUT
+                  else
+                    echo "No changes."
+                    echo "has_changes=false" >> $GITHUB_OUTPUT
+                  fi
+
+            - name: Create Pull Request
+              if: steps.commit.outputs.has_changes == 'true'
+              env:
+                  GH_TOKEN: ${{ secrets.GH_PAT }}
+                  BRANCH_NAME: ${{ env.BRANCH_NAME }}
+              run: |
+                  gh pr create \
+                    --title "chore(data): update dataset" \
+                    --body "Automated dataset update
+
+                  This PR was created automatically by the update-dataset workflow.
+
+                  Branch: $BRANCH_NAME" \
+                    --base main \
+                    --head "$BRANCH_NAME"
