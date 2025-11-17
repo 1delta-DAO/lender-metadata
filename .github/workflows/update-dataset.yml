@@ -3,7 +3,7 @@ name: update-dataset
 on:
     workflow_dispatch: # manual run
     schedule:
-        - cron: "0 2 * * *" # optional nightly jobS
+        - cron: "0 2 * * *" # optional nightly job
 
 permissions:
     contents: write # allow pushing a branch
@@ -61,6 +61,7 @@ jobs:
               if: steps.commit.outputs.has_changes == 'true'
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH_NAME: ${{ env.BRANCH_NAME }}
               run: |
                   gh pr create \
                     --title "chore(data): update dataset" \
@@ -69,5 +70,5 @@ jobs:
                   This PR was created automatically by the update-dataset workflow.
 
                   Branch: $BRANCH_NAME" \
-                    --base ${{ github.ref_name }} \
-                    --head "main"
+                    --base main \
+                    --head "$BRANCH_NAME"
