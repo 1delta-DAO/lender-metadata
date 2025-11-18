@@ -1,5 +1,13 @@
 {
   "1": {
+    "MORPHO_BLUE_03157B7411956C938C497A28D3D2EFDC2761A6F659A0397B29285766F7B9BC0C": [
+      {
+        "id": "9summits",
+        "image": "https://cdn.morpho.org/v2/assets/images/9summits.png",
+        "verified": true,
+        "name": "9Summits"
+      }
+    ],
     "MORPHO_BLUE_031C7333014AF51E4FD18031D14E4EAADA58348CDE3F6DC6EA8CCA16F7387FB2": [
       {
         "id": "clearstar",
@@ -530,6 +538,14 @@
         "name": "Steakhouse Financial"
       }
     ],
+    "MORPHO_BLUE_32E253D33F1594A67FC6EF51BF7A39CC4BF2D14904998DEE769706FCDE489ED9": [
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
+      }
+    ],
     "MORPHO_BLUE_33778D3D3BFE5A6E2678E2AEECCA65B819B594B3F646B6CDB0A245BBBBCB3A7F": [
       {
         "id": "alphaping",
@@ -692,6 +708,12 @@
     ],
     "MORPHO_BLUE_3F246A31D3583A4C0AB8D83EA46907B188B8B463EDB1C45AF62B6265335084EE": [
       {
+        "id": "alphaping",
+        "image": "https://cdn.morpho.org/v2/assets/images/alphaping.png",
+        "verified": true,
+        "name": "AlphaPing"
+      },
+      {
         "id": "clearstar",
         "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
         "verified": true,
@@ -710,14 +732,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
-      }
-    ],
-    "MORPHO_BLUE_3F5AE84A3B35A3533114B30E6E8C61A3D6469828F237A55E13E4C6A187391574": [
-      {
-        "id": "mev-capital",
-        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
-        "verified": true,
-        "name": "MEV Capital"
       }
     ],
     "MORPHO_BLUE_4005BA6EB7D2221FE58102BD320AA6D83C47B212771BC950AB71C5074D9AB0EC": [
@@ -3508,6 +3522,20 @@
         "name": "Steakhouse Financial"
       }
     ],
+    "MORPHO_BLUE_FD5CE0F2493B332C4750EFBDD8F0CD007781D875F00EAEB8E3D68070E8F1CC40": [
+      {
+        "id": "clearstar",
+        "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
+        "verified": true,
+        "name": "Clearstar"
+      },
+      {
+        "id": "hyperithm",
+        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
+        "verified": true,
+        "name": "Hyperithm"
+      }
+    ],
     "MORPHO_BLUE_FF527FE9C6516F9D82A3D51422CCB031D123266E6E26D4C22C942A948C180A75": [
       {
         "id": "gauntlet",
@@ -4646,14 +4674,6 @@
         "name": "Gauntlet"
       }
     ],
-    "MORPHO_BLUE_026ECEE9B3A8D0CE979837333349CFC2075A2AF6CD9B41C1C1D9FA16C44E54C5": [
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
-      }
-    ],
     "MORPHO_BLUE_091E8908D5DC2916BC03C85AC72D6F9434C176B497532A94097101B0BEC41CB7": [
       {
         "id": "re7-labs",
@@ -5014,14 +5034,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
         "verified": true,
         "name": "Yearn"
-      }
-    ],
-    "MORPHO_BLUE_3FA37D9CC9922C120972C89AE0DA86843E7E51C0DD04668E6FAC3E7CD1ADA1D3": [
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
       }
     ],
     "MORPHO_BLUE_4021EEF32A72CD1C2BBF9203526BF17D10785DE636B00CB1AAA6CA22CE1D1575": [
@@ -5606,14 +5618,6 @@
         "name": "Yearn"
       }
     ],
-    "MORPHO_BLUE_87FF0AAD672898C24411F98555F958E232C048F41E6D3F2059D26C13FAD07563": [
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
-      }
-    ],
     "MORPHO_BLUE_9103C3B4E834476C9A62EA009BA2C884EE42E94E6E314A26F04D312434191836": [
       {
         "id": "apostro",
@@ -5704,14 +5708,6 @@
         "name": "Clearstar"
       }
     ],
-    "MORPHO_BLUE_96D3AC6B4CF992E8BC3DD0855E0C84C18C34A6880F7E005E74C40096A82E0072": [
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
-      }
-    ],
     "MORPHO_BLUE_99F294C452EDC091C988688D501DCA78A06BA559065C242B19653452E6AFFC7A": [
       {
         "id": "gauntlet",
@@ -5767,14 +5763,6 @@
       }
     ],
     "MORPHO_BLUE_A426CA680BD5A7DC0F95942BA876A7DF399CDF8149F798BCC4E94F03E35D08FA": [
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
-      }
-    ],
-    "MORPHO_BLUE_A4E2843486610E6851F4E0A8FCDEE819958598C71C7E99B0315904CCF162DDC3": [
       {
         "id": "re7-labs",
         "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
@@ -5896,14 +5884,6 @@
         "name": "RE7 Labs"
       }
     ],
-    "MORPHO_BLUE_C338CC2DC3F6A25BACE40A920EEA39FF27F184899DEF6BDA478E27E591E5CEF2": [
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
-      }
-    ],
     "MORPHO_BLUE_C9658CAC13A9B9B5C1EBAA8CE19C735283CC761FF528D149A7221047BB7FAB45": [
       {
         "id": "re7-labs",
@@ -5934,14 +5914,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
-      }
-    ],
-    "MORPHO_BLUE_D75387F30C983BE0AEC58B03B51CCA52337B496E38CF4EFFBE995531BF34901C": [
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
       }
     ],
     "MORPHO_BLUE_DAA04F6819210B11FE4E3B65300C725C32E55755E3598671559B9AE3BAC453D7": [
@@ -6069,14 +6041,6 @@
       }
     ],
     "MORPHO_BLUE_E3C4D4D0E214FDC52635D7F9B2F7B3B0081771AE2EFEB3CB5AAE26009F34F7A7": [
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
-      }
-    ],
-    "MORPHO_BLUE_E73D71CACB1A11CE1033966787E21B85573B8B8A3936BBD7D83B2546A1077C26": [
       {
         "id": "re7-labs",
         "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
