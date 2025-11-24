@@ -39,7 +39,7 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
       try {
         const [DataMarkets] = (await multicallRetry({
           chainId: chain,
-          allowFailure: false,
+          allowFailure: true,
           contracts: [
             {
               abi: COMPTROLLER_ABIS,
@@ -65,7 +65,7 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
       const underlyingResults = (await multicallRetry(
         {
           chainId: chain,
-          allowFailure: false,
+          allowFailure: true,
           contracts: underlyingCalls,
         },
         5

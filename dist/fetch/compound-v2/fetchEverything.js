@@ -25,7 +25,7 @@ export async function fetchCompoundV2TypeTokenData() {
             try {
                 const [DataMarkets] = (await multicallRetry({
                     chainId: chain,
-                    allowFailure: false,
+                    allowFailure: true,
                     contracts: [
                         {
                             abi: COMPTROLLER_ABIS,
@@ -49,7 +49,7 @@ export async function fetchCompoundV2TypeTokenData() {
             // set allowFailure to true to prevent the entire call from failing for tokens that do not have an underlying function
             const underlyingResults = (await multicallRetry({
                 chainId: chain,
-                allowFailure: false,
+                allowFailure: true,
                 contracts: underlyingCalls,
             }, 5));
             // if the call fails, return address 0 as the underlying
