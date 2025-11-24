@@ -161,6 +161,7 @@ export class MorphoBlueUpdater {
             "56",
             "130",
             "137",
+            "143",
             "999",
             "1329",
             "1868",
