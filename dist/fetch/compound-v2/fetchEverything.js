@@ -34,7 +34,7 @@ export async function fetchCompoundV2TypeTokenData() {
                             args: [],
                         },
                     ],
-                }));
+                }, 5));
                 data = DataMarkets;
             }
             catch (e) {
@@ -51,7 +51,7 @@ export async function fetchCompoundV2TypeTokenData() {
                 chainId: chain,
                 allowFailure: false,
                 contracts: underlyingCalls,
-            }));
+            }, 5));
             // if the call fails, return address 0 as the underlying
             const Reserves = underlyingResults.map((result) => {
                 return result;

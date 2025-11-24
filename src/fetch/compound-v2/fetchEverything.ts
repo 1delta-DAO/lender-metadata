@@ -48,7 +48,7 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
               args: [],
             },
           ],
-        })) as any;
+        }, 5)) as any;
         data = DataMarkets;
       } catch (e: any) {
         throw e;
@@ -62,11 +62,14 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
       }));
 
       // set allowFailure to true to prevent the entire call from failing for tokens that do not have an underlying function
-      const underlyingResults = (await multicallRetry({
-        chainId: chain,
-        allowFailure: false,
-        contracts: underlyingCalls,
-      })) as any[];
+      const underlyingResults = (await multicallRetry(
+        {
+          chainId: chain,
+          allowFailure: false,
+          contracts: underlyingCalls,
+        },
+        5
+      )) as any[];
 
       // if the call fails, return address 0 as the underlying
       const Reserves = underlyingResults.map((result: any) => {
