@@ -16,14 +16,14 @@
   "devDependencies": {
     "@types/node": "^24.10.1",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.9"
+    "vitest": "^4.0.13"
   },
   "dependencies": {
-    "@1delta/chain-registry": "^0.0.2",
+    "@1delta/chain-registry": "^0.0.3",
     "@1delta/data-sdk": "^0.0.10",
-    "@1delta/lender-registry": "^0.0.12",
+    "@1delta/lender-registry": "^0.0.13",
     "@1delta/providers": "^0.0.39",
     "lodash": "^4.17.21",
-    "viem": "^2.39.0"
+    "viem": "^2.40.0"
   }
 }
