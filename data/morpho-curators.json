@@ -74,12 +74,6 @@
         "name": "Hyperithm"
       },
       {
-        "id": "keyrock",
-        "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
-        "verified": true,
-        "name": "Keyrock"
-      },
-      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -134,6 +128,20 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
+      }
+    ],
+    "MORPHO_BLUE_0EC590B250F171C22D39958A55A0589091431FE90599D55409C39AEB01363CB0": [
+      {
+        "id": "hyperithm",
+        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
+        "verified": true,
+        "name": "Hyperithm"
+      },
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
       }
     ],
     "MORPHO_BLUE_0EED5A89C7D397D02FD0B9B8E42811CA67E50ED5AEAA4F22E506516C716CFBBF": [
@@ -305,12 +313,6 @@
       }
     ],
     "MORPHO_BLUE_1CA75949A91C157183F53282D73C37191E7CD84002310F6632047D874AAD4A0F": [
-      {
-        "id": "keyrock",
-        "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
-        "verified": true,
-        "name": "Keyrock"
-      },
       {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
@@ -668,6 +670,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
+      },
+      {
+        "id": "keyrock",
+        "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
+        "verified": true,
+        "name": "Keyrock"
       },
       {
         "id": "kpk",
@@ -1638,6 +1646,26 @@
         "name": "Steakhouse Financial"
       }
     ],
+    "MORPHO_BLUE_8BBD1763671EB82A75D5F7CA33A0023FFABDD9D1A3D4316F34753685AE988E80": [
+      {
+        "id": "mev-capital",
+        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
+        "verified": true,
+        "name": "MEV Capital"
+      },
+      {
+        "id": "re7-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
+        "verified": true,
+        "name": "RE7 Labs"
+      },
+      {
+        "id": "singularv",
+        "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
+        "verified": true,
+        "name": "SingularV"
+      }
+    ],
     "MORPHO_BLUE_8CDB63A27A48AC27FADC0F158A732104BCC4E10BB61C9A5095EA7C127204E26C": [
       {
         "id": "sparkdao",
@@ -1748,12 +1776,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
-      },
-      {
-        "id": "keyrock",
-        "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
-        "verified": true,
-        "name": "Keyrock"
       },
       {
         "id": "mev-capital",
@@ -1892,14 +1914,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
         "verified": true,
         "name": "SingularV"
-      }
-    ],
-    "MORPHO_BLUE_A6B5B5CC24A40900156A503AFC6C898118B6D37AE545C2C144326FB95AC68E7A": [
-      {
-        "id": "alphaping",
-        "image": "https://cdn.morpho.org/v2/assets/images/alphaping.png",
-        "verified": true,
-        "name": "AlphaPing"
       }
     ],
     "MORPHO_BLUE_A6C4CBCFA20EC490E4ED3091A41A9C7CBEFAB586728FDDE59AC3907E64C41989": [
@@ -2136,6 +2150,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
+      },
+      {
+        "id": "keyrock",
+        "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
+        "verified": true,
+        "name": "Keyrock"
       },
       {
         "id": "kpk",
@@ -2534,12 +2554,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/alphaping.png",
         "verified": true,
         "name": "AlphaPing"
-      },
-      {
-        "id": "keyrock",
-        "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
-        "verified": true,
-        "name": "Keyrock"
       }
     ],
     "MORPHO_BLUE_BF02D6C6852FA0B8247D5514D0C91E6C1FBDE9A168AC3FD2033028B5EE5CE6D0": [
@@ -2586,12 +2600,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
-      },
-      {
-        "id": "keyrock",
-        "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
-        "verified": true,
-        "name": "Keyrock"
       },
       {
         "id": "mev-capital",
