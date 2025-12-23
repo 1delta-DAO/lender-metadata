@@ -60,6 +60,14 @@
         "name": "RE7 Labs"
       }
     ],
+    "MORPHO_BLUE_04CB29E91DE681136643ACE9CA1D7AF7B15B43C33C1FBC34F45812A70BA640A1": [
+      {
+        "id": "edge-capital-ultrayield",
+        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "verified": true,
+        "name": "Edge Capital UltraYield"
+      }
+    ],
     "MORPHO_BLUE_05702EDF1C4709808B62FE65A7D082DCCC9386F858AE460EF207EC8DD1DEBFA2": [
       {
         "id": "gauntlet",
@@ -662,14 +670,6 @@
         "name": "Steakhouse Financial"
       }
     ],
-    "MORPHO_BLUE_3DB06E455A1A18829D1E0357A2D22971A9E3BE0E915DEAB0F35372EB349DB5D4": [
-      {
-        "id": "edge-capital-ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
-        "verified": true,
-        "name": "Edge Capital UltraYield"
-      }
-    ],
     "MORPHO_BLUE_3F246A31D3583A4C0AB8D83EA46907B188B8B463EDB1C45AF62B6265335084EE": [
       {
         "id": "alphaping",
@@ -712,6 +712,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
         "verified": true,
         "name": "Clearstar"
+      }
+    ],
+    "MORPHO_BLUE_423CB007534AC88FEBB8CE39F544AB303E8B757F8415ED891FC76550F8F4C965": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
       }
     ],
     "MORPHO_BLUE_43E925E52D7873FA8ACAC90DD5F246087D55B3A34C344B71884A6352491FF459": [
@@ -822,14 +830,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/pangolins.svg",
         "verified": true,
         "name": "Pangolins"
-      }
-    ],
-    "MORPHO_BLUE_45D97C66DB5E803B9446802702F087D4293A2F74B370105DC3A88A278BF6BB21": [
-      {
-        "id": "sparkdao",
-        "image": "https://cdn.morpho.org/v2/assets/images/spark.svg",
-        "verified": true,
-        "name": "SparkDAO"
       }
     ],
     "MORPHO_BLUE_461DA96754B33FEC844FC5E5718BF24298A2C832D8216C5FFD17A5230548F01F": [
@@ -1676,14 +1676,6 @@
         "name": "RE7 Labs"
       }
     ],
-    "MORPHO_BLUE_935FAAE97F5784DC97FBA3C6EC072186AD9DBBF16368431C38F6A8B7FC3EC9A3": [
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
-      }
-    ],
     "MORPHO_BLUE_9551F52490815C3DD64DCD349050CE6F42EF64D70F5805C14920B4FD6D3B2544": [
       {
         "id": "mev-capital",
@@ -1870,6 +1862,26 @@
         "name": "SingularV"
       }
     ],
+    "MORPHO_BLUE_A458018CF1A6E77EBBCC40BA5776AC7990E523B7CC5D0C1E740A4BBC13190D8F": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      },
+      {
+        "id": "sparkdao",
+        "image": "https://cdn.morpho.org/v2/assets/images/spark.svg",
+        "verified": true,
+        "name": "SparkDAO"
+      },
+      {
+        "id": "yearn",
+        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
+        "verified": true,
+        "name": "Yearn"
+      }
+    ],
     "MORPHO_BLUE_A67CFCDF2A2637C78FD6E1879E27448BE7ABE90C6EF1BE4A1CA4337DB886C8E3": [
       {
         "id": "stake-dao",
@@ -1916,12 +1928,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
         "verified": true,
         "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
       },
       {
         "id": "clearstar",
@@ -2175,18 +2181,6 @@
       }
     ],
     "MORPHO_BLUE_B5B0FF0FCCF16DFF5BEF6D2D001D60F5C4AB49DF1020A01073D3AD635C80E8D5": [
-      {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
-        "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
-      },
       {
         "id": "singularv",
         "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
@@ -2546,12 +2540,6 @@
     ],
     "MORPHO_BLUE_BF6687CB042A09451E66EBC11D7716C49FB8CCC75F484F7FAB0EED6624BD5838": [
       {
-        "id": "gauntlet",
-        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
-        "verified": true,
-        "name": "Gauntlet"
-      },
-      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -2892,6 +2880,44 @@
         "name": "Steakhouse Financial"
       }
     ],
+    "MORPHO_BLUE_DB1966B0052CC35716936B66A42982563F5C1DB86A181F0B0DC6FEB36DFFBC28": [
+      {
+        "id": "b-protocol",
+        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "verified": true,
+        "name": "B.Protocol"
+      },
+      {
+        "id": "clearstar",
+        "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
+        "verified": true,
+        "name": "Clearstar"
+      },
+      {
+        "id": "edge-capital-ultrayield",
+        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "verified": true,
+        "name": "Edge Capital UltraYield"
+      },
+      {
+        "id": "relend-network",
+        "image": "https://cdn.morpho.org/v2/assets/images/relend.png",
+        "verified": true,
+        "name": "Relend Network"
+      },
+      {
+        "id": "singularv",
+        "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
+        "verified": true,
+        "name": "SingularV"
+      },
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
+      }
+    ],
     "MORPHO_BLUE_DB8938F97571AEAB0DEB0C34CF7E6278CFF969538F49EEBE6F4FC75A9A111293": [
       {
         "id": "9summits",
@@ -2937,18 +2963,6 @@
       }
     ],
     "MORPHO_BLUE_DBFFAC82C2DC7E8AA781BD05746530B0068D80929F23AC1628580E27810BC0C5": [
-      {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
-        "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
-      },
       {
         "id": "singularv",
         "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
@@ -3190,12 +3204,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
         "verified": true,
         "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
       },
       {
         "id": "clearstar",
@@ -7078,6 +7086,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
+      },
+      {
+        "id": "hyperithm",
+        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
+        "verified": true,
+        "name": "Hyperithm"
       }
     ],
     "MORPHO_BLUE_CA83D02BE579485CC10945C9597A6141E772F1CF0E0AA28D09A327B6CBD8642C": [
