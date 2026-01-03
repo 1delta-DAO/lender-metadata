@@ -82,12 +82,6 @@
         "name": "Gauntlet"
       },
       {
-        "id": "hyperithm",
-        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
-        "verified": true,
-        "name": "Hyperithm"
-      },
-      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -694,6 +688,14 @@
         "name": "Clearstar"
       }
     ],
+    "MORPHO_BLUE_423CB007534AC88FEBB8CE39F544AB303E8B757F8415ED891FC76550F8F4C965": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      }
+    ],
     "MORPHO_BLUE_42DCFB38BB98767AFB6E38CCF90D59D0D3F0AA216BEB3A234F12850323D17536": [
       {
         "id": "sparkdao",
@@ -842,6 +844,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
         "verified": true,
         "name": "RE7 Labs"
+      }
+    ],
+    "MORPHO_BLUE_4E6A548F893DE0D63EF3C61E335EBC76C41443A626516E8481284BC1ED63771D": [
+      {
+        "id": "edge-capital-ultrayield",
+        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "verified": true,
+        "name": "Edge Capital UltraYield"
       }
     ],
     "MORPHO_BLUE_5109CDA72B0603E1BAC4631DDEBD3104BEA6414E686C3F7AA2CB3C65795602F0": [
@@ -1126,12 +1136,6 @@
     ],
     "MORPHO_BLUE_6920DBA94E92CEC814CB2BE2D5817E6D959CA750C71BD6973402C8A2372EA21B": [
       {
-        "id": "apostro",
-        "image": "https://cdn.morpho.org/v2/assets/images/apostro.svg",
-        "verified": true,
-        "name": "Apostro"
-      },
-      {
         "id": "gauntlet",
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
@@ -1159,14 +1163,6 @@
       }
     ],
     "MORPHO_BLUE_6A6C8E41A6A7CCBEA68E1E6A19ECE1FDD863B2B6C9E0F71BBCD4DCBE8B1062E8": [
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
-      }
-    ],
-    "MORPHO_BLUE_6C65BB7104AE6FC1DC2CDC97FCB7DF2A4747363E76135B32D9170B2520BB65EB": [
       {
         "id": "re7-labs",
         "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
@@ -1520,12 +1516,6 @@
         "name": "Clearstar"
       },
       {
-        "id": "hyperithm",
-        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
-        "verified": true,
-        "name": "Hyperithm"
-      },
-      {
         "id": "keyrock",
         "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
         "verified": true,
@@ -1735,12 +1725,6 @@
       }
     ],
     "MORPHO_BLUE_A02AD0CF521BA5E5B20D1BCB98043EB091807E2B3BF26DF5AAD1AD154A3B8D45": [
-      {
-        "id": "apostro",
-        "image": "https://cdn.morpho.org/v2/assets/images/apostro.svg",
-        "verified": true,
-        "name": "Apostro"
-      },
       {
         "id": "gauntlet",
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
@@ -4740,6 +4724,14 @@
         "name": "MEV Capital"
       }
     ],
+    "MORPHO_BLUE_BCAE0D8E381F600B2919194434A0733899697A4C3B6715A5FA75ACF8B84BD755": [
+      {
+        "id": "felix",
+        "image": "https://cdn.morpho.org/v2/assets/images/felix.svg",
+        "verified": true,
+        "name": "Felix"
+      }
+    ],
     "MORPHO_BLUE_C0A3063A0A7755B7D58642E9A6D3BE1C05BC974665EF7D3B158784348D4E17C5": [
       {
         "id": "felix",
@@ -6726,6 +6718,12 @@
         "name": "Hyperithm"
       },
       {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
+      },
+      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -6786,6 +6784,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
+      },
+      {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
       },
       {
         "id": "yearn",
@@ -7046,6 +7050,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
+      },
+      {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
       }
     ],
     "MORPHO_BLUE_CA83D02BE579485CC10945C9597A6141E772F1CF0E0AA28D09A327B6CBD8642C": [
