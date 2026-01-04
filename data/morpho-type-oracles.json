@@ -23,6 +23,13 @@
         "collateralAssetDecimals": 18
       },
       {
+        "oracle": "0xBC693693fDBB177Ad05ff38633110016BC043AC5",
+        "loanAsset": "0x0000206329b97db379d5e1bf586bbdb969c63274",
+        "collateralAsset": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "loanAssetDecimals": 18,
+        "collateralAssetDecimals": 18
+      },
+      {
         "oracle": "0x3aBB61053F4b18AA8fd95B7802Cb2E27B61Ab43a",
         "loanAsset": "0x09d4214c03d01f49544c0448dbe3a27f768f2b34",
         "collateralAsset": "0x738d1115b90efa71ae468f1287fc864775e23a31",
@@ -205,13 +212,6 @@
         "collateralAssetDecimals": 18
       },
       {
-        "oracle": "0xD7c8498fF648CBB9E79d6470cf7F639e696D27A5",
-        "loanAsset": "0x6b175474e89094c44da98b954eedeac495271d0f",
-        "collateralAsset": "0xffec096c087c13cc268497b89a613cace4df9a48",
-        "loanAssetDecimals": 18,
-        "collateralAssetDecimals": 18
-      },
-      {
         "oracle": "0xc53c90d6E9A5B69E4ABf3d5Ae4c79225C7FeF3d2",
         "loanAsset": "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
         "collateralAsset": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
@@ -240,6 +240,13 @@
         "collateralAssetDecimals": 6
       },
       {
+        "oracle": "0xE6212D05cB5aF3C821Fef1C1A233a678724F9E7E",
+        "loanAsset": "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
+        "collateralAsset": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 18
+      },
+      {
         "oracle": "0x7681692A9F228fd7dAc0679238D467729Af4E9ca",
         "loanAsset": "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
         "collateralAsset": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
@@ -266,13 +273,6 @@
         "collateralAsset": "0xd50da5f859811a91fd1876c9461fd39c23c747ad",
         "loanAssetDecimals": 18,
         "collateralAssetDecimals": 18
-      },
-      {
-        "oracle": "0xb5c9734dd253E16c8164277944D868f34c94F194",
-        "loanAsset": "0x7b43e3875440b44613dc3bc08e7763e6da63c8f8",
-        "collateralAsset": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
-        "loanAssetDecimals": 6,
-        "collateralAssetDecimals": 8
       },
       {
         "oracle": "0xc7d1FE3fBe90e8f755250CA3Ce4d2aE50873d9dc",
@@ -320,13 +320,6 @@
         "oracle": "0x91C96e6a720CFC294bEB22D059bb6255654d7411",
         "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "collateralAsset": "0x030b69280892c888670edcdcd8b69fd8026a0bf3",
-        "loanAssetDecimals": 6,
-        "collateralAssetDecimals": 18
-      },
-      {
-        "oracle": "0xBC15fcCbf5D2AF119f18832069f56423549E1483",
-        "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-        "collateralAsset": "0x07d1718ff05a8c53c8f05adaed57c0d672945f9a",
         "loanAssetDecimals": 6,
         "collateralAssetDecimals": 18
       },
@@ -453,6 +446,13 @@
         "oracle": "0xE1a701F28a95ECC49d671dc477f66A61Ac976f47",
         "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "collateralAsset": "0x545a490f9ab534adf409a2e682bc4098f49952e3",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 18
+      },
+      {
+        "oracle": "0xe8465B52E106d98157d82b46cA566CB9d09482A9",
+        "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "collateralAsset": "0x54bf2659b5cdfd86b75920e93c0844c0364f5166",
         "loanAssetDecimals": 6,
         "collateralAssetDecimals": 18
       },
@@ -607,13 +607,6 @@
         "oracle": "0x873CD44b860DEDFe139f93e12A4AcCa0926Ffb87",
         "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "collateralAsset": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
-        "loanAssetDecimals": 6,
-        "collateralAssetDecimals": 18
-      },
-      {
-        "oracle": "0x0dF910a47452B995F545D66eb135f38D0FbB142E",
-        "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-        "collateralAsset": "0xb10da2f9147f9cf2b8826877cd0c95c18a0f42dc",
         "loanAssetDecimals": 6,
         "collateralAssetDecimals": 18
       },
