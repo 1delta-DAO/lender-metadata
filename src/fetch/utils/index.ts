@@ -31,7 +31,6 @@ export async function simulateContractRetry(
     });
     return returnData;
   } catch (e) {
-    console.log("retry");
     const newRetries = retries - 1;
     if (newRetries < 0) throw e;
     else console.log("error simulateContractRetry, retry", newRetries);
