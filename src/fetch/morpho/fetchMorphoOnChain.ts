@@ -1,31 +1,15 @@
-import { parseAbi } from "viem";
-import { decodeMarkets } from "./decoder.js";
-import { Chain } from "@1delta/chain-registry";
+import { parseAbi, zeroAddress } from "viem";
 import { Lender } from "@1delta/lender-registry";
 import { simulateContractRetry } from "../utils/index.js";
-
-const MORPHO_LENS: { [c: string]: string } = {
-  [Chain.HEMI_NETWORK]: "0x1170Ef5B1A7f9c4F0ce34Ddf66CC0e6090Fd107E",
-  [Chain.BASE]: "0x05f3f58716a88A52493Be45aA0871c55b3748f18",
-  [Chain.POLYGON_MAINNET]: "0x04102873b1A80647879Aa8B8a119F07aE08f457a",
-  [Chain.OP_MAINNET]: "0x61895aEB0a42679E2Df8EE64334C405a8d47D244",
-  [Chain.ARBITRUM_ONE]: "0xeaC918F73Ba5b11D21D31a72BD00ca4A22865C3f",
-  [Chain.KATANA]: "0xCe434378adacC51d54312c872113D687Ac19B516",
-  [Chain.HYPEREVM]: "0x6Bc6aCB905c1216B0119C87Bf9E178ce298310FA",
-  [Chain.SONEIUM]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
-  [Chain.ETHEREUM_MAINNET]: "0x4b5458BB47dCBC1a41B31b41e1a8773dE312BE9d",
-  [Chain.BERACHAIN]: "0x7a59ddbB76521E8982Fa3A08598C9a83b14A6C07",
-  [Chain.UNICHAIN]: "0xA453ba397c61B0c292EA3959A858821145B2707F",
-  [Chain.SEI_NETWORK]: "0xcB6Eb8df68153cebF60E1872273Ef52075a5C297",
-  [Chain.MONAD_MAINNET]: "0x0bd7473CbBf81d9dD936c61117eD230d95006CA2",
-};
-
-export const LISTA_LENS: { [c: string]: string } = {
-  [Chain.BNB_SMART_CHAIN_MAINNET]: "0xFc98b3157f0447DfbB9FdBE7d072F7DdacA1E27C",
-};
+import {
+  decodeListaMarkets,
+  decodeMarkets,
+  MORPHO_LENS,
+  normalizeToBytes,
+} from "@1delta/margin-fetcher";
 
 const getListUrl = (chainId: string) =>
-  `https://raw.githubusercontent.com/1delta-DAO/asset-lists/main/${chainId}.json`;
+  `https://raw.githubusercontent.com/1delta-DAO/token-lists/main/${chainId}.json`;
 
 async function getDeltaTokenList(chain: string) {
   const data = await fetch(getListUrl(chain));
@@ -62,11 +46,11 @@ export async function getMarketsOnChain(
       functionName = "getMarketDataCompact";
     } else if (forkName === Lender.LISTA_DAO) {
       markets = marketsListOveride[Lender.LISTA_DAO]?.[chainId] ?? [];
-      lensAddress = LISTA_LENS[chainId];
+      lensAddress = MORPHO_LENS[chainId];
       abi = parseAbi([
-        "function getMoolahMarketDataCompact(address morpho, bytes32[] calldata marketsIds) external view returns (bytes memory data)",
+        "function getListaMarketDataCompact(address morpho, bytes32[] calldata marketsIds) external view returns (bytes memory data)",
       ]);
-      functionName = "getMoolahMarketDataCompact";
+      functionName = "getListaMarketDataCompact";
     }
 
     if (!lensAddress || markets.length === 0 || !functionName) continue;
@@ -83,15 +67,27 @@ export async function getMarketsOnChain(
         4
       );
 
-      const decoded = decodeMarkets(
-        (returnData.result as unknown as string) ?? "0x"
-      );
+      const decoded =
+        forkName === Lender.MORPHO_BLUE
+          ? decodeMarkets(
+              normalizeToBytes(returnData.result as unknown as string) ?? "0x"
+            )
+          : decodeListaMarkets(
+              normalizeToBytes(returnData.result as unknown as string)
+            );
 
       decoded.forEach((market, i) => {
         const uniqueKey = markets[i];
         const { lltv, irm, oracle, loanToken, collateralToken, ...state } =
           market;
-        if (collateralToken && loanToken && oracle) {
+        if (
+          collateralToken &&
+          loanToken &&
+          oracle &&
+          oracle !== zeroAddress &&
+          loanToken !== zeroAddress &&
+          collateralToken !== zeroAddress
+        ) {
           // get assets from list
           const loanAsset = tokens[loanToken.toLowerCase()];
           const collateralAsset = tokens[collateralToken.toLowerCase()];
@@ -111,6 +107,5 @@ export async function getMarketsOnChain(
       );
     }
   }
-
   return { markets: { items: data } };
 }

@@ -27,7 +27,6 @@ export async function simulateContractRetry({ chainId, abi, address, functionNam
         return returnData;
     }
     catch (e) {
-        console.log("retry");
         const newRetries = retries - 1;
         if (newRetries < 0)
             throw e;

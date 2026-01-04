@@ -18,7 +18,8 @@ const cannotUseApi = (chainId, fork) => {
             chainId === Chain.HEMI_NETWORK ||
             chainId === Chain.BERACHAIN ||
             chainId === Chain.SONEIUM ||
-            chainId === Chain.SEI_NETWORK);
+            chainId === Chain.SEI_NETWORK ||
+            chainId === Chain.BNB_SMART_CHAIN_MAINNET);
     }
     return true; // can't use api for moolah
 };
