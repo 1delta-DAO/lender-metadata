@@ -1,8 +1,12 @@
 {
-  "version": "2026-01-04T17-51-34-137Z",
-  "generatedAt": "2026-01-04T17:51:34.137Z",
+  "version": "2026-01-13T03-26-35-596Z",
+  "generatedAt": "2026-01-13T03:26:35.596Z",
   "updatedFiles": [
-    "./data/morpho-type-oracles.json"
+    "./data/lender-labels.json",
+    "./data/morpho-type-oracles.json",
+    "./data/morpho-curators.json",
+    "./data/aave-reserves.json",
+    "./data/aave-tokens.json"
   ],
   "results": [
     {
@@ -16,6 +20,18 @@
     },
     {
       "targetFile": "./data/morpho-curators.json"
+    },
+    {
+      "targetFile": "./data/aave-reserves.json"
+    },
+    {
+      "targetFile": "./data/aave-tokens.json"
+    },
+    {
+      "targetFile": "./data/aave-oracles.json"
+    },
+    {
+      "targetFile": "./config/aave-pools.json"
     },
     {
       "targetFile": "./data/compound-v3-base-data.json"
