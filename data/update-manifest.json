@@ -5,7 +5,7 @@
     "./data/lender-labels.json",
     "./data/morpho-type-oracles.json",
     "./data/morpho-curators.json",
-    "./data/compound-v2-c-token-array.json",
+    "./data/compound-v2-tokens.json",
     "./data/compound-v2-c-tokens.json",
     "./data/compound-v2-reserves.json"
   ],
@@ -32,7 +32,7 @@
       "targetFile": "./config/compound-v3-pools.json"
     },
     {
-      "targetFile": "./data/compound-v2-c-token-array.json"
+      "targetFile": "./data/compound-v2-tokens.json"
     },
     {
       "targetFile": "./data/compound-v2-c-tokens.json"
