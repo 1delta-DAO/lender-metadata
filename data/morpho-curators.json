@@ -1364,12 +1364,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
         "verified": true,
         "name": "RE7 Labs"
-      },
-      {
-        "id": "yearn",
-        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
-        "verified": true,
-        "name": "Yearn"
       }
     ],
     "MORPHO_BLUE_85C7F4374F3A403B36D54CC284983B2B02BBD8581EE0F3C36494447B87D9FCAB": [
@@ -1542,6 +1536,26 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_934B5427F2DBCDDADDB59E04B8BBB41EF30FB7481EEF95366FFA5DA4290F1359": [
+      {
+        "id": "9summits",
+        "image": "https://cdn.morpho.org/v2/assets/images/9summits.png",
+        "verified": true,
+        "name": "9Summits"
+      },
+      {
+        "id": "mev-capital",
+        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
+        "verified": true,
+        "name": "MEV Capital"
+      },
+      {
+        "id": "re7-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
+        "verified": true,
+        "name": "RE7 Labs"
       }
     ],
     "MORPHO_BLUE_9551F52490815C3DD64DCD349050CE6F42EF64D70F5805C14920B4FD6D3B2544": [
@@ -1857,6 +1871,12 @@
       }
     ],
     "MORPHO_BLUE_AAC3FFCDF8A75919657E789FA72AB742A7BBFDF5BB0B87E4BBEB3C29BBBBB05C": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      },
       {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
@@ -2266,12 +2286,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
-      },
-      {
-        "id": "yearn",
-        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
-        "verified": true,
-        "name": "Yearn"
       }
     ],
     "MORPHO_BLUE_BA8C21D3E47814574A61BEE82E7053274F731AD253B24865ACAB8476FA477EE7": [
@@ -2638,6 +2652,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_D729B6742D6EADEE7EE38ECF85E9F0BA060398E28089ADF2E5E0F43224E4688A": [
+      {
+        "id": "mev-capital",
+        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
+        "verified": true,
+        "name": "MEV Capital"
       }
     ],
     "MORPHO_BLUE_D8A8E6667F58AA9229E8979BD619742B1660EE856C200A93E407DBCCB7222323": [
@@ -6900,6 +6922,14 @@
         "name": "Steakhouse Financial"
       }
     ],
+    "MORPHO_BLUE_D91052003758145CC53615895C0CE2081C7080B661DBAB5652C2B8433B248C2D": [
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
+      }
+    ],
     "MORPHO_BLUE_DE895FD4A9D1CA693485FCFC2EE47D8C3B47F810BBCE3C965C60D97B855D4ED2": [
       {
         "id": "steakhouse-financial",
@@ -6937,6 +6967,14 @@
         "verified": true,
         "name": "Hyperithm"
       },
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_E23E15DDD552EB148045E3F4B74E71F4923BC6BEA6E5BDA0A4CF89A0CECD1A3B": [
       {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
