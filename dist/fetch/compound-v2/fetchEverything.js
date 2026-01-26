@@ -1,9 +1,11 @@
 // aproach for compound
 // get number of reserves and base asset from comet
 // fetch underlyings per index
+import { multicallRetryUniversal } from "@1delta/providers";
 import { COMPTROLLER_ABIS, CompoundV2FetchFunctions } from "./abi.js";
 import { multicallRetry, readJsonFile } from "../utils/index.js";
 import { zeroAddress } from "viem";
+import { sleep } from "../../utils.js";
 // aproach for compound V2
 // get cToken list from pool
 // fetch underlying per cToken
@@ -28,7 +30,7 @@ export async function fetchCompoundV2TypeTokenData() {
             try {
                 const [marketsData] = (await multicallRetry({
                     chainId: chain,
-                    allowFailure: true,
+                    allowFailure: false,
                     contracts: [
                         {
                             abi: COMPTROLLER_ABIS,
@@ -38,7 +40,7 @@ export async function fetchCompoundV2TypeTokenData() {
                         },
                     ],
                 }, 5));
-                data = marketsData.result;
+                data = marketsData;
             }
             catch (e) {
                 throw e;
@@ -46,20 +48,28 @@ export async function fetchCompoundV2TypeTokenData() {
             if (!data)
                 continue;
             const underlyingCalls = data.map((addr) => ({
-                abi: COMPTROLLER_ABIS,
-                functionName: CompoundV2FetchFunctions.underlying,
+                name: CompoundV2FetchFunctions.underlying,
                 address: addr,
                 args: [],
             }));
             // set allowFailure to true to prevent the entire call from failing for tokens that do not have an underlying function
-            const underlyingResults = (await multicallRetry({
-                chainId: chain,
-                allowFailure: true,
-                contracts: underlyingCalls,
-            }, 5));
+            let underlyingResults;
+            try {
+                underlyingResults = (await multicallRetryUniversal({
+                    abi: COMPTROLLER_ABIS,
+                    chain,
+                    allowFailure: true,
+                    calls: underlyingCalls,
+                    maxRetries: 10,
+                }));
+            }
+            catch (e) {
+                throw e;
+            }
+            await sleep(250);
             // if the call fails, return address 0 as the underlying
             const currReserves = underlyingResults.map((result) => {
-                return result?.result ?? zeroAddress;
+                return result ?? zeroAddress;
             });
             // assign reserves
             reserves[fork][chain] = currReserves.map((r) => r.toLowerCase());
