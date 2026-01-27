@@ -218,24 +218,6 @@
     ]
   },
   "ENCLABS": {
-    "146": [
-      "0x50c42deacd8fc9773493ed674b675be577f2634b",
-      "0x29219dd400f2bf60e5a23d13be72b486d4038894",
-      "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
-      "0xe5da20f15420ad15de0fa650600afc998bbe3955",
-      "0xd3dce716f3ef535c5ff8d041c1a41c3bd89b97ae",
-      "0x3bce5cb273f0f148010bbea2470e7b5df84c7812",
-      "0xbe27993204ec64238f71a527b4c4d5f4949034c3",
-      "0xd2901d474b351bc6ee7b119f9c920863b0f781b2",
-      "0x6202b9f02e30e5e1c62cc01e4305450e5d83b926",
-      "0xe715cba7b5ccb33790cebff1436809d36cb17e57",
-      "0xaaaaaaaac311d0572bffb4772fe985a750e88805",
-      "0x57203a8aec5c03dd48050cd599deb24ba669ad95",
-      "0xd02962dc00a058a00fc07a8aa9f760ab6d9bd163",
-      "0xb9ea44d1aa76d5cfd475c2800e186d3dea2141a4",
-      "0x3d75f2bb8abcdbd1e27443cb5cbce8a668046c81",
-      "0xc326d1505ce0492276f646b03fe460c43a892185"
-    ],
     "9745": [
       "0x9895d81bb462a195b4922ed7de0e3acd007c32cb",
       "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb",
@@ -247,34 +229,10 @@
       "0x616185600989bf8339b58ac9e539d49536598343"
     ]
   },
-  "ENCLABS_LST": {
-    "146": [
-      "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
-      "0x29219dd400f2bf60e5a23d13be72b486d4038894",
-      "0x9f0df7799f6fdad409300080cff680f5a23df4b1"
-    ]
-  },
-  "ENCLABS_PT_ETH": {
-    "146": [
-      "0xd3dce716f3ef535c5ff8d041c1a41c3bd89b97ae",
-      "0x7002383d2305b8f3b2b7786f50c13d132a22076d"
-    ]
-  },
-  "ENCLABS_PT_USD": {
-    "146": [
-      "0x3bce5cb273f0f148010bbea2470e7b5df84c7812",
-      "0x3a7ba84bbe869ed318e654dd9b6ff3cf6d531e91"
-    ]
-  },
-  "ENCLABS_SONIC_ECO": {
-    "146": [
-      "0x3a516e01f82c1e18916ed69a81dd498ef64bb157",
-      "0x9fdbc3f8abc05fa8f3ad3c17d2f806c1230c4564",
-      "0x29219dd400f2bf60e5a23d13be72b486d4038894",
-      "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
-      "0xa04bc7140c26fc9bb1f36b1a604c7a5a88fb0e70"
-    ]
-  },
+  "ENCLABS_LST": {},
+  "ENCLABS_PT_ETH": {},
+  "ENCLABS_PT_USD": {},
+  "ENCLABS_SONIC_ECO": {},
   "SEGMENT": {
     "56": [
       "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
