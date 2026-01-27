@@ -1,4 +1,4 @@
-import { getEvmClient } from "@1delta/providers";
+import { getEvmClient, getEvmClientWithCustomRpcsUniversal, LIST_OVERRIDES, } from "@1delta/providers";
 import * as fs from "fs";
 /**
  * Reads a JSON file from a given path and parses it into a typed object.
@@ -35,23 +35,50 @@ export async function simulateContractRetry({ chainId, abi, address, functionNam
         return await simulateContractRetry({ chainId, abi, address, functionName, args }, newRetries);
     }
 }
-export async function multicallRetry({ chainId, contracts, allowFailure }, retries = 3) {
+export async function multicallRetry({ chainId, contracts, allowFailure }, retries = 3, providerIndex = 0) {
     try {
-        const provider = tryGetProvider(chainId, retries - 1);
+        const provider = getEvmClientWithCustomRpcsUniversal({
+            chain: chainId,
+            rpcId: providerIndex,
+            customRpcs: { ...LIST_OVERRIDES },
+        });
         const returnData = await provider.multicall({
             allowFailure,
             contracts,
         });
+        if (
+        // @ts-ignore
+        !returnData.result &&
+            // @ts-ignore
+            returnData.error &&
+            // @ts-ignore
+            returnData.error.includes("HTTP request failed")) {
+            throw new Error("", { cause: { code: 503 } });
+        }
         return returnData;
     }
     catch (e) {
+        const isHttpError = e?.cause?.code === "ECONNRESET" ||
+            e?.cause?.code === "ETIMEDOUT" ||
+            e?.cause?.code === "ENOTFOUND" ||
+            e?.code === "ECONNRESET" ||
+            e?.code === "ETIMEDOUT" ||
+            e?.code === "ENOTFOUND" ||
+            e?.message?.includes("HTTP") ||
+            e?.message?.includes("fetch") ||
+            e?.message?.includes("429") ||
+            e?.message?.includes("403") ||
+            e?.message?.includes("502") ||
+            e?.message?.includes("503") ||
+            e?.message?.includes("504") ||
+            e?.status === 429 ||
+            e?.status >= 500;
         const newRetries = retries - 1;
-        console.log("retry");
+        const nextProviderIndex = isHttpError ? providerIndex + 1 : providerIndex;
+        console.log(`multicall error (HTTP: ${isHttpError}), retry ${newRetries}, switching to provider ${nextProviderIndex}`, e?.message || e);
         if (newRetries < 0)
             throw e;
-        else
-            console.log("error multicall, retry", newRetries);
-        return await multicallRetry({ chainId, contracts, allowFailure }, newRetries);
+        return await multicallRetry({ chainId, contracts, allowFailure }, newRetries, nextProviderIndex);
     }
 }
 function tryGetProvider(chain, id) {

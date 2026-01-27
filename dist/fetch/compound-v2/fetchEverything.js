@@ -12,6 +12,7 @@ export async function fetchCompoundV2TypeTokenData() {
     const COMPOUND_V2_COMPTROLLERS = await readJsonFile("./config/compound-v2-pools.json");
     const forks = Object.keys(COMPOUND_V2_COMPTROLLERS);
     let cTokens = {};
+    let oracles = {};
     let cTokenArray = {};
     let reserves = {};
     for (const fork of forks) {
@@ -24,9 +25,10 @@ export async function fetchCompoundV2TypeTokenData() {
         for (const chain of chains) {
             const address = addressSet[chain];
             let data;
+            let oracle;
             console.log("fetching for", chain, fork);
             try {
-                const [marketsData] = (await multicallRetry({
+                const [marketsData, oracleData] = (await multicallRetry({
                     chainId: chain,
                     allowFailure: true,
                     contracts: [
@@ -36,11 +38,21 @@ export async function fetchCompoundV2TypeTokenData() {
                             address: address,
                             args: [],
                         },
+                        {
+                            abi: COMPTROLLER_ABIS,
+                            functionName: CompoundV2FetchFunctions.oracle,
+                            address: address,
+                            args: [],
+                        },
                     ],
-                }, 5));
+                }, 6));
                 data = marketsData.result;
+                oracle = oracleData.result;
+                if (chain === '146')
+                    console.log('oracleData', oracleData);
             }
             catch (e) {
+                console.log(e);
                 throw e;
             }
             if (!data)
@@ -56,13 +68,16 @@ export async function fetchCompoundV2TypeTokenData() {
                 chainId: chain,
                 allowFailure: true,
                 contracts: underlyingCalls,
-            }, 5));
+            }, 6));
             // if the call fails, return address 0 as the underlying
             const currReserves = underlyingResults.map((result) => {
                 return result?.result ?? zeroAddress;
             });
             // assign reserves
             reserves[fork][chain] = currReserves.map((r) => r.toLowerCase());
+            if (!oracles[fork])
+                oracles[fork] = {};
+            oracles[fork][chain] = oracle;
             const dataOnChain = Object.assign({}, ...currReserves.map((a, i) => {
                 return {
                     [a.toLowerCase()]: data[i].toLowerCase(),
@@ -79,5 +94,5 @@ export async function fetchCompoundV2TypeTokenData() {
         cTokenArray[fork] = dataArray;
         dataMap = {};
     }
-    return { cTokens, cTokenArray, reserves, COMPOUND_V2_COMPTROLLERS };
+    return { cTokens, cTokenArray, reserves, COMPOUND_V2_COMPTROLLERS, oracles };
 }

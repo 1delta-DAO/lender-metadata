@@ -6,15 +6,20 @@ import { COMPTROLLER_ABIS, CompoundV2FetchFunctions } from "./abi.js";
 import { multicallRetry, readJsonFile } from "../utils/index.js";
 import { zeroAddress } from "viem";
 
-type CTokenMap = { [chainId: string]: { [address: string]: string } };
+type AddressMap = { [fork: string]: string };
+
+type CTokenMap = { [chainId: string]: AddressMap };
 
 type CompoundV2ForkMap = { [fork: string]: CTokenMap };
 
-type CTokenArray = { [chainId: string]: { cToken: string, underlying: string }[] };
+type CTokenArray = {
+  [chainId: string]: { cToken: string; underlying: string }[];
+};
 
 type CompoundV2ForkArray = { [fork: string]: CTokenArray };
 
-type ReservesMap = { [fork: string]: { [chain: string | number]: string[] } };
+type OracleMap = { [chainId: string]: AddressMap };
+type ReservesMap = { [fork: string]: { [chain: string]: string[] } };
 
 // aproach for compound V2
 // get cToken list from pool
@@ -24,15 +29,18 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
   cTokens: CompoundV2ForkMap;
   cTokenArray: CompoundV2ForkArray;
   reserves: ReservesMap;
+  oracles: OracleMap;
   COMPOUND_V2_COMPTROLLERS: any;
 }> {
   const COMPOUND_V2_COMPTROLLERS = await readJsonFile(
-    "./config/compound-v2-pools.json"
+    "./config/compound-v2-pools.json",
   );
 
   const forks = Object.keys(COMPOUND_V2_COMPTROLLERS);
 
   let cTokens: CompoundV2ForkMap = {};
+  
+  let oracles: OracleMap = {};
 
   let cTokenArray: CompoundV2ForkArray = {};
 
@@ -46,32 +54,44 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
     let dataArray: CTokenArray = {};
     reserves[fork] = {};
     for (const chain of chains) {
-
       const address = addressSet[chain];
 
       let data: any;
+      let oracle: string;
 
       console.log("fetching for", chain, fork);
 
       try {
-        const [marketsData] = (await multicallRetry({
-          chainId: chain,
-          allowFailure: true,
-          contracts: [
-            {
-              abi: COMPTROLLER_ABIS,
-              functionName: CompoundV2FetchFunctions.getAllMarkets,
-              address: address as any,
-              args: [],
-            },
-          ],
-        }, 5)) as any;
+        const [marketsData, oracleData] = (await multicallRetry(
+          {
+            chainId: chain,
+            allowFailure: true,
+            contracts: [
+              {
+                abi: COMPTROLLER_ABIS,
+                functionName: CompoundV2FetchFunctions.getAllMarkets,
+                address: address as any,
+                args: [],
+              },
+              {
+                abi: COMPTROLLER_ABIS,
+                functionName: CompoundV2FetchFunctions.oracle,
+                address: address as any,
+                args: [],
+              },
+            ],
+          },
+          6,
+        )) as any;
         data = marketsData.result;
+        oracle = oracleData.result;
+        if(chain === '146') console.log('oracleData', oracleData)
       } catch (e: any) {
+        console.log(e)
         throw e;
       }
 
-      if (!data) continue
+      if (!data) continue;
 
       const underlyingCalls = data.map((addr: any) => ({
         abi: COMPTROLLER_ABIS,
@@ -87,7 +107,7 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
           allowFailure: true,
           contracts: underlyingCalls,
         },
-        5
+        6,
       )) as any[];
 
       // if the call fails, return address 0 as the underlying
@@ -97,6 +117,8 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
 
       // assign reserves
       reserves[fork][chain] = currReserves.map((r: any) => r.toLowerCase());
+      if (!oracles[fork]) oracles[fork] = {};
+      oracles[fork][chain] = oracle;
 
       const dataOnChain = Object.assign(
         {},
@@ -104,13 +126,15 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
           return {
             [a.toLowerCase()]: data[i].toLowerCase(),
           };
-        })
+        }),
       );
 
-      const dataArrayOnChain = currReserves.map((underlying: any, i: number) => ({
-        cToken: data[i].toLowerCase(),
-        underlying: underlying.toLowerCase(),
-      }));
+      const dataArrayOnChain = currReserves.map(
+        (underlying: any, i: number) => ({
+          cToken: data[i].toLowerCase(),
+          underlying: underlying.toLowerCase(),
+        }),
+      );
 
       dataMap[chain] = dataOnChain;
       dataArray[chain] = dataArrayOnChain;
@@ -119,5 +143,5 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
     cTokenArray[fork] = dataArray;
     dataMap = {};
   }
-  return { cTokens, cTokenArray, reserves, COMPOUND_V2_COMPTROLLERS };
+  return { cTokens, cTokenArray, reserves, COMPOUND_V2_COMPTROLLERS, oracles };
 }
