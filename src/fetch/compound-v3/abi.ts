@@ -99,8 +99,13 @@ export const COMET_ABIS = [
     stateMutability: "view",
     type: "function",
   },
-  { internalType: "address", name: "baseToken", type: "address" },
-  { internalType: "address", name: "baseTokenPriceFeed", type: "address" },
+  {
+    inputs: [],
+    name: "baseTokenPriceFeed",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
 ];
 
 export enum CompoundV3FetchFunctions {

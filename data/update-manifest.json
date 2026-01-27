@@ -1,27 +1,21 @@
 {
-  "version": "2026-01-27T09-53-22-288Z",
-  "generatedAt": "2026-01-27T09:53:22.288Z",
+  "version": "2026-01-27T12-01-49-013Z",
+  "generatedAt": "2026-01-27T12:01:49.013Z",
   "updatedFiles": [
-    "./data/compound-v2-tokens.json",
-    "./data/compound-v2-c-tokens.json",
-    "./data/compound-v2-reserves.json",
-    "./data/compound-v2-oracles.json"
+    "./data/compound-v3-oracles.json"
   ],
   "results": [
     {
-      "targetFile": "./data/compound-v2-tokens.json"
+      "targetFile": "./data/compound-v3-base-data.json"
     },
     {
-      "targetFile": "./data/compound-v2-c-tokens.json"
+      "targetFile": "./data/compound-v3-reserves.json"
     },
     {
-      "targetFile": "./data/compound-v2-reserves.json"
+      "targetFile": "./data/compound-v3-oracles.json"
     },
     {
-      "targetFile": "./data/compound-v2-oracles.json"
-    },
-    {
-      "targetFile": "./config/compound-v2-pools.json"
+      "targetFile": "./config/compound-v3-pools.json"
     }
   ]
 }

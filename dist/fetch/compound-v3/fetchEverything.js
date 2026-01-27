@@ -52,7 +52,7 @@ export async function fetchCompoundV3Data() {
         const cometKeys = Object.keys(COMETS_PER_CHAIN_MAP[chain]);
         for (let i = 0; i < comets.length; i++) {
             const comet = comets[i];
-            const [numAssetsesult, baseAssetResult, baseBorrowMin, baseTokenFeed] = cometMetas.slice(3 * i, 3 * i + 3);
+            const [numAssetsesult, baseAssetResult, baseBorrowMin, baseTokenFeed] = cometMetas.slice(4 * i, 4 * i + 4);
             const nAssets = numAssetsesult;
             const baseAsset = baseAssetResult.toLowerCase();
             const cometIndexes = Array.from({ length: nAssets }, (_, i) => i);
