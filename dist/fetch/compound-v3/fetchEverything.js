@@ -10,13 +10,14 @@ BigInt.prototype["toJSON"] = function () {
 // store maps
 export async function fetchCompoundV3Data() {
     let cometDataMap = {};
+    let cometOracles = {};
     let compoundReserves = {};
     let compoundBaseData = {};
     const COMETS_PER_CHAIN_MAP = await readJsonFile("./config/compound-v3-pools.json");
     const chains = Object.keys(COMETS_PER_CHAIN_MAP);
     for (const chain of chains) {
         const comets = Object.values(COMETS_PER_CHAIN_MAP[chain]);
-        const CometMetas = (await multicallRetry({
+        const cometMetas = (await multicallRetry({
             chainId: chain,
             allowFailure: false,
             contracts: comets
@@ -39,13 +40,19 @@ export async function fetchCompoundV3Data() {
                     address: comet,
                     args: [],
                 },
+                {
+                    abi: COMET_ABIS,
+                    functionName: CompoundV3FetchFunctions.baseTokenPriceFeed,
+                    address: comet,
+                    args: [],
+                },
             ])
                 .flat(),
         }));
         const cometKeys = Object.keys(COMETS_PER_CHAIN_MAP[chain]);
         for (let i = 0; i < comets.length; i++) {
             const comet = comets[i];
-            const [numAssetsesult, baseAssetResult, baseBorrowMin] = CometMetas.slice(3 * i, 3 * i + 3);
+            const [numAssetsesult, baseAssetResult, baseBorrowMin, baseTokenFeed] = cometMetas.slice(3 * i, 3 * i + 3);
             const nAssets = numAssetsesult;
             const baseAsset = baseAssetResult.toLowerCase();
             const cometIndexes = Array.from({ length: nAssets }, (_, i) => i);
@@ -62,10 +69,18 @@ export async function fetchCompoundV3Data() {
             const underlyings = cometIndexes.map((i) => underlyingDatas[i].asset.toLowerCase());
             if (!cometDataMap[cometKeys[i]])
                 cometDataMap[cometKeys[i]] = {};
+            if (!cometOracles[cometKeys[i]])
+                cometOracles[cometKeys[i]] = {};
+            if (!cometOracles[cometKeys[i]][chain])
+                cometOracles[cometKeys[i]][chain] = {};
             if (!compoundBaseData[cometKeys[i]])
                 compoundBaseData[cometKeys[i]] = {};
             if (!compoundReserves[cometKeys[i]])
                 compoundReserves[cometKeys[i]] = {};
+            underlyings.forEach((a, j) => {
+                cometOracles[cometKeys[i]][chain][a] = underlyingDatas[j].priceFeed;
+            });
+            cometOracles[cometKeys[i]][chain][baseAsset] = baseTokenFeed;
             compoundReserves[cometKeys[i]][chain] = [baseAsset, ...underlyings].map((r) => r.toLowerCase());
             compoundBaseData[cometKeys[i]][chain] = { baseAsset, baseBorrowMin };
             cometDataMap[cometKeys[i]][chain] = {
