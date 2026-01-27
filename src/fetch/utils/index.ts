@@ -64,14 +64,13 @@ export async function multicallRetry(
     });
 
     if (
-      // @ts-ignore
-      !returnData.result &&
-      // @ts-ignore
-      returnData.error &&
-      // @ts-ignore
-      returnData.error.includes("HTTP request failed")
+      returnData.some(
+        (a) =>
+          // @ts-ignore
+          a?.error && JSON.stringify(a.error)?.includes("HTTP request failed"),
+      )
     ) {
-      throw new Error("", { cause: { code: 503 } });
+      throw new Error("", { cause: { code: "ECONNRESET" } });
     }
 
     return returnData;
