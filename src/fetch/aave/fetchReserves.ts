@@ -29,82 +29,165 @@ export async function fetchAaveTypeTokenData(): Promise<{
 }> {
   const AAVE_FORK_POOL_DATA = await readJsonFile("./config/aave-pools.json");
   const forks = Object.keys(AAVE_FORK_POOL_DATA);
-  let forkMap: AaveForkMap = {};
-  let reservesMap: ReservesMap = {};
+
+  const forkMap: AaveForkMap = {};
+  const reservesMap: ReservesMap = {};
+
+  // Initialize empty structures for all forks
   for (const fork of forks) {
-    // @ts-ignore
+    forkMap[fork] = {};
+    reservesMap[fork] = {};
+  }
+
+  // Group all (fork, chain, addresses, hasNoSToken) tuples by chain
+  const chainToForks: {
+    [chain: string]: {
+      fork: string;
+      addresses: { pool: string; protocolDataProvider: string };
+      hasNoSToken: boolean;
+    }[];
+  } = {};
+
+  for (const fork of forks) {
     const addressSet = AAVE_FORK_POOL_DATA[fork];
     const chains = Object.keys(addressSet);
-    let dataMap: AaveMap = {};
-    reservesMap[fork] = {};
     const hasNoSToken = forkHasNoSToken(fork);
     for (const chain of chains) {
-      const addresses = addressSet[chain];
-      let data: any;
-      console.log("fetching for", chain, fork);
-      try {
-        const [DataReserves] = (await multicallRetry({
-          chainId: chain,
-          allowFailure: false,
-          contracts: [
-            {
-              abi: AAVE_ABIS(hasNoSToken),
-              functionName: AaveFetchFunctions.getReservesList,
-              address: addresses.pool,
-              args: [],
-            },
-          ],
-        })) as any;
-        data = DataReserves;
-        await sleep(250);
-      } catch (e: any) {
-        throw e;
-      }
-      // assign reserves
-      reservesMap[fork][chain] = data.map((r: any) => r.toLowerCase());
+      if (!chainToForks[chain]) chainToForks[chain] = [];
+      chainToForks[chain].push({
+        fork,
+        addresses: addressSet[chain],
+        hasNoSToken,
+      });
+    }
+  }
 
-      const AaveLenderTokens = (await multicallRetry({
+  // Process each chain with batched multicalls
+  for (const chain of Object.keys(chainToForks)) {
+    const forksOnChain = chainToForks[chain];
+    console.log(
+      `fetching for chain ${chain}, forks: ${forksOnChain.map((f) => f.fork).join(", ")}`,
+    );
+
+    // BATCH CALL 1: Get all reserve lists for all forks on this chain
+    const firstBatchContracts = forksOnChain.map(
+      ({ addresses, hasNoSToken }) => ({
+        abi: AAVE_ABIS(hasNoSToken),
+        functionName: AaveFetchFunctions.getReservesList,
+        address: addresses.pool as any,
+        args: [],
+      }),
+    );
+
+    let firstBatchResults: any[];
+    try {
+      firstBatchResults = (await multicallRetry({
         chainId: chain,
-        allowFailure: false,
-        contracts: data.map((addr: any) => ({
+        allowFailure: true,
+        contracts: firstBatchContracts,
+      })) as any[];
+    } catch (e: any) {
+      console.log(`Error fetching reserves for chain ${chain}:`, e);
+      throw e;
+    }
+
+    await sleep(250);
+
+    // Parse first batch results and prepare second batch
+    const forkReserveData: {
+      fork: string;
+      reserves: string[];
+      protocolDataProvider: string;
+      hasNoSToken: boolean;
+    }[] = [];
+
+    for (let i = 0; i < forksOnChain.length; i++) {
+      const { fork, addresses, hasNoSToken } = forksOnChain[i];
+      const reservesResult = firstBatchResults[i]?.result ?? firstBatchResults[i];
+
+      if (!reservesResult || !Array.isArray(reservesResult)) {
+        console.log(`No reserves found for ${fork} on chain ${chain}`);
+        continue;
+      }
+
+      forkReserveData.push({
+        fork,
+        reserves: reservesResult,
+        protocolDataProvider: addresses.protocolDataProvider,
+        hasNoSToken,
+      });
+    }
+
+    if (forkReserveData.length === 0) continue;
+
+    // BATCH CALL 2: Get all token addresses for all reserves across all forks on this chain
+    const secondBatchContracts = forkReserveData.flatMap(
+      ({ reserves, protocolDataProvider, hasNoSToken }) =>
+        reserves.map((addr: string) => ({
           abi: AAVE_ABIS(hasNoSToken),
           functionName: AaveFetchFunctions.getReserveTokensAddresses,
-          address: addresses.protocolDataProvider,
+          address: protocolDataProvider as any,
           args: [addr],
         })),
-      })) as any[];
+    );
 
-      await sleep(250);
+    let secondBatchResults: any[];
+    try {
+      secondBatchResults = (await multicallRetry({
+        chainId: chain,
+        allowFailure: true,
+        contracts: secondBatchContracts,
+      })) as any[];
+    } catch (e) {
+      console.log(`Error fetching token addresses for chain ${chain}:`, e);
+      throw e;
+    }
+
+    await sleep(250);
+
+    // Map results back to fork structure
+    let resultIndex = 0;
+    for (const { fork, reserves, hasNoSToken } of forkReserveData) {
+      const tokenResults = secondBatchResults.slice(
+        resultIndex,
+        resultIndex + reserves.length,
+      );
+      resultIndex += reserves.length;
+
+      // assign reserves
+      reservesMap[fork][chain] = reserves.map((r: any) => r.toLowerCase());
 
       const dataOnChain = hasNoSToken
         ? Object.assign(
             {},
-            ...data.map((a: any, i: number) => {
+            ...reserves.map((a: any, i: number) => {
+              const result = tokenResults[i]?.result ?? tokenResults[i];
               return {
                 [a.toLowerCase()]: {
-                  aToken: AaveLenderTokens[i][0]?.toLowerCase(),
-                  vToken: AaveLenderTokens[i][1]?.toLowerCase(),
+                  aToken: result?.[0]?.toLowerCase(),
+                  vToken: result?.[1]?.toLowerCase(),
                   sToken: zeroAddress,
                 },
               };
-            })
+            }),
           )
         : Object.assign(
             {},
-            ...data.map((a: any, i: number) => {
+            ...reserves.map((a: any, i: number) => {
+              const result = tokenResults[i]?.result ?? tokenResults[i];
               return {
                 [a.toLowerCase()]: {
-                  aToken: AaveLenderTokens[i][0]?.toLowerCase(),
-                  sToken: AaveLenderTokens[i][1]?.toLowerCase(),
-                  vToken: AaveLenderTokens[i][2]?.toLowerCase(),
+                  aToken: result?.[0]?.toLowerCase(),
+                  sToken: result?.[1]?.toLowerCase(),
+                  vToken: result?.[2]?.toLowerCase(),
                 },
               };
-            })
+            }),
           );
-      dataMap[chain] = dataOnChain;
+
+      forkMap[fork][chain] = dataOnChain;
     }
-    forkMap[fork] = dataMap;
-    dataMap = {};
   }
+
   return { tokens: forkMap, reserves: reservesMap, AAVE_FORK_POOL_DATA };
 }

@@ -2,7 +2,6 @@
 // get number of reserves and base asset from comet
 // fetch underlyings per index
 
-import { multicallRetryUniversal } from "@1delta/providers";
 import { COMPTROLLER_ABIS, CompoundV2FetchFunctions } from "./abi.js";
 import { multicallRetry, readJsonFile } from "../utils/index.js";
 import { zeroAddress } from "viem";
@@ -40,114 +39,163 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
 
   const forks = Object.keys(COMPOUND_V2_COMPTROLLERS);
 
-  let cTokens: CompoundV2ForkMap = {};
+  const cTokens: CompoundV2ForkMap = {};
+  const oracles: OracleMap = {};
+  const cTokenArray: CompoundV2ForkArray = {};
+  const reserves: ReservesMap = {};
 
-  let oracles: OracleMap = {};
+  // Initialize empty structures for all forks
+  for (const fork of forks) {
+    cTokens[fork] = {};
+    cTokenArray[fork] = {};
+    reserves[fork] = {};
+    oracles[fork] = {};
+  }
 
-  let cTokenArray: CompoundV2ForkArray = {};
-
-  let reserves: ReservesMap = {};
+  // Group all (fork, chain, address) tuples by chain
+  const chainToForks: {
+    [chain: string]: { fork: string; address: string }[];
+  } = {};
 
   for (const fork of forks) {
-    // @ts-ignore
     const addressSet = COMPOUND_V2_COMPTROLLERS[fork];
     const chains = Object.keys(addressSet);
-    let dataMap: CTokenMap = {};
-    let dataArray: CTokenArray = {};
-    reserves[fork] = {};
     for (const chain of chains) {
-      const address = addressSet[chain];
+      if (!chainToForks[chain]) chainToForks[chain] = [];
+      chainToForks[chain].push({ fork, address: addressSet[chain] });
+    }
+  }
 
-      let data: any;
-      let oracle: string;
+  // Process each chain with batched multicalls
+  for (const chain of Object.keys(chainToForks)) {
+    const forksOnChain = chainToForks[chain];
+    console.log(
+      `fetching for chain ${chain}, forks: ${forksOnChain.map((f) => f.fork).join(", ")}`,
+    );
 
-      console.log("fetching for", chain, fork);
-
-      try {
-        const [marketsData, oracleData] = (await multicallRetry(
-          {
-            chainId: chain,
-            allowFailure: true,
-            contracts: [
-              {
-                abi: COMPTROLLER_ABIS,
-                functionName: CompoundV2FetchFunctions.getAllMarkets,
-                address: address as any,
-                args: [],
-              },
-              {
-                abi: COMPTROLLER_ABIS,
-                functionName: CompoundV2FetchFunctions.oracle,
-                address: address as any,
-                args: [],
-              },
-            ],
-          },
-          6,
-        )) as any;
-        data = marketsData.result;
-        oracle = oracleData.result;
-      } catch (e: any) {
-        console.log(e);
-        throw e;
-      }
-
-      if (!data) continue;
-
-      const underlyingCalls = data.map((addr: any) => ({
-        name: CompoundV2FetchFunctions.underlying,
-        address: addr,
+    // BATCH CALL 1: Get all markets and oracles for all forks on this chain
+    const firstBatchContracts = forksOnChain.flatMap(({ address }) => [
+      {
+        abi: COMPTROLLER_ABIS,
+        functionName: CompoundV2FetchFunctions.getAllMarkets,
+        address: address as any,
         args: [],
-      }));
+      },
+      {
+        abi: COMPTROLLER_ABIS,
+        functionName: CompoundV2FetchFunctions.oracle,
+        address: address as any,
+        args: [],
+      },
+    ]);
 
-      // set allowFailure to true to prevent the entire call from failing for tokens that do not have an underlying function
-      let underlyingResults: any;
-      try {
-        underlyingResults = (await multicallRetryUniversal({
-          abi: COMPTROLLER_ABIS,
-          chain,
+    let firstBatchResults: any[];
+    try {
+      firstBatchResults = (await multicallRetry(
+        {
+          chainId: chain,
           allowFailure: true,
-          calls: underlyingCalls,
-          maxRetries: 10,
-        })) as any[];
-      } catch (e) {
-        throw e;
+          contracts: firstBatchContracts,
+        },
+        6,
+      )) as any[];
+    } catch (e: any) {
+      console.log(`Error fetching markets for chain ${chain}:`, e);
+      throw e;
+    }
+
+    // Parse first batch results and prepare second batch
+    const forkMarketData: {
+      fork: string;
+      markets: string[];
+      oracle: string;
+    }[] = [];
+
+    for (let i = 0; i < forksOnChain.length; i++) {
+      const { fork } = forksOnChain[i];
+      const marketsResult = firstBatchResults[i * 2]?.result;
+      const oracleResult = firstBatchResults[i * 2 + 1]?.result;
+
+      if (!marketsResult) {
+        console.log(`No markets found for ${fork} on chain ${chain}`);
+        continue;
       }
 
-      await sleep(250);
+      forkMarketData.push({
+        fork,
+        markets: marketsResult,
+        oracle: oracleResult,
+      });
+    }
+
+    if (forkMarketData.length === 0) continue;
+
+    // BATCH CALL 2: Get all underlyings for all cTokens across all forks on this chain
+    const secondBatchContracts = forkMarketData.flatMap(({ markets }) =>
+      markets.map((addr: string) => ({
+        abi: COMPTROLLER_ABIS,
+        functionName: CompoundV2FetchFunctions.underlying,
+        address: addr as any,
+        args: [],
+      })),
+    );
+
+    let secondBatchResults: any[];
+    try {
+      secondBatchResults = (await multicallRetry(
+        {
+          chainId: chain,
+          allowFailure: true,
+          contracts: secondBatchContracts,
+        },
+        6,
+      )) as any[];
+    } catch (e) {
+      console.log(`Error fetching underlyings for chain ${chain}:`, e);
+      throw e;
+    }
+
+    await sleep(250);
+
+    // Map results back to fork structure
+    let resultIndex = 0;
+    for (const { fork, markets, oracle } of forkMarketData) {
+      const underlyingResults = secondBatchResults.slice(
+        resultIndex,
+        resultIndex + markets.length,
+      );
+      resultIndex += markets.length;
 
       // if the call fails, return address 0 as the underlying
       const currReserves = underlyingResults.map((result: any) => {
-        return !result || result === "0x" ? zeroAddress : result;
+        const underlying = result?.result;
+        return !underlying || underlying === "0x" ? zeroAddress : underlying;
       });
 
       // assign reserves
       reserves[fork][chain] = currReserves.map((r: any) => r.toLowerCase());
-      if (!oracles[fork]) oracles[fork] = {};
       oracles[fork][chain] = oracle;
 
       const dataOnChain = Object.assign(
         {},
         ...currReserves.map((a: any, i: number) => {
           return {
-            [a.toLowerCase()]: data[i].toLowerCase(),
+            [a.toLowerCase()]: markets[i].toLowerCase(),
           };
         }),
       );
 
       const dataArrayOnChain = currReserves.map(
         (underlying: any, i: number) => ({
-          cToken: data[i].toLowerCase(),
+          cToken: markets[i].toLowerCase(),
           underlying: underlying.toLowerCase(),
         }),
       );
 
-      dataMap[chain] = dataOnChain;
-      dataArray[chain] = dataArrayOnChain;
+      cTokens[fork][chain] = dataOnChain;
+      cTokenArray[fork][chain] = dataArrayOnChain;
     }
-    cTokens[fork] = dataMap;
-    cTokenArray[fork] = dataArray;
-    dataMap = {};
   }
+
   return { cTokens, cTokenArray, reserves, COMPOUND_V2_COMPTROLLERS, oracles };
 }
