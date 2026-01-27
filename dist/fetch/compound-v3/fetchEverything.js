@@ -92,5 +92,5 @@ export async function fetchCompoundV3Data() {
             };
         }
     }
-    return { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP };
+    return { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP, cometOracles };
 }

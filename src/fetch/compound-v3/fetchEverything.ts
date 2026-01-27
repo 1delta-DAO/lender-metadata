@@ -34,6 +34,7 @@ BigInt.prototype["toJSON"] = function () {
 export async function fetchCompoundV3Data(): Promise<{
   compoundBaseData: any;
   compoundReserves: any;
+  cometOracles: AddressChainMap
   COMETS_PER_CHAIN_MAP: any;
 }> {
   let cometDataMap: CompoundV3Map = {};
@@ -132,5 +133,5 @@ export async function fetchCompoundV3Data(): Promise<{
     }
   }
 
-  return { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP };
+  return { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP, cometOracles };
 }
