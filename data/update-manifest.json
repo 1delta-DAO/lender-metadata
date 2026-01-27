@@ -1,13 +1,37 @@
 {
-  "version": "2026-01-27T00-10-53-558Z",
-  "generatedAt": "2026-01-27T00:10:53.558Z",
+  "version": "2026-01-27T00-18-03-497Z",
+  "generatedAt": "2026-01-27T00:18:03.497Z",
   "updatedFiles": [
+    "./data/lender-labels.json",
+    "./data/morpho-type-oracles.json",
+    "./data/morpho-curators.json",
     "./data/compound-v2-tokens.json",
     "./data/compound-v2-c-tokens.json",
     "./data/compound-v2-reserves.json",
     "./data/compound-v2-oracles.json"
   ],
   "results": [
+    {
+      "targetFile": "./data/lender-labels.json"
+    },
+    {
+      "targetFile": "./data/morpho-type-oracles.json"
+    },
+    {
+      "targetFile": "./config/morpho-pools.json"
+    },
+    {
+      "targetFile": "./data/morpho-curators.json"
+    },
+    {
+      "targetFile": "./data/compound-v3-base-data.json"
+    },
+    {
+      "targetFile": "./data/compound-v3-reserves.json"
+    },
+    {
+      "targetFile": "./config/compound-v3-pools.json"
+    },
     {
       "targetFile": "./data/compound-v2-tokens.json"
     },
@@ -22,6 +46,12 @@
     },
     {
       "targetFile": "./config/compound-v2-pools.json"
+    },
+    {
+      "targetFile": "./data/init-config.json"
+    },
+    {
+      "targetFile": "./config/init-pools.json"
     }
   ]
 }
