@@ -41,7 +41,7 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
   const forks = Object.keys(COMPOUND_V2_COMPTROLLERS);
 
   let cTokens: CompoundV2ForkMap = {};
-  
+
   let oracles: OracleMap = {};
 
   let cTokenArray: CompoundV2ForkArray = {};
@@ -87,9 +87,8 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
         )) as any;
         data = marketsData.result;
         oracle = oracleData.result;
-        if(chain === '146') console.log('oracleData', oracleData)
       } catch (e: any) {
-        console.log(e)
+        console.log(e);
         throw e;
       }
 
@@ -114,12 +113,12 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
       } catch (e) {
         throw e;
       }
-      
+
       await sleep(250);
 
       // if the call fails, return address 0 as the underlying
       const currReserves = underlyingResults.map((result: any) => {
-        return result ?? zeroAddress;
+        return !result || result === "0x" ? zeroAddress : result;
       });
 
       // assign reserves

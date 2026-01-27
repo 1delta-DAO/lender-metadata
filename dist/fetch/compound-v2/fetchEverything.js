@@ -32,7 +32,7 @@ export async function fetchCompoundV2TypeTokenData() {
             try {
                 const [marketsData, oracleData] = (await multicallRetry({
                     chainId: chain,
-                    allowFailure: false,
+                    allowFailure: true,
                     contracts: [
                         {
                             abi: COMPTROLLER_ABIS,
@@ -50,8 +50,6 @@ export async function fetchCompoundV2TypeTokenData() {
                 }, 6));
                 data = marketsData.result;
                 oracle = oracleData.result;
-                if (chain === '146')
-                    console.log('oracleData', oracleData);
             }
             catch (e) {
                 console.log(e);
@@ -81,7 +79,7 @@ export async function fetchCompoundV2TypeTokenData() {
             await sleep(250);
             // if the call fails, return address 0 as the underlying
             const currReserves = underlyingResults.map((result) => {
-                return result ?? zeroAddress;
+                return !result || result === "0x" ? zeroAddress : result;
             });
             // assign reserves
             reserves[fork][chain] = currReserves.map((r) => r.toLowerCase());
