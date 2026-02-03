@@ -14,17 +14,17 @@
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@types/node": "^25.0.10",
+    "@types/node": "^25.2.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
   },
   "dependencies": {
     "@1delta/chain-registry": "^0.0.4",
-    "@1delta/data-sdk": "^0.0.11",
+    "@1delta/data-sdk": "^0.0.12",
     "@1delta/lender-registry": "^0.0.13",
-    "@1delta/margin-fetcher": "^0.0.151",
+    "@1delta/margin-fetcher": "^0.0.154",
     "@1delta/providers": "^0.0.42",
     "lodash": "^4.17.23",
-    "viem": "^2.45.0"
+    "viem": "^2.45.1"
   }
 }
