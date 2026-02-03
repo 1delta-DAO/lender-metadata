@@ -120,6 +120,25 @@ export const AAVE_ABIS = (noSToken: boolean) => [
     stateMutability: "view",
     type: "function",
   },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "asset",
+        type: "address",
+      },
+    ],
+    name: "getInterestRateStrategyAddress",
+    outputs: [
+      {
+        internalType: "address",
+        name: "irStrategyAddress",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
 ];
 
 export enum AaveFetchFunctions {
@@ -127,4 +146,5 @@ export enum AaveFetchFunctions {
   ADDRESSES_PROVIDER = "ADDRESSES_PROVIDER",
   getPriceOracle = "getPriceOracle",
   getReserveTokensAddresses = "getReserveTokensAddresses",
+  getInterestRateStrategyAddress = "getInterestRateStrategyAddress",
 }
