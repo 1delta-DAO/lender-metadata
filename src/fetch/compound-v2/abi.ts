@@ -17,6 +17,13 @@ export const COMPTROLLER_ABIS = [
   },
   {
     inputs: [],
+    name: "interestRateModel",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "oracle",
     outputs: [
       { internalType: "contract PriceOracle", name: "", type: "address" },
@@ -30,5 +37,6 @@ export const COMPTROLLER_ABIS = [
 export enum CompoundV2FetchFunctions {
   getAllMarkets = "getAllMarkets",
   underlying = "underlying",
+  interestRateModel = "interestRateModel",
   oracle = "oracle",
 }
