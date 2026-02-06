@@ -40,12 +40,6 @@
         "name": "Keyrock"
       },
       {
-        "id": "kpk",
-        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
-        "verified": true,
-        "name": "kpk"
-      },
-      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -78,7 +72,33 @@
         "name": "Edge Capital UltraYield"
       }
     ],
+    "MORPHO_BLUE_05702EDF1C4709808B62FE65A7D082DCCC9386F858AE460EF207EC8DD1DEBFA2": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      },
+      {
+        "id": "mev-capital",
+        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
+        "verified": true,
+        "name": "MEV Capital"
+      },
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
+      }
+    ],
     "MORPHO_BLUE_08BD0186C5D6EE272F973A307815AC9A8F5ED42BC8308D4B109F254011776C34": [
+      {
+        "id": "august-digital",
+        "image": "https://cdn.morpho.org/v2/assets/images/august.svg",
+        "verified": true,
+        "name": "August Digital"
+      },
       {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
@@ -250,26 +270,16 @@
         "name": "Gauntlet"
       },
       {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
+      },
+      {
         "id": "stake-dao",
         "image": "https://cdn.morpho.org/v2/assets/images/stakedao.svg",
         "verified": true,
         "name": "Stake DAO"
-      }
-    ],
-    "MORPHO_BLUE_1F1CA1956B469F17C9B1B4B0290BD00147E23F6C475E7D503EB323839D3643DB": [
-      {
-        "id": "avantgarde",
-        "image": "https://cdn.morpho.org/v2/assets/images/avantgarde.svg",
-        "verified": true,
-        "name": "Avantgarde"
-      }
-    ],
-    "MORPHO_BLUE_21B67F89513DA0B0C94AF8778134A1BA3F762F944F16208B42CC0663B07EAF05": [
-      {
-        "id": "steakhouse-financial",
-        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
-        "verified": true,
-        "name": "Steakhouse Financial"
       }
     ],
     "MORPHO_BLUE_2287407F0F42AD5AD224F70E4D9DA37F02770F79959DF703D6CFEE8AFC548E0D": [
@@ -338,6 +348,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
+      },
+      {
+        "id": "singularv",
+        "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
+        "verified": true,
+        "name": "SingularV"
       }
     ],
     "MORPHO_BLUE_2A9A5C436719BADCFADBAD3AD8E8179A160DED758603EAA03A883F922A1790D3": [
@@ -422,10 +438,22 @@
     ],
     "MORPHO_BLUE_2FB3713487C7812E7309935B034F40228841666F6B048FAF31FD2110AE674F20": [
       {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      },
+      {
         "id": "hyperithm",
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
+      },
+      {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
       },
       {
         "id": "steakhouse-financial",
@@ -936,14 +964,6 @@
         "name": "Gauntlet"
       }
     ],
-    "MORPHO_BLUE_60F855F6B8C6919C2A4F3AB5F367FC923E3172E6DC8F4E8B6C448EB2D43421A1": [
-      {
-        "id": "alphaping",
-        "image": "https://cdn.morpho.org/v2/assets/images/alphaping.png",
-        "verified": true,
-        "name": "AlphaPing"
-      }
-    ],
     "MORPHO_BLUE_61765602144E91E5AC9F9E98B8584EAE308F9951596FD7F5E0F59F21CD2BF664": [
       {
         "id": "gauntlet",
@@ -1162,6 +1182,12 @@
         "name": "Hyperithm"
       },
       {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
+      },
+      {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
@@ -1312,12 +1338,6 @@
         "name": "Gauntlet"
       },
       {
-        "id": "hyperithm",
-        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
-        "verified": true,
-        "name": "Hyperithm"
-      },
-      {
         "id": "keyrock",
         "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
         "verified": true,
@@ -1366,22 +1386,10 @@
         "name": "Gauntlet"
       },
       {
-        "id": "hyperithm",
-        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
-        "verified": true,
-        "name": "Hyperithm"
-      },
-      {
         "id": "keyrock",
         "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
         "verified": true,
         "name": "Keyrock"
-      },
-      {
-        "id": "kpk",
-        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
-        "verified": true,
-        "name": "kpk"
       },
       {
         "id": "mev-capital",
@@ -1464,12 +1472,46 @@
         "name": "Clearstar"
       }
     ],
+    "MORPHO_BLUE_8A71A66AC828C2B6D4F8ACCCE5859ABA0822B502F3833BEC4AFF09479AFFFFDB": [
+      {
+        "id": "9summits",
+        "image": "https://cdn.morpho.org/v2/assets/images/9summits.png",
+        "verified": true,
+        "name": "9Summits"
+      },
+      {
+        "id": "keyrock",
+        "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
+        "verified": true,
+        "name": "Keyrock"
+      },
+      {
+        "id": "mev-capital",
+        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
+        "verified": true,
+        "name": "MEV Capital"
+      }
+    ],
     "MORPHO_BLUE_8AA8614FCA17B7EFD787E3677BAB78FCE4A4928866375E86275001515B1F8114": [
       {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
         "name": "MEV Capital"
+      }
+    ],
+    "MORPHO_BLUE_8B1BC4D682B04A16309A8ADF77B35DE0C42063A7944016CFC37A79CCAC0007B6": [
+      {
+        "id": "mev-capital",
+        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
+        "verified": true,
+        "name": "MEV Capital"
+      },
+      {
+        "id": "re7-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
+        "verified": true,
+        "name": "RE7 Labs"
       }
     ],
     "MORPHO_BLUE_8BAFBC117FD372BEA5B96E96ED493932C6B1A5F721312D3895CD12FAFDC844CA": [
@@ -1660,6 +1702,14 @@
         "name": "August Digital"
       }
     ],
+    "MORPHO_BLUE_9D582055D36F8D8B3B5924B9BE6B8357FD766C635592A1CA8DAC5F31C6ACCA04": [
+      {
+        "id": "edge-capital-ultrayield",
+        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "verified": true,
+        "name": "Edge Capital UltraYield"
+      }
+    ],
     "MORPHO_BLUE_A0534C78620867B7C8706E3B6DF9E69A2BC67C783281B7A77E034ED75CEE012E": [
       {
         "id": "avantgarde",
@@ -1742,12 +1792,6 @@
     ],
     "MORPHO_BLUE_A4774E3E693FFF2EBD1DCBBD69B1B0A5B9BB0CCC753BFDA5DD07BDAC97C4818A": [
       {
-        "id": "gauntlet",
-        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
-        "verified": true,
-        "name": "Gauntlet"
-      },
-      {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
@@ -1774,14 +1818,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/stakedao.svg",
         "verified": true,
         "name": "Stake DAO"
-      }
-    ],
-    "MORPHO_BLUE_A6B5B5CC24A40900156A503AFC6C898118B6D37AE545C2C144326FB95AC68E7A": [
-      {
-        "id": "alphaping",
-        "image": "https://cdn.morpho.org/v2/assets/images/alphaping.png",
-        "verified": true,
-        "name": "AlphaPing"
       }
     ],
     "MORPHO_BLUE_A79D8028DEC527565028FD9FC075B02B498F2B69A1D519DFF543BA99B812FF6B": [
@@ -2060,6 +2096,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_B5B0FF0FCCF16DFF5BEF6D2D001D60F5C4AB49DF1020A01073D3AD635C80E8D5": [
+      {
+        "id": "singularv",
+        "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
+        "verified": true,
+        "name": "SingularV"
       }
     ],
     "MORPHO_BLUE_B7843FE78E7E7FD3106A1B939645367967D1F986C2E45EDB8932AD1896450877": [
@@ -2414,14 +2458,6 @@
         "name": "Steakhouse Financial"
       }
     ],
-    "MORPHO_BLUE_C4E18EB6D0E9B0FA90A15BC0A98190CBF3D5BA763AF410346F5174B014CEFD8D": [
-      {
-        "id": "gauntlet",
-        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
-        "verified": true,
-        "name": "Gauntlet"
-      }
-    ],
     "MORPHO_BLUE_C54D7ACF14DE29E0E5527CABD7A576506870346A78A11A6762E2CCA66322EC41": [
       {
         "id": "avantgarde",
@@ -2434,12 +2470,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
-      },
-      {
-        "id": "kpk",
-        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
-        "verified": true,
-        "name": "kpk"
       },
       {
         "id": "re7-labs",
@@ -2469,14 +2499,6 @@
         "verified": true,
         "name": "Gauntlet"
       },
-      {
-        "id": "steakhouse-financial",
-        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
-        "verified": true,
-        "name": "Steakhouse Financial"
-      }
-    ],
-    "MORPHO_BLUE_C84CDB5A63207D8C2E7251F758A435C6BD10B4EAEFDAF36D7650159BF035962E": [
       {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
@@ -2544,6 +2566,20 @@
         "name": "Gauntlet"
       }
     ],
+    "MORPHO_BLUE_CFE8238AD5567886652CED15EE29A431C161A5904E5A6F380BAAA1B4FDC8E302": [
+      {
+        "id": "apostro",
+        "image": "https://cdn.morpho.org/v2/assets/images/apostro.svg",
+        "verified": true,
+        "name": "Apostro"
+      },
+      {
+        "id": "mev-capital",
+        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
+        "verified": true,
+        "name": "MEV Capital"
+      }
+    ],
     "MORPHO_BLUE_D0E50CDAC92FE2172043F5E0C36532C6369D24947E40968F34A5E8819CA9EC5D": [
       {
         "id": "avantgarde",
@@ -2606,6 +2642,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
+      }
+    ],
+    "MORPHO_BLUE_D2DB5DF9946C2090BBE2C52D8B8B80A95BFFCA8BD19A6151B1AE7687F888F6AB": [
+      {
+        "id": "mev-capital",
+        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
+        "verified": true,
+        "name": "MEV Capital"
       }
     ],
     "MORPHO_BLUE_D5211D0E3F4A30D5C98653D988585792BB7812221F04801BE73A44CEECB11E89": [
@@ -3016,6 +3060,14 @@
         "name": "AlphaPing"
       }
     ],
+    "MORPHO_BLUE_E9D96A2F8042486BFD8CFD22692E49CD355E8A51DA2F427BDB2D3671FBE978EA": [
+      {
+        "id": "august-digital",
+        "image": "https://cdn.morpho.org/v2/assets/images/august.svg",
+        "verified": true,
+        "name": "August Digital"
+      }
+    ],
     "MORPHO_BLUE_EB17955EA422BAEDDBFB0B8D8C9086C5BE7A9CFDEFB292119A102E981A30062E": [
       {
         "id": "clearstar",
@@ -3266,20 +3318,18 @@
         "name": "MEV Capital"
       }
     ],
-    "MORPHO_BLUE_FA5B0B24E68C993C1DF02BCD6C1C774A9D3E4B311967D94AD1F2D0FEE8F82A86": [
-      {
-        "id": "hyperithm",
-        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
-        "verified": true,
-        "name": "Hyperithm"
-      }
-    ],
     "MORPHO_BLUE_FB8315A8E5A80DB41A33BB9F7D9EAF14E2110C1F2AEBDBA16383C07C19DC6E28": [
       {
         "id": "gauntlet",
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
+      },
+      {
+        "id": "hyperithm",
+        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
+        "verified": true,
+        "name": "Hyperithm"
       },
       {
         "id": "singularv",
@@ -4710,16 +4760,10 @@
     ],
     "MORPHO_BLUE_0103CBCD14C690F68A91EC7C84607153311E9954C94AC6EAC06C9462DB3FABB6": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       }
     ],
     "MORPHO_BLUE_0138C47C8F7E0A785EC20A46EDC6DC7747C8CD6E318D02F6506A5B6A5F5BE7B0": [
@@ -4778,16 +4822,10 @@
     ],
     "MORPHO_BLUE_13C42741A359AC4A8AA8287D2BE109DCF28344484F91185F9A79BD5A805A55AE": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "clearstar",
@@ -4884,16 +4922,10 @@
     ],
     "MORPHO_BLUE_1C21C59DF9DB44BF6F645D854EE710A8CA17B479451447E9F56758AEE10A2FAD": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "clearstar",
@@ -4980,16 +5012,10 @@
         "name": "9Summits"
       },
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "clearstar",
@@ -5032,16 +5058,10 @@
     ],
     "MORPHO_BLUE_3B3769CFCA57BE2EAED03FCC5299C25691B77781A1E124E7A8D520EB9A7EABB5": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "clearstar",
@@ -5088,16 +5108,10 @@
     ],
     "MORPHO_BLUE_4944A1169BC07B441473B830308FFE5BB535C10A9F824E33988B60738120C48E": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       }
     ],
     "MORPHO_BLUE_4DDA3D40225FF86207164809ECD336F9908DA885470C0526794F2064795794F3": [
@@ -5162,16 +5176,10 @@
     ],
     "MORPHO_BLUE_5DFFFFC7D75DC5ABFA8DBE6FAD9CBDADF6680CBE1428BAFE661497520C84A94C": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "clearstar",
@@ -5264,16 +5272,10 @@
     ],
     "MORPHO_BLUE_67EBD84B2FB39E3BC5A13D97E4C07ABE1EA617E40654826E9ABCE252E95F049E": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "gauntlet",
@@ -5438,16 +5440,10 @@
     ],
     "MORPHO_BLUE_7FC498DDCB7707D6F85F6DC81F61EDB6DC8D7F1B47A83B55808904790564929A": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "gauntlet",
@@ -5470,16 +5466,10 @@
         "name": "9Summits"
       },
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "clearstar",
@@ -5522,16 +5512,10 @@
     ],
     "MORPHO_BLUE_8793CF302B8FFD655AB97BD1C695DBD967807E8367A65CB2F4EDAF1380BA1BDA": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "clearstar",
@@ -5578,22 +5562,16 @@
     ],
     "MORPHO_BLUE_9103C3B4E834476C9A62EA009BA2C884EE42E94E6E314A26F04D312434191836": [
       {
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
+        "verified": true,
+        "name": "Anthias Labs"
+      },
+      {
         "id": "apostro",
         "image": "https://cdn.morpho.org/v2/assets/images/apostro.svg",
         "verified": true,
         "name": "Apostro"
-      },
-      {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
-        "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
       },
       {
         "id": "clearstar",
@@ -5742,16 +5720,10 @@
     ],
     "MORPHO_BLUE_A9B5142FA687A24C275FAF731F13B52FAA9873252BB4E1CB6077AA1F412EDB0B": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "gauntlet",
@@ -5944,16 +5916,10 @@
         "name": "9Summits"
       },
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "clearstar",
@@ -6032,16 +5998,10 @@
     ],
     "MORPHO_BLUE_F7E40290F8CA1D5848B3C129502599AA0F0602EB5F5235218797A34242719561": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "gauntlet",
@@ -6066,16 +6026,10 @@
     ],
     "MORPHO_BLUE_FD0895BA253889C243BF59BC4B96FD1E06D68631241383947B04D1C293A0CFEA": [
       {
-        "id": "b-protocol",
-        "image": "https://cdn.morpho.org/v2/assets/images/bprotocol.png",
+        "id": "anthias-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/anthias.svg",
         "verified": true,
-        "name": "B.Protocol"
-      },
-      {
-        "id": "block-analitica",
-        "image": "https://cdn.morpho.org/v2/assets/images/block-analitica.png",
-        "verified": true,
-        "name": "Block Analitica"
+        "name": "Anthias Labs"
       },
       {
         "id": "clearstar",
@@ -6246,14 +6200,6 @@
         "name": "Yearn"
       }
     ],
-    "MORPHO_BLUE_35F0FEF6845F40CC154F965125BD4F83F44C6A713CA0BC973D9283DBC548F86B": [
-      {
-        "id": "gauntlet",
-        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
-        "verified": true,
-        "name": "Gauntlet"
-      }
-    ],
     "MORPHO_BLUE_551DBCDCCEAF9322986E0CDDDE993D49840522A9532DC441359ACD98AF8BADFF": [
       {
         "id": "clearstar",
@@ -6300,22 +6246,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
-      }
-    ],
-    "MORPHO_BLUE_58DF3AD9CF719B1CA97365DB634A11B770785517F409ECBE85EEFDB34803DE1F": [
-      {
-        "id": "gauntlet",
-        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
-        "verified": true,
-        "name": "Gauntlet"
-      }
-    ],
-    "MORPHO_BLUE_6A2B0C23C79DDE84628314D21797F7BD5B06AE36E6BDE6924ECE64EF4821D2DF": [
-      {
-        "id": "gauntlet",
-        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
-        "verified": true,
-        "name": "Gauntlet"
       }
     ],
     "MORPHO_BLUE_6C831DCC45A7C0AF00B751DA651BD874B96653C587615D11AAFADE7B357C4B43": [
@@ -6520,12 +6450,6 @@
         "name": "Gauntlet"
       },
       {
-        "id": "kpk",
-        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
-        "verified": true,
-        "name": "kpk"
-      },
-      {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
@@ -6552,14 +6476,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
-      }
-    ],
-    "MORPHO_BLUE_989DDB4F5B09E6D02E7F5F2F8EFB846FD2DE1F3F3DFD96E1939455ABE7DD5A48": [
-      {
-        "id": "gauntlet",
-        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
-        "verified": true,
-        "name": "Gauntlet"
       }
     ],
     "MORPHO_BLUE_98A937249FFE404BD46215ED94FBA4A8BE508A02FBF5A0A710E6E649795F7851": [
@@ -7238,6 +7154,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
+      }
+    ],
+    "MORPHO_BLUE_A85A62AFF119599CB1709700243DE71267D1CA3C8FAADC6756929A06676747A0": [
+      {
+        "id": "hyperithm",
+        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
+        "verified": true,
+        "name": "Hyperithm"
       }
     ],
     "MORPHO_BLUE_BEB2F6AD6DE1A9EEAD3302AD57A0180F67D127A22E53FA29BC724147B96CB20D": [
