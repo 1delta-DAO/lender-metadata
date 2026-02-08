@@ -42,38 +42,23 @@ export async function fetchInitData() {
                     args: [],
                 })),
             }));
-            const poolsToUnderlying = Object.assign({}, ...allPools.map((p, i) => {
-                return { [p.toLowerCase()]: allUnderlyings[i].toLowerCase() };
-            }));
-            let modeData = {};
-            let poolData = {};
-            let pools = Object.keys(poolsToUnderlying);
-            let reserves = Object.values(poolsToUnderlying);
-            poolData = Object.assign({}, ...pools.map((p, i) => {
-                return {
-                    [p.toLowerCase()]: {
-                        underlying: allUnderlyings[i].toLowerCase(),
-                        modes: [],
-                    },
+            const poolEntryMap = {};
+            for (let i = 0; i < allPools.length; i++) {
+                const pool = allPools[i].toLowerCase();
+                poolEntryMap[pool] = {
+                    pool,
+                    underlying: allUnderlyings[i].toLowerCase(),
+                    modes: [],
                 };
-            }));
+            }
             for (let i = 0; i < defaultModeSearch.length; i++) {
                 const mode = defaultModeSearch[i];
                 let [collaterals, ,] = poolsPerMode[i];
-                modeData[mode] = collaterals.map((c) => ({
-                    pool: c,
-                    underlying: poolsToUnderlying[c.toLowerCase()],
-                }));
-                collaterals.map((c) => {
-                    poolData[c.toLowerCase()].modes.push(mode);
+                collaterals.forEach((c) => {
+                    poolEntryMap[c.toLowerCase()].modes.push(mode);
                 });
             }
-            initDataMap[fork][chain] = {
-                poolData,
-                poolsToUnderlying,
-                reserves,
-                modeData,
-            };
+            initDataMap[fork][chain] = Object.values(poolEntryMap);
         }
     }
     return { initDataMap, INIT_CONFIG_PER_CHAIN_MAP };
