@@ -7,19 +7,11 @@ BigInt.prototype["toJSON"] = function () {
   return this.toString();
 };
 
-// pool-underlying per mode
-type ModeEntry = { pool: string; underlying: string };
-type PoolDatas = { [pool: string]: { underlying: string; modes: number[] } };
-type ModeData = { [mode: number]: ModeEntry[] };
+type PoolEntry = { pool: string; underlying: string; modes: number[] };
 
 type InitMap = {
   [fork: string]: {
-    [chainid: string | number]: {
-      poolsToUnderlying: string;
-      modeData: ModeData;
-      poolData: PoolDatas;
-      reserves: string[];
-    };
+    [chainid: string | number]: PoolEntry[];
   };
 };
 
@@ -71,44 +63,23 @@ export async function fetchInitData(): Promise<{
           args: [],
         })) as any[],
       })) as any;
-      const poolsToUnderlying = Object.assign(
-        {},
-        ...allPools.map((p, i) => {
-          return { [p.toLowerCase()]: allUnderlyings[i].toLowerCase() };
-        })
-      );
-      let modeData: ModeData = {};
-      let poolData: PoolDatas = {};
-      let pools: string[] = Object.keys(poolsToUnderlying);
-      let reserves: string[] = Object.values(poolsToUnderlying);
-      poolData = Object.assign(
-        {},
-        ...pools.map((p, i) => {
-          return {
-            [p.toLowerCase()]: {
-              underlying: allUnderlyings[i].toLowerCase(),
-              modes: [],
-            },
-          };
-        })
-      );
+      const poolEntryMap: { [pool: string]: PoolEntry } = {};
+      for (let i = 0; i < allPools.length; i++) {
+        const pool = allPools[i].toLowerCase();
+        poolEntryMap[pool] = {
+          pool,
+          underlying: allUnderlyings[i].toLowerCase(),
+          modes: [],
+        };
+      }
       for (let i = 0; i < defaultModeSearch.length; i++) {
         const mode = defaultModeSearch[i];
         let [collaterals, ,]: [string[], string[], bigint] = poolsPerMode[i];
-        modeData[mode] = collaterals.map((c) => ({
-          pool: c,
-          underlying: poolsToUnderlying[c.toLowerCase()],
-        }));
-        collaterals.map((c) => {
-          poolData[c.toLowerCase()].modes.push(mode);
+        collaterals.forEach((c) => {
+          poolEntryMap[c.toLowerCase()].modes.push(mode);
         });
       }
-      initDataMap[fork][chain] = {
-        poolData,
-        poolsToUnderlying,
-        reserves,
-        modeData,
-      };
+      initDataMap[fork][chain] = Object.values(poolEntryMap);
     }
   }
 
