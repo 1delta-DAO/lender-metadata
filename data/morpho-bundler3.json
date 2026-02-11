@@ -1,0 +1,153 @@
+{
+  "1": {
+    "bundler3": "0x6566194141eefa99Af43Bb5Aa71460Ca2Dc90245",
+    "generalAdapter1": "0x4A6c312ec70E8747a587EE860a0353cd42Be0aE0",
+    "paraswapAdapter": "0x03b5259Bd204BfD4A616E5B79b0B786d90c6C38f",
+    "erc20WrapperAdapter": "0xf83D17dFE160597b19e4FdD8ea61A23e9a87F962",
+    "compoundV2MigrationAdapter": "0x9B89c07f480Df1945279031b5fC6fF241b8f1101",
+    "compoundV3MigrationAdapter": "0xdBa5bdE29eA030Bfa6A608592dFcA1D02CB26773",
+    "aaveV2MigrationAdapter": "0x40288815C399709dFC0875A384B637fFe387961B",
+    "aaveV3CoreMigrationAdapter": "0xb09e40EbE31b738fbf20289270a397118707D475",
+    "aaveV3PrimeMigrationAdapter": "0x2CC8d502a65824B4cF9A58DB03490bA024BDB806",
+    "aaveV3EtherFiMigrationAdapter": "0x4011dc6581fA05F9B0c7A12AdCd676e2b1a59ca3",
+    "aaveV3OptimizerMigrationAdapter": "0x9e2ea2d5785598a163D569D795f286F5C55ad972"
+  },
+  "10": {
+    "bundler3": "0xFBCd3C258feB131D8E038F2A3a670A7bE0507C05",
+    "generalAdapter1": "0x79481C87f24A3C4332442A2E9faaf675e5F141f0",
+    "paraswapAdapter": "0x31F539f4Ed14fA1fd18781e93f6739249692aDC5"
+  },
+  "25": {
+    "bundler3": "0xb1c59fE6A0DCE25b804F6113C441Bf4F3a4Ab6bC",
+    "generalAdapter1": "0xCa470cBBc3de56FDe336466f2107cC969174d513"
+  },
+  "56": {
+    "bundler3": "0x16D40b9DF1497468195BFAfeb2718e486E15bF91",
+    "generalAdapter1": "0x87c93660ECe6E68C6492EabBbBdbaafA102ae3a3"
+  },
+  "130": {
+    "bundler3": "0x7DD85759182495AF7F6757DA75036d24A9B58bc3",
+    "generalAdapter1": "0xC11329d19C2275c9E759867e879ECFcEeD7e30A0",
+    "paraswapAdapter": "0xAa870Da2a9F611A3A53d0D2AEe5664B3700a59c9",
+    "compoundV3MigrationAdapter": "0x617f8d7885CCE689115Af04576F7cB6F2534fA9a"
+  },
+  "137": {
+    "bundler3": "0x2d9C3A9E67c966C711208cc78b34fB9E9f8db589",
+    "generalAdapter1": "0xB261B51938A9767406ef83bbFbaAFE16691b7047",
+    "paraswapAdapter": "0x5F2617F12D1fDd1e43e72Cb80C92dFcE8124Db8d",
+    "compoundV3MigrationAdapter": "0xB34D2f54139bA12defC315C0822aDf9A5eB9A9b7",
+    "aaveV2MigrationAdapter": "0x43980Ae597f12Ff64690506b2AEEFFb4D8BeAF2a",
+    "aaveV3CoreMigrationAdapter": "0xEcB1662a1dff5C20650CF98c3334d2fddcD50742"
+  },
+  "143": {
+    "bundler3": "0x82b684483e844422FD339df0b67b3B111F02c66E",
+    "generalAdapter1": "0x725AB8CAd931BCb80Fdbf10955a806765cCe00e5"
+  },
+  "146": {
+    "bundler3": "0xB06F1Ad8c908b958E596c42973f67F2f1d9a9afF",
+    "generalAdapter1": "0x31D5aee8D75EEab548cfA0d11C4f9843a5201eaf"
+  },
+  "239": {
+    "bundler3": "0x84b189823D0f84c36728Bb3335dD8C833564e72f",
+    "generalAdapter1": "0x6D94E7dCA6d8FAE2CF954633C2Cf9c286258E0af"
+  },
+  "252": {
+    "bundler3": "0xA7a414823Ef0F8CFb2c4f67f2F445DA940641d91",
+    "generalAdapter1": "0x228dDF333DDf6D1895dA1dE8a846EDD27F1284eD"
+  },
+  "480": {
+    "bundler3": "0x3D07BF2FFb23248034bF704F3a4786F1ffE2a448",
+    "generalAdapter1": "0x30fa9A3cF56931ACEea42E28D35519a97D90aA67"
+  },
+  "988": {
+    "bundler3": "0xA0bb114F927dF03d9a1a639b9c71F71B0FaFDf1B",
+    "generalAdapter1": "0x59b1F4376a81e39c466A0A218447E4D36f39A96b"
+  },
+  "999": {
+    "bundler3": "0xa3F50477AfA601C771874260A3B34B40e244Fa0e",
+    "generalAdapter1": "0xD7F48aDE56613E8605863832B7B8A1985B934aE4"
+  },
+  "1135": {
+    "bundler3": "0xD96E5e02580C4EAfE15B5537b25eE3dEe5861e00",
+    "generalAdapter1": "0x76cFE4BF840C7b461772fE7CDE399f58c4173584"
+  },
+  "1329": {
+    "bundler3": "0xF9457356F18A3349Bb317Ac144c3Bcc62e5761aD",
+    "generalAdapter1": "0x02e0e71e145f254820B9D89c9E6068f08256F601"
+  },
+  "1868": {
+    "bundler3": "0x461378B79d400c963F48F57b3a99416bc3C5c6a6",
+    "generalAdapter1": "0xA47EeDE3Aac741B830E394B2e291f6774BD8bb48"
+  },
+  "2741": {
+    "bundler3": "0xc13A3Ca3B0120EE6121d1E0ca9Da22fDD7ed28Cd",
+    "generalAdapter1": "0x3716AA06304D1bC70f553Da44904d13086A4a791"
+  },
+  "8453": {
+    "bundler3": "0x6BFd8137e702540E7A42B74178A4a49Ba43920C4",
+    "generalAdapter1": "0xb98c948CFA24072e58935BC004a8A7b376AE746A",
+    "paraswapAdapter": "0x6abE8ABd0275E5564ed1336F0243A52C32562F71",
+    "erc20WrapperAdapter": "0xdeEf55F0A7366cC3Baf5E04313269389Fe17E9AE",
+    "compoundV3MigrationAdapter": "0x85D4812Ef92c040d4270eD8547b6835e41FbbB70",
+    "aaveV3CoreMigrationAdapter": "0xb27Aa2a964eAd5ed661D86974b37e4fB995b36f5"
+  },
+  "16661": {
+    "bundler3": "0xbDaFC7ceF85C5fF69164330F521089C9E15DDDae",
+    "generalAdapter1": "0xFaD987d0EedfbAC709EC27ee4a94f36A1300a054"
+  },
+  "34443": {
+    "bundler3": "0xFEA0edFa081C8D5960Ec9Bf6684981dB1834305d",
+    "generalAdapter1": "0xF53925b95Cc409447066cd5c1A7756084b2Ee0a4"
+  },
+  "42161": {
+    "bundler3": "0x1FA4431bC113D308beE1d46B0e98Cb805FB48C13",
+    "generalAdapter1": "0x9954aFB60BB5A222714c478ac86990F221788B88",
+    "paraswapAdapter": "0xAA5c30C1482c189cA0d56057D3ac4dD7Af1e4726",
+    "aaveV3CoreMigrationAdapter": "0x1923670d4F4eB7435d865E7477d28FEAFfA40C93",
+    "compoundV3MigrationAdapter": "0x86Ca77a4a37A9CDBe9bBf4975F6d69531B96444b"
+  },
+  "42220": {
+    "bundler3": "0xbd142f98f847c170D51d8B23e5FEBc51FC9a67D9",
+    "generalAdapter1": "0x3E7544a07157D03a49359eE89f2fCac9a6467230"
+  },
+  "42793": {
+    "bundler3": "0x69dc8086191437b55775b79C730BB3876397e7D1",
+    "generalAdapter1": "0xEabdAC78A7f0a9B3dF0e23D69A5a5fF7f580a910"
+  },
+  "43111": {
+    "bundler3": "0x8eDa6E01a20E3Cd90B3B2AF6F790cB8FADEf3Ea8",
+    "generalAdapter1": "0x9623090C3943ad63F7d794378273610Dd0deeFD4"
+  },
+  "57073": {
+    "bundler3": "0x7db0F1E2bf1f47ec82220090F388d75D8B9BB6BC",
+    "generalAdapter1": "0xB8B2aDdCDe1cdC94AaE18a0F8A19df03D8683610"
+  },
+  "59144": {
+    "bundler3": "0x1Ee8Ec299E8014760D50A4E3CfC3b44Cc2242625",
+    "generalAdapter1": "0x454dAb6ce9891245696b239b4845a1cDC268255d"
+  },
+  "98866": {
+    "bundler3": "0x5437C8788f4CFbaA55be6FBf30379bc7dd7f69C3",
+    "generalAdapter1": "0x65ff368930Cb7eB4CA5C5eBC58bb69E6Ed198BA5"
+  },
+  "200901": {
+    "bundler3": "0x82b3ea7558Fc383b949fa42Db7ee3eB101447B96",
+    "generalAdapter1": "0xa87F1422Df88B5f490203D71e2f8e7244843E62F"
+  },
+  "534352": {
+    "bundler3": "0x60F9159d4dCd724e743212416FD57d8aC0B60768",
+    "generalAdapter1": "0xD2780fae0869cDc06EE202152304A39653361525"
+  },
+  "747474": {
+    "bundler3": "0xA8C5e23C9C0DF2b6fF716486c6bBEBB6661548C8",
+    "generalAdapter1": "0x916Aa175C36E845db45fF6DDB886AE437d403B61"
+  },
+  "21000000": {
+    "bundler3": "0x086889F9bdE8349512dD77088A7114E6C1c42Af7",
+    "generalAdapter1": "0x464a402244bCDdc0c2091D5193E8ffdb2be54Ca9"
+  },
+  "123420001114": {
+    "bundler3": "0xc1A86b3a552C5a34e1ecc910341A64Cc89b2CB01",
+    "generalAdapter1": "0x86eaf48Fd73c1Aa30E801D01d0efFd731c3E5E85"
+  }
+}
