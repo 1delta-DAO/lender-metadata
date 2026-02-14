@@ -45,6 +45,7 @@ export async function multicallRetry({ chainId, contracts, allowFailure }, retri
         const returnData = await provider.multicall({
             allowFailure,
             contracts,
+            batchSize: 1000
         });
         if (returnData.some((a) => 
         // @ts-ignore

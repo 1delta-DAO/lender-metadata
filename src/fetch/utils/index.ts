@@ -61,6 +61,7 @@ export async function multicallRetry(
     const returnData = await provider.multicall({
       allowFailure,
       contracts,
+      batchSize: 1000
     });
 
     if (
