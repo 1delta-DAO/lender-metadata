@@ -6,6 +6,7 @@ import { COMPTROLLER_ABIS, CompoundV2FetchFunctions } from "./abi.js";
 import { multicallRetry, readJsonFile } from "../utils/index.js";
 import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
+import { Lender } from "@1delta/lender-registry";
 
 type AddressMap = { [fork: string]: string };
 
@@ -37,7 +38,7 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
     "./config/compound-v2-pools.json",
   );
 
-  const forks = Object.keys(COMPOUND_V2_COMPTROLLERS);
+  const forks = Object.keys(COMPOUND_V2_COMPTROLLERS).filter(f=> f !== Lender.COMPOUND_V2);
 
   const cTokens: CompoundV2ForkMap = {};
   const oracles: OracleMap = {};
