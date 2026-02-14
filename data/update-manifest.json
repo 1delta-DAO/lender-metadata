@@ -1,7 +1,12 @@
 {
-  "version": "2026-02-14T03-25-55-614Z",
-  "generatedAt": "2026-02-14T03:25:55.614Z",
-  "updatedFiles": [],
+  "version": "2026-02-14T03-36-09-610Z",
+  "generatedAt": "2026-02-14T03:36:09.610Z",
+  "updatedFiles": [
+    "./data/compound-v2-tokens.json",
+    "./data/compound-v2-c-tokens.json",
+    "./data/compound-v2-reserves.json",
+    "./data/compound-v2-oracles.json"
+  ],
   "results": [
     {
       "targetFile": "./data/compound-v2-tokens.json"
