@@ -156,7 +156,7 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
       throw e;
     }
 
-    await sleep(250);
+    await sleep(500);
 
     // Map results back to fork structure
     let resultIndex = 0;

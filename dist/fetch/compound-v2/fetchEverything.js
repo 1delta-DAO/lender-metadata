@@ -103,7 +103,7 @@ export async function fetchCompoundV2TypeTokenData() {
             console.log(`Error fetching underlyings for chain ${chain}:`, e);
             throw e;
         }
-        await sleep(250);
+        await sleep(500);
         // Map results back to fork structure
         let resultIndex = 0;
         for (const { fork, markets, oracle } of forkMarketData) {

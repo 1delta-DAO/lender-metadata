@@ -1,5 +1,6 @@
 import { getEvmClient, getEvmClientWithCustomRpcsUniversal, LIST_OVERRIDES, } from "@1delta/providers";
 import * as fs from "fs";
+import { sleep } from "../../utils";
 /**
  * Reads a JSON file from a given path and parses it into a typed object.
  *
@@ -35,17 +36,18 @@ export async function simulateContractRetry({ chainId, abi, address, functionNam
         return await simulateContractRetry({ chainId, abi, address, functionName, args }, newRetries);
     }
 }
-export async function multicallRetry({ chainId, contracts, allowFailure }, retries = 3, providerIndex = 0) {
+const MAX_PROVIDER_INDEX = 5;
+export async function multicallRetry({ chainId, contracts, allowFailure }, retries = 3, providerIndex = 0, attempt = 0) {
     try {
         const provider = getEvmClientWithCustomRpcsUniversal({
             chain: chainId,
-            rpcId: providerIndex,
+            rpcId: providerIndex % (MAX_PROVIDER_INDEX + 1),
             customRpcs: { ...LIST_OVERRIDES },
         });
         const returnData = await provider.multicall({
             allowFailure,
             contracts,
-            batchSize: 1000
+            batchSize: chainId === "1" ? 200 : undefined,
         });
         if (returnData.some((a) => 
         // @ts-ignore
@@ -72,10 +74,12 @@ export async function multicallRetry({ chainId, contracts, allowFailure }, retri
             e?.status >= 500;
         const newRetries = retries - 1;
         const nextProviderIndex = isHttpError ? providerIndex + 1 : providerIndex;
-        console.log(`multicall error (HTTP: ${isHttpError}), retry ${newRetries}, switching to provider ${nextProviderIndex}`, e?.message || e);
+        console.log(`multicall error (HTTP: ${isHttpError}), retry ${newRetries}, provider ${nextProviderIndex % (MAX_PROVIDER_INDEX + 1)}`, e?.message || e);
         if (newRetries < 0)
             throw e;
-        return await multicallRetry({ chainId, contracts, allowFailure }, newRetries, nextProviderIndex);
+        const backoff = Math.min(250 * Math.pow(2, attempt), 5000);
+        await sleep(backoff);
+        return await multicallRetry({ chainId, contracts, allowFailure }, newRetries, nextProviderIndex, attempt + 1);
     }
 }
 function tryGetProvider(chain, id) {
