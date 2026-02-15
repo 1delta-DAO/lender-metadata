@@ -1,31 +1,11 @@
 {
   "AAVE_V3": {
     "1": {
-      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
-        "aToken": "0x4d5f47fa6a74757f35c14fd3a6ef8e3c9bc514e8",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0xea51d7853eefb32b6ee06b1c12e6dcca88be0ffe"
-      },
-      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": {
-        "aToken": "0x0b925ed163218f6662a35e0f0371ac234f9e9371",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0xc96113eed8cab59cd8a66813bcb0ceb29f06d2e4"
-      },
-      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
-        "aToken": "0x5ee5bf7ae06d1be5997a1a72006fe6c607ec6de8",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x40aabef1aa8f0eec637e0e7d92fbffb2f26a8b7b"
-      },
-      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
-        "aToken": "0x98c23e9d8f34fefb1b7bd6a91b7ff122f4e16f5c",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x72e95b8931767c79ba4eee721354d6e99a61d004"
-      },
-      "0x6b175474e89094c44da98b954eedeac495271d0f": {
-        "aToken": "0x018008bfb33d285247a21d44e50697654f754e63",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0xcf8d0c70c850859266f5c338b38f9d663181c314"
-      },
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {},
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": {},
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {},
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {},
+      "0x6b175474e89094c44da98b954eedeac495271d0f": {},
       "0x514910771af9ca656af840dff83e8264ecf986ca": {
         "aToken": "0x5e8c8a7243651db1384c0ddfdbe39761e8e7e51a",
         "sToken": "0x0000000000000000000000000000000000000000",
@@ -176,31 +156,11 @@
         "sToken": "0x0000000000000000000000000000000000000000",
         "vToken": "0xeb284a70557efe3591b9e6d9d720040e02c54a4d"
       },
-      "0xdc035d45d973e3ec169d2276ddab16f1e407384f": {
-        "aToken": "0x32a6268f9ba3642dda7892add74f1d34469a4259",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x490e0e6255bf65b43e2e02f7acb783c5e04572ff"
-      },
-      "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7": {
-        "aToken": "0x2d62109243b87c4ba3ee7ba1d91b0dd0a074d7b1",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x6de3e52a1b7294a34e271a508082b1ff4a37e30e"
-      },
-      "0x8236a87084f8b84306f72007f36f2618a5634494": {
-        "aToken": "0x65906988adee75306021c417a1a3458040239602",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x68aeb290c7727d899b47c56d1c96aeac475cd0dd"
-      },
-      "0x657e8c867d8b37dcc18fa4caead9c45eb088c642": {
-        "aToken": "0x5fefd7069a7d91d01f269dade14526ccf3487810",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x47ed0509e64615c0d5c6d39af1b38d02bc9fe58f"
-      },
-      "0x8292bb45bf1ee4d140127049757c2e0ff06317ed": {
-        "aToken": "0xfa82580c16a31d0c1bc632a36f82e83efef3eec0",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0xbdfe7ad7976d5d7e0965ea83a81ca1bcff7e84a9"
-      },
+      "0xdc035d45d973e3ec169d2276ddab16f1e407384f": {},
+      "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7": {},
+      "0x8236a87084f8b84306f72007f36f2618a5634494": {},
+      "0x657e8c867d8b37dcc18fa4caead9c45eb088c642": {},
+      "0x8292bb45bf1ee4d140127049757c2e0ff06317ed": {},
       "0x50d2c7992b802eef16c04feadab310f31866a545": {
         "aToken": "0x4b0821e768ed9039a70ed1e80e15e76a5be5df5f",
         "sToken": "0x0000000000000000000000000000000000000000",
@@ -251,31 +211,11 @@
         "sToken": "0x0000000000000000000000000000000000000000",
         "vToken": "0x0d8486e1cabf3c9407b3dda0cfc4d9c3101fb683"
       },
-      "0xd11c452fc99cf405034ee446803b6f6c1f6d5ed8": {
-        "aToken": "0x481a2acf3a72ffdc602a9541896ca1db87f86cf7",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x7ec9afe70f8fd603282ebacbc9058a83623e2899"
-      },
-      "0xbf5495efe5db9ce00f80364c8b423567e58d2110": {
-        "aToken": "0x4e2a4d9b3df7aae73b418bd39f3af9e148e3f479",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x730318db7b830d324fc3feddb1d212ec64bd3141"
-      },
-      "0x68749665ff8d2d112fa859aa293f07a622782f38": {
-        "aToken": "0x8a2b6f94ff3a89a03e8c02ee92b55af90c9454a2",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0xa665bb258d2a732c170dfd505924214c0b1ac74f"
-      },
-      "0xe6a934089bbee34f832060ce98848359883749b3": {
-        "aToken": "0x285866acb0d60105b4ed350a463361c2d9afa0e2",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x690df181701c11c53ea33bbf303c25834b66bd14"
-      },
-      "0x62c6e813b9589c3631ba0cdb013acdb8544038b7": {
-        "aToken": "0x38c503a438185cde29b5cf4dc1442fd6f074f1cc",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x2ce7e7b238985a8ad3863de03f200b245b0c1216"
-      },
+      "0xd11c452fc99cf405034ee446803b6f6c1f6d5ed8": {},
+      "0xbf5495efe5db9ce00f80364c8b423567e58d2110": {},
+      "0x68749665ff8d2d112fa859aa293f07a622782f38": {},
+      "0xe6a934089bbee34f832060ce98848359883749b3": {},
+      "0x62c6e813b9589c3631ba0cdb013acdb8544038b7": {},
       "0x1f84a51296691320478c98b8d77f2bbd17d34350": {
         "aToken": "0xe728577e9a1fe7032bc309b4541f58f45443866e",
         "sToken": "0x0000000000000000000000000000000000000000",
@@ -1249,60 +1189,20 @@
         "sToken": "0x0000000000000000000000000000000000000000",
         "vToken": "0x91b7d78bf92db564221f6b5aee744d1727d1dd1e"
       },
-      "0xdc035d45d973e3ec169d2276ddab16f1e407384f": {
-        "aToken": "0x09aa30b182488f769a9824f15e6ce58591da4781",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x2d9fe18b6c35fe439cc15d932cc5c943bf2d901e"
-      },
-      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
-        "aToken": "0x2a1fbcb52ed4d9b23dad17e1e8aed4bb0e6079b8",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0xed90de2d824ee766c6fd22e90b12e598f681dc9f"
-      },
-      "0xbf5495efe5db9ce00f80364c8b423567e58d2110": {
-        "aToken": "0x74e5664394998f13b07af42446380acef637969f",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x08e1bba76d27841dd91fab4b3a636a0d5cf8c3e9"
-      },
-      "0x9d39a5de30e57443bff2a8307a4256c8797a3497": {
-        "aToken": "0xc2015641564a5914a17cb9a92ec8d8fecfa8f2d0",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x2abbaab3ef4e4a899d39e7ec996b5715e76b399a"
-      },
-      "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": {
-        "aToken": "0x18efe565a5373f430e2f809b97de30335b3ad96a",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x18577f0f4a0b2ee6f4048db51c7acd8699f97db8"
-      },
-      "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7": {
-        "aToken": "0x56d919e7b25aa42f3f8a4bc77b8982048f2e84b4",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x2c2163f120cf58631368981bc16e90190bc6c644"
-      },
-      "0xd11c452fc99cf405034ee446803b6f6c1f6d5ed8": {
-        "aToken": "0xce8c60fd8390efcc3fc66a3f0bd64beb969e750e",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0xe7ea6125490ae4594ad9b44d05dff9f2a4343134"
-      }
+      "0xdc035d45d973e3ec169d2276ddab16f1e407384f": {},
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {},
+      "0xbf5495efe5db9ce00f80364c8b423567e58d2110": {},
+      "0x9d39a5de30e57443bff2a8307a4256c8797a3497": {},
+      "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": {},
+      "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7": {},
+      "0xd11c452fc99cf405034ee446803b6f6c1f6d5ed8": {}
     }
   },
   "AAVE_V3_ETHER_FI": {
     "1": {
-      "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": {
-        "aToken": "0xbe1f842e7e0afd2c2322aae5d34ba899544b29db",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x16264412cb72f0d16a446f7d928dd0d822810048"
-      },
-      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
-        "aToken": "0x7380c583cde4409eff5dd3320d93a45d96b80e2e",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0x9355032d747f1e08f8720cd01950e652ee15cdb7"
-      },
-      "0x6c3ea9036406852006290770bedfcaba0e23a0e8": {
-        "aToken": "0xdf7f48892244c6106ea784609f7de10ab36f9c7e",
-        "sToken": "0x0000000000000000000000000000000000000000",
-        "vToken": "0xd2cf07dee40d3d530d15b88d689f5cd97a31fc3d"
-      },
+      "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": {},
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {},
+      "0x6c3ea9036406852006290770bedfcaba0e23a0e8": {},
       "0x853d955acef822db058eb8505911ed77f175b99e": {
         "aToken": "0x6914eccf50837dc61b43ee478a9bd9b439648956",
         "sToken": "0x0000000000000000000000000000000000000000",
@@ -1436,31 +1336,11 @@
         "sToken": "0xc01c8e4b12a89456a9fd4e4e75b72546bf53f0b5",
         "vToken": "0xba728ead5e496be00dcf66f650b6d7758ecb50f8"
       },
-      "0x408e41876cccdc0f92210600ef50372656052a38": {
-        "aToken": "0xcc12abe4ff81c9378d670de1b57f8e0dd228d77a",
-        "sToken": "0x3356ec1efa75d9d150da1ec7d944d9edf73703b7",
-        "vToken": "0xcd9d82d33bd737de215cdac57fe2f7f04df77fe0"
-      },
-      "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f": {
-        "aToken": "0x35f6b052c598d933d69a4eec4d04c73a191fe6c2",
-        "sToken": "0x8575c8ae70bdb71606a53aea1c6789cb0fbf3166",
-        "vToken": "0x267eb8cf715455517f9bd5834aeae3cea1ebdbd8"
-      },
-      "0x57ab1ec28d129707052df4df418d58a2d46d5f51": {
-        "aToken": "0x6c5024cd4f8a59110119c56f8933403a539555eb",
-        "sToken": "0x30b0f7324fedf89d8eff397275f8983397efe4af",
-        "vToken": "0xdc6a3ab17299d9c2a412b0e0a4c1f55446ae0817"
-      },
-      "0x0000000000085d4780b73119b644ae5ecd22b376": {
-        "aToken": "0x101cc05f4a51c0319f570d5e146a8c625198e636",
-        "sToken": "0x7f38d60d94652072b2c44a18c0e14a481ec3c0dd",
-        "vToken": "0x01c0eb1f8c6f1c1bf74ae028697ce7aa2a8b0e92"
-      },
-      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
-        "aToken": "0xbcca60bb61934080951369a648fb03df4f96263c",
-        "sToken": "0xe4922afab0bbadd8ab2a88e0c79d884ad337fca6",
-        "vToken": "0x619beb58998ed2278e08620f97007e1116d5d25b"
-      },
+      "0x408e41876cccdc0f92210600ef50372656052a38": {},
+      "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f": {},
+      "0x57ab1ec28d129707052df4df418d58a2d46d5f51": {},
+      "0x0000000000085d4780b73119b644ae5ecd22b376": {},
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {},
       "0xd533a949740bb3306d119cc777fa900ba034cd52": {
         "aToken": "0x8dae6cb04688c62d939ed9b68d32bc62e49970b1",
         "sToken": "0x9288059a74f589c919c7cf1db433251cdfeb874b",
@@ -2296,31 +2176,11 @@
         "sToken": "0x887ac022983ff083aeb623923789052a955c6798",
         "vToken": "0x7b70d04099cb9cfb1db7b6820badafb4c5c70a67"
       },
-      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
-        "aToken": "0x59cd1c87501baa753d0b5b5ab5d8416a45cd71db",
-        "sToken": "0x3c6b93d38ffa15ea995d1bc950d5d0fa6b22bd05",
-        "vToken": "0x2e7576042566f8d6990e07a1b61ad1efd86ae70d"
-      },
-      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": {
-        "aToken": "0x12b54025c112aa61face2cdb7118740875a566e9",
-        "sToken": "0x9832d969a0c8662d98fff334a4ba7fee62b109c2",
-        "vToken": "0xd5c3e3b566a42a6110513ac7670c1a86d76e13e6"
-      },
-      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
-        "aToken": "0x4197ba364ae6698015ae5c1468f54087602715b2",
-        "sToken": "0x4b29e6cbee62935cfc92efcb3839ed2c2f35c1d9",
-        "vToken": "0xf6fee3a8ac8040c3d6d81d9a4a168516ec9b51d2"
-      },
-      "0x6810e776880c02933d47db1b9fc05908e5386b96": {
-        "aToken": "0x7b481acc9fdaddc9af2cbea1ff2342cb1733e50f",
-        "sToken": "0xbf13910620722d4d4f8a03962894eb3335bf4fae",
-        "vToken": "0x57a2957651da467fcd4104d749f2f3684784c25a"
-      },
-      "0xae78736cd615f374d3085123a210448e74fc6393": {
-        "aToken": "0x9985df20d7e9103ecbceb16a84956434b6f06ae8",
-        "sToken": "0xa9a4037295ea3a168dc3f65fe69fda524d52b3e1",
-        "vToken": "0xba2c8f2ea5b56690bfb8b709438f049e5dd76b96"
-      },
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {},
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": {},
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {},
+      "0x6810e776880c02933d47db1b9fc05908e5386b96": {},
+      "0xae78736cd615f374d3085123a210448e74fc6393": {},
       "0xdac17f958d2ee523a2206206994597c13d831ec7": {
         "aToken": "0xe7df13b8e3d6740fe17cbe928c7334243d86c92f",
         "sToken": "0x0dae62f953ceb2e969fb4de85f3f9074fa920776",
@@ -3220,31 +3080,11 @@
         "sToken": "0x1b7666d926c3e715d342e61c2913f15f8a8ca421",
         "vToken": "0xb41bd965fd0954c3bd4edae1a9a07816788b657c"
       },
-      "0x6c3ea9036406852006290770bedfcaba0e23a0e8": {
-        "aToken": "0x24378aa0d97e3bd72bd0a0443306602de4583456",
-        "sToken": "0xecc06b626930b70937c58c51f97ac34d56aea7b6",
-        "vToken": "0xac1bbb316c84b672a86aabec5d4ec53b8d26ce98"
-      },
-      "0x9d39a5de30e57443bff2a8307a4256c8797a3497": {
-        "aToken": "0x25de46b8491c43c88c9e615336210928ca64091c",
-        "sToken": "0x4adb7d1d5408c696f75f6147f9c3a07c0b0ce195",
-        "vToken": "0xa9f3915ed6d1473aee84a3666155ea8a84719177"
-      },
-      "0x8236a87084f8b84306f72007f36f2618a5634494": {
-        "aToken": "0x37b64fc5babdf70a027099fc7b75bf77a0b23e34",
-        "sToken": "0x782167d86b9cffc5ad3ab128854645e948f8ae03",
-        "vToken": "0x8715d51b9760ee99cf4c623337ec5d673434cc3f"
-      },
-      "0x45804880de22913dafe09f4980848ece6ecbaf78": {
-        "aToken": "0xf63667fab833b603252482de83de152034c2b7ab",
-        "sToken": "0xc047ddc4c3334f5c4ceb54e665be03c82c65b161",
-        "vToken": "0xe45c5c5e45782cdd46b0d714fbfc65e906fd910e"
-      },
-      "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9": {
-        "aToken": "0x250ee3866880524423d5bb7059a9d33678475b6f",
-        "sToken": "0x176fe15d75b87b3836ccc7374372c834fdbb59c0",
-        "vToken": "0x31affa4d49122f8ecd984f2ead2dda3f574fbdc2"
-      }
+      "0x6c3ea9036406852006290770bedfcaba0e23a0e8": {},
+      "0x9d39a5de30e57443bff2a8307a4256c8797a3497": {},
+      "0x8236a87084f8b84306f72007f36f2618a5634494": {},
+      "0x45804880de22913dafe09f4980848ece6ecbaf78": {},
+      "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9": {}
     },
     "56": {
       "0x55d398326f99059ff775485246999027b3197955": {
@@ -4752,31 +4592,11 @@
         "sToken": "0x995dc3420a58943108a9229e0039a5f0920708b4",
         "vToken": "0xaf3b303f904cada1e4a648555f78735bb432106b"
       },
-      "0xd9a442856c234a39a81a089c06451ebaa4306a72": {
-        "aToken": "0x5651bb75de3c78815d420602b4ce67d04a233873",
-        "sToken": "0xbc0ae314a016e9b0bf92e9116fcee2071c3ec8a0",
-        "vToken": "0x62c4405476250d28af421ca7839064ce4ad96b5f"
-      },
-      "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": {
-        "aToken": "0xd7ecacf4cdae0c59cdd034c6f0d959e7933bfd6c",
-        "sToken": "0x45d36490b0658ba7c05c3b994b4bb283a3a03cd0",
-        "vToken": "0x2cf0f840d0dcc15daa37f4899371951b934c02ac"
-      },
-      "0xae78736cd615f374d3085123a210448e74fc6393": {
-        "aToken": "0x16e22798a2064adfaa09fd7c380d5ca8c895c296",
-        "sToken": "0x9f941e3eef5baa6992e5ec141216da051b221684",
-        "vToken": "0x240c6bab702ba827ed11a99df390326ad6662119"
-      },
-      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
-        "aToken": "0x89c15cade77cba4f5c78d1fa845b854623ad8696",
-        "sToken": "0x1d21395b8fea4e0cc20f7b13ecffcee7a86255c1",
-        "vToken": "0xa3c0a19b999ff397a4b3c62ca10611eee315f426"
-      },
-      "0x6b175474e89094c44da98b954eedeac495271d0f": {
-        "aToken": "0x75287853d44f263639af649283403ec39f895dab",
-        "sToken": "0xd15d760bdf334b3c217cc7b341c91361b592e254",
-        "vToken": "0xf8f0198a277f71f15d4e8c32ae533f36dfa3084a"
-      },
+      "0xd9a442856c234a39a81a089c06451ebaa4306a72": {},
+      "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": {},
+      "0xae78736cd615f374d3085123a210448e74fc6393": {},
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {},
+      "0x6b175474e89094c44da98b954eedeac495271d0f": {},
       "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
         "aToken": "0x48dfa0f826e8026ba51342fff61e9584eccadf69",
         "sToken": "0x37d9d4dff739ac695ef6c5cbb1ebc4ebaec750da",
@@ -5012,56 +4832,16 @@
         "sToken": "0x391fd24c210dd0aa7d4c62309d30d8d9b6c718ee",
         "vToken": "0x8f3d01e68ce1c6c4d80d015c02fbc02eca2cd157"
       },
-      "0x939778d83b46b456224a33fb59630b11dec56663": {
-        "aToken": "0x00cb081494bda5acbdda7e2740f9f8b2fbe61ee4",
-        "sToken": "0xaac420348cf19c9f0a22ca424aaffa1766b57a9c",
-        "vToken": "0x8f6e597e6972a1dd1844004543af0ea786f63e35"
-      },
-      "0x73a15fed60bf67631dc6cd7bc5b6e8da8190acf5": {
-        "aToken": "0xe4f3c29ae5fa179a86bb707d6aab3db2655edcee",
-        "sToken": "0xfd9d36be93d02b04165f39ec27e1fcb4e3151533",
-        "vToken": "0x69b43ff2cad50fa9a5d567a4a4c51f804fcf6b21"
-      },
-      "0x35d8949372d46b7a3d5a56006ae77b215fc69bc0": {
-        "aToken": "0xeb02a10b2d083b08365c59a8df01786236a29c5b",
-        "sToken": "0xa00d15745da54b17e78efc4a1fc762f4561703b6",
-        "vToken": "0x1178dfa1c6a1d7e9ed1347f13b50ca76a399f623"
-      },
-      "0x270d664d2fc7d962012a787aec8661ca83df24eb": {
-        "aToken": "0x905cb1537d65fd48a2068eda270ac2bd30376da6",
-        "sToken": "0x988cd1d7c812896f81588f54ec4c1bcf55b468d4",
-        "vToken": "0xc4a2a577deca52b7ce26fa7a3d2893db8429680d"
-      },
-      "0x0022228a2cc5e7ef0274a7baa600d44da5ab5776": {
-        "aToken": "0x529877d3e56991080161eb1751a4b96b7109504b",
-        "sToken": "0x797f7efb3e4a6fbc12a80f68b804b478e375b40a",
-        "vToken": "0x1453d1e45157b434178770a75bfeb6be0c2e5253"
-      },
-      "0x5bae9a5d67d1ca5b09b14c91935f635cfbf3b685": {
-        "aToken": "0x81f6494de3854cbd9d2f59dd98f4f1eca57bfca9",
-        "sToken": "0x24fe0b5c92a1e3c184ec76c47fde06b5d4a25739",
-        "vToken": "0x1247e1e295368c721ab8d8d48685eb4f143d432a"
-      },
-      "0x9d39a5de30e57443bff2a8307a4256c8797a3497": {
-        "aToken": "0xe24933aa6dfb66a32df7ea897a1818ecaabd54e1",
-        "sToken": "0x647b33d0b4ef15c6198eefe7ab2f151a080b5fc5",
-        "vToken": "0x04a4ef5f64b31ca668380f1f0306e87b3237dd88"
-      },
-      "0x4c9edd5852cd905f086c759e8383e09bff1e68b3": {
-        "aToken": "0x11cb6fd58eff7db834bf00469963f7643a319fc7",
-        "sToken": "0xe4c5171b9c648bd37693c6e1dd0cff266fd0e2f6",
-        "vToken": "0x934a8b117204e236d1b20b54efdababb141e67e8"
-      },
-      "0x80ac24aa929eaf5013f6436cda2a7ba190f5cc0b": {
-        "aToken": "0x4f5db48d5f352b3640bcad228f37d5c982ac1718",
-        "sToken": "0x18b09afe507f865c3cee682c9c9af9cbc3cef59e",
-        "vToken": "0x1fc0d61075c31b72172c8a2d01225ef330059853"
-      },
-      "0x1a88df1cfe15af22b3c4c783d4e6f7f9e0c1885d": {
-        "aToken": "0xa3f893ef2d974569dfb726b87779ed99cbe813ab",
-        "sToken": "0x56bbeef5694c872adcc209c607a06f8de60b9985",
-        "vToken": "0xc25ae3eb2e8c93852cc4aa2e54811b9cd44f73fd"
-      },
+      "0x939778d83b46b456224a33fb59630b11dec56663": {},
+      "0x73a15fed60bf67631dc6cd7bc5b6e8da8190acf5": {},
+      "0x35d8949372d46b7a3d5a56006ae77b215fc69bc0": {},
+      "0x270d664d2fc7d962012a787aec8661ca83df24eb": {},
+      "0x0022228a2cc5e7ef0274a7baa600d44da5ab5776": {},
+      "0x5bae9a5d67d1ca5b09b14c91935f635cfbf3b685": {},
+      "0x9d39a5de30e57443bff2a8307a4256c8797a3497": {},
+      "0x4c9edd5852cd905f086c759e8383e09bff1e68b3": {},
+      "0x80ac24aa929eaf5013f6436cda2a7ba190f5cc0b": {},
+      "0x1a88df1cfe15af22b3c4c783d4e6f7f9e0c1885d": {},
       "0xe00bd3df25fb187d6abbb620b3dfd19839947b81": {
         "aToken": "0xb73ca924bf3e1c2c5ac4d7718700650d706aad73",
         "sToken": "0x2f131e389445e7d6c44794192cae17a3cc9d189a",
@@ -5087,35 +4867,15 @@
         "sToken": "0xc49c40f7018fa3c1e1c799434aca435a67d028a8",
         "vToken": "0xbbb1920b54f096c8ecf1ee9cf8d4726e5c86ac0e"
       },
-      "0x1ce7d9942ff78c328a4181b9f3826fee6d845a97": {
-        "aToken": "0x798d024f96fb220f701f4aee3bc0ef5c64dd172e",
-        "sToken": "0xd2c66e588b2917dc2cde8037b50a5a4c4a8215f1",
-        "vToken": "0xbf9126198ee2ddf2c59b0b2db35844e600557edb"
-      }
+      "0x1ce7d9942ff78c328a4181b9f3826fee6d845a97": {}
     }
   },
   "ZEROLEND_ETH_LRTS": {
     "1": {
-      "0x6b175474e89094c44da98b954eedeac495271d0f": {
-        "aToken": "0x29a3a6af690942a3b7665bb2839a3f563c6f987b",
-        "sToken": "0x8569052157069ed81f603001596ee8ae1c85e049",
-        "vToken": "0x0047cac82cf5fb36954de1b9d86d657915ab3b47"
-      },
-      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
-        "aToken": "0xb2feb2c46305329a340e6188532f31fce9347a5c",
-        "sToken": "0x7fae822dc0a2ae436ec10b83ae5686c008fca718",
-        "vToken": "0x227f86fbfccb5664403b62a5b6d4e0e593968275"
-      },
-      "0xdac17f958d2ee523a2206206994597c13d831ec7": {
-        "aToken": "0x6c735966bc965bd4066c14fca3df443496ce14fb",
-        "sToken": "0x14b0f7edb2471350dee88b1c423e0df25c37b638",
-        "vToken": "0xdaccf47046ae4fee3f9f3bcfe68696a95db6ccb7"
-      },
-      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
-        "aToken": "0xfb932a75c5f69d03b0f6e59573fde6976af0d88c",
-        "sToken": "0x346623faf3cd1dbe9024c1d160cd40e6a90092ed",
-        "vToken": "0x7ef98cd28902ce57b7aeec66dfb06b454cda1941"
-      },
+      "0x6b175474e89094c44da98b954eedeac495271d0f": {},
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {},
+      "0xdac17f958d2ee523a2206206994597c13d831ec7": {},
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {},
       "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": {
         "aToken": "0x84e55c6bc5b7e9505d87b3df6ceff7753e15a0c5",
         "sToken": "0x4931dae3f419649931918d9e545d0f52cae0dbec",
@@ -5141,85 +4901,25 @@
         "sToken": "0x9924462b20a93551efbec5eecc437b632b3cb48c",
         "vToken": "0xb04adaff2f221f63b977185f5a7d8ee49aacbaff"
       },
-      "0x8c9532a60e0e7c6bbd2b2c1303f63ace1c3e9811": {
-        "aToken": "0xd9855847ffd9bc0c5f3effbef67b558dbf090a71",
-        "sToken": "0x7333113ac92a86e7d562fbe9f03c62d2007cd295",
-        "vToken": "0x8e3e54599d6f40c8306b895214f54882d98cd2b5"
-      },
-      "0x7baf258049cc8b9a78097723dc19a8b103d4098f": {
-        "aToken": "0x7740f60f773bc743ed76310ac1d054a4a4a17e7c",
-        "sToken": "0x8983845311f9df4465b8a94713a2d5824b943251",
-        "vToken": "0xb8d45c7fbbbc6e1d36bc1caa7d43dcc7d0513cfd"
-      },
-      "0xf7906f274c174a52d444175729e3fa98f9bde285": {
-        "aToken": "0xb2db477a6c198f5c524302bb67085f8f3ab06059",
-        "sToken": "0x11acaa3c40a2885dbab3265df94272ecfeb2b8fb",
-        "vToken": "0x8eb2f05a24b6859aadb5d26abbc129f53d10e934"
-      }
+      "0x8c9532a60e0e7c6bbd2b2c1303f63ace1c3e9811": {},
+      "0x7baf258049cc8b9a78097723dc19a8b103d4098f": {},
+      "0xf7906f274c174a52d444175729e3fa98f9bde285": {}
     }
   },
   "ZEROLEND_BTC_LRTS": {
     "1": {
-      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
-        "aToken": "0x1d5f4e8c842a5655f9b722cac40c6722794b75f5",
-        "sToken": "0xff9e7b7b8ca570a0d655a6d6d2338721df51e505",
-        "vToken": "0xa2962376f68edb09b08f9b433f4ecae8d3217eec"
-      },
-      "0x657e8c867d8b37dcc18fa4caead9c45eb088c642": {
-        "aToken": "0x52bb650211e8a6986287306a4c09b73a9affd5e9",
-        "sToken": "0x5cb91bead3a3e9ad4c030a13ef5c209dc41e4bd7",
-        "vToken": "0x57c0fbfefa18c6b438a4eb3c01354640017bf154"
-      },
-      "0xb997b3418935a1df0f914ee901ec83927c1509a0": {
-        "aToken": "0x75351765d44e322681dceb691c85eace247e5627",
-        "sToken": "0x10c71923abfdae4dbe5e78df23fd98f9787ecb80",
-        "vToken": "0xcfbfcfdd63fb2305b433cbf433d7eba21d8bf0ea"
-      },
-      "0x8236a87084f8b84306f72007f36f2618a5634494": {
-        "aToken": "0xcabb8fa209ccdf98a7a0dc30b1979fc855cb3eb3",
-        "sToken": "0xe2b6adeedccb6302397135aa8254b843103871ad",
-        "vToken": "0x028cf048867d37566b60cee7822c857441dac9e7"
-      },
-      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
-        "aToken": "0x0ea724a5571ed15209dd173b77fe3cda3f371fe3",
-        "sToken": "0xa8ce68264e58c0a0b2553a28890af090b0855b28",
-        "vToken": "0x0519d972fdca215e6b555b0bb4d8d95704206b58"
-      },
-      "0x332a8ee60edff0a11cf3994b1b846bbc27d3dcd6": {
-        "aToken": "0xd9484f9d140f3300c6527b50ff81d46a9d53acca",
-        "sToken": "0x59dff8a0c065722ee0c150780ffc2c4a0bb6f122",
-        "vToken": "0xef25246cfa723fddfb54e87060a750fd5af8679e"
-      },
-      "0xd9d920aa40f578ab794426f5c90f6c731d159def": {
-        "aToken": "0x5d9155032e3cd6bb2c6b6a448b79bacb0ff01be9",
-        "sToken": "0xfae48848b299553ea3061c0257a86e8b36b43e53",
-        "vToken": "0x250d1435b02ddce933f73317feeba58f78861108"
-      },
-      "0x2f913c820ed3beb3a67391a6eff64e70c4b20b19": {
-        "aToken": "0xffb7fea7567e5a84656e4fcb66a743a8c62eef36",
-        "sToken": "0x8cd349fefabe744e9ba136a705bccc196610a87c",
-        "vToken": "0x7f9cf95f4b8cbdc754a797da420eaed2c6cd586a"
-      },
-      "0xec5a52c685cc3ad79a6a347abace330d69e0b1ed": {
-        "aToken": "0x813ff1cf08b381632d0087cc6d9e17ff73a7afc8",
-        "sToken": "0x19936593a4cc9019a3a8d8f93ccd759097bf170d",
-        "vToken": "0x479fd96c82ea46dd12244000ba8040c9461d71d9"
-      },
-      "0x44a7876ca99460ef3218bf08b5f52e2dbe199566": {
-        "aToken": "0xe2e3075c8962010e0d0b3a945c4671cc652ad5b7",
-        "sToken": "0xd8eefcb25f18ed5b537a760e12424dcfa4306dbf",
-        "vToken": "0x6f8d2d734a77616eb45b941d12cf7d989c483421"
-      },
-      "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e": {
-        "aToken": "0x4bf0c3a20367fa710173e660ef7411b8b72e1795",
-        "sToken": "0x9a76a2677a9f47f516137d338c6f1035966adc02",
-        "vToken": "0x8ae28540b53b3a874ded303ddbc5a233d331f6c2"
-      },
-      "0x18084fba666a33d37592fa2633fd49a74dd93a88": {
-        "aToken": "0xbbf42226bf52241fbeaee2331817cfd8f678676c",
-        "sToken": "0x0bc9726596a8c7d176382a75cff6715ec9c9cce8",
-        "vToken": "0x7d3ee60d86fd918d5ab699c63093ce9566ffc8a9"
-      }
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {},
+      "0x657e8c867d8b37dcc18fa4caead9c45eb088c642": {},
+      "0xb997b3418935a1df0f914ee901ec83927c1509a0": {},
+      "0x8236a87084f8b84306f72007f36f2618a5634494": {},
+      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {},
+      "0x332a8ee60edff0a11cf3994b1b846bbc27d3dcd6": {},
+      "0xd9d920aa40f578ab794426f5c90f6c731d159def": {},
+      "0x2f913c820ed3beb3a67391a6eff64e70c4b20b19": {},
+      "0xec5a52c685cc3ad79a6a347abace330d69e0b1ed": {},
+      "0x44a7876ca99460ef3218bf08b5f52e2dbe199566": {},
+      "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e": {},
+      "0x18084fba666a33d37592fa2633fd49a74dd93a88": {}
     }
   },
   "ZEROLEND": {
@@ -6351,28 +6051,18 @@
   "YLDR": {
     "1": {
       "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
-        "aToken": "0xddbe14a7cd032e58368cf9db59b89d0ba8663703",
-        "vToken": "0x8cee2c02df3ff9dd9cab1762d86c04dd6e7f9b22",
         "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0xdac17f958d2ee523a2206206994597c13d831ec7": {
-        "aToken": "0x6a03202ca61f6a756c97f23eddfbf93d69d7baa1",
-        "vToken": "0xbdb5610184c4f9855d04ce59eaaef7386ff3827b",
         "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
-        "aToken": "0xb2de9be4b2ac812b69974521fb6a0f983aade16e",
-        "vToken": "0x641f307e2527394e09b999fdc7726e93faa725a0",
         "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": {
-        "aToken": "0x2be2140b3692b150aba5969dad174c7af35714f4",
-        "vToken": "0x9da06f30b08126eab91de119d9ca9e345a2d2eae",
         "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0xbe9895146f7af43049ca1c1ae358b0541ea49704": {
-        "aToken": "0xec2e11a95fb96783ccbbae27a04219738dcde36b",
-        "vToken": "0xfc992b5ab3f938655fcb578de8365f22eb79de0a",
         "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0xae78736cd615f374d3085123a210448e74fc6393": {
