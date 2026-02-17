@@ -38,7 +38,9 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
     "./config/compound-v2-pools.json",
   );
 
-  const forks = Object.keys(COMPOUND_V2_COMPTROLLERS).filter(f=> f !== Lender.COMPOUND_V2);
+  const forks = Object.keys(COMPOUND_V2_COMPTROLLERS).filter(
+    (f) => f !== Lender.COMPOUND_V2,
+  );
 
   const cTokens: CompoundV2ForkMap = {};
   const oracles: OracleMap = {};
@@ -75,16 +77,22 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
     );
 
     // BATCH CALL 1: Get all markets and oracles for all forks on this chain
-    const firstBatchContracts = forksOnChain.flatMap(({ address }) => [
+    const firstBatchContracts = forksOnChain.flatMap(({ address, fork }) => [
       {
         abi: COMPTROLLER_ABIS,
-        functionName: CompoundV2FetchFunctions.getAllMarkets,
+        functionName:
+          fork === "UNITUS"
+            ? "getAlliTokens"
+            : CompoundV2FetchFunctions.getAllMarkets,
         address: address as any,
         args: [],
       },
       {
         abi: COMPTROLLER_ABIS,
-        functionName: CompoundV2FetchFunctions.oracle,
+        functionName:
+          fork === "UNITUS"
+            ? "priceOracle"
+            : CompoundV2FetchFunctions.oracle,
         address: address as any,
         args: [],
       },
