@@ -3,7 +3,7 @@ import { DataUpdater } from "../types.js";
 import { EULER_ADDRESSES } from "./euler/constants.js";
 import { getAllVaultAddresses, addressesFromChain } from "./euler/fetcher.js";
 
-const configFile = "./config/euler-config.json";
+const configFile = "./config/euler-configs.json";
 const vaultsFile = "./data/euler-vaults.json";
 
 export class EulerUpdater implements DataUpdater {

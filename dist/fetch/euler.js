@@ -1,7 +1,7 @@
 import { getEvmClient } from "@1delta/providers";
 import { EULER_ADDRESSES } from "./euler/constants.js";
 import { getAllVaultAddresses, addressesFromChain } from "./euler/fetcher.js";
-const configFile = "./config/euler-config.json";
+const configFile = "./config/euler-configs.json";
 const vaultsFile = "./data/euler-vaults.json";
 export class EulerUpdater {
     name = "Euler";
