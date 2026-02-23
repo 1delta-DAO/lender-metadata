@@ -1,11 +1,10 @@
 {
-  "version": "2026-02-22T04-08-43-019Z",
-  "generatedAt": "2026-02-22T04:08:43.019Z",
+  "version": "2026-02-23T04-14-53-362Z",
+  "generatedAt": "2026-02-23T04:14:53.362Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-type-oracles.json",
     "./data/morpho-curators.json",
-    "./data/aave-oracles.json",
     "./data/compound-v3-oracles.json",
     "./data/compound-v2-tokens.json",
     "./data/compound-v2-c-tokens.json",
@@ -69,6 +68,12 @@
     },
     {
       "targetFile": "./config/init-pools.json"
+    },
+    {
+      "targetFile": "./config/euler-config.json"
+    },
+    {
+      "targetFile": "./data/euler-vaults.json"
     }
   ]
 }
