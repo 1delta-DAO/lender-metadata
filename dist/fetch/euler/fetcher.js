@@ -1,5 +1,6 @@
-import { genericFactoryAbi } from "./genericFactory.js";
+import { genericFactoryAbi, eVaultAbi } from "./genericFactory.js";
 import { EVAULT_FACTORY_ADDRESS, VAULT_LENS_ADDRESS, } from "./constants.js";
+import { multicallRetry } from "../utils/index.js";
 function resolveAddresses(overrides) {
     return {
         factory: overrides?.eVaultFactory ?? EVAULT_FACTORY_ADDRESS,
@@ -40,4 +41,35 @@ export async function getAllVaultAddresses(client, overrides) {
         args: [0n, BigInt(length)],
     });
     return [...addresses];
+}
+/**
+ * Fetches the underlying asset for each vault address via multicall.
+ */
+export async function getVaultAssets(chainId, vaultAddresses) {
+    if (vaultAddresses.length === 0)
+        return [];
+    const contracts = vaultAddresses.map((vault) => ({
+        address: vault,
+        abi: eVaultAbi,
+        functionName: "asset",
+    }));
+    const results = (await multicallRetry({
+        chainId,
+        contracts,
+        allowFailure: true,
+    }));
+    const vaults = [];
+    for (let i = 0; i < vaultAddresses.length; i++) {
+        const result = results[i];
+        if (result.status === "success") {
+            vaults.push({
+                underlying: result.result,
+                vault: vaultAddresses[i],
+            });
+        }
+        else {
+            console.log(`Euler: failed to fetch asset for vault ${vaultAddresses[i]} on chain ${chainId}`);
+        }
+    }
+    return vaults;
 }

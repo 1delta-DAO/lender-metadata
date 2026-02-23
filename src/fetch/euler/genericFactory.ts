@@ -17,3 +17,13 @@ export const genericFactoryAbi = [
     stateMutability: "view",
   },
 ] as const;
+
+export const eVaultAbi = [
+  {
+    type: "function",
+    name: "asset",
+    inputs: [],
+    outputs: [{ type: "address", name: "" }],
+    stateMutability: "view",
+  },
+] as const;

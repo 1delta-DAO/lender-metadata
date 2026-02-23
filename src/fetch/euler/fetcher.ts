@@ -1,10 +1,11 @@
 import type { PublicClient, Address } from "viem";
-import { genericFactoryAbi } from "./genericFactory.js";
+import { genericFactoryAbi, eVaultAbi } from "./genericFactory.js";
 import {
   EVAULT_FACTORY_ADDRESS,
   VAULT_LENS_ADDRESS,
 } from "./constants.js";
 import type { ChainAddresses } from "./constants.js";
+import { multicallRetry } from "../utils/index.js";
 
 /** Optional overrides for contract addresses (for non-mainnet deployments) */
 export interface FetcherAddressOverrides {
@@ -64,4 +65,48 @@ export async function getAllVaultAddresses(
   });
 
   return [...addresses] as Address[];
+}
+
+export interface VaultWithUnderlying {
+  underlying: string;
+  vault: string;
+}
+
+/**
+ * Fetches the underlying asset for each vault address via multicall.
+ */
+export async function getVaultAssets(
+  chainId: string,
+  vaultAddresses: Address[],
+): Promise<VaultWithUnderlying[]> {
+  if (vaultAddresses.length === 0) return [];
+
+  const contracts = vaultAddresses.map((vault) => ({
+    address: vault,
+    abi: eVaultAbi,
+    functionName: "asset" as const,
+  }));
+
+  const results = (await multicallRetry({
+    chainId,
+    contracts,
+    allowFailure: true,
+  })) as { status: string; result?: unknown }[];
+
+  const vaults: VaultWithUnderlying[] = [];
+  for (let i = 0; i < vaultAddresses.length; i++) {
+    const result = results[i];
+    if (result.status === "success") {
+      vaults.push({
+        underlying: result.result as string,
+        vault: vaultAddresses[i],
+      });
+    } else {
+      console.log(
+        `Euler: failed to fetch asset for vault ${vaultAddresses[i]} on chain ${chainId}`,
+      );
+    }
+  }
+
+  return vaults;
 }
