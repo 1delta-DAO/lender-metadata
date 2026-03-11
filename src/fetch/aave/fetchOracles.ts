@@ -53,22 +53,27 @@ export async function fetchAaveTypePriceOracles(
       }
       // assign reserves
 
-      const [oracleAddress] = (await multicallRetry({
-          chainId: chain,
-        allowFailure: false,
-        contracts: [
-          {
-            abi: AAVE_ABIS(false),
-            functionName: AaveFetchFunctions.getPriceOracle,
-            address: aProvider as any,
-            args: [],
-          },
-        ],
-      })) as any[];
+      try {
+        const [oracleAddress] = (await multicallRetry({
+            chainId: chain,
+          allowFailure: false,
+          contracts: [
+            {
+              abi: AAVE_ABIS(false),
+              functionName: AaveFetchFunctions.getPriceOracle,
+              address: aProvider as any,
+              args: [],
+            },
+          ],
+        })) as any[];
 
-      await sleep(250);
+        await sleep(250);
 
-      dataMap[chain] = oracleAddress;
+        dataMap[chain] = oracleAddress;
+      } catch (e: any) {
+        console.error(`Error fetching oracle for ${fork} on chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+        continue;
+      }
     }
     forkMap[fork] = dataMap;
     dataMap = {};

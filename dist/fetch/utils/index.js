@@ -37,7 +37,7 @@ export async function simulateContractRetry({ chainId, abi, address, functionNam
     }
 }
 const MAX_PROVIDER_INDEX = 5;
-export async function multicallRetry({ chainId, contracts, allowFailure }, retries = 3, providerIndex = 0, attempt = 0) {
+export async function multicallRetry({ chainId, contracts, allowFailure }, retries = MAX_PROVIDER_INDEX + 1, providerIndex = 0, attempt = 0) {
     try {
         const provider = getEvmClientWithCustomRpcsUniversal({
             chain: chainId,
@@ -49,27 +49,44 @@ export async function multicallRetry({ chainId, contracts, allowFailure }, retri
             contracts,
             batchSize: chainId === "1" ? 200 : undefined,
         });
-        if (returnData.some((a) => 
-        // @ts-ignore
-        a?.error && JSON.stringify(a.error)?.includes("HTTP request failed"))) {
-            throw new Error("", { cause: { code: "ECONNRESET" } });
+        if (returnData.some((a) => {
+            // @ts-ignore
+            if (!a?.error)
+                return false;
+            // @ts-ignore
+            const errStr = JSON.stringify(a.error);
+            return (errStr?.includes("HTTP request failed") ||
+                errStr?.includes("not whitelisted") ||
+                errStr?.includes("-32601") ||
+                errStr?.includes("401"));
+        })) {
+            throw new Error("RPC provider error in multicall results", {
+                cause: { code: "ECONNRESET" },
+            });
         }
         return returnData;
     }
     catch (e) {
+        const errorString = e?.message || "";
+        const detailsString = typeof e?.details === "string" ? e.details : JSON.stringify(e?.details ?? "");
+        const combinedError = `${errorString} ${detailsString}`;
         const isHttpError = e?.cause?.code === "ECONNRESET" ||
             e?.cause?.code === "ETIMEDOUT" ||
             e?.cause?.code === "ENOTFOUND" ||
             e?.code === "ECONNRESET" ||
             e?.code === "ETIMEDOUT" ||
             e?.code === "ENOTFOUND" ||
-            e?.message?.includes("HTTP") ||
-            e?.message?.includes("fetch") ||
-            e?.message?.includes("429") ||
-            e?.message?.includes("403") ||
-            e?.message?.includes("502") ||
-            e?.message?.includes("503") ||
-            e?.message?.includes("504") ||
+            combinedError.includes("HTTP") ||
+            combinedError.includes("fetch") ||
+            combinedError.includes("429") ||
+            combinedError.includes("401") ||
+            combinedError.includes("403") ||
+            combinedError.includes("502") ||
+            combinedError.includes("503") ||
+            combinedError.includes("504") ||
+            combinedError.includes("not whitelisted") ||
+            combinedError.includes("-32601") ||
+            e?.status === 401 ||
             e?.status === 429 ||
             e?.status >= 500;
         const newRetries = retries - 1;

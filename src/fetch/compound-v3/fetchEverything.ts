@@ -46,90 +46,94 @@ export async function fetchCompoundV3Data(): Promise<{
   );
   const chains = Object.keys(COMETS_PER_CHAIN_MAP);
   for (const chain of chains) {
-    const comets = Object.values(COMETS_PER_CHAIN_MAP[chain]);
+    try {
+      const comets = Object.values(COMETS_PER_CHAIN_MAP[chain]);
 
-    const cometMetas = (await multicallRetry({
-      chainId: chain,
-      allowFailure: false,
-      contracts: comets
-        .map((comet) => [
-          {
-            abi: COMET_ABIS,
-            functionName: CompoundV3FetchFunctions.numAssets,
-            address: comet,
-            args: [],
-          },
-          {
-            abi: COMET_ABIS,
-            functionName: CompoundV3FetchFunctions.baseToken,
-            address: comet,
-            args: [],
-          },
-          {
-            abi: COMET_ABIS,
-            functionName: CompoundV3FetchFunctions.baseBorrowMin,
-            address: comet,
-            args: [],
-          },
-          {
-            abi: COMET_ABIS,
-            functionName: CompoundV3FetchFunctions.baseTokenPriceFeed,
-            address: comet,
-            args: [],
-          },
-        ])
-        .flat() as any[],
-    })) as any;
-
-    const cometKeys = Object.keys(COMETS_PER_CHAIN_MAP[chain]);
-    for (let i = 0; i < comets.length; i++) {
-      const comet = comets[i];
-      const [numAssetsesult, baseAssetResult, baseBorrowMin, baseTokenFeed] =
-        cometMetas.slice(4 * i, 4 * i + 4);
-      const nAssets = numAssetsesult;
-      const baseAsset = baseAssetResult.toLowerCase();
-      const cometIndexes = Array.from({ length: nAssets }, (_, i) => i);
-      const underlyingDatas = (await multicallRetry({
+      const cometMetas = (await multicallRetry({
         chainId: chain,
         allowFailure: false,
-        contracts: cometIndexes.map((i) => ({
-          abi: COMET_ABIS,
-          functionName: CompoundV3FetchFunctions.getAssetInfo,
-          address: comet,
-          args: [i],
-        })) as any[],
+        contracts: comets
+          .map((comet) => [
+            {
+              abi: COMET_ABIS,
+              functionName: CompoundV3FetchFunctions.numAssets,
+              address: comet,
+              args: [],
+            },
+            {
+              abi: COMET_ABIS,
+              functionName: CompoundV3FetchFunctions.baseToken,
+              address: comet,
+              args: [],
+            },
+            {
+              abi: COMET_ABIS,
+              functionName: CompoundV3FetchFunctions.baseBorrowMin,
+              address: comet,
+              args: [],
+            },
+            {
+              abi: COMET_ABIS,
+              functionName: CompoundV3FetchFunctions.baseTokenPriceFeed,
+              address: comet,
+              args: [],
+            },
+          ])
+          .flat() as any[],
       })) as any;
 
-      const underlyings = cometIndexes.map((i) =>
-        underlyingDatas[i].asset.toLowerCase(),
-      );
+      const cometKeys = Object.keys(COMETS_PER_CHAIN_MAP[chain]);
+      for (let i = 0; i < comets.length; i++) {
+        const comet = comets[i];
+        const [numAssetsesult, baseAssetResult, baseBorrowMin, baseTokenFeed] =
+          cometMetas.slice(4 * i, 4 * i + 4);
+        const nAssets = numAssetsesult;
+        const baseAsset = baseAssetResult.toLowerCase();
+        const cometIndexes = Array.from({ length: nAssets }, (_, i) => i);
+        const underlyingDatas = (await multicallRetry({
+          chainId: chain,
+          allowFailure: false,
+          contracts: cometIndexes.map((i) => ({
+            abi: COMET_ABIS,
+            functionName: CompoundV3FetchFunctions.getAssetInfo,
+            address: comet,
+            args: [i],
+          })) as any[],
+        })) as any;
 
-      if (!cometDataMap[cometKeys[i]]) cometDataMap[cometKeys[i]] = {};
-      if (!cometOracles[cometKeys[i]]) cometOracles[cometKeys[i]] = {};
+        const underlyings = cometIndexes.map((i) =>
+          underlyingDatas[i].asset.toLowerCase(),
+        );
 
-      if (!cometOracles[cometKeys[i]][chain])
-        cometOracles[cometKeys[i]][chain] = {};
+        if (!cometDataMap[cometKeys[i]]) cometDataMap[cometKeys[i]] = {};
+        if (!cometOracles[cometKeys[i]]) cometOracles[cometKeys[i]] = {};
 
-      if (!compoundBaseData[cometKeys[i]]) compoundBaseData[cometKeys[i]] = {};
-      if (!compoundReserves[cometKeys[i]]) compoundReserves[cometKeys[i]] = {};
+        if (!cometOracles[cometKeys[i]][chain])
+          cometOracles[cometKeys[i]][chain] = {};
 
-      underlyings.forEach((a, j) => {
-        cometOracles[cometKeys[i]][chain][a] = underlyingDatas[j].priceFeed;
-      });
+        if (!compoundBaseData[cometKeys[i]]) compoundBaseData[cometKeys[i]] = {};
+        if (!compoundReserves[cometKeys[i]]) compoundReserves[cometKeys[i]] = {};
 
-      cometOracles[cometKeys[i]][chain][baseAsset] = baseTokenFeed;
+        underlyings.forEach((a, j) => {
+          cometOracles[cometKeys[i]][chain][a] = underlyingDatas[j].priceFeed;
+        });
 
-      compoundReserves[cometKeys[i]][chain] = [baseAsset, ...underlyings].map(
-        (r) => r.toLowerCase(),
-      );
-      compoundBaseData[cometKeys[i]][chain] = { baseAsset, baseBorrowMin };
-      cometDataMap[cometKeys[i]][chain] = {
-        baseAsset,
-        baseBorrowMin,
-        baseAsetSymbol: cometKeys[i],
-        reserves: [baseAsset, ...underlyings],
-        nAssets,
-      };
+        cometOracles[cometKeys[i]][chain][baseAsset] = baseTokenFeed;
+
+        compoundReserves[cometKeys[i]][chain] = [baseAsset, ...underlyings].map(
+          (r) => r.toLowerCase(),
+        );
+        compoundBaseData[cometKeys[i]][chain] = { baseAsset, baseBorrowMin };
+        cometDataMap[cometKeys[i]][chain] = {
+          baseAsset,
+          baseBorrowMin,
+          baseAsetSymbol: cometKeys[i],
+          reserves: [baseAsset, ...underlyings],
+          nAssets,
+        };
+      }
+    } catch (e) {
+      console.error(`Compound V3: failed to fetch chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
     }
   }
 

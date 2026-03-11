@@ -87,8 +87,8 @@ export async function fetchAaveTypeTokenData(): Promise<{
         contracts: firstBatchContracts,
       })) as any[];
     } catch (e: any) {
-      console.log(`Error fetching reserves for chain ${chain}:`, e);
-      throw e;
+      console.error(`Error fetching reserves for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+      continue;
     }
 
     await sleep(250);
@@ -138,9 +138,9 @@ export async function fetchAaveTypeTokenData(): Promise<{
         allowFailure: true,
         contracts: secondBatchContracts,
       })) as any[];
-    } catch (e) {
-      console.log(`Error fetching token addresses for chain ${chain}:`, e);
-      throw e;
+    } catch (e: any) {
+      console.error(`Error fetching token addresses for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+      continue;
     }
 
     await sleep(250);

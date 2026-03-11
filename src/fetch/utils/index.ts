@@ -51,7 +51,7 @@ const MAX_PROVIDER_INDEX = 5;
 
 export async function multicallRetry(
   { chainId, contracts, allowFailure }: any,
-  retries = 3,
+  retries = MAX_PROVIDER_INDEX + 1,
   providerIndex = 0,
   attempt = 0,
 ) {
@@ -68,18 +68,38 @@ export async function multicallRetry(
       batchSize: chainId === "1" ? 200 : undefined,
     });
 
+    const isRpcResultError = (a: any) => {
+      // @ts-ignore
+      if (!a?.error) return false;
+      // @ts-ignore
+      const errStr = JSON.stringify(a.error);
+      return (
+        errStr?.includes("HTTP request failed") ||
+        errStr?.includes("not whitelisted") ||
+        errStr?.includes("-32601") ||
+        errStr?.includes("401")
+      );
+    };
+
+    const rpcErrorCount = returnData.filter(isRpcResultError).length;
+
+    // Only retry if ALL results failed (full RPC outage) or if allowFailure is false and any failed
     if (
-      returnData.some(
-        (a) =>
-          // @ts-ignore
-          a?.error && JSON.stringify(a.error)?.includes("HTTP request failed"),
-      )
+      rpcErrorCount > 0 &&
+      (rpcErrorCount === returnData.length || !allowFailure)
     ) {
-      throw new Error("", { cause: { code: "ECONNRESET" } });
+      throw new Error("RPC provider error in multicall results", {
+        cause: { code: "ECONNRESET" },
+      });
     }
 
     return returnData;
   } catch (e: any) {
+    const errorString = e?.message || "";
+    const detailsString =
+      typeof e?.details === "string" ? e.details : JSON.stringify(e?.details ?? "");
+    const combinedError = `${errorString} ${detailsString}`;
+
     const isHttpError =
       e?.cause?.code === "ECONNRESET" ||
       e?.cause?.code === "ETIMEDOUT" ||
@@ -87,13 +107,17 @@ export async function multicallRetry(
       e?.code === "ECONNRESET" ||
       e?.code === "ETIMEDOUT" ||
       e?.code === "ENOTFOUND" ||
-      e?.message?.includes("HTTP") ||
-      e?.message?.includes("fetch") ||
-      e?.message?.includes("429") ||
-      e?.message?.includes("403") ||
-      e?.message?.includes("502") ||
-      e?.message?.includes("503") ||
-      e?.message?.includes("504") ||
+      combinedError.includes("HTTP") ||
+      combinedError.includes("fetch") ||
+      combinedError.includes("429") ||
+      combinedError.includes("401") ||
+      combinedError.includes("403") ||
+      combinedError.includes("502") ||
+      combinedError.includes("503") ||
+      combinedError.includes("504") ||
+      combinedError.includes("not whitelisted") ||
+      combinedError.includes("-32601") ||
+      e?.status === 401 ||
       e?.status === 429 ||
       e?.status >= 500;
 

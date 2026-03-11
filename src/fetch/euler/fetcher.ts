@@ -3,9 +3,11 @@ import { genericFactoryAbi, eVaultAbi } from "./genericFactory.js";
 import {
   EVAULT_FACTORY_ADDRESS,
   VAULT_LENS_ADDRESS,
+  DEFAULT_BATCH_SIZE,
 } from "./constants.js";
 import type { ChainAddresses } from "./constants.js";
 import { multicallRetry } from "../utils/index.js";
+import { sleep } from "../../utils.js";
 
 /** Optional overrides for contract addresses (for non-mainnet deployments) */
 export interface FetcherAddressOverrides {
@@ -47,7 +49,7 @@ export async function getVaultCount(
 }
 
 /**
- * Fetches all vault addresses from the factory.
+ * Fetches all vault addresses from the factory in batches to avoid gas limits.
  */
 export async function getAllVaultAddresses(
   client: PublicClient,
@@ -57,14 +59,23 @@ export async function getAllVaultAddresses(
   const length = await getVaultCount(client, overrides);
   if (length === 0) return [];
 
-  const addresses = await client.readContract({
-    address: factory,
-    abi: genericFactoryAbi,
-    functionName: "getProxyListSlice",
-    args: [0n, BigInt(length)],
-  });
+  const allAddresses: Address[] = [];
+  for (let start = 0; start < length; start += DEFAULT_BATCH_SIZE) {
+    const end = Math.min(start + DEFAULT_BATCH_SIZE, length);
+    const batch = await client.readContract({
+      address: factory,
+      abi: genericFactoryAbi,
+      functionName: "getProxyListSlice",
+      args: [BigInt(start), BigInt(end)],
+    });
+    allAddresses.push(...(batch as Address[]));
 
-  return [...addresses] as Address[];
+    if (end < length) {
+      await sleep(500);
+    }
+  }
+
+  return allAddresses;
 }
 
 export interface VaultWithUnderlying {

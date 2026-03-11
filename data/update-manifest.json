@@ -1,55 +1,19 @@
 {
-  "version": "2026-03-04T04-01-03-739Z",
-  "generatedAt": "2026-03-04T04:01:03.740Z",
-  "updatedFiles": [
-    "./data/lender-labels.json",
-    "./data/morpho-type-oracles.json",
-    "./data/morpho-curators.json",
-    "./data/compound-v2-tokens.json",
-    "./data/compound-v2-c-tokens.json",
-    "./data/compound-v2-reserves.json",
-    "./data/compound-v2-oracles.json",
-    "./data/euler-vaults.json"
-  ],
+  "version": "2026-03-11T01-01-46-207Z",
+  "generatedAt": "2026-03-11T01:01:46.208Z",
+  "updatedFiles": [],
   "results": [
     {
-      "targetFile": "./data/lender-labels.json"
+      "targetFile": "./data/compound-v3-base-data.json"
     },
     {
-      "targetFile": "./data/morpho-type-oracles.json"
+      "targetFile": "./data/compound-v3-reserves.json"
     },
     {
-      "targetFile": "./config/morpho-pools.json"
+      "targetFile": "./data/compound-v3-oracles.json"
     },
     {
-      "targetFile": "./data/morpho-curators.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-tokens.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-c-tokens.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-reserves.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-oracles.json"
-    },
-    {
-      "targetFile": "./config/compound-v2-pools.json"
-    },
-    {
-      "targetFile": "./data/init-config.json"
-    },
-    {
-      "targetFile": "./config/init-pools.json"
-    },
-    {
-      "targetFile": "./config/euler-configs.json"
-    },
-    {
-      "targetFile": "./data/euler-vaults.json"
+      "targetFile": "./config/compound-v3-pools.json"
     }
   ]
 }

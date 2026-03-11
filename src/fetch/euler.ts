@@ -1,5 +1,6 @@
 import { getEvmClient } from "@1delta/providers";
 import { DataUpdater } from "../types.js";
+import { sleep } from "../utils.js";
 import { EULER_ADDRESSES } from "./euler/constants.js";
 import {
   getAllVaultAddresses,
@@ -19,7 +20,9 @@ export class EulerUpdater implements DataUpdater {
       EULER_V2: {},
     };
 
-    for (const [chainId, addresses] of Object.entries(EULER_ADDRESSES)) {
+    const chainEntries = Object.entries(EULER_ADDRESSES);
+    for (let i = 0; i < chainEntries.length; i++) {
+      const [chainId, addresses] = chainEntries[i];
       try {
         // Step 1: Fetch vault addresses from factory
         const client = getEvmClient(chainId);
@@ -31,6 +34,11 @@ export class EulerUpdater implements DataUpdater {
         vaults.EULER_V2[chainId] = vaultsWithAssets;
       } catch (e) {
         console.log(`Euler: failed to fetch vaults for chain ${chainId}:`, e);
+      }
+
+      // Delay between chains to avoid RPC rate limits
+      if (i < chainEntries.length - 1) {
+        await sleep(1000);
       }
     }
 

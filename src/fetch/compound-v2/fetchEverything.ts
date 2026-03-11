@@ -109,8 +109,8 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
         6,
       )) as any[];
     } catch (e: any) {
-      console.log(`Error fetching markets for chain ${chain}:`, e);
-      throw e;
+      console.error(`Error fetching markets for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+      continue;
     }
 
     // Parse first batch results and prepare second batch
@@ -159,9 +159,9 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
         },
         6,
       )) as any[];
-    } catch (e) {
-      console.log(`Error fetching underlyings for chain ${chain}:`, e);
-      throw e;
+    } catch (e: any) {
+      console.error(`Error fetching underlyings for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+      continue;
     }
 
     await sleep(500);
