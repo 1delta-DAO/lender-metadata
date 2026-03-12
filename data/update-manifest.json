@@ -1,8 +1,29 @@
 {
-  "version": "2026-03-11T01-01-46-207Z",
-  "generatedAt": "2026-03-11T01:01:46.208Z",
-  "updatedFiles": [],
+  "version": "2026-03-12T04-12-40-790Z",
+  "generatedAt": "2026-03-12T04:12:40.790Z",
+  "updatedFiles": [
+    "./data/aave-reserves.json",
+    "./data/aave-tokens.json",
+    "./data/aave-oracles.json",
+    "./data/compound-v2-tokens.json",
+    "./data/compound-v2-c-tokens.json",
+    "./data/compound-v2-reserves.json",
+    "./data/compound-v2-oracles.json",
+    "./data/euler-vaults.json"
+  ],
   "results": [
+    {
+      "targetFile": "./data/aave-reserves.json"
+    },
+    {
+      "targetFile": "./data/aave-tokens.json"
+    },
+    {
+      "targetFile": "./data/aave-oracles.json"
+    },
+    {
+      "targetFile": "./config/aave-pools.json"
+    },
     {
       "targetFile": "./data/compound-v3-base-data.json"
     },
@@ -14,6 +35,33 @@
     },
     {
       "targetFile": "./config/compound-v3-pools.json"
+    },
+    {
+      "targetFile": "./data/compound-v2-tokens.json"
+    },
+    {
+      "targetFile": "./data/compound-v2-c-tokens.json"
+    },
+    {
+      "targetFile": "./data/compound-v2-reserves.json"
+    },
+    {
+      "targetFile": "./data/compound-v2-oracles.json"
+    },
+    {
+      "targetFile": "./config/compound-v2-pools.json"
+    },
+    {
+      "targetFile": "./data/init-config.json"
+    },
+    {
+      "targetFile": "./config/init-pools.json"
+    },
+    {
+      "targetFile": "./config/euler-configs.json"
+    },
+    {
+      "targetFile": "./data/euler-vaults.json"
     }
   ]
 }
