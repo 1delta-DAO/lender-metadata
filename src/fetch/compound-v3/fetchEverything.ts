@@ -4,6 +4,7 @@
 
 import { COMET_ABIS, CompoundV3FetchFunctions } from "./abi.js";
 import { multicallRetry, readJsonFile } from "../utils/index.js";
+import { sleep } from "../../utils.js";
 
 type CompoundV3Map = {
   [cometId: string]: {
@@ -49,88 +50,111 @@ export async function fetchCompoundV3Data(): Promise<{
     try {
       const comets = Object.values(COMETS_PER_CHAIN_MAP[chain]);
 
-      const cometMetas = (await multicallRetry({
-        chainId: chain,
-        allowFailure: false,
-        contracts: comets
-          .map((comet) => [
-            {
-              abi: COMET_ABIS,
-              functionName: CompoundV3FetchFunctions.numAssets,
-              address: comet,
-              args: [],
-            },
-            {
-              abi: COMET_ABIS,
-              functionName: CompoundV3FetchFunctions.baseToken,
-              address: comet,
-              args: [],
-            },
-            {
-              abi: COMET_ABIS,
-              functionName: CompoundV3FetchFunctions.baseBorrowMin,
-              address: comet,
-              args: [],
-            },
-            {
-              abi: COMET_ABIS,
-              functionName: CompoundV3FetchFunctions.baseTokenPriceFeed,
-              address: comet,
-              args: [],
-            },
-          ])
-          .flat() as any[],
-      })) as any;
+      const cometMetas = (await multicallRetry(
+        {
+          chainId: chain,
+          allowFailure: false,
+          contracts: comets
+            .map((comet) => [
+              {
+                abi: COMET_ABIS,
+                functionName: CompoundV3FetchFunctions.numAssets,
+                address: comet,
+                args: [],
+              },
+              {
+                abi: COMET_ABIS,
+                functionName: CompoundV3FetchFunctions.baseToken,
+                address: comet,
+                args: [],
+              },
+              {
+                abi: COMET_ABIS,
+                functionName: CompoundV3FetchFunctions.baseBorrowMin,
+                address: comet,
+                args: [],
+              },
+              {
+                abi: COMET_ABIS,
+                functionName: CompoundV3FetchFunctions.baseTokenPriceFeed,
+                address: comet,
+                args: [],
+              },
+            ])
+            .flat() as any[],
+        },
+        12,
+      )) as any;
 
       const cometKeys = Object.keys(COMETS_PER_CHAIN_MAP[chain]);
       for (let i = 0; i < comets.length; i++) {
-        const comet = comets[i];
-        const [numAssetsesult, baseAssetResult, baseBorrowMin, baseTokenFeed] =
-          cometMetas.slice(4 * i, 4 * i + 4);
-        const nAssets = numAssetsesult;
-        const baseAsset = baseAssetResult.toLowerCase();
-        const cometIndexes = Array.from({ length: nAssets }, (_, i) => i);
-        const underlyingDatas = (await multicallRetry({
-          chainId: chain,
-          allowFailure: false,
-          contracts: cometIndexes.map((i) => ({
-            abi: COMET_ABIS,
-            functionName: CompoundV3FetchFunctions.getAssetInfo,
-            address: comet,
-            args: [i],
-          })) as any[],
-        })) as any;
+        try {
+          const comet = comets[i];
+          const metaSlice = (cometMetas as any[]).slice(4 * i, 4 * i + 4);
+          const [numAssetsResult, baseAssetResult, baseBorrowMin, baseTokenFeed] = metaSlice;
 
-        const underlyings = cometIndexes.map((i) =>
-          underlyingDatas[i].asset.toLowerCase(),
-        );
+          if (numAssetsResult == null || !baseAssetResult) {
+            console.error(`Compound V3: missing meta for comet ${cometKeys[i]} on chain ${chain}, skipping`);
+            continue;
+          }
 
-        if (!cometDataMap[cometKeys[i]]) cometDataMap[cometKeys[i]] = {};
-        if (!cometOracles[cometKeys[i]]) cometOracles[cometKeys[i]] = {};
+          const nAssets = numAssetsResult;
+          const baseAsset = baseAssetResult.toLowerCase();
+          const cometIndexes = Array.from({ length: nAssets }, (_, j) => j);
+          await sleep(500);
+          const underlyingDatas = (await multicallRetry(
+            {
+              chainId: chain,
+              allowFailure: false,
+              contracts: cometIndexes.map((j) => ({
+                abi: COMET_ABIS,
+                functionName: CompoundV3FetchFunctions.getAssetInfo,
+                address: comet,
+                args: [j],
+              })) as any[],
+            },
+            12,
+          )) as any[];
 
-        if (!cometOracles[cometKeys[i]][chain])
-          cometOracles[cometKeys[i]][chain] = {};
+          // Build underlyings and oracle map together using the original index j
+          // to avoid misalignment after filtering failed results
+          const underlyings: string[] = [];
+          const pendingOracles: Record<string, string> = {};
+          for (const j of cometIndexes) {
+            const raw = underlyingDatas[j];
+            const asset = raw?.asset?.toLowerCase();
+            if (!asset) continue;
+            underlyings.push(asset);
+            pendingOracles[asset] = raw?.priceFeed;
+          }
 
-        if (!compoundBaseData[cometKeys[i]]) compoundBaseData[cometKeys[i]] = {};
-        if (!compoundReserves[cometKeys[i]]) compoundReserves[cometKeys[i]] = {};
+          if (underlyings.length < nAssets) {
+            console.error(
+              `Compound V3: incomplete asset data for comet ${cometKeys[i]} on chain ${chain} ` +
+              `(got ${underlyings.length}/${nAssets}), skipping to avoid overwriting existing data`,
+            );
+            continue;
+          }
 
-        underlyings.forEach((a, j) => {
-          cometOracles[cometKeys[i]][chain][a] = underlyingDatas[j].priceFeed;
-        });
+          if (!cometDataMap[cometKeys[i]]) cometDataMap[cometKeys[i]] = {};
+          if (!cometOracles[cometKeys[i]]) cometOracles[cometKeys[i]] = {};
+          if (!compoundBaseData[cometKeys[i]]) compoundBaseData[cometKeys[i]] = {};
+          if (!compoundReserves[cometKeys[i]]) compoundReserves[cometKeys[i]] = {};
 
-        cometOracles[cometKeys[i]][chain][baseAsset] = baseTokenFeed;
+          cometOracles[cometKeys[i]][chain] = { ...pendingOracles, [baseAsset]: baseTokenFeed };
 
-        compoundReserves[cometKeys[i]][chain] = [baseAsset, ...underlyings].map(
-          (r) => r.toLowerCase(),
-        );
-        compoundBaseData[cometKeys[i]][chain] = { baseAsset, baseBorrowMin };
-        cometDataMap[cometKeys[i]][chain] = {
-          baseAsset,
-          baseBorrowMin,
-          baseAsetSymbol: cometKeys[i],
-          reserves: [baseAsset, ...underlyings],
-          nAssets,
-        };
+          compoundReserves[cometKeys[i]][chain] = [baseAsset, ...underlyings].map((r) => r.toLowerCase());
+          compoundBaseData[cometKeys[i]][chain] = { baseAsset, baseBorrowMin };
+          cometDataMap[cometKeys[i]][chain] = {
+            baseAsset,
+            baseBorrowMin,
+            baseAsetSymbol: cometKeys[i],
+            reserves: [baseAsset, ...underlyings],
+            nAssets,
+          };
+        } catch (e) {
+          console.error(`Compound V3: failed to fetch comet ${cometKeys[i]} on chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+        }
       }
     } catch (e) {
       console.error(`Compound V3: failed to fetch chain ${chain}, skipping:`, e instanceof Error ? e.message : e);

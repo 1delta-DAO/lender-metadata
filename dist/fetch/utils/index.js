@@ -96,15 +96,19 @@ export async function multicallRetry({ chainId, contracts, allowFailure }, retri
             combinedError.includes("504") ||
             combinedError.includes("not whitelisted") ||
             combinedError.includes("-32601") ||
+            combinedError.includes("took too long") ||
+            combinedError.includes("timed out") ||
+            combinedError.includes("timeout") ||
             e?.status === 401 ||
             e?.status === 429 ||
             e?.status >= 500;
         const newRetries = retries - 1;
         const nextProviderIndex = isHttpError ? providerIndex + 1 : providerIndex;
-        console.log(`multicall error (HTTP: ${isHttpError}), retry ${newRetries}, provider ${nextProviderIndex % (MAX_PROVIDER_INDEX + 1)}`, e?.message || e);
+        console.log(`multicall error (HTTP: ${isHttpError}), retry ${newRetries}, ` +
+            `provider ${providerIndex % (MAX_PROVIDER_INDEX + 1)} → ${nextProviderIndex % (MAX_PROVIDER_INDEX + 1)}`, e?.message || e);
         if (newRetries < 0)
             throw e;
-        const backoff = Math.min(250 * Math.pow(2, attempt), 5000);
+        const backoff = Math.min(250 * Math.pow(2, attempt), 15000);
         await sleep(backoff);
         return await multicallRetry({ chainId, contracts, allowFailure }, newRetries, nextProviderIndex, attempt + 1);
     }
