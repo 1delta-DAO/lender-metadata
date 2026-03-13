@@ -1,4 +1,4 @@
-import type { PublicClient, Address } from "viem";
+import type { Address } from "viem";
 import { genericFactoryAbi, eVaultAbi } from "./genericFactory.js";
 import {
   EVAULT_FACTORY_ADDRESS,
@@ -7,7 +7,6 @@ import {
 } from "./constants.js";
 import type { ChainAddresses } from "./constants.js";
 import { multicallRetry } from "../utils/index.js";
-import { sleep } from "../../utils.js";
 
 /** Optional overrides for contract addresses (for non-mainnet deployments) */
 export interface FetcherAddressOverrides {
@@ -36,15 +35,15 @@ export function addressesFromChain(
  * Returns the total number of vaults deployed by the EVault factory.
  */
 export async function getVaultCount(
-  client: PublicClient,
+  chainId: string,
   overrides?: FetcherAddressOverrides,
 ): Promise<number> {
   const { factory } = resolveAddresses(overrides);
-  const length = await client.readContract({
-    address: factory,
-    abi: genericFactoryAbi,
-    functionName: "getProxyListLength",
-  });
+  const [length] = (await multicallRetry({
+    chainId,
+    contracts: [{ address: factory, abi: genericFactoryAbi, functionName: "getProxyListLength" }],
+    allowFailure: false,
+  })) as [bigint];
   return Number(length);
 }
 
@@ -52,30 +51,31 @@ export async function getVaultCount(
  * Fetches all vault addresses from the factory in batches to avoid gas limits.
  */
 export async function getAllVaultAddresses(
-  client: PublicClient,
+  chainId: string,
   overrides?: FetcherAddressOverrides,
 ): Promise<Address[]> {
   const { factory } = resolveAddresses(overrides);
-  const length = await getVaultCount(client, overrides);
+  const length = await getVaultCount(chainId, overrides);
   if (length === 0) return [];
 
-  const allAddresses: Address[] = [];
+  const contracts = [];
   for (let start = 0; start < length; start += DEFAULT_BATCH_SIZE) {
     const end = Math.min(start + DEFAULT_BATCH_SIZE, length);
-    const batch = await client.readContract({
+    contracts.push({
       address: factory,
       abi: genericFactoryAbi,
-      functionName: "getProxyListSlice",
-      args: [BigInt(start), BigInt(end)],
+      functionName: "getProxyListSlice" as const,
+      args: [BigInt(start), BigInt(end)] as [bigint, bigint],
     });
-    allAddresses.push(...(batch as Address[]));
-
-    if (end < length) {
-      await sleep(500);
-    }
   }
 
-  return allAddresses;
+  const results = (await multicallRetry({
+    chainId,
+    contracts,
+    allowFailure: false,
+  })) as Address[][];
+
+  return results.flat();
 }
 
 export interface VaultWithUnderlying {
