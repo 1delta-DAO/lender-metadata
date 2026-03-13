@@ -1,7 +1,6 @@
 import { genericFactoryAbi, eVaultAbi } from "./genericFactory.js";
 import { EVAULT_FACTORY_ADDRESS, VAULT_LENS_ADDRESS, DEFAULT_BATCH_SIZE, } from "./constants.js";
 import { multicallRetry } from "../utils/index.js";
-import { sleep } from "../../utils.js";
 function resolveAddresses(overrides) {
     return {
         factory: overrides?.eVaultFactory ?? EVAULT_FACTORY_ADDRESS,
@@ -18,38 +17,39 @@ export function addressesFromChain(chain) {
 /**
  * Returns the total number of vaults deployed by the EVault factory.
  */
-export async function getVaultCount(client, overrides) {
+export async function getVaultCount(chainId, overrides) {
     const { factory } = resolveAddresses(overrides);
-    const length = await client.readContract({
-        address: factory,
-        abi: genericFactoryAbi,
-        functionName: "getProxyListLength",
-    });
+    const [length] = (await multicallRetry({
+        chainId,
+        contracts: [{ address: factory, abi: genericFactoryAbi, functionName: "getProxyListLength" }],
+        allowFailure: false,
+    }));
     return Number(length);
 }
 /**
  * Fetches all vault addresses from the factory in batches to avoid gas limits.
  */
-export async function getAllVaultAddresses(client, overrides) {
+export async function getAllVaultAddresses(chainId, overrides) {
     const { factory } = resolveAddresses(overrides);
-    const length = await getVaultCount(client, overrides);
+    const length = await getVaultCount(chainId, overrides);
     if (length === 0)
         return [];
-    const allAddresses = [];
+    const contracts = [];
     for (let start = 0; start < length; start += DEFAULT_BATCH_SIZE) {
         const end = Math.min(start + DEFAULT_BATCH_SIZE, length);
-        const batch = await client.readContract({
+        contracts.push({
             address: factory,
             abi: genericFactoryAbi,
             functionName: "getProxyListSlice",
             args: [BigInt(start), BigInt(end)],
         });
-        allAddresses.push(...batch);
-        if (end < length) {
-            await sleep(500);
-        }
     }
-    return allAddresses;
+    const results = (await multicallRetry({
+        chainId,
+        contracts,
+        allowFailure: false,
+    }));
+    return results.flat();
 }
 /**
  * Fetches the underlying asset for each vault address via multicall.

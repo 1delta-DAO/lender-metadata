@@ -67,8 +67,8 @@ export async function fetchCompoundV2TypeTokenData() {
             }, 6));
         }
         catch (e) {
-            console.log(`Error fetching markets for chain ${chain}:`, e);
-            throw e;
+            console.error(`Error fetching markets for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+            continue;
         }
         // Parse first batch results and prepare second batch
         const forkMarketData = [];
@@ -104,8 +104,8 @@ export async function fetchCompoundV2TypeTokenData() {
             }, 6));
         }
         catch (e) {
-            console.log(`Error fetching underlyings for chain ${chain}:`, e);
-            throw e;
+            console.error(`Error fetching underlyings for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+            continue;
         }
         await sleep(500);
         // Map results back to fork structure

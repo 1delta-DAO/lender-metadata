@@ -54,8 +54,8 @@ export async function fetchAaveTypeTokenData() {
             }));
         }
         catch (e) {
-            console.log(`Error fetching reserves for chain ${chain}:`, e);
-            throw e;
+            console.error(`Error fetching reserves for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+            continue;
         }
         await sleep(250);
         // Parse first batch results and prepare second batch
@@ -92,8 +92,8 @@ export async function fetchAaveTypeTokenData() {
             }));
         }
         catch (e) {
-            console.log(`Error fetching token addresses for chain ${chain}:`, e);
-            throw e;
+            console.error(`Error fetching token addresses for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+            continue;
         }
         await sleep(250);
         // Map results back to fork structure

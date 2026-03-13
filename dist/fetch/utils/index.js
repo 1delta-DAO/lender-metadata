@@ -49,7 +49,7 @@ export async function multicallRetry({ chainId, contracts, allowFailure }, retri
             contracts,
             batchSize: chainId === "1" ? 200 : undefined,
         });
-        if (returnData.some((a) => {
+        const isRpcResultError = (a) => {
             // @ts-ignore
             if (!a?.error)
                 return false;
@@ -59,7 +59,11 @@ export async function multicallRetry({ chainId, contracts, allowFailure }, retri
                 errStr?.includes("not whitelisted") ||
                 errStr?.includes("-32601") ||
                 errStr?.includes("401"));
-        })) {
+        };
+        const rpcErrorCount = returnData.filter(isRpcResultError).length;
+        // Only retry if ALL results failed (full RPC outage) or if allowFailure is false and any failed
+        if (rpcErrorCount > 0 &&
+            (rpcErrorCount === returnData.length || !allowFailure)) {
             throw new Error("RPC provider error in multicall results", {
                 cause: { code: "ECONNRESET" },
             });
@@ -67,6 +71,9 @@ export async function multicallRetry({ chainId, contracts, allowFailure }, retri
         return returnData;
     }
     catch (e) {
+        // Non-retryable: chain not supported by the provider library at all
+        if (typeof e?.message === "string" && e.message.startsWith("Not in VIEM:"))
+            throw e;
         const errorString = e?.message || "";
         const detailsString = typeof e?.details === "string" ? e.details : JSON.stringify(e?.details ?? "");
         const combinedError = `${errorString} ${detailsString}`;
@@ -78,6 +85,9 @@ export async function multicallRetry({ chainId, contracts, allowFailure }, retri
             e?.code === "ENOTFOUND" ||
             combinedError.includes("HTTP") ||
             combinedError.includes("fetch") ||
+            combinedError.includes("timed out") ||
+            combinedError.includes("took too long") ||
+            combinedError.includes("RPC Request failed") ||
             combinedError.includes("429") ||
             combinedError.includes("401") ||
             combinedError.includes("403") ||

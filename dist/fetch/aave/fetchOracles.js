@@ -46,20 +46,26 @@ export async function fetchAaveTypePriceOracles(AAVE_FORK_POOL_DATA) {
                 continue;
             }
             // assign reserves
-            const [oracleAddress] = (await multicallRetry({
-                chainId: chain,
-                allowFailure: false,
-                contracts: [
-                    {
-                        abi: AAVE_ABIS(false),
-                        functionName: AaveFetchFunctions.getPriceOracle,
-                        address: aProvider,
-                        args: [],
-                    },
-                ],
-            }));
-            await sleep(250);
-            dataMap[chain] = oracleAddress;
+            try {
+                const [oracleAddress] = (await multicallRetry({
+                    chainId: chain,
+                    allowFailure: false,
+                    contracts: [
+                        {
+                            abi: AAVE_ABIS(false),
+                            functionName: AaveFetchFunctions.getPriceOracle,
+                            address: aProvider,
+                            args: [],
+                        },
+                    ],
+                }));
+                await sleep(250);
+                dataMap[chain] = oracleAddress;
+            }
+            catch (e) {
+                console.error(`Error fetching oracle for ${fork} on chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
+                continue;
+            }
         }
         forkMap[fork] = dataMap;
         dataMap = {};

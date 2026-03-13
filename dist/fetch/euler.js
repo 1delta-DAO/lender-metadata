@@ -1,4 +1,3 @@
-import { getEvmClient } from "@1delta/providers";
 import { sleep } from "../utils.js";
 import { EULER_ADDRESSES } from "./euler/constants.js";
 import { getAllVaultAddresses, addressesFromChain, getVaultAssets, } from "./euler/fetcher.js";
@@ -15,9 +14,8 @@ export class EulerUpdater {
             const [chainId, addresses] = chainEntries[i];
             try {
                 // Step 1: Fetch vault addresses from factory
-                const client = getEvmClient(chainId);
                 const overrides = addressesFromChain(addresses);
-                const vaultAddresses = await getAllVaultAddresses(client, overrides);
+                const vaultAddresses = await getAllVaultAddresses(chainId, overrides);
                 // Step 2: Fetch underlying asset for each vault
                 const vaultsWithAssets = await getVaultAssets(chainId, vaultAddresses);
                 vaults.EULER_V2[chainId] = vaultsWithAssets;
