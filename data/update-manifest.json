@@ -1,19 +1,15 @@
 {
-  "version": "2026-03-11T01-01-46-207Z",
-  "generatedAt": "2026-03-11T01:01:46.208Z",
-  "updatedFiles": [],
+  "version": "2026-03-13T08-09-23-467Z",
+  "generatedAt": "2026-03-13T08:09:23.467Z",
+  "updatedFiles": [
+    "./data/euler-vaults.json"
+  ],
   "results": [
     {
-      "targetFile": "./data/compound-v3-base-data.json"
+      "targetFile": "./config/euler-configs.json"
     },
     {
-      "targetFile": "./data/compound-v3-reserves.json"
-    },
-    {
-      "targetFile": "./data/compound-v3-oracles.json"
-    },
-    {
-      "targetFile": "./config/compound-v3-pools.json"
+      "targetFile": "./data/euler-vaults.json"
     }
   ]
 }
