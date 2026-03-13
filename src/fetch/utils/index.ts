@@ -1,6 +1,5 @@
 import {
   getEvmClient,
-  getEvmClientUniversal,
   getEvmClientWithCustomRpcsUniversal,
   LIST_OVERRIDES,
 } from "@1delta/providers";
@@ -95,6 +94,9 @@ export async function multicallRetry(
 
     return returnData;
   } catch (e: any) {
+    // Non-retryable: chain not supported by the provider library at all
+    if (typeof e?.message === "string" && e.message.startsWith("Not in VIEM:")) throw e;
+
     const errorString = e?.message || "";
     const detailsString =
       typeof e?.details === "string" ? e.details : JSON.stringify(e?.details ?? "");
@@ -109,6 +111,9 @@ export async function multicallRetry(
       e?.code === "ENOTFOUND" ||
       combinedError.includes("HTTP") ||
       combinedError.includes("fetch") ||
+      combinedError.includes("timed out") ||
+      combinedError.includes("took too long") ||
+      combinedError.includes("RPC Request failed") ||
       combinedError.includes("429") ||
       combinedError.includes("401") ||
       combinedError.includes("403") ||
