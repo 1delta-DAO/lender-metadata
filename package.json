@@ -9,16 +9,16 @@
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "update": "tsx dist/update-dataset.js",
+    "update:dataset": "tsx dist/update-dataset.js",
     "test": "vitest run",
     "test:watch": "vitest",
     "postinstall": "node scripts/patch-abis.cjs"
   },
   "devDependencies": {
-    "@types/node": "^25.4.0",
+    "@types/node": "^25.5.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.0"
   },
   "dependencies": {
     "@1delta/abis": "^0.0.8",
@@ -29,7 +29,7 @@
     "@1delta/margin-fetcher": "^0.0.192",
     "@1delta/providers": "^0.0.50",
     "lodash": "^4.17.23",
-    "viem": "^2.47.1"
+    "viem": "^2.47.2"
   },
   "overrides": {
     "@1delta/abis": "$@1delta/abis",
