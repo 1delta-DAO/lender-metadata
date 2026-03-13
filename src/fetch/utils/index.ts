@@ -76,7 +76,12 @@ export async function multicallRetry(
         errStr?.includes("HTTP request failed") ||
         errStr?.includes("not whitelisted") ||
         errStr?.includes("-32601") ||
-        errStr?.includes("401")
+        errStr?.includes("401") ||
+        errStr?.includes("timed out") ||
+        errStr?.includes("took too long") ||
+        errStr?.includes("ETIMEDOUT") ||
+        errStr?.includes("ECONNRESET") ||
+        errStr?.includes("fetch failed")
       );
     };
 
