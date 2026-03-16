@@ -19,10 +19,7 @@ async function main() {
     manager.registerUpdater(new EulerUpdater());
     // You can now update from specific sources:
     // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });
-    // Or update from all sources (with append-only behavior):
-    await manager.updateAll({ appendOnly: true });
-    // Or update with full overwrite capability:
-    // await manager.updateAll({ appendOnly: false });
+    await manager.updateAll();
     process.exit(0); // <-- brute force
 }
 // Run if this is the main module

@@ -1,4 +1,4 @@
-import { sleep } from "../utils.js";
+import { mergeData, sleep } from "../utils.js";
 import { EULER_ADDRESSES } from "./euler/constants.js";
 import { getAllVaultAddresses, addressesFromChain, getVaultAssets, } from "./euler/fetcher.js";
 const configFile = "./config/euler-configs.json";
@@ -34,7 +34,7 @@ export class EulerUpdater {
         };
     }
     mergeData(oldData, data, fileKey) {
-        return data;
+        return mergeData(oldData, data);
     }
     defaults = {};
 }

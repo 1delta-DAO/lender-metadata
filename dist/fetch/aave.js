@@ -1,3 +1,4 @@
+import { mergeData } from "../utils.js";
 import { fetchAaveTypePriceOracles } from "./aave/fetchOracles.js";
 import { fetchAaveTypeTokenData } from "./aave/fetchReserves.js";
 const tokensFile = "./data/aave-tokens.json";
@@ -20,7 +21,7 @@ export class AaveUpdater {
         };
     }
     mergeData(oldData, data, fileKey) {
-        return data;
+        return mergeData(oldData, data);
     }
     defaults = {};
 }

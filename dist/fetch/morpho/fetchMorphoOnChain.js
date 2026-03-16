@@ -1,6 +1,6 @@
 import { parseAbi, zeroAddress } from "viem";
 import { Lender } from "@1delta/lender-registry";
-import { simulateContractRetry } from "../utils/index.js";
+import { multicallRetryUniversal } from "@1delta/providers";
 import { decodeListaMarkets, decodeMarkets, MORPHO_LENS, normalizeToBytes, } from "@1delta/margin-fetcher";
 const getListUrl = (chainId) => `https://raw.githubusercontent.com/1delta-DAO/token-lists/main/${chainId}.json`;
 async function getDeltaTokenList(chain) {
@@ -40,16 +40,22 @@ export async function getMarketsOnChain(chainId, pools, marketsListOveride = und
         if (!lensAddress || markets.length === 0 || !functionName)
             continue;
         try {
-            const returnData = await simulateContractRetry({
-                chainId,
+            const results = await multicallRetryUniversal({
+                chain: chainId,
+                calls: [
+                    {
+                        address: lensAddress,
+                        name: functionName,
+                        args: [poolAddress, markets],
+                    },
+                ],
                 abi,
-                functionName,
-                address: lensAddress,
-                args: [poolAddress, markets],
-            }, 4);
+                allowFailure: false,
+            });
+            const returnData = results[0];
             const decoded = forkName === Lender.MORPHO_BLUE
-                ? decodeMarkets(normalizeToBytes(returnData.result) ?? "0x")
-                : decodeListaMarkets(normalizeToBytes(returnData.result));
+                ? decodeMarkets(normalizeToBytes(returnData) ?? "0x")
+                : decodeListaMarkets(normalizeToBytes(returnData));
             decoded.forEach((market, i) => {
                 const uniqueKey = markets[i];
                 const { lltv, irm, oracle, loanToken, collateralToken, ...state } = market;

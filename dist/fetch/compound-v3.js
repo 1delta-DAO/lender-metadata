@@ -1,3 +1,4 @@
+import { mergeData } from "../utils.js";
 import { fetchCompoundV3Data } from "./compound-v3/fetchEverything.js";
 const pools = "./config/compound-v3-pools.json";
 const oracles = "./data/compound-v3-oracles.json";
@@ -18,7 +19,7 @@ export class CompoundV3Updater {
         };
     }
     mergeData(oldData, data, fileKey) {
-        return data;
+        return mergeData(oldData, data);
     }
     defaults = {};
 }

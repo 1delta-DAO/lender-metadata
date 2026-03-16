@@ -1,3 +1,4 @@
+import { mergeData } from "../utils.js";
 import { fetchInitData } from "./init/fetchEverything.js";
 const config = "./data/init-config.json";
 const pools = "./config/init-pools.json";
@@ -14,7 +15,7 @@ export class InitUpdater {
         };
     }
     mergeData(oldData, data, fileKey) {
-        return data;
+        return mergeData(oldData, data);
     }
     defaults = {};
 }
