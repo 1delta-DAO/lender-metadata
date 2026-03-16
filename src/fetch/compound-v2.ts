@@ -1,4 +1,5 @@
 import { DataUpdater } from "../types.js";
+import { mergeData } from "../utils.js";
 import { fetchCompoundV2TypeTokenData } from "./compound-v2/fetchEverything.js";
 
 const pools = "./config/compound-v2-pools.json";
@@ -27,7 +28,7 @@ export class CompoundV2Updater implements DataUpdater {
   }
 
   mergeData(oldData: any, data: any, fileKey: string): Partial<any> {
-    return data;
+    return mergeData(oldData, data);
   }
 
   defaults = {};

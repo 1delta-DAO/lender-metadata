@@ -1,4 +1,5 @@
 import { DataUpdater } from "../types.js";
+import { mergeData } from "../utils.js";
 import { fetchCompoundV3Data } from "./compound-v3/fetchEverything.js";
 
 const pools = "./config/compound-v3-pools.json";
@@ -29,7 +30,7 @@ export class CompoundV3Updater implements DataUpdater {
   }
 
   mergeData(oldData: any, data: any, fileKey: string): Partial<any> {
-    return data;
+    return mergeData(oldData, data);
   }
 
   defaults = {};
