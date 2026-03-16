@@ -1,4 +1,4 @@
-import { getEvmClient } from "@1delta/providers";
+import { multicallRetryUniversal } from "@1delta/providers";
 import { INIT_ABIS, InitFetchFunctions } from "./abi.js";
 import { readJsonFile } from "../utils/index.js";
 
@@ -38,31 +38,33 @@ export async function fetchInitData(): Promise<{
     const chains = Object.keys(INIT_CONFIG_PER_CHAIN_MAP[fork]);
     for (const chain of chains) {
       const initConfig = INIT_CONFIG_PER_CHAIN_MAP[fork][chain];
-      const client = getEvmClient(chain);
 
-      const poolsPerMode = (await client.multicall({
-        allowFailure: false,
-        contracts: defaultModeSearch.map((mode) => ({
-          abi: INIT_ABIS,
-          functionName: InitFetchFunctions.getModeConfig,
+      const poolsPerMode = await multicallRetryUniversal({
+        chain,
+        calls: defaultModeSearch.map((mode) => ({
           address: initConfig,
+          name: InitFetchFunctions.getModeConfig,
           args: [mode],
-        })) as any[],
-      })) as any;
+        })),
+        abi: INIT_ABIS,
+        allowFailure: false,
+      }) as any;
 
       const allPools = uniqueStrings(
         defaultModeSearch.map((_, i) => poolsPerMode[i]?.[0]).flat() as string[]
       );
 
-      const allUnderlyings = (await client.multicall({
-        allowFailure: false,
-        contracts: allPools.map((pool) => ({
-          abi: INIT_ABIS,
-          functionName: InitFetchFunctions.underlyingToken,
+      const allUnderlyings = await multicallRetryUniversal({
+        chain,
+        calls: allPools.map((pool) => ({
           address: pool,
+          name: InitFetchFunctions.underlyingToken,
           args: [],
-        })) as any[],
-      })) as any;
+        })),
+        abi: INIT_ABIS,
+        allowFailure: false,
+      }) as any;
+
       const poolEntryMap: { [pool: string]: PoolEntry } = {};
       for (let i = 0; i < allPools.length; i++) {
         const pool = allPools[i].toLowerCase();

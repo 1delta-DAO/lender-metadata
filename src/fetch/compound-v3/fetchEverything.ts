@@ -3,7 +3,8 @@
 // fetch underlyings per index
 
 import { COMET_ABIS, CompoundV3FetchFunctions } from "./abi.js";
-import { multicallRetry, readJsonFile } from "../utils/index.js";
+import { readJsonFile } from "../utils/index.js";
+import { multicallRetryUniversal } from "@1delta/providers";
 import { sleep } from "../../utils.js";
 
 type CompoundV3Map = {
@@ -31,7 +32,6 @@ BigInt.prototype["toJSON"] = function () {
   return this.toString();
 };
 
-// store maps
 export async function fetchCompoundV3Data(): Promise<{
   compoundBaseData: any;
   compoundReserves: any;
@@ -50,41 +50,22 @@ export async function fetchCompoundV3Data(): Promise<{
     try {
       const comets = Object.values(COMETS_PER_CHAIN_MAP[chain]);
 
-      const cometMetas = (await multicallRetry(
-        {
-          chainId: chain,
-          allowFailure: false,
-          contracts: comets
-            .map((comet) => [
-              {
-                abi: COMET_ABIS,
-                functionName: CompoundV3FetchFunctions.numAssets,
-                address: comet,
-                args: [],
-              },
-              {
-                abi: COMET_ABIS,
-                functionName: CompoundV3FetchFunctions.baseToken,
-                address: comet,
-                args: [],
-              },
-              {
-                abi: COMET_ABIS,
-                functionName: CompoundV3FetchFunctions.baseBorrowMin,
-                address: comet,
-                args: [],
-              },
-              {
-                abi: COMET_ABIS,
-                functionName: CompoundV3FetchFunctions.baseTokenPriceFeed,
-                address: comet,
-                args: [],
-              },
-            ])
-            .flat() as any[],
-        },
-        12,
-      )) as any;
+      const cometMetaCalls = comets
+        .map((comet) => [
+          { address: comet, name: CompoundV3FetchFunctions.numAssets, args: [] },
+          { address: comet, name: CompoundV3FetchFunctions.baseToken, args: [] },
+          { address: comet, name: CompoundV3FetchFunctions.baseBorrowMin, args: [] },
+          { address: comet, name: CompoundV3FetchFunctions.baseTokenPriceFeed, args: [] },
+        ])
+        .flat() as any[];
+
+      const cometMetas = await multicallRetryUniversal({
+        chain,
+        calls: cometMetaCalls,
+        abi: COMET_ABIS,
+        allowFailure: false,
+        maxRetries: 12,
+      });
 
       const cometKeys = Object.keys(COMETS_PER_CHAIN_MAP[chain]);
       for (let i = 0; i < comets.length; i++) {
@@ -102,26 +83,23 @@ export async function fetchCompoundV3Data(): Promise<{
           const baseAsset = baseAssetResult.toLowerCase();
           const cometIndexes = Array.from({ length: nAssets }, (_, j) => j);
           await sleep(500);
-          const underlyingDatas = (await multicallRetry(
-            {
-              chainId: chain,
-              allowFailure: false,
-              contracts: cometIndexes.map((j) => ({
-                abi: COMET_ABIS,
-                functionName: CompoundV3FetchFunctions.getAssetInfo,
-                address: comet,
-                args: [j],
-              })) as any[],
-            },
-            12,
-          )) as any[];
 
-          // Build underlyings and oracle map together using the original index j
-          // to avoid misalignment after filtering failed results
+          const underlyingDatas = await multicallRetryUniversal({
+            chain,
+            calls: cometIndexes.map((j) => ({
+              address: comet as string,
+              name: CompoundV3FetchFunctions.getAssetInfo,
+              args: [j],
+            })),
+            abi: COMET_ABIS,
+            allowFailure: false,
+            maxRetries: 12,
+          });
+
           const underlyings: string[] = [];
           const pendingOracles: Record<string, string> = {};
           for (const j of cometIndexes) {
-            const raw = underlyingDatas[j];
+            const raw = underlyingDatas[j] as any;
             const asset = raw?.asset?.toLowerCase();
             if (!asset) continue;
             underlyings.push(asset);
