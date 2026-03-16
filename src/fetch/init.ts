@@ -1,4 +1,5 @@
 import { DataUpdater } from "../types.js";
+import { mergeData } from "../utils.js";
 import { fetchInitData } from "./init/fetchEverything.js";
 
 const config = "./data/init-config.json";
@@ -19,7 +20,7 @@ export class InitUpdater implements DataUpdater {
   }
 
   mergeData(oldData: any, data: any, fileKey: string): Partial<any> {
-    return data;
+    return mergeData(oldData, data);
   }
 
   defaults = {};

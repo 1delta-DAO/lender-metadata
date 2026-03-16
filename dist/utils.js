@@ -2,16 +2,12 @@
 // Utility Functions
 // ============================================================================
 import { readTextIfExists } from "./io.js";
-/** Load existing file if present; otherwise return empty structure */
+/** Load existing file if present; otherwise return empty object */
 export async function loadExisting(path = "data/latest.json") {
     const raw = await readTextIfExists(path);
     if (!raw)
-        return { names: {}, shortNames: {} };
-    const parsed = JSON.parse(raw);
-    return {
-        names: parsed.names ?? {},
-        shortNames: parsed.shortNames ?? {},
-    };
+        return {};
+    return JSON.parse(raw);
 }
 export function numberToBps(input) {
     const bps = Math.round((Number(input) / 1e18) * 100);

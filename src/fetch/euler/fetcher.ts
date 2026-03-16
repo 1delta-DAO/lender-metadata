@@ -6,7 +6,7 @@ import {
   DEFAULT_BATCH_SIZE,
 } from "./constants.js";
 import type { ChainAddresses } from "./constants.js";
-import { multicallRetry } from "../utils/index.js";
+import { multicallRetryUniversal } from "@1delta/providers";
 
 /** Optional overrides for contract addresses (for non-mainnet deployments) */
 export interface FetcherAddressOverrides {
@@ -39,11 +39,12 @@ export async function getVaultCount(
   overrides?: FetcherAddressOverrides,
 ): Promise<number> {
   const { factory } = resolveAddresses(overrides);
-  const [length] = (await multicallRetry({
-    chainId,
-    contracts: [{ address: factory, abi: genericFactoryAbi, functionName: "getProxyListLength" }],
+  const [length] = await multicallRetryUniversal({
+    chain: chainId,
+    calls: [{ address: factory, name: "getProxyListLength", args: [] }],
+    abi: genericFactoryAbi,
     allowFailure: false,
-  })) as [bigint];
+  }) as [bigint];
   return Number(length);
 }
 
@@ -58,22 +59,22 @@ export async function getAllVaultAddresses(
   const length = await getVaultCount(chainId, overrides);
   if (length === 0) return [];
 
-  const contracts = [];
+  const calls = [];
   for (let start = 0; start < length; start += DEFAULT_BATCH_SIZE) {
     const end = Math.min(start + DEFAULT_BATCH_SIZE, length);
-    contracts.push({
+    calls.push({
       address: factory,
-      abi: genericFactoryAbi,
-      functionName: "getProxyListSlice" as const,
+      name: "getProxyListSlice" as const,
       args: [BigInt(start), BigInt(end)] as [bigint, bigint],
     });
   }
 
-  const results = (await multicallRetry({
-    chainId,
-    contracts,
+  const results = await multicallRetryUniversal({
+    chain: chainId,
+    calls,
+    abi: genericFactoryAbi,
     allowFailure: false,
-  })) as Address[][];
+  }) as Address[][];
 
   return results.flat();
 }
@@ -85,6 +86,7 @@ export interface VaultWithUnderlying {
 
 /**
  * Fetches the underlying asset for each vault address via multicall.
+ * With allowFailure, the package returns the plain result value or "0x" for failures.
  */
 export async function getVaultAssets(
   chainId: string,
@@ -92,31 +94,37 @@ export async function getVaultAssets(
 ): Promise<VaultWithUnderlying[]> {
   if (vaultAddresses.length === 0) return [];
 
-  const contracts = vaultAddresses.map((vault) => ({
+  const calls = vaultAddresses.map((vault) => ({
     address: vault,
-    abi: eVaultAbi,
-    functionName: "asset" as const,
+    name: "asset" as const,
+    args: [],
   }));
 
-  const results = (await multicallRetry({
-    chainId,
-    contracts,
+  const results = await multicallRetryUniversal({
+    chain: chainId,
+    calls,
+    abi: eVaultAbi,
     allowFailure: true,
-  })) as { status: string; result?: unknown }[];
+  }) as any[];
 
   const vaults: VaultWithUnderlying[] = [];
+  let skipped = 0;
   for (let i = 0; i < vaultAddresses.length; i++) {
-    const result = results[i];
-    if (result.status === "success") {
+    const asset = results[i];
+    if (asset && asset !== "0x") {
       vaults.push({
-        underlying: result.result as string,
+        underlying: asset as string,
         vault: vaultAddresses[i],
       });
     } else {
-      console.log(
-        `Euler: failed to fetch asset for vault ${vaultAddresses[i]} on chain ${chainId}`,
-      );
+      skipped++;
     }
+  }
+
+  if (skipped > 0) {
+    console.log(
+      `Euler: chain ${chainId}: ${vaults.length} vaults resolved, ${skipped} skipped (no asset function)`,
+    );
   }
 
   return vaults;

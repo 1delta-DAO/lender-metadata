@@ -2,20 +2,13 @@
 // Utility Functions
 // ============================================================================
 import { readTextIfExists } from "./io.js";
-import { StoredData } from "./fetch/types.js";
 import { UpdateOptions } from "./types.js";
 
-/** Load existing file if present; otherwise return empty structure */
-export async function loadExisting(
-  path = "data/latest.json"
-): Promise<StoredData> {
+/** Load existing file if present; otherwise return empty object */
+export async function loadExisting(path = "data/latest.json"): Promise<any> {
   const raw = await readTextIfExists(path);
-  if (!raw) return { names: {}, shortNames: {} };
-  const parsed = JSON.parse(raw);
-  return {
-    names: parsed.names ?? {},
-    shortNames: parsed.shortNames ?? {},
-  };
+  if (!raw) return {};
+  return JSON.parse(raw);
 }
 
 export function numberToBps(input: number | string): string {

@@ -1,9 +1,6 @@
-// aproach for compound
-// get number of reserves and base asset from comet
-// fetch underlyings per index
-
 import { COMPTROLLER_ABIS, CompoundV2FetchFunctions } from "./abi.js";
-import { multicallRetry, readJsonFile } from "../utils/index.js";
+import { readJsonFile } from "../utils/index.js";
+import { multicallRetryUniversal } from "@1delta/providers";
 import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { Lender } from "@1delta/lender-registry";
@@ -77,37 +74,33 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
     );
 
     // BATCH CALL 1: Get all markets and oracles for all forks on this chain
-    const firstBatchContracts = forksOnChain.flatMap(({ address, fork }) => [
+    const firstBatchCalls = forksOnChain.flatMap(({ address, fork }) => [
       {
-        abi: COMPTROLLER_ABIS,
-        functionName:
+        address,
+        name:
           fork === "UNITUS"
             ? "getAlliTokens"
             : CompoundV2FetchFunctions.getAllMarkets,
-        address: address as any,
         args: [],
       },
       {
-        abi: COMPTROLLER_ABIS,
-        functionName:
+        address,
+        name:
           fork === "UNITUS"
             ? "priceOracle"
             : CompoundV2FetchFunctions.oracle,
-        address: address as any,
         args: [],
       },
     ]);
 
     let firstBatchResults: any[];
     try {
-      firstBatchResults = (await multicallRetry(
-        {
-          chainId: chain,
-          allowFailure: true,
-          contracts: firstBatchContracts,
-        },
-        6,
-      )) as any[];
+      firstBatchResults = await multicallRetryUniversal({
+        chain,
+        calls: firstBatchCalls,
+        abi: COMPTROLLER_ABIS,
+        allowFailure: true,
+      });
     } catch (e: any) {
       console.error(`Error fetching markets for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
       continue;
@@ -122,10 +115,10 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
 
     for (let i = 0; i < forksOnChain.length; i++) {
       const { fork } = forksOnChain[i];
-      const marketsResult = firstBatchResults[i * 2]?.result;
-      const oracleResult = firstBatchResults[i * 2 + 1]?.result;
+      const marketsResult = firstBatchResults[i * 2];
+      const oracleResult = firstBatchResults[i * 2 + 1];
 
-      if (!marketsResult) {
+      if (!marketsResult || marketsResult === "0x") {
         console.log(`No markets found for ${fork} on chain ${chain}`);
         continue;
       }
@@ -140,25 +133,22 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
     if (forkMarketData.length === 0) continue;
 
     // BATCH CALL 2: Get all underlyings for all cTokens across all forks on this chain
-    const secondBatchContracts = forkMarketData.flatMap(({ markets }) =>
+    const secondBatchCalls = forkMarketData.flatMap(({ markets }) =>
       markets.map((addr: string) => ({
-        abi: COMPTROLLER_ABIS,
-        functionName: CompoundV2FetchFunctions.underlying,
-        address: addr as any,
+        address: addr,
+        name: CompoundV2FetchFunctions.underlying,
         args: [],
       })),
     );
 
     let secondBatchResults: any[];
     try {
-      secondBatchResults = (await multicallRetry(
-        {
-          chainId: chain,
-          allowFailure: true,
-          contracts: secondBatchContracts,
-        },
-        6,
-      )) as any[];
+      secondBatchResults = await multicallRetryUniversal({
+        chain,
+        calls: secondBatchCalls,
+        abi: COMPTROLLER_ABIS,
+        allowFailure: true,
+      });
     } catch (e: any) {
       console.error(`Error fetching underlyings for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
       continue;
@@ -175,10 +165,8 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
       );
       resultIndex += markets.length;
 
-      // if the call fails, return address 0 as the underlying
       const currReserves = underlyingResults.map((result: any) => {
-        const underlying = result?.result;
-        return !underlying || underlying === "0x" ? zeroAddress : underlying;
+        return !result || result === "0x" ? zeroAddress : result;
       });
 
       // assign reserves

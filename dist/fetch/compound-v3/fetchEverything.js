@@ -1,14 +1,11 @@
-// aproach for compound
-// get number of reserves and base asset from comet
-// fetch underlyings per index
 import { COMET_ABIS, CompoundV3FetchFunctions } from "./abi.js";
-import { multicallRetry, readJsonFile } from "../utils/index.js";
+import { readJsonFile } from "../utils/index.js";
+import { multicallRetryUniversal } from "@1delta/providers";
 import { sleep } from "../../utils.js";
 // @ts-ignore
 BigInt.prototype["toJSON"] = function () {
     return this.toString();
 };
-// store maps
 export async function fetchCompoundV3Data() {
     let cometDataMap = {};
     let cometOracles = {};
@@ -19,38 +16,21 @@ export async function fetchCompoundV3Data() {
     for (const chain of chains) {
         try {
             const comets = Object.values(COMETS_PER_CHAIN_MAP[chain]);
-            const cometMetas = (await multicallRetry({
-                chainId: chain,
+            const cometMetaCalls = comets
+                .map((comet) => [
+                { address: comet, name: CompoundV3FetchFunctions.numAssets, args: [] },
+                { address: comet, name: CompoundV3FetchFunctions.baseToken, args: [] },
+                { address: comet, name: CompoundV3FetchFunctions.baseBorrowMin, args: [] },
+                { address: comet, name: CompoundV3FetchFunctions.baseTokenPriceFeed, args: [] },
+            ])
+                .flat();
+            const cometMetas = await multicallRetryUniversal({
+                chain,
+                calls: cometMetaCalls,
+                abi: COMET_ABIS,
                 allowFailure: false,
-                contracts: comets
-                    .map((comet) => [
-                    {
-                        abi: COMET_ABIS,
-                        functionName: CompoundV3FetchFunctions.numAssets,
-                        address: comet,
-                        args: [],
-                    },
-                    {
-                        abi: COMET_ABIS,
-                        functionName: CompoundV3FetchFunctions.baseToken,
-                        address: comet,
-                        args: [],
-                    },
-                    {
-                        abi: COMET_ABIS,
-                        functionName: CompoundV3FetchFunctions.baseBorrowMin,
-                        address: comet,
-                        args: [],
-                    },
-                    {
-                        abi: COMET_ABIS,
-                        functionName: CompoundV3FetchFunctions.baseTokenPriceFeed,
-                        address: comet,
-                        args: [],
-                    },
-                ])
-                    .flat(),
-            }, 12));
+                maxRetries: 12,
+            });
             const cometKeys = Object.keys(COMETS_PER_CHAIN_MAP[chain]);
             for (let i = 0; i < comets.length; i++) {
                 try {
@@ -65,18 +45,17 @@ export async function fetchCompoundV3Data() {
                     const baseAsset = baseAssetResult.toLowerCase();
                     const cometIndexes = Array.from({ length: nAssets }, (_, j) => j);
                     await sleep(500);
-                    const underlyingDatas = (await multicallRetry({
-                        chainId: chain,
-                        allowFailure: false,
-                        contracts: cometIndexes.map((j) => ({
-                            abi: COMET_ABIS,
-                            functionName: CompoundV3FetchFunctions.getAssetInfo,
+                    const underlyingDatas = await multicallRetryUniversal({
+                        chain,
+                        calls: cometIndexes.map((j) => ({
                             address: comet,
+                            name: CompoundV3FetchFunctions.getAssetInfo,
                             args: [j],
                         })),
-                    }, 12));
-                    // Build underlyings and oracle map together using the original index j
-                    // to avoid misalignment after filtering failed results
+                        abi: COMET_ABIS,
+                        allowFailure: false,
+                        maxRetries: 12,
+                    });
                     const underlyings = [];
                     const pendingOracles = {};
                     for (const j of cometIndexes) {

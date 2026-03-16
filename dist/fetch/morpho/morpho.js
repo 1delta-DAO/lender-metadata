@@ -250,10 +250,10 @@ export class MorphoBlueUpdater {
             return mergeData(oldData, data, this.defaults[labelsFile]);
         }
         if (fileKey === oraclesFile) {
-            return mergeOracleDataMaps(data, this.defaults[oraclesFile]);
+            return mergeOracleDataMaps(oldData, data);
         }
         if (fileKey === poolsFile) {
-            return data;
+            return mergeData(oldData, data);
         }
         if (fileKey === curatorsFile) {
             return mergeData(oldData, data, this.defaults[curatorsFile]);

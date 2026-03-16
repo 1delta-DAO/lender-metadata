@@ -2,7 +2,8 @@ import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { AAVE_ABIS, AaveFetchFunctions } from "./abi.js";
 import { Lender } from "@1delta/lender-registry";
-import { multicallRetry, readJsonFile } from "../utils/index.js";
+import { multicallRetryUniversal } from "@1delta/providers";
+import { readJsonFile } from "../utils/index.js";
 const forkHasNoSToken = (ledner) => ledner === Lender.YLDR;
 // aproach for aave
 // get reserve list from pool
@@ -39,19 +40,20 @@ export async function fetchAaveTypeTokenData() {
         const forksOnChain = chainToForks[chain];
         console.log(`fetching for chain ${chain}, forks: ${forksOnChain.map((f) => f.fork).join(", ")}`);
         // BATCH CALL 1: Get all reserve lists for all forks on this chain
-        const firstBatchContracts = forksOnChain.map(({ addresses, hasNoSToken }) => ({
-            abi: AAVE_ABIS(hasNoSToken),
-            functionName: AaveFetchFunctions.getReservesList,
+        const firstBatchCalls = forksOnChain.map(({ addresses }) => ({
             address: addresses.pool,
+            name: AaveFetchFunctions.getReservesList,
             args: [],
         }));
+        const firstBatchAbis = forksOnChain.map(({ hasNoSToken }) => AAVE_ABIS(hasNoSToken));
         let firstBatchResults;
         try {
-            firstBatchResults = (await multicallRetry({
-                chainId: chain,
+            firstBatchResults = await multicallRetryUniversal({
+                chain,
+                calls: firstBatchCalls,
+                abi: firstBatchAbis,
                 allowFailure: true,
-                contracts: firstBatchContracts,
-            }));
+            });
         }
         catch (e) {
             console.error(`Error fetching reserves for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
@@ -62,7 +64,7 @@ export async function fetchAaveTypeTokenData() {
         const forkReserveData = [];
         for (let i = 0; i < forksOnChain.length; i++) {
             const { fork, addresses, hasNoSToken } = forksOnChain[i];
-            const reservesResult = firstBatchResults[i]?.result ?? firstBatchResults[i];
+            const reservesResult = firstBatchResults[i];
             if (!reservesResult || !Array.isArray(reservesResult)) {
                 console.log(`No reserves found for ${fork} on chain ${chain}`);
                 continue;
@@ -77,19 +79,20 @@ export async function fetchAaveTypeTokenData() {
         if (forkReserveData.length === 0)
             continue;
         // BATCH CALL 2: Get all token addresses for all reserves across all forks on this chain
-        const secondBatchContracts = forkReserveData.flatMap(({ reserves, protocolDataProvider, hasNoSToken }) => reserves.map((addr) => ({
-            abi: AAVE_ABIS(hasNoSToken),
-            functionName: AaveFetchFunctions.getReserveTokensAddresses,
+        const secondBatchCalls = forkReserveData.flatMap(({ reserves, protocolDataProvider }) => reserves.map((addr) => ({
             address: protocolDataProvider,
+            name: AaveFetchFunctions.getReserveTokensAddresses,
             args: [addr],
         })));
+        const secondBatchAbis = forkReserveData.flatMap(({ reserves, hasNoSToken }) => reserves.map(() => AAVE_ABIS(hasNoSToken)));
         let secondBatchResults;
         try {
-            secondBatchResults = (await multicallRetry({
-                chainId: chain,
+            secondBatchResults = await multicallRetryUniversal({
+                chain,
+                calls: secondBatchCalls,
+                abi: secondBatchAbis,
                 allowFailure: true,
-                contracts: secondBatchContracts,
-            }));
+            });
         }
         catch (e) {
             console.error(`Error fetching token addresses for chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
@@ -105,7 +108,7 @@ export async function fetchAaveTypeTokenData() {
             reservesMap[fork][chain] = reserves.map((r) => r.toLowerCase());
             const dataOnChain = hasNoSToken
                 ? Object.assign({}, ...reserves.map((a, i) => {
-                    const result = tokenResults[i]?.result ?? tokenResults[i];
+                    const result = tokenResults[i];
                     return {
                         [a.toLowerCase()]: {
                             aToken: result?.[0]?.toLowerCase(),
@@ -115,7 +118,7 @@ export async function fetchAaveTypeTokenData() {
                     };
                 }))
                 : Object.assign({}, ...reserves.map((a, i) => {
-                    const result = tokenResults[i]?.result ?? tokenResults[i];
+                    const result = tokenResults[i];
                     return {
                         [a.toLowerCase()]: {
                             aToken: result?.[0]?.toLowerCase(),

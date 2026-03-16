@@ -1,4 +1,5 @@
 import { DataUpdater } from "../types.js";
+import { mergeData } from "../utils.js";
 import { fetchAaveTypePriceOracles } from "./aave/fetchOracles.js";
 import { fetchAaveTypeTokenData } from "./aave/fetchReserves.js";
 
@@ -26,7 +27,7 @@ export class AaveUpdater implements DataUpdater {
   }
 
   mergeData(oldData: any, data: any, fileKey: string): Partial<any> {
-    return data;
+    return mergeData(oldData, data);
   }
 
   defaults = {};

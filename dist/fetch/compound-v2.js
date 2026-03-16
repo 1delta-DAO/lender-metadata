@@ -1,3 +1,4 @@
+import { mergeData } from "../utils.js";
 import { fetchCompoundV2TypeTokenData } from "./compound-v2/fetchEverything.js";
 const pools = "./config/compound-v2-pools.json";
 const tokens = "./data/compound-v2-c-tokens.json";
@@ -20,7 +21,7 @@ export class CompoundV2Updater {
         };
     }
     mergeData(oldData, data, fileKey) {
-        return data;
+        return mergeData(oldData, data);
     }
     defaults = {};
 }

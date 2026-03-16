@@ -1,5 +1,5 @@
 import { DataUpdater } from "../types.js";
-import { sleep } from "../utils.js";
+import { mergeData, sleep } from "../utils.js";
 import { EULER_ADDRESSES } from "./euler/constants.js";
 import {
   getAllVaultAddresses,
@@ -47,7 +47,7 @@ export class EulerUpdater implements DataUpdater {
   }
 
   mergeData(oldData: any, data: any, fileKey: string): Partial<any> {
-    return data;
+    return mergeData(oldData, data);
   }
 
   defaults = {};

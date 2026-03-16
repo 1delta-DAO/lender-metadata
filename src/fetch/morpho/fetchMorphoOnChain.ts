@@ -1,6 +1,6 @@
 import { parseAbi, zeroAddress } from "viem";
 import { Lender } from "@1delta/lender-registry";
-import { simulateContractRetry } from "../utils/index.js";
+import { multicallRetryUniversal } from "@1delta/providers";
 import {
   decodeListaMarkets,
   decodeMarkets,
@@ -56,24 +56,27 @@ export async function getMarketsOnChain(
     if (!lensAddress || markets.length === 0 || !functionName) continue;
 
     try {
-      const returnData = await simulateContractRetry(
-        {
-          chainId,
-          abi,
-          functionName,
-          address: lensAddress as any,
-          args: [poolAddress, markets] as any,
-        },
-        4
-      );
+      const results = await multicallRetryUniversal({
+        chain: chainId,
+        calls: [
+          {
+            address: lensAddress,
+            name: functionName,
+            args: [poolAddress, markets],
+          },
+        ],
+        abi,
+        allowFailure: false,
+      });
 
+      const returnData = results[0];
       const decoded =
         forkName === Lender.MORPHO_BLUE
           ? decodeMarkets(
-              normalizeToBytes(returnData.result as unknown as string) ?? "0x"
+              normalizeToBytes(returnData as unknown as string) ?? "0x"
             )
           : decodeListaMarkets(
-              normalizeToBytes(returnData.result as unknown as string)
+              normalizeToBytes(returnData as unknown as string)
             );
 
       decoded.forEach((market, i) => {
