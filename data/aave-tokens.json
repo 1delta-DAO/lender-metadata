@@ -1572,12 +1572,13 @@
         "vToken": "0xa0ec4758d806a3f41532c8e97ea0c85940182b0f"
       },
       "0x17418038ecf73ba4026c4f428547bf099706f27b": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0xc293744ffbcf46696d589f5c415e71bc491519cd",
+        "vToken": "0x1f30d2b155fcda0f7551dc8be5de6a84977685d4",
+        "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0x2255718832bc9fd3be1caf75084f4803da14ff01": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0xe1cfd16b8e4b1c86bb5b7a104cfefbc7b09326dd",
+        "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": {
         "aToken": "0x946281a2d0dd6e650d08f74833323d66ae4c8b12",
@@ -1614,40 +1615,40 @@
   "AAVE_V3_PRIME": {
     "1": {
       "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x18efe565a5373f430e2f809b97de30335b3ad96a",
+        "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0xc035a7cf15375ce2706766804551791ad035e0c2",
+        "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0x9d39a5de30e57443bff2a8307a4256c8797a3497": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0xc2015641564a5914a17cb9a92ec8d8fecfa8f2d0",
+        "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x2a1fbcb52ed4d9b23dad17e1e8aed4bb0e6079b8",
+        "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x56d919e7b25aa42f3f8a4bc77b8982048f2e84b4",
+        "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0xbf5495efe5db9ce00f80364c8b423567e58d2110": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x74e5664394998f13b07af42446380acef637969f",
+        "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0xfa1fdbbd71b0aa16162d76914d69cd8cb3ef92da",
+        "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0xd11c452fc99cf405034ee446803b6f6c1f6d5ed8": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0xce8c60fd8390efcc3fc66a3f0bd64beb969e750e",
+        "sToken": "0x0000000000000000000000000000000000000000"
       },
       "0xdc035d45d973e3ec169d2276ddab16f1e407384f": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x09aa30b182488f769a9824f15e6ce58591da4781",
+        "sToken": "0x0000000000000000000000000000000000000000"
       }
     }
   },
@@ -2227,28 +2228,28 @@
   "AVALON_EBTC_LBTC": {
     "1": {
       "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x822790ffcce58eaf79d869404402378c05bc2c69",
+        "sToken": "0x6e26bf6122b68ee15d54e7d486e6242d0688ec92"
       },
       "0x332a8ee60edff0a11cf3994b1b846bbc27d3dcd6": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x243744653a4cf96e974a3b9c19c93bff287727ec",
+        "sToken": "0x27b58833bb08dd478d12bb93ae0dda012fe7468a"
       },
       "0x657e8c867d8b37dcc18fa4caead9c45eb088c642": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x3c9f186f1c11d28d28cdfbfbb74fe311bae9c059",
+        "sToken": "0x1d76fd1466a356d6a823408f3139669dea21cb23"
       },
       "0x8236a87084f8b84306f72007f36f2618a5634494": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x8ae0014964227fe378bc1c4cc27982e6b4351a65",
+        "sToken": "0x37d07bdd191e77ee5538bf6446a3e77a3158ff79"
       },
       "0xb997b3418935a1df0f914ee901ec83927c1509a0": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x442252245af0e6f7410f1a79e0f186e2d91907cb",
+        "sToken": "0x128321c3fa48b47ba4e4bd1648f829f5f6048ffa"
       },
       "0xec5a52c685cc3ad79a6a347abace330d69e0b1ed": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x950ab8c438099dda466020986c4ad74f0747441b",
+        "sToken": "0x7216b99e42c2537dd0f1e36fbb5ce0336b225a95"
       }
     }
   },
@@ -2442,16 +2443,16 @@
   "AVALON_PUMPBTC": {
     "1": {
       "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0xdd92bb45815ea0c3461ec2ff2b6f5cd6b99294c6",
+        "sToken": "0x0f2a52e961ece431e40cc1068862d96e54d76e54"
       },
       "0xc96de26018a54d51c097160568752c4e3bd6c364": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x249e8e0045d7c3d0dcd38943b83feed190a62f44",
+        "sToken": "0xba37b83e82bccbd1a48b500692f6106cf9e36c14"
       },
       "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x1a91e084c693db7dbeacd7726db56e5a340fef10",
+        "sToken": "0x6b5480427b0c2e3816fbb30ca1a481a32a07e76d"
       }
     },
     "56": {
@@ -2520,24 +2521,24 @@
   "AVALON_SOLVBTC": {
     "1": {
       "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x81392304a5be58e1eb72053a47798b9285eb948e",
+        "sToken": "0xd684c4b6abeeaa5ca79f30d346719c727d2072d3"
       },
       "0x23e479ddcda990e8523494895759bd98cd2fdbf6": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0xc6ab82fc782e29b385e775aa0d12c3278358c9e2",
+        "sToken": "0x539db87e80c706fa3789cf55d743b5fdf61ace49"
       },
       "0x7a56e1c57c7475ccf742a1832b028f0456652f97": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0xd6890176e8d912142ac489e8b5d8d93f8de74d60",
+        "sToken": "0xb05b8d868153d656eb40444b0333fb0dad464fb8"
       },
       "0xc96de26018a54d51c097160568752c4e3bd6c364": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x5e007ed35c7d89f5889eb6fd0cdcaa38059560ef",
+        "sToken": "0xaf84eb227e51dbbb5560f7cf507e3101ef98147b"
       },
       "0xd9d920aa40f578ab794426f5c90f6c731d159def": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x2e6500a7add9a788753a897e4e3477f651c612eb",
+        "sToken": "0xe8fd5c5f889cd7fb67ea2b58e9246131fb2abb6a"
       }
     },
     "56": {
@@ -2651,12 +2652,12 @@
   "AVALON_SWELLBTC": {
     "1": {
       "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x1c2c0b01e32b747a06e6ea0c2d07da1a586c59bb",
+        "sToken": "0x0f84a47844ffd67db55a3013a68a7dfbf5c1de83"
       },
       "0x8db2350d78abc13f5673a411d4700bcf87864dde": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0x1f0b7f50f8b4f4e7c65988cb074bf96bead580ba",
+        "sToken": "0xbc1b3b8dc8adead5556359454e8e2f1f27125d7f"
       }
     }
   },
@@ -3125,8 +3126,8 @@
         "vToken": "0x5eea43129024eee861481f32c2541b12ddd44c08"
       },
       "0x6b175474e89094c44da98b954eedeac495271d0f": {
-        "aToken": "0",
-        "sToken": "x"
+        "aToken": "0xe7334ad0e325139329e747cf2fc24538dd564987",
+        "sToken": "0xc40709470139657e6d80249c5cc998efb44898c9"
       },
       "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
         "aToken": "0x02cd18c03b5b3f250d2b29c87949cdab4ee11488",
