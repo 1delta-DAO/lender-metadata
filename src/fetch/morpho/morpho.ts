@@ -8,6 +8,10 @@ import { mergeData, numberToBps } from "../../utils.js";
 import { readJsonFile } from "../utils/index.js";
 import { Chain } from "@1delta/chain-registry";
 import { getMarketsOnChain } from "./fetchMorphoOnChain.js";
+import {
+  hasSubgraph,
+  fetchMarketsFromSubgraph,
+} from "./fetchMorphoSubgraph.js";
 import { Lender } from "@1delta/lender-registry";
 
 const labelsFile = "./data/lender-labels.json";
@@ -24,7 +28,10 @@ const cannotUseApi = (chainId: string, fork: string) => {
       chainId === Chain.BERACHAIN ||
       chainId === Chain.SONEIUM ||
       chainId === Chain.SEI_NETWORK ||
-      chainId === Chain.BNB_SMART_CHAIN_MAINNET
+      chainId === Chain.BNB_SMART_CHAIN_MAINNET ||
+      chainId === Chain.CELO_MAINNET ||
+      chainId === Chain.LISK ||
+      chainId === Chain.TAC_MAINNET
     );
   }
   return true; // can't use api for moolah
@@ -119,6 +126,33 @@ function mergeOracleDataMaps(oldDataMap: any, newDataMap: any) {
   return merged;
 }
 
+/**
+ * Append-only merge for morpho-type-markets.json.
+ * Unions market ID arrays per fork/chain — never removes existing IDs.
+ */
+function mergeMarketsAppendOnly(oldData: any, newData: any) {
+  const merged: any = {};
+  const allForks = new Set([
+    ...Object.keys(oldData || {}),
+    ...Object.keys(newData || {}),
+  ]);
+
+  for (const fork of allForks) {
+    merged[fork] = {};
+    const allChains = new Set([
+      ...Object.keys(oldData?.[fork] || {}),
+      ...Object.keys(newData?.[fork] || {}),
+    ]);
+    for (const chainId of allChains) {
+      const oldIds: string[] = oldData?.[fork]?.[chainId] || [];
+      const newIds: string[] = newData?.[fork]?.[chainId] || [];
+      merged[fork][chainId] = Array.from(new Set([...oldIds, ...newIds])).sort();
+    }
+  }
+
+  return merged;
+}
+
 export class MorphoBlueUpdater implements DataUpdater {
   name = "Morpho Blue Markets";
 
@@ -202,12 +236,15 @@ export class MorphoBlueUpdater implements DataUpdater {
       "130",
       "137",
       "143",
+      "239",
       "999",
+      "1135",
       "1329",
       "1868",
       "8453",
-      "43111",
       "42161",
+      "42220",
+      "43111",
       "80094",
       "747474",
     ];
@@ -227,14 +264,39 @@ export class MorphoBlueUpdater implements DataUpdater {
         if (!forkConfig[chainId]) continue;
         let marketData: any;
 
-        if (cannotUseApi(chainId, fork)) {
-          marketData = await getMarketsOnChain(
-            chainId,
-            { [fork]: forkConfig },
-            MORPHO_BLUE_MARKETS
+        try {
+          if (cannotUseApi(chainId, fork)) {
+            // Use subgraph as primary source when available (returns all markets)
+            if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
+              try {
+                marketData = await fetchMarketsFromSubgraph(chainId);
+              } catch (error) {
+                console.warn(
+                  `Subgraph fetch failed for chain ${chainId}, falling back to on-chain:`,
+                  error
+                );
+                marketData = await getMarketsOnChain(
+                  chainId,
+                  { [fork]: forkConfig },
+                  MORPHO_BLUE_MARKETS
+                );
+              }
+            } else {
+              marketData = await getMarketsOnChain(
+                chainId,
+                { [fork]: forkConfig },
+                MORPHO_BLUE_MARKETS
+              );
+            }
+          } else {
+            marketData = await this.fetchMorphoMarkets(chainId);
+          }
+        } catch (error) {
+          console.warn(
+            `Failed to fetch ${fork} markets for chain ${chainId}:`,
+            error
           );
-        } else {
-          marketData = await this.fetchMorphoMarkets(chainId);
+          continue;
         }
 
         const items = marketData.markets?.items || [];
@@ -251,11 +313,10 @@ export class MorphoBlueUpdater implements DataUpdater {
           const loanAssetDecimals = el.loanAsset.decimals;
           const collateralAssetDecimals = el.collateralAsset?.decimals;
 
-          if (
-            collateralAsset &&
-            loanAsset &&
-            oracle !== "0x0000000000000000000000000000000000000000"
-          ) {
+          const isZero = (addr: string | undefined) =>
+            !addr || addr === "0x0000000000000000000000000000000000000000";
+
+          if (!isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
             oracles[chainId][fork].push({
               oracle,
               loanAsset,
@@ -268,6 +329,27 @@ export class MorphoBlueUpdater implements DataUpdater {
           const loanSym = el.loanAsset?.symbol;
           const collSym = el.collateralAsset?.symbol;
           if (!loanSym || !collSym) continue;
+
+          // Append well-defined market IDs to config only for chains
+          // that cannot use the Morpho API (on-chain / subgraph chains)
+          if (cannotUseApi(chainId, fork)) {
+            const hasValidAssets =
+              !isZero(collateralAsset) &&
+              !isZero(loanAsset) &&
+              !isZero(oracle) &&
+              loanAssetDecimals != null &&
+              collateralAssetDecimals != null;
+
+            if (hasValidAssets) {
+              if (!MORPHO_BLUE_MARKETS[fork]) MORPHO_BLUE_MARKETS[fork] = {};
+              if (!MORPHO_BLUE_MARKETS[fork][chainId])
+                MORPHO_BLUE_MARKETS[fork][chainId] = [];
+              const existing: string[] = MORPHO_BLUE_MARKETS[fork][chainId];
+              if (!existing.includes(hash)) {
+                existing.push(hash);
+              }
+            }
+          }
 
           const bps = numberToBps(el.lltv);
           const protocolPrefix = fork === Lender.LISTA_DAO ? "Lista" : "Morpho";
@@ -294,10 +376,20 @@ export class MorphoBlueUpdater implements DataUpdater {
       }
     }
 
+    // Sort market IDs per chain for stable output
+    for (const fork of Object.keys(MORPHO_BLUE_MARKETS)) {
+      for (const chainId of Object.keys(MORPHO_BLUE_MARKETS[fork])) {
+        if (Array.isArray(MORPHO_BLUE_MARKETS[fork][chainId])) {
+          MORPHO_BLUE_MARKETS[fork][chainId].sort();
+        }
+      }
+    }
+
     return {
       [labelsFile]: { names, shortNames },
       [oraclesFile]: oracles,
       [poolsFile]: MORPHO_BLUE_POOL_DATA,
+      [marketsFile]: MORPHO_BLUE_MARKETS,
       [curatorsFile]: sortEntriesById(curators),
     };
   }
@@ -315,6 +407,10 @@ export class MorphoBlueUpdater implements DataUpdater {
       return mergeData(oldData, data);
     }
 
+    if (fileKey === marketsFile) {
+      return mergeMarketsAppendOnly(oldData, data);
+    }
+
     if (fileKey === curatorsFile) {
       return mergeData(oldData, data, this.defaults[curatorsFile]);
     }
@@ -325,6 +421,7 @@ export class MorphoBlueUpdater implements DataUpdater {
   defaults = {
     [labelsFile]: { names: DEFAULTS, shortNames: DEFAULTS_SHORT },
     [oraclesFile]: {},
+    [marketsFile]: {},
     [curatorsFile]: {},
   };
 }

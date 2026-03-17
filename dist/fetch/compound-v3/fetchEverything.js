@@ -1,3 +1,6 @@
+// aproach for compound
+// get number of reserves and base asset from comet
+// fetch underlyings per index
 import { COMET_ABIS, CompoundV3FetchFunctions } from "./abi.js";
 import { readJsonFile } from "../utils/index.js";
 import { multicallRetryUniversal } from "@1delta/providers";

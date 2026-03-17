@@ -3,6 +3,10 @@ import { sleep } from "../../utils.js";
 import { Lender } from "@1delta/lender-registry";
 import { Chain } from "@1delta/chain-registry";
 import { multicallRetryUniversal } from "@1delta/providers";
+// aproach for aave
+// get reserve list from pool
+// fetch tokens per reserve from address provider
+// store maps
 export async function fetchAaveTypePriceOracles(AAVE_FORK_POOL_DATA) {
     const forks = Object.keys(AAVE_FORK_POOL_DATA);
     let forkMap = {};

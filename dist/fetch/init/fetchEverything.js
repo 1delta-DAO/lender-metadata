@@ -9,6 +9,10 @@ function uniqueStrings(arr) {
     return [...new Set(arr)];
 }
 const defaultModeSearch = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// aproach for init
+// get mode configs for defaults
+// fetch underlying per pool
+// store maps
 export async function fetchInitData() {
     let initDataMap = {};
     const INIT_CONFIG_PER_CHAIN_MAP = await readJsonFile("./config/init-pools.json");

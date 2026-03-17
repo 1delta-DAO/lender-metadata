@@ -234,6 +234,12 @@
     ],
     "MORPHO_BLUE_1A9CCACA2DBA9469CD9CBA3D077466761B05F465C412D2BF2C71614C4963DD84": [
       {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      },
+      {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
@@ -868,10 +874,24 @@
     ],
     "MORPHO_BLUE_5CEBFAE10F5E88D33DF2421923F3D9F32359429FDA2F78EDACC9B4FDB09B0553": [
       {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      },
+      {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_5EC557CC91D5E27844FF87B2378E87498DEBB3F9AE6016E03A91DA33673775F4": [
+      {
+        "id": "clearstar",
+        "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
+        "verified": true,
+        "name": "Clearstar"
       }
     ],
     "MORPHO_BLUE_5F8A138BA332398A9116910F4D5E5DCD9B207024C5290CE5BC87BC2DBD8E4A86": [
@@ -1290,6 +1310,14 @@
         "name": "Gauntlet"
       }
     ],
+    "MORPHO_BLUE_7629B62C42FEBFCCD87A8EB76BD91587B33BBCD474CB79BC4964AEB0479E4E53": [
+      {
+        "id": "stake-dao",
+        "image": "https://cdn.morpho.org/v2/assets/images/stakedao.svg",
+        "verified": true,
+        "name": "Stake DAO"
+      }
+    ],
     "MORPHO_BLUE_79B4E55CEF9E7C214B5CC965E1984229ADA26A66051E35366A75C4D92B776735": [
       {
         "id": "keyrock",
@@ -1398,6 +1426,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_88ABDF8693E663144C3544B9442E9B04520016D6EBC57AA76424C00AB1683C9D": [
+      {
+        "id": "sentora",
+        "image": "https://cdn.morpho.org/v2/assets/images/sentora.svg",
+        "verified": true,
+        "name": "Sentora"
       }
     ],
     "MORPHO_BLUE_8924445A76B678C536DF977ED9222FB0B23EE5311497DD0223FE6270BB20B4E6": [
@@ -3919,6 +3955,14 @@
       }
     ],
     "MORPHO_BLUE_5F7AE53E542B8B7BF08BE3C8D43492322F56E60D2FE154C8A2321EA247158E50": [
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_6351B952D0C723E7B3E7E9B98BF22F12883768953ABEFE4AE25044E7D5B42FC6": [
       {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",

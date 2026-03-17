@@ -4,6 +4,10 @@ import { multicallRetryUniversal } from "@1delta/providers";
 import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { Lender } from "@1delta/lender-registry";
+// aproach for compound V2
+// get cToken list from pool
+// fetch underlying per cToken
+// store maps
 export async function fetchCompoundV2TypeTokenData() {
     const COMPOUND_V2_COMPTROLLERS = await readJsonFile("./config/compound-v2-pools.json");
     const forks = Object.keys(COMPOUND_V2_COMPTROLLERS).filter((f) => f !== Lender.COMPOUND_V2);
