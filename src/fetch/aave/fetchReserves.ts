@@ -168,10 +168,11 @@ export async function fetchAaveTypeTokenData(): Promise<{
             {},
             ...reserves.map((a: any, i: number) => {
               const result = tokenResults[i];
+              if (!result || !Array.isArray(result)) return {};
               return {
                 [a.toLowerCase()]: {
-                  aToken: result?.[0]?.toLowerCase(),
-                  vToken: result?.[1]?.toLowerCase(),
+                  aToken: result[0]?.toLowerCase(),
+                  vToken: result[1]?.toLowerCase(),
                   sToken: zeroAddress,
                 },
               };
@@ -181,11 +182,12 @@ export async function fetchAaveTypeTokenData(): Promise<{
             {},
             ...reserves.map((a: any, i: number) => {
               const result = tokenResults[i];
+              if (!result || !Array.isArray(result)) return {};
               return {
                 [a.toLowerCase()]: {
-                  aToken: result?.[0]?.toLowerCase(),
-                  sToken: result?.[1]?.toLowerCase(),
-                  vToken: result?.[2]?.toLowerCase(),
+                  aToken: result[0]?.toLowerCase(),
+                  sToken: result[1]?.toLowerCase(),
+                  vToken: result[2]?.toLowerCase(),
                 },
               };
             }),
