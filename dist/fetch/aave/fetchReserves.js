@@ -109,21 +109,25 @@ export async function fetchAaveTypeTokenData() {
             const dataOnChain = hasNoSToken
                 ? Object.assign({}, ...reserves.map((a, i) => {
                     const result = tokenResults[i];
+                    if (!result || !Array.isArray(result))
+                        return {};
                     return {
                         [a.toLowerCase()]: {
-                            aToken: result?.[0]?.toLowerCase(),
-                            vToken: result?.[1]?.toLowerCase(),
+                            aToken: result[0]?.toLowerCase(),
+                            vToken: result[1]?.toLowerCase(),
                             sToken: zeroAddress,
                         },
                     };
                 }))
                 : Object.assign({}, ...reserves.map((a, i) => {
                     const result = tokenResults[i];
+                    if (!result || !Array.isArray(result))
+                        return {};
                     return {
                         [a.toLowerCase()]: {
-                            aToken: result?.[0]?.toLowerCase(),
-                            sToken: result?.[1]?.toLowerCase(),
-                            vToken: result?.[2]?.toLowerCase(),
+                            aToken: result[0]?.toLowerCase(),
+                            sToken: result[1]?.toLowerCase(),
+                            vToken: result[2]?.toLowerCase(),
                         },
                     };
                 }));

@@ -108,6 +108,16 @@ export const COMET_ABIS = [
   },
 ];
 
+export const ORACLE_DESCRIPTION_ABI = [
+  {
+    inputs: [],
+    name: "description",
+    outputs: [{ internalType: "string", name: "", type: "string" }],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+
 export enum CompoundV3FetchFunctions {
   baseToken = "baseToken",
   getAssetInfo = "getAssetInfo",

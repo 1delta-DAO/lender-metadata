@@ -107,6 +107,15 @@ export const COMET_ABIS = [
         type: "function",
     },
 ];
+export const ORACLE_DESCRIPTION_ABI = [
+    {
+        inputs: [],
+        name: "description",
+        outputs: [{ internalType: "string", name: "", type: "string" }],
+        stateMutability: "view",
+        type: "function",
+    },
+];
 export var CompoundV3FetchFunctions;
 (function (CompoundV3FetchFunctions) {
     CompoundV3FetchFunctions["baseToken"] = "baseToken";

@@ -1,7 +1,7 @@
 // aproach for compound
 // get number of reserves and base asset from comet
 // fetch underlyings per index
-import { COMET_ABIS, CompoundV3FetchFunctions } from "./abi.js";
+import { COMET_ABIS, ORACLE_DESCRIPTION_ABI, CompoundV3FetchFunctions } from "./abi.js";
 import { readJsonFile } from "../utils/index.js";
 import { multicallRetryUniversal } from "@1delta/providers";
 import { sleep } from "../../utils.js";
@@ -12,6 +12,7 @@ BigInt.prototype["toJSON"] = function () {
 export async function fetchCompoundV3Data() {
     let cometDataMap = {};
     let cometOracles = {};
+    let cometOraclesData = {};
     let compoundReserves = {};
     let compoundBaseData = {};
     const COMETS_PER_CHAIN_MAP = await readJsonFile("./config/compound-v3-pools.json");
@@ -78,11 +79,36 @@ export async function fetchCompoundV3Data() {
                         cometDataMap[cometKeys[i]] = {};
                     if (!cometOracles[cometKeys[i]])
                         cometOracles[cometKeys[i]] = {};
+                    if (!cometOraclesData[cometKeys[i]])
+                        cometOraclesData[cometKeys[i]] = {};
                     if (!compoundBaseData[cometKeys[i]])
                         compoundBaseData[cometKeys[i]] = {};
                     if (!compoundReserves[cometKeys[i]])
                         compoundReserves[cometKeys[i]] = {};
-                    cometOracles[cometKeys[i]][chain] = { ...pendingOracles, [baseAsset]: baseTokenFeed };
+                    const allOracles = { ...pendingOracles, [baseAsset]: baseTokenFeed };
+                    cometOracles[cometKeys[i]][chain] = allOracles;
+                    // Fetch oracle descriptions
+                    const oracleEntries = Object.entries(allOracles);
+                    const descriptionCalls = oracleEntries.map(([, oracle]) => ({
+                        address: oracle,
+                        name: "description",
+                    }));
+                    const descriptions = (await multicallRetryUniversal({
+                        chain,
+                        calls: descriptionCalls,
+                        abi: ORACLE_DESCRIPTION_ABI,
+                        allowFailure: true,
+                        maxRetries: 3,
+                    }));
+                    const oracleDataForChain = {};
+                    oracleEntries.forEach(([asset, oracle], idx) => {
+                        const desc = descriptions[idx];
+                        oracleDataForChain[asset] = {
+                            oracle: oracle,
+                            description: typeof desc === "string" ? desc : "FAILED",
+                        };
+                    });
+                    cometOraclesData[cometKeys[i]][chain] = oracleDataForChain;
                     compoundReserves[cometKeys[i]][chain] = [baseAsset, ...underlyings].map((r) => r.toLowerCase());
                     compoundBaseData[cometKeys[i]][chain] = { baseAsset, baseBorrowMin };
                     cometDataMap[cometKeys[i]][chain] = {
@@ -102,5 +128,5 @@ export async function fetchCompoundV3Data() {
             console.error(`Compound V3: failed to fetch chain ${chain}, skipping:`, e instanceof Error ? e.message : e);
         }
     }
-    return { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP, cometOracles };
+    return { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP, cometOracles, cometOraclesData };
 }

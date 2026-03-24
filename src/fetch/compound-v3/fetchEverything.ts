@@ -2,7 +2,7 @@
 // get number of reserves and base asset from comet
 // fetch underlyings per index
 
-import { COMET_ABIS, CompoundV3FetchFunctions } from "./abi.js";
+import { COMET_ABIS, ORACLE_DESCRIPTION_ABI, CompoundV3FetchFunctions } from "./abi.js";
 import { readJsonFile } from "../utils/index.js";
 import { multicallRetryUniversal } from "@1delta/providers";
 import { sleep } from "../../utils.js";
@@ -27,6 +27,17 @@ type AddressChainMap = {
   };
 };
 
+type OracleDataChainMap = {
+  [cometId: string]: {
+    [chainid: string]: {
+      [asset: string]: {
+        oracle: string;
+        description: string;
+      };
+    };
+  };
+};
+
 // @ts-ignore
 BigInt.prototype["toJSON"] = function () {
   return this.toString();
@@ -35,11 +46,13 @@ BigInt.prototype["toJSON"] = function () {
 export async function fetchCompoundV3Data(): Promise<{
   compoundBaseData: any;
   compoundReserves: any;
-  cometOracles: AddressChainMap
+  cometOracles: AddressChainMap;
+  cometOraclesData: OracleDataChainMap;
   COMETS_PER_CHAIN_MAP: any;
 }> {
   let cometDataMap: CompoundV3Map = {};
   let cometOracles: AddressChainMap = {};
+  let cometOraclesData: OracleDataChainMap = {};
   let compoundReserves: any = {};
   let compoundBaseData: any = {};
   const COMETS_PER_CHAIN_MAP = await readJsonFile(
@@ -116,10 +129,37 @@ export async function fetchCompoundV3Data(): Promise<{
 
           if (!cometDataMap[cometKeys[i]]) cometDataMap[cometKeys[i]] = {};
           if (!cometOracles[cometKeys[i]]) cometOracles[cometKeys[i]] = {};
+          if (!cometOraclesData[cometKeys[i]]) cometOraclesData[cometKeys[i]] = {};
           if (!compoundBaseData[cometKeys[i]]) compoundBaseData[cometKeys[i]] = {};
           if (!compoundReserves[cometKeys[i]]) compoundReserves[cometKeys[i]] = {};
 
-          cometOracles[cometKeys[i]][chain] = { ...pendingOracles, [baseAsset]: baseTokenFeed };
+          const allOracles = { ...pendingOracles, [baseAsset]: baseTokenFeed };
+          cometOracles[cometKeys[i]][chain] = allOracles;
+
+          // Fetch oracle descriptions
+          const oracleEntries = Object.entries(allOracles);
+          const descriptionCalls = oracleEntries.map(([, oracle]) => ({
+            address: oracle,
+            name: "description",
+          }));
+
+          const descriptions = (await multicallRetryUniversal({
+            chain,
+            calls: descriptionCalls,
+            abi: ORACLE_DESCRIPTION_ABI,
+            allowFailure: true,
+            maxRetries: 3,
+          })) as unknown[];
+
+          const oracleDataForChain: Record<string, { oracle: string; description: string }> = {};
+          oracleEntries.forEach(([asset, oracle], idx) => {
+            const desc = descriptions[idx];
+            oracleDataForChain[asset] = {
+              oracle: oracle as string,
+              description: typeof desc === "string" ? desc : "FAILED",
+            };
+          });
+          cometOraclesData[cometKeys[i]][chain] = oracleDataForChain;
 
           compoundReserves[cometKeys[i]][chain] = [baseAsset, ...underlyings].map((r) => r.toLowerCase());
           compoundBaseData[cometKeys[i]][chain] = { baseAsset, baseBorrowMin };
@@ -139,5 +179,5 @@ export async function fetchCompoundV3Data(): Promise<{
     }
   }
 
-  return { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP, cometOracles };
+  return { compoundReserves, compoundBaseData, COMETS_PER_CHAIN_MAP, cometOracles, cometOraclesData };
 }

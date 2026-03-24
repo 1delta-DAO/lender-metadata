@@ -1,24 +1,24 @@
 {
-  "version": "2026-03-17T17-15-12-631Z",
-  "generatedAt": "2026-03-17T17:15:12.631Z",
+  "version": "2026-03-24T23-00-54-494Z",
+  "generatedAt": "2026-03-24T23:00:54.494Z",
   "updatedFiles": [
-    "./config/morpho-type-markets.json"
+    "./data/compound-v3-oracles-data.json"
   ],
   "results": [
     {
-      "targetFile": "./data/lender-labels.json"
+      "targetFile": "./data/compound-v3-base-data.json"
     },
     {
-      "targetFile": "./data/morpho-type-oracles.json"
+      "targetFile": "./data/compound-v3-reserves.json"
     },
     {
-      "targetFile": "./config/morpho-pools.json"
+      "targetFile": "./data/compound-v3-oracles.json"
     },
     {
-      "targetFile": "./config/morpho-type-markets.json"
+      "targetFile": "./data/compound-v3-oracles-data.json"
     },
     {
-      "targetFile": "./data/morpho-curators.json"
+      "targetFile": "./config/compound-v3-pools.json"
     }
   ]
 }
