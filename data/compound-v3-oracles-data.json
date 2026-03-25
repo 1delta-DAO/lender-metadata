@@ -42,59 +42,59 @@
   "COMPOUND_V3_USDC": {
     "1": {
       "0x15700b564ca08d9439c58ca5053166e8317aa138": {
-        "description": "0x",
+        "description": "Constant price feed",
         "oracle": "0x7BaDaB7109afBbF48eCd8d6498CaAcd2630b45B9"
       },
       "0x18084fba666a33d37592fa2633fd49a74dd93a88": {
-        "description": "0x",
+        "description": "TBTC / USD",
         "oracle": "0xAA9527bf3183A96fe6e55831c96dE5cd988d3484"
       },
       "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984": {
-        "description": "0x",
+        "description": "UNI / USD",
         "oracle": "0x553303d460EE0afB37EdFf9bE42922D8FF63220e"
       },
       "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
-        "description": "0x",
+        "description": "Custom price feed for WBTC / USD",
         "oracle": "0xc8E4c3F58d5FC4409522503927Ecea057EbbA1fc"
       },
       "0x4c9edd5852cd905f086c759e8383e09bff1e68b3": {
-        "description": "0x",
+        "description": "USDe / USD",
         "oracle": "0xa569d910839Ae8865Da8F8e70FfFb0cBA869F961"
       },
       "0x514910771af9ca656af840dff83e8264ecf986ca": {
-        "description": "0x",
+        "description": "LINK / USD",
         "oracle": "0x83B34662f65532e611A87EBed38063Dec889D5A7"
       },
       "0x5c5b196abe0d54485975d1ec29617d42d9198326": {
-        "description": "0x",
+        "description": "Constant price feed",
         "oracle": "0x7BaDaB7109afBbF48eCd8d6498CaAcd2630b45B9"
       },
       "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": {
-        "description": "0x",
+        "description": "wstETH / USD CAPO SVR Price Feed",
         "oracle": "0xA2699232B341881B1Ed85d91592b7c259E029aCf"
       },
       "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
-        "description": "0x",
+        "description": "USDC / USD",
         "oracle": "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6"
       },
       "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7": {
-        "description": "0x",
+        "description": "rsETH / USD CAPO SVR Price Feed",
         "oracle": "0xD6a48f6f687A5FeF8A69834C49514B747012cf1c"
       },
       "0xc00e94cb662c3520282e6f5717214004a7f26888": {
-        "description": "0x",
+        "description": "COMP / USD",
         "oracle": "0x69B50fF403E995d9c4441a303438D9049dAC8cCD"
       },
       "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
-        "description": "0x",
+        "description": "ETH / USD",
         "oracle": "0xc0053f3FBcCD593758258334Dfce24C2A9A673aD"
       },
       "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
-        "description": "0x",
+        "description": "cbBTC / USD",
         "oracle": "0x0A4F4F9E84Fc4F674F0D209f94d41FaFE5aF887D"
       },
       "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": {
-        "description": "0x",
+        "description": "weETH / USD CAPO SVR Price Feed",
         "oracle": "0x4F12633d511dC3049DE1ea923b7047fBeD0070D2"
       }
     },
