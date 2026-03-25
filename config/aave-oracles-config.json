@@ -1,0 +1,26 @@
+{
+  "KLAYBANK": {
+    "8217": {
+      "baseAsset": "0x19aac5f612f524b754ca7e7c41cbfa2e981a4432",
+      "baseCurrencyUnit": "1000000000000000000",
+      "baseAssetSource": "AVALON"
+    }
+  },
+  "KLAP": {
+    "8217": {
+      "baseCurrencyUnit": "1000000000000000000"
+    }
+  },
+  "MOLEND": {
+    "34443": {
+      "baseCurrencyUnit": "100000000"
+    }
+  },
+  "MOOLA": {
+    "42220": {
+      "baseAsset": "0x471ece3750da237f93b8e339c536989b8978a438",
+      "baseCurrencyUnit": "1000000000000000000",
+      "baseAssetSource": "AAVE_V3"
+    }
+  }
+}
