@@ -1,5 +1,6 @@
 import { DataManager } from "./data-manager.js";
 import { MorphoBlueUpdater } from "./fetch/morpho/morpho.js";
+import { MorphoOracleDataUpdater } from "./fetch/morpho-oracle-data.js";
 import { AaveUpdater } from "./fetch/aave.js";
 import { CompoundV3Updater } from "./fetch/compound-v3.js";
 import { InitUpdater } from "./fetch/init.js";
@@ -15,6 +16,7 @@ async function main(): Promise<void> {
 
   // Register updaters
   manager.registerUpdater(new MorphoBlueUpdater());
+  manager.registerUpdater(new MorphoOracleDataUpdater());
   manager.registerUpdater(new AaveUpdater());
   manager.registerUpdater(new CompoundV3Updater());
   manager.registerUpdater(new CompoundV2Updater());
