@@ -1,4 +1,5 @@
 import { multicallRetryUniversal } from "@1delta/providers";
+import { toHex } from "viem";
 import { readJsonFile } from "../utils/index.js";
 import {
   MORPHO_CHAINLINK_ORACLE_V2_ABI,
@@ -161,12 +162,20 @@ function synthesizePriceDescription(
 }
 
 /**
- * Decodes a bytes32 hex string (e.g. "0x4254430000...") to a UTF-8 string by
- * stripping trailing null bytes. Returns null if the result is empty.
+ * Decodes getDataFeedId() bytes32 to a UTF-8 string (RedStone encodes ASCII symbols).
+ * Accepts hex string (multicall) or bigint (some RPC decoders).
  */
-function decodeBytes32String(hex: unknown): string | null {
-  if (typeof hex !== "string" || hex === "0x" || hex.length < 4) return null;
-  const bytes = Buffer.from(hex.slice(2).padEnd(64, "0"), "hex");
+function decodeBytes32String(raw: unknown): string | null {
+  let hex: string;
+  if (typeof raw === "string") {
+    if (raw === "0x" || raw.length < 4) return null;
+    hex = raw.length >= 66 ? raw : `0x${raw.slice(2).padEnd(64, "0")}`;
+  } else if (typeof raw === "bigint") {
+    hex = toHex(raw, { size: 32 });
+  } else {
+    return null;
+  }
+  const bytes = Buffer.from(hex.slice(2), "hex");
   const nullIdx = bytes.indexOf(0);
   const str = bytes.subarray(0, nullIdx >= 0 ? nullIdx : bytes.length).toString("utf8");
   return str.length > 0 ? str : null;
@@ -308,6 +317,38 @@ export async function fetchMorphoOracleData(): Promise<MorphoOraclesDataMap> {
       for (const entry of entries) {
         if (isValidNonZeroAddress(entry.oracle))
           oraclesPerChain[chainId].add(entry.oracle.toLowerCase());
+      }
+    }
+  }
+
+  // Build per-chain map: oracle_addr -> list of { collateralAsset, loanAsset }
+  // Used as fallback when synthesis leaves uncancelled intermediates.
+  type MarketPair = { collateral: string; loan: string };
+  const marketsByChain: Record<string, Record<string, MarketPair[]>> = {};
+
+  for (const [chainId, entries] of Object.entries(morphoOracles as Record<string, any[]>)) {
+    if (!marketsByChain[chainId]) marketsByChain[chainId] = {};
+    for (const entry of entries) {
+      const oracle = entry.oracle?.toLowerCase();
+      const collateral = entry.collateralAsset?.toLowerCase();
+      const loan = entry.loanAsset?.toLowerCase();
+      if (oracle && collateral && loan) {
+        (marketsByChain[chainId][oracle] ??= []).push({ collateral, loan });
+      }
+    }
+  }
+  for (const [chainId, forks] of Object.entries(
+    morphoTypeOracles as Record<string, Record<string, any[]>>
+  )) {
+    if (!marketsByChain[chainId]) marketsByChain[chainId] = {};
+    for (const entries of Object.values(forks)) {
+      for (const entry of entries) {
+        const oracle = entry.oracle?.toLowerCase();
+        const collateral = entry.collateralAsset?.toLowerCase();
+        const loan = entry.loanAsset?.toLowerCase();
+        if (oracle && collateral && loan) {
+          (marketsByChain[chainId][oracle] ??= []).push({ collateral, loan });
+        }
       }
     }
   }
@@ -586,6 +627,53 @@ export async function fetchMorphoOracleData(): Promise<MorphoOraclesDataMap> {
       }
     }
 
+    // Batch 7: fetch loan asset symbols for market-data fallback.
+    // When synthesis produces uncancelled intermediates ("*"), we use the actual
+    // Morpho market's (collateral, loan) pair to derive a clean price description.
+    const chainMarkets = marketsByChain[chainId] ?? {};
+    // oracle -> unique loan address (only when all markets share the same loan token)
+    const oracleLoanAddr: Record<string, string> = {};
+    // oracle -> collateral address (for symbol lookup when not already a known vault)
+    const oracleCollateralAddr: Record<string, string> = {};
+    for (const oracle of oracles) {
+      const pairs = chainMarkets[oracle];
+      if (!pairs || pairs.length === 0) continue;
+      const uniqueLoans = new Set(pairs.map((p) => p.loan));
+      if (uniqueLoans.size === 1) {
+        oracleLoanAddr[oracle] = [...uniqueLoans][0];
+        // All pairs have the same collateral when uniqueLoans.size===1 in practice,
+        // but we only need it for non-vault collaterals, so just take the first.
+        oracleCollateralAddr[oracle] = pairs[0].collateral;
+      }
+    }
+
+    const loanAddrSet = new Set(Object.values(oracleLoanAddr));
+    // Remove addresses whose symbol we already know (from vault or asset batches)
+    const knownSymbols = { ...vaultSymbols, ...assetSymbols, ...asset2Symbols };
+    const newLoanAddrs = [...loanAddrSet].filter((a) => !knownSymbols[a]);
+
+    const loanSymbols: Record<string, string | null> = {};
+    if (newLoanAddrs.length > 0) {
+      console.log(
+        `Morpho oracles [${chainId}]: fetching ${newLoanAddrs.length} market loan asset symbols`
+      );
+      const loanSymResults = (await multicallRetryUniversal({
+        chain: chainId,
+        calls: newLoanAddrs.map((a) => ({ address: a, name: "symbol", args: [] })),
+        abi: VAULT_SYMBOL_ABI,
+        allowFailure: true,
+        maxRetries: 12,
+      })) as (string | null)[];
+
+      newLoanAddrs.forEach((addr, i) => {
+        const raw = loanSymResults[i];
+        loanSymbols[addr] = typeof raw === "string" && raw !== "0x" && raw.length > 0 ? raw : null;
+      });
+    }
+
+    // Combines all known symbols into one lookup (vault, asset, and loan symbols).
+    const allSymbols = { ...knownSymbols, ...loanSymbols };
+
     // Resolves to the deepest known underlying symbol for a vault's asset address.
     // Falls back to the first-level symbol if no second-level underlying is known.
     const getDeepUnderlyingSymbol = (assetAddr: string | null): string | null => {
@@ -634,9 +722,39 @@ export async function fetchMorphoOracleData(): Promise<MorphoOraclesDataMap> {
             b1Desc, b2Desc, q1Desc, q2Desc,
             bvSym, bvUnderlying, qvSym, qvUnderlying
           );
-          return synthesized !== "UNKNOWN"
-            ? synthesized
-            : (vaultOracleDescriptions[oracle] ?? "UNKNOWN");
+
+          // If synthesis is clean, use it as-is.
+          if (synthesized !== "UNKNOWN" && !synthesized.includes(" * ")) {
+            // But if all feed descriptions failed (RPC issue) while feed addresses exist,
+            // the result is incomplete (e.g. "sUSDS / USDS" with no feed cancellation).
+            // In that case, fall through to the market data fallback.
+            const allFeedDescNull = !b1Desc && !b2Desc && !q1Desc && !q2Desc;
+            const hasFeedAddrs = !!(c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2);
+            if (!(allFeedDescNull && hasFeedAddrs)) return synthesized;
+          }
+
+          // Fallback 1: vault oracle description (symbol / accountingAsset).
+          if (vaultOracleDescriptions[oracle]) return vaultOracleDescriptions[oracle];
+
+          // Fallback 2: market data — use actual (collateral, loan) pair.
+          // Applies when synthesis has uncancelled intermediates ("*") or when
+          // feed descriptions all failed despite feed addresses being present.
+          if (synthesized.includes(" * ") || synthesized === "UNKNOWN" ||
+              (!b1Desc && !b2Desc && !q1Desc && !q2Desc && (c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2))) {
+            const loanAddr = oracleLoanAddr[oracle];
+            const loanSym = loanAddr ? (allSymbols[loanAddr] ?? null) : null;
+            if (loanSym) {
+              // Collateral: prefer the vault symbol, else look up from market data.
+              const collateralAddr = oracleCollateralAddr[oracle];
+              const collateralSym =
+                bvSym ??
+                qvSym ??
+                (collateralAddr ? (allSymbols[collateralAddr] ?? null) : null);
+              if (collateralSym) return `${collateralSym} / ${loanSym}`;
+            }
+          }
+
+          return synthesized !== "UNKNOWN" ? synthesized : (vaultOracleDescriptions[oracle] ?? "UNKNOWN");
         })(),
         // fixedRate: true only when the oracle is confirmed V2 (selectors responded)
         // but all feed/vault addresses are zero — a hardcoded static price oracle.
