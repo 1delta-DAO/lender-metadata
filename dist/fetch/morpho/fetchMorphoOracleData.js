@@ -2,6 +2,8 @@ import { multicallRetryUniversal } from "@1delta/providers";
 import { toHex } from "viem";
 import { readJsonFile } from "../utils/index.js";
 import { MORPHO_CHAINLINK_ORACLE_V2_ABI, CURRENT_ORACLE_ABI, FEED_DESCRIPTION_ABI, REDSTONE_DATA_FEED_ID_ABI, VAULT_SYMBOL_ABI, VAULT_ASSET_ABI, VAULT_ACCOUNTING_ASSET_ABI, } from "./oracleAbi.js";
+import { fetchMorphoMarketRowsForChain } from "./morpho.js";
+import { marketTripletKey } from "./morphoMarketId.js";
 const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 const morphoOraclesFile = "./data/morpho-oracles.json";
 const morphoTypeOraclesFile = "./data/morpho-type-oracles.json";
@@ -217,63 +219,72 @@ async function fetchOracleConfigs(chainId, oracles) {
     }
     return { configs, isV2Map };
 }
+/** Dedupe by loan/collateral/oracle triplet per chain. */
+function collectMarketInputs(morphoOracles, morphoTypeOracles) {
+    const byChain = {};
+    const add = (chainId, entry) => {
+        if (!isValidNonZeroAddress(entry.oracle))
+            return;
+        const oracle = entry.oracle.toLowerCase();
+        const loan = entry.loanAsset?.toLowerCase();
+        const coll = entry.collateralAsset?.toLowerCase();
+        if (!loan || !coll)
+            return;
+        const key = marketTripletKey(loan, coll, oracle);
+        if (!byChain[chainId])
+            byChain[chainId] = new Map();
+        byChain[chainId].set(key, {
+            oracle,
+            loanAsset: loan,
+            collateralAsset: coll,
+            loanAssetDecimals: entry.loanAssetDecimals,
+            collateralAssetDecimals: entry.collateralAssetDecimals,
+        });
+    };
+    for (const [chainId, entries] of Object.entries(morphoOracles)) {
+        for (const entry of entries)
+            add(chainId, entry);
+    }
+    for (const [chainId, forks] of Object.entries(morphoTypeOracles)) {
+        for (const entries of Object.values(forks)) {
+            for (const entry of entries)
+                add(chainId, entry);
+        }
+    }
+    const out = {};
+    for (const [chainId, m] of Object.entries(byChain)) {
+        out[chainId] = Array.from(m.values());
+    }
+    return out;
+}
 export async function fetchMorphoOracleData() {
     const [morphoOracles, morphoTypeOracles] = await Promise.all([
         readJsonFile(morphoOraclesFile),
         readJsonFile(morphoTypeOraclesFile),
     ]);
-    const oraclesPerChain = {};
-    for (const [chainId, entries] of Object.entries(morphoOracles)) {
-        if (!oraclesPerChain[chainId])
-            oraclesPerChain[chainId] = new Set();
-        for (const entry of entries) {
-            if (isValidNonZeroAddress(entry.oracle))
-                oraclesPerChain[chainId].add(entry.oracle.toLowerCase());
-        }
-    }
-    for (const [chainId, forks] of Object.entries(morphoTypeOracles)) {
-        if (!oraclesPerChain[chainId])
-            oraclesPerChain[chainId] = new Set();
-        for (const entries of Object.values(forks)) {
-            for (const entry of entries) {
-                if (isValidNonZeroAddress(entry.oracle))
-                    oraclesPerChain[chainId].add(entry.oracle.toLowerCase());
-            }
-        }
-    }
-    const marketsByChain = {};
-    for (const [chainId, entries] of Object.entries(morphoOracles)) {
-        if (!marketsByChain[chainId])
-            marketsByChain[chainId] = {};
-        for (const entry of entries) {
-            const oracle = entry.oracle?.toLowerCase();
-            const collateral = entry.collateralAsset?.toLowerCase();
-            const loan = entry.loanAsset?.toLowerCase();
-            if (oracle && collateral && loan) {
-                (marketsByChain[chainId][oracle] ??= []).push({ collateral, loan });
-            }
-        }
-    }
-    for (const [chainId, forks] of Object.entries(morphoTypeOracles)) {
-        if (!marketsByChain[chainId])
-            marketsByChain[chainId] = {};
-        for (const entries of Object.values(forks)) {
-            for (const entry of entries) {
-                const oracle = entry.oracle?.toLowerCase();
-                const collateral = entry.collateralAsset?.toLowerCase();
-                const loan = entry.loanAsset?.toLowerCase();
-                if (oracle && collateral && loan) {
-                    (marketsByChain[chainId][oracle] ??= []).push({ collateral, loan });
-                }
-            }
-        }
-    }
+    const marketInputsByChain = collectMarketInputs(morphoOracles, morphoTypeOracles);
     const result = {};
-    for (const [chainId, oracleSet] of Object.entries(oraclesPerChain)) {
-        const oracles = Array.from(oracleSet);
-        if (oracles.length === 0)
+    for (const [chainId, marketInputs] of Object.entries(marketInputsByChain)) {
+        if (marketInputs.length === 0)
             continue;
-        console.log(`Morpho oracles [${chainId}]: fetching ${oracles.length} oracle configs`);
+        const morphoRows = await fetchMorphoMarketRowsForChain(chainId);
+        const metaByTriplet = new Map();
+        for (const r of morphoRows) {
+            metaByTriplet.set(marketTripletKey(r.loanAsset, r.collateralAsset, r.oracleAddress), r);
+        }
+        const resolved = [];
+        for (const m of marketInputs) {
+            const meta = metaByTriplet.get(marketTripletKey(m.loanAsset, m.collateralAsset, m.oracle));
+            if (!meta) {
+                console.warn(`[morpho-oracles-data] skip unknown market chain=${chainId} oracle=${m.oracle} loan=${m.loanAsset} coll=${m.collateralAsset}`);
+                continue;
+            }
+            resolved.push({ ...m, meta });
+        }
+        if (resolved.length === 0)
+            continue;
+        const oracles = [...new Set(resolved.map((r) => r.oracle))];
+        console.log(`Morpho oracles [${chainId}]: ${resolved.length} markets, ${oracles.length} unique oracle contracts`);
         // Batch 1: feed + vault addresses for all oracles
         const { configs: oracleConfigs, isV2Map } = await fetchOracleConfigs(chainId, oracles);
         // Batch 2: resolve wrapper oracles (no feeds/vaults) via currentOracle()
@@ -492,27 +503,8 @@ export async function fetchMorphoOracleData() {
                 }
             }
         }
-        // Batch 7: fetch loan asset symbols for market-data fallback.
-        // When synthesis produces uncancelled intermediates ("*"), we use the actual
-        // Morpho market's (collateral, loan) pair to derive a clean price description.
-        const chainMarkets = marketsByChain[chainId] ?? {};
-        // oracle -> unique loan address (only when all markets share the same loan token)
-        const oracleLoanAddr = {};
-        // oracle -> collateral address (for symbol lookup when not already a known vault)
-        const oracleCollateralAddr = {};
-        for (const oracle of oracles) {
-            const pairs = chainMarkets[oracle];
-            if (!pairs || pairs.length === 0)
-                continue;
-            const uniqueLoans = new Set(pairs.map((p) => p.loan));
-            if (uniqueLoans.size === 1) {
-                oracleLoanAddr[oracle] = [...uniqueLoans][0];
-                // All pairs have the same collateral when uniqueLoans.size===1 in practice,
-                // but we only need it for non-vault collaterals, so just take the first.
-                oracleCollateralAddr[oracle] = pairs[0].collateral;
-            }
-        }
-        const loanAddrSet = new Set(Object.values(oracleLoanAddr));
+        // Batch 7: fetch loan asset symbols for per-market price fallback.
+        const loanAddrSet = new Set(resolved.map((r) => r.loanAsset));
         // Remove addresses whose symbol we already know (from vault or asset batches)
         const knownSymbols = { ...vaultSymbols, ...assetSymbols, ...asset2Symbols };
         const newLoanAddrs = [...loanAddrSet].filter((a) => !knownSymbols[a]);
@@ -546,9 +538,11 @@ export async function fetchMorphoOracleData() {
             }
             return assetSymbols[assetAddr] ?? null;
         };
-        // Build result for this chain
+        // Build result for this chain: keyed by canonical market id (bytes32 hex).
         result[chainId] = {};
-        for (const oracle of oracles) {
+        for (const rm of resolved) {
+            const oracle = rm.oracle;
+            const marketId = rm.meta.uniqueKey.toLowerCase();
             const c = oracleConfigs[oracle];
             const b1Desc = c.baseFeed1 ? (feedDescriptions[c.baseFeed1] ?? null) : null;
             const b2Desc = c.baseFeed2 ? (feedDescriptions[c.baseFeed2] ?? null) : null;
@@ -560,7 +554,17 @@ export async function fetchMorphoOracleData() {
             const qvAssetAddr = c.quoteVault ? (vaultUnderlyingAddrs[c.quoteVault] ?? null) : null;
             const bvUnderlying = getDeepUnderlyingSymbol(bvAssetAddr);
             const qvUnderlying = getDeepUnderlyingSymbol(qvAssetAddr);
-            result[chainId][oracle] = {
+            const loanAddr = rm.loanAsset;
+            const collateralAddr = rm.collateralAsset;
+            result[chainId][marketId] = {
+                oracle,
+                loanAsset: rm.loanAsset,
+                collateralAsset: rm.collateralAsset,
+                loanAssetDecimals: rm.loanAssetDecimals,
+                collateralAssetDecimals: rm.collateralAssetDecimals,
+                irm: rm.meta.irm,
+                lltv: rm.meta.lltv,
+                fork: rm.meta.fork,
                 underlyingOracle: underlyingOracleMap[oracle] ?? null,
                 baseFeed1: c.baseFeed1,
                 baseFeed2: c.baseFeed2,
@@ -580,27 +584,17 @@ export async function fetchMorphoOracleData() {
                     const synthesized = synthesizePriceDescription(b1Desc, b2Desc, q1Desc, q2Desc, bvSym, bvUnderlying, qvSym, qvUnderlying);
                     // If synthesis is clean, use it as-is.
                     if (synthesized !== "UNKNOWN" && !synthesized.includes(" * ")) {
-                        // But if all feed descriptions failed (RPC issue) while feed addresses exist,
-                        // the result is incomplete (e.g. "sUSDS / USDS" with no feed cancellation).
-                        // In that case, fall through to the market data fallback.
                         const allFeedDescNull = !b1Desc && !b2Desc && !q1Desc && !q2Desc;
                         const hasFeedAddrs = !!(c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2);
                         if (!(allFeedDescNull && hasFeedAddrs))
                             return synthesized;
                     }
-                    // Fallback 1: vault oracle description (symbol / accountingAsset).
                     if (vaultOracleDescriptions[oracle])
                         return vaultOracleDescriptions[oracle];
-                    // Fallback 2: market data — use actual (collateral, loan) pair.
-                    // Applies when synthesis has uncancelled intermediates ("*") or when
-                    // feed descriptions all failed despite feed addresses being present.
                     if (synthesized.includes(" * ") || synthesized === "UNKNOWN" ||
                         (!b1Desc && !b2Desc && !q1Desc && !q2Desc && (c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2))) {
-                        const loanAddr = oracleLoanAddr[oracle];
                         const loanSym = loanAddr ? (allSymbols[loanAddr] ?? null) : null;
                         if (loanSym) {
-                            // Collateral: prefer the vault symbol, else look up from market data.
-                            const collateralAddr = oracleCollateralAddr[oracle];
                             const collateralSym = bvSym ??
                                 qvSym ??
                                 (collateralAddr ? (allSymbols[collateralAddr] ?? null) : null);
@@ -610,9 +604,6 @@ export async function fetchMorphoOracleData() {
                     }
                     return synthesized !== "UNKNOWN" ? synthesized : (vaultOracleDescriptions[oracle] ?? "UNKNOWN");
                 })(),
-                // fixedRate: true only when the oracle is confirmed V2 (selectors responded)
-                // but all feed/vault addresses are zero — a hardcoded static price oracle.
-                // Non-V2 contracts that don't implement these selectors are left as null.
                 fixedRate: isV2Map[oracle] && hasNoSignals(c) && !underlyingOracleMap[oracle] ? true : null,
             };
         }

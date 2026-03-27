@@ -7,8 +7,12 @@ export class MorphoOracleDataUpdater {
         const data = await fetchMorphoOracleData();
         return { [oraclesDataFile]: data };
     }
-    mergeData(oldData, data, _fileKey) {
-        return mergeData(oldData, data);
+    /**
+     * Incoming fetch is authoritative: `morpho-oracles-data.json` is chainId → marketId → row.
+     * Do not deep-merge with old files (would keep legacy oracle-address keys or removed chains).
+     */
+    mergeData(_oldData, data, _fileKey) {
+        return mergeData(data ?? {}, {});
     }
     defaults = {};
 }

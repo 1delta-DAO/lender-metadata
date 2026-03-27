@@ -12,8 +12,11 @@ export class MorphoOracleDataUpdater implements DataUpdater {
     return { [oraclesDataFile]: data };
   }
 
-  mergeData(oldData: any, data: any, _fileKey: string): Partial<any> {
-    return mergeData(oldData, data);
+  /**
+   * Do not deep-merge with old files (would keep legacy oracle-address keys or removed chains).
+   */
+  mergeData(_oldData: any, data: any, _fileKey: string): Partial<any> {
+    return mergeData(data ?? {}, {});
   }
 
   defaults = {};

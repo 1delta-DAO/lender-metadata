@@ -166,6 +166,7 @@ export async function fetchMarketsFromSubgraph(chainId) {
             uniqueKey: market.id,
             lltv: market.lltv, // raw 18-decimal string, numberToBps handles it
             oracleAddress,
+            irm: market.irm,
             loanAsset: loanToken ?? {
                 address: loanAddr,
                 symbol: undefined,
