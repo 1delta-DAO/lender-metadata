@@ -8,12 +8,13 @@ import { Chain } from "@1delta/chain-registry";
 import { getMarketsOnChain } from "./fetchMorphoOnChain.js";
 import { hasSubgraph, fetchMarketsFromSubgraph, } from "./fetchMorphoSubgraph.js";
 import { Lender } from "@1delta/lender-registry";
+import { computeMorphoMarketId } from "./morphoMarketId.js";
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-type-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
 const marketsFile = "./config/morpho-type-markets.json";
 const curatorsFile = "./data/morpho-curators.json";
-const cannotUseApi = (chainId, fork) => {
+export const cannotUseApi = (chainId, fork) => {
     if (fork === "MORPHO_BLUE") {
         return (chainId === Chain.OP_MAINNET ||
             chainId === Chain.HEMI_NETWORK ||
@@ -345,4 +346,95 @@ export class MorphoBlueUpdater {
         [marketsFile]: {},
         [curatorsFile]: {},
     };
+}
+function normalizeIrmFromItem(el) {
+    if (el?.irm == null)
+        return null;
+    if (typeof el.irm === "string" && el.irm.startsWith("0x"))
+        return el.irm.toLowerCase();
+    const a = el.irm?.address;
+    if (typeof a === "string" && a.startsWith("0x"))
+        return a.toLowerCase();
+    return null;
+}
+/**
+ * Fetches all isolated markets for a chain (all forks in morpho-pools) with loan/collateral/oracle/irm/lltv.
+ * Used by fetchMorphoOracleData to key oracle metadata by canonical market id.
+ */
+export async function fetchMorphoMarketRowsForChain(chainId) {
+    const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
+    const MORPHO_BLUE_MARKETS = await readJsonFile(marketsFile);
+    const forks = Object.keys(MORPHO_BLUE_POOL_DATA);
+    const rows = [];
+    for (const fork of forks) {
+        const forkConfig = MORPHO_BLUE_POOL_DATA[fork];
+        if (!forkConfig[chainId])
+            continue;
+        let marketData;
+        try {
+            if (cannotUseApi(chainId, fork)) {
+                if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
+                    try {
+                        marketData = await fetchMarketsFromSubgraph(chainId);
+                    }
+                    catch (error) {
+                        console.warn(`Subgraph fetch failed for chain ${chainId}, falling back to on-chain:`, error);
+                        marketData = await getMarketsOnChain(chainId, { [fork]: forkConfig }, MORPHO_BLUE_MARKETS);
+                    }
+                }
+                else {
+                    marketData = await getMarketsOnChain(chainId, { [fork]: forkConfig }, MORPHO_BLUE_MARKETS);
+                }
+            }
+            else {
+                const updater = new MorphoBlueUpdater();
+                marketData = await updater.fetchMorphoMarkets(chainId);
+            }
+        }
+        catch (error) {
+            console.warn(`fetchMorphoMarketRowsForChain [${chainId}] fork ${fork}:`, error);
+            continue;
+        }
+        const items = marketData.markets?.items || [];
+        for (const el of items) {
+            const hash = el.uniqueKey;
+            const oracle = el.oracleAddress;
+            const loanAsset = el.loanAsset?.address?.toLowerCase();
+            const collateralAsset = el.collateralAsset?.address?.toLowerCase();
+            const lltvStr = el.lltv != null ? String(el.lltv) : "";
+            const irm = normalizeIrmFromItem(el);
+            const isZero = (addr) => !addr || addr === "0x0000000000000000000000000000000000000000";
+            if (isZero(collateralAsset) || isZero(loanAsset) || isZero(oracle) || !hash)
+                continue;
+            if (irm && lltvStr) {
+                try {
+                    const computed = computeMorphoMarketId({
+                        loanToken: loanAsset,
+                        collateralToken: collateralAsset,
+                        oracle: oracle.toLowerCase(),
+                        irm,
+                        lltv: lltvStr,
+                    });
+                    if (computed.toLowerCase() !== hash.toLowerCase()) {
+                        console.warn(`[morpho] market id mismatch chain=${chainId} fork=${fork}: onchain ${hash} vs computed ${computed}`);
+                    }
+                }
+                catch {
+                    /* ignore */
+                }
+            }
+            rows.push({
+                fork,
+                uniqueKey: hash,
+                oracleAddress: oracle.toLowerCase(),
+                loanAsset,
+                collateralAsset,
+                loanAssetDecimals: el.loanAsset?.decimals,
+                collateralAssetDecimals: el.collateralAsset?.decimals,
+                lltv: lltvStr,
+                irm: irm ?? "",
+            });
+        }
+    }
+    return rows;
 }
