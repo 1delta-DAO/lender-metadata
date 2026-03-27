@@ -31,7 +31,7 @@ jobs:
                   UPSTREAM_URL: ${{ secrets.UPSTREAM_URL }} # set this in repo secrets
               run: |
                   npm run build
-                  npm run update
+                  npm run update:dataset
 
             - name: Compute branch name
               id: vars
