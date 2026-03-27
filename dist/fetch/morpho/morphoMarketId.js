@@ -18,7 +18,6 @@ export function computeMorphoMarketId(params) {
 export function marketTripletKey(loanAsset, collateralAsset, oracle) {
     return `${loanAsset.toLowerCase()}:${collateralAsset.toLowerCase()}:${oracle.toLowerCase()}`;
 }
-/** yield-tracer `lender_key` / `markets.lender_key` for Morpho Blue isolated markets. */
 export function morphoMarketIdToLenderKey(marketId) {
     const hex = marketId.replace(/^0x/i, "").toUpperCase();
     if (!/^[0-9A-F]{64}$/.test(hex)) {

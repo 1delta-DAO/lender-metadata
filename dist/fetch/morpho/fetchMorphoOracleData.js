@@ -503,28 +503,31 @@ export async function fetchMorphoOracleData() {
                 }
             }
         }
-        // Batch 7: fetch loan asset symbols for per-market price fallback.
-        const loanAddrSet = new Set(resolved.map((r) => r.loanAsset));
+        // Batch 7: fetch loan and collateral asset symbols for per-market price fallback and correctOracle check.
+        const marketTokenAddrSet = new Set([
+            ...resolved.map((r) => r.loanAsset),
+            ...resolved.map((r) => r.collateralAsset),
+        ]);
         // Remove addresses whose symbol we already know (from vault or asset batches)
         const knownSymbols = { ...vaultSymbols, ...assetSymbols, ...asset2Symbols };
-        const newLoanAddrs = [...loanAddrSet].filter((a) => !knownSymbols[a]);
-        const loanSymbols = {};
-        if (newLoanAddrs.length > 0) {
-            console.log(`Morpho oracles [${chainId}]: fetching ${newLoanAddrs.length} market loan asset symbols`);
-            const loanSymResults = (await multicallRetryUniversal({
+        const newMarketTokenAddrs = [...marketTokenAddrSet].filter((a) => !knownSymbols[a]);
+        const marketTokenSymbols = {};
+        if (newMarketTokenAddrs.length > 0) {
+            console.log(`Morpho oracles [${chainId}]: fetching ${newMarketTokenAddrs.length} market token symbols`);
+            const marketTokenSymResults = (await multicallRetryUniversal({
                 chain: chainId,
-                calls: newLoanAddrs.map((a) => ({ address: a, name: "symbol", args: [] })),
+                calls: newMarketTokenAddrs.map((a) => ({ address: a, name: "symbol", args: [] })),
                 abi: VAULT_SYMBOL_ABI,
                 allowFailure: true,
                 maxRetries: 12,
             }));
-            newLoanAddrs.forEach((addr, i) => {
-                const raw = loanSymResults[i];
-                loanSymbols[addr] = typeof raw === "string" && raw !== "0x" && raw.length > 0 ? raw : null;
+            newMarketTokenAddrs.forEach((addr, i) => {
+                const raw = marketTokenSymResults[i];
+                marketTokenSymbols[addr] = typeof raw === "string" && raw !== "0x" && raw.length > 0 ? raw : null;
             });
         }
-        // Combines all known symbols into one lookup (vault, asset, and loan symbols).
-        const allSymbols = { ...knownSymbols, ...loanSymbols };
+        // Combines all known symbols into one lookup (vault, asset, loan, and collateral symbols).
+        const allSymbols = { ...knownSymbols, ...marketTokenSymbols };
         // Resolves to the deepest known underlying symbol for a vault's asset address.
         // Falls back to the first-level symbol if no second-level underlying is known.
         const getDeepUnderlyingSymbol = (assetAddr) => {
@@ -556,6 +559,47 @@ export async function fetchMorphoOracleData() {
             const qvUnderlying = getDeepUnderlyingSymbol(qvAssetAddr);
             const loanAddr = rm.loanAsset;
             const collateralAddr = rm.collateralAsset;
+            const priceDescription = (() => {
+                const synthesized = synthesizePriceDescription(b1Desc, b2Desc, q1Desc, q2Desc, bvSym, bvUnderlying, qvSym, qvUnderlying);
+                // If synthesis is clean, use it as-is.
+                if (synthesized !== "UNKNOWN" && !synthesized.includes(" * ")) {
+                    const allFeedDescNull = !b1Desc && !b2Desc && !q1Desc && !q2Desc;
+                    const hasFeedAddrs = !!(c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2);
+                    if (!(allFeedDescNull && hasFeedAddrs))
+                        return synthesized;
+                }
+                if (vaultOracleDescriptions[oracle])
+                    return vaultOracleDescriptions[oracle];
+                if (synthesized.includes(" * ") || synthesized === "UNKNOWN" ||
+                    (!b1Desc && !b2Desc && !q1Desc && !q2Desc && (c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2))) {
+                    const loanSym = loanAddr ? (allSymbols[loanAddr] ?? null) : null;
+                    if (loanSym) {
+                        const collateralSym = bvSym ??
+                            qvSym ??
+                            (collateralAddr ? (allSymbols[collateralAddr] ?? null) : null);
+                        if (collateralSym)
+                            return `${collateralSym} / ${loanSym}`;
+                    }
+                }
+                return synthesized !== "UNKNOWN" ? synthesized : (vaultOracleDescriptions[oracle] ?? "UNKNOWN");
+            })();
+            const correctOracle = (() => {
+                if (!priceDescription || priceDescription === "UNKNOWN")
+                    return null;
+                // Skip complex descriptions with "*" — can't map to a single collateral/loan pair
+                if (priceDescription.includes(" * "))
+                    return null;
+                const slashIdx = priceDescription.indexOf(" / ");
+                if (slashIdx === -1)
+                    return null;
+                const descCollateral = priceDescription.slice(0, slashIdx).trim().toLowerCase();
+                const descLoan = priceDescription.slice(slashIdx + 3).trim().toLowerCase();
+                const collSym = allSymbols[collateralAddr]?.toLowerCase() ?? null;
+                const loanSym = allSymbols[loanAddr]?.toLowerCase() ?? null;
+                if (!collSym || !loanSym)
+                    return null;
+                return descCollateral === collSym && descLoan === loanSym;
+            })();
             result[chainId][marketId] = {
                 oracle,
                 loanAsset: rm.loanAsset,
@@ -580,31 +624,9 @@ export async function fetchMorphoOracleData() {
                 baseVaultUnderlying: bvUnderlying,
                 quoteVaultDescription: qvSym,
                 quoteVaultUnderlying: qvUnderlying,
-                priceDescription: (() => {
-                    const synthesized = synthesizePriceDescription(b1Desc, b2Desc, q1Desc, q2Desc, bvSym, bvUnderlying, qvSym, qvUnderlying);
-                    // If synthesis is clean, use it as-is.
-                    if (synthesized !== "UNKNOWN" && !synthesized.includes(" * ")) {
-                        const allFeedDescNull = !b1Desc && !b2Desc && !q1Desc && !q2Desc;
-                        const hasFeedAddrs = !!(c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2);
-                        if (!(allFeedDescNull && hasFeedAddrs))
-                            return synthesized;
-                    }
-                    if (vaultOracleDescriptions[oracle])
-                        return vaultOracleDescriptions[oracle];
-                    if (synthesized.includes(" * ") || synthesized === "UNKNOWN" ||
-                        (!b1Desc && !b2Desc && !q1Desc && !q2Desc && (c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2))) {
-                        const loanSym = loanAddr ? (allSymbols[loanAddr] ?? null) : null;
-                        if (loanSym) {
-                            const collateralSym = bvSym ??
-                                qvSym ??
-                                (collateralAddr ? (allSymbols[collateralAddr] ?? null) : null);
-                            if (collateralSym)
-                                return `${collateralSym} / ${loanSym}`;
-                        }
-                    }
-                    return synthesized !== "UNKNOWN" ? synthesized : (vaultOracleDescriptions[oracle] ?? "UNKNOWN");
-                })(),
+                priceDescription,
                 fixedRate: isV2Map[oracle] && hasNoSignals(c) && !underlyingOracleMap[oracle] ? true : null,
+                correctOracle,
             };
         }
     }
