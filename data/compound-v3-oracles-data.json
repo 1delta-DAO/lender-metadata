@@ -482,11 +482,11 @@
     },
     "42161": {
       "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f": {
-        "description": "BTC / USD SVR Price Feed",
+        "description": "0x",
         "oracle": "0xcc392d2c3b37520e01712320bE331D41F7661013"
       },
       "0x5979d7b546e38e414f7e9822514be443a4800529": {
-        "description": "wstETH / USD CAPO SVR Price Feed",
+        "description": "0x",
         "oracle": "0xC35137f62b825AeEaF30B69B6b32e3953D8d624a"
       },
       "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40": {
@@ -494,15 +494,15 @@
         "oracle": "0xE808488e8627F6531bA79a13A9E0271B39abEb1C"
       },
       "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": {
-        "description": "ETH / USD SVR Price Feed",
+        "description": "0x",
         "oracle": "0xb2988bDAdc45c43e3fE1A728F715E94bee4DB406"
       },
       "0x912ce59144191c1204e64559fe8253a0e49e6548": {
-        "description": "ARB / USD SVR Price Feed",
+        "description": "0x",
         "oracle": "0x5998a5C516bD5E479E0B6aa6F243d372730B68d2"
       },
       "0xd09acb80c1e8f2291862c4978a008791c9167003": {
-        "description": "tETH / USD price feed",
+        "description": "0x",
         "oracle": "0x5372Bcf3486D59C23F5fC85745B41F180EFFf881"
       },
       "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a": {
@@ -510,7 +510,7 @@
         "oracle": "0xDB98056FecFff59D032aB628337A4887110df3dB"
       },
       "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9": {
-        "description": "USDT / USD SVR Price Feed",
+        "description": "0x",
         "oracle": "0xedfB5fD27B0259B0A696364b183223B5ca3CBE62"
       }
     }
