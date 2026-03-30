@@ -17,12 +17,6 @@ type HubSeedMap = {
   [fork: string]: { [chainId: string]: { hub: string } }
 }
 
-export type AaveV4ConfigsOutput = {
-  [fork: string]: {
-    [chainId: string]: { hub: string; oracle: string }
-  }
-}
-
 export type AaveV4SpokeEntry = {
   spoke: string
   oracle: string
@@ -34,16 +28,13 @@ export type AaveV4SpokesOutput = {
 }
 
 export async function fetchAaveV4Configs(hubSeed: HubSeedMap): Promise<{
-  configs: AaveV4ConfigsOutput
   spokes: AaveV4SpokesOutput
 }> {
   const forks = Object.keys(hubSeed)
 
-  const configs: AaveV4ConfigsOutput = {}
   const spokesOutput: AaveV4SpokesOutput = {}
 
   for (const fork of forks) {
-    configs[fork] = {}
     spokesOutput[fork] = {}
     const chainsData = hubSeed[fork]
 
@@ -183,24 +174,32 @@ export async function fetchAaveV4Configs(hubSeed: HubSeedMap): Promise<{
       // Build spoke entries
       const spokeList = [...uniqueSpokes]
       const spokeEntries: AaveV4SpokeEntry[] = spokeList.map(
-        (addr, i) => ({
-          spoke: addr,
-          oracle: (
-            oracleResults[i] ?? ''
-          ).toString().toLowerCase(),
-          label: `Spoke ${i}`,
-        }),
+        (addr, i) => {
+          const raw = oracleResults[i]
+          const oracle = (raw ?? '').toString().toLowerCase()
+          if (
+            !oracle ||
+            oracle === '0x' ||
+            oracle ===
+              '0x0000000000000000000000000000000000000000'
+          ) {
+            console.warn(
+              `  [${fork}/${chain}] Spoke ${i} (${addr}): ORACLE() returned empty/zero (raw: ${raw})`,
+            )
+          }
+          return {
+            spoke: addr,
+            oracle,
+            label: `Spoke ${i}`,
+          }
+        },
       )
 
-      configs[fork][chain] = {
-        hub: hubAddress.toLowerCase(),
-        oracle: '',
-      }
       spokesOutput[fork][chain] = spokeEntries
     }
   }
 
-  console.log('  Written: aave-v4-configs, aave-v4-spokes')
+  console.log('  Written: aave-v4-spokes')
 
-  return { configs, spokes: spokesOutput }
+  return { spokes: spokesOutput }
 }

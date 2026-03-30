@@ -6,7 +6,6 @@ import { fetchAaveV4Reserves } from "./aave/fetchV4Reserves.js";
 import { fetchAaveV4Oracles } from "./aave/fetchV4Oracles.js";
 
 const hubsFile = "./config/aave-v4-hubs.json";
-const configsFile = "./config/aave-v4-configs.json";
 const spokesFile = "./data/aave-v4-spokes.json";
 const reservesFile = "./data/aave-v4-reserves.json";
 const reserveDetailsFile = "./data/aave-v4-reserve-details.json";
@@ -21,16 +20,15 @@ export class AaveV4Updater implements DataUpdater {
     const hubSeed = await loadExisting(hubsFile);
 
     // Step 1: Discover hubs & spokes
-    const { configs, spokes } = await fetchAaveV4Configs(hubSeed);
+    const { spokes } = await fetchAaveV4Configs(hubSeed);
 
     // Step 2: Discover reserves
     const { reserves, details } = await fetchAaveV4Reserves(spokes);
 
     // Step 3: Discover oracles
-    const { oracles, sources } = await fetchAaveV4Oracles(spokes, reserves);
+    const { oracles, sources } = await fetchAaveV4Oracles(spokes, reserves, details);
 
     return {
-      [configsFile]: configs,
       [spokesFile]: spokes,
       [reservesFile]: reserves,
       [reserveDetailsFile]: details,

@@ -8,29 +8,40 @@ import { sleep } from '../../utils.js'
 import { AAVE_V4_ORACLE_ABI, V4FetchFunctions } from './abiV4.js'
 import { multicallRetryUniversal } from '@1delta/providers'
 import type { AaveV4SpokesOutput } from './fetchV4Configs.js'
-import type { ReservesOutput } from './fetchV4Reserves.js'
+import type { ReservesOutput, ReserveDetailsOutput } from './fetchV4Reserves.js'
+
+type OracleEntry = {
+  underlying: string
+  spoke: string
+  reserveId: number
+  oracle: string
+}
+
+type OracleSourceEntry = {
+  underlying: string
+  spoke: string
+  reserveId: number
+  oracle: string
+  decimals: number
+  source: string
+}
 
 type OracleOutput = {
   [fork: string]: {
-    [chainId: string]: { [spokeAddr: string]: string }
+    [chainId: string]: OracleEntry[]
   }
 }
 
 type OracleSourcesOutput = {
   [fork: string]: {
-    [chainId: string]: {
-      [spokeAddr: string]: {
-        oracle: string
-        decimals: number
-        sources: { [reserveId: string]: string }
-      }
-    }
+    [chainId: string]: OracleSourceEntry[]
   }
 }
 
 export async function fetchAaveV4Oracles(
   spokesData: AaveV4SpokesOutput,
   reservesData: ReservesOutput,
+  detailsData: ReserveDetailsOutput,
 ): Promise<{
   oracles: OracleOutput
   sources: OracleSourcesOutput
@@ -46,8 +57,8 @@ export async function fetchAaveV4Oracles(
 
     for (const chain of Object.keys(chainsData)) {
       const spokes = chainsData[chain]
-      oracleOutput[fork][chain] = {}
-      sourcesOutput[fork][chain] = {}
+      oracleOutput[fork][chain] = []
+      sourcesOutput[fork][chain] = []
 
       console.log(
         `[${fork}/${chain}] Fetching oracle sources for ${spokes.length} spokes`,
@@ -55,12 +66,26 @@ export async function fetchAaveV4Oracles(
 
       for (const spokeEntry of spokes) {
         const oracleAddr = spokeEntry.oracle
-        if (!oracleAddr || oracleAddr === '') continue
+        if (
+          !oracleAddr ||
+          oracleAddr === '' ||
+          oracleAddr === '0x' ||
+          oracleAddr ===
+            '0x0000000000000000000000000000000000000000'
+        ) {
+          console.warn(
+            `  [${fork}/${chain}] Skipping spoke ${spokeEntry.spoke} (${spokeEntry.label}): oracle is "${oracleAddr}"`,
+          )
+          continue
+        }
 
         const reserveIds: number[] =
           reservesData[fork]?.[chain]?.[spokeEntry.spoke] ?? []
 
         if (reserveIds.length === 0) continue
+
+        const reserveDetails =
+          detailsData[fork]?.[chain]?.[spokeEntry.spoke] ?? []
 
         // Fetch oracle decimals + per-reserve sources
         const calls: any[] = [
@@ -94,21 +119,32 @@ export async function fetchAaveV4Oracles(
         await sleep(250)
 
         const oracleDecimals = Number(results[0] ?? 8)
-        const sources: { [reserveId: string]: string } = {}
+
         for (let i = 0; i < reserveIds.length; i++) {
-          sources[reserveIds[i].toString()] = (
-            results[i + 1] ?? ''
+          const rid = reserveIds[i]
+          const detail = reserveDetails.find(
+            (d) => d.reserveId === rid,
           )
+          const underlying = detail?.underlying ?? ''
+          const source = (results[i + 1] ?? '')
             .toString()
             .toLowerCase()
-        }
 
-        oracleOutput[fork][chain][spokeEntry.spoke] =
-          oracleAddr
-        sourcesOutput[fork][chain][spokeEntry.spoke] = {
-          oracle: oracleAddr,
-          decimals: oracleDecimals,
-          sources,
+          oracleOutput[fork][chain].push({
+            underlying,
+            spoke: spokeEntry.spoke,
+            reserveId: rid,
+            oracle: oracleAddr,
+          })
+
+          sourcesOutput[fork][chain].push({
+            underlying,
+            spoke: spokeEntry.spoke,
+            reserveId: rid,
+            oracle: oracleAddr,
+            decimals: oracleDecimals,
+            source,
+          })
         }
       }
     }
