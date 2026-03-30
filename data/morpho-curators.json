@@ -32,12 +32,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
         "name": "MEV Capital"
-      },
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
       }
     ],
     "MORPHO_BLUE_04CB29E91DE681136643ACE9CA1D7AF7B15B43C33C1FBC34F45812A70BA640A1": [
@@ -260,6 +254,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_2049BEA9DFAE8189895616FF4BF229C9C664E266B29C9FFE692B100BE4879714": [
+      {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
       }
     ],
     "MORPHO_BLUE_2287407F0F42AD5AD224F70E4D9DA37F02770F79959DF703D6CFEE8AFC548E0D": [
@@ -1286,16 +1288,16 @@
         "name": "Keyrock"
       },
       {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
+      },
+      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
         "name": "MEV Capital"
-      },
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
       },
       {
         "id": "steakhouse-financial",
@@ -1446,6 +1448,22 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_85D59152EEEAB7CA024804895B358868D8DD1E134171BE400D7792D5604A212C": [
+      {
+        "id": "sentora",
+        "image": "https://cdn.morpho.org/v2/assets/images/sentora.svg",
+        "verified": true,
+        "name": "Sentora"
+      }
+    ],
+    "MORPHO_BLUE_883B22B724B422729EC0688E6ED71DA1C5105AC6610810624F25263D7C2E7BF3": [
+      {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
       }
     ],
     "MORPHO_BLUE_88A18B2F4D94E7AD27A381B15531C06ABF05A7C99DD5D3C3679875FED6F7E742": [
@@ -1736,12 +1754,6 @@
         "name": "Clearstar"
       },
       {
-        "id": "edge-capital-ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
-        "verified": true,
-        "name": "Edge Capital UltraYield"
-      },
-      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -1776,6 +1788,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
+      },
+      {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
       },
       {
         "id": "steakhouse-financial",
@@ -2468,12 +2486,6 @@
         "name": "MEV Capital"
       },
       {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
-      },
-      {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
@@ -2503,6 +2515,12 @@
       }
     ],
     "MORPHO_BLUE_C2C53D2B868E163DA71DE14A5113CC2743FC9B5AD7488334720ED2846566A8F6": [
+      {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
+      },
       {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
@@ -2740,12 +2758,6 @@
     ],
     "MORPHO_BLUE_D9E34B1EED46D123AC1B69B224DE1881DBC88798BC7B70F504920F62F58F28CC": [
       {
-        "id": "9summits",
-        "image": "https://cdn.morpho.org/v2/assets/images/9summits.png",
-        "verified": true,
-        "name": "9Summits"
-      },
-      {
         "id": "apostro",
         "image": "https://cdn.morpho.org/v2/assets/images/apostro.svg",
         "verified": true,
@@ -2858,6 +2870,14 @@
         "name": "Steakhouse Financial"
       }
     ],
+    "MORPHO_BLUE_DCFD3558F75A13A3C430EE71DF056B5570CBD628DA91E33C27EEC7C42603247B": [
+      {
+        "id": "re7-labs",
+        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
+        "verified": true,
+        "name": "RE7 Labs"
+      }
+    ],
     "MORPHO_BLUE_DDAC4D5CAA0B1923EF338D53E01876AF69C5B68EBF8E268082C7D3E2BE2E7F8E": [
       {
         "id": "mev-capital",
@@ -2882,12 +2902,6 @@
     ],
     "MORPHO_BLUE_E1B65304EDD8CEAEA9B629DF4C3C926A37D1216E27900505C04F14B2ED279F33": [
       {
-        "id": "9summits",
-        "image": "https://cdn.morpho.org/v2/assets/images/9summits.png",
-        "verified": true,
-        "name": "9Summits"
-      },
-      {
         "id": "apostro",
         "image": "https://cdn.morpho.org/v2/assets/images/apostro.svg",
         "verified": true,
@@ -2910,12 +2924,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/keyrock.svg",
         "verified": true,
         "name": "Keyrock"
-      },
-      {
-        "id": "mev-capital",
-        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
-        "verified": true,
-        "name": "MEV Capital"
       }
     ],
     "MORPHO_BLUE_E3A65A68D203A3E3CBD4A59E4604DB431439EE6EEB3F88268D7F57E415DF7E94": [
@@ -3110,12 +3118,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
         "name": "MEV Capital"
-      },
-      {
-        "id": "re7-labs",
-        "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
-        "verified": true,
-        "name": "RE7 Labs"
       },
       {
         "id": "steakhouse-financial",
@@ -4004,6 +4006,14 @@
         "name": "Steakhouse Financial"
       }
     ],
+    "MORPHO_BLUE_647F2ACDADD47ED0FAD3EF826E3513FD7FDF9328B0C1F24B8C762C6D79511BF6": [
+      {
+        "id": "august-digital",
+        "image": "https://cdn.morpho.org/v2/assets/images/august.svg",
+        "verified": true,
+        "name": "August Digital"
+      }
+    ],
     "MORPHO_BLUE_6F68F498083F8FF7A59648F2BB0D14578D44FE94AE6B28D99456A0A1584F1F80": [
       {
         "id": "steakhouse-financial",
@@ -4100,6 +4110,14 @@
         "name": "Steakhouse Financial"
       }
     ],
+    "MORPHO_BLUE_C4504D2BF84FF1F6FF015AFE00086226425DD5A626E096283504154A71821EC1": [
+      {
+        "id": "august-digital",
+        "image": "https://cdn.morpho.org/v2/assets/images/august.svg",
+        "verified": true,
+        "name": "August Digital"
+      }
+    ],
     "MORPHO_BLUE_CAA68590C9FD1815F5F2E9F61C2001061813F6E346F07505B9E9B3D228B4AA13": [
       {
         "id": "august-digital",
@@ -4137,6 +4155,12 @@
       }
     ],
     "MORPHO_BLUE_E35C5ABC6418B6319B014E07AA3C86163A870A957284128F03CF7A9E414F8899": [
+      {
+        "id": "august-digital",
+        "image": "https://cdn.morpho.org/v2/assets/images/august.svg",
+        "verified": true,
+        "name": "August Digital"
+      },
       {
         "id": "hyperithm",
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
@@ -4982,12 +5006,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/apostro.svg",
         "verified": true,
         "name": "Apostro"
-      },
+      }
+    ],
+    "MORPHO_BLUE_18316CE427A45D18852267BC90A34548BCC257EFC9C8AA48186CB71A095D2F81": [
       {
-        "id": "gauntlet",
-        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
-        "name": "Gauntlet"
+        "name": "Steakhouse Financial"
       }
     ],
     "MORPHO_BLUE_1A3E69D0109BB1BE42B80E11034BB6EE98FC466721F26845DC83B2AA8D979137": [
