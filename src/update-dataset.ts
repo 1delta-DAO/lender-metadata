@@ -6,6 +6,7 @@ import { CompoundV3Updater } from "./fetch/compound-v3.js";
 import { InitUpdater } from "./fetch/init.js";
 import { CompoundV2Updater } from "./fetch/compound-v2.js";
 import { EulerUpdater } from "./fetch/euler.js";
+import { AaveV4Updater } from "./fetch/aave-v4.js";
 
 // ============================================================================
 // Usage Examples & Main Function
@@ -22,6 +23,7 @@ async function main(): Promise<void> {
   manager.registerUpdater(new CompoundV2Updater());
   manager.registerUpdater(new InitUpdater());
   manager.registerUpdater(new EulerUpdater());
+  manager.registerUpdater(new AaveV4Updater());
 
   // You can now update from specific sources:
   // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });
