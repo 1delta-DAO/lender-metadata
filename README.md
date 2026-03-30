@@ -6,7 +6,7 @@ On-chain fetchers for DeFi lending protocol metadata. Each fetcher performs batc
 
 All fetchers live in `src/fetch/` and implement the `DataUpdater` interface, returning `{ filePath: data }` maps.
 
-### Aave (`src/fetch/aave/`)
+### Aave V2/V3 (`src/fetch/aave/`)
 
 Covers Aave V2, Aave V3, and forks (Lendle, Meridian, Aurelius, ZeroLend, LayerBank V3, etc.).
 
@@ -46,6 +46,75 @@ Covers Aave V2, Aave V3, and forks (Lendle, Meridian, Aurelius, ZeroLend, LayerB
 {
   "AAVE_V3": {
     "1": "0x..."
+  }
+}
+```
+
+---
+
+### Aave V4 (`src/fetch/aave-v4.ts`, `src/fetch/aave/fetchV4*.ts`)
+
+Covers Aave V4 hubs, spokes, reserves, and oracles (Core, Plus, Prime).
+
+| File | Description |
+|------|-------------|
+| `config/aave-v4-hubs.json` | Hub contract addresses per fork/chain (seed config) |
+| `data/aave-v4-spokes.json` | Discovered spoke addresses with oracle per hub |
+| `data/aave-v4-reserves.json` | Reserve ID lists per spoke |
+| `data/aave-v4-reserve-details.json` | Reserve details (underlying, decimals, borrowable, etc.) |
+| `data/aave-v4-oracles.json` | Oracle entries per reserve (array format) |
+| `data/aave-v4-oracle-sources.json` | Oracle sources with decimals per reserve (array format) |
+
+**`aave-v4-hubs.json`** — seed config:
+```json
+{
+  "AAVE_V4_CORE": {
+    "1": { "hub": "0x..." }
+  }
+}
+```
+
+**`aave-v4-spokes.json`** — discovered spokes:
+```json
+{
+  "AAVE_V4_CORE": {
+    "1": [
+      { "spoke": "0x...", "oracle": "0x...", "label": "Spoke 0" }
+    ]
+  }
+}
+```
+
+**`aave-v4-oracles.json`** — array per chain, keyed by underlying + spoke + reserveId:
+```json
+{
+  "AAVE_V4_CORE": {
+    "1": [
+      {
+        "underlying": "0x...",
+        "spoke": "0x...",
+        "reserveId": 0,
+        "oracle": "0x..."
+      }
+    ]
+  }
+}
+```
+
+**`aave-v4-oracle-sources.json`** — includes decimals and source per entry:
+```json
+{
+  "AAVE_V4_CORE": {
+    "1": [
+      {
+        "underlying": "0x...",
+        "spoke": "0x...",
+        "reserveId": 0,
+        "oracle": "0x...",
+        "decimals": 8,
+        "source": "0x..."
+      }
+    ]
   }
 }
 ```
@@ -275,3 +344,4 @@ All data files follow a consistent nesting pattern:
 - `allowFailure: true` on multicalls for graceful handling of failed RPC calls
 - BigInt values are serialized to strings in JSON output
 - Morpho uses append-only merge logic to preserve existing market IDs
+- TypeScript 6+ requires `moduleResolution: "Bundler"` (the deprecated `"Node"` option was removed); `"types": ["node"]` is set explicitly in `tsconfig.json` for Node built-in type resolution
