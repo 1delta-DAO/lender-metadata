@@ -21,6 +21,7 @@ export type AaveV4SpokeEntry = {
   spoke: string
   oracle: string
   label: string
+  dynamicConfigKeyMax?: number
 }
 
 export type AaveV4SpokesOutput = {

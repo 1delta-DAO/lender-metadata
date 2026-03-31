@@ -16,10 +16,15 @@ interface ReserveDetail {
   assetId: number
   decimals: number
   collateralRisk: number
-  dynamicConfigKey: number
+  dynamicConfigKeyMax: number
   borrowable: boolean
   paused: boolean
   frozen: boolean
+  latestDynamicConfig: {
+    collateralFactor: number
+    maxLiquidationBonus: number
+    liquidationFee: number
+  } | null
 }
 
 export type ReservesOutput = {
@@ -36,24 +41,34 @@ export type ReserveDetailsOutput = {
   }
 }
 
+export type MaxDynamicConfigKeyMap = {
+  [fork: string]: {
+    [chainId: string]: { [spokeAddr: string]: number }
+  }
+}
+
 export async function fetchAaveV4Reserves(spokesData: AaveV4SpokesOutput): Promise<{
   reserves: ReservesOutput
   details: ReserveDetailsOutput
+  maxDynamicConfigKeys: MaxDynamicConfigKeyMap
 }> {
   const forks = Object.keys(spokesData)
 
   const reservesOutput: ReservesOutput = {}
   const detailsOutput: ReserveDetailsOutput = {}
+  const maxDynKeys: MaxDynamicConfigKeyMap = {}
 
   for (const fork of forks) {
     reservesOutput[fork] = {}
     detailsOutput[fork] = {}
+    maxDynKeys[fork] = {}
     const chainsData = spokesData[fork]
 
     for (const chain of Object.keys(chainsData)) {
       const spokes = chainsData[chain]
       reservesOutput[fork][chain] = {}
       detailsOutput[fork][chain] = {}
+      maxDynKeys[fork][chain] = {}
 
       console.log(
         `[${fork}/${chain}] Fetching reserves for ${spokes.length} spokes`,
@@ -167,10 +182,11 @@ export async function fetchAaveV4Reserves(spokesData: AaveV4SpokesOutput): Promi
               assetId: 0,
               decimals: 18,
               collateralRisk: 0,
-              dynamicConfigKey: 0,
+              dynamicConfigKeyMax: 0,
               borrowable: false,
               paused: false,
               frozen: false,
+              latestDynamicConfig: null,
             }
             spokeReserves[meta.spokeAddr].push(entry)
           }
@@ -184,7 +200,7 @@ export async function fetchAaveV4Reserves(spokesData: AaveV4SpokesOutput): Promi
           entry.collateralRisk = Number(
             result?.collateralRisk ?? 0,
           )
-          entry.dynamicConfigKey = Number(
+          entry.dynamicConfigKeyMax = Number(
             result?.dynamicConfigKey ?? 0,
           )
         } else if (meta.callType === 'config') {
@@ -199,6 +215,54 @@ export async function fetchAaveV4Reserves(spokesData: AaveV4SpokesOutput): Promi
         }
       }
 
+      // Step 3: Fetch getDynamicReserveConfig(reserveId, latestKey) for each reserve
+      const dynCalls: any[] = []
+      const dynMeta: { spokeAddr: string; reserveId: number }[] = []
+
+      for (const [spokeAddr, details] of Object.entries(spokeReserves)) {
+        for (const entry of details) {
+          dynCalls.push({
+            address: spokeAddr,
+            name: V4FetchFunctions.getDynamicReserveConfig,
+            args: [entry.reserveId, entry.dynamicConfigKeyMax],
+          })
+          dynMeta.push({ spokeAddr, reserveId: entry.reserveId })
+        }
+      }
+
+      if (dynCalls.length > 0) {
+        let dynResults: any[]
+        try {
+          dynResults = (await multicallRetryUniversal({
+            chain,
+            calls: dynCalls,
+            abi: AAVE_V4_SPOKE_ABI,
+            allowFailure: true,
+          })) as any[]
+
+          for (let i = 0; i < dynMeta.length; i++) {
+            const dm = dynMeta[i]
+            const result = dynResults[i]
+            const entry = spokeReserves[dm.spokeAddr]?.find(
+              (r) => r.reserveId === dm.reserveId,
+            )
+            if (entry && result) {
+              entry.latestDynamicConfig = {
+                collateralFactor: Number(result?.collateralFactor ?? 0),
+                maxLiquidationBonus: Number(result?.maxLiquidationBonus ?? 0),
+                liquidationFee: Number(result?.liquidationFee ?? 0),
+              }
+            }
+          }
+        } catch (e: any) {
+          console.error(
+            `  Error fetching dynamic configs: ${e?.message ?? e}`,
+          )
+        }
+
+        await sleep(250)
+      }
+
       // Build output
       for (const [spokeAddr, details] of Object.entries(
         spokeReserves,
@@ -206,6 +270,9 @@ export async function fetchAaveV4Reserves(spokesData: AaveV4SpokesOutput): Promi
         reservesOutput[fork][chain][spokeAddr] =
           details.map((d) => d.reserveId)
         detailsOutput[fork][chain][spokeAddr] = details
+        maxDynKeys[fork][chain][spokeAddr] = details.reduce(
+          (max, d) => Math.max(max, d.dynamicConfigKeyMax), 0,
+        )
       }
 
       const totalReserves = Object.values(
@@ -219,5 +286,5 @@ export async function fetchAaveV4Reserves(spokesData: AaveV4SpokesOutput): Promi
 
   console.log('  Written: aave-v4-reserves, aave-v4-reserve-details')
 
-  return { reserves: reservesOutput, details: detailsOutput }
+  return { reserves: reservesOutput, details: detailsOutput, maxDynamicConfigKeys: maxDynKeys }
 }
