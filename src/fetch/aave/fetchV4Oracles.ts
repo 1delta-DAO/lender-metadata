@@ -66,17 +66,17 @@ export async function fetchAaveV4Oracles(
 
       for (const spokeEntry of spokes) {
         const oracleAddr = spokeEntry.oracle
-        if (
-          !oracleAddr ||
-          oracleAddr === '' ||
-          oracleAddr === '0x' ||
-          oracleAddr ===
+        const hasOracle =
+          !!oracleAddr &&
+          oracleAddr !== '' &&
+          oracleAddr !== '0x' &&
+          oracleAddr !==
             '0x0000000000000000000000000000000000000000'
-        ) {
+
+        if (!hasOracle) {
           console.warn(
-            `  [${fork}/${chain}] Skipping spoke ${spokeEntry.spoke} (${spokeEntry.label}): oracle is "${oracleAddr}"`,
+            `  [${fork}/${chain}] Spoke ${spokeEntry.spoke} (${spokeEntry.label}): oracle is "${oracleAddr}"`,
           )
-          continue
         }
 
         const reserveIds: number[] =
@@ -87,38 +87,42 @@ export async function fetchAaveV4Oracles(
         const reserveDetails =
           detailsData[fork]?.[chain]?.[spokeEntry.spoke] ?? []
 
-        // Fetch oracle decimals + per-reserve sources
-        const calls: any[] = [
-          {
-            address: oracleAddr,
-            name: V4FetchFunctions.decimals,
-            args: [],
-          },
-          ...reserveIds.map((rid) => ({
-            address: oracleAddr,
-            name: V4FetchFunctions.getReserveSource,
-            args: [rid],
-          })),
-        ]
+        let oracleDecimals = 0
+        let sourceResults: any[] = []
 
-        let results: any[]
-        try {
-          results = (await multicallRetryUniversal({
-            chain,
-            calls,
-            abi: AAVE_V4_ORACLE_ABI,
-            allowFailure: true,
-          })) as any[]
-        } catch (e: any) {
-          console.error(
-            `  Error fetching oracle for spoke ${spokeEntry.spoke}: ${e?.message ?? e}`,
-          )
-          continue
+        if (hasOracle) {
+          // Fetch oracle decimals + per-reserve sources
+          const calls: any[] = [
+            {
+              address: oracleAddr,
+              name: V4FetchFunctions.decimals,
+              args: [],
+            },
+            ...reserveIds.map((rid) => ({
+              address: oracleAddr,
+              name: V4FetchFunctions.getReserveSource,
+              args: [rid],
+            })),
+          ]
+
+          try {
+            const results = (await multicallRetryUniversal({
+              chain,
+              calls,
+              abi: AAVE_V4_ORACLE_ABI,
+              allowFailure: true,
+            })) as any[]
+
+            oracleDecimals = Number(results[0] ?? 8)
+            sourceResults = results.slice(1)
+          } catch (e: any) {
+            console.error(
+              `  Error fetching oracle for spoke ${spokeEntry.spoke}: ${e?.message ?? e}`,
+            )
+          }
+
+          await sleep(250)
         }
-
-        await sleep(250)
-
-        const oracleDecimals = Number(results[0] ?? 8)
 
         for (let i = 0; i < reserveIds.length; i++) {
           const rid = reserveIds[i]
@@ -126,22 +130,24 @@ export async function fetchAaveV4Oracles(
             (d) => d.reserveId === rid,
           )
           const underlying = detail?.underlying ?? ''
-          const source = (results[i + 1] ?? '')
-            .toString()
-            .toLowerCase()
+          const source = hasOracle
+            ? (sourceResults[i] ?? '')
+                .toString()
+                .toLowerCase()
+            : ''
 
           oracleOutput[fork][chain].push({
             underlying,
             spoke: spokeEntry.spoke,
             reserveId: rid,
-            oracle: oracleAddr,
+            oracle: hasOracle ? oracleAddr : '0x',
           })
 
           sourcesOutput[fork][chain].push({
             underlying,
             spoke: spokeEntry.spoke,
             reserveId: rid,
-            oracle: oracleAddr,
+            oracle: hasOracle ? oracleAddr : '0x',
             decimals: oracleDecimals,
             source,
           })

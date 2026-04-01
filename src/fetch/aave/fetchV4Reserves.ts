@@ -191,26 +191,38 @@ export async function fetchAaveV4Reserves(spokesData: AaveV4SpokesOutput): Promi
             spokeReserves[meta.spokeAddr].push(entry)
           }
 
+          // multicall may return a named object or a positional array
+          const isArray = Array.isArray(result)
           entry.underlying = (
-            result?.underlying ?? ''
-          ).toLowerCase()
-          entry.hub = (result?.hub ?? '').toLowerCase()
-          entry.assetId = Number(result?.assetId ?? 0)
-          entry.decimals = Number(result?.decimals ?? 18)
+            (isArray ? result[0] : result?.underlying) ?? ''
+          ).toString().toLowerCase()
+          entry.hub = (
+            (isArray ? result[1] : result?.hub) ?? ''
+          ).toString().toLowerCase()
+          entry.assetId = Number(
+            (isArray ? result[2] : result?.assetId) ?? 0,
+          )
+          entry.decimals = Number(
+            (isArray ? result[3] : result?.decimals) ?? 18,
+          )
           entry.collateralRisk = Number(
-            result?.collateralRisk ?? 0,
+            (isArray ? result[4] : result?.collateralRisk) ?? 0,
           )
           entry.dynamicConfigKeyMax = Number(
-            result?.dynamicConfigKey ?? 0,
+            (isArray ? result[6] : result?.dynamicConfigKey) ?? 0,
           )
         } else if (meta.callType === 'config') {
           let entry = spokeReserves[meta.spokeAddr].find(
             (r) => r.reserveId === meta.reserveId,
           )
           if (entry) {
-            entry.borrowable = result?.borrowable ?? false
-            entry.paused = result?.paused ?? false
-            entry.frozen = result?.frozen ?? false
+            const isArr = Array.isArray(result)
+            entry.borrowable =
+              (isArr ? result[3] : result?.borrowable) ?? false
+            entry.paused =
+              (isArr ? result[1] : result?.paused) ?? false
+            entry.frozen =
+              (isArr ? result[2] : result?.frozen) ?? false
           }
         }
       }
@@ -247,10 +259,17 @@ export async function fetchAaveV4Reserves(spokesData: AaveV4SpokesOutput): Promi
               (r) => r.reserveId === dm.reserveId,
             )
             if (entry && result) {
+              const isArr = Array.isArray(result)
               entry.latestDynamicConfig = {
-                collateralFactor: Number(result?.collateralFactor ?? 0),
-                maxLiquidationBonus: Number(result?.maxLiquidationBonus ?? 0),
-                liquidationFee: Number(result?.liquidationFee ?? 0),
+                collateralFactor: Number(
+                  (isArr ? result[0] : result?.collateralFactor) ?? 0,
+                ),
+                maxLiquidationBonus: Number(
+                  (isArr ? result[1] : result?.maxLiquidationBonus) ?? 0,
+                ),
+                liquidationFee: Number(
+                  (isArr ? result[2] : result?.liquidationFee) ?? 0,
+                ),
               }
             }
           }

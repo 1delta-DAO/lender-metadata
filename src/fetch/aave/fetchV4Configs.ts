@@ -191,7 +191,7 @@ export async function fetchAaveV4Configs(hubSeed: HubSeedMap): Promise<{
           return {
             spoke: addr,
             oracle,
-            label: `Spoke ${i}`,
+            label: `Spoke ${addr.slice(0, 6)}..${addr.slice(-4)}`,
           }
         },
       )

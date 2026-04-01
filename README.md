@@ -74,18 +74,23 @@ Covers Aave V4 hubs, spokes, reserves, and oracles (Core, Plus, Prime).
 }
 ```
 
-**`aave-v4-spokes.json`** — discovered spokes:
+**`aave-v4-spokes.json`** — discovered spokes (sorted by spoke address):
 ```json
 {
   "AAVE_V4_CORE": {
     "1": [
-      { "spoke": "0x...", "oracle": "0x...", "label": "Spoke 0" }
+      {
+        "spoke": "0x...",
+        "oracle": "0x...",
+        "label": "Spoke 0x1234..abcd",
+        "dynamicConfigKeyMax": 2
+      }
     ]
   }
 }
 ```
 
-**`aave-v4-oracles.json`** — array per chain, keyed by underlying + spoke + reserveId:
+**`aave-v4-oracles.json`** — one entry per reserve (sorted by spoke, then reserveId):
 ```json
 {
   "AAVE_V4_CORE": {
@@ -118,6 +123,14 @@ Covers Aave V4 hubs, spokes, reserves, and oracles (Core, Plus, Prime).
   }
 }
 ```
+
+**Consumer notes:**
+
+- **Entries may have `"oracle": "0x"`** — this means the spoke's oracle is not yet configured on-chain (common for newly deployed pools like PRIME). Consumers should treat `"0x"` as "oracle unavailable" and handle accordingly. When the oracle becomes available on-chain, it will be populated on the next fetch run.
+- **Entries may have `"underlying": ""`** — same reason; the reserve exists but returned empty data from the RPC. The entry is included to ensure the reserve set is complete.
+- **Append-only merge** — oracle and spoke data uses append-only merge logic. Existing entries with valid oracle addresses are never overwritten by `"0x"` (protects against transient RPC failures). New reserves are always added.
+- **Composite key** — each oracle entry is uniquely identified by `(underlying, spoke, reserveId)`. Consumers should use this tuple for deduplication.
+- **Stable ordering** — spokes are sorted by address; oracle entries are sorted by spoke address then reserveId. This produces minimal diffs across runs.
 
 ---
 
