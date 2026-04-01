@@ -168,45 +168,63 @@
   "AAVE_V4_PLUS": {
     "1": [
       {
-        "spoke": "0x",
+        "spoke": "0xb9b0b8616f6bf6841972a52058132be08d723155",
         "oracle": "0x",
         "label": "Spoke 0",
         "dynamicConfigKeyMax": 0
       },
       {
-        "spoke": "0x58131e79531cab1d52301228d1f7b842f26b9649",
+        "spoke": "0x90774889c22d2f2adf44da1f04c7c95542590df4",
         "oracle": "0x",
         "label": "Spoke 1",
         "dynamicConfigKeyMax": 0
       },
       {
-        "spoke": "0xb9b0b8616f6bf6841972a52058132be08d723155",
-        "oracle": "0x",
+        "spoke": "0xba1b3d55d249692b669a164024a838309b7508af",
+        "oracle": "0xc390dbe9fc00d6db73c52d375642b47008c33c90",
         "label": "Spoke 2",
         "dynamicConfigKeyMax": 0
       },
       {
-        "spoke": "0xc94bdd83d2c7655c280655d60954e79e88d4f949",
-        "oracle": "0x",
+        "spoke": "0x58131e79531cab1d52301228d1f7b842f26b9649",
+        "oracle": "0x9b91a0943cadf554742e8fb358b1cc4ae4f85f01",
         "label": "Spoke 3",
         "dynamicConfigKeyMax": 0
       },
       {
-        "spoke": "0xba1b3d55d249692b669a164024a838309b7508af",
+        "spoke": "0xdd2eb78bf9e6ac5068b95ad2d451e8c9af10ac81",
         "oracle": "0x",
         "label": "Spoke 4",
         "dynamicConfigKeyMax": 0
       },
       {
-        "spoke": "0xa54382db40ec602c0a173a08f9e86ed40f9d4d10",
+        "spoke": "0x24f8c062e1e0451736c1d6e023510da262a41df4",
         "oracle": "0x",
         "label": "Spoke 5",
         "dynamicConfigKeyMax": 0
       },
       {
-        "spoke": "0x80835eb50694ee0e519743f67e5401e6fd300006",
+        "spoke": "0x502cd81da6a8f1785eb2eee72713b7388e16a854",
         "oracle": "0x",
         "label": "Spoke 6",
+        "dynamicConfigKeyMax": 0
+      },
+      {
+        "spoke": "0xc94bdd83d2c7655c280655d60954e79e88d4f949",
+        "oracle": "0x",
+        "label": "Spoke 7",
+        "dynamicConfigKeyMax": 0
+      },
+      {
+        "spoke": "0xa54382db40ec602c0a173a08f9e86ed40f9d4d10",
+        "oracle": "0x",
+        "label": "Spoke 8",
+        "dynamicConfigKeyMax": 0
+      },
+      {
+        "spoke": "0x80835eb50694ee0e519743f67e5401e6fd300006",
+        "oracle": "0x",
+        "label": "Spoke 9",
         "dynamicConfigKeyMax": 0
       }
     ]
@@ -214,33 +232,57 @@
   "AAVE_V4_PRIME": {
     "1": [
       {
-        "spoke": "0x",
+        "spoke": "0xb9b0b8616f6bf6841972a52058132be08d723155",
         "oracle": "0x",
         "label": "Spoke 0",
         "dynamicConfigKeyMax": 0
       },
       {
-        "spoke": "0xb9b0b8616f6bf6841972a52058132be08d723155",
+        "spoke": "0x2087513383330b961a3753b47627bbf149f31c70",
         "oracle": "0x",
         "label": "Spoke 1",
         "dynamicConfigKeyMax": 0
       },
       {
-        "spoke": "0x46c588dd8453ac259c1f6a54b4c9a93c2ac3762d",
-        "oracle": "0x",
+        "spoke": "0x973a023a77420ba610f06b3858ad991df6d85a08",
+        "oracle": "0xda1266a7b8620819dae3f8bd6b546da36e505bb8",
         "label": "Spoke 2",
         "dynamicConfigKeyMax": 0
       },
       {
-        "spoke": "0x973a023a77420ba610f06b3858ad991df6d85a08",
+        "spoke": "0x5ae3d87de89ca6ce501e8317887f71eabed69e18",
         "oracle": "0x",
         "label": "Spoke 3",
         "dynamicConfigKeyMax": 0
       },
       {
-        "spoke": "0x900fd46d565d1ac8995928c0179052ec02a6d0e1",
+        "spoke": "0xd38098faf52d8e915eded84fbf30f81c17906938",
         "oracle": "0x",
         "label": "Spoke 4",
+        "dynamicConfigKeyMax": 0
+      },
+      {
+        "spoke": "0xfcd3d3c69cd032de0cc78fe529b7447d2fe7f666",
+        "oracle": "0x",
+        "label": "Spoke 5",
+        "dynamicConfigKeyMax": 0
+      },
+      {
+        "spoke": "0x486415fb1f8b062c89ed548f871cf64304aacb31",
+        "oracle": "0x",
+        "label": "Spoke 6",
+        "dynamicConfigKeyMax": 0
+      },
+      {
+        "spoke": "0x46c588dd8453ac259c1f6a54b4c9a93c2ac3762d",
+        "oracle": "0x",
+        "label": "Spoke 7",
+        "dynamicConfigKeyMax": 0
+      },
+      {
+        "spoke": "0x900fd46d565d1ac8995928c0179052ec02a6d0e1",
+        "oracle": "0x",
+        "label": "Spoke 8",
         "dynamicConfigKeyMax": 0
       }
     ]

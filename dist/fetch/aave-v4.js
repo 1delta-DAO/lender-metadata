@@ -17,7 +17,16 @@ export class AaveV4Updater {
         // Step 1: Discover hubs & spokes
         const { spokes } = await fetchAaveV4Configs(hubSeed);
         // Step 2: Discover reserves
-        const { reserves, details } = await fetchAaveV4Reserves(spokes);
+        const { reserves, details, maxDynamicConfigKeys } = await fetchAaveV4Reserves(spokes);
+        // Enrich spokes with maxDynamicConfigKey per spoke
+        for (const fork of Object.keys(spokes)) {
+            for (const chain of Object.keys(spokes[fork])) {
+                for (const entry of spokes[fork][chain]) {
+                    entry.dynamicConfigKeyMax =
+                        maxDynamicConfigKeys[fork]?.[chain]?.[entry.spoke] ?? 0;
+                }
+            }
+        }
         // Step 3: Discover oracles
         const { oracles, sources } = await fetchAaveV4Oracles(spokes, reserves, details);
         return {

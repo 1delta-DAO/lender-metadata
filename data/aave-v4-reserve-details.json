@@ -9,10 +9,15 @@
           "assetId": 3,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9500,
+            "maxLiquidationBonus": 10100,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 1,
@@ -21,10 +26,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         }
       ],
       "0x65407b940966954b23dfa3caa5c0702bb42984dc": [
@@ -35,10 +45,15 @@
           "assetId": 14,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 7500,
+            "maxLiquidationBonus": 10666,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 1,
@@ -47,10 +62,15 @@
           "assetId": 5,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 2,
@@ -59,10 +79,15 @@
           "assetId": 7,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 3,
@@ -71,10 +96,15 @@
           "assetId": 8,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 4,
@@ -83,10 +113,15 @@
           "assetId": 9,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 5,
@@ -95,10 +130,15 @@
           "assetId": 10,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 6,
@@ -107,10 +147,15 @@
           "assetId": 6,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 7,
@@ -119,10 +164,15 @@
           "assetId": 4,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         }
       ],
       "0x7ec68b5695e803e98a21a9a05d744f28b0a7753d": [
@@ -133,10 +183,15 @@
           "assetId": 13,
           "decimals": 8,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 8600,
+            "maxLiquidationBonus": 10300,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 1,
@@ -145,10 +200,15 @@
           "assetId": 11,
           "decimals": 8,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 2,
@@ -157,10 +217,15 @@
           "assetId": 12,
           "decimals": 8,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         }
       ],
       "0x94e7a5dcbe816e498b89ab752661904e2f56c485": [
@@ -171,10 +236,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 8300,
+            "maxLiquidationBonus": 10555,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 1,
@@ -183,10 +253,15 @@
           "assetId": 1,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 8000,
+            "maxLiquidationBonus": 10666,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 2,
@@ -195,10 +270,15 @@
           "assetId": 2,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 8000,
+            "maxLiquidationBonus": 10777,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 3,
@@ -207,10 +287,15 @@
           "assetId": 11,
           "decimals": 8,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 7800,
+            "maxLiquidationBonus": 10555,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 4,
@@ -219,10 +304,15 @@
           "assetId": 12,
           "decimals": 8,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 7800,
+            "maxLiquidationBonus": 10555,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 5,
@@ -231,10 +321,15 @@
           "assetId": 15,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 7600,
+            "maxLiquidationBonus": 10833,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 6,
@@ -243,10 +338,15 @@
           "assetId": 16,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 7100,
+            "maxLiquidationBonus": 10777,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 7,
@@ -255,10 +355,15 @@
           "assetId": 5,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 7800,
+            "maxLiquidationBonus": 10500,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 8,
@@ -267,10 +372,15 @@
           "assetId": 4,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 7800,
+            "maxLiquidationBonus": 10500,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 9,
@@ -279,10 +389,15 @@
           "assetId": 10,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 10,
@@ -291,10 +406,15 @@
           "assetId": 7,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 11,
@@ -303,10 +423,15 @@
           "assetId": 8,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 12,
@@ -315,10 +440,15 @@
           "assetId": 9,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 13,
@@ -327,10 +457,15 @@
           "assetId": 6,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         }
       ],
       "0x973a023a77420ba610f06b3858ad991df6d85a08": [
@@ -341,10 +476,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 1,
@@ -353,10 +493,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 2,
@@ -365,10 +510,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 3,
@@ -377,10 +527,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 4,
@@ -389,10 +544,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 5,
@@ -401,10 +561,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 6,
@@ -413,10 +578,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 7,
@@ -425,10 +595,15 @@
           "assetId": 5,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 8,
@@ -437,10 +612,15 @@
           "assetId": 9,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 9,
@@ -449,10 +629,15 @@
           "assetId": 10,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 10,
@@ -461,10 +646,15 @@
           "assetId": 4,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         }
       ],
       "0xba1b3d55d249692b669a164024a838309b7508af": [
@@ -475,10 +665,15 @@
           "assetId": 1,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9300,
+            "maxLiquidationBonus": 10300,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 1,
@@ -487,10 +682,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9200,
+            "maxLiquidationBonus": 10400,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 2,
@@ -499,10 +699,15 @@
           "assetId": 2,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9200,
+            "maxLiquidationBonus": 10300,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 3,
@@ -511,10 +716,15 @@
           "assetId": 3,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9300,
+            "maxLiquidationBonus": 10200,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 4,
@@ -523,10 +733,15 @@
           "assetId": 4,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 5,
@@ -535,10 +750,15 @@
           "assetId": 6,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 6,
@@ -547,10 +767,15 @@
           "assetId": 5,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 7,
@@ -559,10 +784,15 @@
           "assetId": 5,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 8,
@@ -571,10 +801,15 @@
           "assetId": 9,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 9,
@@ -583,10 +818,15 @@
           "assetId": 4,
           "decimals": 6,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         }
       ],
       "0xbf10bdfe177de0336afd7fccf80a904e15386219": [
@@ -597,10 +837,15 @@
           "assetId": 2,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9550,
+            "maxLiquidationBonus": 10100,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 1,
@@ -609,10 +854,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         }
       ],
       "0xd8b93635b8c6d0ff98cbe90b5988e3f2d1cd9da1": [
@@ -623,10 +873,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9000,
+            "maxLiquidationBonus": 10200,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 1,
@@ -635,10 +890,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9000,
+            "maxLiquidationBonus": 10200,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 2,
@@ -647,10 +907,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 3,
@@ -659,10 +924,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 4,
@@ -671,10 +941,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 5,
@@ -683,10 +958,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 6,
@@ -695,10 +975,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 0,
+            "liquidationFee": 0
+          }
         }
       ],
       "0xe1900480ac69f0b296841cd01cc37546d92f35cd": [
@@ -709,10 +994,15 @@
           "assetId": 1,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9550,
+            "maxLiquidationBonus": 10100,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 1,
@@ -721,10 +1011,15 @@
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": true,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         }
       ]
     }
@@ -734,173 +1029,243 @@
       "0x58131e79531cab1d52301228d1f7b842f26b9649": [
         {
           "reserveId": 0,
-          "underlying": "0xaebf0bb9f57e89260d57f31af34eb58657d96ce0",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
-          "assetId": 1,
-          "decimals": 18,
-          "collateralRisk": 0,
-          "dynamicConfigKey": 0,
-          "borrowable": false,
-          "paused": false,
-          "frozen": false
-        },
-        {
-          "reserveId": 1,
-          "underlying": "0x3de0ff76e8b528c092d47b9dac775931cef80f49",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
+          "underlying": "",
+          "hub": "",
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9580,
+            "maxLiquidationBonus": 10200,
+            "liquidationFee": 1000
+          }
+        },
+        {
+          "reserveId": 1,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
+          "decimals": 18,
+          "collateralRisk": 0,
+          "dynamicConfigKeyMax": 0,
+          "borrowable": false,
+          "paused": false,
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9400,
+            "maxLiquidationBonus": 10300,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 2,
-          "underlying": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
-          "assetId": 2,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9200,
+            "maxLiquidationBonus": 10300,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 3,
-          "underlying": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
-          "assetId": 3,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
-          "borrowable": true,
+          "dynamicConfigKeyMax": 0,
+          "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9300,
+            "maxLiquidationBonus": 10200,
+            "liquidationFee": 1000
+          }
         }
       ],
       "0xba1b3d55d249692b669a164024a838309b7508af": [
         {
           "reserveId": 0,
-          "underlying": "0xaebf0bb9f57e89260d57f31af34eb58657d96ce0",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
-          "assetId": 1,
-          "decimals": 18,
-          "collateralRisk": 0,
-          "dynamicConfigKey": 0,
-          "borrowable": false,
-          "paused": false,
-          "frozen": false
-        },
-        {
-          "reserveId": 1,
-          "underlying": "0x3de0ff76e8b528c092d47b9dac775931cef80f49",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
+          "underlying": "",
+          "hub": "",
           "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9300,
+            "maxLiquidationBonus": 10300,
+            "liquidationFee": 1000
+          }
+        },
+        {
+          "reserveId": 1,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
+          "decimals": 18,
+          "collateralRisk": 0,
+          "dynamicConfigKeyMax": 0,
+          "borrowable": false,
+          "paused": false,
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9200,
+            "maxLiquidationBonus": 10400,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 2,
-          "underlying": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
-          "assetId": 2,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
+          "dynamicConfigKeyMax": 0,
           "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9200,
+            "maxLiquidationBonus": 10300,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 3,
-          "underlying": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
-          "assetId": 3,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
-          "borrowable": true,
+          "dynamicConfigKeyMax": 0,
+          "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 9300,
+            "maxLiquidationBonus": 10200,
+            "liquidationFee": 1000
+          }
         },
         {
           "reserveId": 4,
-          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
-          "assetId": 4,
-          "decimals": 6,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
+          "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
-          "borrowable": true,
+          "dynamicConfigKeyMax": 0,
+          "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 5,
-          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
-          "assetId": 6,
-          "decimals": 6,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
+          "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
-          "borrowable": true,
+          "dynamicConfigKeyMax": 0,
+          "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 6,
-          "underlying": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
-          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
-          "assetId": 5,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
-          "borrowable": true,
+          "dynamicConfigKeyMax": 0,
+          "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 7,
-          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9",
-          "assetId": 5,
-          "decimals": 6,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
+          "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
-          "borrowable": true,
+          "dynamicConfigKeyMax": 0,
+          "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 8,
-          "underlying": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
-          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9",
-          "assetId": 9,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
           "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
-          "borrowable": true,
+          "dynamicConfigKeyMax": 0,
+          "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         },
         {
           "reserveId": 9,
-          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9",
-          "assetId": 4,
-          "decimals": 6,
+          "underlying": "",
+          "hub": "",
+          "assetId": 0,
+          "decimals": 18,
           "collateralRisk": 0,
-          "dynamicConfigKey": 0,
-          "borrowable": true,
+          "dynamicConfigKeyMax": 0,
+          "borrowable": false,
           "paused": false,
-          "frozen": false
+          "frozen": false,
+          "latestDynamicConfig": {
+            "collateralFactor": 0,
+            "maxLiquidationBonus": 10000,
+            "liquidationFee": 0
+          }
         }
       ]
     }
