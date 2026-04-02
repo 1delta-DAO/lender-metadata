@@ -5,61 +5,119 @@ import { fetchAaveV4Configs } from "./aave/fetchV4Configs.js";
 import { fetchAaveV4Reserves } from "./aave/fetchV4Reserves.js";
 import { fetchAaveV4Oracles } from "./aave/fetchV4Oracles.js";
 
+function nonEmptyUnderlying(u: unknown): string {
+  return typeof u === "string" && u !== "" ? u : "";
+}
+
+/** Prefer first non-empty underlying (object spread can leave '' over a prior value). */
+function pickUnderlying(
+  a: unknown,
+  b: unknown,
+  fallback?: unknown,
+): string {
+  return (
+    nonEmptyUnderlying(a) ||
+    nonEmptyUnderlying(b) ||
+    nonEmptyUnderlying(fallback) ||
+    ""
+  );
+}
+
+/** Fold duplicate rows in persisted data (same spoke + reserveId). */
+function mergeOracleLikeRows(prev: any, next: any): any {
+  let base: any;
+  if (isValidOracle(next.oracle)) {
+    base = { ...prev, ...next };
+  } else if (isValidOracle(prev.oracle)) {
+    base = { ...next, ...prev };
+  } else {
+    base = { ...prev, ...next };
+  }
+  const underlying = pickUnderlying(
+    prev.underlying,
+    next.underlying,
+    base.underlying,
+  );
+  return { ...base, underlying };
+}
+
+/** Apply a newly fetched row onto an existing merged row. */
+function applyIncomingOracleRow(existing: any, incoming: any): any {
+  if (isValidOracle(incoming.oracle)) {
+    const merged = { ...existing, ...incoming };
+    const underlying = pickUnderlying(
+      existing.underlying,
+      incoming.underlying,
+      merged.underlying,
+    );
+    return { ...merged, underlying };
+  }
+  const underlying = pickUnderlying(
+    existing.underlying,
+    incoming.underlying,
+  );
+  return {
+    ...existing,
+    underlying: underlying || existing.underlying || "",
+  };
+}
+
 /**
  * Append-only merge for array-based oracle data.
- * Matches entries by (underlying, spoke, reserveId) composite key.
+ * Matches entries by (spoke, reserveId); underlying is merged, not part of the key.
  * New entries are added; existing entries are updated only if the
  * incoming entry has a non-empty oracle (avoids RPC failures wiping data).
  */
-function mergeArrayData(oldData: any, newData: any): any {
-  const result: any = {}
+export function mergeArrayData(oldData: any, newData: any): any {
+  const result: any = {};
 
   const allForks = new Set([
     ...Object.keys(oldData ?? {}),
     ...Object.keys(newData ?? {}),
-  ])
+  ]);
 
   for (const fork of allForks) {
-    result[fork] = {}
+    result[fork] = {};
     const allChains = new Set([
       ...Object.keys(oldData?.[fork] ?? {}),
       ...Object.keys(newData?.[fork] ?? {}),
-    ])
+    ]);
 
     for (const chain of allChains) {
-      const oldArr: any[] = oldData?.[fork]?.[chain] ?? []
-      const newArr: any[] = newData?.[fork]?.[chain] ?? []
+      const oldArr: any[] = oldData?.[fork]?.[chain] ?? [];
+      const newArr: any[] = newData?.[fork]?.[chain] ?? [];
 
       const entryKey = (e: any) =>
-        `${e.underlying}|${e.spoke}|${e.reserveId}`
+        `${String(e.spoke).toLowerCase()}|${Number(e.reserveId)}`;
 
-      // Index existing entries
-      const merged = new Map<string, any>()
+      const merged = new Map<string, any>();
       for (const entry of oldArr) {
-        merged.set(entryKey(entry), entry)
+        const key = entryKey(entry);
+        const existing = merged.get(key);
+        merged.set(
+          key,
+          existing ? mergeOracleLikeRows(existing, entry) : entry,
+        );
       }
 
-      // Merge incoming: update if oracle is present, otherwise keep old
       for (const entry of newArr) {
-        const key = entryKey(entry)
-        const existing = merged.get(key)
+        const key = entryKey(entry);
+        const existing = merged.get(key);
         if (!existing) {
-          merged.set(key, entry)
-        } else if (isValidOracle(entry.oracle)) {
-          merged.set(key, entry)
+          merged.set(key, entry);
+        } else {
+          merged.set(key, applyIncomingOracleRow(existing, entry));
         }
-        // otherwise keep existing (don't overwrite good data with empty)
       }
 
       result[fork][chain] = [...merged.values()].sort(
         (a, b) =>
-          a.spoke.localeCompare(b.spoke) ||
-          a.reserveId - b.reserveId,
-      )
+          a.spoke.localeCompare(b.spoke) || a.reserveId - b.reserveId,
+      );
     }
   }
 
-  return result
+  return result;
 }
 
 function isValidOracle(oracle: string | undefined): boolean {
