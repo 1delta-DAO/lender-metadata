@@ -4,7 +4,7 @@
       "0x3131fe68c4722e726fe6b2819ed68e514395b9a4": [
         {
           "reserveId": 0,
-          "underlying": "",
+          "underlying": "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -21,7 +21,7 @@
         },
         {
           "reserveId": 1,
-          "underlying": "",
+          "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -40,7 +40,7 @@
       "0x65407b940966954b23dfa3caa5c0702bb42984dc": [
         {
           "reserveId": 0,
-          "underlying": "",
+          "underlying": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -57,7 +57,7 @@
         },
         {
           "reserveId": 1,
-          "underlying": "",
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -74,7 +74,7 @@
         },
         {
           "reserveId": 2,
-          "underlying": "",
+          "underlying": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -91,7 +91,7 @@
         },
         {
           "reserveId": 3,
-          "underlying": "",
+          "underlying": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -108,7 +108,7 @@
         },
         {
           "reserveId": 4,
-          "underlying": "",
+          "underlying": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -125,7 +125,7 @@
         },
         {
           "reserveId": 5,
-          "underlying": "",
+          "underlying": "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -142,7 +142,7 @@
         },
         {
           "reserveId": 6,
-          "underlying": "",
+          "underlying": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -159,7 +159,7 @@
         },
         {
           "reserveId": 7,
-          "underlying": "",
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -590,7 +590,7 @@
         },
         {
           "reserveId": 7,
-          "underlying": "",
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -607,7 +607,7 @@
         },
         {
           "reserveId": 8,
-          "underlying": "",
+          "underlying": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -624,7 +624,7 @@
         },
         {
           "reserveId": 9,
-          "underlying": "",
+          "underlying": "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -641,7 +641,7 @@
         },
         {
           "reserveId": 10,
-          "underlying": "",
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -660,7 +660,7 @@
       "0xba1b3d55d249692b669a164024a838309b7508af": [
         {
           "reserveId": 0,
-          "underlying": "",
+          "underlying": "0xaebf0bb9f57e89260d57f31af34eb58657d96ce0",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -677,7 +677,7 @@
         },
         {
           "reserveId": 1,
-          "underlying": "",
+          "underlying": "0x3de0ff76e8b528c092d47b9dac775931cef80f49",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -694,7 +694,7 @@
         },
         {
           "reserveId": 2,
-          "underlying": "",
+          "underlying": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -711,7 +711,7 @@
         },
         {
           "reserveId": 3,
-          "underlying": "",
+          "underlying": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -728,7 +728,7 @@
         },
         {
           "reserveId": 4,
-          "underlying": "",
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -745,7 +745,7 @@
         },
         {
           "reserveId": 5,
-          "underlying": "",
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -762,7 +762,7 @@
         },
         {
           "reserveId": 6,
-          "underlying": "",
+          "underlying": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -779,7 +779,7 @@
         },
         {
           "reserveId": 7,
-          "underlying": "",
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -796,7 +796,7 @@
         },
         {
           "reserveId": 8,
-          "underlying": "",
+          "underlying": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -813,7 +813,7 @@
         },
         {
           "reserveId": 9,
-          "underlying": "",
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -832,7 +832,7 @@
       "0xbf10bdfe177de0336afd7fccf80a904e15386219": [
         {
           "reserveId": 0,
-          "underlying": "",
+          "underlying": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -849,7 +849,7 @@
         },
         {
           "reserveId": 1,
-          "underlying": "",
+          "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -989,7 +989,7 @@
       "0xe1900480ac69f0b296841cd01cc37546d92f35cd": [
         {
           "reserveId": 0,
-          "underlying": "",
+          "underlying": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "hub": "",
           "assetId": 0,
           "decimals": 18,
@@ -1006,7 +1006,7 @@
         },
         {
           "reserveId": 1,
-          "underlying": "",
+          "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
           "hub": "",
           "assetId": 0,
           "decimals": 18,

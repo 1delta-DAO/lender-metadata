@@ -123,10 +123,116 @@ export function mergeArrayData(oldData: any, newData: any): any {
 function isValidOracle(oracle: string | undefined): boolean {
   return (
     !!oracle &&
-    oracle !== '' &&
-    oracle !== '0x' &&
-    oracle !== '0x0000000000000000000000000000000000000000'
-  )
+    oracle !== "" &&
+    oracle !== "0x" &&
+    oracle !== "0x0000000000000000000000000000000000000000"
+  );
+}
+
+/** Merge one reserve detail row; keep non-empty address fields and stable dynamic config. */
+function mergeReserveDetailRow(prev: any, next: any): any {
+  const merged = { ...prev, ...next };
+  merged.underlying = pickUnderlying(
+    prev.underlying,
+    next.underlying,
+    merged.underlying,
+  );
+  merged.hub = pickUnderlying(prev.hub, next.hub, merged.hub);
+  if (next.latestDynamicConfig == null && prev.latestDynamicConfig != null) {
+    merged.latestDynamicConfig = prev.latestDynamicConfig;
+  }
+  return merged;
+}
+
+/**
+ * Merge reserve detail arrays per spoke by reserveId.
+ * Avoids generic deepMerge replacing whole arrays and losing prior underlying/hub when RPC flakes.
+ */
+export function mergeReserveDetailsData(oldData: any, newData: any): any {
+  const result: any = {};
+
+  const forks = new Set([
+    ...Object.keys(oldData ?? {}),
+    ...Object.keys(newData ?? {}),
+  ]);
+
+  for (const fork of forks) {
+    result[fork] = {};
+    const chains = new Set([
+      ...Object.keys(oldData?.[fork] ?? {}),
+      ...Object.keys(newData?.[fork] ?? {}),
+    ]);
+
+    for (const chain of chains) {
+      result[fork][chain] = {};
+      const oldSpokes = oldData?.[fork]?.[chain] ?? {};
+      const newSpokes = newData?.[fork]?.[chain] ?? {};
+      const spokeAddrs = new Set([
+        ...Object.keys(oldSpokes),
+        ...Object.keys(newSpokes),
+      ]);
+
+      for (const spoke of spokeAddrs) {
+        const oldArr: any[] = oldSpokes[spoke] ?? [];
+        const newArr: any[] = newSpokes[spoke] ?? [];
+        const byReserveId = new Map<number, any>();
+
+        for (const row of oldArr) {
+          byReserveId.set(Number(row.reserveId), row);
+        }
+        for (const row of newArr) {
+          const id = Number(row.reserveId);
+          const existing = byReserveId.get(id);
+          byReserveId.set(
+            id,
+            existing ? mergeReserveDetailRow(existing, row) : row,
+          );
+        }
+
+        result[fork][chain][spoke] = [...byReserveId.values()].sort(
+          (a, b) => a.reserveId - b.reserveId,
+        );
+      }
+    }
+  }
+
+  return result;
+}
+
+/** Fill empty underlying in details from oracle rows (same fork/chain/spoke/reserveId). */
+export function backfillReserveDetailsFromOracles(
+  details: any,
+  oracles: any,
+): any {
+  const out = JSON.parse(JSON.stringify(details)) as any;
+  for (const fork of Object.keys(oracles ?? {})) {
+    const oracleChains = oracles[fork] ?? {};
+    for (const chain of Object.keys(oracleChains)) {
+      const rows: any[] = oracleChains[chain] ?? [];
+      const byKey = new Map<string, string>();
+      for (const r of rows) {
+        const u = nonEmptyUnderlying(r.underlying);
+        if (!u) continue;
+        byKey.set(
+          `${String(r.spoke).toLowerCase()}|${Number(r.reserveId)}`,
+          u,
+        );
+      }
+      const detailChains = out[fork]?.[chain];
+      if (!detailChains) continue;
+      for (const spoke of Object.keys(detailChains)) {
+        const arr: any[] = detailChains[spoke] ?? [];
+        for (const row of arr) {
+          if (nonEmptyUnderlying(row.underlying)) continue;
+          const u = byKey.get(
+            `${spoke.toLowerCase()}|${Number(row.reserveId)}`,
+          );
+          if (u) row.underlying = u;
+        }
+      }
+    }
+  }
+  return out;
 }
 
 /**
@@ -229,6 +335,9 @@ export class AaveV4Updater implements DataUpdater {
     }
     if (fileKey === oraclesFile || fileKey === oracleSourcesFile) {
       return mergeArrayData(oldData, data);
+    }
+    if (fileKey === reserveDetailsFile) {
+      return mergeReserveDetailsData(oldData, data);
     }
     return mergeData(oldData, data);
   }
