@@ -235,6 +235,46 @@ export function backfillReserveDetailsFromOracles(
   return out;
 }
 
+/** Fill empty `hub` on reserve rows from `aave-v4-hubs.json`-shaped seed (one hub per fork/chain). */
+export function backfillReserveDetailsHubFromConfig(
+  details: any,
+  hubSeed: any,
+): any {
+  const out = JSON.parse(JSON.stringify(details)) as any;
+  for (const fork of Object.keys(out ?? {})) {
+    for (const chain of Object.keys(out[fork] ?? {})) {
+      const configured = nonEmptyUnderlying(hubSeed?.[fork]?.[chain]?.hub);
+      if (!configured) continue;
+      const hubLower = configured.toLowerCase();
+      const spokeMap = out[fork][chain] ?? {};
+      for (const spoke of Object.keys(spokeMap)) {
+        const arr: any[] = spokeMap[spoke] ?? [];
+        for (const row of arr) {
+          if (nonEmptyUnderlying(row.hub)) continue;
+          row.hub = hubLower;
+        }
+      }
+    }
+  }
+  return out;
+}
+
+export type NormalizeReserveDetailsOpts = {
+  oracles: any;
+  hubSeed: any;
+};
+
+/** Dedupe-merge persisted details, then oracle underlying backfill, then hub from config. */
+export function normalizeReserveDetailsPersisted(
+  details: any,
+  { oracles, hubSeed }: NormalizeReserveDetailsOpts,
+): any {
+  let d = mergeReserveDetailsData(details, {});
+  d = backfillReserveDetailsFromOracles(d, oracles);
+  d = backfillReserveDetailsHubFromConfig(d, hubSeed);
+  return d;
+}
+
 /**
  * Append-only merge for spokes data.
  * Deduplicates by spoke address within each fork/chain.

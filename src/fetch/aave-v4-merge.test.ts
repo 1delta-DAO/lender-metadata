@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 import {
   backfillReserveDetailsFromOracles,
+  backfillReserveDetailsHubFromConfig,
   mergeArrayData,
   mergeReserveDetailsData,
+  normalizeReserveDetailsPersisted,
 } from "./aave-v4.js";
 
 describe("mergeArrayData (Aave V4 oracles)", () => {
@@ -178,6 +180,78 @@ describe("mergeReserveDetailsData", () => {
     const out = backfillReserveDetailsFromOracles(details, oracles);
     expect(out.X["1"][spoke][0].underlying).toBe(
       "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    );
+  });
+
+  it("backfills hub from hub seed when empty", () => {
+    const spoke = "0xspoke";
+    const details = {
+      CORE: {
+        "1": {
+          [spoke]: [{ reserveId: 0, underlying: "0xu", hub: "" }],
+        },
+      },
+    };
+    const hubSeed = {
+      CORE: { "1": { hub: "0xCca852Bc40e560adC3b1Cc58CA5b55638ce826c9" } },
+    };
+    const out = backfillReserveDetailsHubFromConfig(details, hubSeed);
+    expect(out.CORE["1"][spoke][0].hub).toBe(
+      "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9",
+    );
+  });
+
+  it("does not overwrite non-empty hub", () => {
+    const spoke = "0xspoke";
+    const existingHub = "0x1111111111111111111111111111111111111111";
+    const details = {
+      CORE: {
+        "1": {
+          [spoke]: [{ reserveId: 0, underlying: "0xu", hub: existingHub }],
+        },
+      },
+    };
+    const hubSeed = {
+      CORE: { "1": { hub: "0xCca852Bc40e560adC3b1Cc58CA5b55638ce826c9" } },
+    };
+    const out = backfillReserveDetailsHubFromConfig(details, hubSeed);
+    expect(out.CORE["1"][spoke][0].hub).toBe(existingHub);
+  });
+
+  it("normalizeReserveDetailsPersisted runs merge, oracle, then hub backfill", () => {
+    const spoke = "0xs";
+    const details = {
+      F: {
+        "1": {
+          [spoke]: [
+            { reserveId: 0, underlying: "", hub: "" },
+          ],
+        },
+      },
+    };
+    const oracles = {
+      F: {
+        "1": [
+          {
+            underlying: "0xabc0000000000000000000000000000000000001",
+            spoke,
+            reserveId: 0,
+            oracle: "0xo",
+          },
+        ],
+      },
+    };
+    const hubSeed = {
+      F: {
+        "1": { hub: "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" },
+      },
+    };
+    const out = normalizeReserveDetailsPersisted(details, { oracles, hubSeed });
+    expect(out.F["1"][spoke][0].underlying).toBe(
+      "0xabc0000000000000000000000000000000000001",
+    );
+    expect(out.F["1"][spoke][0].hub).toBe(
+      "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
     );
   });
 });
