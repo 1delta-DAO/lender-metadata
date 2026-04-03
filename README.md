@@ -59,6 +59,7 @@ Covers Aave V4 hubs, spokes, reserves, and oracles (Core, Plus, Prime).
 | File | Description |
 |------|-------------|
 | `config/aave-v4-hubs.json` | Hub contract addresses per fork/chain (seed config) |
+| `config/aave-v4-peripherals.json` | Chain-level gateways and per-spoke position managers (from Aave Kit GraphQL) |
 | `data/aave-v4-spokes.json` | Discovered spoke addresses with oracle per hub |
 | `data/aave-v4-reserves.json` | Reserve ID lists per spoke |
 | `data/aave-v4-reserve-details.json` | Reserve details (underlying, decimals, borrowable, etc.) |

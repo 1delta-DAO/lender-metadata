@@ -1,0 +1,395 @@
+{
+  "1": {
+    "nativeGateway": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+    "signatureGateway": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+    "forks": {
+      "AAVE_V4_CORE": {
+        "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9",
+        "spokes": {
+          "0x3131fe68c4722e726fe6b2819ed68e514395b9a4": {
+            "spokeName": "Kelp",
+            "spokeId": "MTo6MHgzMTMxRkU2OEM0NzIyZTcyNmZlNkIyODE5RUQ2OGU1MTQzOTVCOWE0",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          },
+          "0x65407b940966954b23dfa3caa5c0702bb42984dc": {
+            "spokeName": "Gold",
+            "spokeId": "MTo6MHg2NTQwN2I5NDA5NjY5NTRiMjNkZkEzY2FBNUMwNzAyYkI0Mjk4NERD",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          },
+          "0x7ec68b5695e803e98a21a9a05d744f28b0a7753d": {
+            "spokeName": "Lombard",
+            "spokeId": "MTo6MHg3RUM2OGI1Njk1ZTgwM2U5OGEyMWE5QTA1ZDc0NEYyOGIwYTc3NTNE",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          },
+          "0x94e7a5dcbe816e498b89ab752661904e2f56c485": {
+            "spokeName": "Main",
+            "spokeId": "MTo6MHg5NGU3QTVkQ2JFODE2ZTQ5OGI4OWFCNzUyNjYxOTA0RTJGNTZjNDg1",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          },
+          "0x973a023a77420ba610f06b3858ad991df6d85a08": {
+            "spokeName": "Bluechip",
+            "spokeId": "MTo6MHg5NzNhMDIzQTc3NDIwYmE2MTBmMDZiMzg1OGFEOTkxRGY2ZDg1QTA4",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          },
+          "0xba1b3d55d249692b669a164024a838309b7508af": {
+            "spokeName": "Ethena Ecosystem",
+            "spokeId": "MTo6MHhiYTFCM0Q1NUQyNDk2OTJiNjY5QTE2NDAyNEE4MzgzMDlCNzUwOEFG",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          },
+          "0xbf10bdfe177de0336afd7fccf80a904e15386219": {
+            "spokeName": "Etherfi",
+            "spokeId": "MTo6MHhiRjEwQkRmRTE3N2RFMDMzNmFGRDdmY0NGODBBOTA0RTE1Mzg2MjE5",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          },
+          "0xd8b93635b8c6d0ff98cbe90b5988e3f2d1cd9da1": {
+            "spokeName": "Forex",
+            "spokeId": "MTo6MHhEOEI5MzYzNWI4QzZkMGZGOThDYkU5MGI1OTg4RTNGMmQxQ2Q5ZGEx",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          },
+          "0xe1900480ac69f0b296841cd01cc37546d92f35cd": {
+            "spokeName": "Lido",
+            "spokeId": "MTo6MHhlMTkwMDQ4MGFjNjlmMEIyOTY4NDFDZDAxY0MzNzU0NmQ5MkYzNUNk",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          }
+        }
+      },
+      "AAVE_V4_PLUS": {
+        "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a",
+        "spokes": {
+          "0x58131e79531cab1d52301228d1f7b842f26b9649": {
+            "spokeName": "Ethena Correlated",
+            "spokeId": "MTo6MHg1ODEzMUU3OTUzMWNhQjFkNTIzMDEyMjhkMWY3Yjg0MkYyNkI5NjQ5",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          },
+          "0xba1b3d55d249692b669a164024a838309b7508af": {
+            "spokeName": "Ethena Ecosystem",
+            "spokeId": "MTo6MHhiYTFCM0Q1NUQyNDk2OTJiNjY5QTE2NDAyNEE4MzgzMDlCNzUwOEFG",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          }
+        }
+      },
+      "AAVE_V4_PRIME": {
+        "hub": "0x943827dca022d0f354a8a8c332da1e5eb9f9f931",
+        "spokes": {
+          "0x973a023a77420ba610f06b3858ad991df6d85a08": {
+            "spokeName": "Bluechip",
+            "spokeId": "MTo6MHg5NzNhMDIzQTc3NDIwYmE2MTBmMDZiMzg1OGFEOTkxRGY2ZDg1QTA4",
+            "positionManagers": [
+              {
+                "name": "Unknown",
+                "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+                "active": true
+              },
+              {
+                "name": "Unknown",
+                "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+                "active": true
+              },
+              {
+                "name": "Aave Native Gateway",
+                "address": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+                "active": true
+              },
+              {
+                "name": "Aave Signature Gateway",
+                "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+                "active": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
