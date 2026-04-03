@@ -7,6 +7,18 @@
 import { sleep } from '../../utils.js';
 import { AAVE_V4_HUB_ABI, AAVE_V4_SPOKE_ABI, V4FetchFunctions, } from './abiV4.js';
 import { multicallRetryUniversal } from '@1delta/providers';
+const ZERO_ADDR = '0x0000000000000000000000000000000000000000';
+/** Reject multicall failure sentinels, zero, and malformed addresses. */
+function isValidSpokeAddress(addr) {
+    if (typeof addr !== 'string')
+        return false;
+    const a = addr.toLowerCase();
+    if (a === '0x' || a === ZERO_ADDR)
+        return false;
+    if (!a.startsWith('0x') || a.length !== 42)
+        return false;
+    return /^0x[0-9a-f]{40}$/.test(a);
+}
 export async function fetchAaveV4Configs(hubSeed) {
     const forks = Object.keys(hubSeed);
     const spokesOutput = {};
@@ -96,10 +108,10 @@ export async function fetchAaveV4Configs(hubSeed) {
                 continue;
             }
             await sleep(250);
-            // Deduplicate spoke addresses
+            // Deduplicate spoke addresses (drop multicall failure sentinels / invalid)
             const uniqueSpokes = new Set();
             for (const addr of spokeAddrResults) {
-                if (addr && typeof addr === 'string') {
+                if (isValidSpokeAddress(addr)) {
                     uniqueSpokes.add(addr.toLowerCase());
                 }
             }

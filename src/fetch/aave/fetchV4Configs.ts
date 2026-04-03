@@ -13,6 +13,17 @@ import {
 } from './abiV4.js'
 import { multicallRetryUniversal } from '@1delta/providers'
 
+const ZERO_ADDR = '0x0000000000000000000000000000000000000000'
+
+/** Reject multicall failure sentinels, zero, and malformed addresses. */
+function isValidSpokeAddress(addr: unknown): addr is string {
+  if (typeof addr !== 'string') return false
+  const a = addr.toLowerCase()
+  if (a === '0x' || a === ZERO_ADDR) return false
+  if (!a.startsWith('0x') || a.length !== 42) return false
+  return /^0x[0-9a-f]{40}$/.test(a)
+}
+
 type HubSeedMap = {
   [fork: string]: { [chainId: string]: { hub: string } }
 }
@@ -136,10 +147,10 @@ export async function fetchAaveV4Configs(hubSeed: HubSeedMap): Promise<{
 
       await sleep(250)
 
-      // Deduplicate spoke addresses
+      // Deduplicate spoke addresses (drop multicall failure sentinels / invalid)
       const uniqueSpokes = new Set<string>()
       for (const addr of spokeAddrResults) {
-        if (addr && typeof addr === 'string') {
+        if (isValidSpokeAddress(addr)) {
           uniqueSpokes.add(addr.toLowerCase())
         }
       }

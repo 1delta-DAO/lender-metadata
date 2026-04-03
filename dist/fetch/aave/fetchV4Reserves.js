@@ -6,6 +6,37 @@
 import { sleep } from '../../utils.js';
 import { AAVE_V4_SPOKE_ABI, V4FetchFunctions } from './abiV4.js';
 import { multicallRetryUniversal } from '@1delta/providers';
+const ZERO_ADDR = '0x0000000000000000000000000000000000000000';
+function isEmptyOrZeroAddr(s) {
+    return !s || s === ZERO_ADDR;
+}
+function needsGetReserveRetry(entry) {
+    return (isEmptyOrZeroAddr(entry.underlying) ||
+        isEmptyOrZeroAddr(entry.hub));
+}
+/** Merge a successful getReserve tuple into an entry (retry pass may partially fill). */
+function mergeGetReserveResult(entry, result) {
+    if (result == null)
+        return;
+    const isArray = Array.isArray(result);
+    const rawU = (isArray ? result[0] : result?.underlying) ?? '';
+    const rawH = (isArray ? result[1] : result?.hub) ?? '';
+    const u = rawU.toString().toLowerCase();
+    const h = rawH.toString().toLowerCase();
+    if (u)
+        entry.underlying = u;
+    if (h)
+        entry.hub = h;
+    if (u || h) {
+        entry.assetId = Number((isArray ? result[2] : result?.assetId) ?? entry.assetId);
+        entry.decimals = Number((isArray ? result[3] : result?.decimals) ?? entry.decimals);
+        entry.collateralRisk = Number((isArray ? result[4] : result?.collateralRisk) ?? entry.collateralRisk);
+        entry.dynamicConfigKeyMax = Number((isArray ? result[6] : result?.dynamicConfigKey) ??
+            entry.dynamicConfigKeyMax);
+    }
+}
+/** Extra multicall rounds for getReserve slots that failed inside allowFailure batches. */
+const MAX_GET_RESERVE_RETRY_ROUNDS = 2;
 export async function fetchAaveV4Reserves(spokesData) {
     const forks = Object.keys(spokesData);
     const reservesOutput = {};
@@ -135,6 +166,47 @@ export async function fetchAaveV4Reserves(spokesData) {
                         entry.frozen =
                             (isArr ? result[2] : result?.frozen) ?? false;
                     }
+                }
+            }
+            for (let retryRound = 0; retryRound < MAX_GET_RESERVE_RETRY_ROUNDS; retryRound++) {
+                const retryCalls = [];
+                const retryMeta = [];
+                for (const [spokeAddr, details] of Object.entries(spokeReserves)) {
+                    for (const entry of details) {
+                        if (!needsGetReserveRetry(entry))
+                            continue;
+                        retryCalls.push({
+                            address: spokeAddr,
+                            name: V4FetchFunctions.getReserve,
+                            args: [entry.reserveId],
+                        });
+                        retryMeta.push({ spokeAddr, reserveId: entry.reserveId });
+                    }
+                }
+                if (retryCalls.length === 0)
+                    break;
+                console.log(`  [${fork}/${chain}] getReserve retry round ${retryRound + 1}/${MAX_GET_RESERVE_RETRY_ROUNDS}: ${retryCalls.length} slot(s)`);
+                let retryResults;
+                try {
+                    retryResults = (await multicallRetryUniversal({
+                        chain,
+                        calls: retryCalls,
+                        abi: AAVE_V4_SPOKE_ABI,
+                        allowFailure: true,
+                    }));
+                }
+                catch (e) {
+                    console.error(`  Error in getReserve retry: ${e?.message ?? e}`);
+                    break;
+                }
+                await sleep(250);
+                for (let i = 0; i < retryMeta.length; i++) {
+                    const meta = retryMeta[i];
+                    const result = retryResults[i];
+                    const entry = spokeReserves[meta.spokeAddr]?.find((r) => r.reserveId === meta.reserveId);
+                    if (!entry)
+                        continue;
+                    mergeGetReserveResult(entry, result);
                 }
             }
             // Step 3: Fetch getDynamicReserveConfig(reserveId, latestKey) for each reserve

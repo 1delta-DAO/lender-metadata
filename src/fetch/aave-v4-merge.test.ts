@@ -3,6 +3,7 @@ import {
   backfillReserveDetailsFromOracles,
   backfillReserveDetailsHubFromConfig,
   mergeArrayData,
+  mergeOracleSourcesArrayData,
   mergeReserveDetailsData,
   normalizeReserveDetailsPersisted,
 } from "./aave-v4.js";
@@ -95,6 +96,47 @@ describe("mergeArrayData (Aave V4 oracles)", () => {
     const out = mergeArrayData(oldData, newData);
     expect(out.FORK["1"][0].oracle).toBe(
       "0x3333333333333333333333333333333333333333",
+    );
+  });
+});
+
+describe("mergeOracleSourcesArrayData", () => {
+  it("keeps prior non-empty source when incoming fetch has empty source (same valid oracle)", () => {
+    const oldData = {
+      FORK: {
+        "1": [
+          {
+            underlying: "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            spoke: "0xspoke",
+            reserveId: 1,
+            oracle: "0x2222222222222222222222222222222222222222",
+            decimals: 8,
+            source: "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          },
+        ],
+      },
+    };
+    const newData = {
+      FORK: {
+        "1": [
+          {
+            underlying: "",
+            spoke: "0xspoke",
+            reserveId: 1,
+            oracle: "0x2222222222222222222222222222222222222222",
+            decimals: 8,
+            source: "",
+          },
+        ],
+      },
+    };
+    const out = mergeOracleSourcesArrayData(oldData, newData);
+    expect(out.FORK["1"]).toHaveLength(1);
+    expect(out.FORK["1"][0].source).toBe(
+      "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    );
+    expect(out.FORK["1"][0].underlying).toBe(
+      "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     );
   });
 });

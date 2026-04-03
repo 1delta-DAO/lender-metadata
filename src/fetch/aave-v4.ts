@@ -120,6 +120,112 @@ export function mergeArrayData(oldData: any, newData: any): any {
   return result;
 }
 
+function isValidSource(source: string | undefined): boolean {
+  return (
+    !!source &&
+    source !== "" &&
+    source !== "0x" &&
+    source !== "0x0000000000000000000000000000000000000000"
+  );
+}
+
+/** Fold duplicate rows; prefer a valid price source address when one side has it. */
+function mergeOracleSourcesLikeRows(prev: any, next: any): any {
+  const base = mergeOracleLikeRows(prev, next);
+  const source = isValidSource(next.source)
+    ? String(next.source).toLowerCase()
+    : isValidSource(prev.source)
+      ? String(prev.source).toLowerCase()
+      : typeof base.source === "string"
+        ? base.source
+        : "";
+  return { ...base, source };
+}
+
+/** Like applyIncomingOracleRow, but do not wipe a good source when the fetch returned empty (multicall flake). */
+function applyIncomingOracleSourceRow(existing: any, incoming: any): any {
+  if (isValidOracle(incoming.oracle)) {
+    const merged = { ...existing, ...incoming };
+    const underlying = pickUnderlying(
+      existing.underlying,
+      incoming.underlying,
+      merged.underlying,
+    );
+    const source = isValidSource(incoming.source)
+      ? String(incoming.source).toLowerCase()
+      : isValidSource(existing.source)
+        ? String(existing.source).toLowerCase()
+        : typeof merged.source === "string"
+          ? merged.source
+          : "";
+    return { ...merged, underlying, source };
+  }
+  const underlying = pickUnderlying(
+    existing.underlying,
+    incoming.underlying,
+  );
+  return {
+    ...existing,
+    underlying: underlying || existing.underlying || "",
+  };
+}
+
+/**
+ * Same as mergeArrayData for aave-v4-oracle-sources.json: merges by (spoke, reserveId)
+ * and preserves non-empty source when a new fetch has empty source (RPC/multicall failure).
+ */
+export function mergeOracleSourcesArrayData(oldData: any, newData: any): any {
+  const result: any = {};
+
+  const allForks = new Set([
+    ...Object.keys(oldData ?? {}),
+    ...Object.keys(newData ?? {}),
+  ]);
+
+  for (const fork of allForks) {
+    result[fork] = {};
+    const allChains = new Set([
+      ...Object.keys(oldData?.[fork] ?? {}),
+      ...Object.keys(newData?.[fork] ?? {}),
+    ]);
+
+    for (const chain of allChains) {
+      const oldArr: any[] = oldData?.[fork]?.[chain] ?? [];
+      const newArr: any[] = newData?.[fork]?.[chain] ?? [];
+
+      const entryKey = (e: any) =>
+        `${String(e.spoke).toLowerCase()}|${Number(e.reserveId)}`;
+
+      const merged = new Map<string, any>();
+      for (const entry of oldArr) {
+        const key = entryKey(entry);
+        const existing = merged.get(key);
+        merged.set(
+          key,
+          existing ? mergeOracleSourcesLikeRows(existing, entry) : entry,
+        );
+      }
+
+      for (const entry of newArr) {
+        const key = entryKey(entry);
+        const existing = merged.get(key);
+        if (!existing) {
+          merged.set(key, entry);
+        } else {
+          merged.set(key, applyIncomingOracleSourceRow(existing, entry));
+        }
+      }
+
+      result[fork][chain] = [...merged.values()].sort(
+        (a, b) =>
+          a.spoke.localeCompare(b.spoke) || a.reserveId - b.reserveId,
+      );
+    }
+  }
+
+  return result;
+}
+
 function isValidOracle(oracle: string | undefined): boolean {
   return (
     !!oracle &&
@@ -373,7 +479,10 @@ export class AaveV4Updater implements DataUpdater {
     if (fileKey === spokesFile) {
       return mergeSpokesData(oldData, data);
     }
-    if (fileKey === oraclesFile || fileKey === oracleSourcesFile) {
+    if (fileKey === oracleSourcesFile) {
+      return mergeOracleSourcesArrayData(oldData, data);
+    }
+    if (fileKey === oraclesFile) {
       return mergeArrayData(oldData, data);
     }
     if (fileKey === reserveDetailsFile) {
