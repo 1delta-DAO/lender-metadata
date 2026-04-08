@@ -1,18 +1,20 @@
 /**
  * Aave V4 oracle discovery.
  *
- * Pure function variant: takes spokes + reserves data, returns oracles + sources.
+ * Operates on the flat-by-chain spoke map and per-spoke reserve details
+ * produced upstream. Output has no fork dimension; entries are dedup'd by
+ * (spoke, reserveId).
  */
 
 import { sleep } from '../../utils.js'
 import { AAVE_V4_ORACLE_ABI, V4FetchFunctions } from './abiV4.js'
 import { multicallRetryUniversal } from '@1delta/providers'
-import type { AaveV4SpokesOutput } from './fetchV4Configs.js'
-import type { ReservesOutput, ReserveDetailsOutput } from './fetchV4Reserves.js'
+import type { AaveV4SpokesByChain } from './fetchV4Configs.js'
+import type { ReservesByChain } from './fetchV4Reserves.js'
 
 /**
- * multicallRetryUniversal maps failed calls to the string "0x" (see @1delta/providers).
- * Number("0x") is NaN and becomes null in JSON — normalize to a safe default.
+ * multicallRetryUniversal maps failed calls to the string "0x". Number("0x")
+ * is NaN — normalize to a safe default.
  */
 function normalizeOracleDecimals(raw: unknown): number {
   if (raw === '0x' || raw === undefined || raw === null) return 8
@@ -23,7 +25,6 @@ function normalizeOracleDecimals(raw: unknown): number {
   return 8
 }
 
-/** Treat multicall failure / zero address as missing source. */
 function normalizeSourceAddress(raw: unknown): string {
   if (raw === '0x' || raw === undefined || raw === null) return ''
   const s = String(raw).toLowerCase()
@@ -32,180 +33,153 @@ function normalizeSourceAddress(raw: unknown): string {
   return s
 }
 
-type OracleEntry = {
+export type OracleEntry = {
   underlying: string
   spoke: string
   reserveId: number
   oracle: string
 }
 
-type OracleSourceEntry = {
-  underlying: string
-  spoke: string
-  reserveId: number
-  oracle: string
+export type OracleSourceEntry = OracleEntry & {
   decimals: number
   source: string
 }
 
-type OracleOutput = {
-  [fork: string]: {
-    [chainId: string]: OracleEntry[]
-  }
-}
-
-type OracleSourcesOutput = {
-  [fork: string]: {
-    [chainId: string]: OracleSourceEntry[]
-  }
+export type OraclesByChain = { [chainId: string]: OracleEntry[] }
+export type OracleSourcesByChain = {
+  [chainId: string]: OracleSourceEntry[]
 }
 
 export async function fetchAaveV4Oracles(
-  spokesData: AaveV4SpokesOutput,
-  reservesData: ReservesOutput,
-  detailsData: ReserveDetailsOutput,
+  spokesData: AaveV4SpokesByChain,
+  reservesData: ReservesByChain,
 ): Promise<{
-  oracles: OracleOutput
-  sources: OracleSourcesOutput
+  oracles: OraclesByChain
+  sources: OracleSourcesByChain
 }> {
-  const forks = Object.keys(spokesData)
-  const oracleOutput: OracleOutput = {}
-  const sourcesOutput: OracleSourcesOutput = {}
+  const oracleOutput: OraclesByChain = {}
+  const sourcesOutput: OracleSourcesByChain = {}
 
-  for (const fork of forks) {
-    oracleOutput[fork] = {}
-    sourcesOutput[fork] = {}
-    const chainsData = spokesData[fork]
+  for (const chain of Object.keys(spokesData)) {
+    oracleOutput[chain] = []
+    sourcesOutput[chain] = []
 
-    for (const chain of Object.keys(chainsData)) {
-      const spokes = chainsData[chain]
-      oracleOutput[fork][chain] = []
-      sourcesOutput[fork][chain] = []
+    const spokes = Object.values(spokesData[chain])
+    console.log(
+      `[${chain}] Fetching oracle sources for ${spokes.length} spokes`,
+    )
 
-      console.log(
-        `[${fork}/${chain}] Fetching oracle sources for ${spokes.length} spokes`,
-      )
+    for (const spokeEntry of spokes) {
+      const oracleAddr = spokeEntry.oracle
+      const hasOracle =
+        !!oracleAddr &&
+        oracleAddr !== '' &&
+        oracleAddr !== '0x' &&
+        oracleAddr !== '0x0000000000000000000000000000000000000000'
 
-      for (const spokeEntry of spokes) {
-        const oracleAddr = spokeEntry.oracle
-        const hasOracle =
-          !!oracleAddr &&
-          oracleAddr !== '' &&
-          oracleAddr !== '0x' &&
-          oracleAddr !==
-            '0x0000000000000000000000000000000000000000'
+      if (!hasOracle) {
+        console.warn(
+          `  [${chain}] Spoke ${spokeEntry.spoke} (${spokeEntry.label}): oracle is "${oracleAddr}"`,
+        )
+      }
 
-        if (!hasOracle) {
-          console.warn(
-            `  [${fork}/${chain}] Spoke ${spokeEntry.spoke} (${spokeEntry.label}): oracle is "${oracleAddr}"`,
-          )
-        }
+      const reserveDetails =
+        reservesData[chain]?.[spokeEntry.spoke] ?? []
+      const reserveIds = reserveDetails.map((r) => r.reserveId)
 
-        const reserveIds: number[] =
-          reservesData[fork]?.[chain]?.[spokeEntry.spoke] ?? []
+      if (reserveIds.length === 0) continue
 
-        if (reserveIds.length === 0) continue
+      let oracleDecimals = 0
+      let sourceResults: any[] = []
 
-        const reserveDetails =
-          detailsData[fork]?.[chain]?.[spokeEntry.spoke] ?? []
+      if (hasOracle) {
+        const calls: any[] = [
+          {
+            address: oracleAddr,
+            name: V4FetchFunctions.decimals,
+            args: [],
+          },
+          ...reserveIds.map((rid) => ({
+            address: oracleAddr,
+            name: V4FetchFunctions.getReserveSource,
+            args: [rid],
+          })),
+        ]
 
-        let oracleDecimals = 0
-        let sourceResults: any[] = []
+        try {
+          const results = (await multicallRetryUniversal({
+            chain,
+            calls,
+            abi: AAVE_V4_ORACLE_ABI,
+            allowFailure: true,
+          })) as any[]
 
-        if (hasOracle) {
-          // Fetch oracle decimals + per-reserve sources
-          const calls: any[] = [
-            {
-              address: oracleAddr,
-              name: V4FetchFunctions.decimals,
-              args: [],
-            },
-            ...reserveIds.map((rid) => ({
+          oracleDecimals = normalizeOracleDecimals(results[0])
+          sourceResults = results.slice(1)
+
+          // Retry only multicall failure sentinels
+          const failedSourceIdx: number[] = []
+          for (let si = 0; si < sourceResults.length; si++) {
+            if (sourceResults[si] === '0x') failedSourceIdx.push(si)
+          }
+          if (failedSourceIdx.length > 0) {
+            const retryCalls = failedSourceIdx.map((si) => ({
               address: oracleAddr,
               name: V4FetchFunctions.getReserveSource,
-              args: [rid],
-            })),
-          ]
-
-          try {
-            const results = (await multicallRetryUniversal({
-              chain,
-              calls,
-              abi: AAVE_V4_ORACLE_ABI,
-              allowFailure: true,
-            })) as any[]
-
-            oracleDecimals = normalizeOracleDecimals(results[0])
-            sourceResults = results.slice(1)
-
-            // Retry only multicall failure sentinels (not on-chain zero address).
-            const failedSourceIdx: number[] = []
-            for (let si = 0; si < sourceResults.length; si++) {
-              if (sourceResults[si] === '0x') failedSourceIdx.push(si)
-            }
-            if (failedSourceIdx.length > 0) {
-              const retryCalls = failedSourceIdx.map((si) => ({
-                address: oracleAddr,
-                name: V4FetchFunctions.getReserveSource,
-                args: [reserveIds[si]],
-              }))
-              try {
-                const retryResults = (await multicallRetryUniversal({
-                  chain,
-                  calls: retryCalls,
-                  abi: AAVE_V4_ORACLE_ABI,
-                  allowFailure: true,
-                })) as any[]
-                for (let j = 0; j < failedSourceIdx.length; j++) {
-                  sourceResults[failedSourceIdx[j]] = retryResults[j]
-                }
-              } catch (retryErr: any) {
-                console.error(
-                  `  Retry getReserveSource for spoke ${spokeEntry.spoke}: ${retryErr?.message ?? retryErr}`,
-                )
+              args: [reserveIds[si]],
+            }))
+            try {
+              const retryResults = (await multicallRetryUniversal({
+                chain,
+                calls: retryCalls,
+                abi: AAVE_V4_ORACLE_ABI,
+                allowFailure: true,
+              })) as any[]
+              for (let j = 0; j < failedSourceIdx.length; j++) {
+                sourceResults[failedSourceIdx[j]] = retryResults[j]
               }
-              await sleep(250)
+            } catch (retryErr: any) {
+              console.error(
+                `  Retry getReserveSource for spoke ${spokeEntry.spoke}: ${retryErr?.message ?? retryErr}`,
+              )
             }
-          } catch (e: any) {
-            console.error(
-              `  Error fetching oracle for spoke ${spokeEntry.spoke}: ${e?.message ?? e}`,
-            )
+            await sleep(250)
           }
-
-          await sleep(250)
-        }
-
-        for (let i = 0; i < reserveIds.length; i++) {
-          const rid = reserveIds[i]
-          const detail = reserveDetails.find(
-            (d) => d.reserveId === rid,
+        } catch (e: any) {
+          console.error(
+            `  Error fetching oracle for spoke ${spokeEntry.spoke}: ${e?.message ?? e}`,
           )
-          const underlying = detail?.underlying ?? ''
-          const source = hasOracle
-            ? normalizeSourceAddress(sourceResults[i])
-            : ''
-
-          oracleOutput[fork][chain].push({
-            underlying,
-            spoke: spokeEntry.spoke,
-            reserveId: rid,
-            oracle: hasOracle ? oracleAddr : '0x',
-          })
-
-          sourcesOutput[fork][chain].push({
-            underlying,
-            spoke: spokeEntry.spoke,
-            reserveId: rid,
-            oracle: hasOracle ? oracleAddr : '0x',
-            decimals: oracleDecimals,
-            source,
-          })
         }
+
+        await sleep(250)
+      }
+
+      for (let i = 0; i < reserveIds.length; i++) {
+        const rid = reserveIds[i]
+        const detail = reserveDetails.find((d) => d.reserveId === rid)
+        const underlying = detail?.underlying ?? ''
+        const source = hasOracle
+          ? normalizeSourceAddress(sourceResults[i])
+          : ''
+
+        oracleOutput[chain].push({
+          underlying,
+          spoke: spokeEntry.spoke,
+          reserveId: rid,
+          oracle: hasOracle ? oracleAddr : '0x',
+        })
+
+        sourcesOutput[chain].push({
+          underlying,
+          spoke: spokeEntry.spoke,
+          reserveId: rid,
+          oracle: hasOracle ? oracleAddr : '0x',
+          decimals: oracleDecimals,
+          source,
+        })
       }
     }
   }
-
-  console.log('  Written: aave-v4-oracles, aave-v4-oracle-sources')
 
   return { oracles: oracleOutput, sources: sourcesOutput }
 }

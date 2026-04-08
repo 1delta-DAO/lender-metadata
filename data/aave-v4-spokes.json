@@ -1,296 +1,728 @@
 {
-  "AAVE_V4_CORE": {
-    "1": [
-      {
-        "spoke": "0x",
-        "oracle": "0x",
-        "label": "Spoke 0x..0x",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x0a65197b16c5969f92672051c9c9c0c75b369135",
-        "oracle": "0x",
-        "label": "Spoke 0x0a65..9135",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x2226749630775ee20230ad65214fb339087ef30d",
-        "oracle": "0x",
-        "label": "Spoke 0x2226..f30d",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x3131fe68c4722e726fe6b2819ed68e514395b9a4",
-        "oracle": "0x37c316996c714bf906743071e04e62220b3271ac",
-        "label": "Spoke 0x3131..b9a4",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x33b41b74366f55327d959fff6d6b6fbc2853dbb1",
-        "oracle": "0x",
-        "label": "Spoke 0x33b4..dbb1",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x45a04ca1a5cbeea4b44356c75edd29b33eb2527a",
-        "oracle": "0x",
-        "label": "Spoke 0x45a0..527a",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x4e712562fcb5337011398b6c630f55b60641cd5e",
-        "oracle": "0x",
-        "label": "Spoke 0x4e71..cd5e",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x531e90a2376902de8915789fcc1075e3b0c153e7",
-        "oracle": "0x",
-        "label": "Spoke 0x531e..53e7",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x559cec2c840d9dbb18936afc5e5341d78bfc7cbe",
-        "oracle": "0x",
-        "label": "Spoke 0x559c..7cbe",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x58c14a5e061c9bc6926c5b853445290f296c2f7b",
-        "oracle": "0x",
-        "label": "Spoke 0x58c1..2f7b",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x5ec44a70f309854fe04d495cfe1b5da63dd1cc73",
-        "oracle": "0x",
-        "label": "Spoke 0x5ec4..cc73",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x65407b940966954b23dfa3caa5c0702bb42984dc",
-        "oracle": "0x0083421fd178749af2201dda5a7c3feb5790b80c",
-        "label": "Spoke 0x6540..84dc",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x6d9e2cdd61caf69af99b275704b6e272c41c6718",
-        "oracle": "0x",
-        "label": "Spoke 0x6d9e..6718",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x7320cf22ac095ba2a2e0a652f77efb836c2e751b",
-        "oracle": "0x",
-        "label": "Spoke 0x7320..751b",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x7961f140b570490849db878ae222570ea838799d",
-        "oracle": "0x",
-        "label": "Spoke 0x7961..799d",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x7ec68b5695e803e98a21a9a05d744f28b0a7753d",
-        "oracle": "0x198cac7f54ffc7d709ac0fec4b6454ce73e21d3d",
-        "label": "Spoke 0x7ec6..753d",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x82a9cc4656784e55ef2e78f704028b5e1bfc1732",
-        "oracle": "0x",
-        "label": "Spoke 0x82a9..1732",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x94e7a5dcbe816e498b89ab752661904e2f56c485",
-        "oracle": "0x99b2b6cea9c3d2fd8f4d90f86741c44b212a6127",
-        "label": "Spoke 0x94e7..c485",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x973a023a77420ba610f06b3858ad991df6d85a08",
-        "oracle": "0xda1266a7b8620819dae3f8bd6b546da36e505bb8",
-        "label": "Spoke 0x973a..5a08",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xac2435e3c25e8246870d33ce0a26988a46d5db68",
-        "oracle": "0x",
-        "label": "Spoke 0xac24..db68",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xb9b0b8616f6bf6841972a52058132be08d723155",
-        "oracle": "0x",
-        "label": "Spoke 0xb9b0..3155",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xba1b3d55d249692b669a164024a838309b7508af",
-        "oracle": "0xc390dbe9fc00d6db73c52d375642b47008c33c90",
-        "label": "Spoke 0xba1b..08af",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xbf10bdfe177de0336afd7fccf80a904e15386219",
-        "oracle": "0xd8b153faaa8f2b1bc774916fed333a4f3de48792",
-        "label": "Spoke 0xbf10..6219",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xc8a125ae4275a78aadc53b46ca10566bc9b249e0",
-        "oracle": "0x",
-        "label": "Spoke 0xc8a1..49e0",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xcb0e7da9c635628f6d4827355aeca75ab8d3560f",
-        "oracle": "0x",
-        "label": "Spoke 0xcb0e..560f",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xd8b93635b8c6d0ff98cbe90b5988e3f2d1cd9da1",
-        "oracle": "0xb3ce6e7b6d389a66ea4a3777ba07219d00fb3a9d",
-        "label": "Spoke 0xd8b9..9da1",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xe1900480ac69f0b296841cd01cc37546d92f35cd",
-        "oracle": "0x664d73b6c3591333fd79510f7ce9ef81228824f5",
-        "label": "Spoke 0xe190..35cd",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xe69c2045095c8ab3e2a7d77de2328fae5baf797c",
-        "oracle": "0x",
-        "label": "Spoke 0xe69c..797c",
-        "dynamicConfigKeyMax": 0
-      }
-    ]
-  },
-  "AAVE_V4_PLUS": {
-    "1": [
-      {
-        "spoke": "0x24f8c062e1e0451736c1d6e023510da262a41df4",
-        "oracle": "0x",
-        "label": "Spoke 0x24f8..1df4",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x502cd81da6a8f1785eb2eee72713b7388e16a854",
-        "oracle": "0x",
-        "label": "Spoke 0x502c..a854",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x58131e79531cab1d52301228d1f7b842f26b9649",
-        "oracle": "0x9b91a0943cadf554742e8fb358b1cc4ae4f85f01",
-        "label": "Spoke 0x5813..9649",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x80835eb50694ee0e519743f67e5401e6fd300006",
-        "oracle": "0x",
-        "label": "Spoke 0x8083..0006",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x90774889c22d2f2adf44da1f04c7c95542590df4",
-        "oracle": "0x",
-        "label": "Spoke 0x9077..0df4",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xa54382db40ec602c0a173a08f9e86ed40f9d4d10",
-        "oracle": "0x",
-        "label": "Spoke 0xa543..4d10",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xb9b0b8616f6bf6841972a52058132be08d723155",
-        "oracle": "0x",
-        "label": "Spoke 0xb9b0..3155",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xba1b3d55d249692b669a164024a838309b7508af",
-        "oracle": "0xc390dbe9fc00d6db73c52d375642b47008c33c90",
-        "label": "Spoke 0xba1b..08af",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xc94bdd83d2c7655c280655d60954e79e88d4f949",
-        "oracle": "0x",
-        "label": "Spoke 0xc94b..f949",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xdd2eb78bf9e6ac5068b95ad2d451e8c9af10ac81",
-        "oracle": "0x",
-        "label": "Spoke 0xdd2e..ac81",
-        "dynamicConfigKeyMax": 0
-      }
-    ]
-  },
-  "AAVE_V4_PRIME": {
-    "1": [
-      {
-        "spoke": "0x2087513383330b961a3753b47627bbf149f31c70",
-        "oracle": "0x",
-        "label": "Spoke 0x2087..1c70",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x46c588dd8453ac259c1f6a54b4c9a93c2ac3762d",
-        "oracle": "0x",
-        "label": "Spoke 0x46c5..762d",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x486415fb1f8b062c89ed548f871cf64304aacb31",
-        "oracle": "0x",
-        "label": "Spoke 0x4864..cb31",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x5ae3d87de89ca6ce501e8317887f71eabed69e18",
-        "oracle": "0x",
-        "label": "Spoke 0x5ae3..9e18",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x900fd46d565d1ac8995928c0179052ec02a6d0e1",
-        "oracle": "0x",
-        "label": "Spoke 0x900f..d0e1",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0x973a023a77420ba610f06b3858ad991df6d85a08",
-        "oracle": "0xda1266a7b8620819dae3f8bd6b546da36e505bb8",
-        "label": "Spoke 0x973a..5a08",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xb9b0b8616f6bf6841972a52058132be08d723155",
-        "oracle": "0x",
-        "label": "Spoke 0xb9b0..3155",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xd38098faf52d8e915eded84fbf30f81c17906938",
-        "oracle": "0x",
-        "label": "Spoke 0xd380..6938",
-        "dynamicConfigKeyMax": 0
-      },
-      {
-        "spoke": "0xfcd3d3c69cd032de0cc78fe529b7447d2fe7f666",
-        "oracle": "0x",
-        "label": "Spoke 0xfcd3..f666",
-        "dynamicConfigKeyMax": 0
-      }
-    ]
+  "1": {
+    "0x0a65197b16c5969f92672051c9c9c0c75b369135": {
+      "spoke": "0x0a65197b16c5969f92672051c9c9c0c75b369135",
+      "oracle": "0x",
+      "label": "Spoke 0x0a65..9135",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x2087513383330b961a3753b47627bbf149f31c70": {
+      "spoke": "0x2087513383330b961a3753b47627bbf149f31c70",
+      "oracle": "0x",
+      "label": "Spoke 0x2087..1c70",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PRIME",
+      "reserves": []
+    },
+    "0x2226749630775ee20230ad65214fb339087ef30d": {
+      "spoke": "0x2226749630775ee20230ad65214fb339087ef30d",
+      "oracle": "0x",
+      "label": "Spoke 0x2226..f30d",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x24f8c062e1e0451736c1d6e023510da262a41df4": {
+      "spoke": "0x24f8c062e1e0451736c1d6e023510da262a41df4",
+      "oracle": "0x",
+      "label": "Spoke 0x24f8..1df4",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PLUS",
+      "reserves": []
+    },
+    "0x3131fe68c4722e726fe6b2819ed68e514395b9a4": {
+      "spoke": "0x3131fe68c4722e726fe6b2819ed68e514395b9a4",
+      "oracle": "0x37c316996c714bf906743071e04e62220b3271ac",
+      "label": "Kelp",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 3,
+          "underlying": "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 0,
+          "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        }
+      ]
+    },
+    "0x33b41b74366f55327d959fff6d6b6fbc2853dbb1": {
+      "spoke": "0x33b41b74366f55327d959fff6d6b6fbc2853dbb1",
+      "oracle": "0x",
+      "label": "Spoke 0x33b4..dbb1",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x45a04ca1a5cbeea4b44356c75edd29b33eb2527a": {
+      "spoke": "0x45a04ca1a5cbeea4b44356c75edd29b33eb2527a",
+      "oracle": "0x",
+      "label": "Spoke 0x45a0..527a",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x46c588dd8453ac259c1f6a54b4c9a93c2ac3762d": {
+      "spoke": "0x46c588dd8453ac259c1f6a54b4c9a93c2ac3762d",
+      "oracle": "0x",
+      "label": "Spoke 0x46c5..762d",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PRIME",
+      "reserves": []
+    },
+    "0x486415fb1f8b062c89ed548f871cf64304aacb31": {
+      "spoke": "0x486415fb1f8b062c89ed548f871cf64304aacb31",
+      "oracle": "0x",
+      "label": "Spoke 0x4864..cb31",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PRIME",
+      "reserves": []
+    },
+    "0x4e712562fcb5337011398b6c630f55b60641cd5e": {
+      "spoke": "0x4e712562fcb5337011398b6c630f55b60641cd5e",
+      "oracle": "0x",
+      "label": "Spoke 0x4e71..cd5e",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x502cd81da6a8f1785eb2eee72713b7388e16a854": {
+      "spoke": "0x502cd81da6a8f1785eb2eee72713b7388e16a854",
+      "oracle": "0x",
+      "label": "Spoke 0x502c..a854",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PLUS",
+      "reserves": []
+    },
+    "0x531e90a2376902de8915789fcc1075e3b0c153e7": {
+      "spoke": "0x531e90a2376902de8915789fcc1075e3b0c153e7",
+      "oracle": "0x",
+      "label": "Spoke 0x531e..53e7",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x559cec2c840d9dbb18936afc5e5341d78bfc7cbe": {
+      "spoke": "0x559cec2c840d9dbb18936afc5e5341d78bfc7cbe",
+      "oracle": "0x",
+      "label": "Spoke 0x559c..7cbe",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x58131e79531cab1d52301228d1f7b842f26b9649": {
+      "spoke": "0x58131e79531cab1d52301228d1f7b842f26b9649",
+      "oracle": "0x9b91a0943cadf554742e8fb358b1cc4ae4f85f01",
+      "label": "Ethena Correlated",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PLUS",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 1,
+          "underlying": "0xaebf0bb9f57e89260d57f31af34eb58657d96ce0",
+          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 0,
+          "underlying": "0x3de0ff76e8b528c092d47b9dac775931cef80f49",
+          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 2,
+          "underlying": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a"
+        },
+        {
+          "reserveId": 3,
+          "assetId": 3,
+          "underlying": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+          "hub": "0x06002e9c4412cb7814a791ea3666d905871e536a"
+        }
+      ]
+    },
+    "0x58c14a5e061c9bc6926c5b853445290f296c2f7b": {
+      "spoke": "0x58c14a5e061c9bc6926c5b853445290f296c2f7b",
+      "oracle": "0x",
+      "label": "Spoke 0x58c1..2f7b",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x5ae3d87de89ca6ce501e8317887f71eabed69e18": {
+      "spoke": "0x5ae3d87de89ca6ce501e8317887f71eabed69e18",
+      "oracle": "0x",
+      "label": "Spoke 0x5ae3..9e18",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PRIME",
+      "reserves": []
+    },
+    "0x5ec44a70f309854fe04d495cfe1b5da63dd1cc73": {
+      "spoke": "0x5ec44a70f309854fe04d495cfe1b5da63dd1cc73",
+      "oracle": "0x",
+      "label": "Spoke 0x5ec4..cc73",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x65407b940966954b23dfa3caa5c0702bb42984dc": {
+      "spoke": "0x65407b940966954b23dfa3caa5c0702bb42984dc",
+      "oracle": "0x0083421fd178749af2201dda5a7c3feb5790b80c",
+      "label": "Gold",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 14,
+          "underlying": "0x68749665ff8d2d112fa859aa293f07a622782f38",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 5,
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 7,
+          "underlying": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 3,
+          "assetId": 8,
+          "underlying": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 4,
+          "assetId": 9,
+          "underlying": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 5,
+          "assetId": 10,
+          "underlying": "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 6,
+          "assetId": 6,
+          "underlying": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 7,
+          "assetId": 4,
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        }
+      ]
+    },
+    "0x6d9e2cdd61caf69af99b275704b6e272c41c6718": {
+      "spoke": "0x6d9e2cdd61caf69af99b275704b6e272c41c6718",
+      "oracle": "0x",
+      "label": "Spoke 0x6d9e..6718",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x7320cf22ac095ba2a2e0a652f77efb836c2e751b": {
+      "spoke": "0x7320cf22ac095ba2a2e0a652f77efb836c2e751b",
+      "oracle": "0x",
+      "label": "Spoke 0x7320..751b",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x7961f140b570490849db878ae222570ea838799d": {
+      "spoke": "0x7961f140b570490849db878ae222570ea838799d",
+      "oracle": "0x",
+      "label": "Spoke 0x7961..799d",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x7ec68b5695e803e98a21a9a05d744f28b0a7753d": {
+      "spoke": "0x7ec68b5695e803e98a21a9a05d744f28b0a7753d",
+      "oracle": "0x198cac7f54ffc7d709ac0fec4b6454ce73e21d3d",
+      "label": "Lombard",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 13,
+          "underlying": "0x8236a87084f8b84306f72007f36f2618a5634494",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 11,
+          "underlying": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 12,
+          "underlying": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        }
+      ]
+    },
+    "0x80835eb50694ee0e519743f67e5401e6fd300006": {
+      "spoke": "0x80835eb50694ee0e519743f67e5401e6fd300006",
+      "oracle": "0x",
+      "label": "Spoke 0x8083..0006",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PLUS",
+      "reserves": []
+    },
+    "0x82a9cc4656784e55ef2e78f704028b5e1bfc1732": {
+      "spoke": "0x82a9cc4656784e55ef2e78f704028b5e1bfc1732",
+      "oracle": "0x",
+      "label": "Spoke 0x82a9..1732",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x900fd46d565d1ac8995928c0179052ec02a6d0e1": {
+      "spoke": "0x900fd46d565d1ac8995928c0179052ec02a6d0e1",
+      "oracle": "0x",
+      "label": "Spoke 0x900f..d0e1",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PRIME",
+      "reserves": []
+    },
+    "0x90774889c22d2f2adf44da1f04c7c95542590df4": {
+      "spoke": "0x90774889c22d2f2adf44da1f04c7c95542590df4",
+      "oracle": "0x",
+      "label": "Spoke 0x9077..0df4",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PLUS",
+      "reserves": []
+    },
+    "0x94e7a5dcbe816e498b89ab752661904e2f56c485": {
+      "spoke": "0x94e7a5dcbe816e498b89ab752661904e2f56c485",
+      "oracle": "0x99b2b6cea9c3d2fd8f4d90f86741c44b212a6127",
+      "label": "Main",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 0,
+          "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 1,
+          "underlying": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 2,
+          "underlying": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 3,
+          "assetId": 11,
+          "underlying": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 4,
+          "assetId": 12,
+          "underlying": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 5,
+          "assetId": 15,
+          "underlying": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 6,
+          "assetId": 16,
+          "underlying": "0x514910771af9ca656af840dff83e8264ecf986ca",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 7,
+          "assetId": 5,
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 8,
+          "assetId": 4,
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 9,
+          "assetId": 10,
+          "underlying": "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 10,
+          "assetId": 7,
+          "underlying": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 11,
+          "assetId": 8,
+          "underlying": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 12,
+          "assetId": 9,
+          "underlying": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 13,
+          "assetId": 6,
+          "underlying": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        }
+      ]
+    },
+    "0x973a023a77420ba610f06b3858ad991df6d85a08": {
+      "spoke": "0x973a023a77420ba610f06b3858ad991df6d85a08",
+      "oracle": "0xda1266a7b8620819dae3f8bd6b546da36e505bb8",
+      "label": "Bluechip",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 0,
+          "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 1,
+          "underlying": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 2,
+          "underlying": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 3,
+          "assetId": 3,
+          "underlying": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 4,
+          "assetId": 4,
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 5,
+          "assetId": 5,
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 6,
+          "assetId": 6,
+          "underlying": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 7,
+          "assetId": 5,
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 8,
+          "assetId": 9,
+          "underlying": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 9,
+          "assetId": 10,
+          "underlying": "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 10,
+          "assetId": 4,
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        }
+      ]
+    },
+    "0xa54382db40ec602c0a173a08f9e86ed40f9d4d10": {
+      "spoke": "0xa54382db40ec602c0a173a08f9e86ed40f9d4d10",
+      "oracle": "0x",
+      "label": "Spoke 0xa543..4d10",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PLUS",
+      "reserves": []
+    },
+    "0xac2435e3c25e8246870d33ce0a26988a46d5db68": {
+      "spoke": "0xac2435e3c25e8246870d33ce0a26988a46d5db68",
+      "oracle": "0x",
+      "label": "Spoke 0xac24..db68",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0xb9b0b8616f6bf6841972a52058132be08d723155": {
+      "spoke": "0xb9b0b8616f6bf6841972a52058132be08d723155",
+      "oracle": "0x",
+      "label": "Spoke 0xb9b0..3155",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0xba1b3d55d249692b669a164024a838309b7508af": {
+      "spoke": "0xba1b3d55d249692b669a164024a838309b7508af",
+      "oracle": "0xc390dbe9fc00d6db73c52d375642b47008c33c90",
+      "label": "Ethena Ecosystem",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 1,
+          "underlying": "0xaebf0bb9f57e89260d57f31af34eb58657d96ce0",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 0,
+          "underlying": "0x3de0ff76e8b528c092d47b9dac775931cef80f49",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 2,
+          "underlying": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 3,
+          "assetId": 3,
+          "underlying": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 4,
+          "assetId": 4,
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 5,
+          "assetId": 6,
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 6,
+          "assetId": 5,
+          "underlying": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 7,
+          "assetId": 5,
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 8,
+          "assetId": 9,
+          "underlying": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 9,
+          "assetId": 4,
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        }
+      ]
+    },
+    "0xbf10bdfe177de0336afd7fccf80a904e15386219": {
+      "spoke": "0xbf10bdfe177de0336afd7fccf80a904e15386219",
+      "oracle": "0xd8b153faaa8f2b1bc774916fed333a4f3de48792",
+      "label": "Etherfi",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 2,
+          "underlying": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 0,
+          "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        }
+      ]
+    },
+    "0xc8a125ae4275a78aadc53b46ca10566bc9b249e0": {
+      "spoke": "0xc8a125ae4275a78aadc53b46ca10566bc9b249e0",
+      "oracle": "0x",
+      "label": "Spoke 0xc8a1..49e0",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0xc94bdd83d2c7655c280655d60954e79e88d4f949": {
+      "spoke": "0xc94bdd83d2c7655c280655d60954e79e88d4f949",
+      "oracle": "0x",
+      "label": "Spoke 0xc94b..f949",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PLUS",
+      "reserves": []
+    },
+    "0xcb0e7da9c635628f6d4827355aeca75ab8d3560f": {
+      "spoke": "0xcb0e7da9c635628f6d4827355aeca75ab8d3560f",
+      "oracle": "0x",
+      "label": "Spoke 0xcb0e..560f",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0xd38098faf52d8e915eded84fbf30f81c17906938": {
+      "spoke": "0xd38098faf52d8e915eded84fbf30f81c17906938",
+      "oracle": "0x",
+      "label": "Spoke 0xd380..6938",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PRIME",
+      "reserves": []
+    },
+    "0xd8b93635b8c6d0ff98cbe90b5988e3f2d1cd9da1": {
+      "spoke": "0xd8b93635b8c6d0ff98cbe90b5988e3f2d1cd9da1",
+      "oracle": "0xb3ce6e7b6d389a66ea4a3777ba07219d00fb3a9d",
+      "label": "Forex",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 10,
+          "underlying": "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 5,
+          "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 4,
+          "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 3,
+          "assetId": 7,
+          "underlying": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 4,
+          "assetId": 8,
+          "underlying": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 5,
+          "assetId": 9,
+          "underlying": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 6,
+          "assetId": 6,
+          "underlying": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        }
+      ]
+    },
+    "0xdd2eb78bf9e6ac5068b95ad2d451e8c9af10ac81": {
+      "spoke": "0xdd2eb78bf9e6ac5068b95ad2d451e8c9af10ac81",
+      "oracle": "0x",
+      "label": "Spoke 0xdd2e..ac81",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PLUS",
+      "reserves": []
+    },
+    "0xe1900480ac69f0b296841cd01cc37546d92f35cd": {
+      "spoke": "0xe1900480ac69f0b296841cd01cc37546d92f35cd",
+      "oracle": "0x664d73b6c3591333fd79510f7ce9ef81228824f5",
+      "label": "Lido",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 1,
+          "underlying": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 0,
+          "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        }
+      ]
+    },
+    "0xe69c2045095c8ab3e2a7d77de2328fae5baf797c": {
+      "spoke": "0xe69c2045095c8ab3e2a7d77de2328fae5baf797c",
+      "oracle": "0x",
+      "label": "Spoke 0xe69c..797c",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0xfcd3d3c69cd032de0cc78fe529b7447d2fe7f666": {
+      "spoke": "0xfcd3d3c69cd032de0cc78fe529b7447d2fe7f666",
+      "oracle": "0x",
+      "label": "Spoke 0xfcd3..f666",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_PRIME",
+      "reserves": []
+    }
   }
 }
