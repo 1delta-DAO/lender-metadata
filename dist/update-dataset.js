@@ -8,6 +8,7 @@ import { CompoundV2Updater } from "./fetch/compound-v2.js";
 import { EulerUpdater } from "./fetch/euler.js";
 import { AaveV4Updater } from "./fetch/aave-v4.js";
 import { AaveV4PeripheralsUpdater } from "./fetch/aave-v4-peripherals.js";
+import { SiloV2Updater } from "./fetch/silo-v2.js";
 // ============================================================================
 // Usage Examples & Main Function
 // ============================================================================
@@ -23,6 +24,7 @@ async function main() {
     manager.registerUpdater(new EulerUpdater());
     manager.registerUpdater(new AaveV4Updater());
     manager.registerUpdater(new AaveV4PeripheralsUpdater());
+    manager.registerUpdater(new SiloV2Updater());
     // You can now update from specific sources:
     // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });
     await manager.updateAll();

@@ -1,7 +1,3 @@
-/**
- * Aave V4 peripheral addresses from the Aave Kit GraphQL API
- * (same backend as @aave/client / aave-v4-sdk).
- */
 import { sleep } from "../../utils.js";
 const DEFAULT_GRAPHQL_URL = "https://api.aave.com/graphql";
 /** Stable key ordering for JSON diffs */

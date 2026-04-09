@@ -1,24 +1,15 @@
 {
-  "version": "2026-04-01T10-19-41-025Z",
-  "generatedAt": "2026-04-01T10:19:41.025Z",
+  "version": "2026-04-09T22-31-47-009Z",
+  "generatedAt": "2026-04-09T22:31:47.009Z",
   "updatedFiles": [
-    "./data/aave-v4-oracle-sources.json"
+    "./data/silo-v2-markets.json"
   ],
   "results": [
     {
-      "targetFile": "./data/aave-v4-spokes.json"
+      "targetFile": "./config/silo-v2-peripherals.json"
     },
     {
-      "targetFile": "./data/aave-v4-reserves.json"
-    },
-    {
-      "targetFile": "./data/aave-v4-reserve-details.json"
-    },
-    {
-      "targetFile": "./data/aave-v4-oracles.json"
-    },
-    {
-      "targetFile": "./data/aave-v4-oracle-sources.json"
+      "targetFile": "./data/silo-v2-markets.json"
     }
   ]
 }
