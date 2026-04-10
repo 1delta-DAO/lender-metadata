@@ -19,7 +19,7 @@
     "0x94e7a5dcbe816e498b89ab752661904e2f56c485": {
       "spoke": "0x94e7a5dcbe816e498b89ab752661904e2f56c485",
       "oracle": "0x99b2b6cea9c3d2fd8f4d90f86741c44b212a6127",
-      "label": "Spoke 0x94e7..c485",
+      "label": "Main",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
@@ -112,7 +112,7 @@
     "0xe1900480ac69f0b296841cd01cc37546d92f35cd": {
       "spoke": "0xe1900480ac69f0b296841cd01cc37546d92f35cd",
       "oracle": "0x664d73b6c3591333fd79510f7ce9ef81228824f5",
-      "label": "Spoke 0xe190..35cd",
+      "label": "Lido",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
@@ -133,7 +133,7 @@
     "0xbf10bdfe177de0336afd7fccf80a904e15386219": {
       "spoke": "0xbf10bdfe177de0336afd7fccf80a904e15386219",
       "oracle": "0xd8b153faaa8f2b1bc774916fed333a4f3de48792",
-      "label": "Spoke 0xbf10..6219",
+      "label": "Etherfi",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
@@ -154,7 +154,7 @@
     "0x3131fe68c4722e726fe6b2819ed68e514395b9a4": {
       "spoke": "0x3131fe68c4722e726fe6b2819ed68e514395b9a4",
       "oracle": "0x37c316996c714bf906743071e04e62220b3271ac",
-      "label": "Spoke 0x3131..b9a4",
+      "label": "Kelp",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
@@ -207,7 +207,7 @@
     "0x65407b940966954b23dfa3caa5c0702bb42984dc": {
       "spoke": "0x65407b940966954b23dfa3caa5c0702bb42984dc",
       "oracle": "0x0083421fd178749af2201dda5a7c3feb5790b80c",
-      "label": "Spoke 0x6540..84dc",
+      "label": "Gold",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
@@ -264,7 +264,7 @@
     "0xd8b93635b8c6d0ff98cbe90b5988e3f2d1cd9da1": {
       "spoke": "0xd8b93635b8c6d0ff98cbe90b5988e3f2d1cd9da1",
       "oracle": "0xb3ce6e7b6d389a66ea4a3777ba07219d00fb3a9d",
-      "label": "Spoke 0xd8b9..9da1",
+      "label": "Forex",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
@@ -315,7 +315,7 @@
     "0x973a023a77420ba610f06b3858ad991df6d85a08": {
       "spoke": "0x973a023a77420ba610f06b3858ad991df6d85a08",
       "oracle": "0xda1266a7b8620819dae3f8bd6b546da36e505bb8",
-      "label": "Spoke 0x973a..5a08",
+      "label": "Bluechip",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
@@ -390,7 +390,7 @@
     "0xba1b3d55d249692b669a164024a838309b7508af": {
       "spoke": "0xba1b3d55d249692b669a164024a838309b7508af",
       "oracle": "0xc390dbe9fc00d6db73c52d375642b47008c33c90",
-      "label": "Spoke 0xba1b..08af",
+      "label": "Ethena Ecosystem",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
@@ -515,7 +515,7 @@
     "0x7ec68b5695e803e98a21a9a05d744f28b0a7753d": {
       "spoke": "0x7ec68b5695e803e98a21a9a05d744f28b0a7753d",
       "oracle": "0x198cac7f54ffc7d709ac0fec4b6454ce73e21d3d",
-      "label": "Spoke 0x7ec6..753d",
+      "label": "Lombard",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
@@ -590,7 +590,7 @@
     "0x58131e79531cab1d52301228d1f7b842f26b9649": {
       "spoke": "0x58131e79531cab1d52301228d1f7b842f26b9649",
       "oracle": "0x9b91a0943cadf554742e8fb358b1cc4ae4f85f01",
-      "label": "Spoke 0x5813..9649",
+      "label": "Ethena Correlated",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_PLUS",
       "reserves": [

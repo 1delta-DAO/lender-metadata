@@ -75,7 +75,7 @@ export async function fetchAaveV4Configs() {
                     chain,
                     calls: spokeCalls,
                     abi: AAVE_V4_HUB_ABI,
-                    allowFailure: true,
+                    allowFailure: false,
                 }));
             }
             catch (e) {
@@ -105,7 +105,7 @@ export async function fetchAaveV4Configs() {
                     chain,
                     calls: spokeAddrCalls,
                     abi: AAVE_V4_HUB_ABI,
-                    allowFailure: true,
+                    allowFailure: false,
                 }));
             }
             catch (e) {
@@ -139,7 +139,7 @@ export async function fetchAaveV4Configs() {
                         chain,
                         calls: oracleCalls,
                         abi: AAVE_V4_SPOKE_ABI,
-                        allowFailure: true,
+                        allowFailure: false,
                     }));
                 }
                 catch (e) {

@@ -2,6 +2,7 @@ import { mergeData } from "../utils.js";
 import { fetchAaveV4Configs, } from "./aave/fetchV4Configs.js";
 import { fetchAaveV4Reserves, } from "./aave/fetchV4Reserves.js";
 import { fetchAaveV4Oracles } from "./aave/fetchV4Oracles.js";
+import { readJsonFile } from "./utils/index.js";
 const ZERO_ADDR = "0x0000000000000000000000000000000000000000";
 function isValidOracle(oracle) {
     return (!!oracle && oracle !== "" && oracle !== "0x" && oracle !== ZERO_ADDR);
@@ -140,6 +141,7 @@ const oracleSourcesFile = "./data/aave-v4-oracle-sources.json";
  * consolidated on-disk shape (reserves nested inside each spoke entry).
  */
 function buildSpokesJson(configs, reservesByChain, maxKeysByChain) {
+    const peripherals = readJsonFile("./config/aave-v4-peripherals.json");
     const out = {};
     for (const chain of Object.keys(configs)) {
         out[chain] = {};
@@ -165,10 +167,11 @@ function buildSpokesJson(configs, reservesByChain, maxKeysByChain) {
                 hub: d.hub,
             }))
                 .sort((a, b) => a.reserveId - b.reserveId);
+            const spokeName = peripherals[chain]?.perSpoke?.[spoke]?.spokeName;
             out[chain][spoke] = {
                 spoke,
                 oracle: cfg.oracle,
-                label: cfg.label,
+                label: spokeName ?? cfg.label,
                 dynamicConfigKeyMax: maxKeysByChain[chain]?.[spoke] ?? 0,
                 baseHubAttribution: cfg.baseHubAttribution,
                 reserves,

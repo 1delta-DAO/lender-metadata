@@ -10,6 +10,7 @@ import {
   type AaveV4ReserveDetail,
 } from "./aave/fetchV4Reserves.js";
 import { fetchAaveV4Oracles } from "./aave/fetchV4Oracles.js";
+import { readJsonFile } from "./utils/index.js";
 
 const ZERO_ADDR = "0x0000000000000000000000000000000000000000";
 
@@ -222,6 +223,11 @@ function buildSpokesJson(
   reservesByChain: { [chainId: string]: { [spoke: string]: AaveV4ReserveDetail[] } },
   maxKeysByChain: { [chainId: string]: { [spoke: string]: number } },
 ): SpokesJson {
+  const peripherals = readJsonFile("./config/aave-v4-peripherals.json") as Record<
+    string,
+    { perSpoke?: Record<string, { spokeName?: string }> }
+  >;
+
   const out: SpokesJson = {};
   for (const chain of Object.keys(configs)) {
     out[chain] = {};
@@ -250,10 +256,11 @@ function buildSpokesJson(
         }))
         .sort((a, b) => a.reserveId - b.reserveId);
 
+      const spokeName = peripherals[chain]?.perSpoke?.[spoke]?.spokeName;
       out[chain][spoke] = {
         spoke,
         oracle: cfg.oracle,
-        label: cfg.label,
+        label: spokeName ?? cfg.label,
         dynamicConfigKeyMax: maxKeysByChain[chain]?.[spoke] ?? 0,
         baseHubAttribution: cfg.baseHubAttribution,
         reserves,

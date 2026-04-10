@@ -62,7 +62,7 @@ export async function fetchAaveV4Reserves(spokesData) {
                 chain,
                 calls: countCalls,
                 abi: AAVE_V4_SPOKE_ABI,
-                allowFailure: true,
+                allowFailure: false,
             }));
         }
         catch (e) {
@@ -101,7 +101,7 @@ export async function fetchAaveV4Reserves(spokesData) {
                 chain,
                 calls: reserveCalls,
                 abi: AAVE_V4_SPOKE_ABI,
-                allowFailure: true,
+                allowFailure: false,
             }));
         }
         catch (e) {
@@ -183,7 +183,7 @@ export async function fetchAaveV4Reserves(spokesData) {
                     chain,
                     calls: retryCalls,
                     abi: AAVE_V4_SPOKE_ABI,
-                    allowFailure: true,
+                    allowFailure: false,
                 }));
             }
             catch (e) {
@@ -219,7 +219,7 @@ export async function fetchAaveV4Reserves(spokesData) {
                     chain,
                     calls: dynCalls,
                     abi: AAVE_V4_SPOKE_ABI,
-                    allowFailure: true,
+                    allowFailure: false,
                 }));
                 for (let i = 0; i < dynMeta.length; i++) {
                     const dm = dynMeta[i];

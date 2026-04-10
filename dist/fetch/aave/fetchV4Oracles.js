@@ -73,7 +73,7 @@ export async function fetchAaveV4Oracles(spokesData, reservesData) {
                         chain,
                         calls,
                         abi: AAVE_V4_ORACLE_ABI,
-                        allowFailure: true,
+                        allowFailure: false,
                     }));
                     oracleDecimals = normalizeOracleDecimals(results[0]);
                     sourceResults = results.slice(1);
@@ -94,7 +94,7 @@ export async function fetchAaveV4Oracles(spokesData, reservesData) {
                                 chain,
                                 calls: retryCalls,
                                 abi: AAVE_V4_ORACLE_ABI,
-                                allowFailure: true,
+                                allowFailure: false,
                             }));
                             for (let j = 0; j < failedSourceIdx.length; j++) {
                                 sourceResults[failedSourceIdx[j]] = retryResults[j];
