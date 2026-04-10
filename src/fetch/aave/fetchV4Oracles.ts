@@ -111,7 +111,7 @@ export async function fetchAaveV4Oracles(
             chain,
             calls,
             abi: AAVE_V4_ORACLE_ABI,
-            allowFailure: true,
+            allowFailure: false,
           })) as any[]
 
           oracleDecimals = normalizeOracleDecimals(results[0])
@@ -133,7 +133,7 @@ export async function fetchAaveV4Oracles(
                 chain,
                 calls: retryCalls,
                 abi: AAVE_V4_ORACLE_ABI,
-                allowFailure: true,
+                allowFailure: false,
               })) as any[]
               for (let j = 0; j < failedSourceIdx.length; j++) {
                 sourceResults[failedSourceIdx[j]] = retryResults[j]

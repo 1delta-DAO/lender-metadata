@@ -113,7 +113,7 @@ export async function fetchAaveV4Reserves(
         chain,
         calls: countCalls,
         abi: AAVE_V4_SPOKE_ABI,
-        allowFailure: true,
+        allowFailure: false,
       })) as any[]
     } catch (e: any) {
       console.error(`  Error getting reserve counts: ${e?.message ?? e}`)
@@ -162,7 +162,7 @@ export async function fetchAaveV4Reserves(
         chain,
         calls: reserveCalls,
         abi: AAVE_V4_SPOKE_ABI,
-        allowFailure: true,
+        allowFailure: false,
       })) as any[]
     } catch (e: any) {
       console.error(`  Error fetching reserve data: ${e?.message ?? e}`)
@@ -271,7 +271,7 @@ export async function fetchAaveV4Reserves(
           chain,
           calls: retryCalls,
           abi: AAVE_V4_SPOKE_ABI,
-          allowFailure: true,
+          allowFailure: false,
         })) as any[]
       } catch (e: any) {
         console.error(`  Error in getReserve retry: ${e?.message ?? e}`)
@@ -312,7 +312,7 @@ export async function fetchAaveV4Reserves(
           chain,
           calls: dynCalls,
           abi: AAVE_V4_SPOKE_ABI,
-          allowFailure: true,
+          allowFailure: false,
         })) as any[]
 
         for (let i = 0; i < dynMeta.length; i++) {

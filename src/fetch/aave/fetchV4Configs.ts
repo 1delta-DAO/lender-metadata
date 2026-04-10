@@ -113,7 +113,7 @@ export async function fetchAaveV4Configs(): Promise<{
           chain,
           calls: spokeCalls,
           abi: AAVE_V4_HUB_ABI,
-          allowFailure: true,
+          allowFailure: false,
         })) as any[]
       } catch (e: any) {
         console.error(`  Error getting spoke counts: ${e?.message ?? e}`)
@@ -147,7 +147,7 @@ export async function fetchAaveV4Configs(): Promise<{
           chain,
           calls: spokeAddrCalls,
           abi: AAVE_V4_HUB_ABI,
-          allowFailure: true,
+          allowFailure: false,
         })) as any[]
       } catch (e: any) {
         console.error(`  Error getting spoke addresses: ${e?.message ?? e}`)
@@ -186,7 +186,7 @@ export async function fetchAaveV4Configs(): Promise<{
             chain,
             calls: oracleCalls,
             abi: AAVE_V4_SPOKE_ABI,
-            allowFailure: true,
+            allowFailure: false,
           })) as any[]
         } catch (e: any) {
           console.error(`  Error getting oracles: ${e?.message ?? e}`)
