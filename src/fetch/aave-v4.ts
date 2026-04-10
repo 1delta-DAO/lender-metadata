@@ -65,15 +65,20 @@ export type SpokesJson = {
 // Merge helpers (operate on the new flat-by-chain shapes)
 // ============================================================================
 
+/**
+ * Merge a single reserve row.  `next` only reaches here when it passed the
+ * validity gate in `buildSpokesJson` (non-empty underlying + hub), so its
+ * values are authoritative — no fallback to `prev` for critical fields.
+ */
 function mergeReserveRow(
-  prev: SpokeReserveJson,
+  _prev: SpokeReserveJson,
   next: SpokeReserveJson,
 ): SpokeReserveJson {
   return {
     reserveId: next.reserveId,
-    assetId: next.assetId || prev.assetId,
-    underlying: pickStr(next.underlying, prev.underlying),
-    hub: pickStr(next.hub, prev.hub),
+    assetId: next.assetId,
+    underlying: next.underlying,
+    hub: next.hub,
   };
 }
 
@@ -224,6 +229,19 @@ function buildSpokesJson(
       const cfg: AaveV4SpokeConfig = configs[chain][spoke];
       const detailRows = reservesByChain[chain]?.[spoke] ?? [];
       const reserves: SpokeReserveJson[] = detailRows
+        .filter((d) => {
+          // Only keep reserves where the fetch returned both underlying and
+          // hub.  Partial or complete failures are dropped so they never enter
+          // the merge — this prevents stale hub values from persisting.
+          const valid = !!nonEmpty(d.underlying) && !!nonEmpty(d.hub);
+          if (!valid) {
+            console.log(
+              `  [build] ${spoke} reserve ${d.reserveId}: dropped — ` +
+                `underlying=${d.underlying || '(empty)'} hub=${d.hub || '(empty)'}`,
+            );
+          }
+          return valid;
+        })
         .map((d) => ({
           reserveId: d.reserveId,
           assetId: d.assetId,
