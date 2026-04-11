@@ -1,15 +1,15 @@
 {
   "1": {
     "factory": "0xa42001d6d2237d2c74108fe360403c4b796b7170",
-    "incentivesController": null,
+    "incentivesController": "0xB14F20982F2d1E5933362f5A796736D9ffa220E4",
     "lens": "0x0e466FC22386997daC23D1f89A43ecb2CB1e76E9",
-    "router": ""
+    "router": "0x871Ea4c95F204AC944Cdd91cf5FAafD166fbD887"
   },
   "10": {
     "factory": "0x6B14c4450a29Dd9562c20259eBFF67a577b540b9",
-    "incentivesController": null,
+    "incentivesController": "0x847D9420643e117798e803d9C5F0e406277CB622",
     "lens": "0xd3De080436b9d38DC315944c16d89C050C414Fed",
-    "router": ""
+    "router": "0xC66D2a90c37c873872281a05445EC0e9e82c76a9"
   },
   "146": {
     "factory": "0x408822E4E8682413666809b0655161093cd36f2b",
@@ -19,8 +19,8 @@
   },
   "42161": {
     "factory": "0xf7dc975C96B434D436b9bF45E7a45c95F0521442",
-    "incentivesController": null,
+    "incentivesController": "0xbDBBf747402653A5aD6F6B8c49F2e8dCeC37fAcF",
     "lens": "0x196D312fd81412B6443620Ca81B41103b4E123FD",
-    "router": ""
+    "router": "0x9992f660137979C1ca7f8b119Cd16361594E3681"
   }
 }
