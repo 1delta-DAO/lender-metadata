@@ -1,7 +1,9 @@
 import { DataUpdater } from "../types.js";
 import { loadExisting, mergeData, sleep } from "../utils.js";
+import { DEFAULTS, DEFAULTS_SHORT } from "./defaults.js";
 import { fetchSiloV2MarketsFromApi, type ApiMarket } from "./silo-v2/api.js";
 import { fetchSiloV2MarketsForChain } from "./silo-v2/fetcher.js";
+import { buildSiloLabels } from "./silo-labels.js";
 import type {
   SiloMarketsType,
   SiloPeripheralsType,
@@ -9,6 +11,7 @@ import type {
 
 const peripheralsFile = "./config/silo-v2-peripherals.json";
 const marketsFile = "./data/silo-v2-markets.json";
+const labelsFile = "./data/lender-labels.json";
 
 /**
  * Silo v2 lender metadata.
@@ -67,9 +70,12 @@ export class SiloV2Updater implements DataUpdater {
       if (i < chainIds.length - 1) await sleep(1000);
     }
 
+    const labels = buildSiloLabels(markets, "V2", "Silo V2", "S2");
+
     return {
       [peripheralsFile]: peripherals,
       [marketsFile]: markets,
+      [labelsFile]: labels,
     };
   }
 
@@ -83,8 +89,13 @@ export class SiloV2Updater implements DataUpdater {
       }
       return merged;
     }
+    if (fileKey === labelsFile) {
+      return mergeData(oldData, data, this.defaults[labelsFile]);
+    }
     return mergeData(oldData, data);
   }
 
-  defaults = {};
+  defaults: { [file: string]: any } = {
+    [labelsFile]: { names: DEFAULTS, shortNames: DEFAULTS_SHORT },
+  };
 }

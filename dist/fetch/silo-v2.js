@@ -1,8 +1,11 @@
 import { loadExisting, mergeData, sleep } from "../utils.js";
+import { DEFAULTS, DEFAULTS_SHORT } from "./defaults.js";
 import { fetchSiloV2MarketsFromApi } from "./silo-v2/api.js";
 import { fetchSiloV2MarketsForChain } from "./silo-v2/fetcher.js";
+import { buildSiloLabels } from "./silo-labels.js";
 const peripheralsFile = "./config/silo-v2-peripherals.json";
 const marketsFile = "./data/silo-v2-markets.json";
+const labelsFile = "./data/lender-labels.json";
 /**
  * Silo v2 lender metadata.
  *
@@ -47,9 +50,11 @@ export class SiloV2Updater {
             if (i < chainIds.length - 1)
                 await sleep(1000);
         }
+        const labels = buildSiloLabels(markets, "V2", "Silo V2", "S2");
         return {
             [peripheralsFile]: peripherals,
             [marketsFile]: markets,
+            [labelsFile]: labels,
         };
     }
     mergeData(oldData, data, fileKey) {
@@ -62,7 +67,12 @@ export class SiloV2Updater {
             }
             return merged;
         }
+        if (fileKey === labelsFile) {
+            return mergeData(oldData, data, this.defaults[labelsFile]);
+        }
         return mergeData(oldData, data);
     }
-    defaults = {};
+    defaults = {
+        [labelsFile]: { names: DEFAULTS, shortNames: DEFAULTS_SHORT },
+    };
 }
