@@ -11,32 +11,19 @@
 // label set would be clobbered when the second updater writes. Emitting
 // the full set from both makes the merge order-independent.
 /**
- * Build `{ names, shortNames }` for every silo side in `markets`.
- *
- * @param markets        per-chain list of silo pairs
- * @param version        "V2" or "V3" — drives the enum-name prefix and
- *                       display-name prefix
- * @param longPrefix     e.g. "Silo V2" — used in `names`
- * @param shortPrefix    e.g. "S2"       — used in `shortNames`
+ * Build `{ names, shortNames }` for every silo pair in `markets`, keyed
+ * by siloConfig address.
  */
 export function buildSiloLabels(markets, version, longPrefix, shortPrefix) {
     const names = {};
     const shortNames = {};
-    const keyFor = (addr) => `SILO_${version}_${addr.replace(/^0x/, "").toUpperCase()}`;
     for (const pairs of Object.values(markets)) {
         for (const pair of pairs) {
-            const a = pair.silo0;
-            const b = pair.silo1;
-            if (!a?.silo || !b?.silo)
-                continue;
-            const symA = a.symbol || "?";
-            const symB = b.symbol || "?";
-            const keyA = keyFor(a.silo);
-            const keyB = keyFor(b.silo);
-            names[keyA] = `${longPrefix} ${symA}/${symB}`;
-            names[keyB] = `${longPrefix} ${symB}/${symA}`;
-            shortNames[keyA] = `${shortPrefix} ${symA}/${symB}`;
-            shortNames[keyB] = `${shortPrefix} ${symB}/${symA}`;
+            const key = `SILO_${version}_${pair.siloConfig.replace(/^0x/, "").toUpperCase()}`;
+            const sym0 = pair.silo0?.symbol || "?";
+            const sym1 = pair.silo1?.symbol || "?";
+            names[key] = `${longPrefix} ${sym0}/${sym1}`;
+            shortNames[key] = `${shortPrefix} ${sym0}/${sym1}`;
         }
     }
     return { names, shortNames };
@@ -50,6 +37,9 @@ const PREFIXES = {
  * updaters call this with the same `fetchAllSilos()` output so the
  * resulting `lender-labels.json` is identical no matter which updater
  * writes last.
+ *
+ * Labels are keyed by **siloConfig** (the pair address), not individual
+ * silo vault addresses: `SILO_V{N}_<UPPER_CONFIG_ADDRESS>`.
  */
 export function buildAllSiloLabels(rawSilos) {
     const names = {};
@@ -61,26 +51,17 @@ export function buildAllSiloLabels(rawSilos) {
         if (!s.market1 || !s.market2)
             continue;
         const cfg = PREFIXES[v];
-        const keyFor = (addr) => `SILO_${cfg.version}_${addr.replace(/^0x/, "").toUpperCase()}`;
+        const key = `SILO_${cfg.version}_${s.configAddress.replace(/^0x/, "").toUpperCase()}`;
         // Order sides by `index` so the slash-separated name is deterministic
         // (silo0 first, silo1 second).
         const byIndex = {};
         for (const m of [s.market1, s.market2]) {
-            byIndex[m.index] = {
-                id: m.id,
-                sym: m.inputToken?.symbol || "?",
-            };
+            byIndex[m.index] = m.inputToken?.symbol || "?";
         }
-        const a = byIndex[0];
-        const b = byIndex[1];
-        if (!a || !b)
-            continue;
-        const keyA = keyFor(a.id);
-        const keyB = keyFor(b.id);
-        names[keyA] = `${cfg.long} ${a.sym}/${b.sym}`;
-        names[keyB] = `${cfg.long} ${b.sym}/${a.sym}`;
-        shortNames[keyA] = `${cfg.short} ${a.sym}/${b.sym}`;
-        shortNames[keyB] = `${cfg.short} ${b.sym}/${a.sym}`;
+        const sym0 = byIndex[0] ?? "?";
+        const sym1 = byIndex[1] ?? "?";
+        names[key] = `${cfg.long} ${sym0}/${sym1}`;
+        shortNames[key] = `${cfg.short} ${sym0}/${sym1}`;
     }
     return { names, shortNames };
 }
