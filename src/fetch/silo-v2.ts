@@ -6,7 +6,7 @@ import {
   type GqlMarket,
   type GqlSilo,
 } from "./silo-shared/graphql.js";
-import { buildSiloLabels } from "./silo-labels.js";
+import { buildAllSiloLabels } from "./silo-labels.js";
 import type {
   SiloHalfStatic,
   SiloMarketEntry,
@@ -70,7 +70,10 @@ export class SiloV2Updater implements DataUpdater {
       `Silo V2: fetched ${chainCounts.length} chains from API (${chainCounts.join(", ")})`,
     );
 
-    const labels = buildSiloLabels(markets, "V2", "Silo V2", "S2");
+    // Emit the *complete* v2+v3 label set so the second updater writing
+    // to lender-labels.json doesn't clobber the first. See the comment in
+    // `silo-labels.ts` for the rationale.
+    const labels = buildAllSiloLabels(raw);
 
     return {
       [peripheralsFile]: peripherals,

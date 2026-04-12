@@ -65,12 +65,11 @@ function toEntry(s: GqlSilo): SiloV3MarketEntry | null {
 }
 
 /**
- * Fetch every Silo v3 lending pair from the GraphQL API, grouped by
- * chainId. Pairs are sorted by `siloConfig` within each chain so output
- * diffs are stable across runs.
+ * Group + map a raw `GqlSilo[]` into the v3 on-disk shape, filtering on
+ * `protocol.protocolVersion === "v3"`. Pairs are sorted by `siloConfig`
+ * within each chain so output diffs are stable across runs.
  */
-export async function fetchSiloV3MarketsFromApi(): Promise<SiloV3MarketsType> {
-  const raw = await fetchAllSilos();
+export function buildV3MarketsFromRaw(raw: GqlSilo[]): SiloV3MarketsType {
   const out: SiloV3MarketsType = {};
 
   for (const s of raw) {
@@ -85,4 +84,12 @@ export async function fetchSiloV3MarketsFromApi(): Promise<SiloV3MarketsType> {
   }
 
   return out;
+}
+
+/**
+ * Fetch every Silo v3 lending pair from the GraphQL API, grouped by
+ * chainId.
+ */
+export async function fetchSiloV3MarketsFromApi(): Promise<SiloV3MarketsType> {
+  return buildV3MarketsFromRaw(await fetchAllSilos());
 }

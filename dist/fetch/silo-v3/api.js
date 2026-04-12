@@ -51,12 +51,11 @@ function toEntry(s) {
     };
 }
 /**
- * Fetch every Silo v3 lending pair from the GraphQL API, grouped by
- * chainId. Pairs are sorted by `siloConfig` within each chain so output
- * diffs are stable across runs.
+ * Group + map a raw `GqlSilo[]` into the v3 on-disk shape, filtering on
+ * `protocol.protocolVersion === "v3"`. Pairs are sorted by `siloConfig`
+ * within each chain so output diffs are stable across runs.
  */
-export async function fetchSiloV3MarketsFromApi() {
-    const raw = await fetchAllSilos();
+export function buildV3MarketsFromRaw(raw) {
     const out = {};
     for (const s of raw) {
         if (s.protocol?.protocolVersion !== "v3")
@@ -70,4 +69,11 @@ export async function fetchSiloV3MarketsFromApi() {
         out[chain].sort((a, b) => a.siloConfig.localeCompare(b.siloConfig));
     }
     return out;
+}
+/**
+ * Fetch every Silo v3 lending pair from the GraphQL API, grouped by
+ * chainId.
+ */
+export async function fetchSiloV3MarketsFromApi() {
+    return buildV3MarketsFromRaw(await fetchAllSilos());
 }

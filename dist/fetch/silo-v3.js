@@ -1,8 +1,9 @@
 import { mergeData } from "../utils.js";
 import { DEFAULTS, DEFAULTS_SHORT } from "./defaults.js";
-import { fetchSiloV3MarketsFromApi } from "./silo-v3/api.js";
+import { fetchAllSilos } from "./silo-shared/graphql.js";
 import { fetchSiloV3Peripherals } from "./silo-v3/peripherals.js";
-import { buildSiloLabels } from "./silo-labels.js";
+import { buildAllSiloLabels } from "./silo-labels.js";
+import { buildV3MarketsFromRaw } from "./silo-v3/api.js";
 const peripheralsFile = "./config/silo-v3-peripherals.json";
 const marketsFile = "./data/silo-v3-markets.json";
 const labelsFile = "./data/lender-labels.json";
@@ -21,14 +22,18 @@ const labelsFile = "./data/lender-labels.json";
 export class SiloV3Updater {
     name = "Silo V3";
     async fetchData() {
-        const [markets, peripherals] = await Promise.all([
-            fetchSiloV3MarketsFromApi(),
+        const [raw, peripherals] = await Promise.all([
+            fetchAllSilos(),
             fetchSiloV3Peripherals(),
         ]);
+        const markets = buildV3MarketsFromRaw(raw);
         const chainCounts = Object.entries(markets).map(([c, list]) => `${c}:${list.length}`);
         console.log(`Silo V3: fetched ${chainCounts.length} chains from API (${chainCounts.join(", ")})`);
         console.log(`Silo V3: fetched peripherals for ${Object.keys(peripherals).length} chains`);
-        const labels = buildSiloLabels(markets, "V3", "Silo V3", "S3");
+        // Emit the *complete* v2+v3 label set so the second updater writing
+        // to lender-labels.json doesn't clobber the first. See the comment in
+        // `silo-labels.ts` for the rationale.
+        const labels = buildAllSiloLabels(raw);
         return {
             [peripheralsFile]: peripherals,
             [marketsFile]: markets,
