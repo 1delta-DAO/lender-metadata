@@ -1,10 +1,17 @@
 {
-  "version": "2026-04-12T18-53-40-413Z",
-  "generatedAt": "2026-04-12T18:53:40.413Z",
-  "updatedFiles": [
-    "./data/lender-labels.json"
-  ],
+  "version": "2026-04-13T12-25-29-528Z",
+  "generatedAt": "2026-04-13T12:25:29.529Z",
+  "updatedFiles": [],
   "results": [
+    {
+      "targetFile": "./config/silo-v2-peripherals.json"
+    },
+    {
+      "targetFile": "./data/silo-v2-markets.json"
+    },
+    {
+      "targetFile": "./data/lender-labels.json"
+    },
     {
       "targetFile": "./config/silo-v3-peripherals.json"
     },

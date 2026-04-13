@@ -1,4 +1,4 @@
-import { mergeData } from "../utils.js";
+import { loadExisting, mergeData } from "../utils.js";
 import { DEFAULTS, DEFAULTS_SHORT } from "./defaults.js";
 import { fetchAllSilos } from "./silo-shared/graphql.js";
 import { fetchSiloV3Peripherals } from "./silo-v3/peripherals.js";
@@ -30,10 +30,24 @@ export class SiloV3Updater {
         const chainCounts = Object.entries(markets).map(([c, list]) => `${c}:${list.length}`);
         console.log(`Silo V3: fetched ${chainCounts.length} chains from API (${chainCounts.join(", ")})`);
         console.log(`Silo V3: fetched peripherals for ${Object.keys(peripherals).length} chains`);
-        // Emit the *complete* v2+v3 label set so the second updater writing
-        // to lender-labels.json doesn't clobber the first. See the comment in
-        // `silo-labels.ts` for the rationale.
-        const labels = buildAllSiloLabels(raw);
+        // Load existing on-disk markets for both versions so labels cover
+        // chains the API no longer returns (e.g. sonic v2 not whitelisted in
+        // the v3 indexer).
+        let existingV2 = {};
+        let existingV3 = {};
+        try {
+            existingV2 = await loadExisting("./data/silo-v2-markets.json");
+        }
+        catch { }
+        try {
+            existingV3 = await loadExisting(marketsFile);
+        }
+        catch { }
+        const mergedV3 = { ...existingV3, ...markets };
+        const labels = buildAllSiloLabels(raw, [
+            { version: "V2", markets: existingV2 },
+            { version: "V3", markets: mergedV3 },
+        ]);
         return {
             [peripheralsFile]: peripherals,
             [marketsFile]: markets,

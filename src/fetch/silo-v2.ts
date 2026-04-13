@@ -70,10 +70,20 @@ export class SiloV2Updater implements DataUpdater {
       `Silo V2: fetched ${chainCounts.length} chains from API (${chainCounts.join(", ")})`,
     );
 
-    // Emit the *complete* v2+v3 label set so the second updater writing
-    // to lender-labels.json doesn't clobber the first. See the comment in
-    // `silo-labels.ts` for the rationale.
-    const labels = buildAllSiloLabels(raw);
+    // Load existing on-disk markets for both versions so labels cover
+    // chains the API no longer returns (e.g. sonic v2 not whitelisted in
+    // the v3 indexer). The freshly-fetched `markets` is merged in too.
+    let existingV2: SiloMarketsType = {};
+    let existingV3: any = {};
+    try { existingV2 = await loadExisting(marketsFile); } catch {}
+    try { existingV3 = await loadExisting("./data/silo-v3-markets.json"); } catch {}
+    // Merge freshly-fetched v2 markets over existing so new data wins.
+    const mergedV2 = { ...existingV2, ...markets };
+
+    const labels = buildAllSiloLabels(raw, [
+      { version: "V2", markets: mergedV2 },
+      { version: "V3", markets: existingV3 },
+    ]);
 
     return {
       [peripheralsFile]: peripherals,

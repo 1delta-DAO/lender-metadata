@@ -57,18 +57,33 @@ const PREFIXES = {
 };
 
 /**
- * Build labels for every silo in `rawSilos` regardless of version. Both
- * updaters call this with the same `fetchAllSilos()` output so the
- * resulting `lender-labels.json` is identical no matter which updater
- * writes last.
+ * Build labels for every silo in `rawSilos` regardless of version, plus
+ * any entries in the on-disk markets maps that the API no longer returns
+ * (e.g. sonic v2 silos not whitelisted in the v3 indexer). Both updaters
+ * call this with the same `fetchAllSilos()` output so the resulting
+ * `lender-labels.json` is identical no matter which updater writes last.
  *
- * Labels are keyed by **siloConfig** (the pair address), not individual
- * silo vault addresses: `SILO_V{N}_<UPPER_CONFIG_ADDRESS>`.
+ * Labels are keyed by **siloConfig** (the pair address):
+ * `SILO_V{N}_<UPPER_CONFIG_ADDRESS>`.
+ *
+ * @param rawSilos      raw silos from the GraphQL API
+ * @param extraMarkets  optional on-disk markets maps to cover chains the
+ *                      API doesn't return. Array of `{ version, markets }`
+ *                      entries. Entries already covered by `rawSilos` are
+ *                      skipped (API wins).
  */
-export function buildAllSiloLabels(rawSilos: GqlSilo[]): LabelsOut {
+export function buildAllSiloLabels(
+  rawSilos: GqlSilo[],
+  extraMarkets?: Array<{
+    version: "V2" | "V3";
+    markets: { [chainId: string]: EntryLike[] };
+  }>,
+): LabelsOut {
   const names: Record<string, string> = {};
   const shortNames: Record<string, string> = {};
+  const seen = new Set<string>();
 
+  // 1. Labels from the live API response — authoritative.
   for (const s of rawSilos) {
     const v = s.protocol?.protocolVersion;
     if (v !== "v2" && v !== "v3") continue;
@@ -76,9 +91,8 @@ export function buildAllSiloLabels(rawSilos: GqlSilo[]): LabelsOut {
 
     const cfg = PREFIXES[v];
     const key = `SILO_${cfg.version}_${s.configAddress.replace(/^0x/, "").toUpperCase()}`;
+    seen.add(key);
 
-    // Order sides by `index` so the slash-separated name is deterministic
-    // (silo0 first, silo1 second).
     const byIndex: { [k: number]: string } = {};
     for (const m of [s.market1, s.market2]) {
       byIndex[m.index] = m.inputToken?.symbol || "?";
@@ -88,6 +102,24 @@ export function buildAllSiloLabels(rawSilos: GqlSilo[]): LabelsOut {
 
     names[key] = `${cfg.long} ${sym0}/${sym1}`;
     shortNames[key] = `${cfg.short} ${sym0}/${sym1}`;
+  }
+
+  // 2. Backfill from on-disk markets for chains/entries the API misses.
+  if (extraMarkets) {
+    for (const { version, markets } of extraMarkets) {
+      const cfg = PREFIXES[version.toLowerCase() as "v2" | "v3"];
+      for (const pairs of Object.values(markets)) {
+        for (const pair of pairs) {
+          const key = `SILO_${cfg.version}_${pair.siloConfig.replace(/^0x/, "").toUpperCase()}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          const sym0 = pair.silo0?.symbol || "?";
+          const sym1 = pair.silo1?.symbol || "?";
+          names[key] = `${cfg.long} ${sym0}/${sym1}`;
+          shortNames[key] = `${cfg.short} ${sym0}/${sym1}`;
+        }
+      }
+    }
   }
 
   return { names, shortNames };
