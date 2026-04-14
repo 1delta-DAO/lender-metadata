@@ -1,16 +1,11 @@
 {
-  "version": "2026-04-13T21-32-09-639Z",
-  "generatedAt": "2026-04-13T21:32:09.640Z",
+  "version": "2026-04-14T04-45-50-090Z",
+  "generatedAt": "2026-04-14T04:45:50.090Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-type-oracles.json",
-    "./config/morpho-type-markets.json",
     "./data/morpho-curators.json",
     "./data/morpho-oracles-data.json",
-    "./data/aave-reserves.json",
-    "./data/aave-tokens.json",
-    "./data/compound-v3-oracles.json",
-    "./data/compound-v3-oracles-data.json",
     "./data/euler-vaults.json",
     "./data/lender-labels.json"
   ],
