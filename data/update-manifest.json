@@ -1,115 +1,16 @@
 {
-  "version": "2026-04-13T21-32-09-639Z",
-  "generatedAt": "2026-04-13T21:32:09.640Z",
+  "version": "2026-04-15T12-58-11-365Z",
+  "generatedAt": "2026-04-15T12:58:11.365Z",
   "updatedFiles": [
-    "./data/lender-labels.json",
-    "./data/morpho-type-oracles.json",
-    "./config/morpho-type-markets.json",
-    "./data/morpho-curators.json",
-    "./data/morpho-oracles-data.json",
-    "./data/aave-reserves.json",
-    "./data/aave-tokens.json",
-    "./data/compound-v3-oracles.json",
-    "./data/compound-v3-oracles-data.json",
-    "./data/euler-vaults.json",
+    "./data/fluid-vaults.json",
     "./data/lender-labels.json"
   ],
   "results": [
     {
-      "targetFile": "./data/lender-labels.json"
+      "targetFile": "./config/fluid-resolvers.json"
     },
     {
-      "targetFile": "./data/morpho-type-oracles.json"
-    },
-    {
-      "targetFile": "./config/morpho-pools.json"
-    },
-    {
-      "targetFile": "./config/morpho-type-markets.json"
-    },
-    {
-      "targetFile": "./data/morpho-curators.json"
-    },
-    {
-      "targetFile": "./data/morpho-oracles-data.json"
-    },
-    {
-      "targetFile": "./data/aave-reserves.json"
-    },
-    {
-      "targetFile": "./data/aave-tokens.json"
-    },
-    {
-      "targetFile": "./data/aave-oracles.json"
-    },
-    {
-      "targetFile": "./config/aave-pools.json"
-    },
-    {
-      "targetFile": "./data/compound-v3-base-data.json"
-    },
-    {
-      "targetFile": "./data/compound-v3-reserves.json"
-    },
-    {
-      "targetFile": "./data/compound-v3-oracles.json"
-    },
-    {
-      "targetFile": "./data/compound-v3-oracles-data.json"
-    },
-    {
-      "targetFile": "./config/compound-v3-pools.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-tokens.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-c-tokens.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-reserves.json"
-    },
-    {
-      "targetFile": "./data/compound-v2-oracles.json"
-    },
-    {
-      "targetFile": "./config/compound-v2-pools.json"
-    },
-    {
-      "targetFile": "./data/init-config.json"
-    },
-    {
-      "targetFile": "./config/init-pools.json"
-    },
-    {
-      "targetFile": "./config/euler-configs.json"
-    },
-    {
-      "targetFile": "./data/euler-vaults.json"
-    },
-    {
-      "targetFile": "./data/aave-v4-spokes.json"
-    },
-    {
-      "targetFile": "./data/aave-v4-oracles.json"
-    },
-    {
-      "targetFile": "./data/aave-v4-oracle-sources.json"
-    },
-    {
-      "targetFile": "./config/silo-v2-peripherals.json"
-    },
-    {
-      "targetFile": "./data/silo-v2-markets.json"
-    },
-    {
-      "targetFile": "./data/lender-labels.json"
-    },
-    {
-      "targetFile": "./config/silo-v3-peripherals.json"
-    },
-    {
-      "targetFile": "./data/silo-v3-markets.json"
+      "targetFile": "./data/fluid-vaults.json"
     },
     {
       "targetFile": "./data/lender-labels.json"
