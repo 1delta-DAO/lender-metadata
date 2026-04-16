@@ -1123,6 +1123,55 @@
       }
     }
   ],
+  "146": [
+    {
+      "siloConfig": "0x180a8ff4c343b6eea2ff0feb2dcc92a360bf7025",
+      "name": "wS-USSD",
+      "hookReceiver": "0xebb2677d5a5ff045b7e34f514cc2f353932833a3",
+      "silo0": {
+        "silo": "0x0e2ef70d9b204a9cd30508a4e399b61ffb821152",
+        "token": "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+        "decimals": 18,
+        "symbol": "wS",
+        "index": 0,
+        "protectedShareToken": "0x944f64002ea851a9b7c34ad49df4d0084bf4afd4",
+        "collateralShareToken": "0x0e2ef70d9b204a9cd30508a4e399b61ffb821152",
+        "debtShareToken": "0xca99ffe6589451a2189b1f7120bc63e13a035ee4",
+        "solvencyOracle": "0x6b2966bcaffae633f6fac048896c0807fa3941a3",
+        "maxLtvOracle": "0x6b2966bcaffae633f6fac048896c0807fa3941a3",
+        "interestRateModel": "0x041b37b72ab7220eaaa60ff1a6c05c3300a90a0a",
+        "maxLtv": "700000000000000000",
+        "lt": "740000000000000000",
+        "liquidationTargetLtv": "700000000000000000",
+        "liquidationFee": "100000000000000000",
+        "flashloanFee": "0",
+        "daoFee": "100000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      },
+      "silo1": {
+        "silo": "0x6ac3b234a7e918423a9e4768655515bb942535de",
+        "token": "0x000000000eccff26b795f73fb0a70d48da657fef",
+        "decimals": 18,
+        "symbol": "USSD",
+        "index": 1,
+        "protectedShareToken": "0xc52b4be5ec06a55d4fd7345dda29c80ceed83c8b",
+        "collateralShareToken": "0x6ac3b234a7e918423a9e4768655515bb942535de",
+        "debtShareToken": "0x3ce9f1dc968a947508b6c68146f4c3c9199e11d1",
+        "solvencyOracle": "0x6ed3d6606da349093c4edca34acf34d9bac5a566",
+        "maxLtvOracle": "0x6ed3d6606da349093c4edca34acf34d9bac5a566",
+        "interestRateModel": "0x699cc8d587383848a8f30fa5106a3eea29782e62",
+        "maxLtv": "0",
+        "lt": "0",
+        "liquidationTargetLtv": "0",
+        "liquidationFee": "0",
+        "flashloanFee": "0",
+        "daoFee": "100000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      }
+    }
+  ],
   "1776": [
     {
       "siloConfig": "0x21893ef8d24c5cfad7e7bd7922a928533642baa0",

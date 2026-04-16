@@ -20,12 +20,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
-      },
-      {
-        "id": "mev-capital",
-        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
-        "verified": true,
-        "name": "MEV Capital"
       }
     ],
     "MORPHO_BLUE_04CB29E91DE681136643ACE9CA1D7AF7B15B43C33C1FBC34F45812A70BA640A1": [
@@ -42,6 +36,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
+      }
+    ],
+    "MORPHO_BLUE_0A15460AD263C2186FE0B5DF20A8CF71D55F3CFA06DE15EDCF6138F6B8EDD8BF": [
+      {
+        "id": "kpk",
+        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
+        "verified": true,
+        "name": "kpk"
       }
     ],
     "MORPHO_BLUE_0A834FE24F42CF9CBF0644926C5637A9DA42DBFAE8C4C4CA0C2F2D9C712896D3": [
@@ -200,6 +202,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/re7.png",
         "verified": true,
         "name": "RE7 Labs"
+      }
+    ],
+    "MORPHO_BLUE_1980361F4E12E1C551E5E6B1FBC7C3EB4D977DBF97C08FB63E0E38E17BCC2F67": [
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
       }
     ],
     "MORPHO_BLUE_1A9CCACA2DBA9469CD9CBA3D077466761B05F465C412D2BF2C71614C4963DD84": [
@@ -465,7 +475,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       }
@@ -640,18 +650,20 @@
         "name": "Gauntlet"
       }
     ],
+    "MORPHO_BLUE_3FEA56AB83B05840DC83DC6B3D2F2FBD938147CBAA8126BAC529E6C820058253": [
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
+      }
+    ],
     "MORPHO_BLUE_43E925E52D7873FA8ACAC90DD5F246087D55B3A34C344B71884A6352491FF459": [
       {
         "id": "clearstar",
         "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
         "verified": true,
         "name": "Clearstar"
-      },
-      {
-        "id": "mev-capital",
-        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
-        "verified": true,
-        "name": "MEV Capital"
       }
     ],
     "MORPHO_BLUE_444BBCE85350AAE535B037D090C8BDF6CC4CFC6D79E17725413B4CB0F6183AD4": [
@@ -698,6 +710,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
         "name": "MEV Capital"
+      },
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
       }
     ],
     "MORPHO_BLUE_45671FB8D5DEA1C4FBCA0B8548AD742F6643300EEB8DBD34AD64A658B2B05BCA": [
@@ -1146,12 +1164,6 @@
         "name": "kpk"
       },
       {
-        "id": "mev-capital",
-        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
-        "verified": true,
-        "name": "MEV Capital"
-      },
-      {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
@@ -1296,12 +1308,6 @@
         "name": "Gauntlet"
       },
       {
-        "id": "mev-capital",
-        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
-        "verified": true,
-        "name": "MEV Capital"
-      },
-      {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
@@ -1428,6 +1434,14 @@
         "name": "Sentora"
       }
     ],
+    "MORPHO_BLUE_9105A5447F3EECDF768F04DA12D580A878106E2E6B234312DB2EE0F304539E35": [
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
+      }
+    ],
     "MORPHO_BLUE_921AFAEDABC6597AC12CE8C0F1A8D562A2326C401EF1E3C77E861988890FC3CE": [
       {
         "id": "re7-labs",
@@ -1534,6 +1548,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/stakedao.svg",
         "verified": true,
         "name": "Stake DAO"
+      },
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
       }
     ],
     "MORPHO_BLUE_9BE0FB56B4D52D3632683B632514A2304F6FE1103E081ACC358DED09E8E9A1E7": [
@@ -1547,7 +1567,7 @@
     "MORPHO_BLUE_9D582055D36F8D8B3B5924B9BE6B8357FD766C635592A1CA8DAC5F31C6ACCA04": [
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       }
@@ -1725,7 +1745,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       }
@@ -2250,12 +2270,6 @@
     ],
     "MORPHO_BLUE_BFED072FAEE09B963949DEFCDB91094465C34C6C62D798B906274EF3563C9CAC": [
       {
-        "id": "mev-capital",
-        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
-        "verified": true,
-        "name": "MEV Capital"
-      },
-      {
         "id": "steakhouse-financial",
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
@@ -2593,7 +2607,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       }
@@ -2725,7 +2739,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       }
@@ -2958,12 +2972,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
         "verified": true,
         "name": "Clearstar"
-      },
-      {
-        "id": "mev-capital",
-        "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
-        "verified": true,
-        "name": "MEV Capital"
       }
     ],
     "MORPHO_BLUE_F6A056627A51E511EC7F48332421432EA6971FC148D8F3C451E14EA108026549": [
@@ -3030,6 +3038,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
         "verified": true,
         "name": "SingularV"
+      }
+    ],
+    "MORPHO_BLUE_FCD3B104B9A592D4377EDD68F48ECF60082D787B64CA97A3385F3CC4CB9BD20F": [
+      {
+        "id": "steakhouse-financial",
+        "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
+        "verified": true,
+        "name": "Steakhouse Financial"
       }
     ],
     "MORPHO_BLUE_FD039EDC69EAC5EAAB4A10463FDBCACA75D6EDDB1F0E00248D73FC977FB2554B": [
@@ -4529,7 +4545,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       }
@@ -4635,7 +4651,7 @@
     "MORPHO_BLUE_2E2548390B8894D2FFAAABABEBC2B5F2501920E03A4C611B63B46E19BFC6B75D": [
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       }
@@ -4763,7 +4779,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       }
@@ -5203,7 +5219,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       },
@@ -5259,7 +5275,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       },
@@ -5793,7 +5809,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       },
@@ -5923,7 +5939,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       },
@@ -6205,7 +6221,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       },
@@ -6281,7 +6297,7 @@
       },
       {
         "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/edge-capital-ultrayield.svg",
+        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
         "verified": true,
         "name": "UltraYield"
       },
