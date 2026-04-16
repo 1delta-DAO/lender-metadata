@@ -37,7 +37,7 @@ Output files:
 
 - `config/fluid-resolvers.json` — source-of-truth resolver addresses per chain
 - `data/fluid-vaults.json` — `{ [chainId]: { [vaultAddr]: VaultMeta } }` (schema below)
-- `data/lender-labels.json` — merged `FLUID_LENDING` + per-vault `FLUID_VAULT_<vaultId>` labels
+- `data/lender-labels.json` — merged `FLUID_LENDING` + per-vault `FLUID_VAULT_<chainId>_<vaultId>` labels
 
 ### Vault schema
 
@@ -70,9 +70,9 @@ asset object without schema churn.
 
 ### Label format
 
-The dynamic lender key for a vault is `FLUID_VAULT_<vaultId>` — matching how
-the runtime parser in the consumer SDK constructs keys (`FLUID_VAULT_${vaultId}`
-in `publicCallParse.ts`). The human-readable label is Morpho-style:
+The dynamic lender key for a vault is `FLUID_VAULT_<chainId>_<vaultId>` —
+including the chain ID to avoid collisions when vaultIds repeat across chains.
+The human-readable label is Morpho-style:
 
 ```
 Fluid <supplySymbols>-<borrowSymbols>[ N]

@@ -54,7 +54,7 @@ export class FluidUpdater {
                 const sortedMetas = Object.values(vaultMetas).sort((a, b) => a.vaultId - b.vaultId);
                 const pairCounts = {};
                 for (const meta of sortedMetas) {
-                    const key = `${FLUID_VAULT}_${meta.vaultId}`;
+                    const key = `${FLUID_VAULT}_${chainId}_${meta.vaultId}`;
                     const supply = sideLabel(meta.supply, tokens);
                     const borrow = sideLabel(meta.borrow, tokens);
                     const base = `${supply}-${borrow}`;
