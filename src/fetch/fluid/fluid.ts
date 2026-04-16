@@ -1,6 +1,6 @@
 import { DataUpdater } from "../../types.js";
 import { mergeData, sleep } from "../../utils.js";
-import { FLUID_RESOLVERS, FLUID_LENDING, FLUID_VAULT } from "./constants.js";
+import { FLUID_RESOLVERS, FLUID, FLUID_LENDING } from "./constants.js";
 import {
   getAllVaultAddresses,
   getAllFTokenAddresses,
@@ -84,7 +84,7 @@ export class FluidUpdater implements DataUpdater {
         const pairCounts: Record<string, number> = {};
 
         for (const meta of sortedMetas) {
-          const key = `${FLUID_VAULT}_${chainId}_${meta.vaultId}`;
+          const key = `${FLUID}_${chainId}_${meta.vaultId}`;
           const supply = sideLabel(meta.supply, tokens);
           const borrow = sideLabel(meta.borrow, tokens);
           const base = `${supply}-${borrow}`;

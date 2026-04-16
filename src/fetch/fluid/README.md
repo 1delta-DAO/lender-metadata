@@ -29,7 +29,7 @@ each vault side.
 | File | Purpose |
 | --- | --- |
 | [abi.ts](./abi.ts) | Minimal ABIs: `getAllVaultsAddresses`, `getVaultEntireData`, `getAllFTokens`, fToken `asset/symbol/isNativeUnderlying` |
-| [constants.ts](./constants.ts) | Loads `config/fluid-resolvers.json`; exports `FLUID_LENDING` / `FLUID_VAULT` key prefixes |
+| [constants.ts](./constants.ts) | Loads `config/fluid-resolvers.json`; exports `FLUID` / `FLUID_LENDING` key prefixes |
 | [fetcher.ts](./fetcher.ts) | Multicall helpers — vault/fToken address lists, per-entity metadata, underlying→fToken index, `buildSide` decoder |
 | [fluid.ts](./fluid.ts) | `FluidUpdater` implementing `DataUpdater` — also fetches the 1delta token-list for label generation |
 
@@ -37,7 +37,7 @@ Output files:
 
 - `config/fluid-resolvers.json` — source-of-truth resolver addresses per chain
 - `data/fluid-vaults.json` — `{ [chainId]: { [vaultAddr]: VaultMeta } }` (schema below)
-- `data/lender-labels.json` — merged `FLUID_LENDING` + per-vault `FLUID_VAULT_<chainId>_<vaultId>` labels
+- `data/lender-labels.json` — merged `FLUID_LENDING` + per-vault `FLUID_<chainId>_<vaultId>` labels
 
 ### Vault schema
 
@@ -70,7 +70,7 @@ asset object without schema churn.
 
 ### Label format
 
-The dynamic lender key for a vault is `FLUID_VAULT_<chainId>_<vaultId>` —
+The dynamic lender key for a vault is `FLUID_<chainId>_<vaultId>` —
 including the chain ID to avoid collisions when vaultIds repeat across chains.
 The human-readable label is Morpho-style:
 
@@ -120,8 +120,8 @@ Supported chains track
   source (Fluid API or a hardcoded map) if/when consumers need it.
 - **Merkle/campaign rewards** — come from `https://api.fluid.instadapp.io/v2/...`,
   not on-chain. Intentionally not cached here (dynamic).
-- **Lender enum** — `@1delta/lender-registry` has no `FLUID_LENDING` /
-  `FLUID_VAULT` constants yet. The updater uses string literals; swap for enum
+- **Lender enum** — `@1delta/lender-registry` has no `FLUID` /
+  `FLUID_LENDING` constants yet. The updater uses string literals; swap for enum
   refs once upstream adds them.
 - **Chunked fallback on large chains** — snapshot uses `getVaultEntireData`
   per-vault via multicall, which already chunks naturally. If the multicall

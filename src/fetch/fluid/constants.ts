@@ -11,5 +11,5 @@ export const FLUID_RESOLVERS: Record<string, FluidResolvers> = readJsonFile(
   "./config/fluid-resolvers.json"
 );
 
+export const FLUID = "FLUID";
 export const FLUID_LENDING = "FLUID_LENDING";
-export const FLUID_VAULT = "FLUID_VAULT";

@@ -1,5 +1,5 @@
 import { mergeData, sleep } from "../../utils.js";
-import { FLUID_RESOLVERS, FLUID_LENDING, FLUID_VAULT } from "./constants.js";
+import { FLUID_RESOLVERS, FLUID, FLUID_LENDING } from "./constants.js";
 import { getAllVaultAddresses, getAllFTokenAddresses, getFTokenMetas, getVaultMetas, buildFTokensByUnderlying, } from "./fetcher.js";
 const resolversFile = "./config/fluid-resolvers.json";
 const vaultsFile = "./data/fluid-vaults.json";
@@ -54,7 +54,7 @@ export class FluidUpdater {
                 const sortedMetas = Object.values(vaultMetas).sort((a, b) => a.vaultId - b.vaultId);
                 const pairCounts = {};
                 for (const meta of sortedMetas) {
-                    const key = `${FLUID_VAULT}_${chainId}_${meta.vaultId}`;
+                    const key = `${FLUID}_${chainId}_${meta.vaultId}`;
                     const supply = sideLabel(meta.supply, tokens);
                     const borrow = sideLabel(meta.borrow, tokens);
                     const base = `${supply}-${borrow}`;
