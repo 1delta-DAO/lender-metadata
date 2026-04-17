@@ -169,10 +169,9 @@ export class MorphoBlueUpdater implements DataUpdater {
     return `
     query GetMarkets {
       markets(first: ${first}, skip: ${skip}, where:  {
-         chainId_in: [${chainId}],
-         whitelisted: true
+         chainId_in: [${chainId}]
       },
-      orderBy: SupplyAssetsUsd,   
+      orderBy: SupplyAssetsUsd,
       orderDirection: Desc
       ) {
         items {
@@ -180,6 +179,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           uniqueKey
           lltv
           oracleAddress
+          whitelisted
           loanAsset {
             address
             symbol
@@ -208,25 +208,30 @@ export class MorphoBlueUpdater implements DataUpdater {
 
   private async fetchMorphoMarkets(chainId: string): Promise<any> {
     const BASE_URL = "https://blue-api.morpho.org/graphql";
-    const requestBody = {
-      query: this.query(200, 0, chainId),
-      variables: {},
-    };
+    const PAGE_SIZE = 500;
+    const allItems: any[] = [];
+    let skip = 0;
 
-    const response = await fetch(BASE_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestBody),
-    });
+    while (true) {
+      const response = await fetch(BASE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: this.query(PAGE_SIZE, skip, chainId), variables: {} }),
+      });
 
-    if (!response.ok) {
-      throw new Error(
-        `Network error: ${response.status} - ${response.statusText}`
-      );
+      if (!response.ok) {
+        throw new Error(`Network error: ${response.status} - ${response.statusText}`);
+      }
+
+      const data: any = await response.json();
+      const items: any[] = data.data?.markets?.items ?? [];
+      allItems.push(...items);
+
+      if (items.length < PAGE_SIZE) break;
+      skip += PAGE_SIZE;
     }
 
-    const data: any = await response.json();
-    return data.data;
+    return { markets: { items: allItems } };
   }
 
   async fetchData(): Promise<any> {
@@ -317,7 +322,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           const isZero = (addr: string | undefined) =>
             !addr || addr === "0x0000000000000000000000000000000000000000";
 
-          if (!isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
+          if (el.whitelisted && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
             oracles[chainId][fork].push({
               oracle,
               loanAsset,
@@ -362,7 +367,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           shortNames[enumName] = shortName;
 
           // curators
-          if (!!el.supplyingVaults && el.supplyingVaults.length > 0) {
+          if (el.whitelisted && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
             if (!curators[chainId]) curators[chainId] = {};
             const uniqueCuratorList = Array.from(
               new Map(

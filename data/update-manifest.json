@@ -1,20 +1,26 @@
 {
-  "version": "2026-04-16T15-39-12-186Z",
-  "generatedAt": "2026-04-16T15:39:12.186Z",
+  "version": "2026-04-17T09-12-00-763Z",
+  "generatedAt": "2026-04-17T09:12:00.763Z",
   "updatedFiles": [
-    "./config/fluid-resolvers.json",
-    "./data/fluid-vaults.json",
-    "./data/lender-labels.json"
+    "./data/lender-labels.json",
+    "./data/morpho-type-oracles.json",
+    "./data/morpho-curators.json"
   ],
   "results": [
     {
-      "targetFile": "./config/fluid-resolvers.json"
-    },
-    {
-      "targetFile": "./data/fluid-vaults.json"
-    },
-    {
       "targetFile": "./data/lender-labels.json"
+    },
+    {
+      "targetFile": "./data/morpho-type-oracles.json"
+    },
+    {
+      "targetFile": "./config/morpho-pools.json"
+    },
+    {
+      "targetFile": "./config/morpho-type-markets.json"
+    },
+    {
+      "targetFile": "./data/morpho-curators.json"
     }
   ]
 }
