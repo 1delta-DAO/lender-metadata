@@ -208,25 +208,30 @@ export class MorphoBlueUpdater implements DataUpdater {
 
   private async fetchMorphoMarkets(chainId: string): Promise<any> {
     const BASE_URL = "https://blue-api.morpho.org/graphql";
-    const requestBody = {
-      query: this.query(200, 0, chainId),
-      variables: {},
-    };
+    const PAGE_SIZE = 500;
+    const allItems: any[] = [];
+    let skip = 0;
 
-    const response = await fetch(BASE_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestBody),
-    });
+    while (true) {
+      const response = await fetch(BASE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: this.query(PAGE_SIZE, skip, chainId), variables: {} }),
+      });
 
-    if (!response.ok) {
-      throw new Error(
-        `Network error: ${response.status} - ${response.statusText}`
-      );
+      if (!response.ok) {
+        throw new Error(`Network error: ${response.status} - ${response.statusText}`);
+      }
+
+      const data: any = await response.json();
+      const items: any[] = data.data?.markets?.items ?? [];
+      allItems.push(...items);
+
+      if (items.length < PAGE_SIZE) break;
+      skip += PAGE_SIZE;
     }
 
-    const data: any = await response.json();
-    return data.data;
+    return { markets: { items: allItems } };
   }
 
   async fetchData(): Promise<any> {
