@@ -169,10 +169,9 @@ export class MorphoBlueUpdater implements DataUpdater {
     return `
     query GetMarkets {
       markets(first: ${first}, skip: ${skip}, where:  {
-         chainId_in: [${chainId}],
-         whitelisted: true
+         chainId_in: [${chainId}]
       },
-      orderBy: SupplyAssetsUsd,   
+      orderBy: SupplyAssetsUsd,
       orderDirection: Desc
       ) {
         items {
@@ -180,6 +179,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           uniqueKey
           lltv
           oracleAddress
+          whitelisted
           loanAsset {
             address
             symbol
@@ -317,7 +317,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           const isZero = (addr: string | undefined) =>
             !addr || addr === "0x0000000000000000000000000000000000000000";
 
-          if (!isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
+          if (el.whitelisted && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
             oracles[chainId][fork].push({
               oracle,
               loanAsset,
@@ -362,7 +362,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           shortNames[enumName] = shortName;
 
           // curators
-          if (!!el.supplyingVaults && el.supplyingVaults.length > 0) {
+          if (el.whitelisted && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
             if (!curators[chainId]) curators[chainId] = {};
             const uniqueCuratorList = Array.from(
               new Map(
