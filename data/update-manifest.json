@@ -1,26 +1,15 @@
 {
-  "version": "2026-04-17T09-12-00-763Z",
-  "generatedAt": "2026-04-17T09:12:00.763Z",
+  "version": "2026-04-18T19-15-59-606Z",
+  "generatedAt": "2026-04-18T19:15:59.606Z",
   "updatedFiles": [
-    "./data/lender-labels.json",
-    "./data/morpho-type-oracles.json",
-    "./data/morpho-curators.json"
+    "./data/lender-labels.json"
   ],
   "results": [
     {
+      "targetFile": "./config/gearbox-resolvers.json"
+    },
+    {
       "targetFile": "./data/lender-labels.json"
-    },
-    {
-      "targetFile": "./data/morpho-type-oracles.json"
-    },
-    {
-      "targetFile": "./config/morpho-pools.json"
-    },
-    {
-      "targetFile": "./config/morpho-type-markets.json"
-    },
-    {
-      "targetFile": "./data/morpho-curators.json"
     }
   ]
 }

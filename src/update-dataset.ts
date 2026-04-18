@@ -11,6 +11,7 @@ import { AaveV4PeripheralsUpdater } from "./fetch/aave-v4-peripherals.js";
 import { SiloV2Updater } from "./fetch/silo-v2.js";
 import { SiloV3Updater } from "./fetch/silo-v3.js";
 import { FluidUpdater } from "./fetch/fluid/fluid.js";
+import { GearboxUpdater } from "./fetch/gearbox/gearbox.js";
 
 // ============================================================================
 // Usage Examples & Main Function
@@ -32,6 +33,7 @@ async function main(): Promise<void> {
   manager.registerUpdater(new SiloV2Updater());
   manager.registerUpdater(new SiloV3Updater());
   manager.registerUpdater(new FluidUpdater());
+  manager.registerUpdater(new GearboxUpdater());
 
   // You can now update from specific sources:
   // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });
