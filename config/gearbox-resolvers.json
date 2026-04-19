@@ -1,6 +1,5 @@
 {
   "addressProviderV310": "0xf7f0a609bfab9a0a98786951ef10e5fe26cc1e38",
-  "marketCompressorV310": "0x70f1753a765c4df582ffa3b8d96ab492714e8992",
   "chains": {
     "1": {
       "marketConfigurators": {
@@ -69,5 +68,6 @@
         "0xc9961b8a0c763779690577f2c76962c086af2fe3": "Invariant Group"
       }
     }
-  }
+  },
+  "marketCompressorV310": "0x70f1753a765c4df582ffa3b8d96ab492714e8992"
 }

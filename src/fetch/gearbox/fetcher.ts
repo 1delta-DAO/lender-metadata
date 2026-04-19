@@ -1,91 +1,61 @@
 import type { Address } from "viem";
+import { zeroAddress } from "viem";
 import { multicallRetryUniversal } from "@1delta/providers";
-import {
-  addressProviderAbi,
-  contractsRegisterAbi,
-  creditManagerAbi,
-} from "./abi.js";
-import {
-  CONTRACTS_REGISTER_KEY,
-  GearboxResolvers,
-  MIN_V3_VERSION,
-  NO_VERSION_CONTROL,
-} from "./constants.js";
+import { marketCompressorAbi } from "./abi.js";
 
 export interface GearboxCreditManager {
   address: Address;
   name: string;
-}
-
-export async function getContractsRegister(
-  chainId: string,
-  resolvers: GearboxResolvers
-): Promise<Address> {
-  const [addr] = (await multicallRetryUniversal({
-    chain: chainId,
-    calls: [
-      {
-        address: resolvers.addressProvider,
-        name: "getAddressOrRevert",
-        args: [CONTRACTS_REGISTER_KEY, NO_VERSION_CONTROL],
-      },
-    ],
-    abi: addressProviderAbi,
-    allowFailure: false,
-  })) as [Address];
-  return addr;
-}
-
-export async function getAllCreditManagers(
-  chainId: string,
-  contractsRegister: Address
-): Promise<Address[]> {
-  const [list] = (await multicallRetryUniversal({
-    chain: chainId,
-    calls: [
-      {
-        address: contractsRegister,
-        name: "getCreditManagers",
-        args: [],
-      },
-    ],
-    abi: contractsRegisterAbi,
-    allowFailure: false,
-  })) as [Address[]];
-  return list ?? [];
+  expirationDate: bigint;
+  isPaused: boolean;
 }
 
 /**
- * Fetch (name, version) for every CM and filter to v3 (version >= 300) with a
- * non-empty name. v2 CMs don't expose `name()`, so they drop out naturally via
- * allowFailure.
+ * Query MarketCompressor for every market under the given configurators and
+ * return one entry per credit suite (i.e. per credit manager). Markets span
+ * pools and CMs, so the same CM never appears twice across the returned data.
  */
-export async function getV3CreditManagers(
+export async function getV310CreditManagers(
   chainId: string,
-  cms: Address[]
+  marketCompressor: Address,
+  configurators: Address[]
 ): Promise<GearboxCreditManager[]> {
-  if (cms.length === 0) return [];
+  if (configurators.length === 0) return [];
 
-  const calls = cms.flatMap((cm) => [
-    { address: cm, name: "name" as const, args: [] },
-    { address: cm, name: "version" as const, args: [] },
-  ]);
-
-  const results = (await multicallRetryUniversal({
+  const [markets] = (await multicallRetryUniversal({
     chain: chainId,
-    calls,
-    abi: creditManagerAbi,
-    allowFailure: true,
-  })) as any[];
+    calls: [
+      {
+        address: marketCompressor,
+        name: "getMarkets",
+        args: [
+          {
+            configurators,
+            pools: [],
+            underlying: zeroAddress,
+          },
+        ],
+      },
+    ],
+    abi: marketCompressorAbi,
+    allowFailure: false,
+  })) as [readonly any[]];
 
   const out: GearboxCreditManager[] = [];
-  for (let i = 0; i < cms.length; i++) {
-    const name = results[i * 2];
-    const version = results[i * 2 + 1];
-    if (typeof name !== "string" || name.length === 0) continue;
-    if (version === undefined || version === null) continue;
-    if (BigInt(version) < MIN_V3_VERSION) continue;
-    out.push({ address: cms[i], name });
+  for (const market of markets ?? []) {
+    for (const suite of market.creditManagers ?? []) {
+      const cm = suite.creditManager;
+      const facade = suite.creditFacade;
+      const addr = cm?.baseParams?.addr as Address | undefined;
+      const name = cm?.name as string | undefined;
+      if (!addr || typeof name !== "string" || name.length === 0) continue;
+      out.push({
+        address: addr,
+        name,
+        expirationDate: BigInt(facade?.expirationDate ?? 0),
+        isPaused: Boolean(facade?.isPaused),
+      });
+    }
   }
   return out;
 }

@@ -1,23 +1,18 @@
 import type { Address } from "viem";
 import { readJsonFile } from "../utils/index.js";
 
-export type GearboxResolvers = {
-  addressProvider: Address;
-  dataCompressor: Address;
+export type GearboxChainConfig = {
+  marketConfigurators: Record<string, string>;
 };
 
-export const GEARBOX_RESOLVERS: Record<string, GearboxResolvers> = readJsonFile(
-  "./config/gearbox-resolvers-v3.json"
+export type GearboxV310Config = {
+  addressProviderV310: Address;
+  marketCompressorV310: Address;
+  chains: Record<string, GearboxChainConfig>;
+};
+
+export const GEARBOX_CONFIG: GearboxV310Config = readJsonFile(
+  "./config/gearbox-resolvers.json"
 );
 
 export const GEARBOX_V3 = "GEARBOX_V3";
-
-// bytes32("CONTRACTS_REGISTER") — right-padded ASCII.
-export const CONTRACTS_REGISTER_KEY =
-  "0x434f4e5452414354535f52454749535445520000000000000000000000000000" as const;
-
-// Gearbox registers non-versioned addresses (like ContractsRegister) under 0.
-export const NO_VERSION_CONTROL = 0n;
-
-// Gearbox v3 credit managers report version >= 300 (3_00).
-export const MIN_V3_VERSION = 300n;

@@ -1,6 +1,6 @@
 import { mergeData, sleep } from "../../utils.js";
-import { GEARBOX_RESOLVERS, GEARBOX_V3 } from "./constants.js";
-import { getAllCreditManagers, getContractsRegister, getV3CreditManagers, } from "./fetcher.js";
+import { GEARBOX_CONFIG, GEARBOX_V3 } from "./constants.js";
+import { getV310CreditManagers } from "./fetcher.js";
 const resolversFile = "./config/gearbox-resolvers.json";
 const labelsFile = "./data/lender-labels.json";
 function labelFromName(name) {
@@ -14,13 +14,14 @@ export class GearboxUpdater {
     async fetchData() {
         const names = {};
         const shortNames = {};
-        const chainEntries = Object.entries(GEARBOX_RESOLVERS);
+        const chainEntries = Object.entries(GEARBOX_CONFIG.chains);
         for (let i = 0; i < chainEntries.length; i++) {
-            const [chainId, resolvers] = chainEntries[i];
+            const [chainId, chainCfg] = chainEntries[i];
+            const configurators = Object.keys(chainCfg.marketConfigurators);
+            if (configurators.length === 0)
+                continue;
             try {
-                const contractsRegister = await getContractsRegister(chainId, resolvers);
-                const cmAddresses = await getAllCreditManagers(chainId, contractsRegister);
-                const cms = await getV3CreditManagers(chainId, cmAddresses);
+                const cms = await getV310CreditManagers(chainId, GEARBOX_CONFIG.marketCompressorV310, configurators);
                 for (const cm of cms) {
                     const key = `${GEARBOX_V3}_${cm.address.replace(/^0x/, "").toUpperCase()}`;
                     const label = labelFromName(cm.name);
@@ -36,7 +37,7 @@ export class GearboxUpdater {
             }
         }
         return {
-            [resolversFile]: GEARBOX_RESOLVERS,
+            [resolversFile]: GEARBOX_CONFIG,
             [labelsFile]: { names, shortNames },
         };
     }

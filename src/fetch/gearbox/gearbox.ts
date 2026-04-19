@@ -1,13 +1,10 @@
+import type { Address } from "viem";
 import { DataUpdater } from "../../types.js";
 import { mergeData, sleep } from "../../utils.js";
-import { GEARBOX_RESOLVERS, GEARBOX_V3 } from "./constants.js";
-import {
-  getAllCreditManagers,
-  getContractsRegister,
-  getV3CreditManagers,
-} from "./fetcher.js";
+import { GEARBOX_CONFIG, GEARBOX_V3 } from "./constants.js";
+import { getV310CreditManagers } from "./fetcher.js";
 
-const resolversFile = "./config/gearbox-resolvers-v3.json";
+const resolversFile = "./config/gearbox-resolvers.json";
 const labelsFile = "./data/lender-labels.json";
 
 function labelFromName(name: string): string {
@@ -23,19 +20,20 @@ export class GearboxUpdater implements DataUpdater {
     const names: Record<string, string> = {};
     const shortNames: Record<string, string> = {};
 
-    const chainEntries = Object.entries(GEARBOX_RESOLVERS);
+    const chainEntries = Object.entries(GEARBOX_CONFIG.chains);
     for (let i = 0; i < chainEntries.length; i++) {
-      const [chainId, resolvers] = chainEntries[i];
+      const [chainId, chainCfg] = chainEntries[i];
+      const configurators = Object.keys(
+        chainCfg.marketConfigurators
+      ) as Address[];
+      if (configurators.length === 0) continue;
+
       try {
-        const contractsRegister = await getContractsRegister(
+        const cms = await getV310CreditManagers(
           chainId,
-          resolvers
+          GEARBOX_CONFIG.marketCompressorV310,
+          configurators
         );
-        const cmAddresses = await getAllCreditManagers(
-          chainId,
-          contractsRegister
-        );
-        const cms = await getV3CreditManagers(chainId, cmAddresses);
 
         for (const cm of cms) {
           const key = `${GEARBOX_V3}_${cm.address.replace(/^0x/, "").toUpperCase()}`;
@@ -53,7 +51,7 @@ export class GearboxUpdater implements DataUpdater {
     }
 
     return {
-      [resolversFile]: GEARBOX_RESOLVERS,
+      [resolversFile]: GEARBOX_CONFIG,
       [labelsFile]: { names, shortNames },
     };
   }
