@@ -7,7 +7,7 @@ import {
   getV3CreditManagers,
 } from "./fetcher.js";
 
-const resolversFile = "./config/gearbox-resolvers.json";
+const resolversFile = "./config/gearbox-resolvers-v3.json";
 const labelsFile = "./data/lender-labels.json";
 
 function labelFromName(name: string): string {

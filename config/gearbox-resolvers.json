@@ -1,14 +1,73 @@
 {
-  "1": {
-    "addressProvider": "0x9ea7b04da02a5373317d745c1571c84aad03321d",
-    "dataCompressor": "0x104c4e209329524adb0febe8b6481346a6eb75c6"
-  },
-  "10": {
-    "addressProvider": "0x3761ca4bfacfcffc1b8034e69f19116dd6756726",
-    "dataCompressor": "0x2697e6ddbf572df3403b2451b954762fd22002f6"
-  },
-  "42161": {
-    "addressProvider": "0x7d04ecdb892ae074f03b5d0aba03796f90f3f2af",
-    "dataCompressor": "0x88aa4fbf86392cbf6f6517790e288314de03e181"
+  "addressProviderV310": "0xf7f0a609bfab9a0a98786951ef10e5fe26cc1e38",
+  "marketCompressorV310": "0x70f1753a765c4df582ffa3b8d96ab492714e8992",
+  "chains": {
+    "1": {
+      "marketConfigurators": {
+        "0x09d8305f49374aea6a78af6c996df2913e8f3b19": "Tulipa",
+        "0x1b265b97eb169fb6668e3258007c3b0242c7bdbe": "kpk",
+        "0x3b56538833fc02f4f0e75609390f26ded0c32e42": "Re7",
+        "0x601067eba24bb5b558a184fc082525637e96a42d": "Gami Labs",
+        "0x7a133fbd01736fd076158307c9476cc3877f1af5": "Invariant Group",
+        "0x9dddd1b9ce0ac8aa0c80e4ec141600b9bf0101c3": "UltraYield",
+        "0xc168343c791d56dd1da4b4b8b0cc1c1ec1a16e6b": "cp0x"
+      }
+    },
+    "10": {
+      "marketConfigurators": {
+        "0x2a15969ce5320868eb609680751cf8896dd92de5": "Chaos Labs",
+        "0x9dddd1b9ce0ac8aa0c80e4ec141600b9bf0101c3": "UltraYield"
+      }
+    },
+    "56": {
+      "marketConfigurators": {
+        "0x19037a281025b83fa37e3264b77af523ff87a3a4": "Chaos Labs",
+        "0x92dc4ee43e9b207e16fbf3fd1a6933563c0a0d35": "Re7"
+      }
+    },
+    "143": {
+      "marketConfigurators": {
+        "0x16956912813ab9a38d95730b52a8cf53e860a7c5": "Tulipa",
+        "0x7c6ee1bf9c1eb3ee55bdbdc1e8d0317aab718e0a": "UltraYield"
+      }
+    },
+    "146": {
+      "marketConfigurators": {
+        "0x8ffdd1f1433674516f83645a768e8900a2a5d076": "Chaos Labs"
+      }
+    },
+    "1135": {
+      "marketConfigurators": {
+        "0x25778dbf0e56b7feb8358c4aa2f6f9e19a1c145a": "Re7"
+      }
+    },
+    "5031": {
+      "marketConfigurators": {
+        "0x1ca8b92aa7233a9f8f7ba031ac45c878141adff0": "Invariant Group"
+      }
+    },
+    "9745": {
+      "marketConfigurators": {
+        "0x4bce62622be621ce036691de98afcab0e41a77a3": "UltraYield",
+        "0x7a133fbd01736fd076158307c9476cc3877f1af5": "Invariant Group",
+        "0x9655f82b585b11cee8a05576ed8efcf755cec04b": "TelosC",
+        "0xce1cf71a28837daaa7b92d00ca4ef2fd649c2a67": "Hyperithm"
+      }
+    },
+    "42161": {
+      "marketConfigurators": {
+        "0x01023850b360b88de0d0f84015bbba1eba57fe7e": "Chaos Labs"
+      }
+    },
+    "42793": {
+      "marketConfigurators": {
+        "0x577424f0e6f50db668cc1bc76babb87e36732291": "Re7"
+      }
+    },
+    "43111": {
+      "marketConfigurators": {
+        "0xc9961b8a0c763779690577f2c76962c086af2fe3": "Invariant Group"
+      }
+    }
   }
 }

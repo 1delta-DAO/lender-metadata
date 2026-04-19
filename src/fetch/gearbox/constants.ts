@@ -7,7 +7,7 @@ export type GearboxResolvers = {
 };
 
 export const GEARBOX_RESOLVERS: Record<string, GearboxResolvers> = readJsonFile(
-  "./config/gearbox-resolvers.json"
+  "./config/gearbox-resolvers-v3.json"
 );
 
 export const GEARBOX_V3 = "GEARBOX_V3";
