@@ -1,11 +1,127 @@
 {
-  "version": "2026-04-19T17-19-30-026Z",
-  "generatedAt": "2026-04-19T17:19:30.027Z",
+  "version": "2026-04-20T04-59-20-432Z",
+  "generatedAt": "2026-04-20T04:59:20.432Z",
   "updatedFiles": [
-    "./config/gearbox-resolvers.json",
+    "./data/lender-labels.json",
+    "./data/morpho-type-oracles.json",
+    "./data/morpho-curators.json",
+    "./data/morpho-oracles-data.json",
+    "./data/compound-v3-oracles.json",
+    "./data/compound-v3-oracles-data.json",
+    "./data/euler-vaults.json",
+    "./data/lender-labels.json",
+    "./data/lender-labels.json",
     "./data/lender-labels.json"
   ],
   "results": [
+    {
+      "targetFile": "./data/lender-labels.json"
+    },
+    {
+      "targetFile": "./data/morpho-type-oracles.json"
+    },
+    {
+      "targetFile": "./config/morpho-pools.json"
+    },
+    {
+      "targetFile": "./config/morpho-type-markets.json"
+    },
+    {
+      "targetFile": "./data/morpho-curators.json"
+    },
+    {
+      "targetFile": "./data/morpho-oracles-data.json"
+    },
+    {
+      "targetFile": "./data/aave-reserves.json"
+    },
+    {
+      "targetFile": "./data/aave-tokens.json"
+    },
+    {
+      "targetFile": "./data/aave-oracles.json"
+    },
+    {
+      "targetFile": "./config/aave-pools.json"
+    },
+    {
+      "targetFile": "./data/compound-v3-base-data.json"
+    },
+    {
+      "targetFile": "./data/compound-v3-reserves.json"
+    },
+    {
+      "targetFile": "./data/compound-v3-oracles.json"
+    },
+    {
+      "targetFile": "./data/compound-v3-oracles-data.json"
+    },
+    {
+      "targetFile": "./config/compound-v3-pools.json"
+    },
+    {
+      "targetFile": "./data/compound-v2-tokens.json"
+    },
+    {
+      "targetFile": "./data/compound-v2-c-tokens.json"
+    },
+    {
+      "targetFile": "./data/compound-v2-reserves.json"
+    },
+    {
+      "targetFile": "./data/compound-v2-oracles.json"
+    },
+    {
+      "targetFile": "./config/compound-v2-pools.json"
+    },
+    {
+      "targetFile": "./data/init-config.json"
+    },
+    {
+      "targetFile": "./config/init-pools.json"
+    },
+    {
+      "targetFile": "./config/euler-configs.json"
+    },
+    {
+      "targetFile": "./data/euler-vaults.json"
+    },
+    {
+      "targetFile": "./data/aave-v4-spokes.json"
+    },
+    {
+      "targetFile": "./data/aave-v4-oracles.json"
+    },
+    {
+      "targetFile": "./data/aave-v4-oracle-sources.json"
+    },
+    {
+      "targetFile": "./config/silo-v2-peripherals.json"
+    },
+    {
+      "targetFile": "./data/silo-v2-markets.json"
+    },
+    {
+      "targetFile": "./data/lender-labels.json"
+    },
+    {
+      "targetFile": "./config/silo-v3-peripherals.json"
+    },
+    {
+      "targetFile": "./data/silo-v3-markets.json"
+    },
+    {
+      "targetFile": "./data/lender-labels.json"
+    },
+    {
+      "targetFile": "./config/fluid-resolvers.json"
+    },
+    {
+      "targetFile": "./data/fluid-vaults.json"
+    },
+    {
+      "targetFile": "./data/lender-labels.json"
+    },
     {
       "targetFile": "./config/gearbox-resolvers.json"
     },
