@@ -24,7 +24,6 @@ const curatorsFile = "./data/morpho-curators.json";
 export const cannotUseApi = (chainId: string, fork: string) => {
   if (fork === "MORPHO_BLUE") {
     return (
-      chainId === Chain.OP_MAINNET ||
       chainId === Chain.HEMI_NETWORK ||
       chainId === Chain.BERACHAIN ||
       chainId === Chain.SONEIUM ||

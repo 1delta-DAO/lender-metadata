@@ -16,8 +16,7 @@ const marketsFile = "./config/morpho-type-markets.json";
 const curatorsFile = "./data/morpho-curators.json";
 export const cannotUseApi = (chainId, fork) => {
     if (fork === "MORPHO_BLUE") {
-        return (chainId === Chain.OP_MAINNET ||
-            chainId === Chain.HEMI_NETWORK ||
+        return (chainId === Chain.HEMI_NETWORK ||
             chainId === Chain.BERACHAIN ||
             chainId === Chain.SONEIUM ||
             chainId === Chain.SEI_NETWORK ||
