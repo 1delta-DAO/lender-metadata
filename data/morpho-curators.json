@@ -834,12 +834,6 @@
     ],
     "MORPHO_BLUE_4565AC05D38B19374CCBB04C17CCA60CA9353CD41824F0803D0FC7704F60EAED": [
       {
-        "id": "alphaping",
-        "image": "https://cdn.morpho.org/v2/assets/images/alphaping.png",
-        "verified": true,
-        "name": "AlphaPing"
-      },
-      {
         "id": "clearstar",
         "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
         "verified": true,
@@ -1009,6 +1003,12 @@
       }
     ],
     "MORPHO_BLUE_5CEBFAE10F5E88D33DF2421923F3D9F32359429FDA2F78EDACC9B4FDB09B0553": [
+      {
+        "id": "hyperithm",
+        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
+        "verified": true,
+        "name": "Hyperithm"
+      },
       {
         "id": "kpk",
         "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
@@ -1322,12 +1322,6 @@
         "name": "Api3"
       },
       {
-        "id": "kpk",
-        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
-        "verified": true,
-        "name": "kpk"
-      },
-      {
         "id": "yearn",
         "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
         "verified": true,
@@ -1422,12 +1416,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
-      },
-      {
-        "id": "kpk",
-        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
-        "verified": true,
-        "name": "kpk"
       },
       {
         "id": "steakhouse-financial",
@@ -1574,12 +1562,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
-      },
-      {
-        "id": "yearn",
-        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
-        "verified": true,
-        "name": "Yearn"
       }
     ],
     "MORPHO_BLUE_85C7F4374F3A403B36D54CC284983B2B02BBD8581EE0F3C36494447B87D9FCAB": [
@@ -1824,12 +1806,6 @@
     ],
     "MORPHO_BLUE_95C28D447950CA6C8BBFD25FC05B80B1FD7A1CDD17A3610B4B3F1FFC8DC2E2ED": [
       {
-        "id": "hyperithm",
-        "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
-        "verified": true,
-        "name": "Hyperithm"
-      },
-      {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
@@ -1875,12 +1851,6 @@
       }
     ],
     "MORPHO_BLUE_9BC98C2F20AC58287EF2C860EEA53A2FDC27C17A7817FF1206C0B7840CC7CD79": [
-      {
-        "id": "alphaping",
-        "image": "https://cdn.morpho.org/v2/assets/images/alphaping.png",
-        "verified": true,
-        "name": "AlphaPing"
-      },
       {
         "id": "clearstar",
         "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
@@ -2570,12 +2540,6 @@
         "name": "Api3"
       },
       {
-        "id": "kpk",
-        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
-        "verified": true,
-        "name": "kpk"
-      },
-      {
         "id": "yearn",
         "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
         "verified": true,
@@ -2591,12 +2555,6 @@
       }
     ],
     "MORPHO_BLUE_BA761AF4134EFB0855ADFBA638945F454F0A704AF11FC93439E20C7C5EBAB942": [
-      {
-        "id": "kpk",
-        "image": "https://cdn.morpho.org/v2/assets/images/kpk.svg",
-        "verified": true,
-        "name": "kpk"
-      },
       {
         "id": "mev-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
@@ -3034,12 +2992,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
-      },
-      {
-        "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
-        "verified": true,
-        "name": "UltraYield"
       }
     ],
     "MORPHO_BLUE_DB8938F97571AEAB0DEB0C34CF7E6278CFF969538F49EEBE6F4FC75A9A111293": [
@@ -4215,6 +4167,14 @@
       }
     ],
     "MORPHO_BLUE_647F2ACDADD47ED0FAD3EF826E3513FD7FDF9328B0C1F24B8C762C6D79511BF6": [
+      {
+        "id": "august-digital",
+        "image": "https://cdn.morpho.org/v2/assets/images/august.svg",
+        "verified": true,
+        "name": "August Digital"
+      }
+    ],
+    "MORPHO_BLUE_67C3A8F21F0AB1C3DD07761225F47DE1BE3EE650CE6B9F6B6D5FB05262046175": [
       {
         "id": "august-digital",
         "image": "https://cdn.morpho.org/v2/assets/images/august.svg",
@@ -6890,12 +6850,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
-      },
-      {
-        "id": "ultrayield",
-        "image": "https://cdn.morpho.org/v2/assets/images/ultrayield.svg",
-        "verified": true,
-        "name": "UltraYield"
       },
       {
         "id": "yearn",
