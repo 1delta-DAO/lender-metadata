@@ -43,7 +43,13 @@ export async function fetchListaMarkets(pageSize = 100) {
             }
             if (!seen[chainId].has(m.id)) {
                 seen[chainId].add(m.id);
-                byChain[chainId].push(m.id);
+                byChain[chainId].push({
+                    id: m.id,
+                    chainId,
+                    loanSymbol: m.loan ?? "",
+                    collateralSymbol: m.collateral ?? "",
+                    lltv: m.lltv ?? "",
+                });
             }
         }
         if (items.length === 0)
@@ -51,7 +57,7 @@ export async function fetchListaMarkets(pageSize = 100) {
         page++;
     }
     for (const chainId of Object.keys(byChain)) {
-        byChain[chainId].sort();
+        byChain[chainId].sort((a, b) => a.id.localeCompare(b.id));
     }
     return byChain;
 }

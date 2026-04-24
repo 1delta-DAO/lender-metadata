@@ -20,9 +20,12 @@ const CHAIN_NAME_TO_ID: Record<string, string> = {
   ethereum: "1",
 };
 
-type ListaMarket = {
+type ListaMarketRaw = {
   id: string;
   chain: string;
+  loan?: string;
+  collateral?: string;
+  lltv?: string;
 };
 
 type ListaResponse = {
@@ -30,11 +33,20 @@ type ListaResponse = {
   msg: string;
   data: {
     total: number;
-    list: ListaMarket[];
+    list: ListaMarketRaw[];
   };
 };
 
-export type ListaMarketsByChain = Record<string, string[]>;
+export type ListaMarketInfo = {
+  id: string;
+  chainId: string;
+  loanSymbol: string;
+  collateralSymbol: string;
+  /** lltv as a decimal string (e.g. "0.965000000000000000"). */
+  lltv: string;
+};
+
+export type ListaMarketsByChain = Record<string, ListaMarketInfo[]>;
 
 export async function fetchListaMarkets(
   pageSize = 100,
@@ -76,7 +88,13 @@ export async function fetchListaMarkets(
       }
       if (!seen[chainId].has(m.id)) {
         seen[chainId].add(m.id);
-        byChain[chainId].push(m.id);
+        byChain[chainId].push({
+          id: m.id,
+          chainId,
+          loanSymbol: m.loan ?? "",
+          collateralSymbol: m.collateral ?? "",
+          lltv: m.lltv ?? "",
+        });
       }
     }
 
@@ -85,7 +103,7 @@ export async function fetchListaMarkets(
   }
 
   for (const chainId of Object.keys(byChain)) {
-    byChain[chainId].sort();
+    byChain[chainId].sort((a, b) => a.id.localeCompare(b.id));
   }
 
   return byChain;
