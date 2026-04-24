@@ -10,6 +10,7 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "update:dataset": "tsx dist/update-dataset.js",
+    "update:lista-markets": "tsx src/update-lista-markets.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "postinstall": "node scripts/patch-abis.cjs"
