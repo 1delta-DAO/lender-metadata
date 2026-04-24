@@ -254,8 +254,8 @@
         "oracle": "0xfE4A8cc5b5B2366C1B58Bea3858e81843581b2F7"
       },
       "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4": {
-        "description": "Calculated stMATIC / USD",
-        "oracle": "0x97371dF4492605486e23Da797fA68e55Fc38a13f"
+        "description": "Constant price feed",
+        "oracle": "0x5D173813B4505701e79E654b36A95E6c1FAD4448"
       },
       "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619": {
         "description": "ETH / USD",
@@ -654,16 +654,16 @@
     },
     "130": {
       "0x2416092f143378750bb29b79ed961ab195cceea5": {
-        "description": "RedStone Price Feed for ezETH_FUNDAMENTAL",
-        "oracle": "0x1Ad4CEBa9f8135A557bBe317DB62Aa125C330F26"
+        "description": "ezETH / ETH CAPO Price Feed",
+        "oracle": "0x8671d5e3a10639a573bACffEF448CA076b2d5cD7"
       },
       "0x4200000000000000000000000000000000000006": {
         "description": "Constant price feed",
         "oracle": "0x3C30B5a5A04656565686f800481580Ac4E7ed178"
       },
       "0x7dcc39b4d1c53cb31e1abc0e358b43987fef80f7": {
-        "description": "RedStone Price Feed for weETH_FUNDAMENTAL",
-        "oracle": "0x2e44e174f7D53F0212823acC11C01A11d58c5bCB"
+        "description": "weETH / ETH CAPO Price Feed",
+        "oracle": "0x731564585278f228FB8F93a0BF62729E24367662"
       },
       "0x8f187aa05619a017077f5308904739877ce9ea21": {
         "description": "UNI / ETH price feed",
@@ -674,12 +674,12 @@
         "oracle": "0xFa454dE61b317b6535A0C462267208E8FdB89f45"
       },
       "0xc02fe7317d4eb8753a02c35fe019786854a92001": {
-        "description": "RedStone Price Feed for wstETH/ETH",
-        "oracle": "0x3870FAc3De911c12A57E5a2532D15aD8Ca275A60"
+        "description": "wstETH / ETH CAPO Price Feed",
+        "oracle": "0x73D3e8b769bC687AeEc487AAeFCAd31F4d9F84A7"
       },
       "0xc3eacf0612346366db554c991d7858716db09f58": {
-        "description": "RedStone Price Feed for rsETH_FUNDAMENTAL",
-        "oracle": "0x85C4F855Bc0609D2584405819EdAEa3aDAbfE97D"
+        "description": "rsETH / ETH CAPO Price Feed",
+        "oracle": "0x0090A563C4832E4E519F5f054483519b1A83c8C3"
       }
     },
     "2020": {
@@ -810,8 +810,8 @@
   "COMPOUND_V3_WRON": {
     "2020": {
       "0x0b7007c13325c48911f73a2dad5fa5dcbf808adc": {
-        "description": "USDC / USD",
-        "oracle": "0x88f415c12d45d4C6DC018553BBE472A4558ff3f8"
+        "description": "",
+        "oracle": "0x62623C1374D12F946a9CA8597a137BbfBE015665"
       },
       "0x97a9107c1793bc407d6f527b77e7fff4d812bece": {
         "description": "Constant price feed",
