@@ -3,6 +3,7 @@ import { readJsonFile } from "../utils/index.js";
 
 export type GearboxChainConfig = {
   marketConfigurators: Record<string, string>;
+  botList?: Address;
 };
 
 export type GearboxV310Config = {

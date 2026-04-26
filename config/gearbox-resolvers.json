@@ -1,34 +1,40 @@
 {
   "addressProviderV310": "0xf7f0a609bfab9a0a98786951ef10e5fe26cc1e38",
+  "marketCompressorV310": "0x70f1753a765c4df582ffa3b8d96ab492714e8992",
   "chains": {
     "1": {
       "marketConfigurators": {
         "0x09d8305f49374aea6a78af6c996df2913e8f3b19": "Tulipa",
         "0x1b265b97eb169fb6668e3258007c3b0242c7bdbe": "kpk"
-      }
+      },
+      "botList": "0x0bc03983da93021a374c964a22b73865220ce962"
     },
     "10": {
       "marketConfigurators": {
         "0x2a15969ce5320868eb609680751cf8896dd92de5": "Chaos Labs",
         "0x9dddd1b9ce0ac8aa0c80e4ec141600b9bf0101c3": "UltraYield"
-      }
+      },
+      "botList": "0x0bc03983da93021a374c964a22b73865220ce962"
     },
     "56": {
       "marketConfigurators": {
         "0x19037a281025b83fa37e3264b77af523ff87a3a4": "Chaos Labs",
         "0x92dc4ee43e9b207e16fbf3fd1a6933563c0a0d35": "Re7"
-      }
+      },
+      "botList": "0x0bc03983da93021a374c964a22b73865220ce962"
     },
     "143": {
       "marketConfigurators": {
         "0x16956912813ab9a38d95730b52a8cf53e860a7c5": "Tulipa",
         "0x7c6ee1bf9c1eb3ee55bdbdc1e8d0317aab718e0a": "UltraYield"
-      }
+      },
+      "botList": "0x0bc03983da93021a374c964a22b73865220ce962"
     },
     "146": {
       "marketConfigurators": {
         "0x8ffdd1f1433674516f83645a768e8900a2a5d076": "Chaos Labs"
-      }
+      },
+      "botList": "0x0bc03983da93021a374c964a22b73865220ce962"
     },
     "1135": {
       "marketConfigurators": {
@@ -46,12 +52,14 @@
         "0x7a133fbd01736fd076158307c9476cc3877f1af5": "Invariant Group",
         "0x9655f82b585b11cee8a05576ed8efcf755cec04b": "TelosC",
         "0xce1cf71a28837daaa7b92d00ca4ef2fd649c2a67": "Hyperithm"
-      }
+      },
+      "botList": "0x0bc03983da93021a374c964a22b73865220ce962"
     },
     "42161": {
       "marketConfigurators": {
         "0x01023850b360b88de0d0f84015bbba1eba57fe7e": "Chaos Labs"
-      }
+      },
+      "botList": "0x0bc03983da93021a374c964a22b73865220ce962"
     },
     "42793": {
       "marketConfigurators": {
@@ -61,8 +69,8 @@
     "43111": {
       "marketConfigurators": {
         "0xc9961b8a0c763779690577f2c76962c086af2fe3": "Invariant Group"
-      }
+      },
+      "botList": "0x0bc03983da93021a374c964a22b73865220ce962"
     }
-  },
-  "marketCompressorV310": "0x70f1753a765c4df582ffa3b8d96ab492714e8992"
+  }
 }
