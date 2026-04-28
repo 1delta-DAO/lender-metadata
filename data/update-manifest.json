@@ -1,22 +1,16 @@
 {
-  "version": "2026-04-24T04-54-17-504Z",
-  "generatedAt": "2026-04-24T04:54:17.505Z",
+  "version": "2026-04-28T05-31-38-854Z",
+  "generatedAt": "2026-04-28T05:31:38.854Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-type-oracles.json",
     "./config/morpho-type-markets.json",
     "./data/morpho-curators.json",
     "./data/morpho-oracles-data.json",
-    "./data/aave-reserves.json",
-    "./data/aave-tokens.json",
-    "./data/compound-v3-oracles.json",
-    "./data/compound-v3-oracles-data.json",
     "./data/euler-vaults.json",
-    "./data/aave-v4-spokes.json",
     "./data/lender-labels.json",
-    "./data/silo-v3-markets.json",
     "./data/lender-labels.json",
-    "./data/lender-labels.json"
+    "./config/gearbox-resolvers.json"
   ],
   "results": [
     {
