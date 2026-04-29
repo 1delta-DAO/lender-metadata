@@ -1591,6 +1591,104 @@
       }
     }
   ],
+  "4326": [
+    {
+      "siloConfig": "0xe9b2e8006b6ea4f4f22d5126cad89d4e17a59bc3",
+      "name": "wstETH-WETH",
+      "hookReceiver": "0x2bb8d1d4970b9e9642c14e2baa67c5a2d2b62f74",
+      "silo0": {
+        "silo": "0x405cd197a16cde72927308b86cced434fb62aa04",
+        "token": "0x601ac63637933d88285a025c685ac4e9a92a98da",
+        "decimals": 18,
+        "symbol": "wstETH",
+        "index": 0,
+        "protectedShareToken": "0xbd411a7005d7584404bc179279abbf3c03ab8e44",
+        "collateralShareToken": "0x405cd197a16cde72927308b86cced434fb62aa04",
+        "debtShareToken": "0x762899d85ceb48f988fee4c0c2fa1f76d16cd8bd",
+        "solvencyOracle": "",
+        "maxLtvOracle": "",
+        "interestRateModel": "0x4c2469a9aa3b251deef0669f4432fa348792454b",
+        "maxLtv": "900000000000000000",
+        "lt": "950000000000000000",
+        "liquidationTargetLtv": "850000000000000000",
+        "liquidationFee": "30000000000000000",
+        "flashloanFee": "0",
+        "daoFee": "100000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      },
+      "silo1": {
+        "silo": "0x5f587a1b09d4f033d074874f765f3e61e7faf095",
+        "token": "0x4200000000000000000000000000000000000006",
+        "decimals": 18,
+        "symbol": "WETH",
+        "index": 1,
+        "protectedShareToken": "0xbc837d8cd24a08151b2d2c7d64f3024a0b1b6070",
+        "collateralShareToken": "0x5f587a1b09d4f033d074874f765f3e61e7faf095",
+        "debtShareToken": "0x0836367bbefd0a38d3b86212c8d8b67a9f64c6da",
+        "solvencyOracle": "0xb0bfd6cf3fa69b7b86c114b365590cdd492de85d",
+        "maxLtvOracle": "0xb0bfd6cf3fa69b7b86c114b365590cdd492de85d",
+        "interestRateModel": "0x65485546e6428b2c74e72d2eb23f8d1c06ea58ed",
+        "maxLtv": "0",
+        "lt": "0",
+        "liquidationTargetLtv": "0",
+        "liquidationFee": "0",
+        "flashloanFee": "0",
+        "daoFee": "100000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      }
+    }
+  ],
+  "5000": [
+    {
+      "siloConfig": "0xd00b1c7abfd386ea8d921da70a78e3f52634dc5d",
+      "name": "USDT0-WETH",
+      "hookReceiver": "0x382f6705dfac9acf5d4e3bd1cdc0a3585888c29f",
+      "silo0": {
+        "silo": "0xf3f5bc52b82c5bbb5c26d71b71301cfe7576bffa",
+        "token": "0x779ded0c9e1022225f8e0630b35a9b54be713736",
+        "decimals": 6,
+        "symbol": "USDT0",
+        "index": 0,
+        "protectedShareToken": "0x89807d476eb66333ef6d99ad5b84a7615012a54d",
+        "collateralShareToken": "0xf3f5bc52b82c5bbb5c26d71b71301cfe7576bffa",
+        "debtShareToken": "0x97e2aa3040600c0a225127e5077896f03d36d2ee",
+        "solvencyOracle": "0x1e24406da4648b068922499ff87b970d58f47a8c",
+        "maxLtvOracle": "0x1e24406da4648b068922499ff87b970d58f47a8c",
+        "interestRateModel": "0xc8890d1d5aa4fe153264ab6e876a266cf96dbae8",
+        "maxLtv": "0",
+        "lt": "0",
+        "liquidationTargetLtv": "0",
+        "liquidationFee": "0",
+        "flashloanFee": "0",
+        "daoFee": "100000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      },
+      "silo1": {
+        "silo": "0xcc9faab22949ef2a11a6664aa99b6ab15dcfa137",
+        "token": "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111",
+        "decimals": 18,
+        "symbol": "WETH",
+        "index": 1,
+        "protectedShareToken": "0xe683f975c37644f6fe2f3cab35e569edd3731a1c",
+        "collateralShareToken": "0xcc9faab22949ef2a11a6664aa99b6ab15dcfa137",
+        "debtShareToken": "0x7ba96f11d498e05c7eedd9669cb5906414cc307b",
+        "solvencyOracle": "0x52a3385999e35301ebc4092a572f055697454286",
+        "maxLtvOracle": "0x52a3385999e35301ebc4092a572f055697454286",
+        "interestRateModel": "0xa3e264dd820044b1f6c1b5c5645f6a389a6a9d5f",
+        "maxLtv": "800000000000000000",
+        "lt": "900000000000000000",
+        "liquidationTargetLtv": "700000000000000000",
+        "liquidationFee": "50000000000000000",
+        "flashloanFee": "0",
+        "daoFee": "100000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      }
+    }
+  ],
   "42161": [
     {
       "siloConfig": "0x02def32bb597c258d0b9b9a8ead3413907ee09c5",
