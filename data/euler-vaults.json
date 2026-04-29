@@ -3228,6 +3228,18 @@
       {
         "underlying": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
         "vault": "0x915104922E6a55B00B7245d56EE950cd591782C2"
+      },
+      {
+        "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+        "vault": "0xe9BA91e5EfDDdA4eE1ce99d4C7a8938924d47E7C"
+      },
+      {
+        "underlying": "0xbF4e3fbE8B60062A00C7a6B1D97d0d49c2971A19",
+        "vault": "0x7b3CAE4eACE26fF56Ac03cE6AD0e389f007375eA"
+      },
+      {
+        "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+        "vault": "0x61129032F2309d0Bb73e00cC3ae411E4CBd9D95f"
       }
     ],
     "10": [
@@ -4162,6 +4174,10 @@
       {
         "underlying": "0xbddb004A6c393C3F83BCCCF7F07eE9d409b214dE",
         "vault": "0x2067936155c7DB57b1cdCF776B04B9678c245626"
+      },
+      {
+        "underlying": "0x8d3F9f9Eb2f5E8B48EFBB4074440D1E2A34Bc365",
+        "vault": "0xea4Be2705517b0Ee0BbabD5E73cEa3dC509d3C36"
       }
     ],
     "146": [
@@ -5233,6 +5249,10 @@
       {
         "underlying": "0x9522133c663ba8C2a8A7b4F63Dd2aC8DccCe1505",
         "vault": "0x0E602B82CDEd0b5cfEefB7f108f212fB639dC53c"
+      },
+      {
+        "underlying": "0xd70659a6396285BF7214d7Ea9673184e7C72E07E",
+        "vault": "0x43b8C2EBd6916DC95b40514Db1B08bE0c6fc327c"
       }
     ],
     "1923": [
@@ -7455,6 +7475,22 @@
       {
         "underlying": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40",
         "vault": "0x58eb6Ea9963d71041fDe7112F28E0178dAb8D43f"
+      },
+      {
+        "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "vault": "0x106A8E34D0F0A4842ADE9149b5aa3AF68A078f1d"
+      },
+      {
+        "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "vault": "0xaeC059be0359B6ce446D36f54cB9B833B814500A"
+      },
+      {
+        "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "vault": "0x01fC4521963C0d99C96c8c65De5E6244Ac44d464"
+      },
+      {
+        "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "vault": "0x9dB604761a4664002629873f5985386904C3D5Fe"
       }
     ],
     "43114": [
