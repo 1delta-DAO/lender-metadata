@@ -1,0 +1,123 @@
+{
+  "LISTA_DAO": {
+    "1": [
+      {
+        "vault": "0x1a9bee2f5c85f6b4a0221fb1c733246af5306ae3",
+        "underlying": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
+        "name": "Lista USD1 Vault"
+      },
+      {
+        "vault": "0x28643ffd79256719d6acbcf25cb44576caebcf12",
+        "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "name": "Lista USDT Savings"
+      },
+      {
+        "vault": "0x9651ae50a5763c6f9b883f9d50e8116281cfcab2",
+        "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "name": "Lista USDC Savings"
+      }
+    ],
+    "56": [
+      {
+        "vault": "0x0fca33dbe0889dc7ea2d9bd568422be2401b4c02",
+        "underlying": "0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe",
+        "name": "Hyperithm Lista XRP"
+      },
+      {
+        "vault": "0x3bd8bdaaa1aff2bb17866fc897bba5add9b64e3a",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955",
+        "name": "Statera Vault USDT"
+      },
+      {
+        "vault": "0x4109415de2271097fb5fa16af8a753aab8c46d6f",
+        "underlying": "0x21caef8a43163eea865baee23b9c2e327696a3bf",
+        "name": "Lista XAUT Vault"
+      },
+      {
+        "vault": "0x57134a64b7cd9f9eb72f8255a671f5bf2fe3e2d0",
+        "underlying": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "name": "Gauntlet x Lista DAO BNB Vault"
+      },
+      {
+        "vault": "0x6d6783c146f2b0b2774c1725297f1845dc502525",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955",
+        "name": "Gauntlet USDT Vault"
+      },
+      {
+        "vault": "0x8a06ac91265dbebe6d4606f45b10993e9a571869",
+        "underlying": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+        "name": "Lista USDC Vault"
+      },
+      {
+        "vault": "0x9a17fd5cb8efc25d11567e713ae795a89775a759",
+        "underlying": "0xce24439f2d9c6a2289f741120fe202248b666666",
+        "name": "Gauntlet x Lista DAO U Vault"
+      },
+      {
+        "vault": "0xab251dc87dc313649d024bd69b34c8e7690ce1fc",
+        "underlying": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "name": "Loop BNB Vault"
+      },
+      {
+        "vault": "0xb5a30e1fa2cf3c8dea882124b3ab5a47a27c5dd2",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955",
+        "name": "RockawayX PT Yield"
+      },
+      {
+        "vault": "0xb798bb56898a86b6fd49fc1eca4150efdc3ee6ea",
+        "underlying": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "name": "Solv-Exclusive BNB Vault"
+      },
+      {
+        "vault": "0xbe87beb6eca39b558ad43c0541471d50d09f3e76",
+        "underlying": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
+        "name": "Lorenzo Exclusive USD1 Vault"
+      },
+      {
+        "vault": "0xcb995fb56ec7fc42e0c9a075dfa3a0b56de72484",
+        "underlying": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "name": "Pangolins BNB Vault"
+      },
+      {
+        "vault": "0xce51d66343ed1ffaf82432b7436b5a128445ef2b",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955",
+        "name": "Native USDT Vault"
+      },
+      {
+        "vault": "0xd5cfc0f894ba77e95e3325aa53eb3e6cbbb5a81e",
+        "underlying": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "name": "MEV BNB Vault"
+      },
+      {
+        "vault": "0xd61dd125016728dd284cf5dba8a3b7c27c5058f2",
+        "underlying": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
+        "name": "Solv-Exclusive USD1 Vault"
+      },
+      {
+        "vault": "0xe03d86e5baa3509ac4a059a41737baa8169b6529",
+        "underlying": "0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+        "name": "Lista lisUSD Vault"
+      },
+      {
+        "vault": "0xe46b8e65006e6450bdd8cb7d3274ab4f76f4c705",
+        "underlying": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+        "name": "Lista BTCB Vault"
+      },
+      {
+        "vault": "0xeb4f6ffb1038e1cca701e7d53083b37ec5b6ba33",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955",
+        "name": "Pangolins USDT Vault(pUSDT)"
+      },
+      {
+        "vault": "0xf21308b903f96592b6d6988c646dc2a3028f39fd",
+        "underlying": "0x000ae314e2a2172a039b26378814c252734f556a",
+        "name": "Aster Vault"
+      },
+      {
+        "vault": "0xfa27f172e0b6ebcef9c51abf817e2cb142fbe627",
+        "underlying": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
+        "name": "Gauntlet x Lista DAO USD1 Vault"
+      }
+    ]
+  }
+}
