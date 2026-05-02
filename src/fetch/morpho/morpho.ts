@@ -12,6 +12,10 @@ import {
   hasSubgraph,
   fetchMarketsFromSubgraph,
 } from "./fetchMorphoSubgraph.js";
+import {
+  hasMysticApi,
+  fetchMarketsFromMysticApi,
+} from "./fetchMysticApi.js";
 import { Lender } from "@1delta/lender-registry";
 import { computeMorphoMarketId } from "./morphoMarketId.js";
 
@@ -31,7 +35,8 @@ export const cannotUseApi = (chainId: string, fork: string) => {
       chainId === Chain.BNB_SMART_CHAIN_MAINNET ||
       chainId === Chain.CELO_MAINNET ||
       chainId === Chain.LISK ||
-      chainId === Chain.TAC_MAINNET
+      chainId === Chain.TAC_MAINNET ||
+      hasMysticApi(chainId)
     );
   }
   return true; // can't use api for moolah
@@ -237,6 +242,7 @@ export class MorphoBlueUpdater implements DataUpdater {
     const chainids = [
       "1",
       "10",
+      "14",
       "56",
       "130",
       "137",
@@ -246,12 +252,14 @@ export class MorphoBlueUpdater implements DataUpdater {
       "1135",
       "1329",
       "1868",
+      "4114",
       "8453",
       "42161",
       "42220",
       "43111",
       "80094",
       "747474",
+      "98866",
     ];
     const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
     const MORPHO_BLUE_MARKETS = await readJsonFile(marketsFile);
@@ -271,8 +279,24 @@ export class MorphoBlueUpdater implements DataUpdater {
 
         try {
           if (cannotUseApi(chainId, fork)) {
-            // Use subgraph as primary source when available (returns all markets)
-            if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
+            // Mystic Finance hosts a Morpho Blue fork on a few chains and
+            // exposes its own indexer; prefer it over on-chain reads.
+            if (fork === "MORPHO_BLUE" && hasMysticApi(chainId)) {
+              try {
+                marketData = await fetchMarketsFromMysticApi(chainId);
+              } catch (error) {
+                console.warn(
+                  `Mystic API fetch failed for chain ${chainId}, falling back to on-chain:`,
+                  error
+                );
+                marketData = await getMarketsOnChain(
+                  chainId,
+                  { [fork]: forkConfig },
+                  MORPHO_BLUE_MARKETS
+                );
+              }
+            } else if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
+              // Use subgraph as primary source when available (returns all markets)
               try {
                 marketData = await fetchMarketsFromSubgraph(chainId);
               } catch (error) {
@@ -472,7 +496,21 @@ export async function fetchMorphoMarketRowsForChain(
     let marketData: any;
     try {
       if (cannotUseApi(chainId, fork)) {
-        if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
+        if (fork === "MORPHO_BLUE" && hasMysticApi(chainId)) {
+          try {
+            marketData = await fetchMarketsFromMysticApi(chainId);
+          } catch (error) {
+            console.warn(
+              `Mystic API fetch failed for chain ${chainId}, falling back to on-chain:`,
+              error
+            );
+            marketData = await getMarketsOnChain(
+              chainId,
+              { [fork]: forkConfig },
+              MORPHO_BLUE_MARKETS
+            );
+          }
+        } else if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
           try {
             marketData = await fetchMarketsFromSubgraph(chainId);
           } catch (error) {

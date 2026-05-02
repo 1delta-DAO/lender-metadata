@@ -12,6 +12,8 @@
     "update:dataset": "tsx dist/update-dataset.js",
     "update:lista-markets": "tsx src/update-lista-markets.ts",
     "update:lista-vaults": "tsx src/update-lista-vaults.ts",
+    "update:mystic-markets": "tsx src/update-mystic-markets.ts",
+    "update:mystic-vaults": "tsx src/update-mystic-vaults.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "postinstall": "node scripts/patch-abis.cjs"

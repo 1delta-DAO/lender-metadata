@@ -119,5 +119,48 @@
         "name": "Gauntlet x Lista DAO USD1 Vault"
       }
     ]
+  },
+  "MORPHO_BLUE": {
+    "14": [
+      {
+        "vault": "0x1aeada3c251215f1294720b80fcb3d1d005f3585",
+        "underlying": "0x1d80c49bbbcd1c0911346656b529df9e5c2f783d",
+        "name": "Core wFLR"
+      },
+      {
+        "vault": "0x53184adabf312b490bf1ebcfdc896feff6019a14",
+        "underlying": "0xad552a648c74d49e10027ab8a618a3ad4901c5be",
+        "name": "Core FXRP"
+      },
+      {
+        "vault": "0xe8dd6a1e13244a27bdaa19ccbf33013647c675d1",
+        "underlying": "0xe7cd86e13ac4309349f30b3435a9d337750fc82d",
+        "name": "Core USDT0"
+      }
+    ],
+    "4114": [
+      {
+        "vault": "0x72f8c254548839fa1db4156ae01d8c6ae5885ee4",
+        "underlying": "0x8d82c4e3c936c7b5724a382a9c5a4e6eb7ab6d5d",
+        "name": "UltraYield ctUSD Prime"
+      }
+    ],
+    "98866": [
+      {
+        "vault": "0x0b14d0bdaf647c541d3887c5b1a4bd64068fcda7",
+        "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "name": "Mystic MEV Capital pUSD"
+      },
+      {
+        "vault": "0xbb748a1346820560875cb7a9cd6b46c203230e07",
+        "underlying": "0xca59ca09e5602fae8b629dee83ffa819741f14be",
+        "name": "Mystic wETH"
+      },
+      {
+        "vault": "0xc0df5784f28046d11813356919b869dda5815b16",
+        "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "name": "Re7 RWA Yield"
+      }
+    ]
   }
 }
