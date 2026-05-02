@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:docs.morpho.org)",
-      "Bash(gh search *)"
+      "Bash(gh search *)",
+      "WebFetch(domain:chainlist.org)"
     ]
   }
 }
