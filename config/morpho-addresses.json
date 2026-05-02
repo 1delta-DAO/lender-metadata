@@ -86,6 +86,7 @@
     "metaMorphoFactory": "0xEA67e5566Ca2c0176d9db172A7f9A1e1F22E9D3A",
     "vaultV2Factory": "0x05519a0835a1bFD90f110aA7ca46e9A5F81Ed3b4",
     "morphoMarketV1AdapterFactory": "0xaCFf4ad3B357F5A43A20570cF3eb9Ba0086d4e9a",
+    "morphoMarketV1AdapterV2Factory": "0xE39f6B5Dd03F4ce8C201b946E662E653d94fA121",
     "morphoVaultV1AdapterFactory": "0x8840F99Bb2D4f69fb02b2d019384C5c98a11746c",
     "registryList": "0x295e0aB80f8234398cd0E51C85D873ee69E5F0DD",
     "chainlinkOracleFactory": "0x44b2c8e4474751EF2BBC57B92928aFB99DA785De",
@@ -163,6 +164,7 @@
     "metaMorphoFactory": "0x33f20973275B2F574488b18929cd7DCBf1AbF275",
     "vaultV2Factory": "0x8B2F922162FBb60A6a072cC784A2E4168fB0bb0c",
     "morphoMarketV1AdapterFactory": "0x8Da54fbF89B3D6fC6DCC92F31CF75a211ACF3d46",
+    "morphoMarketV1AdapterV2Factory": "0xa00666E86C7e2FA8d2c78d9481E687e098340180",
     "morphoVaultV1AdapterFactory": "0x9f3c0999425656fD189C69a8aD68cB64986D644A",
     "registryList": "0x6a42f8b46224baA4DbBBc2F860F4675eeA7bd52B",
     "chainlinkOracleFactory": "0xC8659Bcd5279DB664Be973aEFd752a5326653739",
@@ -229,6 +231,21 @@
     "wNative": "0x4200000000000000000000000000000000000006",
     "eurc": "0x1C60ba0A0eD1019e8Eb035E6daF4155A5cE2380B"
   },
+  "714": {
+    "morpho": "0xF050a2BB0468FF23cF2964AC182196C94D6815C3",
+    "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+    "bundler3": {
+      "bundler3": "0x4D403d6a3D25A865Ed57caef884f076E0fa00eCa",
+      "generalAdapter1": "0x9B05CCA3299E3558a324f72aaB4D404625557B3D"
+    },
+    "adaptiveCurveIrm": "0x08A7b3a39E5425d616Cc9c046cf96B5eF21a139f",
+    "vaultV2Factory": "0x9aaCAA01F5e6BC876D07f023744E3E0A456a64cf",
+    "morphoMarketV1AdapterV2Factory": "0x59e8C53D383F22b6371b5833504dfAa4136aE6f7",
+    "registryList": "0xB78BA19a8Bf3202DA7036ec1830222FDC5e0297e",
+    "chainlinkOracleFactory": "0xD6202eFF2e869dc473EB13c38Cc787835Bf8B6df",
+    "preLiquidationFactory": "0x83346d9fc31a239Ae1739672AD84A567C7beF529",
+    "wNative": "0x00000000000000000000000000000000ce1E571a"
+  },
   "988": {
     "morpho": "0xa40103088A899514E3fe474cD3cc5bf811b1102e",
     "bundler3": {
@@ -240,6 +257,7 @@
     "metaMorphoFactory": "0xb4ae5673c48621189E2bEfBA96F31912032DD1AE",
     "vaultV2Factory": "0x7fc35488803D49D00a94b206A223f7661898BE3a",
     "morphoMarketV1AdapterFactory": "0x2A5F218FE4Dac3b1f4E096e8ae83074bB1713833",
+    "morphoMarketV1AdapterV2Factory": "0x9282DBa3d1788f4f02B5DdFc4fc5985e70197620",
     "morphoVaultV1AdapterFactory": "0x4EF83ACD552598a1196c1aBDD0bA2EdE6f2237B4",
     "registryList": "0xCe93fcB2849EB886F1e81d45D2747dF803f843C3",
     "chainlinkOracleFactory": "0xF24C6eAB91e43EacE18a4e893a48565C09132505",
@@ -294,6 +312,21 @@
     "wNative": "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7",
     "usdc": "0xe15fC38F6D8c56aF07bbCBe3BAf5708A2Bf42392"
   },
+  "1672": {
+    "morpho": "0x18573fA18fd17dDfD790B4a5B5b2977aad3b4Efb",
+    "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+    "bundler3": {
+      "bundler3": "0x3c90c09F8c5d927a117F681fB924952DbbD99120",
+      "generalAdapter1": "0x0A5819708bCAD9C716dFD58ecB58cF91399A53f8"
+    },
+    "adaptiveCurveIrm": "0xD5E02889C13230458506CC842347c4E62F8cDF3a",
+    "vaultV2Factory": "0x8E01ed1E1A41029b3137FcE9Aa880c0A54827498",
+    "morphoMarketV1AdapterV2Factory": "0xe510e1fcC429943cA3455A7bfBD79f0307Cd8403",
+    "registryList": "0xbe858d729548eB49BbFA05Acd3674ca8cdaAdD4b",
+    "chainlinkOracleFactory": "0xb8118256d8Aa950ec0B26a0b8Be7C6c1a858f6a3",
+    "preLiquidationFactory": "0x37511F85B0Eff260d429f693247339dC91C76f90",
+    "wNative": "0x52C48d4213107b20bC583832b0d951FB9CA8F0B0"
+  },
   "1868": {
     "morpho": "0xE75Fc5eA6e74B824954349Ca351eb4e671ADA53a",
     "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
@@ -322,6 +355,20 @@
     "preLiquidationFactory": "0x1058DA51242dF63bA3A61c838A61405ea6Edb083",
     "wNative": "0x3439153EB7AF838Ad19d56E1571FBD09333C2809",
     "usdc": "0x84A71ccD554Cc1b02749b35d22F684CC8ec987e1"
+  },
+  "4217": {
+    "morpho": "0x10EE9AAC980A180dd4DcFc96C746d60B0EA88f97",
+    "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+    "bundler3": {
+      "bundler3": "0x5A3B829dcDBE1979cdD9F648Afb6D39dCF805E33",
+      "generalAdapter1": "0x3a2A86bD16629B054f7f3d87F0a7570F3881a43c"
+    },
+    "adaptiveCurveIrm": "0x112fd4042E442C3C12C67AD23587b0afe36eB74E",
+    "vaultV2Factory": "0x3DE400E3F79113194fa5AF6Ae5C474947E0C82Db",
+    "morphoMarketV1AdapterV2Factory": "0xF85aD5f14cC903533FC409B8098B58b4C2f36697",
+    "registryList": "0xB118227C728b5ce52445a5aAee48C8a281C429E0",
+    "chainlinkOracleFactory": "0xc2c167BC5cBD833ce58239e85073258F10aD4DF6",
+    "preLiquidationFactory": "0xB83d2D5CAE5Fc64a408cA82447445442Fe249fe3"
   },
   "8453": {
     "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
@@ -520,6 +567,21 @@
     "wNative": "0x5300000000000000000000000000000000000004",
     "usdc": "0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4"
   },
+  "685689": {
+    "morpho": "0x8c45B34999883FF4B47cD3be095D585682cd9227",
+    "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+    "bundler3": {
+      "bundler3": "0xE09314FE5Fc41FEc8f3e6042085dD3CeE24c877c",
+      "generalAdapter1": "0x79e6825ccb881d276f988a5dA8125e1c6BEa07Ae"
+    },
+    "adaptiveCurveIrm": "0x549EFFAE58F9Db253AAF60fbCeC8B4cB74a952A8",
+    "vaultV2Factory": "0xe2558155AEcEF57cAADB98e39b0538ab0ae95693",
+    "morphoMarketV1AdapterV2Factory": "0x155134544AE2Ec3AB23034BF620538482C5E3c40",
+    "registryList": "0xdaE77f687883D656Aa4dc7fF89c0c891510C61A5",
+    "chainlinkOracleFactory": "0xf9b22d1652ce918CfC5d102269801AFbfEFa85F9",
+    "preLiquidationFactory": "0x57C88ACAbd4Fa19257104ECCF64ccA34e5eB8961",
+    "wNative": "0x4200000000000000000000000000000000000006"
+  },
   "747474": {
     "morpho": "0xD50F2DffFd62f94Ee4AEd9ca05C61d0753268aBc",
     "bundler3": {
@@ -553,16 +615,17 @@
     "usdc": "0xDF0B24095e15044538866576754F3C964e902Ee6"
   },
   "123420001114": {
-    "morpho": "0xc7CAd9B1377Eb8103397Cb07Cb5c4f03eb2eBEa8",
+    "morpho": "0xea4f2979D7A99B40404b447Cf71c008e3805760F",
     "bundler3": {
-      "bundler3": "0xc1A86b3a552C5a34e1ecc910341A64Cc89b2CB01",
-      "generalAdapter1": "0x86eaf48Fd73c1Aa30E801D01d0efFd731c3E5E85"
+      "bundler3": "0x88A4038BB4A14ecD7301c8Fb1f1e8732c4355D53",
+      "generalAdapter1": "0x29dcA26F9862CFb8064163ddc3401aaB4D4D05c6"
     },
-    "adaptiveCurveIrm": "0xeEccdD33c0C06d7DDa31E3C4a1Cdb35a2A756246",
-    "publicAllocator": "0x1e145648DA9aC9d831B4F7931C06e9828083BD40",
-    "metaMorphoFactory": "0xa8CD521d42b716821D7ddD2Ca6a237087aA5b487",
-    "chainlinkOracleFactory": "0x24Bc64f44B429EEA86c8B1f9C03F54Ab0C6c0C15",
-    "preLiquidationFactory": "0x6C0155CC30f760DC49138B389F5B69F56eD08841",
-    "wNative": "0x1aE9c40eCd2DD6ad5858E5430A556d7aff28A44b"
+    "adaptiveCurveIrm": "0xd5661D965cc60ed1954d4f6725b766051De3ef97",
+    "publicAllocator": "0x0b7a3A49dafd98363B428cEC966106f29c0eee75",
+    "metaMorphoFactory": "0x3F4b9246b7Cd3F7671c70BeBd5AAFC08e5bb5f16",
+    "chainlinkOracleFactory": "0x391A3fd481743FE48409e2e31eDac8a5f4C7653A",
+    "preLiquidationFactory": "0xD55fA5DF6F1A21C2B93009A702aad3a0891C1B48",
+    "wNative": "0x3bd5C81a8Adf3355078Dc5F73c41d3194B316690",
+    "usdc": "0x8a2B28364102Bea189D99A475C494330Ef2bDD0B"
   }
 }
