@@ -3,7 +3,10 @@
     "allow": [
       "WebFetch(domain:docs.morpho.org)",
       "Bash(gh search *)",
-      "WebFetch(domain:chainlist.org)"
+      "WebFetch(domain:chainlist.org)",
+      "WebFetch(domain:app.mysticfinance.xyz)",
+      "WebFetch(domain:docs.mysticfinance.xyz)",
+      "WebFetch(domain:flare-explorer.flare.network)"
     ]
   }
 }
