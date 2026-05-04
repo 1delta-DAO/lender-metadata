@@ -14,6 +14,7 @@
     "update:lista-vaults": "tsx src/update-lista-vaults.ts",
     "update:mystic-markets": "tsx src/update-mystic-markets.ts",
     "update:mystic-vaults": "tsx src/update-mystic-vaults.ts",
+    "find:missing-tokens": "tsx src/find-missing-tokens.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "postinstall": "node scripts/patch-abis.cjs"
