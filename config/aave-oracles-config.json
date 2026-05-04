@@ -26,7 +26,8 @@
   "PHIAT": {
     "369": {
       "baseAsset": "0xa1077a294dde1b09bb078844df40758a5d0f9a27",
-      "baseCurrencyUnit": "1000000000000000000"
+      "baseCurrencyUnit": "1000000000000000000",
+      "baseAssetSource": "BETTER_BANK"
     }
   }
 }
