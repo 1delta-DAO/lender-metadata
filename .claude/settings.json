@@ -6,7 +6,8 @@
       "WebFetch(domain:chainlist.org)",
       "WebFetch(domain:app.mysticfinance.xyz)",
       "WebFetch(domain:docs.mysticfinance.xyz)",
-      "WebFetch(domain:flare-explorer.flare.network)"
+      "WebFetch(domain:flare-explorer.flare.network)",
+      "Bash(wait)"
     ]
   }
 }
