@@ -82,6 +82,10 @@
       "pool": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
       "protocolDataProvider": "0x7F23D86Ee20D869112572136221e173428DD740B"
     },
+    "57073": {
+      "pool": "0x2816cf15F6d2A220E789aA011D5EE4eB6c47FEbA",
+      "protocolDataProvider": "0x96086C25d13943C80Ff9a19791a40Df6aFC08328"
+    },
     "59144": {
       "pool": "0xc47b8C00b0f69a36fa203Ffeac0334874574a8Ac",
       "protocolDataProvider": "0x9eEBf28397D8bECC999472fC8838CBbeF54aebf6"
@@ -111,12 +115,6 @@
     "1": {
       "pool": "0x4e033931ad43597d96D6bcc25c280717730B58B1",
       "protocolDataProvider": "0x08795CFE08C7a81dCDFf482BbAAF474B240f31cD"
-    }
-  },
-  "TYDRO": {
-    "57073": {
-      "pool": "0x2816cf15F6d2A220E789aA011D5EE4eB6c47FEbA",
-      "protocolDataProvider": "0x96086C25d13943C80Ff9a19791a40Df6aFC08328"
     }
   },
   "AGAVE": {
