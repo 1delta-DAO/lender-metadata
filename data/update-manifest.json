@@ -1,14 +1,12 @@
 {
-  "version": "2026-05-04T20-53-33-765Z",
-  "generatedAt": "2026-05-04T20:53:33.765Z",
+  "version": "2026-05-07T05-32-19-884Z",
+  "generatedAt": "2026-05-07T05:32:19.884Z",
   "updatedFiles": [
-    "./data/morpho-oracles-data.json",
     "./data/aave-reserves.json",
     "./data/aave-tokens.json",
     "./data/aave-oracles.json",
     "./config/aave-pools.json",
     "./data/euler-vaults.json",
-    "./data/lender-labels.json",
     "./data/lender-labels.json",
     "./config/gearbox-resolvers.json",
     "./data/lender-labels.json"
@@ -79,24 +77,6 @@
     },
     {
       "targetFile": "./data/aave-v4-oracle-sources.json"
-    },
-    {
-      "targetFile": "./config/silo-v2-peripherals.json"
-    },
-    {
-      "targetFile": "./data/silo-v2-markets.json"
-    },
-    {
-      "targetFile": "./data/lender-labels.json"
-    },
-    {
-      "targetFile": "./config/silo-v3-peripherals.json"
-    },
-    {
-      "targetFile": "./data/silo-v3-markets.json"
-    },
-    {
-      "targetFile": "./data/lender-labels.json"
     },
     {
       "targetFile": "./config/fluid-resolvers.json"
