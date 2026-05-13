@@ -3296,6 +3296,30 @@
       }
     }
   },
+  "BETTER_BANK_ATROPA": {
+    "369": {
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
+        "aToken": "0xa9d47c83f196a1ad98d4b6262de758732311875e",
+        "sToken": "0x956cab35d69d4f64f6b27b07ed21d320bcea20ef",
+        "vToken": "0xcaf561951e86fc2cc2334825cda8a27edf58a38a"
+      },
+      "0x6b175474e89094c44da98b954eedeac495271d0f": {
+        "aToken": "0x631c2278fc69ba14c2ec15fa270d4561b501ea69",
+        "sToken": "0x66e2392751f3e3aee243551fdba9eb63b411f59e",
+        "vToken": "0xdd6f06e152ddc3bd64388a03c06cd7994466b370"
+      },
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
+        "aToken": "0xc549d24fa394f44f194f2b7d3db289b49a2d8d68",
+        "sToken": "0x47e5bec4c440400845701cf4487dd59e0499ee4f",
+        "vToken": "0x4bb95b49e98bdb6acb0552a87e0fa7aa3aa5402c"
+      },
+      "0xcc78a0acdf847a2c1714d2a925bb4477df5d48a6": {
+        "aToken": "0x28a584c26c66047e5ffc72591eb546a7df8f2430",
+        "sToken": "0x41a5f122fcd53e39b5139f318001b80d77d7a7ca",
+        "vToken": "0x15105d4c43f90e3f4975528a10a91245d6de49cf"
+      }
+    }
+  },
   "COLEND": {
     "1116": {
       "0x00000000efe302beaa2b3e6e1b18d08d69a9012a": {
@@ -4565,6 +4589,11 @@
         "aToken": "0x4e983e1eb777fb4d748f7546f95fa95ded9d6a2a",
         "sToken": "0x0000000000000000000000000000000000000000",
         "vToken": "0x241d14b1724d4b0a9aac0feb5f89678f66f238be"
+      },
+      "0x3a15461d8ae0f0fb5fa2629e9da7d66a794a6e37": {
+        "aToken": "0xc96fbd12be56dd565b258d243344bcf792a51128",
+        "sToken": "0x0000000000000000000000000000000000000000",
+        "vToken": "0xb1118d55d78c8f0c292d501c29c429b48c87b36b"
       },
       "0x541fd749419ca806a8bc7da8ac23d346f2df8b77": {
         "aToken": "0x78eb60ee8d92cf697f01eed683208c9e5e10e6d7",
