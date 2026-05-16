@@ -1,15 +1,13 @@
 {
-  "version": "2026-05-15T05-55-55-485Z",
-  "generatedAt": "2026-05-15T05:55:55.485Z",
+  "version": "2026-05-16T05-29-18-189Z",
+  "generatedAt": "2026-05-16T05:29:18.189Z",
   "updatedFiles": [
-    "./data/aave-reserves.json",
-    "./data/aave-tokens.json",
-    "./data/aave-oracles.json",
+    "./data/morpho-oracles-data.json",
     "./config/aave-pools.json",
     "./data/euler-vaults.json",
+    "./data/aave-v4-oracle-sources.json",
     "./data/lender-labels.json",
     "./config/silo-v3-peripherals.json",
-    "./data/silo-v3-markets.json",
     "./data/lender-labels.json",
     "./config/gearbox-resolvers.json",
     "./data/lender-labels.json"
