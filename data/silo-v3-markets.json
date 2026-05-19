@@ -2678,6 +2678,53 @@
         "deployerFee": "0",
         "keeperFee": "200000000000000000"
       }
+    },
+    {
+      "siloConfig": "0xfea02c95ca777a275dce2d9994b67a08d5b82eb1",
+      "name": "WETH-USDC",
+      "hookReceiver": "0x9a2a2cfbe1a400cbf7e4775bf6f93188d92093e2",
+      "silo0": {
+        "silo": "0xca550a42af03f72929d4837818bef764b80ff89f",
+        "token": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "decimals": 18,
+        "symbol": "WETH",
+        "index": 0,
+        "protectedShareToken": "0x6c9513b16b431fcca1484cc9607e8908fcf3913d",
+        "collateralShareToken": "0xca550a42af03f72929d4837818bef764b80ff89f",
+        "debtShareToken": "0x80d0d8619448501f8c861022d0c3dd690a245712",
+        "solvencyOracle": "",
+        "maxLtvOracle": "",
+        "interestRateModel": "0xc5d2161280f3b5a9dcdf2de8beb032d9a55b377c",
+        "maxLtv": "790000000000000000",
+        "lt": "800000000000000000",
+        "liquidationTargetLtv": "680000000000000000",
+        "liquidationFee": "40000000000000000",
+        "flashloanFee": "0",
+        "daoFee": "100000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      },
+      "silo1": {
+        "silo": "0x97a6766bd84e8d3e553da2abec3fcac188697577",
+        "token": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+        "decimals": 6,
+        "symbol": "USDC",
+        "index": 1,
+        "protectedShareToken": "0xf2c6af8af4a9169f7b71afb0d12acd27f253a55d",
+        "collateralShareToken": "0x97a6766bd84e8d3e553da2abec3fcac188697577",
+        "debtShareToken": "0x5977755b8114566037dca2772c6215249831d38a",
+        "solvencyOracle": "0x45a9880b5a84a72542d836ce3d466aa88b1540f4",
+        "maxLtvOracle": "0x45a9880b5a84a72542d836ce3d466aa88b1540f4",
+        "interestRateModel": "0x93174dae9e6ef31d70a032048035b5a0a2896470",
+        "maxLtv": "0",
+        "lt": "0",
+        "liquidationTargetLtv": "0",
+        "liquidationFee": "0",
+        "flashloanFee": "0",
+        "daoFee": "100000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      }
     }
   ],
   "43114": [
