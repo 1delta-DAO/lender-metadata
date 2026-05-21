@@ -1,11 +1,14 @@
 {
-  "version": "2026-05-19T06-08-12-588Z",
-  "generatedAt": "2026-05-19T06:08:12.588Z",
+  "version": "2026-05-21T06-11-21-710Z",
+  "generatedAt": "2026-05-21T06:11:21.710Z",
   "updatedFiles": [
     "./data/morpho-oracles-data.json",
+    "./data/aave-reserves.json",
+    "./data/aave-tokens.json",
     "./config/aave-pools.json",
+    "./data/compound-v3-oracles.json",
+    "./data/compound-v3-oracles-data.json",
     "./data/euler-vaults.json",
-    "./data/aave-v4-oracle-sources.json",
     "./data/lender-labels.json",
     "./config/silo-v3-peripherals.json",
     "./data/silo-v3-markets.json",

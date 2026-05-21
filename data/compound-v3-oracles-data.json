@@ -194,8 +194,8 @@
         "oracle": "0x5998a5C516bD5E479E0B6aa6F243d372730B68d2"
       },
       "0xaf88d065e77c8cc2239327c5edb3a432268e5831": {
-        "description": "USDC / USD SVR Price Feed",
-        "oracle": "0x880D36763Bb470cd395B7d6c76b50446FA70ACe5"
+        "description": "USDC / USD",
+        "oracle": "0x50834F3163758fcC1Df9973b6e91f0F0F0434aD3"
       },
       "0xd09acb80c1e8f2291862c4978a008791c9167003": {
         "description": "tETH / USD price feed",
@@ -510,8 +510,8 @@
         "oracle": "0xDB98056FecFff59D032aB628337A4887110df3dB"
       },
       "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9": {
-        "description": "USDT / USD SVR Price Feed",
-        "oracle": "0xedfB5fD27B0259B0A696364b183223B5ca3CBE62"
+        "description": "USDT / USD",
+        "oracle": "0x3f3f5dF88dC9F13eac63DF89EC16ef6e7E25DdE7"
       }
     }
   },
