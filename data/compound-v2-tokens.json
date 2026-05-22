@@ -1205,6 +1205,70 @@
       }
     ]
   },
+  "KINETIC": {
+    "14": [
+      {
+        "cToken": "0xdeebabe05bda7e8c1740873abf715f16164c29b8",
+        "underlying": "0xfbda5f676cb37624f28265a144a48b0d6e87d3b6"
+      },
+      {
+        "cToken": "0x1e5bbc19e0b17d7d38f318c79401b3d16f2b93bb",
+        "underlying": "0x0b38e83b86d491735feaa0a791f65c2b99535396"
+      },
+      {
+        "cToken": "0x291487bec339c2fe5d83dd45f0a15efc9ac45656",
+        "underlying": "0x12e605bc104e93b45e1ad99f9e555f659051c2bb"
+      },
+      {
+        "cToken": "0x5c2400019017ae61f811d517d088df732642dbd0",
+        "underlying": "0x1502fa4be69d526124d453619276faccab275d3d"
+      },
+      {
+        "cToken": "0x40ee5dfe1d4a957ca8ac4dd4adaf8a8fa76b1c16",
+        "underlying": "0x26a1fab310bd080542dc864647d05985360b16a5"
+      },
+      {
+        "cToken": "0x76809abd690b77488ffb5277e0a8300a7e77b779",
+        "underlying": "0xe7cd86e13ac4309349f30b3435a9d337750fc82d"
+      },
+      {
+        "cToken": "0xb84f771305d10607dd086b2f89712c0ced379407",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      }
+    ]
+  },
+  "KINETIC_FXRP": {
+    "14": [
+      {
+        "cToken": "0xad7e7989796414c9572da9854deb1b920724fd09",
+        "underlying": "0xe7cd86e13ac4309349f30b3435a9d337750fc82d"
+      },
+      {
+        "cToken": "0xd1b7a5efa9bd88f291f7a4563a8f6185c0249cb3",
+        "underlying": "0xad552a648c74d49e10027ab8a618a3ad4901c5be"
+      },
+      {
+        "cToken": "0x870f7b89f0d408d7ca2e6586df26d00ea03aa358",
+        "underlying": "0x4c18ff3c89632c3dd62e796c0afa5c07c4c1b2b3"
+      }
+    ]
+  },
+  "KINETIC_JOULE": {
+    "14": [
+      {
+        "cToken": "0x1bb34a8360a09f3166574a331b941cd7e4463ab7",
+        "underlying": "0xfbda5f676cb37624f28265a144a48b0d6e87d3b6"
+      },
+      {
+        "cToken": "0x7b6fcf27e6fc63aaee93295b8d116eeff11983d3",
+        "underlying": "0xe6505f92583103af7ed9974dec451a7af4e3a3be"
+      },
+      {
+        "cToken": "0xd7291d5001693d15b6e4d56d73b5d2cd7ecfe5c6",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      }
+    ]
+  },
   "LODESTAR": {
     "42161": [
       {
