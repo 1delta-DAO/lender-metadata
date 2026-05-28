@@ -1,14 +1,14 @@
 {
-  "version": "2026-05-22T16-52-08-517Z",
-  "generatedAt": "2026-05-22T16:52:08.517Z",
+  "version": "2026-05-28T06-10-08-911Z",
+  "generatedAt": "2026-05-28T06:10:08.911Z",
   "updatedFiles": [
+    "./data/morpho-oracles-data.json",
     "./config/aave-pools.json",
-    "./data/compound-v2-tokens.json",
-    "./data/compound-v2-c-tokens.json",
-    "./data/compound-v2-reserves.json",
-    "./data/compound-v2-oracles.json",
+    "./data/euler-vaults.json",
     "./data/lender-labels.json",
     "./config/silo-v3-peripherals.json",
+    "./data/silo-v3-markets.json",
+    "./data/fluid-vaults.json",
     "./data/lender-labels.json",
     "./config/gearbox-resolvers.json",
     "./data/lender-labels.json"
