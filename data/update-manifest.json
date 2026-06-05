@@ -1,15 +1,11 @@
 {
-  "version": "2026-06-04T06-37-31-039Z",
-  "generatedAt": "2026-06-04T06:37:31.040Z",
+  "version": "2026-06-05T06-21-55-598Z",
+  "generatedAt": "2026-06-05T06:21:55.598Z",
   "updatedFiles": [
     "./config/aave-pools.json",
-    "./data/compound-v2-tokens.json",
-    "./data/compound-v2-c-tokens.json",
-    "./data/compound-v2-reserves.json",
     "./data/euler-vaults.json",
     "./data/lender-labels.json",
     "./config/silo-v3-peripherals.json",
-    "./data/fluid-vaults.json",
     "./data/lender-labels.json",
     "./config/gearbox-resolvers.json",
     "./data/lender-labels.json"
