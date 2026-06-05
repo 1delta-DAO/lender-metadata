@@ -1,0 +1,377 @@
+{
+  "1": {
+    "categories": {
+      "BTC": {
+        "liquidationRewardOverride": 0.04,
+        "marginRatioOverride": 0.1764705882352941
+      },
+      "ETH": {
+        "liquidationRewardOverride": 0.04,
+        "marginRatioOverride": 0.1111111111111111
+      },
+      "STABLE": {
+        "liquidationRewardOverride": 0.04,
+        "marginRatioOverride": 0.1111111111111111
+      }
+    },
+    "marketCategories": {
+      "0": "ETH",
+      "1": "STABLE",
+      "2": "STABLE",
+      "4": "BTC",
+      "5": "STABLE",
+      "6": "ETH",
+      "12": "ETH",
+      "18": "BTC",
+      "20": "ETH"
+    },
+    "riskFeatures": {
+      "9": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "1",
+              "2",
+              "5"
+            ],
+            "marginRatioOverride": 0.1111111111111111,
+            "liquidationRewardOverride": 0.04
+          }
+        ]
+      },
+      "10": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "1",
+              "2",
+              "5"
+            ],
+            "marginRatioOverride": 0.1111111111111111,
+            "liquidationRewardOverride": 0.04
+          },
+          {
+            "debtMarketIds": [
+              "11"
+            ],
+            "marginRatioOverride": 0.052631578947368425,
+            "liquidationRewardOverride": 0.02
+          }
+        ]
+      },
+      "14": {
+        "feature": "BORROW_ONLY"
+      },
+      "15": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "1",
+              "2",
+              "5"
+            ],
+            "marginRatioOverride": 0.1111111111111111,
+            "liquidationRewardOverride": 0.04
+          },
+          {
+            "debtMarketIds": [
+              "14"
+            ],
+            "marginRatioOverride": 0.0989010989010989,
+            "liquidationRewardOverride": 0.03
+          }
+        ]
+      },
+      "16": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "1",
+              "2",
+              "5"
+            ],
+            "marginRatioOverride": 0.6666666666666666,
+            "liquidationRewardOverride": 0.15
+          }
+        ]
+      },
+      "17": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "1",
+              "2",
+              "5"
+            ],
+            "marginRatioOverride": 0.42857142857142855,
+            "liquidationRewardOverride": 0.15
+          }
+        ]
+      },
+      "19": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "1",
+              "2",
+              "5"
+            ],
+            "marginRatioOverride": 0.1111111111111111,
+            "liquidationRewardOverride": 0.04
+          },
+          {
+            "debtMarketIds": [
+              "11"
+            ],
+            "marginRatioOverride": 0.052631578947368425,
+            "liquidationRewardOverride": 0.02
+          }
+        ]
+      }
+    },
+    "setter": "0x7bcaf5253c417c84bbd1b7dfe4ca4f0a4c4ca435"
+  },
+  "196": {
+    "categories": {},
+    "marketCategories": {},
+    "riskFeatures": {},
+    "setter": "0x7bcaf5253c417c84bbd1b7dfe4ca4f0a4c4ca435"
+  },
+  "1101": {
+    "categories": {},
+    "marketCategories": {},
+    "riskFeatures": {},
+    "setter": "0x7bcaf5253c417c84bbd1b7dfe4ca4f0a4c4ca435"
+  },
+  "3637": {
+    "categories": {},
+    "marketCategories": {},
+    "riskFeatures": {},
+    "setter": "0x7bcaf5253c417c84bbd1b7dfe4ca4f0a4c4ca435"
+  },
+  "5000": {
+    "categories": {},
+    "marketCategories": {},
+    "riskFeatures": {},
+    "setter": "0x7bcaf5253c417c84bbd1b7dfe4ca4f0a4c4ca435"
+  },
+  "8453": {
+    "categories": {},
+    "marketCategories": {},
+    "riskFeatures": {},
+    "setter": "0x7bcaf5253c417c84bbd1b7dfe4ca4f0a4c4ca435"
+  },
+  "80094": {
+    "categories": {
+      "BERA": {
+        "liquidationRewardOverride": 0.1,
+        "marginRatioOverride": 0.3333333333333333
+      },
+      "BTC": {
+        "liquidationRewardOverride": 0.04,
+        "marginRatioOverride": 0.11111111
+      },
+      "ETH": {
+        "liquidationRewardOverride": 0.04,
+        "marginRatioOverride": 0.11111111
+      },
+      "STABLE": {
+        "liquidationRewardOverride": 0.04,
+        "marginRatioOverride": 0.11111111
+      }
+    },
+    "marketCategories": {
+      "0": "ETH",
+      "1": "BERA",
+      "2": "STABLE",
+      "3": "STABLE",
+      "4": "BTC",
+      "5": "STABLE",
+      "6": "BTC",
+      "8": "STABLE",
+      "10": "STABLE",
+      "12": "ETH",
+      "14": "STABLE",
+      "18": "ETH",
+      "19": "STABLE",
+      "25": "STABLE",
+      "28": "BTC",
+      "29": "ETH",
+      "33": "BERA",
+      "38": "BERA",
+      "40": "STABLE",
+      "41": "BERA",
+      "42": "BERA"
+    },
+    "riskFeatures": {
+      "8": {
+        "feature": "BORROW_ONLY"
+      },
+      "11": {
+        "feature": "BORROW_ONLY"
+      },
+      "13": {
+        "feature": "BORROW_ONLY"
+      },
+      "15": {
+        "feature": "BORROW_ONLY"
+      },
+      "16": {
+        "feature": "BORROW_ONLY"
+      },
+      "17": {
+        "feature": "BORROW_ONLY"
+      },
+      "19": {
+        "feature": "BORROW_ONLY"
+      },
+      "20": {
+        "feature": "BORROW_ONLY"
+      },
+      "22": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "25"
+            ],
+            "marginRatioOverride": 0.052631578947368425,
+            "liquidationRewardOverride": 0.02
+          }
+        ]
+      },
+      "24": {
+        "feature": "BORROW_ONLY"
+      },
+      "25": {
+        "feature": "BORROW_ONLY"
+      },
+      "31": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "2",
+              "3",
+              "5",
+              "14",
+              "19",
+              "25",
+              "40"
+            ],
+            "marginRatioOverride": 0.0989010989010989,
+            "liquidationRewardOverride": 0.04
+          },
+          {
+            "debtMarketIds": [
+              "8"
+            ],
+            "marginRatioOverride": 0.052631578947368425,
+            "liquidationRewardOverride": 0.02
+          }
+        ]
+      },
+      "32": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "2",
+              "3"
+            ],
+            "marginRatioOverride": 0.6666666666666666,
+            "liquidationRewardOverride": 0.15
+          },
+          {
+            "debtMarketIds": [
+              "1"
+            ],
+            "marginRatioOverride": 0.6666666666666666,
+            "liquidationRewardOverride": 0.15
+          }
+        ]
+      },
+      "36": {
+        "feature": "BORROW_ONLY"
+      },
+      "37": {
+        "feature": "BORROW_ONLY"
+      },
+      "39": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "8"
+            ],
+            "marginRatioOverride": 0.052631578947368425,
+            "liquidationRewardOverride": 0.02
+          },
+          {
+            "debtMarketIds": [
+              "2",
+              "3",
+              "5",
+              "14",
+              "19",
+              "25",
+              "40"
+            ],
+            "marginRatioOverride": 0.0989010989010989,
+            "liquidationRewardOverride": 0.04
+          }
+        ]
+      },
+      "43": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "1"
+            ],
+            "marginRatioOverride": 0.3333333333333333,
+            "liquidationRewardOverride": 0.1
+          }
+        ]
+      },
+      "44": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "1"
+            ],
+            "marginRatioOverride": 0.3333333333333333,
+            "liquidationRewardOverride": 0.15
+          }
+        ]
+      },
+      "47": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "2",
+              "3",
+              "5",
+              "8",
+              "14",
+              "19",
+              "25",
+              "40"
+            ],
+            "marginRatioOverride": 0.1111111111111111,
+            "liquidationRewardOverride": 0.04
+          }
+        ]
+      }
+    },
+    "setter": "0x7bcaf5253c417c84bbd1b7dfe4ca4f0a4c4ca435"
+  }
+}
