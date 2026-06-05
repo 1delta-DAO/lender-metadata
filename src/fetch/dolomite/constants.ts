@@ -1,55 +1,60 @@
-// DolomiteMargin + Expiry per chain (from dolomite-margin/migrations/deployed.json),
-// non-testnet only. `expiry` is informational for the data-sdk config.
+// DolomiteMargin + Expiry + calldata proxies per chain (from
+// dolomite-margin/migrations/deployed.json), non-testnet only. The proxies feed
+// the calldata-sdk `DolomiteLending` / `DolomiteTrader` encoders.
 export interface DolomiteDeployment {
   dolomiteMargin: string;
   expiry: string;
+  depositWithdrawalProxy: string;
+  borrowPositionProxy: string; // BorrowPositionProxyV1 (ungated, same-owner)
+  genericTraderProxy: string; // GenericTraderProxyV1 (swaps / loops)
 }
 
+// Most chains share the CREATE2 deployment; Arbitrum, Mantle, Polygon zkEVM and
+// X Layer have distinct addresses.
+const SHARED = {
+  dolomiteMargin: "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
+  expiry: "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
+  depositWithdrawalProxy: "0xd6a31B6AeA4d26A19bF479b5032D9DDc481187e6",
+  borrowPositionProxy: "0x67567Fce98A44745820069C37C395426F1C30ba6",
+  genericTraderProxy: "0xb50BcDFC914e0AfB484Dee621F49010862Fb928d",
+};
+
 export const DOLOMITE_DEPLOYMENTS: Record<string, DolomiteDeployment> = {
-  "1": {
-    dolomiteMargin: "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
-    expiry: "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
-  },
-  "56": {
-    dolomiteMargin: "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
-    expiry: "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
-  },
+  "1": { ...SHARED },
+  "56": { ...SHARED },
   "196": {
     dolomiteMargin: "0x836b557Cf9eF29fcF49C776841191782df34e4e5",
     expiry: "0x8B808a1fEEf1d9cdd00Fb46A19e4814e5646197C",
+    depositWithdrawalProxy: "0xDC94f0C55c9A21b02f2743cf4B77Fa02329355Fd",
+    borrowPositionProxy: "0xB4F0eB9c8fb5FBabEF339f8738173dB645c4147d",
+    genericTraderProxy: "0xBF3179aD5339dCb6BD741Bc08c3011FAda586075",
   },
   "1101": {
     dolomiteMargin: "0x836b557Cf9eF29fcF49C776841191782df34e4e5",
     expiry: "0xb3F81b0F53CDEe755c70665923e08a8f0e81d0c3",
+    depositWithdrawalProxy: "0xDfB6BAA334712cBBeb26B7537f62B81C2a87B1E8",
+    borrowPositionProxy: "0xc28A4EC9f09E4071E3707eAACa5c3754fA4f5Faa",
+    genericTraderProxy: "0x88a6d8E6fFdb145A8719d43E6FD48F3383745866",
   },
-  "3637": {
-    dolomiteMargin: "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
-    expiry: "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
-  },
+  "3637": { ...SHARED },
   "5000": {
     dolomiteMargin: "0xE6Ef4f0B2455bAB92ce7cC78E35324ab58917De8",
     expiry: "0x6df6DBF5053c3771217376fb3ef7F1f5d4889a25",
+    depositWithdrawalProxy: "0x1A3752Eb5Db6B2Ac0207Ce3847f18743D3fAccA5",
+    borrowPositionProxy: "0x97a08604a56f16947a4a956eFEc2Ef223364b733",
+    genericTraderProxy: "0xd432C30de38b5d6F30257a353ED853503ed2edab",
   },
-  "5330": {
-    dolomiteMargin: "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
-    expiry: "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
-  },
-  "8453": {
-    dolomiteMargin: "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
-    expiry: "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
-  },
+  "5330": { ...SHARED },
+  "8453": { ...SHARED },
   "42161": {
     dolomiteMargin: "0x6Bd780E7fDf01D77e4d475c821f1e7AE05409072",
     expiry: "0xDEc1ae3b570ac3c57871BBD7bFeacC807f973Bea",
+    depositWithdrawalProxy: "0xAdB9D68c613df4AA363B42161E1282117C7B9594",
+    borrowPositionProxy: "0xe43638797513ef7A6d326a95E8647d86d2f5a099",
+    genericTraderProxy: "0x26cB28C95C964b75fE6E118E267e6f17908a7F7C",
   },
-  "57073": {
-    dolomiteMargin: "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
-    expiry: "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
-  },
-  "80094": {
-    dolomiteMargin: "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
-    expiry: "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
-  },
+  "57073": { ...SHARED },
+  "80094": { ...SHARED },
 };
 
 // Direct-RPC fallback for chains not covered by @1delta/providers' viem registry

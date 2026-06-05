@@ -1,7 +1,14 @@
 {
   "1": {
+    "aggregatorTraders": {
+      "enso": "0x40E816361e9ECEb4DeD402dEF58Cc77e9f097914",
+      "odos": "0x29Ca3F2D9Dbd30Bc96EB2189Db31C0B766762588"
+    },
+    "borrowPositionProxy": "0x67567Fce98A44745820069C37C395426F1C30ba6",
+    "depositWithdrawalProxy": "0xd6a31B6AeA4d26A19bF479b5032D9DDc481187e6",
     "dolomiteMargin": "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
     "expiry": "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
+    "genericTraderProxy": "0xb50BcDFC914e0AfB484Dee621F49010862Fb928d",
     "markets": {
       "0": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
       "1": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
@@ -27,13 +34,19 @@
     }
   },
   "56": {
+    "borrowPositionProxy": "0x67567Fce98A44745820069C37C395426F1C30ba6",
+    "depositWithdrawalProxy": "0xd6a31B6AeA4d26A19bF479b5032D9DDc481187e6",
     "dolomiteMargin": "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
     "expiry": "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
+    "genericTraderProxy": "0xb50BcDFC914e0AfB484Dee621F49010862Fb928d",
     "markets": {}
   },
   "196": {
+    "borrowPositionProxy": "0xB4F0eB9c8fb5FBabEF339f8738173dB645c4147d",
+    "depositWithdrawalProxy": "0xDC94f0C55c9A21b02f2743cf4B77Fa02329355Fd",
     "dolomiteMargin": "0x836b557Cf9eF29fcF49C776841191782df34e4e5",
     "expiry": "0x8B808a1fEEf1d9cdd00Fb46A19e4814e5646197C",
+    "genericTraderProxy": "0xBF3179aD5339dCb6BD741Bc08c3011FAda586075",
     "markets": {
       "0": "0x5a77f1443d16ee5761d310e38b62f77f726bc71c",
       "1": "0xe538905cf8410324e03a5a23c1c177a474d59b2b",
@@ -43,8 +56,14 @@
     }
   },
   "1101": {
+    "aggregatorTraders": {
+      "paraswap": "0xc4d82e8e5240ac7C816aCA138eb41534c9aD76e1"
+    },
+    "borrowPositionProxy": "0xc28A4EC9f09E4071E3707eAACa5c3754fA4f5Faa",
+    "depositWithdrawalProxy": "0xDfB6BAA334712cBBeb26B7537f62B81C2a87B1E8",
     "dolomiteMargin": "0x836b557Cf9eF29fcF49C776841191782df34e4e5",
     "expiry": "0xb3F81b0F53CDEe755c70665923e08a8f0e81d0c3",
+    "genericTraderProxy": "0x88a6d8E6fFdb145A8719d43E6FD48F3383745866",
     "markets": {
       "0": "0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9",
       "1": "0xc5015b9d9161dca7e18e32f6f25c4ad850731fd4",
@@ -58,8 +77,14 @@
     }
   },
   "3637": {
+    "aggregatorTraders": {
+      "oogabooga": "0x0CE205f7bCBa70E4c03f826918c8c21073386ED3"
+    },
+    "borrowPositionProxy": "0x67567Fce98A44745820069C37C395426F1C30ba6",
+    "depositWithdrawalProxy": "0xd6a31B6AeA4d26A19bF479b5032D9DDc481187e6",
     "dolomiteMargin": "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
     "expiry": "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
+    "genericTraderProxy": "0xb50BcDFC914e0AfB484Dee621F49010862Fb928d",
     "markets": {
       "0": "0x3292c42e8e9ab3c6a12cfda556bbcb6f113b1e28",
       "1": "0x0d2437f93fed6ea64ef01ccde385fb1263910c56",
@@ -69,8 +94,14 @@
     }
   },
   "5000": {
+    "aggregatorTraders": {
+      "odos": "0x29Ca3F2D9Dbd30Bc96EB2189Db31C0B766762588"
+    },
+    "borrowPositionProxy": "0x97a08604a56f16947a4a956eFEc2Ef223364b733",
+    "depositWithdrawalProxy": "0x1A3752Eb5Db6B2Ac0207Ce3847f18743D3fAccA5",
     "dolomiteMargin": "0xE6Ef4f0B2455bAB92ce7cC78E35324ab58917De8",
     "expiry": "0x6df6DBF5053c3771217376fb3ef7F1f5d4889a25",
+    "genericTraderProxy": "0xd432C30de38b5d6F30257a353ED853503ed2edab",
     "markets": {
       "0": "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111",
       "1": "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8",
@@ -91,20 +122,36 @@
     }
   },
   "5330": {
+    "borrowPositionProxy": "0x67567Fce98A44745820069C37C395426F1C30ba6",
+    "depositWithdrawalProxy": "0xd6a31B6AeA4d26A19bF479b5032D9DDc481187e6",
     "dolomiteMargin": "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
     "expiry": "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
+    "genericTraderProxy": "0xb50BcDFC914e0AfB484Dee621F49010862Fb928d",
     "markets": {}
   },
   "8453": {
+    "aggregatorTraders": {
+      "odos": "0x29Ca3F2D9Dbd30Bc96EB2189Db31C0B766762588"
+    },
+    "borrowPositionProxy": "0x67567Fce98A44745820069C37C395426F1C30ba6",
+    "depositWithdrawalProxy": "0xd6a31B6AeA4d26A19bF479b5032D9DDc481187e6",
     "dolomiteMargin": "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
     "expiry": "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
+    "genericTraderProxy": "0xb50BcDFC914e0AfB484Dee621F49010862Fb928d",
     "markets": {
       "0": "0x4200000000000000000000000000000000000006"
     }
   },
   "42161": {
+    "aggregatorTraders": {
+      "odos": "0x29Ca3F2D9Dbd30Bc96EB2189Db31C0B766762588",
+      "paraswap": "0xd991d9E0a22a51391c25B258eeF8C1c4a392383a"
+    },
+    "borrowPositionProxy": "0xe43638797513ef7A6d326a95E8647d86d2f5a099",
+    "depositWithdrawalProxy": "0xAdB9D68c613df4AA363B42161E1282117C7B9594",
     "dolomiteMargin": "0x6Bd780E7fDf01D77e4d475c821f1e7AE05409072",
     "expiry": "0xDEc1ae3b570ac3c57871BBD7bFeacC807f973Bea",
+    "genericTraderProxy": "0x26cB28C95C964b75fE6E118E267e6f17908a7F7C",
     "markets": {
       "0": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
       "1": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
@@ -184,13 +231,23 @@
     }
   },
   "57073": {
+    "borrowPositionProxy": "0x67567Fce98A44745820069C37C395426F1C30ba6",
+    "depositWithdrawalProxy": "0xd6a31B6AeA4d26A19bF479b5032D9DDc481187e6",
     "dolomiteMargin": "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
     "expiry": "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
+    "genericTraderProxy": "0xb50BcDFC914e0AfB484Dee621F49010862Fb928d",
     "markets": {}
   },
   "80094": {
+    "aggregatorTraders": {
+      "enso": "0x40E816361e9ECEb4DeD402dEF58Cc77e9f097914",
+      "oogabooga": "0x0CE205f7bCBa70E4c03f826918c8c21073386ED3"
+    },
+    "borrowPositionProxy": "0x67567Fce98A44745820069C37C395426F1C30ba6",
+    "depositWithdrawalProxy": "0xd6a31B6AeA4d26A19bF479b5032D9DDc481187e6",
     "dolomiteMargin": "0x003Ca23Fd5F0ca87D01F6eC6CD14A8AE60c2b97D",
     "expiry": "0x2Ae007882b91206942c70ADc833A61Ee531D8D5D",
+    "genericTraderProxy": "0xb50BcDFC914e0AfB484Dee621F49010862Fb928d",
     "markets": {
       "0": "0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590",
       "1": "0x6969696969696969696969696969696969696969",

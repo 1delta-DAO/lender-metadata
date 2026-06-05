@@ -3,6 +3,7 @@ import { mergeData, sleep } from "../utils.js";
 import { DOLOMITE_DEPLOYMENTS } from "./dolomite/constants.js";
 import { fetchDolomiteMarkets } from "./dolomite/fetcher.js";
 import { getDolomiteSetter, fetchDolomiteEmode } from "./dolomite/emode.js";
+import { fetchDolomiteAggregatorTraders } from "./dolomite/aggregators.js";
 
 const configFile = "./config/dolomite-margin.json";
 const emodeFile = "./config/dolomite-emode.json";
@@ -22,6 +23,12 @@ export class DolomiteUpdater implements DataUpdater {
     const emode: Record<string, any> = {};
 
     const chains = Object.entries(DOLOMITE_DEPLOYMENTS);
+
+    // Aggregator traders (swap/loop wrappers) — one fetch from the
+    // dolomite-margin-modules deployments, attached per chain below.
+    const aggregatorTraders = await fetchDolomiteAggregatorTraders(
+      chains.map(([chainId]) => chainId),
+    );
     for (let i = 0; i < chains.length; i++) {
       const [chainId, addrs] = chains[i];
       let markets: Record<string, string> = {};
@@ -37,6 +44,9 @@ export class DolomiteUpdater implements DataUpdater {
         );
       }
       out[chainId] = { ...addrs, markets };
+      if (aggregatorTraders[chainId]) {
+        out[chainId].aggregatorTraders = aggregatorTraders[chainId];
+      }
 
       // E-mode: only on chains with a configured risk-override setter (V2).
       const marketIds = Object.keys(markets);

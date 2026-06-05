@@ -51,7 +51,18 @@ RPC for those (`DOLOMITE_FALLBACK_RPCS`).
 
 Output file:
 
-- `config/dolomite-margin.json` — `{ [chainId]: { dolomiteMargin, expiry, markets } }`
+- `config/dolomite-margin.json` — `{ [chainId]: { dolomiteMargin, expiry, markets, depositWithdrawalProxy, borrowPositionProxy, genericTraderProxy } }`
+
+The three proxy addresses (static, from `deployed.json`) feed the **calldata-sdk**
+`DolomiteLending` / `DolomiteTrader` encoders, which take them as args; consumers
+resolve them via `dolomiteConfigs()`.
+
+`aggregatorTraders` (per-chain `IExchangeWrapper` addresses for `DolomiteTrader`
+swaps/loops) are fetched live by [aggregators.ts](./aggregators.ts) from the
+`dolomite-margin-modules` deployments file (they're not in `deployed.json`),
+preferring the newest contract version per aggregator
+(`odos`/`paraswap`/`oogabooga`/`enso`). Chains without a deployed aggregator
+omit the field — base lending + position ops still work everywhere.
 
 ```jsonc
 {
