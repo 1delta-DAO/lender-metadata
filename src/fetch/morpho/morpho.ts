@@ -67,7 +67,7 @@ function sortEntriesById(data: DataStructure): DataStructure {
       const entries = protocols[protocol];
       // Sort by the 'id' field alphabetically
       const sortedEntries = [...entries].sort((a, b) =>
-        a.id.localeCompare(b.id)
+        String(a?.id ?? "").localeCompare(String(b?.id ?? ""))
       );
       sortedData[chainId][protocol] = sortedEntries;
     }
