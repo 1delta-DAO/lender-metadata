@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit",
     "update:dataset": "tsx dist/update-dataset.js",
     "update:morpho": "tsx src/update-morpho.ts",
+    "update:fluid": "tsx src/update-fluid.ts",
     "update:lista-markets": "tsx src/update-lista-markets.ts",
     "update:lista-vaults": "tsx src/update-lista-vaults.ts",
     "update:mystic-markets": "tsx src/update-mystic-markets.ts",
