@@ -69,7 +69,8 @@ export class DataManager {
    */
   async updateFromSource(
     updaterName: string,
-    options: UpdateOptions = {}
+    options: UpdateOptions = {},
+    existingByFile?: Map<string, any>
   ): Promise<{
     success: boolean;
     results?: { [file: string]: UpdateResult<any> };
@@ -88,8 +89,6 @@ export class DataManager {
       const filePaths = this.getFilePathsForData(fileDataMap);
 
       const results: { [file: string]: UpdateResult<any> } = {};
-      let totalAdded = 0;
-      let totalUpdated = 0;
 
       // Process each file
       for (const [fileKey, incomingData] of Object.entries(fileDataMap)) {
@@ -101,9 +100,13 @@ export class DataManager {
           : incomingData;
 
         let existing: any = {};
-        try {
-          existing = await loadExisting(targetFile);
-        } catch {}
+        if (existingByFile?.has(targetFile)) {
+          existing = existingByFile.get(targetFile);
+        } else {
+          try {
+            existing = await loadExisting(targetFile);
+          } catch {}
+        }
 
         // Use the updater's defaults
         const defaults = updater.defaults || {};
@@ -122,13 +125,8 @@ export class DataManager {
           data: result,
           targetFile,
         };
-
-        totalAdded += result.added;
-        totalUpdated += result.updated;
-
-        console.log(
-          `  ${fileKey}: +${result.added} added, ${result.updated} updated -> ${targetFile}`
-        );
+        existingByFile?.set(targetFile, result);
+        console.log(`  ${fileKey} -> ${targetFile}`);
       }
 
       return {
@@ -148,19 +146,22 @@ export class DataManager {
    */
   async updateAll(options: UpdateOptions = {}): Promise<void> {
     const allResults: MultiFileUpdateResult[] = [];
+    const existingByFile = new Map<string, any>();
 
     for (const updater of this.updaters) {
       console.log(`Processing ${updater.name}...`);
 
       try {
-        const updateResult = await this.updateFromSource(updater.name, options);
+        const updateResult = await this.updateFromSource(
+          updater.name,
+          options,
+          existingByFile
+        );
 
         if (updateResult.success && updateResult.results) {
           allResults.push(updateResult.results as any);
           console.log(
-            `${updateResult.results} updated across ${
-              Object.keys(updateResult.results).length
-            } files`
+            `${Object.keys(updateResult.results).length} files prepared`
           );
         } else {
           console.error(
@@ -268,14 +269,16 @@ export class DataManager {
     allResults: MultiFileUpdateResult[]
   ): Promise<void> {
     const writtenFiles: string[] = [];
-    const allFileResults: UpdateResult<any>[] = [];
+    const latestResultByPath = new Map<string, UpdateResult<any>>();
 
-    // Flatten all results
+    // Keep only the latest computed result per target file.
     for (const multiResult of allResults) {
       for (const result of Object.values(multiResult)) {
-        allFileResults.push(result);
+        latestResultByPath.set(result.targetFile, result);
       }
     }
+
+    const allFileResults = Array.from(latestResultByPath.values());
 
     // Write each result to its target file
     for (const result of allFileResults) {
