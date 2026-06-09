@@ -1,5 +1,29 @@
 {
   "1": {
+    "0x009d7471fc3bd28fc45495d38978287fdf39416d": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "fToken": "0x9fb7b4477576fe5b32be4c1843afb1e55f251b33"
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+            "fToken": null
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "type": 10000,
+      "vaultId": 171
+    },
     "0x01510793df6ad5c1a8ae592158713176cbd17a62": {
       "borrow": {
         "assets": [
@@ -267,6 +291,34 @@
       },
       "type": 10000,
       "vaultId": 155
+    },
+    "0x0faa99e9662d5b6000f525b830ca2d054cdb8339": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "fToken": "0x5c20b550819128074fd538edf79791733ccedd18"
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+            "fToken": null
+          },
+          {
+            "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "fToken": "0x5c20b550819128074fd538edf79791733ccedd18"
+          }
+        ],
+        "dex": "0xb9b87a1b79891a8c9251f501b1b5d71bc7c8aa24",
+        "smartLending": null
+      },
+      "type": 20000,
+      "vaultId": 177
     },
     "0x1145d942d8595e5e6dbe1746e8d8b2124134b031": {
       "borrow": {
@@ -604,6 +656,34 @@
       "type": 10000,
       "vaultId": 27
     },
+    "0x1d3fadd621946c104d72bc2d01a79acdf9719eba": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "fToken": "0x9fb7b4477576fe5b32be4c1843afb1e55f251b33"
+          },
+          {
+            "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "fToken": "0x5c20b550819128074fd538edf79791733ccedd18"
+          }
+        ],
+        "dex": "0x667701e51b4d1ca244f17c78f7ab8744b4c99f9b",
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+            "fToken": null
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "type": 30000,
+      "vaultId": 173
+    },
     "0x1e6ce96d65901e0779c17e83258e07d2f8962fa4": {
       "borrow": {
         "assets": [
@@ -787,6 +867,38 @@
       },
       "type": 10000,
       "vaultId": 86
+    },
+    "0x26a5f44aac931f2abc1c89236a6dfde3ebeed997": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "fToken": "0x9fb7b4477576fe5b32be4c1843afb1e55f251b33"
+          },
+          {
+            "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "fToken": "0x5c20b550819128074fd538edf79791733ccedd18"
+          }
+        ],
+        "dex": "0x667701e51b4d1ca244f17c78f7ab8744b4c99f9b",
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+            "fToken": null
+          },
+          {
+            "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "fToken": "0x9fb7b4477576fe5b32be4c1843afb1e55f251b33"
+          }
+        ],
+        "dex": "0xa2e3a4e2a08b5714fa974ce88466d736bd8b39d9",
+        "smartLending": null
+      },
+      "type": 40000,
+      "vaultId": 175
     },
     "0x274d1171f06e976a4f545e6d4bf017bedc51f752": {
       "borrow": {
@@ -1331,6 +1443,30 @@
       },
       "type": 30000,
       "vaultId": 49
+    },
+    "0x4aff5c338453d0ef0165900ca174cce3e9c46dff": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "fToken": "0x5c20b550819128074fd538edf79791733ccedd18"
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+            "fToken": null
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "type": 10000,
+      "vaultId": 172
     },
     "0x4b4a0a7fdef77c524191133e77353a77e1c512d5": {
       "borrow": {
@@ -2295,6 +2431,34 @@
       },
       "type": 20000,
       "vaultId": 104
+    },
+    "0x7e1874cdc9195163c23a1bb38b83e136b0b1d8e5": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "fToken": "0x9fb7b4477576fe5b32be4c1843afb1e55f251b33"
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+            "fToken": null
+          },
+          {
+            "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "fToken": "0x9fb7b4477576fe5b32be4c1843afb1e55f251b33"
+          }
+        ],
+        "dex": "0xa2e3a4e2a08b5714fa974ce88466d736bd8b39d9",
+        "smartLending": null
+      },
+      "type": 20000,
+      "vaultId": 178
     },
     "0x7ed2cbd4c98a6e151d2a48792c1e45e4f0cd57d1": {
       "borrow": {
@@ -3588,6 +3752,38 @@
       "type": 10000,
       "vaultId": 8
     },
+    "0xc16f5c0996b80a4ae4f75652bbe684b6f6b808eb": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "fToken": "0x9fb7b4477576fe5b32be4c1843afb1e55f251b33"
+          },
+          {
+            "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "fToken": "0x5c20b550819128074fd538edf79791733ccedd18"
+          }
+        ],
+        "dex": "0x667701e51b4d1ca244f17c78f7ab8744b4c99f9b",
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+            "fToken": null
+          },
+          {
+            "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "fToken": "0x5c20b550819128074fd538edf79791733ccedd18"
+          }
+        ],
+        "dex": "0xb9b87a1b79891a8c9251f501b1b5d71bc7c8aa24",
+        "smartLending": null
+      },
+      "type": 40000,
+      "vaultId": 176
+    },
     "0xc6eaa3d82b650bbf31f4fd3d58aeb94e2213c674": {
       "borrow": {
         "assets": [
@@ -4363,6 +4559,30 @@
       },
       "type": 10000,
       "vaultId": 9
+    },
+    "0xf562813aa89ef640a002efa237e336f3ec053765": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "fToken": "0x9fb7b4477576fe5b32be4c1843afb1e55f251b33"
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
+            "fToken": null
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "type": 10000,
+      "vaultId": 174
     },
     "0xf74cb9d69ada3559903149cfd60fd57ceaf95f30": {
       "borrow": {
