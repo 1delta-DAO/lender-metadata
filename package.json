@@ -17,6 +17,7 @@
     "update:mystic-markets": "tsx src/update-mystic-markets.ts",
     "update:mystic-vaults": "tsx src/update-mystic-vaults.ts",
     "update:onchain-vaults": "tsx src/update-onchain-vaults.ts",
+    "update:onchain-markets": "tsx src/update-onchain-markets.ts",
     "update:feather-vaults": "tsx src/update-feather-vaults.ts",
     "update:feather-markets": "tsx src/update-feather-markets.ts",
     "update:onchain-markets": "tsx src/update-onchain-markets.ts",

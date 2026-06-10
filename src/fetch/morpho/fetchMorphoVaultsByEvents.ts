@@ -9,8 +9,9 @@
 // `MorphoTypeVault` shape consumed by the vault-update jobs.
 // ============================================================================
 
-import { parseAbi, parseAbiItem, type Address } from "viem";
-import { getEvmClientUniversal, multicallRetryUniversal } from "@1delta/providers";
+import { parseAbi, parseAbiItem } from "viem";
+import { multicallRetryUniversal } from "@1delta/providers";
+import { scanContractEvents } from "./eventScan.js";
 import type { MorphoTypeVault } from "./vaultTypes.js";
 
 // Both MetaMorpho v1.0 and v1.1 factories emit this signature.
@@ -18,55 +19,27 @@ const CREATE_META_MORPHO = parseAbiItem(
   "event CreateMetaMorpho(address indexed metaMorpho, address indexed caller, address initialOwner, uint256 initialTimelock, address indexed asset, string name, string symbol, bytes32 salt)",
 );
 
-const LOG_CHUNK = 90_000n;
-
-/** Lowest block at which `address` has bytecode (its deployment block). */
-async function findDeployBlock(client: any, address: Address): Promise<bigint> {
-  let lo = 0n;
-  let hi = await client.getBlockNumber();
-  while (lo < hi) {
-    const mid = (lo + hi) / 2n;
-    const code = await client
-      .getBytecode({ address, blockNumber: mid })
-      .catch(() => "0x");
-    if (code && code !== "0x") hi = mid;
-    else lo = mid + 1n;
-  }
-  return lo;
-}
-
 /**
  * Return every MetaMorpho vault created by `factory` on `chainId`, read from
- * its `CreateMetaMorpho` events. Pass extra factory addresses (e.g. both the
- * v1.0 and v1.1 factories) to union their vaults.
+ * its `CreateMetaMorpho` events. Only covers MetaMorpho v1.0 / v1.1 factories
+ * (not the newer Vault V2 factory, which emits a different event).
+ *
+ * Throws if the chain's RPC is too restrictive to scan within the call budget,
+ * or unreachable — callers should catch per-chain and continue.
  */
 export async function fetchMorphoVaultsByEvents(
   chainId: string,
   factory: string,
 ): Promise<MorphoTypeVault[]> {
-  const client = getEvmClientUniversal({ chain: chainId, rpcId: 0 });
-  const address = factory as Address;
-  const latest = await client.getBlockNumber();
-  const deploy = await findDeployBlock(client, address);
-
   const out = new Map<string, MorphoTypeVault>();
-  for (let from = deploy; from <= latest; from += LOG_CHUNK + 1n) {
-    const to = from + LOG_CHUNK > latest ? latest : from + LOG_CHUNK;
-    const logs = await client.getLogs({
-      address,
-      event: CREATE_META_MORPHO,
-      fromBlock: from,
-      toBlock: to,
-    });
-    for (const l of logs as any[]) {
-      const vault = String(l.args?.metaMorpho ?? "").toLowerCase();
-      const underlying = String(l.args?.asset ?? "").toLowerCase();
-      if (!/^0x[0-9a-f]{40}$/.test(vault) || !/^0x[0-9a-f]{40}$/.test(underlying))
-        continue;
-      const name = typeof l.args?.name === "string" ? l.args.name.trim() : "";
-      out.set(vault, { vault, underlying, ...(name ? { name } : {}) });
-    }
-  }
+  await scanContractEvents(chainId, factory, CREATE_META_MORPHO, (l) => {
+    const vault = String(l.args?.metaMorpho ?? "").toLowerCase();
+    const underlying = String(l.args?.asset ?? "").toLowerCase();
+    if (!/^0x[0-9a-f]{40}$/.test(vault) || !/^0x[0-9a-f]{40}$/.test(underlying))
+      return;
+    const name = typeof l.args?.name === "string" ? l.args.name.trim() : "";
+    out.set(vault, { vault, underlying, ...(name ? { name } : {}) });
+  });
   return [...out.values()];
 }
 

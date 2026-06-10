@@ -1,28 +1,39 @@
 // ============================================================================
 // Fill config/morpho-type-markets.json with market ids discovered directly
-// from the Morpho Blue core's `CreateMarket` events, for chains that have a
-// deployment in config/morpho-addresses.json but no API/subgraph/Mystic
-// coverage (so the main MorphoBlueUpdater leaves them empty). Append-only.
+// from the Morpho Blue core's `CreateMarket` events, for chains the main
+// MorphoBlueUpdater never walks (i.e. not in MORPHO_MAIN_CHAIN_IDS) but that
+// have a deployment in config/morpho-addresses.json. Append-only.
 //
-// Target chains default to the on-chain-only set below; pass chain ids as CLI
+// Discovery is pure on-chain and uses the shared scanner (deploy-block search +
+// budgeted, retrying, bisecting log scan), so a restrictive / unreachable RPC
+// is reported as a failed chain rather than hanging the job.
+//
+// By default it targets every off-loop chain with a core; pass chain ids as CLI
 // args to override (e.g. `tsx src/update-onchain-markets.ts 8217 5042`).
 // ============================================================================
 
 import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
 import { fetchMorphoMarketsByEvents } from "./fetch/morpho/fetchMorphoMarketsByEvents.js";
+import { MORPHO_MAIN_CHAIN_IDS } from "./fetch/morpho/morpho.js";
 
 const ADDRESSES_FILE = "./config/morpho-addresses.json";
 const MARKETS_FILE = "./config/morpho-type-markets.json";
 const FORK = "MORPHO_BLUE";
 
-/** Chains with a Morpho core but no hosted (API/subgraph/Mystic) market source. */
-const DEFAULT_CHAINS = ["8217"]; // Kaia
+/** Off-loop chains that have a Morpho core (the main updater never fetches them). */
+function defaultTargets(): string[] {
+  const addresses: Record<string, { morpho?: string }> =
+    readJsonFile(ADDRESSES_FILE);
+  const inLoop = new Set(MORPHO_MAIN_CHAIN_IDS);
+  return Object.keys(addresses).filter(
+    (chainId) => addresses[chainId]?.morpho && !inLoop.has(chainId),
+  );
+}
 
 async function main(): Promise<void> {
-  const target = process.argv.slice(2).length
-    ? process.argv.slice(2)
-    : DEFAULT_CHAINS;
+  const cli = process.argv.slice(2);
+  const target = cli.length ? cli : defaultTargets();
 
   const addresses: Record<string, { morpho?: string }> =
     readJsonFile(ADDRESSES_FILE);
@@ -35,30 +46,42 @@ async function main(): Promise<void> {
   }
   if (!markets[FORK]) markets[FORK] = {};
 
+  console.log(`Discovering markets on ${target.length} chains: ${target.join(", ")}`);
+
   let added = 0;
-  for (const chainId of target) {
-    const core = addresses[chainId]?.morpho;
-    if (!core) {
-      console.warn(`No Morpho core in morpho-addresses for chain ${chainId}`);
-      continue;
-    }
-    let found;
-    try {
-      found = await fetchMorphoMarketsByEvents(chainId, core);
-    } catch (err) {
-      console.warn(`Market enumeration failed for chain ${chainId}:`, err);
-      continue;
-    }
+  const failures: string[] = [];
+  const results = await Promise.all(
+    target.map(async (chainId) => {
+      const core = addresses[chainId]?.morpho;
+      if (!core) {
+        console.warn(`  chain ${chainId}: no Morpho core in morpho-addresses`);
+        failures.push(chainId);
+        return null;
+      }
+      try {
+        const found = await fetchMorphoMarketsByEvents(chainId, core);
+        console.log(`  chain ${chainId}: discovered ${found.length} markets`);
+        return { chainId, ids: found.map((m) => m.id) };
+      } catch (err) {
+        failures.push(chainId);
+        console.warn(
+          `  chain ${chainId}: market discovery failed: ${(err as any)?.message ?? err}`,
+        );
+        return null;
+      }
+    }),
+  );
+
+  for (const r of results) {
+    if (!r) continue;
     const existing = new Set(
-      (markets[FORK][chainId] ?? []).map((s) => s.toLowerCase()),
+      (markets[FORK][r.chainId] ?? []).map((s) => s.toLowerCase()),
     );
     const before = existing.size;
-    for (const m of found) existing.add(m.id);
+    for (const id of r.ids) existing.add(id);
+    if (existing.size === 0) continue; // don't create empty chain entries
     added += existing.size - before;
-    markets[FORK][chainId] = [...existing].sort((a, b) => a.localeCompare(b));
-    console.log(
-      `chain ${chainId}: core ${core} -> ${found.length} real markets (${existing.size} total)`,
-    );
+    markets[FORK][r.chainId] = [...existing].sort((a, b) => a.localeCompare(b));
   }
 
   const writeResult = await writeTextIfChanged(
@@ -66,6 +89,11 @@ async function main(): Promise<void> {
     JSON.stringify(markets, null, 2) + "\n",
   );
   console.log(`Added ${added} new market ids; file ${writeResult}.`);
+  if (failures.length > 0) {
+    console.warn(
+      `Could not scan ${failures.length} chain(s) (unreachable RPC or too restrictive to scan in budget): ${failures.join(", ")}`,
+    );
+  }
   process.exit(0);
 }
 

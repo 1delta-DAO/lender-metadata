@@ -1,14 +1,20 @@
 // ============================================================================
-// Populate the MORPHO_BLUE section of data/morpho-type-vaults.json for Morpho
-// Blue chains that have no Morpho-API / Feather / Mystic vault coverage, purely
-// from on-chain data. Append-only: existing vault entries are never removed.
+// Populate the MORPHO_BLUE section of data/morpho-type-vaults.json for every
+// Morpho Blue chain that has NO Morpho-API coverage, purely from on-chain data.
+// Append-only: existing vault entries are never removed.
 //
 // Two discovery modes:
-//   - DISCOVER_CHAINS: scan a MetaMorpho factory's `CreateMetaMorpho` events to
-//     enumerate every vault on the chain (e.g. Abstract).
-//   - MANUAL_VAULTS:   complete an explicit address list via on-chain
-//     `asset()` / `name()`, for chains with no factory wired in config
-//     (e.g. Berachain).
+//   - Factory scan: for each chain in config/morpho-addresses.json that has a
+//     `metaMorphoFactory` and is NOT fetched via the Morpho API, enumerate
+//     vaults from the factory's `CreateMetaMorpho` events.
+//   - Manual:       complete an explicit address list via on-chain
+//     `asset()` / `name()`, for no-API chains that have no factory wired in
+//     config (e.g. Berachain).
+//
+// Chains the main MorphoBlueUpdater fetches via the Morpho API are skipped here
+// (their vaults come from the API). Chains already covered by the Feather /
+// Mystic vault jobs are still scanned — the append-only merge makes the overlap
+// harmless and the on-chain scan strictly more complete.
 // ============================================================================
 
 import { writeTextIfChanged } from "./io.js";
@@ -17,20 +23,34 @@ import {
   fetchMorphoVaultsByAddress,
   fetchMorphoVaultsByEvents,
 } from "./fetch/morpho/fetchMorphoVaultsByEvents.js";
+import { MORPHO_MAIN_CHAIN_IDS, cannotUseApi } from "./fetch/morpho/morpho.js";
+import { FEATHER_CHAIN_IDS } from "./fetch/morpho/fetchFeatherApi.js";
+import { MYSTIC_CHAIN_IDS } from "./fetch/morpho/fetchMysticApi.js";
 import type {
   MorphoTypeVault,
   MorphoTypeVaultsByFork,
 } from "./fetch/morpho/vaultTypes.js";
 
 const VAULTS_FILE = "./data/morpho-type-vaults.json";
+const ADDRESSES_FILE = "./config/morpho-addresses.json";
 const FORK = "MORPHO_BLUE";
 
-// chainId -> MetaMorpho factory address (vaults discovered from its events).
-const DISCOVER_CHAINS: Record<string, string> = {
-  "2741": "0x83A7f60c9fc57cEf1e8001bda98783AA1A53E4b1", // Abstract
-};
+// Chains that genuinely have Morpho API coverage: the main updater walks them
+// AND `cannotUseApi` is false. These are skipped (vaults come from the API).
+const API_CHAINS = new Set(
+  MORPHO_MAIN_CHAIN_IDS.filter((c) => !cannotUseApi(c, FORK)),
+);
 
-// chainId -> explicit vault addresses (no factory in config; read on-chain).
+// Chains already covered by dedicated vault jobs that discover via a hosted
+// indexer (update:lista-vaults runs separately too). Skipping them here avoids
+// slow, redundant on-chain log scans of chains we already populate cheaply.
+const COVERED_BY_OTHER_JOBS = new Set<string>([
+  ...FEATHER_CHAIN_IDS,
+  ...MYSTIC_CHAIN_IDS,
+]);
+
+// No-API chains that have no `metaMorphoFactory` in config: list vaults by
+// address and complete them on-chain.
 const MANUAL_VAULTS: Record<string, string[]> = {
   // Berachain
   "80094": [
@@ -39,28 +59,51 @@ const MANUAL_VAULTS: Record<string, string[]> = {
   ],
 };
 
+/** chainId -> metaMorphoFactory for every no-API chain that has one. */
+function discoveryTargets(): Record<string, string> {
+  const addrs: Record<string, any> = readJsonFile(ADDRESSES_FILE);
+  const targets: Record<string, string> = {};
+  for (const [chainId, cfg] of Object.entries(addrs)) {
+    const factory = cfg?.metaMorphoFactory;
+    if (!factory || API_CHAINS.has(chainId) || COVERED_BY_OTHER_JOBS.has(chainId))
+      continue;
+    targets[chainId] = factory;
+  }
+  return targets;
+}
+
 async function main(): Promise<void> {
   const byChain: Record<string, MorphoTypeVault[]> = {};
 
-  for (const [chainId, factory] of Object.entries(DISCOVER_CHAINS)) {
-    try {
-      const vaults = await fetchMorphoVaultsByEvents(chainId, factory);
-      byChain[chainId] = vaults;
-      console.log(`Discovered ${vaults.length} vaults on chain ${chainId}`);
-    } catch (err) {
-      console.warn(`Vault discovery failed for chain ${chainId}:`, err);
-    }
-  }
+  const targets = discoveryTargets();
+  const failures: string[] = [];
+  console.log(
+    `Discovering vaults on ${Object.keys(targets).length} no-API factory chains: ${Object.keys(targets).join(", ")}`,
+  );
+  await Promise.all(
+    Object.entries(targets).map(async ([chainId, factory]) => {
+      try {
+        const vaults = await fetchMorphoVaultsByEvents(chainId, factory);
+        byChain[chainId] = vaults;
+        console.log(`  chain ${chainId}: discovered ${vaults.length} vaults`);
+      } catch (err) {
+        failures.push(chainId);
+        console.warn(
+          `  chain ${chainId}: discovery failed: ${(err as any)?.message ?? err}`,
+        );
+      }
+    }),
+  );
 
   for (const [chainId, addresses] of Object.entries(MANUAL_VAULTS)) {
     try {
       const vaults = await fetchMorphoVaultsByAddress(chainId, addresses);
       byChain[chainId] = [...(byChain[chainId] ?? []), ...vaults];
       console.log(
-        `Read ${vaults.length}/${addresses.length} manual vaults on chain ${chainId}`,
+        `  chain ${chainId}: read ${vaults.length}/${addresses.length} manual vaults`,
       );
     } catch (err) {
-      console.warn(`Vault read failed for chain ${chainId}:`, err);
+      console.warn(`  chain ${chainId}: manual read failed:`, err);
     }
   }
 
@@ -103,6 +146,11 @@ async function main(): Promise<void> {
   console.log(
     `Added ${added} new vaults, refreshed ${renamed} names; file ${writeResult}.`,
   );
+  if (failures.length > 0) {
+    console.warn(
+      `Could not scan ${failures.length} chain(s) (unreachable RPC or too restrictive to scan in budget): ${failures.join(", ")}`,
+    );
+  }
 
   process.exit(0);
 }

@@ -25,6 +25,31 @@ const poolsFile = "./config/morpho-pools.json";
 const marketsFile = "./config/morpho-type-markets.json";
 const curatorsFile = "./data/morpho-curators.json";
 
+// Chains the main MorphoBlueUpdater walks. A chain is treated as having Morpho
+// API coverage iff it is in this list AND `cannotUseApi` returns false for it.
+export const MORPHO_MAIN_CHAIN_IDS = [
+  "1",
+  "10",
+  "14",
+  "56",
+  "130",
+  "137",
+  "143",
+  "239",
+  "999",
+  "1135",
+  "1329",
+  "1868",
+  "4114",
+  "8453",
+  "42161",
+  "42220",
+  "43111",
+  "80094",
+  "747474",
+  "98866",
+];
+
 export const cannotUseApi = (chainId: string, fork: string) => {
   if (fork === "MORPHO_BLUE") {
     return (
@@ -239,28 +264,7 @@ export class MorphoBlueUpdater implements DataUpdater {
   }
 
   async fetchData(): Promise<any> {
-    const chainids = [
-      "1",
-      "10",
-      "14",
-      "56",
-      "130",
-      "137",
-      "143",
-      "239",
-      "999",
-      "1135",
-      "1329",
-      "1868",
-      "4114",
-      "8453",
-      "42161",
-      "42220",
-      "43111",
-      "80094",
-      "747474",
-      "98866",
-    ];
+    const chainids = MORPHO_MAIN_CHAIN_IDS;
     const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
     const MORPHO_BLUE_MARKETS = await readJsonFile(marketsFile);
     const forks = Object.keys(MORPHO_BLUE_POOL_DATA);

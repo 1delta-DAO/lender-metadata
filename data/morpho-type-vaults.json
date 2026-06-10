@@ -138,6 +138,37 @@
         "name": "Core USDT0"
       }
     ],
+    "146": [
+      {
+        "vault": "0x24b650fbfca57e619b3cd94ff821635472069d42",
+        "underlying": "0xb4444468e444f89e1c2cac2f1d3ee7e336cbd1f5",
+        "name": "RZR Rezerve Vault"
+      },
+      {
+        "vault": "0x2e651455c2455053dcaa02593989e0d3a4770166",
+        "underlying": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "name": "CC-USDC Vault"
+      },
+      {
+        "vault": "0x6ae5e57135ebd44ea1ff7f3fec4dede488aaef47",
+        "underlying": "0x578ee1ca3a8e1b54554da1bf7c583506c4cd11c6",
+        "name": "TEST VAULT"
+      },
+      {
+        "vault": "0x915851dfaa406d6591cac0f14b9dde7453328e4e",
+        "underlying": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "name": "USDC Rezerve Vault"
+      },
+      {
+        "vault": "0x9c19f937e8948ae81c53d48463e06aa5f7c7a155",
+        "underlying": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "name": "Test USDC Vault"
+      },
+      {
+        "vault": "0xd7f2f89e1991de2b9d62fbeeeb3bc0b01d032328",
+        "underlying": "0xf1e71beb3565f6bb7529e40dbd4469d8722f06bf"
+      }
+    ],
     "239": [
       {
         "vault": "0x0b73fee93ccf9ae81c37a5197c5b971ae21a800b",
@@ -377,6 +408,10 @@
     ],
     "2741": [
       {
+        "vault": "0x225c6e63970bb04d0780b3abb047dba659ad3cec",
+        "underlying": "0xb941a54fabaf6cf3f91372c3042a5f94706892e5"
+      },
+      {
         "vault": "0x528ee813c1f74042e98c94a522aaf2ca917003d2",
         "underlying": "0x3439153eb7af838ad19d56e1571fbd09333c2809",
         "name": "Aborean WETH Vault"
@@ -429,6 +464,17 @@
         "vault": "0xa8d31bf381256d097fffa3f1e6d57c1419741a9d",
         "underlying": "0x19aac5f612f524b754ca7e7c41cbfa2e981a4432",
         "name": "Feather Kaia"
+      }
+    ],
+    "34443": [
+      {
+        "vault": "0xc8d034c3ce153d0f3a2ef1b45f685b4f9c25aba8",
+        "underlying": "0x4200000000000000000000000000000000000006",
+        "name": "Vaulty Vault"
+      },
+      {
+        "vault": "0xf4461806c58d9e7cd74e79b113d81d127634b807",
+        "underlying": "0xaf00a193c4b96764ab03bffee12689b90a4019ab"
       }
     ],
     "42220": [
@@ -491,6 +537,12 @@
         "vault": "0xacf5a4b865995f76929e25a36c753fa6473a1e1e",
         "underlying": "0xad11a8beb98bbf61dbb1aa0f6d6f2ecd87b35afa",
         "name": "MEV Capital USDC"
+      }
+    ],
+    "59144": [
+      {
+        "vault": "0x3e89134a270b8f0dc3dfd8bf6e249fddb2f7a634",
+        "underlying": "0x8985e6da757b2eb714131f999050c586ef50f274"
       }
     ],
     "80094": [
