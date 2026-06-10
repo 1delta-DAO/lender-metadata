@@ -375,6 +375,43 @@
         "name": "Re7 USDC"
       }
     ],
+    "2741": [
+      {
+        "vault": "0x528ee813c1f74042e98c94a522aaf2ca917003d2",
+        "underlying": "0x3439153eb7af838ad19d56e1571fbd09333c2809",
+        "name": "Aborean WETH Vault"
+      },
+      {
+        "vault": "0xa31bb6305b6772a8edfaeb337e009471d221b919",
+        "underlying": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
+        "name": "Re7 USDC"
+      },
+      {
+        "vault": "0xa3c311d7faf0eff5a504f3d732bdd964efd9871e",
+        "underlying": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
+        "name": "Re7 USDC"
+      },
+      {
+        "vault": "0xd4d138f323d03f84c3411fa06465dc8bbd832524",
+        "underlying": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
+        "name": "Re7 USDC"
+      },
+      {
+        "vault": "0xd8662b55c253d28840a0ada6dc927c65968f466b",
+        "underlying": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
+        "name": "Aborean USDC Vault"
+      },
+      {
+        "vault": "0xeb44e927549d715e558a8b978ce67d4ce8bf6b4b",
+        "underlying": "0x9ebe3a824ca958e4b3da772d2065518f009cba62",
+        "name": "Aborean PENGU Vault"
+      },
+      {
+        "vault": "0xf412722f8615e687d3bd7e9133fadc31cdec7292",
+        "underlying": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
+        "name": "Re7 USDC"
+      }
+    ],
     "4114": [
       {
         "vault": "0x72f8c254548839fa1db4156ae01d8c6ae5885ee4",
@@ -454,6 +491,18 @@
         "vault": "0xacf5a4b865995f76929e25a36c753fa6473a1e1e",
         "underlying": "0xad11a8beb98bbf61dbb1aa0f6d6f2ecd87b35afa",
         "name": "MEV Capital USDC"
+      }
+    ],
+    "80094": [
+      {
+        "vault": "0x30bba9cd9eb8c95824aa42faa1bb397b07545bc1",
+        "underlying": "0xfcbd14dc51f0a4d49d5e53c2e0950e0bc26d0dce",
+        "name": "Re7 HONEY"
+      },
+      {
+        "vault": "0xb5f473c4b7f402d8f7bed42b6d516f5ff3306b01",
+        "underlying": "0xfcbd14dc51f0a4d49d5e53c2e0950e0bc26d0dce",
+        "name": "Clearstar Reactor HONEY"
       }
     ],
     "98866": [
