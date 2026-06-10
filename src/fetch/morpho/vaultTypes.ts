@@ -8,6 +8,16 @@ export type MorphoTypeVault = {
   vault: string;
   underlying: string;
   name?: string;
+  /**
+   * Vault interface version:
+   *   - `v1` — MetaMorpho (withdraw-queue → Morpho Blue markets)
+   *   - `v2` — Vaults V2 (adapter-based; no withdraw queue)
+   * Drives the consumer's allocation walk (APR + liquidity). Detected
+   * on-chain at discovery time (V2 vaults expose `adaptersLength()`).
+   * Absent ⇒ consumers auto-detect (treat as v1 unless `adaptersLength()`
+   * resolves).
+   */
+  version?: "v1" | "v2";
 };
 
 export type MorphoTypeVaultsByChain = Record<string, MorphoTypeVault[]>;

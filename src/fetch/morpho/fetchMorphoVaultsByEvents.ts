@@ -12,6 +12,7 @@
 import { parseAbi, parseAbiItem } from "viem";
 import { multicallRetryUniversal } from "@1delta/providers";
 import { scanContractEvents } from "./eventScan.js";
+import { detectVaultVersions } from "./vaultVersion.js";
 import type { MorphoTypeVault } from "./vaultTypes.js";
 
 // Both MetaMorpho v1.0 and v1.1 factories emit this signature.
@@ -38,7 +39,15 @@ export async function fetchMorphoVaultsByEvents(
     if (!/^0x[0-9a-f]{40}$/.test(vault) || !/^0x[0-9a-f]{40}$/.test(underlying))
       return;
     const name = typeof l.args?.name === "string" ? l.args.name.trim() : "";
-    out.set(vault, { vault, underlying, ...(name ? { name } : {}) });
+    // `CreateMetaMorpho` is the MetaMorpho v1.0/v1.1 factory event, so every
+    // vault discovered here is V1 by construction (Vaults V2 uses a different
+    // factory + event).
+    out.set(vault, {
+      vault,
+      underlying,
+      ...(name ? { name } : {}),
+      version: "v1",
+    });
   });
   return [...out.values()];
 }
@@ -71,7 +80,11 @@ export async function fetchMorphoVaultsByAddress(
   const unwrap = (r: unknown) =>
     r && typeof r === "object" && "result" in (r as any) ? (r as any).result : r;
 
-  const [assets, names] = await Promise.all([read("asset"), read("name")]);
+  const [assets, names, versions] = await Promise.all([
+    read("asset"),
+    read("name"),
+    detectVaultVersions(chainId, addrs),
+  ]);
   const out: MorphoTypeVault[] = [];
   for (let i = 0; i < addrs.length; i++) {
     const underlying = unwrap(assets[i]);
@@ -79,10 +92,12 @@ export async function fetchMorphoVaultsByAddress(
       continue;
     const rawName = unwrap(names[i]);
     const name = typeof rawName === "string" ? rawName.trim() : "";
+    const version = versions[i];
     out.push({
       vault: addrs[i],
       underlying: underlying.toLowerCase(),
       ...(name ? { name } : {}),
+      ...(version ? { version } : {}),
     });
   }
   return out;

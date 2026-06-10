@@ -16,7 +16,9 @@
 import type { AbiEvent } from "viem";
 import { getEvmClientUniversal } from "@1delta/providers";
 
-const MAX_LOG_CALLS = 600;
+// Per-scan getLogs budget. Override with EVENT_SCAN_MAX_CALLS for chains whose
+// RPC caps ranges tightly over a long history (more calls = longer but deeper).
+const MAX_LOG_CALLS = Number(process.env.EVENT_SCAN_MAX_CALLS) || 600;
 const RETRIES = 4;
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -69,7 +71,48 @@ async function findDeployBlock(client: any, address: string): Promise<bigint> {
   return lo;
 }
 
-async function scanRange(
+// Candidate block-range spans, largest first. The biggest that the RPC accepts
+// (probed at head) becomes the fixed chunk size for the whole scan.
+const SPAN_CANDIDATES = [
+  5_000_000n,
+  2_000_000n,
+  1_000_000n,
+  500_000n,
+  200_000n,
+  100_000n,
+  50_000n,
+  10_000n,
+];
+
+/** Largest candidate span the RPC accepts for a getLogs call (probed at head). */
+async function probeSpan(
+  client: any,
+  address: string,
+  event: AbiEvent,
+  latest: bigint,
+  state: { calls: number },
+): Promise<bigint> {
+  for (const span of SPAN_CANDIDATES) {
+    const from = latest > span ? latest - span : 0n;
+    try {
+      state.calls++;
+      await withRetry(() =>
+        client.getLogs({ address, event, fromBlock: from, toBlock: latest }),
+      );
+      return span;
+    } catch {
+      // range rejected (or too many results) — try a smaller span
+    }
+  }
+  return SPAN_CANDIDATES[SPAN_CANDIDATES.length - 1];
+}
+
+/**
+ * Scan [from, to] for `event` logs. Transient errors retry the same range;
+ * persistent errors bisect (bounded by the shared call budget). Used per fixed
+ * chunk, so bisection rarely triggers.
+ */
+async function scanChunk(
   client: any,
   address: string,
   event: AbiEvent,
@@ -90,8 +133,8 @@ async function scanRange(
   } catch (err) {
     if (to <= from) throw err; // single block already failing: real error
     const mid = (from + to) / 2n;
-    await scanRange(client, address, event, from, mid, onLog, state);
-    await scanRange(client, address, event, mid + 1n, to, onLog, state);
+    await scanChunk(client, address, event, from, mid, onLog, state);
+    await scanChunk(client, address, event, mid + 1n, to, onLog, state);
     return;
   }
   for (const l of logs) onLog(l);
@@ -99,9 +142,10 @@ async function scanRange(
 
 /**
  * Invoke `onLog` for every `event` log emitted by `address` on `chainId`, from
- * the contract's deploy block to head. Throws if the chain's RPC is unreachable
- * or too restrictive to scan within the call budget — callers should catch
- * per-chain and continue.
+ * the contract's deploy block to head. Probes the RPC's max block-range once,
+ * then walks fixed chunks of that size. Throws if the chain's RPC is
+ * unreachable or too restrictive to scan within the call budget — callers
+ * should catch per-chain and continue.
  */
 export async function scanContractEvents(
   chainId: string,
@@ -112,5 +156,11 @@ export async function scanContractEvents(
   const client = getEvmClientUniversal({ chain: chainId, rpcId: 0 });
   const latest = await withRetry<bigint>(() => client.getBlockNumber());
   const deploy = await findDeployBlock(client, address);
-  await scanRange(client, address, event, deploy, latest, onLog, { calls: 0 });
+
+  const state = { calls: 0 };
+  const span = await probeSpan(client, address, event, latest, state);
+  for (let from = deploy; from <= latest; from += span + 1n) {
+    const to = from + span > latest ? latest : from + span;
+    await scanChunk(client, address, event, from, to, onLog, state);
+  }
 }

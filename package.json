@@ -20,7 +20,7 @@
     "update:onchain-markets": "tsx src/update-onchain-markets.ts",
     "update:feather-vaults": "tsx src/update-feather-vaults.ts",
     "update:feather-markets": "tsx src/update-feather-markets.ts",
-    "update:onchain-markets": "tsx src/update-onchain-markets.ts",
+    "backfill:vault-versions": "tsx src/backfill-vault-versions.ts",
     "find:missing-tokens": "tsx src/find-missing-tokens.ts",
     "test": "vitest run",
     "test:watch": "vitest",

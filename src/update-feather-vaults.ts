@@ -13,6 +13,7 @@
 import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
 import { fetchAllFeatherVaults } from "./fetch/morpho/fetchFeatherApi.js";
+import { detectVaultVersions } from "./fetch/morpho/vaultVersion.js";
 import type {
   MorphoTypeVault,
   MorphoTypeVaultsByFork,
@@ -46,19 +47,29 @@ async function main(): Promise<void> {
     const current: MorphoTypeVault[] = existing[FORK][chainId] ?? [];
     const known = new Map(current.map((v) => [v.vault.toLowerCase(), v]));
 
+    // Classify each vault as V1 (MetaMorpho) or V2 (Vaults V2) on-chain.
+    const addrs = infos.map((i) => i.vault.toLowerCase());
+    const versions = await detectVaultVersions(chainId, addrs);
+    const versionByAddr = new Map(addrs.map((a, i) => [a, versions[i]]));
+
     for (const info of infos) {
       const addr = info.vault.toLowerCase();
+      const version = versionByAddr.get(addr);
       const entry = known.get(addr);
       if (!entry) {
         known.set(addr, {
           vault: addr,
           underlying: info.underlying.toLowerCase(),
           ...(info.name ? { name: info.name } : {}),
+          ...(version ? { version } : {}),
         });
         added++;
-      } else if (info.name && entry.name !== info.name) {
-        entry.name = info.name;
-        renamed++;
+      } else {
+        if (info.name && entry.name !== info.name) {
+          entry.name = info.name;
+          renamed++;
+        }
+        if (version && entry.version !== version) entry.version = version;
       }
     }
 

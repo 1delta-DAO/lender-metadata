@@ -10,6 +10,7 @@ import {
   fetchListaVaults,
   resolveListaVaultUnderlyings,
 } from "./fetch/morpho/fetchListaApi.js";
+import { detectVaultVersions } from "./fetch/morpho/vaultVersion.js";
 import type {
   MorphoTypeVault,
   MorphoTypeVaultsByFork,
@@ -45,13 +46,20 @@ async function main(): Promise<void> {
       infos.map((i) => [i.address.toLowerCase(), i.name]),
     );
 
-    // Backfill / refresh names on already-known vaults.
+    // Classify each vault as V1 (MetaMorpho) or V2 (Vaults V2) on-chain.
+    const addrs = infos.map((i) => i.address.toLowerCase());
+    const versions = await detectVaultVersions(chainId, addrs);
+    const versionByAddr = new Map(addrs.map((a, i) => [a, versions[i]]));
+
+    // Backfill / refresh names + version on already-known vaults.
     for (const [addr, entry] of known) {
       const apiName = nameByAddr.get(addr);
       if (apiName && entry.name !== apiName) {
         entry.name = apiName;
         renamed++;
       }
+      const version = versionByAddr.get(addr);
+      if (version && entry.version !== version) entry.version = version;
     }
 
     const toResolve = infos
@@ -77,10 +85,12 @@ async function main(): Promise<void> {
       const underlying = underlyings[addr];
       if (!underlying) continue;
       const name = nameByAddr.get(addr);
+      const version = versionByAddr.get(addr);
       known.set(addr, {
         vault: addr,
         underlying,
         ...(name ? { name } : {}),
+        ...(version ? { version } : {}),
       });
       added++;
     }
