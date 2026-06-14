@@ -1587,6 +1587,53 @@
         "deployerFee": "0",
         "keeperFee": "200000000000000000"
       }
+    },
+    {
+      "siloConfig": "0xe239b303c6500a729d7542f7339a5dac1f64b9ef",
+      "name": "USDC-wsrUSD",
+      "hookReceiver": "0x4c9e675d8e0158f02d0181f575b17f524fd725e0",
+      "silo0": {
+        "silo": "0xdbb74aff8d8713f5b8d8edce5a9896f5ebc8dafb",
+        "token": "0xfa2958cb79b0491cc627c1557f441ef849ca8eb1",
+        "decimals": 6,
+        "symbol": "USDC",
+        "index": 0,
+        "protectedShareToken": "0xc156e3146dae77bb72881704672d439f83c60c0d",
+        "collateralShareToken": "0xdbb74aff8d8713f5b8d8edce5a9896f5ebc8dafb",
+        "debtShareToken": "0xa2548c432a02fffb8fdd02812c2b29e094fb8a26",
+        "solvencyOracle": "0x90af57d51ff9e0d7674f93724c7f2fc40e54c0a7",
+        "maxLtvOracle": "0x90af57d51ff9e0d7674f93724c7f2fc40e54c0a7",
+        "interestRateModel": "0x829071d9fd9a987d973f5871d54295ec4824ca75",
+        "maxLtv": "0",
+        "lt": "0",
+        "liquidationTargetLtv": "0",
+        "liquidationFee": "0",
+        "flashloanFee": "0",
+        "daoFee": "100000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      },
+      "silo1": {
+        "silo": "0x02b43d9658078d2317b22da7bb62d7bcd460ded9",
+        "token": "0x4809010926aec940b550d34a46a52739f996d75d",
+        "decimals": 18,
+        "symbol": "wsrUSD",
+        "index": 1,
+        "protectedShareToken": "0x3c3eb6cbca4d61c73a891a2c8dad54c9428fcc1c",
+        "collateralShareToken": "0x02b43d9658078d2317b22da7bb62d7bcd460ded9",
+        "debtShareToken": "0xb0b518e7884748d42c56a5bdcd4ee0d6fbf1f281",
+        "solvencyOracle": "0xf55108b48d1955860aafb83d2f4bef94c575676b",
+        "maxLtvOracle": "0xf55108b48d1955860aafb83d2f4bef94c575676b",
+        "interestRateModel": "0xd4076c8f6e58e523e304d34082d8baeba68d24cf",
+        "maxLtv": "700000000000000000",
+        "lt": "750000000000000000",
+        "liquidationTargetLtv": "700000000000000000",
+        "liquidationFee": "50000000000000000",
+        "flashloanFee": "0",
+        "daoFee": "100000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      }
     }
   ],
   "56": [
