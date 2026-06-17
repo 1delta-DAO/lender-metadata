@@ -22,6 +22,8 @@
     "update:feather-vaults": "tsx src/update-feather-vaults.ts",
     "update:feather-markets": "tsx src/update-feather-markets.ts",
     "backfill:vault-versions": "tsx src/backfill-vault-versions.ts",
+    "update:morpho-missing-labels": "tsx src/update-morpho-missing-labels.ts",
+    "update:silo-missing-labels": "tsx src/update-silo-missing-labels.ts",
     "find:missing-tokens": "tsx src/find-missing-tokens.ts",
     "test": "vitest run",
     "test:watch": "vitest",
