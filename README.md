@@ -332,6 +332,19 @@ Covers Morpho Blue and Lista DAO markets. Fetches from both on-chain calls and G
 
 ---
 
+## Oracle classification
+
+On top of the raw oracle files, a classification layer decodes each lender's price
+oracles down to their **actual on-chain source**, classifies the provider/type, and
+matches the reported pair against the **intended** asset — emitting
+`data/<lender>-oracles-classified.json` per lender (Compound v3, Aave v2/v3 + v4,
+Euler, Silo, Fluid) with two independent correctness signals (`correctOracle`,
+`denominatorMatch`).
+
+See **[`src/fetch/oracle-classifier/README.md`](src/fetch/oracle-classifier/README.md)**
+for the architecture, schema, per-lender decoding, and `npm run update:<lender>-oracles`
+commands.
+
 ## Common JSON Structure
 
 All data files follow a consistent nesting pattern:
