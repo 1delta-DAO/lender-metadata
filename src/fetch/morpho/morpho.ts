@@ -204,11 +204,11 @@ export class MorphoBlueUpdater implements DataUpdater {
       orderDirection: Desc
       ) {
         items {
-          id
-          uniqueKey
+          marketId
           lltv
           oracleAddress
-          whitelisted
+          irmAddress
+          listed
           loanAsset {
             address
             symbol
@@ -335,7 +335,7 @@ export class MorphoBlueUpdater implements DataUpdater {
         const items = marketData.markets?.items || [];
 
         for (const el of items) {
-          const hash: string = el.uniqueKey;
+          const hash: string = el.marketId ?? el.uniqueKey;
           const enumName = `${fork}_${hash.slice(2).toUpperCase()}`;
           if (!oracles[chainId]) oracles[chainId] = {};
           if (!oracles[chainId][fork]) oracles[chainId][fork] = [];
@@ -349,7 +349,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           const isZero = (addr: string | undefined) =>
             !addr || addr === "0x0000000000000000000000000000000000000000";
 
-          if (el.whitelisted && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
+          if ((el.listed ?? el.whitelisted) && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
             oracles[chainId][fork].push({
               oracle,
               loanAsset,
@@ -394,7 +394,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           shortNames[enumName] = shortName;
 
           // curators
-          if (el.whitelisted && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
+          if ((el.listed ?? el.whitelisted) && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
             if (!curators[chainId]) curators[chainId] = {};
             const uniqueCuratorList = Array.from(
               new Map(
@@ -474,6 +474,9 @@ export type MorphoMarketRow = {
 };
 
 function normalizeIrmFromItem(el: any): string | null {
+  // Morpho blue-api exposes the IRM as `irmAddress`; on-chain/subgraph paths use `irm`.
+  if (typeof el?.irmAddress === "string" && el.irmAddress.startsWith("0x"))
+    return el.irmAddress.toLowerCase();
   if (el?.irm == null) return null;
   if (typeof el.irm === "string" && el.irm.startsWith("0x")) return el.irm.toLowerCase();
   const a = el.irm?.address;
@@ -536,8 +539,35 @@ export async function fetchMorphoMarketRowsForChain(
           );
         }
       } else {
-        const updater = new MorphoBlueUpdater();
-        marketData = await (updater as any).fetchMorphoMarkets(chainId);
+        // API-capable chain: try the Morpho blue-api, but fall back to subgraph /
+        // on-chain on failure so a schema change (e.g. a 400 from a renamed field)
+        // doesn't silently drop the entire chain's markets.
+        try {
+          const updater = new MorphoBlueUpdater();
+          marketData = await (updater as any).fetchMorphoMarkets(chainId);
+        } catch (apiError) {
+          console.warn(
+            `Morpho API fetch failed for chain ${chainId}, falling back to on-chain:`,
+            apiError instanceof Error ? apiError.message : apiError
+          );
+          if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
+            try {
+              marketData = await fetchMarketsFromSubgraph(chainId);
+            } catch {
+              marketData = await getMarketsOnChain(
+                chainId,
+                { [fork]: forkConfig },
+                MORPHO_BLUE_MARKETS
+              );
+            }
+          } else {
+            marketData = await getMarketsOnChain(
+              chainId,
+              { [fork]: forkConfig },
+              MORPHO_BLUE_MARKETS
+            );
+          }
+        }
       }
     } catch (error) {
       console.warn(`fetchMorphoMarketRowsForChain [${chainId}] fork ${fork}:`, error);
@@ -546,7 +576,7 @@ export async function fetchMorphoMarketRowsForChain(
 
     const items = marketData.markets?.items || [];
     for (const el of items) {
-      const hash: string = el.uniqueKey;
+      const hash: string = el.marketId ?? el.uniqueKey;
       const oracle = el.oracleAddress;
       const loanAsset = el.loanAsset?.address?.toLowerCase();
       const collateralAsset = el.collateralAsset?.address?.toLowerCase();
