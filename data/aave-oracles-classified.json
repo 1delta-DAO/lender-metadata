@@ -1472,13 +1472,13 @@
       "0x14bdc3a3ae09f5518b923b69489cbcafb238e617": {
         "asset": "0x14bdc3a3ae09f5518b923b69489cbcafb238e617",
         "assetSymbol": "PT-eUSDE-14AUG2025",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-eUSDE-14AUG2025 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped eUSDe USDT/USD linear discount 14AUG2025",
         "source": "0x03f9ba9a897241985c1f12bce97fac1b0bd4a7a7",
         "sourcePath": [
@@ -1486,7 +1486,7 @@
             "address": "0x03f9ba9a897241985c1f12bce97fac1b0bd4a7a7",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -1544,13 +1544,13 @@
       "0x1f84a51296691320478c98b8d77f2bbd17d34350": {
         "asset": "0x1f84a51296691320478c98b8d77f2bbd17d34350",
         "assetSymbol": "PT-USDe-5FEB2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-USDe-5FEB2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped USDe USDT/USD linear discount 05FEB2026",
         "source": "0xc35d319fa5fec2bbe0eb4d0a826465b60f821f81",
         "sourcePath": [
@@ -1558,7 +1558,7 @@
             "address": "0xc35d319fa5fec2bbe0eb4d0a826465b60f821f81",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -1666,13 +1666,13 @@
       "0x3b3fb9c57858ef816833dc91565efcd85d96f634": {
         "asset": "0x3b3fb9c57858ef816833dc91565efcd85d96f634",
         "assetSymbol": "PT-sUSDE-31JUL2025",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-sUSDE-31JUL2025 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped sUSDe USDT/USD linear discount 31JUL2025",
         "source": "0x759b9b72700a129cd7ad8e53f9c99cb48fd57105",
         "sourcePath": [
@@ -1680,7 +1680,7 @@
             "address": "0x759b9b72700a129cd7ad8e53f9c99cb48fd57105",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -1688,13 +1688,13 @@
       "0x3de0ff76e8b528c092d47b9dac775931cef80f49": {
         "asset": "0x3de0ff76e8b528c092d47b9dac775931cef80f49",
         "assetSymbol": "PT-sUSDE-7MAY2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-sUSDE-7MAY2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped sUSDe USDT/USD linear discount 07MAY2026",
         "source": "0xa0dc0249c32fa79e8b9b17c735908a60b1141b40",
         "sourcePath": [
@@ -1702,7 +1702,7 @@
             "address": "0xa0dc0249c32fa79e8b9b17c735908a60b1141b40",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -1754,13 +1754,13 @@
       "0x50d2c7992b802eef16c04feadab310f31866a545": {
         "asset": "0x50d2c7992b802eef16c04feadab310f31866a545",
         "assetSymbol": "PT-eUSDE-29MAY2025",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USDT",
         "denominatorMatch": false,
         "fixedRate": null,
         "intendedPair": "PT-eUSDE-29MAY2025 / USD",
         "priceDescription": "eUSDe / USDT",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped eUSDe/USDT/USD linear discount 29MAY2025",
         "source": "0x5292ab3292d076271f853ed8e05e61cc02f0a2c6",
         "sourcePath": [
@@ -1768,7 +1768,7 @@
             "address": "0x5292ab3292d076271f853ed8e05e61cc02f0a2c6",
             "description": "eUSDe / USDT/USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -1848,13 +1848,13 @@
       "0x619d75e3b790ebc21c289f2805bb7177a7d732e2": {
         "asset": "0x619d75e3b790ebc21c289f2805bb7177a7d732e2",
         "assetSymbol": "PT-srUSDe-25JUN2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-srUSDe-25JUN2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped srUSDe USDT/USD linear discount 25JUN2026",
         "source": "0x9f336eb940730596548c342a8bf1fc530b10cc96",
         "sourcePath": [
@@ -1862,7 +1862,7 @@
             "address": "0x9f336eb940730596548c342a8bf1fc530b10cc96",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -1870,13 +1870,13 @@
       "0x62c6e813b9589c3631ba0cdb013acdb8544038b7": {
         "asset": "0x62c6e813b9589c3631ba0cdb013acdb8544038b7",
         "assetSymbol": "PT-USDe-27NOV2025",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-USDe-27NOV2025 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped USDe USDT/USD linear discount 27NOV2025",
         "source": "0x6a196a7b498c4efbfefb55364106ec80ccef0c3f",
         "sourcePath": [
@@ -1884,7 +1884,7 @@
             "address": "0x6a196a7b498c4efbfefb55364106ec80ccef0c3f",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -2146,13 +2146,13 @@
       "0x917459337caac939d41d7493b3999f571d20d667": {
         "asset": "0x917459337caac939d41d7493b3999f571d20d667",
         "assetSymbol": "PT-USDe-31JUL2025",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-USDe-31JUL2025 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped USDe USDT/USD linear discount 31JUL2025",
         "source": "0x6b99e86b48fee533b7bee602e7959f024051eca0",
         "sourcePath": [
@@ -2160,7 +2160,7 @@
             "address": "0x6b99e86b48fee533b7bee602e7959f024051eca0",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -2168,13 +2168,13 @@
       "0x9bf45ab47747f4b4dd09b3c2c73953484b4eb375": {
         "asset": "0x9bf45ab47747f4b4dd09b3c2c73953484b4eb375",
         "assetSymbol": "PT-srUSDe-2APR2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-srUSDe-2APR2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped srUSDe USDT/USD linear discount 02APR2026",
         "source": "0xb539c6c0fc36ff1572b13acec343b854937db576",
         "sourcePath": [
@@ -2182,7 +2182,7 @@
             "address": "0xb539c6c0fc36ff1572b13acec343b854937db576",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -2212,13 +2212,13 @@
       "0x9db38d74a0d29380899ad354121dfb521adb0548": {
         "asset": "0x9db38d74a0d29380899ad354121dfb521adb0548",
         "assetSymbol": "PT-USDG-28MAY2026",
-        "correctOracle": null,
+        "correctOracle": true,
         "denominator": null,
         "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "PT-USDG-28MAY2026 / USD",
         "priceDescription": "UNKNOWN",
-        "provider": "unknown",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped USDG Fixed USD linear discount 28MAY2026",
         "source": "0x90498d4334259fa769830cca9114d8bcf3745f6c",
         "sourcePath": [
@@ -2226,7 +2226,7 @@
             "address": "0x90498d4334259fa769830cca9114d8bcf3745f6c",
             "description": "PT Capped USDG Fixed USD linear discount 28MAY2026",
             "decimals": 8,
-            "kind": "unknown"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -2234,13 +2234,13 @@
       "0x9f56094c450763769ba0ea9fe2876070c0fd5f77": {
         "asset": "0x9f56094c450763769ba0ea9fe2876070c0fd5f77",
         "assetSymbol": "PT-sUSDE-25SEP2025",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-sUSDE-25SEP2025 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped sUSDe USDT/USD linear discount 25SEP2025",
         "source": "0x7585693910f39df4959912b27d09eaeef06c1a93",
         "sourcePath": [
@@ -2248,7 +2248,7 @@
             "address": "0x7585693910f39df4959912b27d09eaeef06c1a93",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -2388,13 +2388,13 @@
       "0xaebf0bb9f57e89260d57f31af34eb58657d96ce0": {
         "asset": "0xaebf0bb9f57e89260d57f31af34eb58657d96ce0",
         "assetSymbol": "PT-USDe-7MAY2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-USDe-7MAY2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped USDe USDT/USD linear discount 07MAY2026",
         "source": "0x0a72df02ce3e4185b6cedf561f0ae651e9bee235",
         "sourcePath": [
@@ -2402,7 +2402,7 @@
             "address": "0x0a72df02ce3e4185b6cedf561f0ae651e9bee235",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -2494,13 +2494,13 @@
       "0xbc6736d346a5ebc0debc997397912cd9b8fae10a": {
         "asset": "0xbc6736d346a5ebc0debc997397912cd9b8fae10a",
         "assetSymbol": "PT-USDe-25SEP2025",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-USDe-25SEP2025 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped USDe USDT/USD linear discount 25SEP2025",
         "source": "0x8b17c02d22ee7d6b8d6829ceb710a458de41e84a",
         "sourcePath": [
@@ -2508,7 +2508,7 @@
             "address": "0x8b17c02d22ee7d6b8d6829ceb710a458de41e84a",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -2916,13 +2916,13 @@
       "0xe6a934089bbee34f832060ce98848359883749b3": {
         "asset": "0xe6a934089bbee34f832060ce98848359883749b3",
         "assetSymbol": "PT-sUSDE-27NOV2025",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-sUSDE-27NOV2025 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped sUSDe USDT/USD linear discount 27NOV2025",
         "source": "0x8b8b73598a2c4b1de6d3b075618434cfc4826632",
         "sourcePath": [
@@ -2930,7 +2930,7 @@
             "address": "0x8b8b73598a2c4b1de6d3b075618434cfc4826632",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -2938,13 +2938,13 @@
       "0xe8483517077afa11a9b07f849cee2552f040d7b2": {
         "asset": "0xe8483517077afa11a9b07f849cee2552f040d7b2",
         "assetSymbol": "PT-sUSDE-5FEB2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-sUSDE-5FEB2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped sUSDe USDT/USD linear discount 05FEB2026",
         "source": "0x4e89f87f24c13819bbddb56f99b38746c91677d8",
         "sourcePath": [
@@ -2952,7 +2952,7 @@
             "address": "0x4e89f87f24c13819bbddb56f99b38746c91677d8",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -5802,13 +5802,13 @@
       "0x02fcc4989b4c9d435b7ced3fe1ba4cf77bbb5dd8": {
         "asset": "0x02fcc4989b4c9d435b7ced3fe1ba4cf77bbb5dd8",
         "assetSymbol": "PT-sUSDE-15JAN2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-sUSDE-15JAN2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped sUSDe USDT/USD linear discount 15JAN2026",
         "source": "0x3eca1c7836ea09db3dc85be7b5526ce80e2609a1",
         "sourcePath": [
@@ -5816,7 +5816,7 @@
             "address": "0x3eca1c7836ea09db3dc85be7b5526ce80e2609a1",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -5874,13 +5874,13 @@
       "0x23b17d3944742ace3d0c71586fcb320d1e4a1ed2": {
         "asset": "0x23b17d3944742ace3d0c71586fcb320d1e4a1ed2",
         "assetSymbol": "PT-USDe-18JUN2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-USDe-18JUN2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped USDe USDT/USD linear discount 18JUN2026",
         "source": "0x0521d52a7ea98a8b737d367f81975019360e444f",
         "sourcePath": [
@@ -5888,7 +5888,7 @@
             "address": "0x0521d52a7ea98a8b737d367f81975019360e444f",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -5896,13 +5896,13 @@
       "0x30559e3d35e33ab69399a3fe9f383d32bd3c016e": {
         "asset": "0x30559e3d35e33ab69399a3fe9f383d32bd3c016e",
         "assetSymbol": "PT-sUSDE-18JUN2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-sUSDE-18JUN2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped sUSDe USDT/USD linear discount 18JUN2026",
         "source": "0x02d8bf797271e6e0ab65a6d235b93d6e673c055b",
         "sourcePath": [
@@ -5910,7 +5910,7 @@
             "address": "0x02d8bf797271e6e0ab65a6d235b93d6e673c055b",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -5918,13 +5918,13 @@
       "0x54dc267be2839303ff1e323584a16e86cec4aa44": {
         "asset": "0x54dc267be2839303ff1e323584a16e86cec4aa44",
         "assetSymbol": "PT-USDe-9APR2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-USDe-9APR2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped USDe USDT/USD linear discount 09APR2026",
         "source": "0x37f3a8b02babe4dd71acb5f214f22c09aff607f3",
         "sourcePath": [
@@ -5932,7 +5932,7 @@
             "address": "0x37f3a8b02babe4dd71acb5f214f22c09aff607f3",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -5990,13 +5990,13 @@
       "0x93b544c330f60a2aa05ced87aeeffb8d38fd8c9a": {
         "asset": "0x93b544c330f60a2aa05ced87aeeffb8d38fd8c9a",
         "assetSymbol": "PT-USDe-15JAN2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-USDe-15JAN2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped USDe USDT/USD linear discount 15JAN2026",
         "source": "0x30cb6ff8649cc02cea91971d4730eebed5a8d2f1",
         "sourcePath": [
@@ -6004,7 +6004,7 @@
             "address": "0x30cb6ff8649cc02cea91971d4730eebed5a8d2f1",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -6062,13 +6062,13 @@
       "0xab509448ad489e2e1341e25cc500f2596464cc82": {
         "asset": "0xab509448ad489e2e1341e25cc500f2596464cc82",
         "assetSymbol": "PT-sUSDE-9APR2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-sUSDE-9APR2026 / USD",
         "priceDescription": "USDT / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped sUSDe USDT/USD linear discount 09APR2026",
         "source": "0x13f2ea8dfa948c5247826283079615ee4d0a1aa5",
         "sourcePath": [
@@ -6076,7 +6076,7 @@
             "address": "0x13f2ea8dfa948c5247826283079615ee4d0a1aa5",
             "description": "USDT / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -18112,21 +18112,21 @@
       "0x50fc4edc6346f36993bb30fe60e932504ed17391": {
         "asset": "0x50fc4edc6346f36993bb30fe60e932504ed17391",
         "assetSymbol": "PT-kHYPE-24SEP2026",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
-        "fixedRate": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": true,
         "intendedPair": "PT-kHYPE-24SEP2026 / USD",
-        "priceDescription": "kHYPE / USD",
-        "provider": "chainlink",
-        "rawDescription": "PT Capped kHYPE/USD linear discount 24SEP2026",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
         "source": "0x19f83c380f600f162514ccfec9bfebbab1ea6795",
         "sourcePath": [
           {
             "address": "0x19f83c380f600f162514ccfec9bfebbab1ea6795",
-            "description": "kHYPE / USD",
-            "decimals": 8,
-            "kind": "chainlink"
+            "description": null,
+            "decimals": null,
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -18244,13 +18244,13 @@
       "0xb7379d395f3c83952ad794896205f7e33e358735": {
         "asset": "0xb7379d395f3c83952ad794896205f7e33e358735",
         "assetSymbol": "PT-sUSDE-25SEP2025",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-sUSDE-25SEP2025 / USD",
         "priceDescription": "sUSDe / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped sUSDe/USD linear discount 25SEP2025",
         "source": "0x8514d528275025ad9be6019e6e189dfef1db6c5e",
         "sourcePath": [
@@ -18258,7 +18258,7 @@
             "address": "0x8514d528275025ad9be6019e6e189dfef1db6c5e",
             "description": "sUSDe / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -18354,13 +18354,13 @@
       "0xea84ca9849d9e76a78b91f221f84e9ca065fc9f5": {
         "asset": "0xea84ca9849d9e76a78b91f221f84e9ca065fc9f5",
         "assetSymbol": "PT-kHYPE-19MAR2026",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-kHYPE-19MAR2026 / USD",
         "priceDescription": "kHYPE / USD",
-        "provider": "chainlink",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped kHYPE/USD linear discount 19MAR2026",
         "source": "0xb805b04117f9cde6110b9e5bd1ca79062754770d",
         "sourcePath": [
@@ -18368,7 +18368,7 @@
             "address": "0xb805b04117f9cde6110b9e5bd1ca79062754770d",
             "description": "kHYPE / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -22868,13 +22868,13 @@
       "0x698eb002a4ec013a33286f7f2ba0be3970e66455": {
         "asset": "0x698eb002a4ec013a33286f7f2ba0be3970e66455",
         "assetSymbol": "PT-cmETH-18SEP2025",
-        "correctOracle": null,
+        "correctOracle": true,
         "denominator": null,
         "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "PT-cmETH-18SEP2025 / USD",
         "priceDescription": "UNKNOWN",
-        "provider": "unknown",
+        "provider": "pendle-pt",
         "rawDescription": "PT Capped cmETH (WETH) linear discount 18SEPT2025",
         "source": "0xf15b195a3db20e1973da01959c7878121cc5074f",
         "sourcePath": [
@@ -22882,7 +22882,7 @@
             "address": "0xf15b195a3db20e1973da01959c7878121cc5074f",
             "description": "PT Capped cmETH (WETH) linear discount 18SEPT2025",
             "decimals": 8,
-            "kind": "unknown"
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -25460,21 +25460,21 @@
       "0x9c82eb49b51f7dc61e22ff347931ca32adc6cd90": {
         "asset": "0x9c82eb49b51f7dc61e22ff347931ca32adc6cd90",
         "assetSymbol": "loAZND",
-        "correctOracle": true,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "loAZND / USD",
-        "priceDescription": "loAZND / USD",
-        "provider": "chainlink",
-        "rawDescription": "loAZND / USD via vault shares",
-        "source": "0x72e994f1ec71a0cdc74913534690510257e895f0",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "Hardcoded 1.035",
+        "source": "0x63b54dac13cd84bb92ef24007f4e41c188f28424",
         "sourcePath": [
           {
-            "address": "0x72e994f1ec71a0cdc74913534690510257e895f0",
-            "description": "loAZND / USD",
+            "address": "0x63b54dac13cd84bb92ef24007f4e41c188f28424",
+            "description": "Hardcoded 1.035",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null

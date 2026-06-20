@@ -47,13 +47,13 @@
     "0x3de0ff76e8b528c092d47b9dac775931cef80f49": {
       "asset": "0x3de0ff76e8b528c092d47b9dac775931cef80f49",
       "assetSymbol": "PT-sUSDE-7MAY2026",
-      "correctOracle": false,
+      "correctOracle": true,
       "denominator": "USD",
       "denominatorMatch": true,
       "fixedRate": null,
       "intendedPair": "PT-sUSDE-7MAY2026 / USD",
       "priceDescription": "USDT / USD",
-      "provider": "chainlink",
+      "provider": "pendle-pt",
       "rawDescription": "PT Capped sUSDe USDT/USD linear discount 07MAY2026",
       "source": "0xa0dc0249c32fa79e8b9b17c735908a60b1141b40",
       "sourcePath": [
@@ -61,7 +61,7 @@
           "address": "0xa0dc0249c32fa79e8b9b17c735908a60b1141b40",
           "description": "USDT / USD",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "pendle-pt"
         }
       ],
       "underlyingAggregator": null
@@ -329,13 +329,13 @@
     "0xaebf0bb9f57e89260d57f31af34eb58657d96ce0": {
       "asset": "0xaebf0bb9f57e89260d57f31af34eb58657d96ce0",
       "assetSymbol": "PT-USDe-7MAY2026",
-      "correctOracle": false,
+      "correctOracle": true,
       "denominator": "USD",
       "denominatorMatch": true,
       "fixedRate": null,
       "intendedPair": "PT-USDe-7MAY2026 / USD",
       "priceDescription": "USDT / USD",
-      "provider": "chainlink",
+      "provider": "pendle-pt",
       "rawDescription": "PT Capped USDe USDT/USD linear discount 07MAY2026",
       "source": "0x0a72df02ce3e4185b6cedf561f0ae651e9bee235",
       "sourcePath": [
@@ -343,7 +343,7 @@
           "address": "0x0a72df02ce3e4185b6cedf561f0ae651e9bee235",
           "description": "USDT / USD",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "pendle-pt"
         }
       ],
       "underlyingAggregator": null

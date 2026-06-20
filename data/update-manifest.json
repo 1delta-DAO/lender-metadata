@@ -1,12 +1,16 @@
 {
-  "version": "2026-06-18T13-36-04-469Z",
-  "generatedAt": "2026-06-18T13:36:04.469Z",
+  "version": "2026-06-20T19-01-00-537Z",
+  "generatedAt": "2026-06-20T19:01:00.537Z",
   "updatedFiles": [
-    "./data/fluid-oracles-classified.json"
+    "./data/aave-oracles-classified.json",
+    "./data/aave-v4-oracles-classified.json"
   ],
   "results": [
     {
-      "targetFile": "./data/fluid-oracles-classified.json"
+      "targetFile": "./data/aave-oracles-classified.json"
+    },
+    {
+      "targetFile": "./data/aave-v4-oracles-classified.json"
     }
   ]
 }
