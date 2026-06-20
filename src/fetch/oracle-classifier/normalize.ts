@@ -151,6 +151,10 @@ const SYMBOL_ALIASES: Record<string, string> = {
   "USD₮0": "USDT",
   "USDT0": "USDT",
   "USD₮": "USDT",
+  // Bridged USDC (Base "USD Base Coin") priced by the USDC/USD feed.
+  USDBC: "USDC",
+  // MAI is the canonical symbol for miMATIC — same token, interchangeable feeds.
+  MIMATIC: "MAI",
 };
 
 export function normalizeSymbol(sym: string | null | undefined): string | null {

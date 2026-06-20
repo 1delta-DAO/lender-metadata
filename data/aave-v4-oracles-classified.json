@@ -9,7 +9,7 @@
       "fixedRate": null,
       "intendedPair": "EURC / USD",
       "priceDescription": "EURC / USD",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped EURC/USD",
       "source": "0xa6ab031a4d189b24628ec9eb155f0a0f1a0e55a3",
       "sourcePath": [
@@ -17,7 +17,7 @@
           "address": "0xa6ab031a4d189b24628ec9eb155f0a0f1a0e55a3",
           "description": "EURC / USD",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null
@@ -97,7 +97,7 @@
       "fixedRate": null,
       "intendedPair": "USDe / USD",
       "priceDescription": "USDT / USD",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped USDT/USD",
       "source": "0xc26d4a1c46d884cff6de9800b6ae7a8cf48b4ff8",
       "sourcePath": [
@@ -105,7 +105,7 @@
           "address": "0xc26d4a1c46d884cff6de9800b6ae7a8cf48b4ff8",
           "description": "USDT / USD",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null
@@ -175,7 +175,7 @@
       "fixedRate": null,
       "intendedPair": "wstETH / USD",
       "priceDescription": "wstETH / stETH(ETH)",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped wstETH / stETH(ETH) / USD",
       "source": "0xe1d97bf61901b075e9626c8a2340a7de385861ef",
       "sourcePath": [
@@ -183,7 +183,7 @@
           "address": "0xe1d97bf61901b075e9626c8a2340a7de385861ef",
           "description": "wstETH / stETH(ETH)",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null
@@ -225,7 +225,7 @@
       "fixedRate": null,
       "intendedPair": "LBTC / USD",
       "priceDescription": "LBTC / BTC",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped LBTC / BTC / USD",
       "source": "0xf8c04b50499872a5b5137219dec0f791f7f620d0",
       "sourcePath": [
@@ -233,7 +233,7 @@
           "address": "0xf8c04b50499872a5b5137219dec0f791f7f620d0",
           "description": "LBTC / BTC",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null
@@ -247,7 +247,7 @@
       "fixedRate": null,
       "intendedPair": "RLUSD / USD",
       "priceDescription": "RLUSD / USD",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped RLUSD / USD",
       "source": "0xf0eac18e908b34770fdee46d069c846bda866759",
       "sourcePath": [
@@ -255,7 +255,7 @@
           "address": "0xf0eac18e908b34770fdee46d069c846bda866759",
           "description": "RLUSD / USD",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null
@@ -269,7 +269,7 @@
       "fixedRate": null,
       "intendedPair": "sUSDe / USD",
       "priceDescription": "sUSDe / USDT",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped sUSDe / USDT / USD",
       "source": "0x42bc86f2f08419280a99d8fbea4672e7c30a86ec",
       "sourcePath": [
@@ -277,7 +277,7 @@
           "address": "0x42bc86f2f08419280a99d8fbea4672e7c30a86ec",
           "description": "sUSDe / USDT",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null
@@ -291,7 +291,7 @@
       "fixedRate": null,
       "intendedPair": "USDC / USD",
       "priceDescription": "USDC / USD",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped USDC / USD",
       "source": "0x3f73f03aa83b2a48ed27e964ed0fdb590332095b",
       "sourcePath": [
@@ -299,7 +299,7 @@
           "address": "0x3f73f03aa83b2a48ed27e964ed0fdb590332095b",
           "description": "USDC / USD",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null
@@ -313,7 +313,7 @@
       "fixedRate": null,
       "intendedPair": "rsETH / USD",
       "priceDescription": "rsETH / ETH",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped rsETH / ETH / USD",
       "source": "0x7292c95a5f6a501a9c4b34f6393e221f2a0139c3",
       "sourcePath": [
@@ -321,7 +321,7 @@
           "address": "0x7292c95a5f6a501a9c4b34f6393e221f2a0139c3",
           "description": "rsETH / ETH",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null
@@ -385,7 +385,7 @@
       "fixedRate": null,
       "intendedPair": "frxUSD / USD",
       "priceDescription": "frxUSD / USD",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped frxUSD / USD",
       "source": "0x25ded2f9ae6ae9416693ab63abe3ab25493861fd",
       "sourcePath": [
@@ -393,7 +393,7 @@
           "address": "0x25ded2f9ae6ae9416693ab63abe3ab25493861fd",
           "description": "frxUSD / USD",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null
@@ -435,7 +435,7 @@
       "fixedRate": null,
       "intendedPair": "weETH / USD",
       "priceDescription": "weETH / eETH(ETH)",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped weETH / eETH(ETH) / USD",
       "source": "0x87625393534d5c102cadb66d37201df24cc26d4c",
       "sourcePath": [
@@ -443,7 +443,7 @@
           "address": "0x87625393534d5c102cadb66d37201df24cc26d4c",
           "description": "weETH / eETH(ETH)",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null
@@ -457,7 +457,7 @@
       "fixedRate": null,
       "intendedPair": "USDT / USD",
       "priceDescription": "USDT / USD",
-      "provider": "chainlink",
+      "provider": "price-cap",
       "rawDescription": "Capped USDT/USD",
       "source": "0x260326c220e469358846b187ee53328303efe19c",
       "sourcePath": [
@@ -465,7 +465,7 @@
           "address": "0x260326c220e469358846b187ee53328303efe19c",
           "description": "USDT / USD",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null

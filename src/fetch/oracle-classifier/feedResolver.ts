@@ -32,6 +32,7 @@ export type OracleProvider =
   | "morpho-composite"
   | "exchange-rate"
   | "pendle-pt" // Pendle PT price-cap adapter (discount on a numeraire feed)
+  | "price-cap" // Aave PriceCapAdapter(Stable): a feed bounded by an upper cap
   | "constant"
   | "unknown";
 
@@ -142,6 +143,12 @@ function classifyNode(node: FeedNode | undefined): OracleProvider {
   // `aggregator -> chainlink` fallthrough below, since they expose an aggregator.
   if (/\bpt\b/i.test(desc) && /(linear\s+discount|capped)/i.test(desc))
     return "pendle-pt";
+  // Aave PriceCapAdapter / PriceCapAdapterStable: "Capped <asset> / <num>" — a
+  // (possibly correlated) reference feed bounded by an upper cap. Same-asset caps
+  // resolve to the asset's own pair (correct); cross-asset caps (e.g. USDe via
+  // "Capped USDT/USD") are deliberate correlated proxies, scored separately.
+  // Checked after the PT case, since PT adapters read "PT Capped …".
+  if (/^capped\b/i.test(desc)) return "price-cap";
   if (/^custom price feed/i.test(desc) || /^price feed for/i.test(desc))
     return "compound-wrapper";
   if (node.pointers.aggregator) return "chainlink";

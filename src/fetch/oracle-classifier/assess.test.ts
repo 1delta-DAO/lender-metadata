@@ -116,6 +116,60 @@ describe("resolveFeed — Pendle PT adapter classification (end to end)", () => 
   });
 });
 
+describe("assessFeed — Aave price-cap adapters", () => {
+  it("same-asset cap is correct (Capped USDC/USD for USDC)", () => {
+    const a = assessFeed(
+      feed({ provider: "price-cap", priceDescription: "USDC / USD", rawDescription: "Capped USDC/USD" }),
+      "USDC",
+      "USD"
+    );
+    expect(a.correctOracle).toBe(true);
+    expect(a.denominatorMatch).toBe(true);
+  });
+
+  it("alias cap is correct (USDbC priced by Capped USDC/USD)", () => {
+    const a = assessFeed(
+      feed({ provider: "price-cap", priceDescription: "USDC / USD", rawDescription: "Capped USDC/USD" }),
+      "USDbC",
+      "USD"
+    );
+    expect(a.correctOracle).toBe(true);
+  });
+
+  it("cross-asset cap is a correlated proxy (USDe via Capped USDT/USD) → not correct", () => {
+    // The scorer treats provider==price-cap + correctOracle==false as a moderate
+    // 'correlated-proxy', not a hard wrong-asset.
+    const a = assessFeed(
+      feed({ provider: "price-cap", priceDescription: "USDT / USD", rawDescription: "Capped USDT/USD" }),
+      "USDe",
+      "USD"
+    );
+    expect(a.correctOracle).toBe(false);
+    expect(a.denominatorMatch).toBe(true);
+  });
+
+  it("resolveFeed classifies a 'Capped …' adapter as price-cap", () => {
+    const cap = "0xc26d4a1c46d884cff6de9800b6ae7a8cf48b4ff8";
+    const nodes = new Map<string, FeedNode>([
+      [
+        cap,
+        {
+          address: cap,
+          rawDescription: "Capped USDT/USD",
+          description: "USDT / USD", // the cap adapter is itself the terminal node
+          decimals: 8,
+          dataFeedId: null,
+          pointers: {},
+        },
+      ],
+    ]);
+    const resolved = resolveFeed(cap, nodes);
+    expect(resolved.provider).toBe("price-cap");
+    expect(resolved.priceDescription).toBe("USDT / USD");
+    expect(assessFeed(resolved, "USDe", "USD").correctOracle).toBe(false);
+  });
+});
+
 describe("assessFeed — regression: ordinary feeds keep wrong-asset detection", () => {
   it("flags a plain chainlink feed pricing the wrong asset", () => {
     const a = assessFeed(
