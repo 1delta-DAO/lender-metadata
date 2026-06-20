@@ -12,6 +12,7 @@ import {
 } from "./oracleAbi.js";
 import { fetchMorphoMarketRowsForChain, type MorphoMarketRow } from "./morpho.js";
 import { marketTripletKey } from "./morphoMarketId.js";
+import { symbolsMatch } from "../oracle-classifier/normalize.js";
 
 const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 
@@ -775,7 +776,11 @@ export async function fetchMorphoOracleData(): Promise<MorphoOraclesDataMap> {
         const collSym = allSymbols[collateralAddr]?.toLowerCase() ?? null;
         const loanSym = allSymbols[loanAddr]?.toLowerCase() ?? null;
         if (!collSym || !loanSym) return null;
-        return descCollateral === collSym && descLoan === loanSym;
+        // Morpho prices collateral in loan-token terms, so the oracle is correct
+        // when the description is "<collateral> / <loan>". Use alias-aware matching
+        // so e.g. a weETH/WETH market priced by a "weETH / ETH" feed (WETH↔ETH) is
+        // recognized as correct rather than flagged wrong-asset.
+        return symbolsMatch(descCollateral, collSym) && symbolsMatch(descLoan, loanSym);
       })();
 
       result[chainId][marketId] = {

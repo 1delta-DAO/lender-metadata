@@ -1,16 +1,12 @@
 {
-  "version": "2026-06-20T23-01-15-311Z",
-  "generatedAt": "2026-06-20T23:01:15.311Z",
+  "version": "2026-06-20T23-45-24-454Z",
+  "generatedAt": "2026-06-20T23:45:24.454Z",
   "updatedFiles": [
-    "./data/aave-oracles-classified.json",
-    "./data/aave-v4-oracles-classified.json"
+    "./data/morpho-oracles-data.json"
   ],
   "results": [
     {
-      "targetFile": "./data/aave-oracles-classified.json"
-    },
-    {
-      "targetFile": "./data/aave-v4-oracles-classified.json"
+      "targetFile": "./data/morpho-oracles-data.json"
     }
   ]
 }
