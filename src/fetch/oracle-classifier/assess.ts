@@ -50,6 +50,20 @@ export function assessFeed(
     // composite "X * Y / Z" descriptions don't map to a single asset/numeraire pair
     !resolved.priceDescription.includes(" * ");
 
+  // Pendle PT price-cap adapters resolve to their *numeraire* feed (e.g. USDT/USD),
+  // so the terminal pair's base is the numeraire, NOT the PT. Comparing it to the
+  // PT symbol would always read as wrong-asset. Instead verify against the adapter's
+  // own named underlying (it prices PT-<underlying>); the denominator check below
+  // still applies to the numeraire pair as usual.
+  if (resolved.provider === "pendle-pt") {
+    const correctOracle = ptUnderlyingMatch(resolved.rawDescription, assetSymbol);
+    const denominatorMatch: true | false | null =
+      verifiable && numeraire && pair!.quote
+        ? symbolsMatch(pair!.quote, numeraire)
+        : null;
+    return { denominator, intendedPair, correctOracle, denominatorMatch };
+  }
+
   const correctOracle: true | false | null =
     verifiable && assetSymbol ? symbolsMatch(pair!.base, assetSymbol) : null;
 
@@ -59,6 +73,34 @@ export function assessFeed(
       : null;
 
   return { denominator, intendedPair, correctOracle, denominatorMatch };
+}
+
+/**
+ * Correctness for a Pendle PT price-cap adapter. The adapter's description names
+ * the underlying it discounts ("PT Capped <underlying> <feed> linear discount <date>"),
+ * and the reserve symbol is "PT-<underlying>-<date>". The feed is correct when those
+ * underlyings match (alias-aware).
+ *
+ *  - true  — adapter underlying matches the PT's underlying.
+ *  - false — both are extractable but disagree (genuinely mis-wired adapter).
+ *  - null  — could not extract one side (leave unverified rather than falsely flag).
+ */
+function ptUnderlyingMatch(
+  rawDescription: string | null,
+  assetSymbol: string | null
+): true | false | null {
+  if (!rawDescription || !assetSymbol) return null;
+  // "PT Capped srUSDe USDT/USD …" / "PT srUSDe …" -> "srUSDe"
+  const descUnderlying = rawDescription.match(
+    /\bPT\s+(?:capped\s+)?([A-Za-z0-9.]+)/i
+  )?.[1];
+  // "PT-srUSDe-25JUN2026" -> "srUSDe" (fallback: strip "PT-" and the trailing date)
+  const dated = assetSymbol.match(/^PT-(.+?)-\d{1,2}[A-Za-z]{3,}\d{2,4}$/i);
+  const symUnderlying = dated
+    ? dated[1]
+    : assetSymbol.replace(/^PT-/i, "").replace(/-\d.*$/, "");
+  if (!descUnderlying || !symUnderlying) return null;
+  return symbolsMatch(descUnderlying, symUnderlying);
 }
 
 /**

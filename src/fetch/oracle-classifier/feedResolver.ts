@@ -31,6 +31,7 @@ export type OracleProvider =
   | "composite" // multiplicative / two-feed
   | "morpho-composite"
   | "exchange-rate"
+  | "pendle-pt" // Pendle PT price-cap adapter (discount on a numeraire feed)
   | "constant"
   | "unknown";
 
@@ -134,6 +135,13 @@ function classifyNode(node: FeedNode | undefined): OracleProvider {
   if (node.pointers.priceFeedA || node.pointers.priceFeedB) return "composite";
   if (/constant/i.test(desc)) return "constant";
   if (/exchange\s*rate/i.test(desc)) return "exchange-rate";
+  // Pendle Principal Token price-cap adapters: "PT Capped <underlying> <feed>
+  // linear discount <date>". They wrap a numeraire feed (e.g. USDT/USD) with a
+  // time-decay discount to price the PT itself, so the terminal feed's asset is
+  // the numeraire — not the priced asset. Must be detected before the generic
+  // `aggregator -> chainlink` fallthrough below, since they expose an aggregator.
+  if (/\bpt\b/i.test(desc) && /(linear\s+discount|capped)/i.test(desc))
+    return "pendle-pt";
   if (/^custom price feed/i.test(desc) || /^price feed for/i.test(desc))
     return "compound-wrapper";
   if (node.pointers.aggregator) return "chainlink";
