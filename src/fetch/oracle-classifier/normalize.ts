@@ -155,6 +155,12 @@ const SYMBOL_ALIASES: Record<string, string> = {
   USDBC: "USDC",
   // MAI is the canonical symbol for miMATIC — same token, interchangeable feeds.
   MIMATIC: "MAI",
+  // 1:1 wrapped BTC variants priced by the BTC/USD feed (like WBTC↔BTC).
+  // NOTE: only fully-collateralized 1:1 wrappers — NOT yield-bearing derivatives
+  // (cbETH, LBTC stakings, SolvBTC, etc.) which legitimately need their own feed.
+  CBBTC: "BTC", // Coinbase Wrapped BTC
+  BTCB: "BTC", // Binance-Peg BTC
+  CBXRP: "XRP", // Coinbase Wrapped XRP
 };
 
 export function normalizeSymbol(sym: string | null | undefined): string | null {

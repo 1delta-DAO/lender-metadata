@@ -42,11 +42,14 @@ type OracleData = OracleConfig & {
   /** true when oracle has no feeds/vaults/underlying — indicating a hardcoded static price. null when unknown. */
   fixedRate: true | null;
   /**
-   * true  — priceDescription matches the actual collateral/loan token pair (collateral / loan).
-   * false — priceDescription does NOT match (e.g. USD proxy oracle used for a non-USD asset pair).
-   * null  — no priceDescription available, or symbols could not be resolved.
+   * Numerator (collateral) match: does the feed price the intended COLLATERAL asset?
+   * true/false alias-aware; null when undecodable. (The loan/denominator side is
+   * reported separately via denominatorMatch so a USD-feed/stablecoin-loan market
+   * reads as cross-numeraire, not wrong-asset.)
    */
   correctOracle: true | false | null;
+  /** Denominator (loan) match: is the feed denominated in the loan token? */
+  denominatorMatch: true | false | null;
 };
 
 /** Per-market oracle metadata; keys are canonical Morpho market ids (bytes32 hex). */
@@ -765,22 +768,29 @@ export async function fetchMorphoOracleData(): Promise<MorphoOraclesDataMap> {
         return synthesized !== "UNKNOWN" ? synthesized : (vaultOracleDescriptions[oracle] ?? "UNKNOWN");
       })();
 
-      const correctOracle: true | false | null = (() => {
-        if (!priceDescription || priceDescription === "UNKNOWN") return null;
-        // Skip complex descriptions with "*" — can't map to a single collateral/loan pair
-        if (priceDescription.includes(" * ")) return null;
+      // Morpho prices collateral in loan-token terms ("<collateral> / <loan>").
+      // Split the two signals like every other lender: correctOracle = the
+      // numerator (collateral) match — the "right source for the right asset";
+      // denominatorMatch = the loan side. A USD feed on a USDC-loan market prices
+      // the collateral correctly and only approximates the numeraire, so it must
+      // read as cross-numeraire, NOT wrong-asset. Alias-aware (WETH↔ETH, …).
+      const { correctOracle, denominatorMatch } = ((): {
+        correctOracle: true | false | null;
+        denominatorMatch: true | false | null;
+      } => {
+        const none = { correctOracle: null, denominatorMatch: null };
+        if (!priceDescription || priceDescription === "UNKNOWN") return none;
+        if (priceDescription.includes(" * ")) return none; // composite — no single pair
         const slashIdx = priceDescription.indexOf(" / ");
-        if (slashIdx === -1) return null;
+        if (slashIdx === -1) return none;
         const descCollateral = priceDescription.slice(0, slashIdx).trim().toLowerCase();
         const descLoan = priceDescription.slice(slashIdx + 3).trim().toLowerCase();
         const collSym = allSymbols[collateralAddr]?.toLowerCase() ?? null;
         const loanSym = allSymbols[loanAddr]?.toLowerCase() ?? null;
-        if (!collSym || !loanSym) return null;
-        // Morpho prices collateral in loan-token terms, so the oracle is correct
-        // when the description is "<collateral> / <loan>". Use alias-aware matching
-        // so e.g. a weETH/WETH market priced by a "weETH / ETH" feed (WETH↔ETH) is
-        // recognized as correct rather than flagged wrong-asset.
-        return symbolsMatch(descCollateral, collSym) && symbolsMatch(descLoan, loanSym);
+        return {
+          correctOracle: collSym ? symbolsMatch(descCollateral, collSym) : null,
+          denominatorMatch: loanSym ? symbolsMatch(descLoan, loanSym) : null,
+        };
       })();
 
       result[chainId][marketId] = {
@@ -810,6 +820,7 @@ export async function fetchMorphoOracleData(): Promise<MorphoOraclesDataMap> {
         priceDescription,
         fixedRate: isV2Map[oracle] && hasNoSignals(c) && !underlyingOracleMap[oracle] ? true : null,
         correctOracle,
+        denominatorMatch,
       };
     }
   }

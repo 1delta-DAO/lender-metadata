@@ -401,7 +401,7 @@
     "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
       "asset": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
       "assetSymbol": "cbBTC",
-      "correctOracle": false,
+      "correctOracle": true,
       "denominator": "USD",
       "denominatorMatch": true,
       "fixedRate": null,
