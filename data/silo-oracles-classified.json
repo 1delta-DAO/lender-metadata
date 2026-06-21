@@ -6063,6 +6063,35 @@
       "underlyingAggregator": null,
       "version": "v3"
     },
+    "0xc414c974d92fc4bafc3b867456d3e38c238e8221": {
+      "configuredPair": "wsrUSD / USDC",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "innerOracle": "0x84924b6cc77fd56587134b6076796c53ffde21bd",
+      "intendedPair": "wsrUSD / USDC",
+      "market": "USDC-wsrUSD",
+      "maxLtvOracle": "0x2eeb640de9541be3cbd8d7befa2de67b2a6f0d0b",
+      "numeraire": "USDC",
+      "priceDescription": "UNKNOWN",
+      "provider": "Silo Oracle",
+      "quoteToken": "0xfa2958cb79b0491cc627c1557f441ef849ca8eb1",
+      "sameOracle": true,
+      "side": "silo1",
+      "silo": "0xc414c974d92fc4bafc3b867456d3e38c238e8221",
+      "solvencyOracle": "0x2eeb640de9541be3cbd8d7befa2de67b2a6f0d0b",
+      "sourcePath": [
+        {
+          "address": "0x84924b6cc77fd56587134b6076796c53ffde21bd",
+          "description": "Silo Oracle",
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0x4809010926aec940b550d34a46a52739f996d75d",
+      "tokenSymbol": "wsrUSD",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
     "0xd1ed56ed95c02634d9e2385a04cd5b97078dd932": {
       "configuredPair": "USDC / USDC",
       "correctOracle": null,
@@ -6140,6 +6169,35 @@
       "sourcePath": [
         {
           "address": "0x26f30325f607d32186accf37a4b87ae2c2be0fbd",
+          "description": "Silo Oracle",
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0xfa2958cb79b0491cc627c1557f441ef849ca8eb1",
+      "tokenSymbol": "USDC",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
+    "0xf107e8d834eee5716c14b79901912c88baab9805": {
+      "configuredPair": "USDC / USDC",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "innerOracle": "0x57d9fe5478698f7fbe8c579415a7f6a8a7176f81",
+      "intendedPair": "USDC / USDC",
+      "market": "USDC-wsrUSD",
+      "maxLtvOracle": "0xa9d6a0ef635a966ec72ed410326db17edb5fda05",
+      "numeraire": "USDC",
+      "priceDescription": "UNKNOWN",
+      "provider": "Silo Oracle",
+      "quoteToken": "0xfa2958cb79b0491cc627c1557f441ef849ca8eb1",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0xf107e8d834eee5716c14b79901912c88baab9805",
+      "solvencyOracle": "0xa9d6a0ef635a966ec72ed410326db17edb5fda05",
+      "sourcePath": [
+        {
+          "address": "0x57d9fe5478698f7fbe8c579415a7f6a8a7176f81",
           "description": "Silo Oracle",
           "decimals": 18,
           "kind": "unknown"

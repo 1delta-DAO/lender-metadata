@@ -3626,23 +3626,23 @@
       "0x05c132e75d2775ca4257fcf824169d99d593ebf1": {
         "asset": "0x3d75f2bb8abcdbd1e27443cb5cbce8a668046c81",
         "assetSymbol": "HLP0",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x05c132e75d2775ca4257fcf824169d99d593ebf1",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "HLP0 / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "HLP0 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDC",
         "source": "0x7f5635fac36506f131ae5e5a328fea4bfc126d85",
         "sourcePath": [
           {
             "address": "0x7f5635fac36506f131ae5e5a328fea4bfc126d85",
-            "description": null,
+            "description": "via USDC",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -3650,23 +3650,23 @@
       "0x0e528ae2376bf60b5c6e4c62ae461f422052b457": {
         "asset": "0xc326d1505ce0492276f646b03fe460c43a892185",
         "assetSymbol": "U$D",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x0e528ae2376bf60b5c6e4c62ae461f422052b457",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "U$D / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "U$D / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDC",
         "source": "0x52041acd6a69a1847e4c41c8bdddb0b37dae94f3",
         "sourcePath": [
           {
             "address": "0x52041acd6a69a1847e4c41c8bdddb0b37dae94f3",
-            "description": null,
+            "description": "via USDC",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -3698,23 +3698,23 @@
       "0x14515de791c58c430b85d837df3e3ac455b88fed": {
         "asset": "0xb9ea44d1aa76d5cfd475c2800e186d3dea2141a4",
         "assetSymbol": "enclabsVeETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x14515de791c58c430b85d837df3e3ac455b88fed",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "enclabsVeETH / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "enclabsVeETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via scETH",
         "source": "0xd730ea9122505fb043a68ee1f128415a5a807606",
         "sourcePath": [
           {
             "address": "0xd730ea9122505fb043a68ee1f128415a5a807606",
-            "description": null,
+            "description": "via scETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -3726,7 +3726,7 @@
         "cToken": "0x1d801dc616c79c499c5d38c998ef2d0d6cf868e8",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "wmetaUSD / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
         "priceDescription": "UNKNOWN",
@@ -3770,23 +3770,23 @@
       "0x3f0c9dcca72058950327b5d4a5783fb0cba520ce": {
         "asset": "0x57203a8aec5c03dd48050cd599deb24ba669ad95",
         "assetSymbol": "enclabsVeUSD",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x3f0c9dcca72058950327b5d4a5783fb0cba520ce",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "enclabsVeUSD / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "enclabsVeUSD / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via scUSD",
         "source": "0x62870a572e9beb11d71ccbb296bef5bd79df3050",
         "sourcePath": [
           {
             "address": "0x62870a572e9beb11d71ccbb296bef5bd79df3050",
-            "description": null,
+            "description": "via scUSD",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -3794,23 +3794,23 @@
       "0x44d5602e26c1c1fd5f284036023e2750f3d855a0": {
         "asset": "0xd02962dc00a058a00fc07a8aa9f760ab6d9bd163",
         "assetSymbol": "enclabsVeUSD",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x44d5602e26c1c1fd5f284036023e2750f3d855a0",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "enclabsVeUSD / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "enclabsVeUSD / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via scUSD",
         "source": "0xc48fdda5de969f893ed21eb0ce480e504ef74a3e",
         "sourcePath": [
           {
             "address": "0xc48fdda5de969f893ed21eb0ce480e504ef74a3e",
-            "description": null,
+            "description": "via scUSD",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -3920,23 +3920,23 @@
       "0xab1fbee94d9ba79269b3e479ce5d78c60f148716": {
         "asset": "0xd2901d474b351bc6ee7b119f9c920863b0f781b2",
         "assetSymbol": "YT-scUSD",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xab1fbee94d9ba79269b3e479ce5d78c60f148716",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "YT-scUSD / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "YT-scUSD / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via scUSD",
         "source": "0xf100f6adfba11337062068334bff73dc1d8b25c5",
         "sourcePath": [
           {
             "address": "0xf100f6adfba11337062068334bff73dc1d8b25c5",
-            "description": null,
+            "description": "via scUSD",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -4220,23 +4220,23 @@
       "0x7fd79432cc704582235df11b92b783f07ed40e13": {
         "asset": "0x9f0df7799f6fdad409300080cff680f5a23df4b1",
         "assetSymbol": "wOS",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x7fd79432cc704582235df11b92b783f07ed40e13",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "wOS / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "wOS / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via wS",
         "source": "0x233f1c2df407fe0e5c71986b805f138519d88be4",
         "sourcePath": [
           {
             "address": "0x233f1c2df407fe0e5c71986b805f138519d88be4",
-            "description": null,
+            "description": "via wS",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -4320,23 +4320,23 @@
       "0xd1e8ec6eaed325006731f816f41fd5483373a8f2": {
         "asset": "0x7002383d2305b8f3b2b7786f50c13d132a22076d",
         "assetSymbol": "PT-sw-wstkscUSD-1751241607",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xd1e8ec6eaed325006731f816f41fd5483373a8f2",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "PT-sw-wstkscUSD-1751241607 / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PT-sw-wstkscUSD-1751241607 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via scUSD",
         "source": "0x1582d8a007f09ab7fe3a395ebe0c9025dc69889c",
         "sourcePath": [
           {
             "address": "0x1582d8a007f09ab7fe3a395ebe0c9025dc69889c",
-            "description": null,
-            "decimals": 18,
-            "kind": "unknown"
+            "description": "via scUSD",
+            "decimals": null,
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -4372,23 +4372,23 @@
       "0xbff8cf17b04a057d9a8ce5796a85c60d1f614eab": {
         "asset": "0x3a7ba84bbe869ed318e654dd9b6ff3cf6d531e91",
         "assetSymbol": "PT-sw-wstkscETH-1751241605",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xbff8cf17b04a057d9a8ce5796a85c60d1f614eab",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "PT-sw-wstkscETH-1751241605 / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PT-sw-wstkscETH-1751241605 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via scETH",
         "source": "0x93749babd99d3c687efd3679bc04762982a014df",
         "sourcePath": [
           {
             "address": "0x93749babd99d3c687efd3679bc04762982a014df",
-            "description": null,
-            "decimals": 18,
-            "kind": "unknown"
+            "description": "via scETH",
+            "decimals": null,
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -4404,7 +4404,7 @@
         "cToken": "0x0cd08016673592244b9c3d4a2d71f5e973dd3380",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "SWPx / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
         "priceDescription": "UNKNOWN",
@@ -4476,7 +4476,7 @@
         "cToken": "0xdde5262d257bb26dcd6ea482f489078ed020cd7c",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "SNAKE / USD",
         "oracle": "0xd05b05590609c3610161e60eb41ec317c7562408",
         "priceDescription": "UNKNOWN",
@@ -6012,7 +6012,7 @@
         "cToken": "0x298f2e346b82d69a473bf25f329bdf869e17dec8",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "BUSD / USD",
         "oracle": "0xed301cd3eb27217bdb05c4e9b820a8a3c8b665f9",
         "priceDescription": "UNKNOWN",
@@ -6036,14 +6036,21 @@
         "cToken": "0x42a96c0681b74838ec525adbd13c37f66388f289",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": null,
+        "fixedRate": true,
         "intendedPair": "xcUSDT / USD",
         "oracle": "0xed301cd3eb27217bdb05c4e9b820a8a3c8b665f9",
         "priceDescription": "UNKNOWN",
-        "provider": "chainlink",
+        "provider": "unknown",
         "rawDescription": null,
-        "source": null,
-        "sourcePath": [],
+        "source": "0x5c4916479faae9e248ccf8d981ec18d6ef709057",
+        "sourcePath": [
+          {
+            "address": "0x5c4916479faae9e248ccf8d981ec18d6ef709057",
+            "description": null,
+            "decimals": 18,
+            "kind": "unknown"
+          }
+        ],
         "underlyingAggregator": null
       },
       "0x744b1756e7651c6d57f5311767eafe5e931d615b": {
@@ -6986,7 +6993,7 @@
         "cToken": "0x07b4fbc9b123ac8eed171372969dd55410946d75",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "xPufETH / USD",
         "oracle": "0x763217cfefac3b26191b1dcae1926f65157b9a05",
         "priceDescription": "UNKNOWN",
@@ -7040,7 +7047,7 @@
         "cToken": "0x24a8117bf6f4a5be6759918f7c111f279a999ef3",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "STONE / USD",
         "oracle": "0x763217cfefac3b26191b1dcae1926f65157b9a05",
         "priceDescription": "UNKNOWN",
@@ -7154,7 +7161,7 @@
         "cToken": "0xf8adf750633b8f95aa00bdbe2ed2924b6c386004",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "satUSD / USD",
         "oracle": "0x763217cfefac3b26191b1dcae1926f65157b9a05",
         "priceDescription": "UNKNOWN",
@@ -7180,7 +7187,7 @@
         "cToken": "0x567558167f102bb45c0437f1fd5a527c5c534c3c",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "BTCB / USD",
         "oracle": "0xaacf634dd705d37e94c38ea68384e669d2b4d491",
         "priceDescription": "UNKNOWN",
@@ -7204,7 +7211,7 @@
         "cToken": "0x7add376cf7b33b7d09b0f0f4ef0a741c3cb95102",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "USDT / USD",
         "oracle": "0xaacf634dd705d37e94c38ea68384e669d2b4d491",
         "priceDescription": "UNKNOWN",
@@ -7228,7 +7235,7 @@
         "cToken": "0x81b98b2896f1f262714f12be36264aa8e02a08d2",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "ETH / USD",
         "oracle": "0xaacf634dd705d37e94c38ea68384e669d2b4d491",
         "priceDescription": "UNKNOWN",
@@ -7252,7 +7259,7 @@
         "cToken": "0xfe62ba7400d902a9773da9f7469da457cf54a565",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "FDUSD / USD",
         "oracle": "0xaacf634dd705d37e94c38ea68384e669d2b4d491",
         "priceDescription": "UNKNOWN",
@@ -7278,7 +7285,7 @@
         "cToken": "0x0db32ebae3dafe7325a3f22b971895c6693437d0",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "stCORE / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7302,7 +7309,7 @@
         "cToken": "0x21a75630d3d01183d94413994352defd22d598dc",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "USDT / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7326,7 +7333,7 @@
         "cToken": "0x2a8731e84aa080bacb5a9ac56109bc7baa4a47e0",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "SolvBTC.b / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7350,7 +7357,7 @@
         "cToken": "0x2f98cec447ece713ef166bd5f76139d66c141bf3",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "USDC / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7374,7 +7381,7 @@
         "cToken": "0x4fb6d66ba7b10bf6b34c7056f745ef7415777a7d",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "BTCB / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7398,7 +7405,7 @@
         "cToken": "0x831854cebe84cfc6abfd603503bf591a5e41d998",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "WETH / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7422,7 +7429,7 @@
         "cToken": "0x8da899be4e67c847163e5d91b76eb3130d6c8a38",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "aBTC / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7446,7 +7453,7 @@
         "cToken": "0x92b609b64258dd92d1d47ec9bdc3c800fe4f6c96",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "BTC.b / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7470,7 +7477,7 @@
         "cToken": "0x96ea658f324a0797a3978f5000fe5bb53428536a",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "WBTC / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7494,7 +7501,7 @@
         "cToken": "0xcbe44f06a270688371780ce4f78e644e17f3426b",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "SolvBTC.CORE / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7518,7 +7525,7 @@
         "cToken": "0xdd80dda3a7b1f462fbf7089eb24332727ef9e00b",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "SolvBTC.m / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7542,7 +7549,7 @@
         "cToken": "0xe14eeb2f56733f86e183a446e60608a3c33f1fb4",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "COREBTC / USD",
         "oracle": "0x4ce26c5250d2d98ade4f9533e9b119949c71edb8",
         "priceDescription": "UNKNOWN",
@@ -7568,7 +7575,7 @@
         "cToken": "0x049a96cb83f77bd4165d8a9a033b9d4c41eff0f4",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "FBTC / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7592,7 +7599,7 @@
         "cToken": "0x0997f9c07dbda641ddcc9713d3e63aa6649abd98",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "SolvBTC.b / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7616,7 +7623,7 @@
         "cToken": "0x2136ebc7be1e65fdb4a407ac2874b3d6850a64c2",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "SOV / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7670,7 +7677,7 @@
         "cToken": "0x39e5946da0afd4ee792273e68935c0c9510307a5",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "satUSD / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7694,7 +7701,7 @@
         "cToken": "0x4a98bf3bcdb5324223fb7ac2f22a460e70ef2046",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "satUSD / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7748,7 +7755,7 @@
         "cToken": "0x6265c05158f672016b771d6fb7422823ed2cbcdd",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "WBTC / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7772,7 +7779,7 @@
         "cToken": "0x740bc032f9c2f7850d4490a6ed34c5c1bbfaf8fa",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "S1 / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7796,7 +7803,7 @@
         "cToken": "0x7414f14497be308e30ee345a0dcfc43623c179c2",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "USDT / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7820,7 +7827,7 @@
         "cToken": "0x7848f0775eebabbf55cb74490ce6d3673e68773a",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "uniBTC / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7844,7 +7851,7 @@
         "cToken": "0x811bb0cc1800e35770495ffe1a6acb5650a6e83c",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "pumpBTC / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7868,7 +7875,7 @@
         "cToken": "0x83493ae23cec5dfec03052ff5cded648defc3336",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "DAI / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7892,7 +7899,7 @@
         "cToken": "0xa005eb8730db1e26650c84fe31e95a8aa3accf93",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "rETH / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7916,7 +7923,7 @@
         "cToken": "0xac431aca682aea40da9954568ea779b43acc6a39",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "LBTC / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7940,7 +7947,7 @@
         "cToken": "0xc2808727f0c8366dab63f83074d890dea60c5d99",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "thUSD / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7964,7 +7971,7 @@
         "cToken": "0xc344000a28f00e879c566f1ec259da24d6279592",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "USDC.e / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -7988,7 +7995,7 @@
         "cToken": "0xd30288ea9873f376016a0250433b7ea375676077",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "tBTC / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -8012,7 +8019,7 @@
         "cToken": "0xfb71992ed470632105f16c331a0c9365c8a4f613",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "STONE / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -8036,7 +8043,7 @@
         "cToken": "0xfdc94f6018c5764dd6bfcd003ee910d7f3907a1d",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "wstETH / USD",
         "oracle": "0xf0a54a488e0324e7d9d595cb648b1576b6ee3862",
         "priceDescription": "UNKNOWN",
@@ -13259,23 +13266,23 @@
       "0x17142a05fe678e9584fa1d88efac1bf181bf7abe": {
         "asset": "0xa663b02cf0a4b149d2ad41910cb81e23e1c41c32",
         "assetSymbol": "sFRAX",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x17142a05fe678e9584fa1d88efac1bf181bf7abe",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "sFRAX / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "sFRAX / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via FRAX",
         "source": "0x1adce75bb3164bbf6060a4f44262df5414473110",
         "sourcePath": [
           {
             "address": "0x1adce75bb3164bbf6060a4f44262df5414473110",
-            "description": null,
+            "description": "via FRAX",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -13343,23 +13350,23 @@
       "0x25c20e6e110a1ce3febacc8b7e48368c7b2f0c91": {
         "asset": "0x8236a87084f8b84306f72007f36f2618a5634494",
         "assetSymbol": "LBTC",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x25c20e6e110a1ce3febacc8b7e48368c7b2f0c91",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "LBTC / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "LBTC / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WBTC",
         "source": "0x54b033d102db7dd734e0ad649463e90ffa78d853",
         "sourcePath": [
           {
             "address": "0x54b033d102db7dd734e0ad649463e90ffa78d853",
-            "description": null,
+            "description": "via WBTC",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -13367,23 +13374,23 @@
       "0x325ceb02fe1c2ff816a83a5770ea0e88e2faecf2": {
         "asset": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
         "assetSymbol": "eBTC",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x325ceb02fe1c2ff816a83a5770ea0e88e2faecf2",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "eBTC / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "eBTC / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WBTC",
         "source": "0x04d6096a6f089047c7af6e4644d18fb766b8d4ce",
         "sourcePath": [
           {
             "address": "0x04d6096a6f089047c7af6e4644d18fb766b8d4ce",
-            "description": null,
+            "description": "via WBTC",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -13391,23 +13398,23 @@
       "0x475d0c68a8cd275c15d1f01f4f291804e445f677": {
         "asset": "0x310b7ea7475a0b449cfd73be81522f1b88efafaa",
         "assetSymbol": "yvUSDT-1",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x475d0c68a8cd275c15d1f01f4f291804e445f677",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "yvUSDT-1 / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "yvUSDT-1 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDT",
         "source": "0xbc0289bfbf3f14af0829f10640a7b7e539910723",
         "sourcePath": [
           {
             "address": "0xbc0289bfbf3f14af0829f10640a7b7e539910723",
-            "description": null,
+            "description": "via USDT",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -13445,23 +13452,23 @@
       "0x520d67226bc904ac122dce66ed2f8f61aa1ed764": {
         "asset": "0x182863131f9a4630ff9e27830d945b1413e347e8",
         "assetSymbol": "yvUSDS-1",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x520d67226bc904ac122dce66ed2f8f61aa1ed764",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "yvUSDS-1 / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "yvUSDS-1 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDS",
         "source": "0xe6eb6a0321ca8c18a3e4c31e36954467f72670ef",
         "sourcePath": [
           {
             "address": "0xe6eb6a0321ca8c18a3e4c31e36954467f72670ef",
-            "description": null,
+            "description": "via USDS",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -13643,23 +13650,23 @@
       "0xa836ce315b7a6bb19397ee996551659b1d92298e": {
         "asset": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
         "assetSymbol": "sUSDe",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xa836ce315b7a6bb19397ee996551659b1d92298e",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "sUSDe / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "sUSDe / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDe",
         "source": "0xae847e81ff6dd2bdfb1fd563ccb4f848c74d2b70",
         "sourcePath": [
           {
             "address": "0xae847e81ff6dd2bdfb1fd563ccb4f848c74d2b70",
-            "description": null,
+            "description": "via USDe",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -13667,23 +13674,23 @@
       "0xba3916302cba4abcb51a01e706fc6051aaf272a0": {
         "asset": "0xc56413869c6cdf96496f2b1ef801fedbdfa7ddb0",
         "assetSymbol": "yvWETH-1",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xba3916302cba4abcb51a01e706fc6051aaf272a0",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "yvWETH-1 / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "yvWETH-1 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x38b3643c1b5160591073cc4121bd91a456f14acd",
         "sourcePath": [
           {
             "address": "0x38b3643c1b5160591073cc4121bd91a456f14acd",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -13691,23 +13698,23 @@
       "0xc42e4bfb996ed35235bda505430cbe404eb49f77": {
         "asset": "0x917cee801a67f933f2e6b33fc0cd1ed2d5909d88",
         "assetSymbol": "weETHs",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xc42e4bfb996ed35235bda505430cbe404eb49f77",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "weETHs / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "weETHs / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x47f7a7f3486b08a019e0c10af969adc4b6e415cd",
         "sourcePath": [
           {
             "address": "0x47f7a7f3486b08a019e0c10af969adc4b6e415cd",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -13745,23 +13752,23 @@
       "0xe36ae842dbbd7ae372eba02c8239cd431cc063d6": {
         "asset": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
         "assetSymbol": "sUSDS",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xe36ae842dbbd7ae372eba02c8239cd431cc063d6",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "sUSDS / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "sUSDS / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDS",
         "source": "0xec3865a8a5dcb8c507781da17a38b754e3d01c50",
         "sourcePath": [
           {
             "address": "0xec3865a8a5dcb8c507781da17a38b754e3d01c50",
-            "description": null,
+            "description": "via USDS",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -13769,23 +13776,23 @@
       "0xf87c0a64dc3a8622d6c63265fa29137788163879": {
         "asset": "0xbe53a109b494e5c9f97b9cd39fe969be68bf6204",
         "assetSymbol": "yvUSDC-1",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xf87c0a64dc3a8622d6c63265fa29137788163879",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "yvUSDC-1 / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "yvUSDC-1 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDC",
         "source": "0xa938effc4f68262e17eacfafd41ee68b0f8874d1",
         "sourcePath": [
           {
             "address": "0xa938effc4f68262e17eacfafd41ee68b0f8874d1",
-            "description": null,
+            "description": "via USDC",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -14131,7 +14138,7 @@
         "cToken": "0x2ff3d0f6990a40261c66e1ff2017acbc282eb6d0",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "SXP / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -14409,23 +14416,23 @@
       "0x699658323d58ee25c69f1a29d476946ab011bd18": {
         "asset": "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2",
         "assetSymbol": "sUSDe",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x699658323d58ee25c69f1a29d476946ab011bd18",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "sUSDe / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "sUSDe / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDe",
         "source": "0x2b2895104f958e1ec042e6ba5cbfecbad3c5bedb",
         "sourcePath": [
           {
             "address": "0x2b2895104f958e1ec042e6ba5cbfecbad3c5bedb",
-            "description": null,
+            "description": "via USDe",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -14463,23 +14470,23 @@
       "0x6cfdec747f37daf3b87a35a1d9c8ad3063a1a8a0": {
         "asset": "0xa2e3356610840701bdf5611a53974510ae27e2e1",
         "assetSymbol": "wBETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x6cfdec747f37daf3b87a35a1d9c8ad3063a1a8a0",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "wBETH / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "wBETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via ETH",
         "source": "0x49938fc72262c126eb5d4bdf6430c55189aeb2ba",
         "sourcePath": [
           {
             "address": "0x49938fc72262c126eb5d4bdf6430c55189aeb2ba",
-            "description": null,
+            "description": "via ETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -14487,23 +14494,23 @@
       "0x6d0cdb3355c93a0cd20071abbb3622731a95c73e": {
         "asset": "0x607c834cfb7fcbbb341cbe23f77a6e83bcf3f55c",
         "assetSymbol": "PT-USDe-30OCT2025",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x6d0cdb3355c93a0cd20071abbb3622731a95c73e",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "PT-USDe-30OCT2025 / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PT-USDe-30OCT2025 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDe",
         "source": "0xaa5138e86c078fd2859a929173b3870b5003ec30",
         "sourcePath": [
           {
             "address": "0xaa5138e86c078fd2859a929173b3870b5003ec30",
-            "description": null,
+            "description": "via USDe",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -14511,23 +14518,23 @@
       "0x6d3bd68e90b42615cb5abf4b8de92b154adc435e": {
         "asset": "0xe052823b4aefc6e230faf46231a57d0905e30ae0",
         "assetSymbol": "PT-clisBNB-25JUN2026",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x6d3bd68e90b42615cb5abf4b8de92b154adc435e",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "PT-clisBNB-25JUN2026 / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PT-clisBNB-25JUN2026 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via slisBNB",
         "source": "0x0fffbb55d51cd46cd10c7dc865dc73bd76201310",
         "sourcePath": [
           {
             "address": "0x0fffbb55d51cd46cd10c7dc865dc73bd76201310",
-            "description": null,
+            "description": "via slisBNB",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -14569,7 +14576,7 @@
         "cToken": "0x78366446547d062f45b4c0f320cdaa6d710d87bb",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "UST / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -14673,23 +14680,23 @@
       "0x89c910eb8c90df818b4649b508ba22130dc73adc": {
         "asset": "0xb0b84d294e0c75a6abe60171b70edeb2efd14a1b",
         "assetSymbol": "slisBNB",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x89c910eb8c90df818b4649b508ba22130dc73adc",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "slisBNB / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "slisBNB / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated-token oracle",
         "source": "0xdde6446e66c786aff4cd3d183a908bcda57df9c1",
         "sourcePath": [
           {
             "address": "0xdde6446e66c786aff4cd3d183a908bcda57df9c1",
             "description": null,
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -14841,23 +14848,23 @@
       "0x9e4e5fed5ac5b9f732d0d850a615206330bf1866": {
         "asset": "0xdd809435ba6c9d6903730f923038801781ca66ce",
         "assetSymbol": "PT-sUSDE-26JUN2025",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x9e4e5fed5ac5b9f732d0d850a615206330bf1866",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "PT-sUSDE-26JUN2025 / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PT-sUSDE-26JUN2025 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via sUSDe",
         "source": "0xc407403fa78bce509821d776b6be7f91cc04474f",
         "sourcePath": [
           {
             "address": "0xc407403fa78bce509821d776b6be7f91cc04474f",
-            "description": null,
+            "description": "via sUSDe",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -14899,7 +14906,7 @@
         "cToken": "0xb91a659e88b51474767cd97ef3196a3e7cedd2c8",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "LUNA / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -15063,23 +15070,23 @@
       "0xcc1db43a06d97f736c7b045aedd03c6707c09bdf": {
         "asset": "0x77734e70b6e88b4d82fe632a168edf6e700912b6",
         "assetSymbol": "asBNB",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xcc1db43a06d97f736c7b045aedd03c6707c09bdf",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "asBNB / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "asBNB / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via slisBNB",
         "source": "0x652b90d1d45a7cd5be82c5fb61a4a00ba126dde5",
         "sourcePath": [
           {
             "address": "0x652b90d1d45a7cd5be82c5fb61a4a00ba126dde5",
-            "description": null,
+            "description": "via slisBNB",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -15087,23 +15094,23 @@
       "0xd804de60afd05ee6b89aab5d152258fd461b07d5": {
         "asset": "0x1346b618dc92810ec74163e4c27004c921d446a5",
         "assetSymbol": "xSolvBTC",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xd804de60afd05ee6b89aab5d152258fd461b07d5",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "xSolvBTC / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "xSolvBTC / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via SolvBTC",
         "source": "0xf5534f78df9b610b19a63956d498d00cfad8b9d3",
         "sourcePath": [
           {
             "address": "0xf5534f78df9b610b19a63956d498d00cfad8b9d3",
-            "description": null,
+            "description": "via SolvBTC",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -15139,7 +15146,7 @@
         "cToken": "0xebd0070237a0713e8d94fef1b728d3d993d290ef",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "CAN / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -15249,23 +15256,23 @@
       "0xf841cb62c19fcd4ff5cd0aab5939f3140baac3ea": {
         "asset": "0x4aae823a6a0b376de6a78e74ecc5b079d38cbcf7",
         "assetSymbol": "SolvBTC",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xf841cb62c19fcd4ff5cd0aab5939f3140baac3ea",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "SolvBTC / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "SolvBTC / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via BTCB",
         "source": "0x3f4bc081e749032cfff29dca2e8408ec375e745a",
         "sourcePath": [
           {
             "address": "0x3f4bc081e749032cfff29dca2e8408ec375e745a",
-            "description": null,
+            "description": "via BTCB",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -15335,23 +15342,23 @@
       "0x0170398083eb0d0387709523bafca6426146c218": {
         "asset": "0x7dcc39b4d1c53cb31e1abc0e358b43987fef80f7",
         "assetSymbol": "weETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x0170398083eb0d0387709523bafca6426146c218",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "weETH / USD",
         "oracle": "0x86d04d6fe928d888076851122dc6739551818f7e",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "weETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0xf9eca470e2458fe2b6fcae660bed1e2c0fb87e01",
         "sourcePath": [
           {
             "address": "0xf9eca470e2458fe2b6fcae660bed1e2c0fb87e01",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -15431,23 +15438,23 @@
       "0xbec19bef402c697a7be315d3e59e5f65b89fa1bb": {
         "asset": "0xc02fe7317d4eb8753a02c35fe019786854a92001",
         "assetSymbol": "wstETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xbec19bef402c697a7be315d3e59e5f65b89fa1bb",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "wstETH / USD",
         "oracle": "0x86d04d6fe928d888076851122dc6739551818f7e",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "wstETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x3938d6414c261c6f450f1bd059df9af2bbfb603d",
         "sourcePath": [
           {
             "address": "0x3938d6414c261c6f450f1bd059df9af2bbfb603d",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -15509,7 +15516,7 @@
         "cToken": "0x13b492b8a03d072bab5c54ac91dba5b830a50917",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "FDUSD / USD",
         "oracle": "0x8f3618c4f0183e14a218782c116fb2438571dac9",
         "priceDescription": "UNKNOWN",
@@ -15533,7 +15540,7 @@
         "cToken": "0x509e81ef638d489936fa85bc58f52df01190d26c",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "ETH / USD",
         "oracle": "0x8f3618c4f0183e14a218782c116fb2438571dac9",
         "priceDescription": "UNKNOWN",
@@ -15557,7 +15564,7 @@
         "cToken": "0x53d11cb8a0e5320cd7229c3acc80d1a0707f2672",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "WBNB / USD",
         "oracle": "0x8f3618c4f0183e14a218782c116fb2438571dac9",
         "priceDescription": "UNKNOWN",
@@ -15581,7 +15588,7 @@
         "cToken": "0xb7a01ba126830692238521a1aa7e7a7509410b8e",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "USDT / USD",
         "oracle": "0x8f3618c4f0183e14a218782c116fb2438571dac9",
         "priceDescription": "UNKNOWN",
@@ -15605,7 +15612,7 @@
         "cToken": "0xed827b80bd838192ea95002c01b5c6da8354219a",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "BTCB / USD",
         "oracle": "0x8f3618c4f0183e14a218782c116fb2438571dac9",
         "priceDescription": "UNKNOWN",
@@ -15627,23 +15634,23 @@
       "0x03cad66259f7f34ee075f8b62d133563d249eda4": {
         "asset": "0x703b52f2b28febcb60e1372858af5b18849fe867",
         "assetSymbol": "wstETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x03cad66259f7f34ee075f8b62d133563d249eda4",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "wstETH / USD",
         "oracle": "0xde564a4c887d5ad315a19a96dc81991c98b12182",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "wstETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x2daaeb94e19145ba7633cab2c38c76fd8c493198",
         "sourcePath": [
           {
             "address": "0x2daaeb94e19145ba7633cab2c38c76fd8c493198",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -15651,23 +15658,23 @@
       "0x183de3c349fcf546aae925e1c7f364ea6fb4033c": {
         "asset": "0xa900cbe7739c96d2b153a273953620a701d5442b",
         "assetSymbol": "wUSDM",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x183de3c349fcf546aae925e1c7f364ea6fb4033c",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "wUSDM / USD",
         "oracle": "0xde564a4c887d5ad315a19a96dc81991c98b12182",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "wUSDM / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDM",
         "source": "0x22ce94e302c8c80a6c2dcfa9da6c5286e9f28692",
         "sourcePath": [
           {
             "address": "0x22ce94e302c8c80a6c2dcfa9da6c5286e9f28692",
-            "description": null,
+            "description": "via USDM",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -15855,23 +15862,23 @@
       "0xceb7da150d16ace58f090754fef2775c23c8b631": {
         "asset": "0xb72207e1fb50f341415999732a20b6d25d8127aa",
         "assetSymbol": "zkETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xceb7da150d16ace58f090754fef2775c23c8b631",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "zkETH / USD",
         "oracle": "0xde564a4c887d5ad315a19a96dc81991c98b12182",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "zkETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x407de1229bcbd2ec876d063f3f93c4d8a38bd81a",
         "sourcePath": [
           {
             "address": "0x407de1229bcbd2ec876d063f3f93c4d8a38bd81a",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -15881,23 +15888,23 @@
       "0x133d3bcd77158d125b75a17cb517ffd4b4be64c5": {
         "asset": "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
         "assetSymbol": "wstETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x133d3bcd77158d125b75a17cb517ffd4b4be64c5",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "wstETH / USD",
         "oracle": "0xcbbf58bd5bade357b634419b70b215d5e9d6fbed",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "wstETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0xddd4f0836c8016e11fc6741a4886e97b3c3d20c1",
         "sourcePath": [
           {
             "address": "0xddd4f0836c8016e11fc6741a4886e97b3c3d20c1",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -15935,23 +15942,23 @@
       "0x75201d81b3b0b9d17b179118837be37f64fc4930": {
         "asset": "0x7fcd174e80f264448ebee8c88a7c4476aaf58ea6",
         "assetSymbol": "wsuperOETHb",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x75201d81b3b0b9d17b179118837be37f64fc4930",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "wsuperOETHb / USD",
         "oracle": "0xcbbf58bd5bade357b634419b70b215d5e9d6fbed",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "wsuperOETHb / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0xcd1d2c99642165440c2cc023afa2092b487f033e",
         "sourcePath": [
           {
             "address": "0xcd1d2c99642165440c2cc023afa2092b487f033e",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16235,23 +16242,23 @@
       "0x4a50a0a1c832190362e1491d5bb464b1bc2bd288": {
         "asset": "0x77734e70b6e88b4d82fe632a168edf6e700912b6",
         "assetSymbol": "asBNB",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x4a50a0a1c832190362e1491d5bb464b1bc2bd288",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "asBNB / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "asBNB / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via slisBNB",
         "source": "0x652b90d1d45a7cd5be82c5fb61a4a00ba126dde5",
         "sourcePath": [
           {
             "address": "0x652b90d1d45a7cd5be82c5fb61a4a00ba126dde5",
-            "description": null,
+            "description": "via slisBNB",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16259,23 +16266,23 @@
       "0x5e21bf67a6af41c74c1773e4b473ca5ce8fd3791": {
         "asset": "0x1bdd3cf7f79cfb8edbb955f20ad99211551ba275",
         "assetSymbol": "BNBx",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x5e21bf67a6af41c74c1773e4b473ca5ce8fd3791",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "BNBx / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "BNBx / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated-token oracle",
         "source": "0xc2e2b6f9cde2bfa5ba5fda2dd113cacd781bdb31",
         "sourcePath": [
           {
             "address": "0xc2e2b6f9cde2bfa5ba5fda2dd113cacd781bdb31",
             "description": null,
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16283,23 +16290,23 @@
       "0xa537acf381b12bbb91c58398b66d1d220f1c77c8": {
         "asset": "0xe8f1c9804770e11ab73395be54686ad656601e9e",
         "assetSymbol": "PT-clisBNB-24APR2025",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xa537acf381b12bbb91c58398b66d1d220f1c77c8",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "PT-clisBNB-24APR2025 / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PT-clisBNB-24APR2025 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via slisBNB",
         "source": "0xea7a92d12196a325c76ed26dbd36629d7ec46459",
         "sourcePath": [
           {
             "address": "0xea7a92d12196a325c76ed26dbd36629d7ec46459",
-            "description": null,
+            "description": "via slisBNB",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16307,23 +16314,23 @@
       "0xbfe25459ba784e70e2d7a718be99a1f3521ca17f": {
         "asset": "0x52f24a5e03aee338da5fd9df68d2b6fae1178827",
         "assetSymbol": "ankrBNB",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xbfe25459ba784e70e2d7a718be99a1f3521ca17f",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "ankrBNB / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "ankrBNB / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated-token oracle",
         "source": "0x4512e9579734f7b8730f0a05cd0d92dc33eb2675",
         "sourcePath": [
           {
             "address": "0x4512e9579734f7b8730f0a05cd0d92dc33eb2675",
             "description": null,
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16331,23 +16338,23 @@
       "0xcc5d9e502574cda17215e70bc0b4546663785227": {
         "asset": "0xc2e9d07f66a89c44062459a47a0d2dc038e4fb16",
         "assetSymbol": "stkBNB",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xcc5d9e502574cda17215e70bc0b4546663785227",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "stkBNB / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "stkBNB / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated-token oracle",
         "source": "0xdbafd16c5ea8c29d1e94a5c26b31bfac94331ac6",
         "sourcePath": [
           {
             "address": "0xdbafd16c5ea8c29d1e94a5c26b31bfac94331ac6",
             "description": null,
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16355,23 +16362,23 @@
       "0xd3cc9d8f3689b83c91b7b59cab4946b063eb894a": {
         "asset": "0xb0b84d294e0c75a6abe60171b70edeb2efd14a1b",
         "assetSymbol": "slisBNB",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xd3cc9d8f3689b83c91b7b59cab4946b063eb894a",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "slisBNB / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "slisBNB / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated-token oracle",
         "source": "0xdde6446e66c786aff4cd3d183a908bcda57df9c1",
         "sourcePath": [
           {
             "address": "0xdde6446e66c786aff4cd3d183a908bcda57df9c1",
             "description": null,
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16413,23 +16420,23 @@
       "0x02243f036897e3be1cce1e540fa362fd58749149": {
         "asset": "0x541b5eeac7d4434c8f87e2d32019d67611179606",
         "assetSymbol": "PT-SolvBTC.BBN-27MAR2025",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x02243f036897e3be1cce1e540fa362fd58749149",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "PT-SolvBTC.BBN-27MAR2025 / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PT-SolvBTC.BBN-27MAR2025 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via xSolvBTC",
         "source": "0xe11965a3513f537d91d73d9976fbe8c0969bb252",
         "sourcePath": [
           {
             "address": "0xe11965a3513f537d91d73d9976fbe8c0969bb252",
-            "description": null,
+            "description": "via xSolvBTC",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16539,7 +16546,7 @@
         "cToken": "0x02c5fb0f26761093d297165e902e96d08576d344",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "ALPACA / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -16563,7 +16570,7 @@
         "cToken": "0x19ce11c8817a1828d1d357dfbf62dcf5b0b2a362",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "ANKR / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -16613,23 +16620,23 @@
       "0x53728fd51060a85ac41974c6c3eb1dae42776723": {
         "asset": "0x52f24a5e03aee338da5fd9df68d2b6fae1178827",
         "assetSymbol": "ankrBNB",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x53728fd51060a85ac41974c6c3eb1dae42776723",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "ankrBNB / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "ankrBNB / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated-token oracle",
         "source": "0x4512e9579734f7b8730f0a05cd0d92dc33eb2675",
         "sourcePath": [
           {
             "address": "0x4512e9579734f7b8730f0a05cd0d92dc33eb2675",
             "description": null,
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16695,7 +16702,7 @@
         "cToken": "0xa615467cae6b9e0bb98bc04b4411d9296fd1dfa0",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "USDD / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -16719,7 +16726,7 @@
         "cToken": "0xff1112ba7f88a53d4d23ed4e14a117a2ae17c6be",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "PLANET / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -16743,23 +16750,23 @@
       "0x4a240f0ee138697726c8a3e43efe6ac3593432cb": {
         "asset": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
         "assetSymbol": "wstETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x4a240f0ee138697726c8a3e43efe6ac3593432cb",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "wstETH / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "wstETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x6b51ee3af70b350aaadc05f418502b330c5aad7c",
         "sourcePath": [
           {
             "address": "0x6b51ee3af70b350aaadc05f418502b330c5aad7c",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16767,23 +16774,23 @@
       "0x76697f8eaea4be01c678376aab97498ee8f80d5c": {
         "asset": "0x6ee2b5e19ecba773a352e5b21415dc419a700d1d",
         "assetSymbol": "PT-weETH-26DEC2024",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x76697f8eaea4be01c678376aab97498ee8f80d5c",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "PT-weETH-26DEC2024 / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PT-weETH-26DEC2024 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0xb89c0f93442c269271cb4e9acd10e81d3fc237ba",
         "sourcePath": [
           {
             "address": "0xb89c0f93442c269271cb4e9acd10e81d3fc237ba",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16791,23 +16798,23 @@
       "0xa854d35664c658280fff27b6edc6c4195c3229b3": {
         "asset": "0xbf5495efe5db9ce00f80364c8b423567e58d2110",
         "assetSymbol": "ezETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xa854d35664c658280fff27b6edc6c4195c3229b3",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "ezETH / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "ezETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0xa6efef98d9c4e9ff8193f80fbabf92ad92d50500",
         "sourcePath": [
           {
             "address": "0xa6efef98d9c4e9ff8193f80fbabf92ad92d50500",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16815,23 +16822,23 @@
       "0xb4933af59868986316ed37fa865c829eba2df0c7": {
         "asset": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
         "assetSymbol": "weETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xb4933af59868986316ed37fa865c829eba2df0c7",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "weETH / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "weETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0xab663d4a701229dff407eb4b45007921029072e9",
         "sourcePath": [
           {
             "address": "0xab663d4a701229dff407eb4b45007921029072e9",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16869,23 +16876,23 @@
       "0xdb6c345f864883a8f4cae87852ac342589e76d1b": {
         "asset": "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7",
         "assetSymbol": "rsETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xdb6c345f864883a8f4cae87852ac342589e76d1b",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "rsETH / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "rsETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x6ac694f2d118a35e1984ae590b916108f4f9337f",
         "sourcePath": [
           {
             "address": "0x6ac694f2d118a35e1984ae590b916108f4f9337f",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16893,23 +16900,23 @@
       "0xe0ee5ddebfe0abe0a4af50299d68b74cec31668e": {
         "asset": "0xd9a442856c234a39a81a089c06451ebaa4306a72",
         "assetSymbol": "pufETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xe0ee5ddebfe0abe0a4af50299d68b74cec31668e",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "pufETH / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "pufETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x4fcbfe445396f31005b3fd2f6de2a986d6e2dcb5",
         "sourcePath": [
           {
             "address": "0x4fcbfe445396f31005b3fd2f6de2a986d6e2dcb5",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16917,23 +16924,23 @@
       "0xef26c64bc06a8de4ca5d31f119835f9a1d9433b9": {
         "asset": "0x917cee801a67f933f2e6b33fc0cd1ed2d5909d88",
         "assetSymbol": "weETHs",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xef26c64bc06a8de4ca5d31f119835f9a1d9433b9",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "weETHs / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "weETHs / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x47f7a7f3486b08a019e0c10af969adc4b6e415cd",
         "sourcePath": [
           {
             "address": "0x47f7a7f3486b08a019e0c10af969adc4b6e415cd",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -16945,7 +16952,7 @@
         "cToken": "0xf9e9fe17c00a8b96a8ac20c4e344c8688d7b947e",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "sfrxETH / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
         "priceDescription": "UNKNOWN",
@@ -16967,23 +16974,23 @@
       "0x246a35e79a3a0618535a469adaf5091caa9f7e88": {
         "asset": "0x35751007a407ca6feffe80b3cb397736d2cf4dbe",
         "assetSymbol": "weETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x246a35e79a3a0618535a469adaf5091caa9f7e88",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "weETH / USD",
         "oracle": "0xd55a98150e0f9f5e3f6280fc25617a5c93d96007",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "weETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x0afd33490fbcf537ede00f9cc4607230bbf65774",
         "sourcePath": [
           {
             "address": "0x0afd33490fbcf537ede00f9cc4607230bbf65774",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -17021,23 +17028,23 @@
       "0x9df6b5132135f14719696bbae3c54bab272fdb16": {
         "asset": "0x5979d7b546e38e414f7e9822514be443a4800529",
         "assetSymbol": "wstETH",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x9df6b5132135f14719696bbae3c54bab272fdb16",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "wstETH / USD",
         "oracle": "0xd55a98150e0f9f5e3f6280fc25617a5c93d96007",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "wstETH / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via WETH",
         "source": "0x17a5596df05c7bfb2280d5b9cccdaf711e957ed4",
         "sourcePath": [
           {
             "address": "0x17a5596df05c7bfb2280d5b9cccdaf711e957ed4",
-            "description": null,
+            "description": "via WETH",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -17049,23 +17056,23 @@
       "0x0792b9c60c728c1d2fd6665b3d7a08762a9b28e0": {
         "asset": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
         "assetSymbol": "sUSDe",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x0792b9c60c728c1d2fd6665b3d7a08762a9b28e0",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "sUSDe / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "sUSDe / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDe",
         "source": "0xae847e81ff6dd2bdfb1fd563ccb4f848c74d2b70",
         "sourcePath": [
           {
             "address": "0xae847e81ff6dd2bdfb1fd563ccb4f848c74d2b70",
-            "description": null,
+            "description": "via USDe",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -17073,23 +17080,23 @@
       "0x62d9e2010cff87bae05b91d5e04605ef864abc3b": {
         "asset": "0x8a47b431a7d947c6a3ed6e42d501803615a97eaa",
         "assetSymbol": "PT-USDe-27MAR2025",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0x62d9e2010cff87bae05b91d5e04605ef864abc3b",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "PT-USDe-27MAR2025 / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PT-USDe-27MAR2025 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDe",
         "source": "0x4cd93dcd2e11835d06a45f7ef9f7225c249bb6db",
         "sourcePath": [
           {
             "address": "0x4cd93dcd2e11835d06a45f7ef9f7225c249bb6db",
-            "description": null,
+            "description": "via USDe",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -17127,23 +17134,23 @@
       "0xcca202a95e8096315e3f19e46e19e1b326634889": {
         "asset": "0xe00bd3df25fb187d6abbb620b3dfd19839947b81",
         "assetSymbol": "PT-sUSDE-27MAR2025",
-        "correctOracle": null,
+        "correctOracle": true,
         "cToken": "0xcca202a95e8096315e3f19e46e19e1b326634889",
-        "denominator": null,
-        "denominatorMatch": null,
-        "fixedRate": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
         "intendedPair": "PT-sUSDE-27MAR2025 / USD",
         "oracle": "0xd2ce3fb018805ef92b8c5976cb31f84b4e295f94",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PT-sUSDE-27MAR2025 / USD",
+        "provider": "exchange-rate",
+        "rawDescription": "Correlated price via USDe",
         "source": "0x51b83bbbdca078b2497c41c9f54616d1adbef86f",
         "sourcePath": [
           {
             "address": "0x51b83bbbdca078b2497c41c9f54616d1adbef86f",
-            "description": null,
+            "description": "via USDe",
             "decimals": null,
-            "kind": "unknown"
+            "kind": "exchange-rate"
           }
         ],
         "underlyingAggregator": null
@@ -17189,7 +17196,7 @@
         "cToken": "0x9f2fd23bd0a5e08c5f2b9dd6cf9c96bfb5fa515c",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "USDD / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -17213,7 +17220,7 @@
         "cToken": "0xc353b7a1e13ddba393b5e120d4169da7185aa2cb",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "FLOKI / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -17237,7 +17244,7 @@
         "cToken": "0xe5fe5527a5b76c75eede77fdfa6b80d52444a465",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "RACA / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -17295,7 +17302,7 @@
         "cToken": "0x52ed99cd0a56d60451dd4314058854bc0845bbb5",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "BabyDoge / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -17353,7 +17360,7 @@
         "cToken": "0x795de779be00ea46ea97a28bdd38d9ed570bcf0f",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "EURA / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -17377,7 +17384,7 @@
         "cToken": "0xc3a45ad8812189cab659ad99e64b1376f6acd035",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "USDD / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -17459,7 +17466,7 @@
         "cToken": "0x49c26e12959345472e2fd95e5f79f8381058d3ee",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "BTT / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -17513,7 +17520,7 @@
         "cToken": "0xb114cfa615c828d88021a41bfc524b800e64a9d5",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "WIN / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",
@@ -17537,7 +17544,7 @@
         "cToken": "0xf1da185cce5bed1bebbb3007ef738ea4224025f7",
         "denominator": null,
         "denominatorMatch": null,
-        "fixedRate": true,
+        "fixedRate": null,
         "intendedPair": "USDD / USD",
         "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
         "priceDescription": "UNKNOWN",

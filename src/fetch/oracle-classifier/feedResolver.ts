@@ -244,8 +244,13 @@ export function resolveFeed(
 
   const hasAnyPointer =
     entryNode && Object.keys(entryNode.pointers).length > 0;
+  // A genuine constant/fixed-rate feed still answers `decimals()` (it returns a
+  // hardcoded value through the AggregatorV3 interface). A node that responds to
+  // NOTHING (no description, no pointers, no decimals) is an unreadable/custom
+  // oracle (e.g. a Venus OneJumpOracle) — that's "unknown", not fixed-rate.
   const fixedRate: true | null =
-    provider === "constant" || (!hasAnyPointer && !entryNode?.description && !!entryNode)
+    provider === "constant" ||
+    (!hasAnyPointer && !entryNode?.description && entryNode?.decimals != null)
       ? true
       : null;
 

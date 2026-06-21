@@ -223,7 +223,7 @@
       "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca": {
         "asset": "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
         "assetSymbol": "USDbC",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
