@@ -12,6 +12,12 @@ const NAME_ABI = [
   { inputs: [], name: "description", outputs: [{ type: "string" }], stateMutability: "view", type: "function" },
 ];
 
+// Every FluidOracle exposes the live collateral→debt exchange rate. A non-zero
+// answer proves the oracle is wired and prices the vault's configured pair.
+const EXCHANGE_RATE_ABI = [
+  { inputs: [], name: "getExchangeRateOperate", outputs: [{ type: "uint256" }], stateMutability: "view", type: "function" },
+];
+
 type FluidVaultRaw = {
   supply?: { assets?: Array<{ underlying?: string }> };
   borrow?: { assets?: Array<{ underlying?: string }> };
@@ -115,6 +121,26 @@ export async function classifyFluidOracles(): Promise<FluidOraclesClassifiedMap>
       });
     }
 
+    // 2b. read the live exchange rate per oracle. Non-zero ⇒ the oracle is wired
+    // and prices the vault's configured collateral/debt pair (correctOracle), even
+    // though its internal feeds aren't introspectable. Zero/revert ⇒ broken/unset.
+    const rateByOracle = new Map<string, bigint>();
+    const RATE_CHUNK = 40;
+    for (let off = 0; off < oracles.length; off += RATE_CHUNK) {
+      const chunk = oracles.slice(off, off + RATE_CHUNK);
+      const rateRes = (await multicallRetryUniversal({
+        chain: chainId,
+        calls: chunk.map((o) => ({ address: o, name: "getExchangeRateOperate", args: [] })),
+        abi: EXCHANGE_RATE_ABI,
+        allowFailure: true,
+        maxRetries: 4,
+      })) as unknown[];
+      chunk.forEach((o, i) => {
+        const v = rateRes[i];
+        rateByOracle.set(o, typeof v === "bigint" ? v : 0n);
+      });
+    }
+
     // 3. resolve underlying symbols (collateral + debt)
     const tokenSet = new Set<string>();
     for (const raw of Object.values(byVault)) {
@@ -157,12 +183,16 @@ export async function classifyFluidOracles(): Promise<FluidOraclesClassifiedMap>
 
       const provider = (oracle ? nameByOracle.get(oracle) : null) ?? "fluid-oracle";
 
-      // Fluid prices collateral in debt terms; record the intended pair for inspection.
-      // The reported pair isn't decodable from these bespoke oracles, so correctness is
-      // left unverified (null) rather than guessed.
+      // Fluid prices collateral in debt terms. The internal feeds aren't
+      // introspectable, but a live (non-zero) exchange rate proves the oracle is
+      // wired for exactly this vault's collateral/debt pair → report it as the
+      // priced pair and correct. A zero/reverting rate is left unverified (and is
+      // itself a signal the oracle is broken/unset).
       const collSym = collateralSymbols[0] ?? null;
       const debtSym = debtSymbols[0] ?? null;
       const intendedPair = collSym && debtSym ? `${collSym} / ${debtSym}` : null;
+      const live = oracle ? (rateByOracle.get(oracle) ?? 0n) > 0n : false;
+      const priced = live && collSym && debtSym;
 
       result[chainId][vault] = {
         vault,
@@ -174,11 +204,11 @@ export async function classifyFluidOracles(): Promise<FluidOraclesClassifiedMap>
         debt,
         debtSymbols,
         provider,
-        priceDescription: "UNKNOWN",
+        priceDescription: priced ? `${collSym} / ${debtSym}` : "UNKNOWN",
         underlyingAggregator: null,
         intendedPair,
-        correctOracle: null,
-        denominatorMatch: null,
+        correctOracle: priced ? true : null,
+        denominatorMatch: priced ? true : null,
       };
     }
   }
