@@ -18,6 +18,13 @@ const SILO_ORACLE_ABI = [
   { inputs: [], name: "name", outputs: [{ type: "string" }], stateMutability: "view", type: "function" },
 ];
 
+// ISiloOracle.quote(baseAmount, baseToken) → value in the oracle's quoteToken.
+// A non-zero answer proves the oracle is live and prices the silo's token in its
+// numeraire (the Silo analog of Fluid's getExchangeRateOperate).
+const SILO_QUOTE_ABI = [
+  { inputs: [{ type: "uint256" }, { type: "address" }], name: "quote", outputs: [{ type: "uint256" }], stateMutability: "view", type: "function" },
+];
+
 export type SiloOracleData = {
   market: string;
   silo: string;
@@ -186,6 +193,19 @@ export async function classifySiloOracles(): Promise<SiloOraclesClassifiedMap> {
       quoteTokens.forEach((q, i) => quoteSymbols.set(q, asString(qres[i])));
     }
 
+    // 3b. live-quote probe per side: ISiloOracle.quote(1e18, token) — non-zero
+    // proves the oracle prices the silo's token in its numeraire, even when the
+    // wrapped feed graph isn't introspectable.
+    const liveRes = (await multicallRetryUniversal({
+      chain: chainId,
+      calls: sides.map((s) => ({ address: s.solvencyOracle, name: "quote", args: [10n ** 18n, s.token] })),
+      abi: SILO_QUOTE_ABI,
+      allowFailure: true,
+      maxRetries: 6,
+    })) as unknown[];
+    const liveBySide = new Map<SideItem, boolean>();
+    sides.forEach((s, i) => liveBySide.set(s, typeof liveRes[i] === "bigint" && (liveRes[i] as bigint) > 0n));
+
     result[chainId] = {};
     for (const s of sides) {
       const p = probeByOracle.get(s.solvencyOracle)!;
@@ -200,11 +220,20 @@ export async function classifySiloOracles(): Promise<SiloOraclesClassifiedMap> {
       const configuredPair =
         s.tokenSymbol && numeraire ? `${s.tokenSymbol} / ${numeraire}` : null;
 
-      const { intendedPair, correctOracle, denominatorMatch } = assessFeed(
+      let { intendedPair, correctOracle, denominatorMatch } = assessFeed(
         resolved,
         s.tokenSymbol,
         numeraire
       );
+      let priceDescription = resolved.priceDescription;
+
+      // Level-1 fallback: the wrapped feed didn't decode, but a live quote proves
+      // the oracle prices token→numeraire for exactly this silo's configured pair.
+      if (priceDescription === "UNKNOWN" && liveBySide.get(s) && configuredPair) {
+        priceDescription = configuredPair;
+        correctOracle = true;
+        denominatorMatch = true;
+      }
 
       result[chainId][s.silo] = {
         market: s.market,
@@ -220,7 +249,7 @@ export async function classifySiloOracles(): Promise<SiloOraclesClassifiedMap> {
         numeraire,
         innerOracle: p.inner,
         provider,
-        priceDescription: resolved.priceDescription,
+        priceDescription,
         underlyingAggregator: resolved.underlyingAggregator,
         sourcePath: resolved.sourcePath,
         configuredPair,

@@ -242,17 +242,13 @@ export function resolveFeed(
   const provider = classifyNode(entryNode);
   const priceDescription = resolvePair(entry, new Set()) ?? "UNKNOWN";
 
-  const hasAnyPointer =
-    entryNode && Object.keys(entryNode.pointers).length > 0;
-  // A genuine constant/fixed-rate feed still answers `decimals()` (it returns a
-  // hardcoded value through the AggregatorV3 interface). A node that responds to
-  // NOTHING (no description, no pointers, no decimals) is an unreadable/custom
-  // oracle (e.g. a Venus OneJumpOracle) — that's "unknown", not fixed-rate.
-  const fixedRate: true | null =
-    provider === "constant" ||
-    (!hasAnyPointer && !entryNode?.description && entryNode?.decimals != null)
-      ? true
-      : null;
+  // fixed-rate requires a POSITIVE signal: the feed's description says it's
+  // constant (provider === "constant"). We do NOT infer fixed-rate from the mere
+  // absence of a description/pointers — many custom oracles (Venus OneJump, fork
+  // PT/exotic feeds, even live WETH feeds) answer `decimals()` but expose no
+  // description, and guessing "fixed-rate" there produces false HIGH scores.
+  // Such undecodable feeds are left as their resolved provider/UNKNOWN instead.
+  const fixedRate: true | null = provider === "constant" ? true : null;
 
   return {
     priceDescription,
