@@ -744,8 +744,17 @@ export async function fetchMorphoOracleData(): Promise<MorphoOraclesDataMap> {
           bvSym, bvUnderlying, qvSym, qvUnderlying
         );
 
+        // The numerator (collateral price) comes from the BASE feed/vault. If a
+        // base feed address exists but we couldn't decode it (no base description,
+        // no base vault), the synthesis fabricates a numerator from the *quote*
+        // side (e.g. "USD / USDT" for a wsrUSD/USDT market) — a phantom that reads
+        // as wrong-asset. Fall back to the token-symbol intended pair instead, the
+        // same way a fully-undecodable oracle is handled below.
+        const baseUndecodable =
+          (!!c.baseFeed1 || !!c.baseFeed2) && !b1Desc && !b2Desc && !bvSym;
+
         // If synthesis is clean, use it as-is.
-        if (synthesized !== "UNKNOWN" && !synthesized.includes(" * ")) {
+        if (synthesized !== "UNKNOWN" && !synthesized.includes(" * ") && !baseUndecodable) {
           const allFeedDescNull = !b1Desc && !b2Desc && !q1Desc && !q2Desc;
           const hasFeedAddrs = !!(c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2);
           if (!(allFeedDescNull && hasFeedAddrs)) return synthesized;
@@ -753,7 +762,7 @@ export async function fetchMorphoOracleData(): Promise<MorphoOraclesDataMap> {
 
         if (vaultOracleDescriptions[oracle]) return vaultOracleDescriptions[oracle];
 
-        if (synthesized.includes(" * ") || synthesized === "UNKNOWN" ||
+        if (synthesized.includes(" * ") || synthesized === "UNKNOWN" || baseUndecodable ||
             (!b1Desc && !b2Desc && !q1Desc && !q2Desc && (c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2))) {
           const loanSym = loanAddr ? (allSymbols[loanAddr] ?? null) : null;
           if (loanSym) {
