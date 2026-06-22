@@ -18,6 +18,65 @@ const EXCHANGE_RATE_ABI = [
   { inputs: [], name: "getExchangeRateOperate", outputs: [{ type: "uint256" }], stateMutability: "view", type: "function" },
 ];
 
+// Map a Fluid oracle CONTRACT NAME (from Sourcify) to its price mechanism. The
+// names encode the source: "...CLRS.../Fallback..." = Chainlink/Redstone,
+// "WstETH/WeETH/RsETH/sUSDe/..." = LST/yield exchange-rate, "DexSmart.../Peg..."
+// = Fluid-internal composite, "UniV3..." (primary, not a CLRS check) = TWAP.
+function providerFromContractName(name: string | null): string | null {
+  if (!name) return null;
+  const n = name.toLowerCase();
+  if (/wsteth|weeth|ezeth|rseth|wsteth|msteth|susde|susds|sdai|sweth|cdceth|lst|exchangerate|erc4626/.test(n))
+    return "exchange-rate";
+  if (/dexsmart|\bdex\b|peg/.test(n)) return "composite"; // Fluid DEX / peg composite
+  if (/univ3/.test(n) && !/clrs|check/.test(n)) return "uniswap"; // primary TWAP
+  if (/clrs|chainlink|fallback/.test(n)) return "chainlink";
+  if (/redstone/.test(n)) return "redstone";
+  return null;
+}
+
+const sourcifyNameCache = new Map<string, string | null>();
+
+/** Fetch the verified contract name for an oracle from Sourcify (keyless). */
+async function fetchSourcifyName(chainId: string, addr: string): Promise<string | null> {
+  const key = `${chainId}:${addr.toLowerCase()}`;
+  if (sourcifyNameCache.has(key)) return sourcifyNameCache.get(key)!;
+  let name: string | null = null;
+  try {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 12000);
+    const res = await fetch(
+      `https://sourcify.dev/server/v2/contract/${chainId}/${addr}?fields=compilation`,
+      { signal: ctrl.signal },
+    );
+    clearTimeout(t);
+    if (res.ok) {
+      const j: any = await res.json();
+      name = j?.compilation?.name ?? null;
+    }
+  } catch {
+    /* network/unsupported chain → fall back to generic fluid-oracle */
+  }
+  sourcifyNameCache.set(key, name);
+  return name;
+}
+
+/** Resolve per-oracle provider via Sourcify contract names, bounded concurrency. */
+async function resolveFluidProviders(
+  chainId: string,
+  oracles: string[],
+): Promise<Map<string, string>> {
+  const out = new Map<string, string>();
+  const CONC = 8;
+  for (let i = 0; i < oracles.length; i += CONC) {
+    const batch = oracles.slice(i, i + CONC);
+    const names = await Promise.all(batch.map((o) => fetchSourcifyName(chainId, o)));
+    batch.forEach((o, j) => {
+      out.set(o, providerFromContractName(names[j]) ?? "fluid-oracle");
+    });
+  }
+  return out;
+}
+
 type FluidVaultRaw = {
   supply?: { assets?: Array<{ underlying?: string }> };
   borrow?: { assets?: Array<{ underlying?: string }> };
@@ -141,6 +200,11 @@ export async function classifyFluidOracles(): Promise<FluidOraclesClassifiedMap>
       });
     }
 
+    // 2c. identify the price mechanism per oracle via its verified contract name
+    // (Sourcify, keyless). Falls back to generic "fluid-oracle" when unavailable.
+    console.log(`  Fluid [${chainId}]: resolving ${oracles.length} oracle mechanisms (Sourcify)`);
+    const providerByOracle = await resolveFluidProviders(chainId, oracles);
+
     // 3. resolve underlying symbols (collateral + debt)
     const tokenSet = new Set<string>();
     for (const raw of Object.values(byVault)) {
@@ -181,7 +245,10 @@ export async function classifyFluidOracles(): Promise<FluidOraclesClassifiedMap>
       const collateralSymbols = collateral.map(symOf);
       const debtSymbols = debt.map(symOf);
 
-      const provider = (oracle ? nameByOracle.get(oracle) : null) ?? "fluid-oracle";
+      const provider =
+        (oracle ? providerByOracle.get(oracle) : null) ??
+        (oracle ? nameByOracle.get(oracle) : null) ??
+        "fluid-oracle";
 
       // Fluid prices collateral in debt terms. The internal feeds aren't
       // introspectable, but a live (non-zero) exchange rate proves the oracle is
