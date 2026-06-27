@@ -3933,7 +3933,7 @@
         "collateralAssetDecimals": 6
       },
       {
-        "oracle": "0xff07261c87763cc5693ab78746d0b6735Ec626F5",
+        "oracle": "0x603363490f457c75Ae6667A922027fD3a0d7e54c",
         "loanAsset": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
         "collateralAsset": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
         "loanAssetDecimals": 6,
@@ -3947,7 +3947,7 @@
         "collateralAssetDecimals": 6
       },
       {
-        "oracle": "0xF423AD4298F16EA41B896515DEE038c47211d329",
+        "oracle": "0x442932BEb2A1c99f62464a0D9A939c303cA21b20",
         "loanAsset": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
         "collateralAsset": "0x10aeaf63194db8d453d4d85a06e5efe1dd0b5417",
         "loanAssetDecimals": 6,
@@ -4017,8 +4017,29 @@
         "collateralAssetDecimals": 9
       },
       {
-        "oracle": "0xF06b8511305Df760c12A3755081D95B039915396",
+        "oracle": "0x3A594b6Bc53c18BEb32837FD065603B18890cb4e",
         "loanAsset": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
+        "collateralAsset": "0xee8c0e9f1bffb4eb878d8f15f368a02a35481242",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 18
+      },
+      {
+        "oracle": "0x603363490f457c75Ae6667A922027fD3a0d7e54c",
+        "loanAsset": "0xaca92e438df0b2401ff60da7e4337b687a2435da",
+        "collateralAsset": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 8
+      },
+      {
+        "oracle": "0x442932BEb2A1c99f62464a0D9A939c303cA21b20",
+        "loanAsset": "0xaca92e438df0b2401ff60da7e4337b687a2435da",
+        "collateralAsset": "0x10aeaf63194db8d453d4d85a06e5efe1dd0b5417",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 18
+      },
+      {
+        "oracle": "0x3A594b6Bc53c18BEb32837FD065603B18890cb4e",
+        "loanAsset": "0xaca92e438df0b2401ff60da7e4337b687a2435da",
         "collateralAsset": "0xee8c0e9f1bffb4eb878d8f15f368a02a35481242",
         "loanAssetDecimals": 6,
         "collateralAssetDecimals": 18
