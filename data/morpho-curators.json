@@ -340,6 +340,14 @@
         "name": "Gauntlet"
       }
     ],
+    "MORPHO_BLUE_1E9D614631A7DF0EC07FB05B2C8CB2491575FD1A63A33BF187A6AFB295A4FC64": [
+      {
+        "id": "clearstar",
+        "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
+        "verified": true,
+        "name": "Clearstar"
+      }
+    ],
     "MORPHO_BLUE_2049BEA9DFAE8189895616FF4BF229C9C664E266B29C9FFE692B100BE4879714": [
       {
         "id": "kpk",
@@ -414,6 +422,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/singularv.svg",
         "verified": true,
         "name": "SingularV"
+      }
+    ],
+    "MORPHO_BLUE_2A0B893471C785A1F0FDA00DF7FCA578B703EEF7AE7186D2429C2824B5212467": [
+      {
+        "id": "clearstar",
+        "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
+        "verified": true,
+        "name": "Clearstar"
       }
     ],
     "MORPHO_BLUE_2A9A5C436719BADCFADBAD3AD8E8179A160DED758603EAA03A883F922A1790D3": [
@@ -1334,12 +1350,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/hyperithm.svg",
         "verified": true,
         "name": "Hyperithm"
-      },
-      {
-        "id": "yearn",
-        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
-        "verified": true,
-        "name": "Yearn"
       }
     ],
     "MORPHO_BLUE_7384BD82FB2F2A562555D4AAB25583B4E40DEED124B7C95DC16BE34547434193": [
@@ -2872,12 +2882,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/waterline.svg",
         "verified": true,
         "name": "Waterline"
-      },
-      {
-        "id": "yearn",
-        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
-        "verified": true,
-        "name": "Yearn"
       }
     ],
     "MORPHO_BLUE_DF6CA97D41975A6996E9DB491CB38152B65D7C00807DFE15D95D8D76E5D122E0": [
@@ -2894,6 +2898,12 @@
         "image": "https://cdn.morpho.org/v2/assets/images/alphaping.png",
         "verified": true,
         "name": "AlphaPing"
+      },
+      {
+        "id": "clearstar",
+        "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
+        "verified": true,
+        "name": "Clearstar"
       }
     ],
     "MORPHO_BLUE_E09BE287C4F6583DFEF6AA61D71F6CC76062AA1294E79B5C7C0A69D69BC1DD72": [
@@ -3470,8 +3480,22 @@
     ]
   },
   "130": {
-    "MORPHO_BLUE_24AD6142B5D61D37D046AAA7F27694E50F6420162ECEF1D31E4CC150A506CBAF": [],
-    "MORPHO_BLUE_2B3053CA9550FEC1EBFE153C6AD0C16B0736C641D777F3F628C60014046F202E": [],
+    "MORPHO_BLUE_24AD6142B5D61D37D046AAA7F27694E50F6420162ECEF1D31E4CC150A506CBAF": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      }
+    ],
+    "MORPHO_BLUE_2B3053CA9550FEC1EBFE153C6AD0C16B0736C641D777F3F628C60014046F202E": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      }
+    ],
     "MORPHO_BLUE_3EF98C4F9C4C9A0180676C294885568BB4763C5C6D21353F272FEE0E9B644A0D": [
       {
         "id": "re7-labs",
@@ -3480,7 +3504,14 @@
         "name": "RE7 Labs"
       }
     ],
-    "MORPHO_BLUE_4FE5A41ADCBCE8D133823402EAD5DAFE92E9B5DF9086918AFE8291E9828F2181": [],
+    "MORPHO_BLUE_4FE5A41ADCBCE8D133823402EAD5DAFE92E9B5DF9086918AFE8291E9828F2181": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      }
+    ],
     "MORPHO_BLUE_54EA85ACF999D0229F0BDE475E43674972C4261972A6D78BA34E659BBABE947A": [
       {
         "id": "gauntlet",
@@ -3498,6 +3529,12 @@
       }
     ],
     "MORPHO_BLUE_665C97EC413F4371E1C30C71153757E9B9144DFBE4284A3E910F85DEDBA6527D": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      },
       {
         "id": "k3-capital",
         "image": "https://cdn.morpho.org/v2/assets/images/k3-capital.svg",
@@ -3529,7 +3566,14 @@
         "name": "Clearstar"
       }
     ],
-    "MORPHO_BLUE_87A686CC100AABE917F8E1AD58140A1B63F0EDBB9650A32C0526718DC610B2D5": [],
+    "MORPHO_BLUE_87A686CC100AABE917F8E1AD58140A1B63F0EDBB9650A32C0526718DC610B2D5": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      }
+    ],
     "MORPHO_BLUE_8F31BCD38B1046E6A8D61A828CB37C55825B410BB2DAF1A2296B089925133064": [
       {
         "id": "gauntlet",
@@ -3604,8 +3648,22 @@
         "name": "RE7 Labs"
       }
     ],
-    "MORPHO_BLUE_BDF936AC2CDC9087C5DD2EBF32747AE90AFAA8DD9DCB4BDF01DA19E74EBE9A42": [],
-    "MORPHO_BLUE_CAFAA993BA9267AD9D0B3FDBB106B8F40BF00F155234F67888370B9B997FABE6": [],
+    "MORPHO_BLUE_BDF936AC2CDC9087C5DD2EBF32747AE90AFAA8DD9DCB4BDF01DA19E74EBE9A42": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      }
+    ],
+    "MORPHO_BLUE_CAFAA993BA9267AD9D0B3FDBB106B8F40BF00F155234F67888370B9B997FABE6": [
+      {
+        "id": "gauntlet",
+        "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
+        "verified": true,
+        "name": "Gauntlet"
+      }
+    ],
     "MORPHO_BLUE_DACBDD711936B4F4BD789F0F7111E36E925D730EBD41178E36E705EFD78A4AA1": [
       {
         "id": "k3-capital",
@@ -6824,12 +6882,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
-      },
-      {
-        "id": "yearn",
-        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
-        "verified": true,
-        "name": "Yearn"
       }
     ],
     "MORPHO_BLUE_1E74D36FFBDA65B8A45D72754B349CDD5CE807C5FA814F91BA8E3CD27881C34B": [
@@ -7090,12 +7142,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/gauntlet.svg",
         "verified": true,
         "name": "Gauntlet"
-      },
-      {
-        "id": "yearn",
-        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
-        "verified": true,
-        "name": "Yearn"
       }
     ],
     "MORPHO_BLUE_A5D3C0281C3EE0478E94F944766E717F3F801C6EFFC250BC1BC7B258AD5BED38": [
@@ -7260,12 +7306,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
         "verified": true,
         "name": "Clearstar"
-      },
-      {
-        "id": "yearn",
-        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
-        "verified": true,
-        "name": "Yearn"
       }
     ],
     "MORPHO_BLUE_D4AB732112FA9087C9C3C3566CD25BC78EE7BE4F1B8BDFE20D6328DEBB818656": [

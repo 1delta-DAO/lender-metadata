@@ -1143,6 +1143,13 @@
         "collateralAssetDecimals": 18
       },
       {
+        "oracle": "0x9De4717C024E37A66ec2117b6c674734Ea9a10B6",
+        "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "collateralAsset": "0x546329a16dcedc46e93f7b03a65f49a84700bca1",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 6
+      },
+      {
         "oracle": "0xe8465B52E106d98157d82b46cA566CB9d09482A9",
         "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "collateralAsset": "0x54bf2659b5cdfd86b75920e93c0844c0364f5166",
@@ -1302,6 +1309,13 @@
         "collateralAsset": "0x738d1115b90efa71ae468f1287fc864775e23a31",
         "loanAssetDecimals": 6,
         "collateralAssetDecimals": 18
+      },
+      {
+        "oracle": "0x5502a4cb797B6Db44275D1BbEA743463d256D554",
+        "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "collateralAsset": "0x73e0c0d45e048d25fc26fa3159b0aa04bfa4db98",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 8
       },
       {
         "oracle": "0x2C7aA77cC726B35b1F182D90d45292e0BE38a841",
@@ -3933,7 +3947,7 @@
         "collateralAssetDecimals": 6
       },
       {
-        "oracle": "0xff07261c87763cc5693ab78746d0b6735Ec626F5",
+        "oracle": "0x603363490f457c75Ae6667A922027fD3a0d7e54c",
         "loanAsset": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
         "collateralAsset": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
         "loanAssetDecimals": 6,
@@ -3947,7 +3961,7 @@
         "collateralAssetDecimals": 6
       },
       {
-        "oracle": "0xF423AD4298F16EA41B896515DEE038c47211d329",
+        "oracle": "0x442932BEb2A1c99f62464a0D9A939c303cA21b20",
         "loanAsset": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
         "collateralAsset": "0x10aeaf63194db8d453d4d85a06e5efe1dd0b5417",
         "loanAssetDecimals": 6,
@@ -4017,8 +4031,29 @@
         "collateralAssetDecimals": 9
       },
       {
-        "oracle": "0xF06b8511305Df760c12A3755081D95B039915396",
+        "oracle": "0x3A594b6Bc53c18BEb32837FD065603B18890cb4e",
         "loanAsset": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
+        "collateralAsset": "0xee8c0e9f1bffb4eb878d8f15f368a02a35481242",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 18
+      },
+      {
+        "oracle": "0x603363490f457c75Ae6667A922027fD3a0d7e54c",
+        "loanAsset": "0xaca92e438df0b2401ff60da7e4337b687a2435da",
+        "collateralAsset": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 8
+      },
+      {
+        "oracle": "0x442932BEb2A1c99f62464a0D9A939c303cA21b20",
+        "loanAsset": "0xaca92e438df0b2401ff60da7e4337b687a2435da",
+        "collateralAsset": "0x10aeaf63194db8d453d4d85a06e5efe1dd0b5417",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 18
+      },
+      {
+        "oracle": "0x3A594b6Bc53c18BEb32837FD065603B18890cb4e",
+        "loanAsset": "0xaca92e438df0b2401ff60da7e4337b687a2435da",
         "collateralAsset": "0xee8c0e9f1bffb4eb878d8f15f368a02a35481242",
         "loanAssetDecimals": 6,
         "collateralAssetDecimals": 18
