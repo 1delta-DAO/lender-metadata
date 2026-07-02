@@ -1,6 +1,6 @@
 import { mergeData, sleep } from "../../utils.js";
-import { GEARBOX_CONFIG, GEARBOX_V3 } from "./constants.js";
-import { getV310CreditManagers } from "./fetcher.js";
+import { GEARBOX_CONFIG, GEARBOX_V3, } from "./constants.js";
+import { getBotListV310, getV310CreditManagers } from "./fetcher.js";
 const resolversFile = "./config/gearbox-resolvers.json";
 const labelsFile = "./data/lender-labels.json";
 function labelFromName(name) {
@@ -14,12 +14,21 @@ export class GearboxUpdater {
     async fetchData() {
         const names = {};
         const shortNames = {};
+        const chains = {};
         const chainEntries = Object.entries(GEARBOX_CONFIG.chains);
         for (let i = 0; i < chainEntries.length; i++) {
             const [chainId, chainCfg] = chainEntries[i];
+            chains[chainId] = { ...chainCfg };
             const configurators = Object.keys(chainCfg.marketConfigurators);
             if (configurators.length === 0)
                 continue;
+            try {
+                const botList = await getBotListV310(chainId, GEARBOX_CONFIG.addressProviderV310);
+                chains[chainId].botList = botList.toLowerCase();
+            }
+            catch (e) {
+                console.log(`Gearbox: failed to fetch BOT_LIST for chain ${chainId}:`, e);
+            }
             try {
                 const cms = await getV310CreditManagers(chainId, GEARBOX_CONFIG.marketCompressorV310, configurators);
                 for (const cm of cms) {
@@ -37,7 +46,7 @@ export class GearboxUpdater {
             }
         }
         return {
-            [resolversFile]: GEARBOX_CONFIG,
+            [resolversFile]: { ...GEARBOX_CONFIG, chains },
             [labelsFile]: { names, shortNames },
         };
     }

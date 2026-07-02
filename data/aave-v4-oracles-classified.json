@@ -376,6 +376,28 @@
       ],
       "underlyingAggregator": "0x7c7fdfca295a787ded12bb5c1a49a8d2cc20e3f8"
     },
+    "0xc1906aecf868749a2dee203f59b904c0cf212140": {
+      "asset": "0xc1906aecf868749a2dee203f59b904c0cf212140",
+      "assetSymbol": "PT-USDG-24SEP2026",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "PT-USDG-24SEP2026 / USD",
+      "priceDescription": "USDG / USD",
+      "provider": "pendle-pt",
+      "rawDescription": "PT Capped USDG USDG/USD linear discount 24SEP2026",
+      "source": "0x89f6eb404abf19fe817426dd2e2e0f14d1a5712e",
+      "sourcePath": [
+        {
+          "address": "0x89f6eb404abf19fe817426dd2e2e0f14d1a5712e",
+          "description": "USDG / USD",
+          "decimals": 8,
+          "kind": "pendle-pt"
+        }
+      ],
+      "underlyingAggregator": null
+    },
     "0xcacd6fd266af91b8aed52accc382b4e165586e29": {
       "asset": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
       "assetSymbol": "frxUSD",
@@ -479,15 +501,15 @@
       "fixedRate": null,
       "intendedPair": "USDG / USD",
       "priceDescription": "USDG / USD",
-      "provider": "chainlink",
-      "rawDescription": "Fixed USDG/USD",
-      "source": "0xf29b1e3b68fd59dd0a413811fd5d0abae653216d",
+      "provider": "price-cap",
+      "rawDescription": "Capped USDG / USD",
+      "source": "0x83d20deedcd4ac1313496c8cbcaad0fa298c0ce4",
       "sourcePath": [
         {
-          "address": "0xf29b1e3b68fd59dd0a413811fd5d0abae653216d",
+          "address": "0x83d20deedcd4ac1313496c8cbcaad0fa298c0ce4",
           "description": "USDG / USD",
           "decimals": 8,
-          "kind": "chainlink"
+          "kind": "price-cap"
         }
       ],
       "underlyingAggregator": null

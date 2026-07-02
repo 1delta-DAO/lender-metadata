@@ -123,6 +123,12 @@
       "protocolDataProvider": "0x24dCbd376Db23e4771375092344f5CbEA3541FC0"
     }
   },
+  "AQUALOAN": {
+    "56": {
+      "pool": "0x751107834436ad0d08a4c6D9Cc82031D5088999C",
+      "protocolDataProvider": "0xDc33eAA50B8707f791478Cec324e451E20FDa7ed"
+    }
+  },
   "AURELIUS": {
     "5000": {
       "pool": "0x7c9C6F5BEd9Cfe5B9070C7D3322CF39eAD2F9492",
@@ -173,6 +179,10 @@
     "42161": {
       "pool": "0xe1ee45DB12ac98d16F1342a03c93673d74527b55",
       "protocolDataProvider": "0xEc579d2cE07401258710199Ff12a5bb56e086a6F"
+    },
+    "98866": {
+      "pool": "0xB8FCEfbB1C92AE7b41eee40EBc91c810836FAc46",
+      "protocolDataProvider": "0x522b3bc00f7DfC5657f8e195868FD062027859e8"
     },
     "167000": {
       "pool": "0xA7f1c55530B1651665C15d8104663B3f03E3386f",
@@ -391,6 +401,18 @@
       "protocolDataProvider": "0x2c4aEB7C9f0D196a51136B3c7bec49cB2DBD1966"
     }
   },
+  "BETTER_BANK": {
+    "369": {
+      "pool": "0xEC521218747d6ac1b3a9BD72a6F81Cb130309889",
+      "protocolDataProvider": "0x1847a4e03D02cf2b86614153Eb76432fF499C732"
+    }
+  },
+  "BETTER_BANK_ATROPA": {
+    "369": {
+      "pool": "0x000dEdABed8122422FfBA497458C4bd6cC4F69f7",
+      "protocolDataProvider": "0xff2D02b02372d32f0D16Ba4Bd5E9DBC2Ba7a1BAa"
+    }
+  },
   "COLEND": {
     "1116": {
       "pool": "0x0CEa9F0F49F30d376390e480ba32f903B43B19C5",
@@ -401,6 +423,12 @@
     "1116": {
       "pool": "0x29A462DC59d7e624E1A3295b9d38416908bae1F4",
       "protocolDataProvider": "0x8E43DF2503c69b090D385E36032814c73b746e3d"
+    }
+  },
+  "EDEL": {
+    "1": {
+      "pool": "0x3EEeB3cd20f844a578807fc457388Ceb9A67fAa6",
+      "protocolDataProvider": "0xf3A3F900151c092007FD495ABf3f0f6162A37501"
     }
   },
   "FATHOM": {
@@ -477,30 +505,6 @@
       "protocolDataProvider": "0x29563f73De731Ae555093deb795ba4D1E584e42E"
     }
   },
-  "EDEL": {
-    "1": {
-      "pool": "0x3EEeB3cd20f844a578807fc457388Ceb9A67fAa6",
-      "protocolDataProvider": "0xf3A3F900151c092007FD495ABf3f0f6162A37501"
-    }
-  },
-  "KONA_LEND": {
-    "2741": {
-      "pool": "0x8f16B5713F412C5dE4951Aaf678Eb8409101f819",
-      "protocolDataProvider": "0xDfc422c8793864ecD12Bc59F2024614034BcB078"
-    }
-  },
-  "VOLTAGE_LENDING": {
-    "122": {
-      "pool": "0xe3eda4b12ae4ACC031E4CF9Eae08ACe6250CED3E",
-      "protocolDataProvider": "0x87cB512CFB0f18F4Dd9652a186922cf6A4e63213"
-    }
-  },
-  "AQUALOAN": {
-    "56": {
-      "pool": "0x751107834436ad0d08a4c6D9Cc82031D5088999C",
-      "protocolDataProvider": "0xDc33eAA50B8707f791478Cec324e451E20FDa7ed"
-    }
-  },
   "KINZA": {
     "1": {
       "pool": "0xeA14474946C59Dee1F103aD517132B3F19Cef1bE",
@@ -529,6 +533,12 @@
     "8217": {
       "pool": "0x4B6Ece52D0EF60aE054f45c45D6bA4F7a0C2cC67",
       "protocolDataProvider": "0xf9438f2b1c63d8dac24311256f5483d7f7575863"
+    }
+  },
+  "KONA_LEND": {
+    "2741": {
+      "pool": "0x8f16B5713F412C5dE4951Aaf678Eb8409101f819",
+      "protocolDataProvider": "0xDfc422c8793864ecD12Bc59F2024614034BcB078"
     }
   },
   "LAYERBANK_V3": {
@@ -737,18 +747,6 @@
       "protocolDataProvider": "0xf9438f2b1c63D8dAC24311256F5483D7f7575863"
     }
   },
-  "BETTER_BANK": {
-    "369": {
-      "pool": "0xEC521218747d6ac1b3a9BD72a6F81Cb130309889",
-      "protocolDataProvider": "0x1847a4e03D02cf2b86614153Eb76432fF499C732"
-    }
-  },
-  "BETTER_BANK_ATROPA": {
-    "369": {
-      "pool": "0x000dEdABed8122422FfBA497458C4bd6cC4F69f7",
-      "protocolDataProvider": "0xff2D02b02372d32f0D16Ba4Bd5E9DBC2Ba7a1BAa"
-    }
-  },
   "PLOUTOS": {
     "137": {
       "pool": "0x93BEF731821B2E534cCFBD330734d35de34fa418",
@@ -885,6 +883,12 @@
     "56": {
       "pool": "0xE29A55A6AEFf5C8B1beedE5bCF2F0Cb3AF8F91f5",
       "protocolDataProvider": "0xce434378adacc51d54312c872113d687ac19b516"
+    }
+  },
+  "VOLTAGE_LENDING": {
+    "122": {
+      "pool": "0xe3eda4b12ae4ACC031E4CF9Eae08ACe6250CED3E",
+      "protocolDataProvider": "0x87cB512CFB0f18F4Dd9652a186922cf6A4e63213"
     }
   },
   "XLEND": {

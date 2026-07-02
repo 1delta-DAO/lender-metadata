@@ -4,6 +4,7 @@ import { readJsonFile } from "../utils/index.js";
 import { MORPHO_CHAINLINK_ORACLE_V2_ABI, CURRENT_ORACLE_ABI, FEED_DESCRIPTION_ABI, REDSTONE_DATA_FEED_ID_ABI, VAULT_SYMBOL_ABI, VAULT_ASSET_ABI, VAULT_ACCOUNTING_ASSET_ABI, } from "./oracleAbi.js";
 import { fetchMorphoMarketRowsForChain } from "./morpho.js";
 import { marketTripletKey } from "./morphoMarketId.js";
+import { symbolsMatch } from "../oracle-classifier/normalize.js";
 const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 const morphoOraclesFile = "./data/morpho-oracles.json";
 const morphoTypeOraclesFile = "./data/morpho-type-oracles.json";
@@ -561,8 +562,15 @@ export async function fetchMorphoOracleData() {
             const collateralAddr = rm.collateralAsset;
             const priceDescription = (() => {
                 const synthesized = synthesizePriceDescription(b1Desc, b2Desc, q1Desc, q2Desc, bvSym, bvUnderlying, qvSym, qvUnderlying);
+                // The numerator (collateral price) comes from the BASE feed/vault. If a
+                // base feed address exists but we couldn't decode it (no base description,
+                // no base vault), the synthesis fabricates a numerator from the *quote*
+                // side (e.g. "USD / USDT" for a wsrUSD/USDT market) — a phantom that reads
+                // as wrong-asset. Fall back to the token-symbol intended pair instead, the
+                // same way a fully-undecodable oracle is handled below.
+                const baseUndecodable = (!!c.baseFeed1 || !!c.baseFeed2) && !b1Desc && !b2Desc && !bvSym;
                 // If synthesis is clean, use it as-is.
-                if (synthesized !== "UNKNOWN" && !synthesized.includes(" * ")) {
+                if (synthesized !== "UNKNOWN" && !synthesized.includes(" * ") && !baseUndecodable) {
                     const allFeedDescNull = !b1Desc && !b2Desc && !q1Desc && !q2Desc;
                     const hasFeedAddrs = !!(c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2);
                     if (!(allFeedDescNull && hasFeedAddrs))
@@ -570,7 +578,7 @@ export async function fetchMorphoOracleData() {
                 }
                 if (vaultOracleDescriptions[oracle])
                     return vaultOracleDescriptions[oracle];
-                if (synthesized.includes(" * ") || synthesized === "UNKNOWN" ||
+                if (synthesized.includes(" * ") || synthesized === "UNKNOWN" || baseUndecodable ||
                     (!b1Desc && !b2Desc && !q1Desc && !q2Desc && (c.baseFeed1 || c.baseFeed2 || c.quoteFeed1 || c.quoteFeed2))) {
                     const loanSym = loanAddr ? (allSymbols[loanAddr] ?? null) : null;
                     if (loanSym) {
@@ -583,22 +591,29 @@ export async function fetchMorphoOracleData() {
                 }
                 return synthesized !== "UNKNOWN" ? synthesized : (vaultOracleDescriptions[oracle] ?? "UNKNOWN");
             })();
-            const correctOracle = (() => {
+            // Morpho prices collateral in loan-token terms ("<collateral> / <loan>").
+            // Split the two signals like every other lender: correctOracle = the
+            // numerator (collateral) match — the "right source for the right asset";
+            // denominatorMatch = the loan side. A USD feed on a USDC-loan market prices
+            // the collateral correctly and only approximates the numeraire, so it must
+            // read as cross-numeraire, NOT wrong-asset. Alias-aware (WETH↔ETH, …).
+            const { correctOracle, denominatorMatch } = (() => {
+                const none = { correctOracle: null, denominatorMatch: null };
                 if (!priceDescription || priceDescription === "UNKNOWN")
-                    return null;
-                // Skip complex descriptions with "*" — can't map to a single collateral/loan pair
+                    return none;
                 if (priceDescription.includes(" * "))
-                    return null;
+                    return none; // composite — no single pair
                 const slashIdx = priceDescription.indexOf(" / ");
                 if (slashIdx === -1)
-                    return null;
+                    return none;
                 const descCollateral = priceDescription.slice(0, slashIdx).trim().toLowerCase();
                 const descLoan = priceDescription.slice(slashIdx + 3).trim().toLowerCase();
                 const collSym = allSymbols[collateralAddr]?.toLowerCase() ?? null;
                 const loanSym = allSymbols[loanAddr]?.toLowerCase() ?? null;
-                if (!collSym || !loanSym)
-                    return null;
-                return descCollateral === collSym && descLoan === loanSym;
+                return {
+                    correctOracle: collSym ? symbolsMatch(descCollateral, collSym) : null,
+                    denominatorMatch: loanSym ? symbolsMatch(descLoan, loanSym) : null,
+                };
             })();
             result[chainId][marketId] = {
                 oracle,
@@ -627,6 +642,7 @@ export async function fetchMorphoOracleData() {
                 priceDescription,
                 fixedRate: isV2Map[oracle] && hasNoSignals(c) && !underlyingOracleMap[oracle] ? true : null,
                 correctOracle,
+                denominatorMatch,
             };
         }
     }

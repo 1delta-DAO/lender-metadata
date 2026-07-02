@@ -7,6 +7,7 @@ import { readJsonFile } from "../utils/index.js";
 import { Chain } from "@1delta/chain-registry";
 import { getMarketsOnChain } from "./fetchMorphoOnChain.js";
 import { hasSubgraph, fetchMarketsFromSubgraph, } from "./fetchMorphoSubgraph.js";
+import { hasMysticApi, fetchMarketsFromMysticApi, } from "./fetchMysticApi.js";
 import { Lender } from "@1delta/lender-registry";
 import { computeMorphoMarketId } from "./morphoMarketId.js";
 const labelsFile = "./data/lender-labels.json";
@@ -14,6 +15,30 @@ const oraclesFile = "./data/morpho-type-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
 const marketsFile = "./config/morpho-type-markets.json";
 const curatorsFile = "./data/morpho-curators.json";
+// Chains the main MorphoBlueUpdater walks. A chain is treated as having Morpho
+// API coverage iff it is in this list AND `cannotUseApi` returns false for it.
+export const MORPHO_MAIN_CHAIN_IDS = [
+    "1",
+    "10",
+    "14",
+    "56",
+    "130",
+    "137",
+    "143",
+    "239",
+    "999",
+    "1135",
+    "1329",
+    "1868",
+    "4114",
+    "8453",
+    "42161",
+    "42220",
+    "43111",
+    "80094",
+    "747474",
+    "98866",
+];
 export const cannotUseApi = (chainId, fork) => {
     if (fork === "MORPHO_BLUE") {
         return (chainId === Chain.HEMI_NETWORK ||
@@ -23,7 +48,8 @@ export const cannotUseApi = (chainId, fork) => {
             chainId === Chain.BNB_SMART_CHAIN_MAINNET ||
             chainId === Chain.CELO_MAINNET ||
             chainId === Chain.LISK ||
-            chainId === Chain.TAC_MAINNET);
+            chainId === Chain.TAC_MAINNET ||
+            hasMysticApi(chainId));
     }
     return true; // can't use api for moolah
 };
@@ -36,7 +62,7 @@ function sortEntriesById(data) {
         for (const protocol in protocols) {
             const entries = protocols[protocol];
             // Sort by the 'id' field alphabetically
-            const sortedEntries = [...entries].sort((a, b) => a.id.localeCompare(b.id));
+            const sortedEntries = [...entries].sort((a, b) => String(a?.id ?? "").localeCompare(String(b?.id ?? "")));
             sortedData[chainId][protocol] = sortedEntries;
         }
     }
@@ -136,11 +162,11 @@ export class MorphoBlueUpdater {
       orderDirection: Desc
       ) {
         items {
-          id
-          uniqueKey
+          marketId
           lltv
           oracleAddress
-          whitelisted
+          irmAddress
+          listed
           loanAsset {
             address
             symbol
@@ -190,25 +216,7 @@ export class MorphoBlueUpdater {
         return { markets: { items: allItems } };
     }
     async fetchData() {
-        const chainids = [
-            "1",
-            "10",
-            "56",
-            "130",
-            "137",
-            "143",
-            "239",
-            "999",
-            "1135",
-            "1329",
-            "1868",
-            "8453",
-            "42161",
-            "42220",
-            "43111",
-            "80094",
-            "747474",
-        ];
+        const chainids = MORPHO_MAIN_CHAIN_IDS;
         const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
         const MORPHO_BLUE_MARKETS = await readJsonFile(marketsFile);
         const forks = Object.keys(MORPHO_BLUE_POOL_DATA);
@@ -224,8 +232,19 @@ export class MorphoBlueUpdater {
                 let marketData;
                 try {
                     if (cannotUseApi(chainId, fork)) {
-                        // Use subgraph as primary source when available (returns all markets)
-                        if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
+                        // Mystic Finance hosts a Morpho Blue fork on a few chains and
+                        // exposes its own indexer; prefer it over on-chain reads.
+                        if (fork === "MORPHO_BLUE" && hasMysticApi(chainId)) {
+                            try {
+                                marketData = await fetchMarketsFromMysticApi(chainId);
+                            }
+                            catch (error) {
+                                console.warn(`Mystic API fetch failed for chain ${chainId}, falling back to on-chain:`, error);
+                                marketData = await getMarketsOnChain(chainId, { [fork]: forkConfig }, MORPHO_BLUE_MARKETS);
+                            }
+                        }
+                        else if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
+                            // Use subgraph as primary source when available (returns all markets)
                             try {
                                 marketData = await fetchMarketsFromSubgraph(chainId);
                             }
@@ -248,7 +267,7 @@ export class MorphoBlueUpdater {
                 }
                 const items = marketData.markets?.items || [];
                 for (const el of items) {
-                    const hash = el.uniqueKey;
+                    const hash = el.marketId ?? el.uniqueKey;
                     const enumName = `${fork}_${hash.slice(2).toUpperCase()}`;
                     if (!oracles[chainId])
                         oracles[chainId] = {};
@@ -260,7 +279,7 @@ export class MorphoBlueUpdater {
                     const loanAssetDecimals = el.loanAsset.decimals;
                     const collateralAssetDecimals = el.collateralAsset?.decimals;
                     const isZero = (addr) => !addr || addr === "0x0000000000000000000000000000000000000000";
-                    if (el.whitelisted && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
+                    if ((el.listed ?? el.whitelisted) && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
                         oracles[chainId][fork].push({
                             oracle,
                             loanAsset,
@@ -300,7 +319,7 @@ export class MorphoBlueUpdater {
                     names[enumName] = longName;
                     shortNames[enumName] = shortName;
                     // curators
-                    if (el.whitelisted && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
+                    if ((el.listed ?? el.whitelisted) && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
                         if (!curators[chainId])
                             curators[chainId] = {};
                         const uniqueCuratorList = Array.from(new Map(el.supplyingVaults
@@ -353,6 +372,9 @@ export class MorphoBlueUpdater {
     };
 }
 function normalizeIrmFromItem(el) {
+    // Morpho blue-api exposes the IRM as `irmAddress`; on-chain/subgraph paths use `irm`.
+    if (typeof el?.irmAddress === "string" && el.irmAddress.startsWith("0x"))
+        return el.irmAddress.toLowerCase();
     if (el?.irm == null)
         return null;
     if (typeof el.irm === "string" && el.irm.startsWith("0x"))
@@ -378,7 +400,16 @@ export async function fetchMorphoMarketRowsForChain(chainId) {
         let marketData;
         try {
             if (cannotUseApi(chainId, fork)) {
-                if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
+                if (fork === "MORPHO_BLUE" && hasMysticApi(chainId)) {
+                    try {
+                        marketData = await fetchMarketsFromMysticApi(chainId);
+                    }
+                    catch (error) {
+                        console.warn(`Mystic API fetch failed for chain ${chainId}, falling back to on-chain:`, error);
+                        marketData = await getMarketsOnChain(chainId, { [fork]: forkConfig }, MORPHO_BLUE_MARKETS);
+                    }
+                }
+                else if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
                     try {
                         marketData = await fetchMarketsFromSubgraph(chainId);
                     }
@@ -392,8 +423,27 @@ export async function fetchMorphoMarketRowsForChain(chainId) {
                 }
             }
             else {
-                const updater = new MorphoBlueUpdater();
-                marketData = await updater.fetchMorphoMarkets(chainId);
+                // API-capable chain: try the Morpho blue-api, but fall back to subgraph /
+                // on-chain on failure so a schema change (e.g. a 400 from a renamed field)
+                // doesn't silently drop the entire chain's markets.
+                try {
+                    const updater = new MorphoBlueUpdater();
+                    marketData = await updater.fetchMorphoMarkets(chainId);
+                }
+                catch (apiError) {
+                    console.warn(`Morpho API fetch failed for chain ${chainId}, falling back to on-chain:`, apiError instanceof Error ? apiError.message : apiError);
+                    if (fork === "MORPHO_BLUE" && hasSubgraph(chainId)) {
+                        try {
+                            marketData = await fetchMarketsFromSubgraph(chainId);
+                        }
+                        catch {
+                            marketData = await getMarketsOnChain(chainId, { [fork]: forkConfig }, MORPHO_BLUE_MARKETS);
+                        }
+                    }
+                    else {
+                        marketData = await getMarketsOnChain(chainId, { [fork]: forkConfig }, MORPHO_BLUE_MARKETS);
+                    }
+                }
             }
         }
         catch (error) {
@@ -402,7 +452,7 @@ export async function fetchMorphoMarketRowsForChain(chainId) {
         }
         const items = marketData.markets?.items || [];
         for (const el of items) {
-            const hash = el.uniqueKey;
+            const hash = el.marketId ?? el.uniqueKey;
             const oracle = el.oracleAddress;
             const loanAsset = el.loanAsset?.address?.toLowerCase();
             const collateralAsset = el.collateralAsset?.address?.toLowerCase();

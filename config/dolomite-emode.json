@@ -278,7 +278,7 @@
         ]
       },
       "32": {
-        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "feature": "BORROW_ONLY",
         "singleCollateral": [
           {
             "debtMarketIds": [

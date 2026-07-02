@@ -1801,6 +1801,28 @@
         ],
         "underlyingAggregator": "0x64c67984a458513c6bab23a815916b1b1075cf3a"
       },
+      "0x59bc9fae5d62b19d4f8d07d758047acb9ee19d34": {
+        "asset": "0x59bc9fae5d62b19d4f8d07d758047acb9ee19d34",
+        "assetSymbol": "PT-srUSDe-22OCT2026",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "PT-srUSDe-22OCT2026 / USD",
+        "priceDescription": "USDT / USD",
+        "provider": "pendle-pt",
+        "rawDescription": "PT Capped srUSDe USDT/USD linear discount 22OCT2026",
+        "source": "0xbd1bc41479d0b58167584980fe57fda913d4fb73",
+        "sourcePath": [
+          {
+            "address": "0xbd1bc41479d0b58167584980fe57fda913d4fb73",
+            "description": "USDT / USD",
+            "decimals": 8,
+            "kind": "pendle-pt"
+          }
+        ],
+        "underlyingAggregator": null
+      },
       "0x5a98fcbea516cf06857215779fd812ca3bef1b32": {
         "asset": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
         "assetSymbol": "LDO",
@@ -2212,21 +2234,21 @@
       "0x9db38d74a0d29380899ad354121dfb521adb0548": {
         "asset": "0x9db38d74a0d29380899ad354121dfb521adb0548",
         "assetSymbol": "PT-USDG-28MAY2026",
-        "correctOracle": true,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-USDG-28MAY2026 / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "pendle-pt",
-        "rawDescription": "PT Capped USDG Fixed USD linear discount 28MAY2026",
-        "source": "0x90498d4334259fa769830cca9114d8bcf3745f6c",
+        "priceDescription": "USDG / USD",
+        "provider": "price-cap",
+        "rawDescription": "Capped USDG / USD",
+        "source": "0x83d20deedcd4ac1313496c8cbcaad0fa298c0ce4",
         "sourcePath": [
           {
-            "address": "0x90498d4334259fa769830cca9114d8bcf3745f6c",
-            "description": "PT Capped USDG Fixed USD linear discount 28MAY2026",
+            "address": "0x83d20deedcd4ac1313496c8cbcaad0fa298c0ce4",
+            "description": "USDG / USD",
             "decimals": 8,
-            "kind": "pendle-pt"
+            "kind": "price-cap"
           }
         ],
         "underlyingAggregator": null
@@ -2900,15 +2922,15 @@
         "fixedRate": null,
         "intendedPair": "USDG / USD",
         "priceDescription": "USDG / USD",
-        "provider": "chainlink",
-        "rawDescription": "Fixed USDG/USD",
-        "source": "0xf29b1e3b68fd59dd0a413811fd5d0abae653216d",
+        "provider": "price-cap",
+        "rawDescription": "Capped USDG / USD",
+        "source": "0x83d20deedcd4ac1313496c8cbcaad0fa298c0ce4",
         "sourcePath": [
           {
-            "address": "0xf29b1e3b68fd59dd0a413811fd5d0abae653216d",
+            "address": "0x83d20deedcd4ac1313496c8cbcaad0fa298c0ce4",
             "description": "USDG / USD",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "price-cap"
           }
         ],
         "underlyingAggregator": null
@@ -4426,21 +4448,21 @@
       "0x4ae46a509f6b1d9056937ba4500cb143933d2dc8": {
         "asset": "0x4ae46a509f6b1d9056937ba4500cb143933d2dc8",
         "assetSymbol": "USDG",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "USDG / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": "ONE USD",
-        "source": "0xcfcbbf3e0c27b936cf673c4fc8bcc68f721af475",
+        "priceDescription": "USDG / USD",
+        "provider": "price-cap",
+        "rawDescription": "Capped USDG / USD",
+        "source": "0xe00b2732396a1f047d4a00e0165025a9cf400245",
         "sourcePath": [
           {
-            "address": "0xcfcbbf3e0c27b936cf673c4fc8bcc68f721af475",
-            "description": "ONE USD",
+            "address": "0xe00b2732396a1f047d4a00e0165025a9cf400245",
+            "description": "USDG / USD",
             "decimals": 8,
-            "kind": "unknown"
+            "kind": "price-cap"
           }
         ],
         "underlyingAggregator": null
@@ -7496,10 +7518,10 @@
         "priceDescription": "wrsETH / ETH",
         "provider": "price-cap",
         "rawDescription": "Capped wrsETH / ETH / USD",
-        "source": "0x771a1668f973f2485d32580ab53f5c4934e81531",
+        "source": "0x3f727547a7f6af12156573253d91e44ac64845a3",
         "sourcePath": [
           {
-            "address": "0x771a1668f973f2485d32580ab53f5c4934e81531",
+            "address": "0x3f727547a7f6af12156573253d91e44ac64845a3",
             "description": "wrsETH / ETH",
             "decimals": 8,
             "kind": "price-cap"
@@ -8388,6 +8410,34 @@
           }
         ],
         "underlyingAggregator": null
+      },
+      "0x7433806912eae67919e66aea853d46fa0aef98a8": {
+        "asset": "0x7433806912eae67919e66aea853d46fa0aef98a8",
+        "assetSymbol": "mGLOBAL",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "mGLOBAL / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "chainlink",
+        "rawDescription": "mGlobal NAV - Aave Llamaguard",
+        "source": "0xe034de753a3d855b6dad1a4984de75a5c443e939",
+        "sourcePath": [
+          {
+            "address": "0xe034de753a3d855b6dad1a4984de75a5c443e939",
+            "description": "mGlobal NAV - Aave Llamaguard",
+            "decimals": 8,
+            "kind": "chainlink"
+          },
+          {
+            "address": "0x61b35e8fd649992e184fc3e619e6899c0e851460",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": "0x61b35e8fd649992e184fc3e619e6899c0e851460"
       },
       "0x8292bb45bf1ee4d140127049757c2e0ff06317ed": {
         "asset": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
@@ -11096,6 +11146,184 @@
         "underlyingAggregator": null
       }
     },
+    "98866": {
+      "0x1ddc55d04a3f632b63b3008c78fbb93015e54ba8": {
+        "asset": "0x1ddc55d04a3f632b63b3008c78fbb93015e54ba8",
+        "assetSymbol": "USDa",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "USDa / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0x8a37664208df9cc5dfab4cf7085c13c79570c506",
+        "sourcePath": [
+          {
+            "address": "0x8a37664208df9cc5dfab4cf7085c13c79570c506",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x656f38e2fb1521c873929f2138e28d288b4fd976": {
+        "asset": "0x656f38e2fb1521c873929f2138e28d288b4fd976",
+        "assetSymbol": "sUSDa",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "sUSDa / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0x8a37664208df9cc5dfab4cf7085c13c79570c506",
+        "sourcePath": [
+          {
+            "address": "0x8a37664208df9cc5dfab4cf7085c13c79570c506",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x6b40636013cd0c5cba347345e7ca2291b34cd37d": {
+        "asset": "0x6b40636013cd0c5cba347345e7ca2291b34cd37d",
+        "assetSymbol": "FBTC",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "FBTC / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0xf1e0d20b1baccaf47379763f760297af7839f3dd",
+        "sourcePath": [
+          {
+            "address": "0xf1e0d20b1baccaf47379763f760297af7839f3dd",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x78add880a697070c1e765ac44d65323a0dcce913": {
+        "asset": "0x78add880a697070c1e765ac44d65323a0dcce913",
+        "assetSymbol": "USDC.e",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "USDC.e / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0xd1b95ae15cf0f1b7b4bf9a0e1cb427d3d357abad",
+        "sourcePath": [
+          {
+            "address": "0xd1b95ae15cf0f1b7b4bf9a0e1cb427d3d357abad",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xca59ca09e5602fae8b629dee83ffa819741f14be": {
+        "asset": "0xca59ca09e5602fae8b629dee83ffa819741f14be",
+        "assetSymbol": "WETH",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "WETH / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0xea3b11b9358a3f65dec560b9f313266b5b3bb0fd",
+        "sourcePath": [
+          {
+            "address": "0xea3b11b9358a3f65dec560b9f313266b5b3bb0fd",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xda6087e69c51e7d31b6dbad276a3c44703dfdcad": {
+        "asset": "0xda6087e69c51e7d31b6dbad276a3c44703dfdcad",
+        "assetSymbol": "USDT",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "USDT / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0x7ab38fb820249ae64de85623942377c64d5affca",
+        "sourcePath": [
+          {
+            "address": "0x7ab38fb820249ae64de85623942377c64d5affca",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f": {
+        "asset": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "assetSymbol": "pUSD",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "pUSD / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0x8a37664208df9cc5dfab4cf7085c13c79570c506",
+        "sourcePath": [
+          {
+            "address": "0x8a37664208df9cc5dfab4cf7085c13c79570c506",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xea237441c92cae6fc17caaf9a7acb3f953be4bd1": {
+        "asset": "0xea237441c92cae6fc17caaf9a7acb3f953be4bd1",
+        "assetSymbol": "WPLUME",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "WPLUME / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0x4497ddc7306e9facbb3da3b8a361179faa88ebfc",
+        "sourcePath": [
+          {
+            "address": "0x4497ddc7306e9facbb3da3b8a361179faa88ebfc",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      }
+    },
     "167000": {
       "0x07d83526730c7438048d55a4fc0b850e2aab6f0b": {
         "asset": "0x07d83526730c7438048d55a4fc0b850e2aab6f0b",
@@ -11507,46 +11735,32 @@
     "21000000": {
       "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2": {
         "asset": "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2",
-        "assetSymbol": "WBTCN",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
-        "fixedRate": null,
-        "intendedPair": "WBTCN / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "chainlink",
-        "rawDescription": "BTC / USD",
-        "source": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-        "sourcePath": [
-          {
-            "address": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "chainlink"
-          }
-        ],
-        "underlyingAggregator": null
-      },
-      "0xdf0b24095e15044538866576754f3c964e902ee6": {
-        "asset": "0xdf0b24095e15044538866576754f3c964e902ee6",
-        "assetSymbol": "USDC.e",
+        "assetSymbol": null,
         "correctOracle": null,
         "denominator": null,
         "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "USDC.e / USD",
+        "intendedPair": null,
         "priceDescription": "UNKNOWN",
         "provider": "unknown",
         "rawDescription": null,
-        "source": "0xdb8cab508adeee23443312dc02917fd826d1ca6e",
-        "sourcePath": [
-          {
-            "address": "0xdb8cab508adeee23443312dc02917fd826d1ca6e",
-            "description": null,
-            "decimals": 8,
-            "kind": "unknown"
-          }
-        ],
+        "source": null,
+        "sourcePath": [],
+        "underlyingAggregator": null
+      },
+      "0xdf0b24095e15044538866576754f3c964e902ee6": {
+        "asset": "0xdf0b24095e15044538866576754f3c964e902ee6",
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       }
     }
@@ -12341,68 +12555,47 @@
     "21000000": {
       "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2": {
         "asset": "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2",
-        "assetSymbol": "WBTCN",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
-        "fixedRate": null,
-        "intendedPair": "WBTCN / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "chainlink",
-        "rawDescription": "BTC / USD",
-        "source": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-        "sourcePath": [
-          {
-            "address": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "chainlink"
-          }
-        ],
-        "underlyingAggregator": null
-      },
-      "0xdf0b24095e15044538866576754f3c964e902ee6": {
-        "asset": "0xdf0b24095e15044538866576754f3c964e902ee6",
-        "assetSymbol": "USDC.e",
+        "assetSymbol": null,
         "correctOracle": null,
         "denominator": null,
         "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "USDC.e / USD",
+        "intendedPair": null,
         "priceDescription": "UNKNOWN",
         "provider": "unknown",
         "rawDescription": null,
-        "source": "0xdb8cab508adeee23443312dc02917fd826d1ca6e",
-        "sourcePath": [
-          {
-            "address": "0xdb8cab508adeee23443312dc02917fd826d1ca6e",
-            "description": null,
-            "decimals": 8,
-            "kind": "unknown"
-          }
-        ],
+        "source": null,
+        "sourcePath": [],
+        "underlyingAggregator": null
+      },
+      "0xdf0b24095e15044538866576754f3c964e902ee6": {
+        "asset": "0xdf0b24095e15044538866576754f3c964e902ee6",
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       },
       "0xecac9c5f704e954931349da37f60e39f515c11c1": {
         "asset": "0xecac9c5f704e954931349da37f60e39f515c11c1",
-        "assetSymbol": "LBTC",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "LBTC / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "chainlink",
-        "rawDescription": "BTC / USD",
-        "source": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-        "sourcePath": [
-          {
-            "address": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "chainlink"
-          }
-        ],
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       }
     }
@@ -13047,46 +13240,32 @@
     "21000000": {
       "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2": {
         "asset": "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2",
-        "assetSymbol": "WBTCN",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "WBTCN / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "chainlink",
-        "rawDescription": "BTC / USD",
-        "source": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-        "sourcePath": [
-          {
-            "address": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "chainlink"
-          }
-        ],
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       },
       "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e": {
         "asset": "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e",
-        "assetSymbol": "pumpBTC",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "pumpBTC / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "chainlink",
-        "rawDescription": "BTC / USD",
-        "source": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-        "sourcePath": [
-          {
-            "address": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "chainlink"
-          }
-        ],
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       }
     }
@@ -13659,68 +13838,47 @@
     "21000000": {
       "0x541fd749419ca806a8bc7da8ac23d346f2df8b77": {
         "asset": "0x541fd749419ca806a8bc7da8ac23d346f2df8b77",
-        "assetSymbol": "SolvBTC",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "SolvBTC / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "chainlink",
-        "rawDescription": "BTC / USD",
-        "source": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-        "sourcePath": [
-          {
-            "address": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "chainlink"
-          }
-        ],
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       },
       "0xcc0966d8418d412c599a6421b760a847eb169a8c": {
         "asset": "0xcc0966d8418d412c599a6421b760a847eb169a8c",
-        "assetSymbol": "xSolvBTC",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "xSolvBTC / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "chainlink",
-        "rawDescription": "BTC / USD",
-        "source": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-        "sourcePath": [
-          {
-            "address": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "chainlink"
-          }
-        ],
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       },
       "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2": {
         "asset": "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2",
-        "assetSymbol": "WBTCN",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "WBTCN / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "chainlink",
-        "rawDescription": "BTC / USD",
-        "source": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-        "sourcePath": [
-          {
-            "address": "0xdc24f058abe995fee7797541243ea382cc99e4fe",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "chainlink"
-          }
-        ],
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       }
     }
@@ -14821,68 +14979,47 @@
     "21000000": {
       "0x2840f9d9f96321435ab0f977e7fdbf32ea8b304f": {
         "asset": "0x2840f9d9f96321435ab0f977e7fdbf32ea8b304f",
-        "assetSymbol": "sUSDa",
+        "assetSymbol": null,
         "correctOracle": null,
         "denominator": null,
         "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "sUSDa / USD",
+        "intendedPair": null,
         "priceDescription": "UNKNOWN",
         "provider": "unknown",
         "rawDescription": null,
-        "source": "0x2cb88deae7477ec96d9b03fb23c4f3d25ccf559d",
-        "sourcePath": [
-          {
-            "address": "0x2cb88deae7477ec96d9b03fb23c4f3d25ccf559d",
-            "description": null,
-            "decimals": 8,
-            "kind": "unknown"
-          }
-        ],
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       },
       "0xdf0b24095e15044538866576754f3c964e902ee6": {
         "asset": "0xdf0b24095e15044538866576754f3c964e902ee6",
-        "assetSymbol": "USDC.e",
+        "assetSymbol": null,
         "correctOracle": null,
         "denominator": null,
         "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "USDC.e / USD",
+        "intendedPair": null,
         "priceDescription": "UNKNOWN",
         "provider": "unknown",
         "rawDescription": null,
-        "source": "0x2cb88deae7477ec96d9b03fb23c4f3d25ccf559d",
-        "sourcePath": [
-          {
-            "address": "0x2cb88deae7477ec96d9b03fb23c4f3d25ccf559d",
-            "description": null,
-            "decimals": 8,
-            "kind": "unknown"
-          }
-        ],
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       },
       "0xff12470a969dd362eb6595ffb44c82c959fe9acc": {
         "asset": "0xff12470a969dd362eb6595ffb44c82c959fe9acc",
-        "assetSymbol": "USDa",
+        "assetSymbol": null,
         "correctOracle": null,
         "denominator": null,
         "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "USDa / USD",
+        "intendedPair": null,
         "priceDescription": "UNKNOWN",
         "provider": "unknown",
         "rawDescription": null,
-        "source": "0x2cb88deae7477ec96d9b03fb23c4f3d25ccf559d",
-        "sourcePath": [
-          {
-            "address": "0x2cb88deae7477ec96d9b03fb23c4f3d25ccf559d",
-            "description": null,
-            "decimals": 8,
-            "kind": "unknown"
-          }
-        ],
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       }
     }
@@ -15859,6 +15996,28 @@
         ],
         "underlyingAggregator": null
       },
+      "0x1630f08370917e79df0b7572395a5e907508bbbc": {
+        "asset": "0x1630f08370917e79df0b7572395a5e907508bbbc",
+        "assetSymbol": "wGOOGLx",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "wGOOGLx / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+        "source": "0x4c2c9df4559d80e0a7aa3c7f281704a7992f4ce2",
+        "sourcePath": [
+          {
+            "address": "0x4c2c9df4559d80e0a7aa3c7f281704a7992f4ce2",
+            "description": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
       "0x266e5923f6118f8b340ca5a23ae7f71897361476": {
         "asset": "0x266e5923f6118f8b340ca5a23ae7f71897361476",
         "assetSymbol": "wMSTRx",
@@ -15903,6 +16062,28 @@
         ],
         "underlyingAggregator": null
       },
+      "0x3a98e79cdc7d8b2716a8696e25af028e429f11da": {
+        "asset": "0x3a98e79cdc7d8b2716a8696e25af028e429f11da",
+        "assetSymbol": "wCOINx",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "wCOINx / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+        "source": "0x659514296a3622e192020047298e0bf37458a022",
+        "sourcePath": [
+          {
+            "address": "0x659514296a3622e192020047298e0bf37458a022",
+            "description": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
       "0x43680abf18cf54898be84c6ef78237cfbd441883": {
         "asset": "0x43680abf18cf54898be84c6ef78237cfbd441883",
         "assetSymbol": "wTSLAx",
@@ -15918,6 +16099,72 @@
         "sourcePath": [
           {
             "address": "0xcb542fd60fb03c9de4242566e323ec3a706139e6",
+            "description": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x4e41a262caa93c6575d336e0a4eb79f3c67caa06": {
+        "asset": "0x4e41a262caa93c6575d336e0a4eb79f3c67caa06",
+        "assetSymbol": "wMETAx",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "wMETAx / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+        "source": "0xa3dcc9c4fe50be2c538de0482455c5c50d1a07a4",
+        "sourcePath": [
+          {
+            "address": "0xa3dcc9c4fe50be2c538de0482455c5c50d1a07a4",
+            "description": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x5aa7649fdbda47de64a07ac81d64b682af9c0724": {
+        "asset": "0x5aa7649fdbda47de64a07ac81d64b682af9c0724",
+        "assetSymbol": "wAAPLx",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "wAAPLx / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+        "source": "0x2772af34ed0b478026f98148dcd41aff539aa054",
+        "sourcePath": [
+          {
+            "address": "0x2772af34ed0b478026f98148dcd41aff539aa054",
+            "description": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x63ad27614231767c8c489745b9145272de50d09b": {
+        "asset": "0x63ad27614231767c8c489745b9145272de50d09b",
+        "assetSymbol": "wMSFTx",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "wMSFTx / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+        "source": "0xe0ec0679957485aed91d1b6892192a2738a0c9a8",
+        "sourcePath": [
+          {
+            "address": "0xe0ec0679957485aed91d1b6892192a2738a0c9a8",
             "description": "EdelStreams for XStocks - powered by Chainlink Data Streams",
             "decimals": 8,
             "kind": "unknown"
@@ -16035,6 +16282,50 @@
           {
             "address": "0xf0ef3a07b7548c5bdf9e120dcfe7222416eb0af2",
             "description": "EdelStreams for XStocks - powered by Chainlik Data Streams",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xa90872aca656ebe47bdebf3b19ec9dd9c5adc7f8": {
+        "asset": "0xa90872aca656ebe47bdebf3b19ec9dd9c5adc7f8",
+        "assetSymbol": "wCRCLx",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "wCRCLx / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+        "source": "0x3c6d576053e52f8ccebcc1c6e6d26fa47f2c7aa3",
+        "sourcePath": [
+          {
+            "address": "0x3c6d576053e52f8ccebcc1c6e6d26fa47f2c7aa3",
+            "description": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xac85d37acbadca37545e21ab0fb991bce8c1187c": {
+        "asset": "0xac85d37acbadca37545e21ab0fb991bce8c1187c",
+        "assetSymbol": "wAMZNx",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "wAMZNx / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "EdelStreams for XStocks - powered by Chainlink Data Streams",
+        "source": "0xc4ffaf33af75616c9b2c5dc7c93e10345b583ee5",
+        "sourcePath": [
+          {
+            "address": "0xc4ffaf33af75616c9b2c5dc7c93e10345b583ee5",
+            "description": "EdelStreams for XStocks - powered by Chainlink Data Streams",
             "decimals": 8,
             "kind": "unknown"
           }
@@ -18024,21 +18315,21 @@
       "0x068f321fa8fb9f0d135f290ef6a3e2813e1c8a29": {
         "asset": "0x068f321fa8fb9f0d135f290ef6a3e2813e1c8a29",
         "assetSymbol": "USOL",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "USOL / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "SOL / USD",
+        "provider": "redstone",
+        "rawDescription": "RedStone Price Feed for SOL",
         "source": "0xe5c1a89887c572c3c345efe2bbbe797ac5b22461",
         "sourcePath": [
           {
             "address": "0xe5c1a89887c572c3c345efe2bbbe797ac5b22461",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "SOL / USD",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18046,21 +18337,21 @@
       "0x0ad339d66bf4aed5ce31c64bc37b3244b6394a77": {
         "asset": "0x0ad339d66bf4aed5ce31c64bc37b3244b6394a77",
         "assetSymbol": "USR",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "USR / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "USR / USD",
+        "provider": "chainlink",
+        "rawDescription": "USR/USD fixed",
         "source": "0xeb9db1e4e85377b5f2248974aa87de683ca883fb",
         "sourcePath": [
           {
             "address": "0xeb9db1e4e85377b5f2248974aa87de683ca883fb",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "USR / USD",
+            "decimals": 8,
+            "kind": "chainlink"
           }
         ],
         "underlyingAggregator": null
@@ -18068,21 +18359,21 @@
       "0x111111a1a0667d36bd57c0a9f569b98057111111": {
         "asset": "0x111111a1a0667d36bd57c0a9f569b98057111111",
         "assetSymbol": "USDH",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "USDH / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "USDH / USD",
+        "provider": "redstone",
+        "rawDescription": "RedStone Price Feed for USDH",
         "source": "0xe18aad6733d1db21e19cb83b697082d3d4ee5170",
         "sourcePath": [
           {
             "address": "0xe18aad6733d1db21e19cb83b697082d3d4ee5170",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "USDH / USD",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18090,21 +18381,21 @@
       "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2": {
         "asset": "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2",
         "assetSymbol": "sUSDe",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "sUSDe / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "sUSDe / USD",
+        "provider": "redstone",
+        "rawDescription": "RedStone Price Feed for sUSDe",
         "source": "0x573bb572049ff50156e94823bb99920d406e96f8",
         "sourcePath": [
           {
             "address": "0x573bb572049ff50156e94823bb99920d406e96f8",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "sUSDe / USD",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18112,21 +18403,21 @@
       "0x311db0fde558689550c68355783c95efdfe25329": {
         "asset": "0x311db0fde558689550c68355783c95efdfe25329",
         "assetSymbol": "PT-kHYPE-13NOV2025",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-kHYPE-13NOV2025 / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "HYPE / USD",
+        "provider": "redstone",
+        "rawDescription": "RedStone Price Feed for HYPE",
         "source": "0xa8a94da411425634e3ed6c331a32ab4fd774aa43",
         "sourcePath": [
           {
             "address": "0xa8a94da411425634e3ed6c331a32ab4fd774aa43",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "HYPE / USD",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18134,21 +18425,21 @@
       "0x50fc4edc6346f36993bb30fe60e932504ed17391": {
         "asset": "0x50fc4edc6346f36993bb30fe60e932504ed17391",
         "assetSymbol": "PT-kHYPE-24SEP2026",
-        "correctOracle": true,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "PT-kHYPE-24SEP2026 / USD",
-        "priceDescription": "kHYPE / USD",
-        "provider": "pendle-pt",
-        "rawDescription": "PT Capped kHYPE/USD linear discount 24SEP2026",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
         "source": "0x19f83c380f600f162514ccfec9bfebbab1ea6795",
         "sourcePath": [
           {
             "address": "0x19f83c380f600f162514ccfec9bfebbab1ea6795",
-            "description": "kHYPE / USD",
-            "decimals": 8,
-            "kind": "pendle-pt"
+            "description": null,
+            "decimals": null,
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -18156,21 +18447,21 @@
       "0x5555555555555555555555555555555555555555": {
         "asset": "0x5555555555555555555555555555555555555555",
         "assetSymbol": "WHYPE",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "WHYPE / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "HYPE / USD",
+        "provider": "redstone",
+        "rawDescription": "RedStone Price Feed for HYPE",
         "source": "0xb60224122830fd6cf5119f548477a190310d2c94",
         "sourcePath": [
           {
             "address": "0xb60224122830fd6cf5119f548477a190310d2c94",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "HYPE / USD",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18178,21 +18469,21 @@
       "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34": {
         "asset": "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34",
         "assetSymbol": "USDe",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "USDe / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "USDe / USD",
+        "provider": "redstone",
+        "rawDescription": "RedStone Price Feed for USDe",
         "source": "0x18c9b9500d8006574329ff95deb47f9576011a9f",
         "sourcePath": [
           {
             "address": "0x18c9b9500d8006574329ff95deb47f9576011a9f",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "USDe / USD",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18200,21 +18491,21 @@
       "0x94e8396e0869c9f2200760af0621afd240e1cf38": {
         "asset": "0x94e8396e0869c9f2200760af0621afd240e1cf38",
         "assetSymbol": "wstHYPE",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": false,
+        "denominator": "fundam-sec:chainlink",
+        "denominatorMatch": false,
         "fixedRate": null,
         "intendedPair": "wstHYPE / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "wstHYPE-prim:redstone / fundam-sec:chainlink",
+        "provider": "redstone",
+        "rawDescription": "wstHYPE-prim:redstone/fundam-sec:chainlink/fundam-emerg:redstone/market",
         "source": "0xd2b2bbce4ec87b31277eda5af7aa585b2f7e4649",
         "sourcePath": [
           {
             "address": "0xd2b2bbce4ec87b31277eda5af7aa585b2f7e4649",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "wstHYPE-prim:redstone / fundam-sec:chainlink/fundam-emerg:redstone/market",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18222,21 +18513,21 @@
       "0x9fdbda0a5e284c32744d2f17ee5c74b284993463": {
         "asset": "0x9fdbda0a5e284c32744d2f17ee5c74b284993463",
         "assetSymbol": "UBTC",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "UBTC / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "BTC / USD",
+        "provider": "redstone",
+        "rawDescription": "RedStone Price Feed for BTC",
         "source": "0x89621c11aad52c1535e36eb9dbf43e638e9a3e9a",
         "sourcePath": [
           {
             "address": "0x89621c11aad52c1535e36eb9dbf43e638e9a3e9a",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "BTC / USD",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18244,21 +18535,21 @@
       "0xb50a96253abdf803d85efcdce07ad8becbc52bd5": {
         "asset": "0xb50a96253abdf803d85efcdce07ad8becbc52bd5",
         "assetSymbol": "USDHL",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "USDHL / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "Pyth-USDHL / USD",
+        "provider": "chainlink",
+        "rawDescription": "Pyth-USDHL/USD",
         "source": "0xa19b7fe6ffd492dd84adf38d37b974cb52f40267",
         "sourcePath": [
           {
             "address": "0xa19b7fe6ffd492dd84adf38d37b974cb52f40267",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "Pyth-USDHL / USD",
+            "decimals": 8,
+            "kind": "chainlink"
           }
         ],
         "underlyingAggregator": null
@@ -18266,21 +18557,21 @@
       "0xb7379d395f3c83952ad794896205f7e33e358735": {
         "asset": "0xb7379d395f3c83952ad794896205f7e33e358735",
         "assetSymbol": "PT-sUSDE-25SEP2025",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-sUSDE-25SEP2025 / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "sUSDe / USD",
+        "provider": "pendle-pt",
+        "rawDescription": "PT Capped sUSDe/USD linear discount 25SEP2025",
         "source": "0x8514d528275025ad9be6019e6e189dfef1db6c5e",
         "sourcePath": [
           {
             "address": "0x8514d528275025ad9be6019e6e189dfef1db6c5e",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "sUSDe / USD",
+            "decimals": 8,
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -18288,21 +18579,21 @@
       "0xb88339cb7199b77e23db6e890353e22632ba630f": {
         "asset": "0xb88339cb7199b77e23db6e890353e22632ba630f",
         "assetSymbol": "USDC",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "USDC / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "USDC / USD",
+        "provider": "redstone",
+        "rawDescription": "RedStone Price Feed for USDC",
         "source": "0xedc6287d3d41b322af600317628d7e226dd3add4",
         "sourcePath": [
           {
             "address": "0xedc6287d3d41b322af600317628d7e226dd3add4",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "USDC / USD",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18310,21 +18601,21 @@
       "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb": {
         "asset": "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb",
         "assetSymbol": "USD₮0",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "USD₮0 / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "USDT / USD",
+        "provider": "redstone",
+        "rawDescription": "RedStone Price Feed for USDT",
         "source": "0x61376924babe5a0fa982fff2c8be8013be3d6bb6",
         "sourcePath": [
           {
             "address": "0x61376924babe5a0fa982fff2c8be8013be3d6bb6",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "USDT / USD",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18332,21 +18623,21 @@
       "0xbe6727b535545c67d5caa73dea54865b92cf7907": {
         "asset": "0xbe6727b535545c67d5caa73dea54865b92cf7907",
         "assetSymbol": "UETH",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "UETH / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "ETH / USD",
+        "provider": "redstone",
+        "rawDescription": "RedStone Price Feed for ETH",
         "source": "0x4bad96dd1c7d541270a0c92e1d4e5f12eeea7a57",
         "sourcePath": [
           {
             "address": "0x4bad96dd1c7d541270a0c92e1d4e5f12eeea7a57",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "ETH / USD",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18354,21 +18645,21 @@
       "0xd8fc8f0b03eba61f64d08b0bef69d80916e5dda9": {
         "asset": "0xd8fc8f0b03eba61f64d08b0bef69d80916e5dda9",
         "assetSymbol": "beHYPE",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": false,
+        "denominator": "USD)*RedStone(beHYPE",
+        "denominatorMatch": false,
         "fixedRate": null,
         "intendedPair": "beHYPE / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "RedStone(HYPE / USD)*RedStone(beHYPE",
+        "provider": "redstone",
+        "rawDescription": "RedStone(HYPE/USD)*RedStone(beHYPE/HYPE)",
         "source": "0x890fc5ef93889f833f5030eac6fdb78496ed9c7a",
         "sourcePath": [
           {
             "address": "0x890fc5ef93889f833f5030eac6fdb78496ed9c7a",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "RedStone(HYPE / USD)*RedStone(beHYPE/HYPE)",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18376,21 +18667,21 @@
       "0xea84ca9849d9e76a78b91f221f84e9ca065fc9f5": {
         "asset": "0xea84ca9849d9e76a78b91f221f84e9ca065fc9f5",
         "assetSymbol": "PT-kHYPE-19MAR2026",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-kHYPE-19MAR2026 / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "kHYPE / USD",
+        "provider": "pendle-pt",
+        "rawDescription": "PT Capped kHYPE/USD linear discount 19MAR2026",
         "source": "0xb805b04117f9cde6110b9e5bd1ca79062754770d",
         "sourcePath": [
           {
             "address": "0xb805b04117f9cde6110b9e5bd1ca79062754770d",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "kHYPE / USD",
+            "decimals": 8,
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -18398,21 +18689,21 @@
       "0xfd739d4e423301ce9385c1fb8850539d657c296d": {
         "asset": "0xfd739d4e423301ce9385c1fb8850539d657c296d",
         "assetSymbol": "kHYPE",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": false,
+        "denominator": "fundam-sec:chainlink",
+        "denominatorMatch": false,
         "fixedRate": null,
         "intendedPair": "kHYPE / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "kHYPE-prim:redstone / fundam-sec:chainlink",
+        "provider": "redstone",
+        "rawDescription": "kHYPE-prim:redstone/fundam-sec:chainlink/fundam-emerg:redstone/market",
         "source": "0x18b82bb96544ce87bb6dab46b9fe06a73cf43ca9",
         "sourcePath": [
           {
             "address": "0x18b82bb96544ce87bb6dab46b9fe06a73cf43ca9",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "kHYPE-prim:redstone / fundam-sec:chainlink/fundam-emerg:redstone/market",
+            "decimals": 8,
+            "kind": "redstone"
           }
         ],
         "underlyingAggregator": null
@@ -18890,21 +19181,21 @@
       "0xea84ca9849d9e76a78b91f221f84e9ca065fc9f5": {
         "asset": "0xea84ca9849d9e76a78b91f221f84e9ca065fc9f5",
         "assetSymbol": "PT-kHYPE-19MAR2026",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-kHYPE-19MAR2026 / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "PTKHYPE / USD",
+        "provider": "chainlink",
+        "rawDescription": "PTKHYPE/USD Price Oracle",
         "source": "0x000c297b3b094624ae96c33a7411b7ea9ba7a397",
         "sourcePath": [
           {
             "address": "0x000c297b3b094624ae96c33a7411b7ea9ba7a397",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "PTKHYPE / USD",
+            "decimals": 8,
+            "kind": "chainlink"
           }
         ],
         "underlyingAggregator": null
@@ -34444,21 +34735,21 @@
       "0x19df5689cfce64bc2a55f7220b0cd522659955ef": {
         "asset": "0x19df5689cfce64bc2a55f7220b0cd522659955ef",
         "assetSymbol": "WBTC.e",
-        "correctOracle": true,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "WBTC.e / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "redstone",
-        "rawDescription": "Redstone Price Feed",
-        "source": "0xcfd39de761508a7acb8c931b959127a1d9d0b3d4",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0xcfd39de761508a7acb8c931b959127a1d9d0b3d4",
-            "description": "Redstone Price Feed",
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
             "decimals": 8,
-            "kind": "redstone"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -34466,21 +34757,21 @@
       "0x1c1fb35334290b5ff1bf7b4c09130885b10fc0f4": {
         "asset": "0x1c1fb35334290b5ff1bf7b4c09130885b10fc0f4",
         "assetSymbol": "Bridged mstETh",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "Bridged mstETh / USD",
-        "priceDescription": "wstETH / USD",
-        "provider": "redstone",
-        "rawDescription": "Redstone Price Feed",
-        "source": "0x05c70f0a77c02cdb50a146d95efe826a6b02f631",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0x05c70f0a77c02cdb50a146d95efe826a6b02f631",
-            "description": "Redstone Price Feed",
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
             "decimals": 8,
-            "kind": "redstone"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -34488,21 +34779,21 @@
       "0x2416092f143378750bb29b79ed961ab195cceea5": {
         "asset": "0x2416092f143378750bb29b79ed961ab195cceea5",
         "assetSymbol": "ezETH",
-        "correctOracle": true,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "ezETH / USD",
-        "priceDescription": "ezETH / USD",
-        "provider": "redstone",
-        "rawDescription": "Redstone Price Feed",
-        "source": "0xea2511205b959548459a01e358e0a30424dc0b70",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0xea2511205b959548459a01e358e0a30424dc0b70",
-            "description": "Redstone Price Feed",
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
             "decimals": 8,
-            "kind": "redstone"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -34510,21 +34801,21 @@
       "0x3535df6e1d776631d0cba53fe9efd34bcbdceed4": {
         "asset": "0x3535df6e1d776631d0cba53fe9efd34bcbdceed4",
         "assetSymbol": "weETH",
-        "correctOracle": true,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "weETH / USD",
-        "priceDescription": "weETH / USD",
-        "provider": "redstone",
-        "rawDescription": "Redstone Price Feed",
-        "source": "0xf5f641ff3c7e39876a76e77e84041c300dfa4550",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0xf5f641ff3c7e39876a76e77e84041c300dfa4550",
-            "description": "Redstone Price Feed",
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
             "decimals": 8,
-            "kind": "redstone"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -34532,21 +34823,21 @@
       "0x3b952c8c9c44e8fe201e2b26f6b2200203214cff": {
         "asset": "0x3b952c8c9c44e8fe201e2b26f6b2200203214cff",
         "assetSymbol": "USDC.e",
-        "correctOracle": true,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "USDC.e / USD",
-        "priceDescription": "USDC / USD",
-        "provider": "redstone",
-        "rawDescription": "Redstone Price Feed",
-        "source": "0x9cf19d284862a66378c304acacb0e857ebc3f856",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0x9cf19d284862a66378c304acacb0e857ebc3f856",
-            "description": "Redstone Price Feed",
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
             "decimals": 8,
-            "kind": "redstone"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -34554,21 +34845,21 @@
       "0x4186bfc76e2e237523cbc30fd220fe055156b41f": {
         "asset": "0x4186bfc76e2e237523cbc30fd220fe055156b41f",
         "assetSymbol": "rsETH",
-        "correctOracle": true,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "rsETH / USD",
-        "priceDescription": "rsETH / USD",
-        "provider": "redstone",
-        "rawDescription": "Redstone Price Feed",
-        "source": "0xcd96262df56127f298b452fa40759632868a472a",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0xcd96262df56127f298b452fa40759632868a472a",
-            "description": "Redstone Price Feed",
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
             "decimals": 8,
-            "kind": "redstone"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -34576,21 +34867,21 @@
       "0x4200000000000000000000000000000000000006": {
         "asset": "0x4200000000000000000000000000000000000006",
         "assetSymbol": "WETH",
-        "correctOracle": true,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "WETH / USD",
-        "priceDescription": "ETH / USD",
-        "provider": "redstone",
-        "rawDescription": "Redstone Price Feed",
-        "source": "0x72266efcdd0ec7110b44576e5413ef383950eec2",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0x72266efcdd0ec7110b44576e5413ef383950eec2",
-            "description": "Redstone Price Feed",
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
             "decimals": 8,
-            "kind": "redstone"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -34598,21 +34889,21 @@
       "0x46dda6a5a559d861c06ec9a95fb395f5c3db0742": {
         "asset": "0x46dda6a5a559d861c06ec9a95fb395f5c3db0742",
         "assetSymbol": "USDT",
-        "correctOracle": true,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "USDT / USD",
-        "priceDescription": "USDT / USD",
-        "provider": "redstone",
-        "rawDescription": "Redstone Price Feed",
-        "source": "0x6bc42f8ee8cd9bea7d5cff0934ce73ecd2c11e99",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0x6bc42f8ee8cd9bea7d5cff0934ce73ecd2c11e99",
-            "description": "Redstone Price Feed",
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
             "decimals": 8,
-            "kind": "redstone"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -34620,21 +34911,21 @@
       "0x4b03831043082e3e5191218ad5331e99aaac4a81": {
         "asset": "0x4b03831043082e3e5191218ad5331e99aaac4a81",
         "assetSymbol": "weETHs",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "weETHs / USD",
-        "priceDescription": "ETH / USD",
-        "provider": "redstone",
-        "rawDescription": "Redstone Price Feed",
-        "source": "0x72266efcdd0ec7110b44576e5413ef383950eec2",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0x72266efcdd0ec7110b44576e5413ef383950eec2",
-            "description": "Redstone Price Feed",
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
             "decimals": 8,
-            "kind": "redstone"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -34642,21 +34933,21 @@
       "0x4bcc7c793534246bc18acd3737aa4897ff23b458": {
         "asset": "0x4bcc7c793534246bc18acd3737aa4897ff23b458",
         "assetSymbol": "Bridged egETH",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "Bridged egETH / USD",
-        "priceDescription": "ETH / USD",
-        "provider": "redstone",
-        "rawDescription": "Redstone Price Feed",
-        "source": "0x72266efcdd0ec7110b44576e5413ef383950eec2",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0x72266efcdd0ec7110b44576e5413ef383950eec2",
-            "description": "Redstone Price Feed",
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
             "decimals": 8,
-            "kind": "redstone"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -34671,13 +34962,13 @@
         "intendedPair": "ZRC / USD",
         "priceDescription": "UNKNOWN",
         "provider": "unknown",
-        "rawDescription": null,
-        "source": "0xdcaa9005a689b005bbdcf4a93daca2f06fcd86a3",
+        "rawDescription": "fixed",
+        "source": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
         "sourcePath": [
           {
-            "address": "0xdcaa9005a689b005bbdcf4a93daca2f06fcd86a3",
-            "description": null,
-            "decimals": null,
+            "address": "0x765e0e75f365306980cc0ee914705ecd2e7de613",
+            "description": "fixed",
+            "decimals": 8,
             "kind": "unknown"
           }
         ],
@@ -35577,90 +35868,62 @@
     "21000000": {
       "0x657e8c867d8b37dcc18fa4caead9c45eb088c642": {
         "asset": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
-        "assetSymbol": "eBTC",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "eBTC / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "redstone",
-        "rawDescription": "RedStone Price Feed for BTC",
-        "source": "0xd15862fc3d5407a03b696548b6902d6464a69b8c",
-        "sourcePath": [
-          {
-            "address": "0xd15862fc3d5407a03b696548b6902d6464a69b8c",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "redstone"
-          }
-        ],
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       },
       "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2": {
         "asset": "0xda5ddd7270381a7c2717ad10d1c0ecb19e3cdfb2",
-        "assetSymbol": "WBTCN",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "WBTCN / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "redstone",
-        "rawDescription": "RedStone Price Feed for BTC",
-        "source": "0xd15862fc3d5407a03b696548b6902d6464a69b8c",
-        "sourcePath": [
-          {
-            "address": "0xd15862fc3d5407a03b696548b6902d6464a69b8c",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "redstone"
-          }
-        ],
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       },
       "0xecac9c5f704e954931349da37f60e39f515c11c1": {
         "asset": "0xecac9c5f704e954931349da37f60e39f515c11c1",
-        "assetSymbol": "LBTC",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "LBTC / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "redstone",
-        "rawDescription": "RedStone Price Feed for BTC",
-        "source": "0xd15862fc3d5407a03b696548b6902d6464a69b8c",
-        "sourcePath": [
-          {
-            "address": "0xd15862fc3d5407a03b696548b6902d6464a69b8c",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "redstone"
-          }
-        ],
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       },
       "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e": {
         "asset": "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e",
-        "assetSymbol": "pumpBTC",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "assetSymbol": null,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
-        "intendedPair": "pumpBTC / USD",
-        "priceDescription": "BTC / USD",
-        "provider": "redstone",
-        "rawDescription": "RedStone Price Feed for BTC",
-        "source": "0xd15862fc3d5407a03b696548b6902d6464a69b8c",
-        "sourcePath": [
-          {
-            "address": "0xd15862fc3d5407a03b696548b6902d6464a69b8c",
-            "description": "BTC / USD",
-            "decimals": 8,
-            "kind": "redstone"
-          }
-        ],
+        "intendedPair": null,
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": null,
+        "sourcePath": [],
         "underlyingAggregator": null
       }
     }
@@ -36481,13 +36744,13 @@
         "intendedPair": "yUSD / USD",
         "priceDescription": "UNKNOWN",
         "provider": "unknown",
-        "rawDescription": "A port of a chainlink aggregator powered by pyth network feeds",
-        "source": "0x62a023f97e859a25c8d8da1a084eddd8a4ace057",
+        "rawDescription": "''",
+        "source": "0xd9ba1b29a0c0d11cb14cb57f60f0bf73b34d9a89",
         "sourcePath": [
           {
-            "address": "0x62a023f97e859a25c8d8da1a084eddd8a4ace057",
-            "description": "A port of a chainlink aggregator powered by pyth network feeds",
-            "decimals": null,
+            "address": "0xd9ba1b29a0c0d11cb14cb57f60f0bf73b34d9a89",
+            "description": "''",
+            "decimals": 8,
             "kind": "unknown"
           }
         ],
@@ -36496,21 +36759,21 @@
       "0x270d664d2fc7d962012a787aec8661ca83df24eb": {
         "asset": "0x270d664d2fc7d962012a787aec8661ca83df24eb",
         "assetSymbol": "PT-USD0++-31OCT2024",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "PT-USD0++-31OCT2024 / USD",
-        "priceDescription": "PT-USD0++ / USD",
-        "provider": "chainlink",
-        "rawDescription": "PT-USD0++/USD Oracle Oct 31 2024",
-        "source": "0x36169baf1a7542b5029c8c257fc7eaf69d67daac",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "''",
+        "source": "0xd9ba1b29a0c0d11cb14cb57f60f0bf73b34d9a89",
         "sourcePath": [
           {
-            "address": "0x36169baf1a7542b5029c8c257fc7eaf69d67daac",
-            "description": "PT-USD0++ / USD",
+            "address": "0xd9ba1b29a0c0d11cb14cb57f60f0bf73b34d9a89",
+            "description": "''",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null
@@ -36525,12 +36788,12 @@
         "intendedPair": "bUSD0 / USD",
         "priceDescription": "UNKNOWN",
         "provider": "unknown",
-        "rawDescription": "A port of a chainlink aggregator powered by pyth network feeds",
-        "source": "0xd04a2e318e4557bb81344ea485b63d0d55732a37",
+        "rawDescription": "''",
+        "source": "0xd9ba1b29a0c0d11cb14cb57f60f0bf73b34d9a89",
         "sourcePath": [
           {
-            "address": "0xd04a2e318e4557bb81344ea485b63d0d55732a37",
-            "description": "A port of a chainlink aggregator powered by pyth network feeds",
+            "address": "0xd9ba1b29a0c0d11cb14cb57f60f0bf73b34d9a89",
+            "description": "''",
             "decimals": 8,
             "kind": "unknown"
           }
@@ -36590,21 +36853,21 @@
       "0x5bae9a5d67d1ca5b09b14c91935f635cfbf3b685": {
         "asset": "0x5bae9a5d67d1ca5b09b14c91935f635cfbf3b685",
         "assetSymbol": "PT-USD0++-27MAR2025",
-        "correctOracle": false,
-        "denominator": "USD",
-        "denominatorMatch": true,
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
         "fixedRate": null,
         "intendedPair": "PT-USD0++-27MAR2025 / USD",
-        "priceDescription": "PT-USD0++ / USD",
-        "provider": "chainlink",
-        "rawDescription": "PT-USD0++/USD Oracle Mar 27 2025",
-        "source": "0xad55b868d30866457aaedc65e1c3cdfa098f4ac2",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "''",
+        "source": "0xd9ba1b29a0c0d11cb14cb57f60f0bf73b34d9a89",
         "sourcePath": [
           {
-            "address": "0xad55b868d30866457aaedc65e1c3cdfa098f4ac2",
-            "description": "PT-USD0++ / USD",
+            "address": "0xd9ba1b29a0c0d11cb14cb57f60f0bf73b34d9a89",
+            "description": "''",
             "decimals": 8,
-            "kind": "chainlink"
+            "kind": "unknown"
           }
         ],
         "underlyingAggregator": null

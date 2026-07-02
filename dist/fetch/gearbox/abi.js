@@ -724,3 +724,15 @@ export const marketCompressorAbi = [
         stateMutability: "view",
     },
 ];
+export const addressProviderV310Abi = [
+    {
+        type: "function",
+        name: "getAddressOrRevert",
+        inputs: [
+            { name: "key", type: "bytes32", internalType: "bytes32" },
+            { name: "_version", type: "uint256", internalType: "uint256" },
+        ],
+        outputs: [{ name: "", type: "address", internalType: "address" }],
+        stateMutability: "view",
+    },
+];
