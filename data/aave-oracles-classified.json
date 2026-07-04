@@ -4320,6 +4320,272 @@
         "underlyingAggregator": null
       }
     },
+    "143": {
+      "0x00000000efe302beaa2b3e6e1b18d08d69a9012a": {
+        "asset": "0x00000000efe302beaa2b3e6e1b18d08d69a9012a",
+        "assetSymbol": "AUSD",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "AUSD / USD",
+        "priceDescription": "AUSD / USD",
+        "provider": "price-cap",
+        "rawDescription": "Capped AUSD / USD",
+        "source": "0x6b7c151653c35845a5826b15435fc055a9db1d0c",
+        "sourcePath": [
+          {
+            "address": "0x6b7c151653c35845a5826b15435fc055a9db1d0c",
+            "description": "AUSD / USD",
+            "decimals": 8,
+            "kind": "price-cap"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x10aeaf63194db8d453d4d85a06e5efe1dd0b5417": {
+        "asset": "0x10aeaf63194db8d453d4d85a06e5efe1dd0b5417",
+        "assetSymbol": "wstETH",
+        "correctOracle": true,
+        "denominator": "stETH(ETH)",
+        "denominatorMatch": false,
+        "fixedRate": null,
+        "intendedPair": "wstETH / USD",
+        "priceDescription": "wstETH / stETH(ETH)",
+        "provider": "price-cap",
+        "rawDescription": "Capped wstETH / stETH(ETH) / USD",
+        "source": "0x7c1dbd7879c421ebd1a2de397ea6bedb5d3795a5",
+        "sourcePath": [
+          {
+            "address": "0x7c1dbd7879c421ebd1a2de397ea6bedb5d3795a5",
+            "description": "wstETH / stETH(ETH)",
+            "decimals": 8,
+            "kind": "price-cap"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2": {
+        "asset": "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2",
+        "assetSymbol": "sUSDe",
+        "correctOracle": true,
+        "denominator": "USDT0",
+        "denominatorMatch": false,
+        "fixedRate": null,
+        "intendedPair": "sUSDe / USD",
+        "priceDescription": "sUSDe / USDT0",
+        "provider": "price-cap",
+        "rawDescription": "Capped sUSDe / USDT0 / USD",
+        "source": "0x99946fe1a49d8650a31efe0fcfee0508892742f0",
+        "sourcePath": [
+          {
+            "address": "0x99946fe1a49d8650a31efe0fcfee0508892742f0",
+            "description": "sUSDe / USDT0",
+            "decimals": 8,
+            "kind": "price-cap"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34": {
+        "asset": "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34",
+        "assetSymbol": "USDe",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "USDe / USD",
+        "priceDescription": "USDe / USD",
+        "provider": "price-cap",
+        "rawDescription": "Capped USDe / USD",
+        "source": "0x3aba25b23378a84fd7638e20f9af86a66000f090",
+        "sourcePath": [
+          {
+            "address": "0x3aba25b23378a84fd7638e20f9af86a66000f090",
+            "description": "USDe / USD",
+            "decimals": 8,
+            "kind": "price-cap"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x754704bc059f8c67012fed69bc8a327a5aafb603": {
+        "asset": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
+        "assetSymbol": "USDC",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "USDC / USD",
+        "priceDescription": "USDC / USD",
+        "provider": "price-cap",
+        "rawDescription": "Capped USDC / USD",
+        "source": "0x787962943811d279d01ec973bd3a15f1b3e1f0d9",
+        "sourcePath": [
+          {
+            "address": "0x787962943811d279d01ec973bd3a15f1b3e1f0d9",
+            "description": "USDC / USD",
+            "decimals": 8,
+            "kind": "price-cap"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xa3d68b74bf0528fdd07263c60d6488749044914b": {
+        "asset": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+        "assetSymbol": "weETH",
+        "correctOracle": true,
+        "denominator": "eETH(ETH)",
+        "denominatorMatch": false,
+        "fixedRate": null,
+        "intendedPair": "weETH / USD",
+        "priceDescription": "weETH / eETH(ETH)",
+        "provider": "price-cap",
+        "rawDescription": "Capped weETH / eETH(ETH) / USD",
+        "source": "0x53e2d62cd8c36104dec69ba0cb3bb599d6d42fe1",
+        "sourcePath": [
+          {
+            "address": "0x53e2d62cd8c36104dec69ba0cb3bb599d6d42fe1",
+            "description": "weETH / eETH(ETH)",
+            "decimals": 8,
+            "kind": "price-cap"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xab6e5a0c3799d020c790d34f7b2c02639e238af7": {
+        "asset": "0xab6e5a0c3799d020c790d34f7b2c02639e238af7",
+        "assetSymbol": "syrupUSDC",
+        "correctOracle": true,
+        "denominator": "USDC",
+        "denominatorMatch": false,
+        "fixedRate": null,
+        "intendedPair": "syrupUSDC / USD",
+        "priceDescription": "SyrupUSDC / USDC",
+        "provider": "price-cap",
+        "rawDescription": "Capped SyrupUSDC / USDC / USD",
+        "source": "0xb1f36c815761a3f77ce26c013f646cdcdcd06384",
+        "sourcePath": [
+          {
+            "address": "0xb1f36c815761a3f77ce26c013f646cdcdcd06384",
+            "description": "SyrupUSDC / USDC",
+            "decimals": 8,
+            "kind": "price-cap"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xaca92e438df0b2401ff60da7e4337b687a2435da": {
+        "asset": "0xaca92e438df0b2401ff60da7e4337b687a2435da",
+        "assetSymbol": "mUSD",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "mUSD / USD",
+        "priceDescription": "mUSD / USD",
+        "provider": "chainlink",
+        "rawDescription": "Fixed mUSD/USD",
+        "source": "0xbbb58aa3a251c9f19653771c44481c39500b71a3",
+        "sourcePath": [
+          {
+            "address": "0xbbb58aa3a251c9f19653771c44481c39500b71a3",
+            "description": "mUSD / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xd18b7ec58cdf4876f6afebd3ed1730e4ce10414b": {
+        "asset": "0xd18b7ec58cdf4876f6afebd3ed1730e4ce10414b",
+        "assetSymbol": "cbBTC",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "cbBTC / USD",
+        "priceDescription": "CBBTC / USD",
+        "provider": "chainlink",
+        "rawDescription": "CBBTC / USD (USD Scaled)",
+        "source": "0x48692d15da2636e1b0335344104ce9d92f231dda",
+        "sourcePath": [
+          {
+            "address": "0x48692d15da2636e1b0335344104ce9d92f231dda",
+            "description": "CBBTC / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xe7cd86e13ac4309349f30b3435a9d337750fc82d": {
+        "asset": "0xe7cd86e13ac4309349f30b3435a9d337750fc82d",
+        "assetSymbol": "USDT0",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "USDT0 / USD",
+        "priceDescription": "USDT0 / USD",
+        "provider": "price-cap",
+        "rawDescription": "Capped USDT0 / USD",
+        "source": "0x3c187a25f0f05e009da794069682653e40062730",
+        "sourcePath": [
+          {
+            "address": "0x3c187a25f0f05e009da794069682653e40062730",
+            "description": "USDT0 / USD",
+            "decimals": 8,
+            "kind": "price-cap"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xee8c0e9f1bffb4eb878d8f15f368a02a35481242": {
+        "asset": "0xee8c0e9f1bffb4eb878d8f15f368a02a35481242",
+        "assetSymbol": "WETH",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "WETH / USD",
+        "priceDescription": "ETH / USD",
+        "provider": "chainlink",
+        "rawDescription": "ETH / USD (USD Scaled)",
+        "source": "0x47f1d18329ae59341617b7a5be59605b63f0e373",
+        "sourcePath": [
+          {
+            "address": "0x47f1d18329ae59341617b7a5be59605b63f0e373",
+            "description": "ETH / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73": {
+        "asset": "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73",
+        "assetSymbol": "GHO",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "GHO / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "ONE USD",
+        "source": "0x26cbccd96502d2efdb612737bd6aece19f65109c",
+        "sourcePath": [
+          {
+            "address": "0x26cbccd96502d2efdb612737bd6aece19f65109c",
+            "description": "ONE USD",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      }
+    },
     "146": {
       "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38": {
         "asset": "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
@@ -7588,24 +7854,18 @@
         "fixedRate": null,
         "intendedPair": "USDG / USD",
         "priceDescription": "USDG / USD",
-        "provider": "chainlink",
-        "rawDescription": "USDG / USD",
-        "source": "0xdb3b1fa77cf2c9597f9d4871bed1df03d096fdf3",
+        "provider": "price-cap",
+        "rawDescription": "Capped USDG/USD",
+        "source": "0x32b1f1a1d3423de69cf1f75092ecfdc5090d6624",
         "sourcePath": [
           {
-            "address": "0xdb3b1fa77cf2c9597f9d4871bed1df03d096fdf3",
+            "address": "0x32b1f1a1d3423de69cf1f75092ecfdc5090d6624",
             "description": "USDG / USD",
             "decimals": 8,
-            "kind": "chainlink"
-          },
-          {
-            "address": "0x791016da2a5eb1a92327d875092f7583d96cd018",
-            "description": null,
-            "decimals": 8,
-            "kind": "unknown"
+            "kind": "price-cap"
           }
         ],
-        "underlyingAggregator": "0x791016da2a5eb1a92327d875092f7583d96cd018"
+        "underlyingAggregator": null
       },
       "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73": {
         "asset": "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73",
@@ -18425,21 +18685,21 @@
       "0x50fc4edc6346f36993bb30fe60e932504ed17391": {
         "asset": "0x50fc4edc6346f36993bb30fe60e932504ed17391",
         "assetSymbol": "PT-kHYPE-24SEP2026",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "PT-kHYPE-24SEP2026 / USD",
-        "priceDescription": "UNKNOWN",
-        "provider": "unknown",
-        "rawDescription": null,
+        "priceDescription": "kHYPE / USD",
+        "provider": "pendle-pt",
+        "rawDescription": "PT Capped kHYPE/USD linear discount 24SEP2026",
         "source": "0x19f83c380f600f162514ccfec9bfebbab1ea6795",
         "sourcePath": [
           {
             "address": "0x19f83c380f600f162514ccfec9bfebbab1ea6795",
-            "description": null,
-            "decimals": null,
-            "kind": "unknown"
+            "description": "kHYPE / USD",
+            "decimals": 8,
+            "kind": "pendle-pt"
           }
         ],
         "underlyingAggregator": null
@@ -27691,6 +27951,28 @@
       },
       "0x9b8e12b0bac165b86967e771d98b520ec3f665a6": {
         "asset": "0x9b8e12b0bac165b86967e771d98b520ec3f665a6",
+        "assetSymbol": "psXDC",
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "psXDC / USD",
+        "priceDescription": "XDC / USD",
+        "provider": "chainlink",
+        "rawDescription": "XDC/USD",
+        "source": "0xd82403ceb1207073e527f65d5408470181104b12",
+        "sourcePath": [
+          {
+            "address": "0xd82403ceb1207073e527f65d5408470181104b12",
+            "description": "XDC / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xa7fd1c5601348633018003c90ae568d1ff7973e4": {
+        "asset": "0xa7fd1c5601348633018003c90ae568d1ff7973e4",
         "assetSymbol": "psXDC",
         "correctOracle": false,
         "denominator": "USD",
