@@ -20,6 +20,13 @@ const CREATE_META_MORPHO = parseAbiItem(
   "event CreateMetaMorpho(address indexed metaMorpho, address indexed caller, address initialOwner, uint256 initialTimelock, address indexed asset, string name, string symbol, bytes32 salt)",
 );
 
+// Vaults V2 factory create event. Unlike CreateMetaMorpho it carries no name/
+// symbol (event topic0/type layout verified on-chain against the Pharos
+// `vaultV2Factory`), so names are completed with a follow-up `name()` read.
+const CREATE_VAULT_V2 = parseAbiItem(
+  "event CreateVaultV2(address indexed owner, address indexed asset, bytes32 salt, address indexed vaultV2)",
+);
+
 /**
  * Return every MetaMorpho vault created by `factory` on `chainId`, read from
  * its `CreateMetaMorpho` events. Only covers MetaMorpho v1.0 / v1.1 factories
@@ -56,6 +63,59 @@ const ERC4626_META_ABI = parseAbi([
   "function asset() view returns (address)",
   "function name() view returns (string)",
 ]);
+
+/**
+ * Return every Vaults V2 vault created by `factory` on `chainId`, read from its
+ * `CreateVaultV2` events. Used for chains that have a Vaults V2 factory but no
+ * MetaMorpho v1 factory / API coverage (e.g. Pharos). The event carries the
+ * underlying `asset` but no name, so names are filled in with a single batched
+ * `name()` read. Every vault discovered here is `v2` by construction.
+ *
+ * Throws if the chain's RPC is too restrictive to scan within the call budget,
+ * or unreachable — callers should catch per-chain and continue.
+ */
+export async function fetchMorphoVaultV2ByEvents(
+  chainId: string,
+  factory: string,
+): Promise<MorphoTypeVault[]> {
+  const assetOf = new Map<string, string>(); // vault -> underlying
+  await scanContractEvents(chainId, factory, CREATE_VAULT_V2, (l) => {
+    const vault = String(l.args?.vaultV2 ?? "").toLowerCase();
+    const underlying = String(l.args?.asset ?? "").toLowerCase();
+    if (!/^0x[0-9a-f]{40}$/.test(vault) || !/^0x[0-9a-f]{40}$/.test(underlying))
+      return;
+    assetOf.set(vault, underlying);
+  });
+
+  const vaults = [...assetOf.keys()];
+  if (vaults.length === 0) return [];
+
+  // The create event has no name — read it once for every discovered vault.
+  let names: unknown[] = [];
+  try {
+    names = (await multicallRetryUniversal({
+      chain: chainId,
+      calls: vaults.map((address) => ({ address, name: "name", args: [] })),
+      abi: ERC4626_META_ABI,
+      allowFailure: true,
+    })) as unknown[];
+  } catch {
+    names = vaults.map(() => undefined);
+  }
+  const unwrap = (r: unknown) =>
+    r && typeof r === "object" && "result" in (r as any) ? (r as any).result : r;
+
+  return vaults.map((vault, i) => {
+    const rawName = unwrap(names[i]);
+    const name = typeof rawName === "string" ? rawName.trim() : "";
+    return {
+      vault,
+      underlying: assetOf.get(vault)!,
+      ...(name ? { name } : {}),
+      version: "v2" as const,
+    };
+  });
+}
 
 /**
  * Complete an explicit list of vault addresses into `{ vault, underlying, name }`

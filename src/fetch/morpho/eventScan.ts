@@ -18,7 +18,21 @@ import { getEvmClientUniversal } from "@1delta/providers";
 
 // Per-scan getLogs budget. Override with EVENT_SCAN_MAX_CALLS for chains whose
 // RPC caps ranges tightly over a long history (more calls = longer but deeper).
+// This is a floor: scanContractEvents raises it to comfortably cover the actual
+// deploy->head range at the probed chunk size, so a chain with a wide history
+// but a modest per-call block cap (e.g. Pharos: 7.5M blocks, 10k/call) still
+// completes instead of tripping the guard.
 const MAX_LOG_CALLS = Number(process.env.EVENT_SCAN_MAX_CALLS) || 600;
+// How many of a chain's configured RPCs to probe for the widest getLogs window.
+// The default RPC (rpcId 0) is often the most rate-limited; a fallback frequently
+// accepts far larger ranges (Pharos: 500 blocks on rpc.pharos.xyz vs 10k on the
+// originstake fallback), turning a 15k-call scan into a ~750-call one.
+const MAX_RPCS_TO_PROBE = Number(process.env.EVENT_SCAN_MAX_RPCS) || 4;
+// Small delay before each getLogs call. Public RPCs that accept a wide block
+// range (e.g. Pharos' originstake fallback) trip their own circuit breaker when
+// hammered with hundreds of back-to-back calls; a light pace avoids that while
+// adding only a bounded amount to short scans. Override with EVENT_SCAN_PACE_MS.
+const PACE_MS = Number(process.env.EVENT_SCAN_PACE_MS) || 100;
 const RETRIES = 4;
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -35,7 +49,17 @@ export function isTransient(err: unknown): boolean {
     m.includes("econnreset") ||
     m.includes("socket") ||
     m.includes("fetch failed") ||
-    m.includes("network")
+    m.includes("network") ||
+    // Overload / gateway signals from load-balanced public RPCs — the range is
+    // fine, the upstream is momentarily unavailable, so retry (with backoff)
+    // rather than bisecting a healthy range into single blocks.
+    m.includes("circuit breaker") ||
+    m.includes("failsafe") ||
+    m.includes("internal error") ||
+    m.includes("upstream") ||
+    m.includes("502") ||
+    m.includes("503") ||
+    m.includes("504")
   );
 }
 
@@ -84,14 +108,14 @@ const SPAN_CANDIDATES = [
   10_000n,
 ];
 
-/** Largest candidate span the RPC accepts for a getLogs call (probed at head). */
+/** Largest candidate span `client` accepts for a getLogs call (probed at head). */
 async function probeSpan(
   client: any,
   address: string,
   event: AbiEvent,
   latest: bigint,
   state: { calls: number },
-): Promise<bigint> {
+): Promise<bigint | null> {
   for (const span of SPAN_CANDIDATES) {
     const from = latest > span ? latest - span : 0n;
     try {
@@ -104,7 +128,50 @@ async function probeSpan(
       // range rejected (or too many results) — try a smaller span
     }
   }
-  return SPAN_CANDIDATES[SPAN_CANDIDATES.length - 1];
+  // Even the smallest candidate was rejected: this RPC is unusable for the scan.
+  return null;
+}
+
+/**
+ * Probe up to MAX_RPCS_TO_PROBE of the chain's configured RPCs and return the
+ * client that accepts the widest getLogs window, plus that span. Different RPCs
+ * for the same chain can differ by 20x in their per-call block-range cap, and
+ * the default (rpcId 0) is frequently the most restrictive.
+ *
+ * Throws if none of the probed RPCs can serve even the smallest candidate span.
+ */
+async function pickWidestRpc(
+  chainId: string,
+  address: string,
+  event: AbiEvent,
+  state: { calls: number },
+): Promise<{ client: any; latest: bigint; span: bigint }> {
+  let best: { client: any; latest: bigint; span: bigint } | null = null;
+  let lastErr: unknown;
+  for (let rpcId = 0; rpcId < MAX_RPCS_TO_PROBE; rpcId++) {
+    let client: any;
+    let latest: bigint;
+    try {
+      client = getEvmClientUniversal({ chain: chainId, rpcId });
+      latest = await withRetry<bigint>(() => client.getBlockNumber());
+    } catch (err) {
+      lastErr = err;
+      continue; // RPC unreachable — try the next one
+    }
+    const span = await probeSpan(client, address, event, latest, state);
+    if (span != null && (!best || span > best.span)) {
+      best = { client, latest, span };
+      // A wide span (>= 100k) is plenty; stop probing to save calls.
+      if (span >= 100_000n) break;
+    }
+  }
+  if (!best) {
+    throw new Error(
+      `no usable RPC for chain ${chainId} (none served a getLogs range)` +
+        (lastErr ? `: ${String((lastErr as any)?.message ?? lastErr)}` : ""),
+    );
+  }
+  return best;
 }
 
 /**
@@ -119,14 +186,15 @@ async function scanChunk(
   from: bigint,
   to: bigint,
   onLog: (log: any) => void,
-  state: { calls: number },
+  state: { calls: number; budget: number },
 ): Promise<void> {
-  if (state.calls >= MAX_LOG_CALLS) {
-    throw new Error(`getLogs call budget (${MAX_LOG_CALLS}) exceeded`);
+  if (state.calls >= state.budget) {
+    throw new Error(`getLogs call budget (${state.budget}) exceeded`);
   }
   let logs: any[];
   try {
     state.calls++;
+    if (PACE_MS > 0) await sleep(PACE_MS);
     logs = (await withRetry(() =>
       client.getLogs({ address, event, fromBlock: from, toBlock: to }),
     )) as any[];
@@ -153,12 +221,21 @@ export async function scanContractEvents(
   event: AbiEvent,
   onLog: (log: any) => void,
 ): Promise<void> {
-  const client = getEvmClientUniversal({ chain: chainId, rpcId: 0 });
-  const latest = await withRetry<bigint>(() => client.getBlockNumber());
+  const state = { calls: 0, budget: MAX_LOG_CALLS };
+  const { client, latest, span } = await pickWidestRpc(
+    chainId,
+    address,
+    event,
+    state,
+  );
   const deploy = await findDeployBlock(client, address);
 
-  const state = { calls: 0 };
-  const span = await probeSpan(client, address, event, latest, state);
+  // Raise the call budget so a wide history at a modest chunk size still
+  // completes: chunks are fixed-size and only bisect on error, so the call
+  // count is ~range/span; give it 3x headroom for retries/bisection.
+  const chunksNeeded = Number((latest - deploy) / (span + 1n)) + 1;
+  state.budget = Math.max(MAX_LOG_CALLS, Math.ceil(chunksNeeded * 3));
+
   for (let from = deploy; from <= latest; from += span + 1n) {
     const to = from + span > latest ? latest : from + span;
     await scanChunk(client, address, event, from, to, onLog, state);

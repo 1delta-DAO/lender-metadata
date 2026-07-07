@@ -3,11 +3,14 @@
 // Morpho Blue chain that has NO Morpho-API coverage, purely from on-chain data.
 // Append-only: existing vault entries are never removed.
 //
-// Two discovery modes:
-//   - Factory scan: for each chain in config/morpho-addresses.json that has a
-//     `metaMorphoFactory` and is NOT fetched via the Morpho API, enumerate
-//     vaults from the factory's `CreateMetaMorpho` events.
-//   - Manual:       complete an explicit address list via on-chain
+// Three discovery modes:
+//   - v1 factory scan: for each no-API chain in config/morpho-addresses.json
+//     with a `metaMorphoFactory`, enumerate vaults from its `CreateMetaMorpho`
+//     events.
+//   - v2 factory scan: for each no-API chain with a `vaultV2Factory` (e.g.
+//     Pharos, which has no MetaMorpho v1 factory), enumerate vaults from its
+//     `CreateVaultV2` events (name filled in with a follow-up `name()` read).
+//   - Manual:          complete an explicit address list via on-chain
 //     `asset()` / `name()`, for no-API chains that have no factory wired in
 //     config (e.g. Berachain).
 //
@@ -22,6 +25,7 @@ import { readJsonFile } from "./fetch/utils/index.js";
 import {
   fetchMorphoVaultsByAddress,
   fetchMorphoVaultsByEvents,
+  fetchMorphoVaultV2ByEvents,
 } from "./fetch/morpho/fetchMorphoVaultsByEvents.js";
 import { MORPHO_MAIN_CHAIN_IDS, cannotUseApi } from "./fetch/morpho/morpho.js";
 import { FEATHER_CHAIN_IDS } from "./fetch/morpho/fetchFeatherApi.js";
@@ -59,12 +63,14 @@ const MANUAL_VAULTS: Record<string, string[]> = {
   ],
 };
 
-/** chainId -> metaMorphoFactory for every no-API chain that has one. */
-function discoveryTargets(): Record<string, string> {
+/** chainId -> factory address for every no-API chain that has `field`. */
+function discoveryTargets(
+  field: "metaMorphoFactory" | "vaultV2Factory",
+): Record<string, string> {
   const addrs: Record<string, any> = readJsonFile(ADDRESSES_FILE);
   const targets: Record<string, string> = {};
   for (const [chainId, cfg] of Object.entries(addrs)) {
-    const factory = cfg?.metaMorphoFactory;
+    const factory = cfg?.[field];
     if (!factory || API_CHAINS.has(chainId) || COVERED_BY_OTHER_JOBS.has(chainId))
       continue;
     targets[chainId] = factory;
@@ -75,21 +81,48 @@ function discoveryTargets(): Record<string, string> {
 async function main(): Promise<void> {
   const byChain: Record<string, MorphoTypeVault[]> = {};
 
-  const targets = discoveryTargets();
   const failures: string[] = [];
+
+  const append = (chainId: string, vaults: MorphoTypeVault[]) => {
+    byChain[chainId] = [...(byChain[chainId] ?? []), ...vaults];
+  };
+
+  // MetaMorpho v1 factories (CreateMetaMorpho).
+  const v1Targets = discoveryTargets("metaMorphoFactory");
   console.log(
-    `Discovering vaults on ${Object.keys(targets).length} no-API factory chains: ${Object.keys(targets).join(", ")}`,
+    `Discovering v1 vaults on ${Object.keys(v1Targets).length} no-API factory chains: ${Object.keys(v1Targets).join(", ")}`,
   );
   await Promise.all(
-    Object.entries(targets).map(async ([chainId, factory]) => {
+    Object.entries(v1Targets).map(async ([chainId, factory]) => {
       try {
         const vaults = await fetchMorphoVaultsByEvents(chainId, factory);
-        byChain[chainId] = vaults;
-        console.log(`  chain ${chainId}: discovered ${vaults.length} vaults`);
+        append(chainId, vaults);
+        console.log(`  chain ${chainId}: discovered ${vaults.length} v1 vaults`);
       } catch (err) {
         failures.push(chainId);
         console.warn(
-          `  chain ${chainId}: discovery failed: ${(err as any)?.message ?? err}`,
+          `  chain ${chainId}: v1 discovery failed: ${(err as any)?.message ?? err}`,
+        );
+      }
+    }),
+  );
+
+  // Vaults V2 factories (CreateVaultV2) — some no-API chains (e.g. Pharos) have
+  // only a Vaults V2 factory and no MetaMorpho v1 factory.
+  const v2Targets = discoveryTargets("vaultV2Factory");
+  console.log(
+    `Discovering v2 vaults on ${Object.keys(v2Targets).length} no-API factory chains: ${Object.keys(v2Targets).join(", ")}`,
+  );
+  await Promise.all(
+    Object.entries(v2Targets).map(async ([chainId, factory]) => {
+      try {
+        const vaults = await fetchMorphoVaultV2ByEvents(chainId, factory);
+        append(chainId, vaults);
+        console.log(`  chain ${chainId}: discovered ${vaults.length} v2 vaults`);
+      } catch (err) {
+        failures.push(chainId);
+        console.warn(
+          `  chain ${chainId}: v2 discovery failed: ${(err as any)?.message ?? err}`,
         );
       }
     }),
