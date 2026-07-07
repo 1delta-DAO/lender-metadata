@@ -436,6 +436,25 @@
         "version": "v1"
       }
     ],
+    "1672": [
+      {
+        "vault": "0x047cd0a91e9b92ed979189a6c8a120bf280f02e5",
+        "underlying": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+        "name": "RockawayX USDC",
+        "version": "v2"
+      },
+      {
+        "vault": "0x05a5d2170326da9ac8685ae3247e618dae54f427",
+        "underlying": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+        "name": "RockawayX USDC YIELD",
+        "version": "v2"
+      },
+      {
+        "vault": "0x79ded579756072372510ff3a86f884433a697b5c",
+        "underlying": "0x107b8999eec91f2beeaaece0c811f91b54ecdb85",
+        "version": "v2"
+      }
+    ],
     "1868": [
       {
         "vault": "0x04c451be70c41e4a88f7ac436ae767d64ae79049",

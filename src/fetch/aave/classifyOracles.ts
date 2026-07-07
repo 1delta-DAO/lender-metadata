@@ -146,8 +146,20 @@ export async function classifyAaveOracles(): Promise<AaveOraclesClassifiedMap> {
 
   const result: AaveOraclesClassifiedMap = {};
 
+  // Optional comma-separated chain-id allowlist (e.g. AAVE_CHAIN_FILTER=1672)
+  // to reclassify a single chain's oracles. Empty = all chains. Callers that
+  // scope this way must merge the (partial) result into the existing classified
+  // file rather than replacing it, or other chains would be dropped.
+  const chainFilter = new Set(
+    (process.env.AAVE_CHAIN_FILTER ?? "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean),
+  );
+
   for (const [fork, byChain] of Object.entries(oracles)) {
     for (const [chainId, oracleAddrRaw] of Object.entries(byChain)) {
+      if (chainFilter.size && !chainFilter.has(chainId)) continue;
       const oracleAddr = toAddr(oracleAddrRaw);
       const assets = (reserves[fork]?.[chainId] ?? []).map((a) => a.toLowerCase());
       if (!oracleAddr || assets.length === 0) continue;

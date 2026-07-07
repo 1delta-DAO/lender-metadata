@@ -10154,6 +10154,74 @@
         "underlyingAggregator": null
       }
     },
+    "1672": {
+      "0x1f4b7011ee3d53969bb67f59428a9ec0477856e9": {
+        "asset": "0x1f4b7011ee3d53969bb67f59428a9ec0477856e9",
+        "assetSymbol": "WETH",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "WETH / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "SelfManagedFeedsCacheProxy",
+        "source": "0x3228995749610bea00b59c44f8d1df21c14027f1",
+        "sourcePath": [
+          {
+            "address": "0x3228995749610bea00b59c44f8d1df21c14027f1",
+            "description": "SelfManagedFeedsCacheProxy",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xc879c018db60520f4355c26ed1a6d572cdac1815": {
+        "asset": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+        "assetSymbol": "USDC",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "USDC / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "SelfManagedFeedsCacheProxy",
+        "source": "0x1792f73b586f3e931b51826195ff015a23c86009",
+        "sourcePath": [
+          {
+            "address": "0x1792f73b586f3e931b51826195ff015a23c86009",
+            "description": "SelfManagedFeedsCacheProxy",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xd990cf81e9aea2417326fdfac12b19aa66f8b6c2": {
+        "asset": "0xd990cf81e9aea2417326fdfac12b19aa66f8b6c2",
+        "assetSymbol": "FBTC",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "FBTC / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "SelfManagedFeedsCacheProxy",
+        "source": "0x9d6341a6fed3e886d8be47aaba932ae4b6066aa8",
+        "sourcePath": [
+          {
+            "address": "0x9d6341a6fed3e886d8be47aaba932ae4b6066aa8",
+            "description": "SelfManagedFeedsCacheProxy",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      }
+    },
     "2345": {
       "0x1e0d0303a8c4ad428953f5acb1477db42bb838cf": {
         "asset": "0x1e0d0303a8c4ad428953f5acb1477db42bb838cf",
@@ -12390,6 +12458,52 @@
     }
   },
   "AVALON_INNOVATION": {
+    "1672": {
+      "0x52c48d4213107b20bc583832b0d951fb9ca8f0b0": {
+        "asset": "0x52c48d4213107b20bc583832b0d951fb9ca8f0b0",
+        "assetSymbol": "WPROS",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "WPROS / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "SelfManagedFeedsCacheProxy",
+        "source": "0x916addd975718d307868b814e0a9bbbedbd7ab17",
+        "sourcePath": [
+          {
+            "address": "0x916addd975718d307868b814e0a9bbbedbd7ab17",
+            "description": "SelfManagedFeedsCacheProxy",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xc879c018db60520f4355c26ed1a6d572cdac1815": {
+        "asset": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+        "assetSymbol": "USDC",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "USDC / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "SelfManagedFeedsCacheProxy",
+        "source": "0x1792f73b586f3e931b51826195ff015a23c86009",
+        "sourcePath": [
+          {
+            "address": "0x1792f73b586f3e931b51826195ff015a23c86009",
+            "description": "SelfManagedFeedsCacheProxy",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      }
+    },
     "4200": {
       "0x09401c470a76ec07512eeddef5477be74bac2338": {
         "asset": "0x09401c470a76ec07512eeddef5477be74bac2338",
@@ -37441,6 +37555,76 @@
           }
         ],
         "underlyingAggregator": "0xcc16f670129f965b396f2e81312f6e339ffdb18e"
+      }
+    }
+  },
+  "ZONA": {
+    "1672": {
+      "0x1f4b7011ee3d53969bb67f59428a9ec0477856e9": {
+        "asset": "0x1f4b7011ee3d53969bb67f59428a9ec0477856e9",
+        "assetSymbol": "WETH",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "WETH / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0x774a75dc1dca604305ac21373c2e79498f2f1555",
+        "sourcePath": [
+          {
+            "address": "0x774a75dc1dca604305ac21373c2e79498f2f1555",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x52c48d4213107b20bc583832b0d951fb9ca8f0b0": {
+        "asset": "0x52c48d4213107b20bc583832b0d951fb9ca8f0b0",
+        "assetSymbol": "WPROS",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "WPROS / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0x9894731171d87edbbf813ac97c31058c9d6ab000",
+        "sourcePath": [
+          {
+            "address": "0x9894731171d87edbbf813ac97c31058c9d6ab000",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xc879c018db60520f4355c26ed1a6d572cdac1815": {
+        "asset": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+        "assetSymbol": "USDC",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "USDC / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": null,
+        "source": "0xa89c601e5d5a82ce0e55bcc32632e6835daafdea",
+        "sourcePath": [
+          {
+            "address": "0xa89c601e5d5a82ce0e55bcc32632e6835daafdea",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
       }
     }
   }

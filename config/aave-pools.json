@@ -156,6 +156,10 @@
       "pool": "0xE5eB6aBbA365A49C8624532acaed54A47cc36D3C",
       "protocolDataProvider": "0x16b9b88B773C1a1aBA6D305e0560171405d45121"
     },
+    "1672": {
+      "pool": "0xD9B9E4F8257bFf9B1415d74c1EF88d8057f60cBa",
+      "protocolDataProvider": "0x361D78678a453951320EFD11B5F9C67D539ca0a0"
+    },
     "2345": {
       "pool": "0x4B801fb6f0830D070f40aff9ADFC8f6939Cc1F8D",
       "protocolDataProvider": "0x2c4aEB7C9f0D196a51136B3c7bec49cB2DBD1966"
@@ -224,6 +228,10 @@
     }
   },
   "AVALON_INNOVATION": {
+    "1672": {
+      "pool": "0xdef0EB584700Fc81C73ACcd555cB6cea5FB85C3e",
+      "protocolDataProvider": "0x867885c1dB3020E25A86Db7e20E35dC7b81d76A2"
+    },
     "4200": {
       "pool": "0xdCB0FAA822B99B87E630BF47399C5a0bF3C642cf",
       "protocolDataProvider": "0x883cb2E2d9c5D4D9aF5b0d37fc39Fa2284405682"
@@ -1009,6 +1017,12 @@
     "1": {
       "pool": "0xD3a4DA66EC15a001466F324FA08037f3272BDbE8",
       "protocolDataProvider": "0x298ECDcb0369Aef75cBbdA3e46a224Cfe622E287"
+    }
+  },
+  "ZONA": {
+    "1672": {
+      "pool": "0xda464e68208A3083Eb65FE5c522a72AeD1C1372a",
+      "protocolDataProvider": "0xA91424C666193C2b2fb684E25dEadf03B333f49A"
     }
   }
 }

@@ -8,6 +8,16 @@ type OracleMap = { [chainId: string]: string };
 
 type AaveOracleMap = { [fork: string]: OracleMap };
 
+// Optional comma-separated chain-id allowlist (e.g. AAVE_CHAIN_FILTER=1672),
+// shared with fetchReserves, to refresh a single chain's price oracle without
+// walking every Aave-fork chain. Empty = all chains.
+const AAVE_CHAIN_FILTER = new Set(
+  (process.env.AAVE_CHAIN_FILTER ?? "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean),
+);
+
 // aproach for aave
 // get reserve list from pool
 // fetch tokens per reserve from address provider
@@ -29,6 +39,7 @@ export async function fetchAaveTypePriceOracles(
       continue;
     }
     for (const chain of chains) {
+      if (AAVE_CHAIN_FILTER.size && !AAVE_CHAIN_FILTER.has(chain)) continue;
       const addresses = addressSet[chain];
       console.log("fetching for", chain, fork);
       let aProvider = "0x";

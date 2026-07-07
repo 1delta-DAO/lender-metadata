@@ -19,6 +19,17 @@ type ReservesMap = { [fork: string]: { [chain: string | number]: string[] } };
 
 const forkHasNoSToken = (ledner: String) => ledner === Lender.YLDR;
 
+// Optional comma-separated chain-id allowlist (e.g. AAVE_CHAIN_FILTER=1672) to
+// refresh a single chain's reserves/tokens without walking every Aave-fork
+// chain. Empty = all chains. The per-chain merge in DataManager means a scoped
+// run only adds the targeted chain and leaves the rest of the file untouched.
+const AAVE_CHAIN_FILTER = new Set(
+  (process.env.AAVE_CHAIN_FILTER ?? "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean),
+);
+
 // aproach for aave
 // get reserve list from pool
 // fetch tokens per reserve from address provider
@@ -54,6 +65,7 @@ export async function fetchAaveTypeTokenData(): Promise<{
     const chains = Object.keys(addressSet);
     const hasNoSToken = forkHasNoSToken(fork);
     for (const chain of chains) {
+      if (AAVE_CHAIN_FILTER.size && !AAVE_CHAIN_FILTER.has(chain)) continue;
       if (!chainToForks[chain]) chainToForks[chain] = [];
       chainToForks[chain].push({
         fork,

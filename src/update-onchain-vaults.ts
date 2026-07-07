@@ -63,6 +63,11 @@ const MANUAL_VAULTS: Record<string, string[]> = {
   ],
 };
 
+// Optional CLI chain-id filter (e.g. `tsx src/update-onchain-vaults.ts 1672`);
+// scans every no-API factory chain when empty. Lets a single chain be refreshed
+// without walking (and waiting on) every other chain's log history.
+const CHAIN_FILTER = new Set(process.argv.slice(2));
+
 /** chainId -> factory address for every no-API chain that has `field`. */
 function discoveryTargets(
   field: "metaMorphoFactory" | "vaultV2Factory",
@@ -73,6 +78,7 @@ function discoveryTargets(
     const factory = cfg?.[field];
     if (!factory || API_CHAINS.has(chainId) || COVERED_BY_OTHER_JOBS.has(chainId))
       continue;
+    if (CHAIN_FILTER.size && !CHAIN_FILTER.has(chainId)) continue;
     targets[chainId] = factory;
   }
   return targets;
@@ -129,6 +135,7 @@ async function main(): Promise<void> {
   );
 
   for (const [chainId, addresses] of Object.entries(MANUAL_VAULTS)) {
+    if (CHAIN_FILTER.size && !CHAIN_FILTER.has(chainId)) continue;
     try {
       const vaults = await fetchMorphoVaultsByAddress(chainId, addresses);
       byChain[chainId] = [...(byChain[chainId] ?? []), ...vaults];
