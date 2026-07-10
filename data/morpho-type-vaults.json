@@ -561,6 +561,32 @@
         "version": "v1"
       }
     ],
+    "4663": [
+      {
+        "vault": "0x1950ba61f8d523fe75fa32b2a71150b7cfd6f160",
+        "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "name": "RHVault",
+        "version": "v2"
+      },
+      {
+        "vault": "0x37788ff0c1d4e45a7fe06bc7e71e0cc00121d0a8",
+        "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "name": "Purinta USDG",
+        "version": "v2"
+      },
+      {
+        "vault": "0xbeeff033f34c046626b8d0a041844c5d1a5409dd",
+        "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "name": "Steakhouse USDG",
+        "version": "v2"
+      },
+      {
+        "vault": "0xbeeff0fb1dc19344a87b8479dab60a2e16160737",
+        "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "name": "Ethena x Steakhouse USDG",
+        "version": "v2"
+      }
+    ],
     "8217": [
       {
         "vault": "0x32936d1bebddb4b85018aacb9b119748c65a76bb",
