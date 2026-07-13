@@ -13,6 +13,7 @@ import { SiloV3Updater } from "./fetch/silo-v3.js";
 import { FluidUpdater } from "./fetch/fluid/fluid.js";
 import { GearboxUpdater } from "./fetch/gearbox/gearbox.js";
 import { DolomiteUpdater } from "./fetch/dolomite.js";
+import { MidnightUpdater } from "./fetch/midnight/midnight.js";
 
 // ============================================================================
 // Usage Examples & Main Function
@@ -39,6 +40,9 @@ async function main(): Promise<void> {
   // marketId → token map on-chain (getNumMarkets + getMarketTokenAddress) into
   // config/dolomite-margin.json. See src/fetch/dolomite/README.md.
   manager.registerUpdater(new DolomiteUpdater());
+  // Morpho Midnight: fixed-rate order-book markets rebuilt from the Midnight
+  // API each run (markets expire). Writes data/midnight-markets.json.
+  manager.registerUpdater(new MidnightUpdater());
 
   // You can now update from specific sources:
   // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });
