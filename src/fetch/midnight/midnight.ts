@@ -2,10 +2,19 @@ import { readFileSync } from "fs";
 import { erc20Abi } from "viem";
 import { multicallRetryUniversal } from "@1delta/providers";
 import { DataUpdater } from "../../types.js";
+import { mergeData as deepMergeData, numberToBps } from "../../utils.js";
 
 const MARKETS_FILE = "./data/midnight-markets.json";
+const LABELS_FILE = "./data/lender-labels.json";
 const CONFIG_FILE = "./config/midnight.json";
 const DEFAULT_API = "https://api.morpho.org/v0/midnight";
+
+/** Distinct per-market lender enum key, e.g. `MORPHO_MIDNIGHT_<HASH>` (mirrors `MORPHO_BLUE_<HASH>`). */
+const midnightEnumKey = (marketId: string): string =>
+  `MORPHO_MIDNIGHT_${marketId.slice(2).toUpperCase()}`;
+
+const isoDate = (unixSecs: number): string =>
+  new Date(unixSecs * 1000).toISOString().slice(0, 10);
 
 // Fallback token metadata for common Base tokens, used only where the on-chain
 // multicall can't resolve a token (keeps the run robust + names stable in CI).
@@ -127,6 +136,12 @@ export class MidnightUpdater implements DataUpdater {
     // The API isn't chain-filterable, so fetch once per distinct API base.
     const byApi = new Map<string, any[]>();
     const result: Record<string, any[]> = {};
+    // Human-readable labels keyed by the distinct `MORPHO_MIDNIGHT_<id>` enum,
+    // written to data/lender-labels.json exactly like Morpho Blue / Lista. The
+    // maturity date is part of the name so same-pair markets at different
+    // maturities stay distinct.
+    const names: Record<string, string> = {};
+    const shortNames: Record<string, string> = {};
 
     for (const chainId of chainIds) {
       const apiBase = config[chainId]?.apiBaseUrl || DEFAULT_API;
@@ -163,10 +178,32 @@ export class MidnightUpdater implements DataUpdater {
         meta[a.toLowerCase()]?.decimals ??
         KNOWN_META[a.toLowerCase()]?.decimals ??
         18;
+      const sym = (a: string) =>
+        meta[a.toLowerCase()]?.symbol ??
+        KNOWN_META[a.toLowerCase()]?.symbol ??
+        a.slice(0, 6);
 
       const markets = chainBooks
         .sort((a, b) => (a.market_id < b.market_id ? -1 : 1))
         .map((b) => {
+          // Blue-style label + maturity: "Midnight cbBTC-USDC 92 2026-07-31".
+          const key = midnightEnumKey(b.market_id);
+          const loanSym = sym(b.loan_token);
+          const collSym =
+            (b.collaterals ?? []).map((c: any) => sym(c.token)).join("/") || "?";
+          const bps = b.collaterals?.[0]
+            ? numberToBps(String(b.collaterals[0].lltv))
+            : "";
+          const date = isoDate(Number(b.maturity));
+          names[key] = `Midnight ${collSym}-${loanSym} ${bps} ${date}`
+            .replace(/\s+/g, " ")
+            .trim();
+          // Include the LLTV so same-pair/same-maturity markets at different
+          // LLTVs stay distinct (mirrors Blue's `MB <pair> <bps>`).
+          shortNames[key] = `MN ${collSym}-${loanSym} ${bps} ${date}`
+            .replace(/\s+/g, " ")
+            .trim();
+
           const entry: any = {
             marketId: b.market_id,
             loanToken: b.loan_token,
@@ -192,16 +229,24 @@ export class MidnightUpdater implements DataUpdater {
       result[chainId] = markets;
     }
 
-    return { [MARKETS_FILE]: result };
+    return {
+      [MARKETS_FILE]: result,
+      [LABELS_FILE]: { names, shortNames },
+    };
   }
 
   /**
-   * Replace each chain's market list with the freshly-fetched live set (markets
-   * expire, so append-only would accumulate stale entries). Guard: if a fetch
-   * returned an empty set for a chain that previously had markets, keep the old
-   * data rather than wiping it on a transient API failure.
+   * - Markets file: replace each chain's market list with the freshly-fetched
+   *   live set (markets expire, so append-only would accumulate stale entries).
+   *   Guard: if a fetch returned an empty set for a chain that previously had
+   *   markets, keep the old data rather than wiping it on a transient API blip.
+   * - Labels file: deep-merge (accumulate) — shared across every lender family,
+   *   so it must never be replaced; matches the Morpho Blue updater.
    */
-  mergeData(oldData: any, data: any): any {
+  mergeData(oldData: any, data: any, fileKey: string): any {
+    if (fileKey === LABELS_FILE) {
+      return deepMergeData(oldData ?? {}, data ?? {});
+    }
     const merged: Record<string, any[]> = { ...(oldData ?? {}) };
     for (const [chainId, markets] of Object.entries(
       (data ?? {}) as Record<string, any[]>,
