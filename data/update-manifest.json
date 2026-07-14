@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-11T05-03-03-027Z",
-  "generatedAt": "2026-07-11T05:03:03.027Z",
+  "version": "2026-07-14T04-48-03-473Z",
+  "generatedAt": "2026-07-14T04:48:03.473Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-type-oracles.json",
@@ -132,6 +132,12 @@
     },
     {
       "targetFile": "./config/dolomite-emode.json"
+    },
+    {
+      "targetFile": "./data/midnight-markets.json"
+    },
+    {
+      "targetFile": "./data/lender-labels.json"
     }
   ]
 }
