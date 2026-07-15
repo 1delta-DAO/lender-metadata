@@ -28,6 +28,40 @@ const KNOWN_META: Record<string, { decimals: number; symbol: string }> = {
 
 type ChainCfg = { apiBaseUrl?: string; midnight?: string };
 
+// Minimal `marketState(bytes32)` fragment — the only extra on-chain read this
+// updater needs. Inlined (not imported from @1delta/abis) so the nightly job
+// is robust to abis version drift. Returns the packed MarketState: the fields
+// we care about are settlementFeeCbp0..6 (uint16, in cbp) and continuousFee
+// (uint32, per-second WAD). These are MUTABLE governance state (set by the
+// `feeSetter`), NOT part of the immutable market id — so they can't live in the
+// API's book payload and must be snapshotted on-chain each refresh cycle.
+const MARKET_STATE_ABI = [
+  {
+    type: "function",
+    name: "marketState",
+    stateMutability: "view",
+    inputs: [{ name: "id", type: "bytes32" }],
+    outputs: [
+      { name: "totalUnits", type: "uint128" },
+      { name: "lossFactor", type: "uint128" },
+      { name: "withdrawable", type: "uint128" },
+      { name: "continuousFeeCredit", type: "uint128" },
+      { name: "settlementFeeCbp0", type: "uint16" },
+      { name: "settlementFeeCbp1", type: "uint16" },
+      { name: "settlementFeeCbp2", type: "uint16" },
+      { name: "settlementFeeCbp3", type: "uint16" },
+      { name: "settlementFeeCbp4", type: "uint16" },
+      { name: "settlementFeeCbp5", type: "uint16" },
+      { name: "settlementFeeCbp6", type: "uint16" },
+      { name: "continuousFee", type: "uint32" },
+      { name: "tickSpacing", type: "uint8" },
+    ],
+  },
+] as const;
+
+/** Snapshotted mutable per-market fees, keyed by lowercased marketId. */
+type MarketFees = { settlementFeeCbp: number[]; continuousFee: string };
+
 function readConfig(): Record<string, ChainCfg> {
   try {
     return JSON.parse(readFileSync(CONFIG_FILE, "utf8"));
@@ -95,6 +129,59 @@ async function resolveTokenMeta(
     const symbol =
       typeof sRaw === "string" && sRaw.length > 0 ? sRaw : known?.symbol;
     out[key] = { decimals, symbol };
+  });
+  return out;
+}
+
+/**
+ * Snapshot the MUTABLE per-market fees (`settlementFeeCbp[0..6]`,
+ * `continuousFee`) via a single `marketState` multicall against the core
+ * Midnight contract. Failures are tolerated (allowFailure) — a market whose
+ * read reverts simply carries no fee fields, so the run never breaks on an RPC
+ * blip. Returns a map keyed by lowercased marketId.
+ */
+async function resolveMarketFees(
+  chainId: string,
+  midnight: string,
+  marketIds: string[],
+): Promise<Record<string, MarketFees>> {
+  const out: Record<string, MarketFees> = {};
+  if (marketIds.length === 0) return out;
+
+  const calls = marketIds.map((id) => ({
+    address: midnight,
+    name: "marketState",
+    args: [id],
+  }));
+
+  let res: any[] = [];
+  try {
+    res = (await multicallRetryUniversal({
+      chain: chainId,
+      calls,
+      abi: MARKET_STATE_ABI as any,
+      allowFailure: true,
+    })) as any[];
+  } catch (e) {
+    console.log(
+      `Midnight: marketState multicall failed on chain ${chainId}:`,
+      (e as any)?.shortMessage ?? (e as any)?.message ?? e,
+    );
+    return out;
+  }
+
+  marketIds.forEach((id, i) => {
+    const r = res[i];
+    // `marketState` has 13 named outputs → viem returns them as a positional
+    // array: [totalUnits, lossFactor, withdrawable, continuousFeeCredit,
+    //  settlementFeeCbp0..6, continuousFee, tickSpacing].
+    if (!Array.isArray(r) || r.length < 13) return;
+    const num = (v: any) => (v == null ? 0 : Number(v));
+    const settlementFeeCbp = [4, 5, 6, 7, 8, 9, 10].map((idx) => num(r[idx]));
+    out[id.toLowerCase()] = {
+      settlementFeeCbp,
+      continuousFee: (r[11] ?? 0n).toString(),
+    };
   });
   return out;
 }
@@ -174,6 +261,15 @@ export class MidnightUpdater implements DataUpdater {
         for (const c of b.collaterals ?? []) tokens.add(c.token.toLowerCase());
       }
       const meta = await resolveTokenMeta(chainId, [...tokens]);
+      // Snapshot mutable fees on-chain (needs the core address from config).
+      const midnight = config[chainId]?.midnight;
+      const fees = midnight
+        ? await resolveMarketFees(
+            chainId,
+            midnight,
+            chainBooks.map((b) => b.market_id),
+          )
+        : {};
       const dec = (a: string) =>
         meta[a.toLowerCase()]?.decimals ??
         KNOWN_META[a.toLowerCase()]?.decimals ??
@@ -220,6 +316,12 @@ export class MidnightUpdater implements DataUpdater {
             enterGate: b.enter_gate,
             liquidatorGate: b.liquidator_gate,
           };
+          // Mutable, on-chain-snapshotted fees (omitted if the read reverted).
+          const f = fees[b.market_id?.toLowerCase()];
+          if (f) {
+            entry.settlementFeeCbp = f.settlementFeeCbp;
+            entry.continuousFee = f.continuousFee;
+          }
           const nm = marketName(b, meta);
           if (nm) entry.name = nm;
           return entry;

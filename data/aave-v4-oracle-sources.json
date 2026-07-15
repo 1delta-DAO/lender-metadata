@@ -536,5 +536,95 @@
       "decimals": 8,
       "source": "0x5424384b256154046e9667ddfaaa5e550145215e"
     }
+  ],
+  "43114": [
+    {
+      "underlying": "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+      "spoke": "0x3b517594277c67307cf2d7cbe6fe1d4399b68c41",
+      "reserveId": 0,
+      "oracle": "0xb2216b2b2dc77e027afeaaaf965e323012757fa0",
+      "decimals": 8,
+      "source": "0xb2b332f27e4b7305649a228c31ed9858c5a6bad9"
+    },
+    {
+      "underlying": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+      "spoke": "0x3b517594277c67307cf2d7cbe6fe1d4399b68c41",
+      "reserveId": 1,
+      "oracle": "0xb2216b2b2dc77e027afeaaaf965e323012757fa0",
+      "decimals": 8,
+      "source": "0x0a77230d17318075983913bc2145db16c7366156"
+    },
+    {
+      "underlying": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+      "spoke": "0x435272ceff93a1e657e8abfdf0a13e95900a3a56",
+      "reserveId": 0,
+      "oracle": "0x84b50b131a82da689c0205c00d603c1c92a5f8a4",
+      "decimals": 8,
+      "source": "0x0a77230d17318075983913bc2145db16c7366156"
+    },
+    {
+      "underlying": "0x152b9d0fdc40c096757f570a51e494bd4b943e50",
+      "spoke": "0x435272ceff93a1e657e8abfdf0a13e95900a3a56",
+      "reserveId": 1,
+      "oracle": "0x84b50b131a82da689c0205c00d603c1c92a5f8a4",
+      "decimals": 8,
+      "source": "0x2779d32d5166baaa2b2b658333ba7e6ec0c65743"
+    },
+    {
+      "underlying": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "spoke": "0x435272ceff93a1e657e8abfdf0a13e95900a3a56",
+      "reserveId": 2,
+      "oracle": "0x84b50b131a82da689c0205c00d603c1c92a5f8a4",
+      "decimals": 8,
+      "source": "0xb0d7a8bbdcdb1203850b742bb4d7f57a1f1c8483"
+    },
+    {
+      "underlying": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+      "spoke": "0x435272ceff93a1e657e8abfdf0a13e95900a3a56",
+      "reserveId": 3,
+      "oracle": "0x84b50b131a82da689c0205c00d603c1c92a5f8a4",
+      "decimals": 8,
+      "source": "0x5b7810a910b4a878aaa4800a824e5e5796838009"
+    },
+    {
+      "underlying": "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+      "spoke": "0x435272ceff93a1e657e8abfdf0a13e95900a3a56",
+      "reserveId": 4,
+      "oracle": "0x84b50b131a82da689c0205c00d603c1c92a5f8a4",
+      "decimals": 8,
+      "source": "0x976b3d034e162d8bd72d6b9c989d545b839003b0"
+    },
+    {
+      "underlying": "0xc891eb4cbdeff6e073e859e987815ed1505c2acd",
+      "spoke": "0x435272ceff93a1e657e8abfdf0a13e95900a3a56",
+      "reserveId": 5,
+      "oracle": "0x84b50b131a82da689c0205c00d603c1c92a5f8a4",
+      "decimals": 8,
+      "source": "0x3368310bc4aee5d96486a73bae8e6b49fcde62d3"
+    },
+    {
+      "underlying": "0xc891eb4cbdeff6e073e859e987815ed1505c2acd",
+      "spoke": "0x6a37776b5e026dbdf043b4f933c323c84dd1b514",
+      "reserveId": 0,
+      "oracle": "0xeca623e8c923a103eef75cd127cc8bf8ff886cf5",
+      "decimals": 8,
+      "source": "0x3368310bc4aee5d96486a73bae8e6b49fcde62d3"
+    },
+    {
+      "underlying": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "spoke": "0x6a37776b5e026dbdf043b4f933c323c84dd1b514",
+      "reserveId": 1,
+      "oracle": "0xeca623e8c923a103eef75cd127cc8bf8ff886cf5",
+      "decimals": 8,
+      "source": "0xb0d7a8bbdcdb1203850b742bb4d7f57a1f1c8483"
+    },
+    {
+      "underlying": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+      "spoke": "0x6a37776b5e026dbdf043b4f933c323c84dd1b514",
+      "reserveId": 2,
+      "oracle": "0xeca623e8c923a103eef75cd127cc8bf8ff886cf5",
+      "decimals": 8,
+      "source": "0x5b7810a910b4a878aaa4800a824e5e5796838009"
+    }
   ]
 }

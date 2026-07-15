@@ -30,4 +30,10 @@ export const AAVE_V4_HUB_SEED: { [chainId: string]: V4HubSeedEntry[] } = {
       attribution: 'AAVE_V4_PRIME',
     },
   ],
+  '43114': [
+    {
+      hub: '0xd07369fAE4A5BB13c9Ce446B052c7867B1AbDf6e',
+      attribution: 'AAVE_V4_CORE',
+    },
+  ],
 }

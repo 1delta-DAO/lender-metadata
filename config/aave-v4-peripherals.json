@@ -328,5 +328,107 @@
         ]
       }
     }
+  },
+  "43114": {
+    "nativeGateway": "0xe4c7183a5f22c365140f41d733d8a8bad5a1a6ba",
+    "signatureGateway": "0x6e3b91a951da9b515a5e98f0c7d210a697382e7f",
+    "perHub": {
+      "0xd07369fae4a5bb13c9ce446b052c7867b1abdf6e": {
+        "nativeGateway": "0xe4c7183a5f22c365140f41d733d8a8bad5a1a6ba",
+        "signatureGateway": "0x6e3b91a951da9b515a5e98f0c7d210a697382e7f"
+      }
+    },
+    "perSpoke": {
+      "0x435272ceff93a1e657e8abfdf0a13e95900a3a56": {
+        "spokeName": "Main",
+        "positionManagers": [
+          {
+            "name": "Aave Giver Position Manager",
+            "address": "0x50c4c40ab6bae46b372a251beace388439aa96b4",
+            "active": true
+          },
+          {
+            "name": "Aave Config Position Manager",
+            "address": "0x50be00c5ebf6cc230b8970f4205cd0b5a70eaeb1",
+            "active": true
+          },
+          {
+            "name": "Aave Taker Position Manager",
+            "address": "0x5a5a711560eb9293ef6f4bc33cd8589b4a603d10",
+            "active": true
+          },
+          {
+            "name": "Aave Native Gateway",
+            "address": "0xe4c7183a5f22c365140f41d733d8a8bad5a1a6ba",
+            "active": true
+          },
+          {
+            "name": "Aave Signature Gateway",
+            "address": "0x6e3b91a951da9b515a5e98f0c7d210a697382e7f",
+            "active": true
+          }
+        ]
+      },
+      "0x6a37776b5e026dbdf043b4f933c323c84dd1b514": {
+        "spokeName": "Forex",
+        "positionManagers": [
+          {
+            "name": "Aave Giver Position Manager",
+            "address": "0x50c4c40ab6bae46b372a251beace388439aa96b4",
+            "active": true
+          },
+          {
+            "name": "Aave Config Position Manager",
+            "address": "0x50be00c5ebf6cc230b8970f4205cd0b5a70eaeb1",
+            "active": true
+          },
+          {
+            "name": "Aave Taker Position Manager",
+            "address": "0x5a5a711560eb9293ef6f4bc33cd8589b4a603d10",
+            "active": true
+          },
+          {
+            "name": "Aave Native Gateway",
+            "address": "0xe4c7183a5f22c365140f41d733d8a8bad5a1a6ba",
+            "active": true
+          },
+          {
+            "name": "Aave Signature Gateway",
+            "address": "0x6e3b91a951da9b515a5e98f0c7d210a697382e7f",
+            "active": true
+          }
+        ]
+      },
+      "0x3b517594277c67307cf2d7cbe6fe1d4399b68c41": {
+        "spokeName": "AVAX Correlated",
+        "positionManagers": [
+          {
+            "name": "Aave Giver Position Manager",
+            "address": "0x50c4c40ab6bae46b372a251beace388439aa96b4",
+            "active": true
+          },
+          {
+            "name": "Aave Config Position Manager",
+            "address": "0x50be00c5ebf6cc230b8970f4205cd0b5a70eaeb1",
+            "active": true
+          },
+          {
+            "name": "Aave Taker Position Manager",
+            "address": "0x5a5a711560eb9293ef6f4bc33cd8589b4a603d10",
+            "active": true
+          },
+          {
+            "name": "Aave Native Gateway",
+            "address": "0xe4c7183a5f22c365140f41d733d8a8bad5a1a6ba",
+            "active": true
+          },
+          {
+            "name": "Aave Signature Gateway",
+            "address": "0x6e3b91a951da9b515a5e98f0c7d210a697382e7f",
+            "active": true
+          }
+        ]
+      }
+    }
   }
 }
