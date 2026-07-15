@@ -1,6 +1,25 @@
 {
   "8453": [
     {
+      "marketId": "0x05959752fdeff325962b9d263edb421efc6e2186a49360dba6c32e86ebf6c84c",
+      "loanToken": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "lltv": "860000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x663becd10dae6c4a3dcd89f1d76c1174199639b9",
+          "decimals": 8
+        }
+      ],
+      "maturity": "1787929200",
+      "rcfThreshold": "3000000000",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0x0000000000000000000000000000000000000000",
+      "name": "cbBTC/USDC - 2026-08-28"
+    },
+    {
       "marketId": "0x0664c52b4456daa724d6dcb03bc117dc92ccd15b970db136ef26074dbf67afe3",
       "loanToken": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
       "loanDecimals": 6,
@@ -56,6 +75,25 @@
       "enterGate": "0x0000000000000000000000000000000000000000",
       "liquidatorGate": "0x0000000000000000000000000000000000000000",
       "name": "WETH/USDC - 2026-08-28"
+    },
+    {
+      "marketId": "0x168e31250e0008b50d2255a5ab85e0265acd6c12e4f9a1336134b36a65a47937",
+      "loanToken": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "lltv": "860000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x663becd10dae6c4a3dcd89f1d76c1174199639b9",
+          "decimals": 8
+        }
+      ],
+      "maturity": "1785510000",
+      "rcfThreshold": "3000000000",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0x0000000000000000000000000000000000000000",
+      "name": "cbBTC/USDC - 2026-07-31"
     },
     {
       "marketId": "0x29a2e5fe35995f63aff3fa028c95bd87b6acc13e2e5fcc310d6e97d3b335f132",

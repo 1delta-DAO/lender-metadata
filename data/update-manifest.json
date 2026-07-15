@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-11T05-03-03-027Z",
-  "generatedAt": "2026-07-11T05:03:03.027Z",
+  "version": "2026-07-15T04-49-25-738Z",
+  "generatedAt": "2026-07-15T04:49:25.738Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-type-oracles.json",
@@ -10,7 +10,9 @@
     "./data/lender-labels.json",
     "./data/lender-labels.json",
     "./data/lender-labels.json",
-    "./config/dolomite-emode.json"
+    "./config/dolomite-emode.json",
+    "./data/midnight-markets.json",
+    "./data/lender-labels.json"
   ],
   "results": [
     {
@@ -132,6 +134,12 @@
     },
     {
       "targetFile": "./config/dolomite-emode.json"
+    },
+    {
+      "targetFile": "./data/midnight-markets.json"
+    },
+    {
+      "targetFile": "./data/lender-labels.json"
     }
   ]
 }
