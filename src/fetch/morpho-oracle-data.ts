@@ -28,9 +28,11 @@ export class MorphoOracleDataUpdater implements DataUpdater {
    * inside a re-fetched market never linger. (Field-level deep-merge was
    * avoided for exactly that reason.)
    *
-   * Trade-off: a market that has genuinely been removed on-chain will persist
-   * until it is re-fetched with fresh data. That is the accepted cost of
-   * guaranteeing no entry is ever lost to a partial fetch.
+   * Never-delete is unconditionally correct here: Morpho markets are immutable
+   * and append-only on-chain — once created, a market cannot be removed. The
+   * market set therefore only ever grows, so a market missing from a given run
+   * is always a fetch gap, never a real deletion. There is no stale entry to
+   * prune, only fetch coverage to protect.
    */
   mergeData(oldData: any, data: any, _fileKey: string): Partial<any> {
     const prev = (oldData ?? {}) as MorphoOraclesDataMap;
