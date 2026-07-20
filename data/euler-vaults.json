@@ -3448,6 +3448,26 @@
       {
         "underlying": "0xe1B4d34E8754600962Cd944B535180Bd758E6c2e",
         "vault": "0xd1112A8B8F13f525639ed2697645CfDc7CB761D5"
+      },
+      {
+        "underlying": "0xf0bb20865277aBd641a307eCe5Ee04E79073416C",
+        "vault": "0x52ef3b261DffBd461012E1FcFCBAeaD180805939"
+      },
+      {
+        "underlying": "0x3d7d6fdf07EE548B939A80edbc9B2256d0cdc003",
+        "vault": "0x80E50C772533ACAC04E11d800567ED3810BCDdcE"
+      },
+      {
+        "underlying": "0x47d13Fb0803409c7fE169A210d4e906165F1A432",
+        "vault": "0x8a520f77Ad93E07d40e65120f1473c39B833BC8e"
+      },
+      {
+        "underlying": "0x47d13Fb0803409c7fE169A210d4e906165F1A432",
+        "vault": "0x9634Ff433f9cb4fA16451Ca146dc7764dC89658C"
+      },
+      {
+        "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "vault": "0xa052407c4D901212C9EbA773DD3D2BEde050A3C1"
       }
     ],
     "10": [
@@ -4024,6 +4044,34 @@
       {
         "underlying": "0xf69e40069aC227C11459E3f4e8a446b3401616b6",
         "vault": "0x4D49A899a79c771586956b1BBf57Db734A8436B1"
+      },
+      {
+        "underlying": "0xcdf2f3e0fa43C47A6662a91C9E4a7C5f69762699",
+        "vault": "0xf24cB01979278c4A11Aa58C8ec77Ba9E09970deD"
+      },
+      {
+        "underlying": "0x3eE4dF61bd4F867E349BEaE8bFE07bc31b4850fb",
+        "vault": "0xd870d3b80438dBa51DE4d3901742C91a47aB8CC8"
+      },
+      {
+        "underlying": "0xe92f673Ca36C5E2Efd2DE7628f815f84807e803F",
+        "vault": "0x5741137Ad66b86323e6caC040f13Be158ae545db"
+      },
+      {
+        "underlying": "0xfEbDEd1B0986a8ee107f5AB1a1c5a813491DeCEB",
+        "vault": "0xDc64f628B5666473A5923A273C06ECC7616Ae780"
+      },
+      {
+        "underlying": "0xc845b2894dBddd03858fd2D643B4eF725fE0849d",
+        "vault": "0x96781aF74f62B95b84d357f9a90c3a6df502Bb1d"
+      },
+      {
+        "underlying": "0xAE2f842EF90C0d5213259Ab82639D5BBF649b08E",
+        "vault": "0x2926D5389A869872B637691E8A3c8782e9E8FEAa"
+      },
+      {
+        "underlying": "0x8aD3c73F833d3F9A523aB01476625F269aEB7Cf0",
+        "vault": "0x805504F5878b9071Fe1AF33f3a45DAdda5c76863"
       }
     ],
     "100": [],
@@ -4730,6 +4778,14 @@
       {
         "underlying": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
         "vault": "0xa8120B07af194e724803e23F75AAfb2E0cD7caaA"
+      },
+      {
+        "underlying": "0xA3D68b74bF0528fdD07263c60d6488749044914b",
+        "vault": "0xB4f2BCd6dD41cE350d3C80d99F5a965867fBdff1"
+      },
+      {
+        "underlying": "0xEE8c0E9f1BFFb4Eb878d8f15f368A02a35481242",
+        "vault": "0xA5B409b5A930AfC49d016Da10BBfCcc183396Ca2"
       }
     ],
     "146": [
@@ -7231,6 +7287,94 @@
       {
         "underlying": "0x98d55707B60793AC8cadAB3C456dA156671F138a",
         "vault": "0xb82FfabE9C1a95619ff24E21ccaf05A933c3b206"
+      },
+      {
+        "underlying": "0x1ceA84203673764244E05693e42E6Ace62bE9BA5",
+        "vault": "0x00aE41F2c16504b6e765904B26C777DC33ae70b9"
+      },
+      {
+        "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "vault": "0xb9a1692aeFB58E71Ed1bEEE5bcB7922c577FCBD2"
+      },
+      {
+        "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "vault": "0x706a1AF0CBCe654E0877B524dd8215682F7aB664"
+      },
+      {
+        "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "vault": "0xDd94c884c4482FcCc1699aD09E969D41c08dDB2c"
+      },
+      {
+        "underlying": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+        "vault": "0x44231143bd366c26Ea2BF1A762cf8Ca99d89AB54"
+      },
+      {
+        "underlying": "0xcb585250f852C6c6bf90434AB21A00f02833a4af",
+        "vault": "0x0263B3318a9B15E062514BC9c94a140b50012777"
+      },
+      {
+        "underlying": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+        "vault": "0xa07A20796EE386AC5C91a1F36F8f5515c48a616F"
+      },
+      {
+        "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "vault": "0x9088834063Db290c255cef5ca8e505E6854248a1"
+      },
+      {
+        "underlying": "0xcb585250f852C6c6bf90434AB21A00f02833a4af",
+        "vault": "0xC1dd63A9f5fa483bd712c64fBAF3DC8b8bd6C56F"
+      },
+      {
+        "underlying": "0x660975730059246A68521a3e2FBD4740173100f5",
+        "vault": "0x80e73e1e9376A93E2927CDBa72C7863FD2a5960C"
+      },
+      {
+        "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "vault": "0x35ebbCd3D7a0C6f80630ecB9CD7808a4cdCCC786"
+      },
+      {
+        "underlying": "0xcb585250f852C6c6bf90434AB21A00f02833a4af",
+        "vault": "0xFc6aeAd5C94E9CBEa11931c4C9c186EC1fE5cf1F"
+      },
+      {
+        "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "vault": "0xa72bc07e9FA31CD20915C92B75F15f679758F7fb"
+      },
+      {
+        "underlying": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "vault": "0x43f14e4138a3F1724de64e369414d971eD9F7C87"
+      },
+      {
+        "underlying": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+        "vault": "0xC58e13d3D5Cd140d28f2057674777B87A1C3210D"
+      },
+      {
+        "underlying": "0xCE6170EA245dC8D1f275A710a062b70f125F0110",
+        "vault": "0x0ba189CBc0686983e9289d59C97Ba58A72AF08D5"
+      },
+      {
+        "underlying": "0x31C2C14134e6E3B7ef9478297F199331133Fc2d8",
+        "vault": "0xd54d33dA9C326AEE7513cEFdedA5c93a41809caD"
+      },
+      {
+        "underlying": "0xFF05E1bD696900dc6A52CA35Ca61Bb1024eDa8e2",
+        "vault": "0xD864d46c62685A6062A722AFD7C8c978c410aAaF"
+      },
+      {
+        "underlying": "0x5cDa0E1CA4ce2af96315f7F8963C85399c172204",
+        "vault": "0x2645CBAF62F2f336B0e988375d7e6bCAb66A296C"
+      },
+      {
+        "underlying": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "vault": "0x56EA6a20e24dFcF150fE10ff57B47D0A5D78060A"
+      },
+      {
+        "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "vault": "0x9f3Ab8351AB25C11a45D74a7Cc741EEfB1EDb2af"
+      },
+      {
+        "underlying": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+        "vault": "0x35C424De8d5c0458038790D2710269CD41169b49"
       }
     ],
     "9745": [
