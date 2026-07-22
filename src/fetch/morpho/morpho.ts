@@ -194,14 +194,19 @@ export class MorphoBlueUpdater implements DataUpdater {
   //     id
   //   }
   // }
+  // NB: order by `UniqueKey`, NOT a numeric metric. The blue-api excludes
+  // markets with a null metric from the result set when you order by it, so
+  // `orderBy: SupplyAssetsUsd` silently drops every zero-supply (idle)
+  // market — ~700 on Base alone — and they never get a label. `UniqueKey` is
+  // present on every market, so pagination stays stable and complete.
   private query(first: number, skip: number, chainId: string): string {
     return `
     query GetMarkets {
       markets(first: ${first}, skip: ${skip}, where:  {
          chainId_in: [${chainId}]
       },
-      orderBy: SupplyAssetsUsd,
-      orderDirection: Desc
+      orderBy: UniqueKey,
+      orderDirection: Asc
       ) {
         items {
           marketId
