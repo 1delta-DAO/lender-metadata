@@ -1,0 +1,27 @@
+{
+  "1": {
+    "termController": "0xd902EBb8AEb832643af38f43d466a6155cD8Bd5A",
+    "repoTokenLinkedList": "0x43ad4423d5e9569497e9f1f899e623409270d1e6",
+    "discountRateAdapter": "0xf10b634b97627736Ac13c053267e5e87c45D60f7",
+    "apiBaseUrl": null
+  },
+  "43114": {
+    "termController": "0xe46E6DDad84aBb0F87a1c2d8180aE1FB41a60031",
+    "repoTokenLinkedList": "0xC67a8C211b5F2774728D946FFc85F0B48dC50A6c",
+    "discountRateAdapter": "0xe44445B8F43C351ea6DD9b038eEd2Bf5C93D0E19",
+    "apiBaseUrl": null
+  },
+  "56": {
+    "termController": "0xe46E6DDad84aBb0F87a1c2d8180aE1FB41a60031",
+    "repoTokenLinkedList": "0xD792B87E7517D8a6BEE1b82C7B9Cef6c9b371C13",
+    "discountRateAdapter": "0xDE00C6513682C77119c0d13d9F225b968200E5e7",
+    "apiBaseUrl": null
+  },
+  "8453": {
+    "termController": "0x53838E6d7713Cd59e1a01d97b52e412891430bA5",
+    "repoTokenLinkedList": "0x971419cf26e78c49eae91435e3721f4c0f325380",
+    "repoTokenListEventEmitter": "0x1a565e4f66642678Cb095E1E407461EB229c8A56",
+    "discountRateAdapter": "0xDE00C6513682C77119c0d13d9F225b968200E5e7",
+    "apiBaseUrl": null
+  }
+}

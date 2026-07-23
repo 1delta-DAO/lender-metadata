@@ -1,0 +1,106 @@
+{
+  "10": [
+    {
+      "market": "0x6926B434CCe9b5b7966aE1BfEef6D0A7DCF3A8bb",
+      "asset": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "symbol": "exaUSDC",
+      "assetSymbol": "USDC",
+      "decimals": 6,
+      "assetDecimals": 6,
+      "maxFuturePools": 10,
+      "name": "Exactly USDC"
+    },
+    {
+      "market": "0x81C9A7B55A4df39A9B7B5F781ec0e53539694873",
+      "asset": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+      "symbol": "exaUSDC.e",
+      "assetSymbol": "USDC",
+      "decimals": 6,
+      "assetDecimals": 6,
+      "maxFuturePools": 10,
+      "name": "Exactly USDC (bridged)"
+    },
+    {
+      "market": "0xc4d4500326981eacD020e20A81b1c479c161c7EF",
+      "asset": "0x4200000000000000000000000000000000000006",
+      "symbol": "exaWETH",
+      "assetSymbol": "WETH",
+      "decimals": 18,
+      "assetDecimals": 18,
+      "maxFuturePools": 10,
+      "name": "Exactly WETH"
+    },
+    {
+      "market": "0xa430A427bd00210506589906a71B54d6C256CEdb",
+      "asset": "0x4200000000000000000000000000000000000042",
+      "symbol": "exaOP",
+      "assetSymbol": "OP",
+      "decimals": 18,
+      "assetDecimals": 18,
+      "maxFuturePools": 10,
+      "name": "Exactly OP"
+    },
+    {
+      "market": "0x6f748FD65d7c71949BA6641B3248C4C191F3b322",
+      "asset": "0x68f180fcce6836688e9084f035309e29bf0a2095",
+      "symbol": "exaWBTC",
+      "assetSymbol": "WBTC",
+      "decimals": 8,
+      "assetDecimals": 8,
+      "maxFuturePools": 10,
+      "name": "Exactly WBTC"
+    },
+    {
+      "market": "0x22ab31Cd55130435b5efBf9224b6a9d5EC36533F",
+      "asset": "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
+      "symbol": "exawstETH",
+      "assetSymbol": "wstETH",
+      "decimals": 18,
+      "assetDecimals": 18,
+      "maxFuturePools": 10,
+      "name": "Exactly wstETH"
+    }
+  ],
+  "8453": [
+    {
+      "market": "0x61EDAcB54aA8a689013682529df8914C87692E4b",
+      "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "symbol": "exaUSDC",
+      "assetSymbol": "USDC",
+      "decimals": 6,
+      "assetDecimals": 6,
+      "maxFuturePools": 10,
+      "name": "Exactly USDC"
+    },
+    {
+      "market": "0x52eE5238e5676598551c8d2bBcCB62c72FC3A0c4",
+      "asset": "0x4200000000000000000000000000000000000006",
+      "symbol": "exaWETH",
+      "assetSymbol": "WETH",
+      "decimals": 18,
+      "assetDecimals": 18,
+      "maxFuturePools": 3,
+      "name": "Exactly WETH"
+    },
+    {
+      "market": "0x8C2F35c8076bCb5D4b696bAE11AcA0ac0Dd873e4",
+      "asset": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "symbol": "exacbBTC",
+      "assetSymbol": "cbBTC",
+      "decimals": 8,
+      "assetDecimals": 8,
+      "maxFuturePools": 3,
+      "name": "Exactly cbBTC"
+    },
+    {
+      "market": "0x1Dcf89Dfa88363ef33d49dD591b1eE5e84DD0F75",
+      "asset": "0xcb585250f852c6c6bf90434ab21a00f02833a4af",
+      "symbol": "exacbXRP",
+      "assetSymbol": "cbXRP",
+      "decimals": 6,
+      "assetDecimals": 6,
+      "maxFuturePools": 3,
+      "name": "Exactly cbXRP"
+    }
+  ]
+}

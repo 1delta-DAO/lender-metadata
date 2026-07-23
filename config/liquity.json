@@ -1,0 +1,36 @@
+{
+  "LIQUITY_V2": {
+    "1": {
+      "collateralRegistry": "0xf949982b91c8c61e952b3ba942cbbfaef5386684",
+      "boldToken": "0x6440f144b7e50d6a8439336510312d2f54beb01d",
+      "hintHelpers": "0xf0cae19c96e572234398d6665cc1147a16cbe657",
+      "multiTroveGetter": "0xfa61db085510c64b83056db3a7acf3b6f631d235",
+      "wethToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "gasCompensation": "37500000000000000",
+      "minDebt": "2000000000000000000000",
+      "minAnnualInterestRate": "5000000000000000",
+      "maxAnnualInterestRate": "2500000000000000000",
+      "upfrontInterestPeriodSeconds": "604800",
+      "interestRateAdjCooldownSeconds": "604800",
+      "spYieldSplit": "750000000000000000",
+      "hasDebtCaps": false,
+      "hasForkParamGetters": false,
+      "mutableParams": false,
+      "apiBaseUrl": "https://api.liquity.org/v2/ethereum.json",
+      "subgraphUrl": null,
+      "zappers": [
+        "0x7022a4f4a2b9f0c30a5eb0b0073a8bb4c8e70c1f",
+        "0xbd69d3e0ea967d146e925b7572b765c8e9c4127d",
+        "0xbe8b230dcd12e246f5edc5c103cc98be68ab636f",
+        "0xdccbd7a365aee086aa3b4ede8afe895b20770ae3",
+        "0xe85230de04147c4ea363b21cdb801c1c19df0a56",
+        "0x75036b1d6de5665c60f5c33bb4a64e8e123211a2"
+      ],
+      "branchAddressesRegistries": [
+        "0x20f7c9ad66983f6523a0881d0f82406541417526",
+        "0x8d733f7ea7c23cbea7c613b6ebd845d46d3aac54",
+        "0x6106046f031a22713697e04c08b330ddaf3e8789"
+      ]
+    }
+  }
+}

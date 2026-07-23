@@ -1,0 +1,20 @@
+{
+  "10": {
+    "auditor": "0xaEb62e6F27BC103702E7BC879AE98bceA56f027E",
+    "previewer": "0x328834775A18A4c942F30bfd091259ade4355C2a",
+    "ratePreviewer": "0x1D50C39B2851bb1a15514931Ca556CFf10f60da7",
+    "marketETHRouter": "0x29bAbFF3eBA7B517a75109EA8fd6D1eAb4A10258",
+    "wethMarket": "0xc4d4500326981eacD020e20A81b1c479c161c7EF",
+    "debtManager": "0x057e3EfCA6f9E7094584B176f3E69a4f4B594D04",
+    "rewardsController": "0xBd1ba78A3976cAB420A9203E6ef14D18C2B2E031"
+  },
+  "8453": {
+    "auditor": "0x0Aeb0BCB919858C0a4dceC3EeD879985034A597c",
+    "previewer": "0xE69Aaa5cF5b9a7E813dB65544d454e46b28c9a6B",
+    "ratePreviewer": "0x2E9ccE021c73b8b4fe8Cd2d4C4aC9e6Ed4131796",
+    "marketETHRouter": "0x85c21fA8AeE39891E115E2b28c3dB2dE5B0AaF4f",
+    "wethMarket": "0x52eE5238e5676598551c8d2bBcCB62c72FC3A0c4",
+    "debtManager": null,
+    "rewardsController": null
+  }
+}
