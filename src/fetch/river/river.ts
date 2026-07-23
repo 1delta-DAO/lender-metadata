@@ -2,6 +2,7 @@ import { readFileSync } from "fs";
 import { erc20Abi } from "viem";
 import { multicallRetryUniversal } from "@1delta/providers";
 import { DataUpdater } from "../../types.js";
+import { mergeData as deepMergeData } from "../../utils.js";
 
 // ============================================================================
 // River (rebranded Satoshi Protocol) market registry. Prisma/Liquity-V1-
@@ -19,6 +20,11 @@ import { DataUpdater } from "../../types.js";
 // ============================================================================
 
 const MARKETS_FILE = "./data/river-markets.json";
+const LABELS_FILE = "./data/lender-labels.json";
+
+const DISPLAY: Record<string, { name: string; short: string }> = {
+  RIVER: { name: "River", short: "River" },
+};
 const CONFIG_FILE = "./config/river.json";
 
 type RiverChainCfg = { xapp: string; debtToken: string };
@@ -198,7 +204,9 @@ async function fetchChain(
     if (t?.symbol) (m as any).name = `${debtSymbol} / ${t.symbol}`;
   }
 
-  console.log(`River: ${lender} chain ${chainId}: ${markets.length} TroveManagers`);
+  console.log(
+    `River: ${lender} chain ${chainId}: ${markets.length} TroveManagers`,
+  );
   return { minNetDebt: num(minNetDebtRaw) ?? "0", markets };
 }
 
@@ -215,13 +223,35 @@ export class RiverUpdater implements DataUpdater {
     }
 
     const result: Record<string, Record<string, any>> = {};
+    const names: Record<string, string> = {};
+    const shortNames: Record<string, string> = {};
     for (const lender of lenders) {
+      const disp = DISPLAY[lender] ?? { name: lender, short: lender };
+      names[lender] = disp.name;
+      shortNames[lender] = disp.short;
       for (const [chainId, cfg] of Object.entries(config[lender])) {
         try {
           const data = await fetchChain(lender, chainId, cfg);
           if (!data) continue;
           if (!result[lender]) result[lender] = {};
           result[lender][chainId] = data;
+          // Per-market labels. Keys embed the CHAIN ID
+          // (`RIVER_<chainId>_<index>`, Fluid convention) so they are
+          // globally unique; the SAME collateral can still back several
+          // TroveManagers on ONE chain (two clBTC markets on Base) —
+          // those get the factory index as a suffix.
+          const counts: Record<string, number> = {};
+          for (const m of data.markets) {
+            const coll = (m as any).name?.split(" / ").pop() ?? `#${m.index}`;
+            counts[coll] = (counts[coll] ?? 0) + 1;
+          }
+          for (const m of data.markets) {
+            const coll = (m as any).name?.split(" / ").pop() ?? `#${m.index}`;
+            const label = counts[coll] > 1 ? `${coll} #${m.index}` : coll;
+            const key = `${lender}_${chainId}_${m.index}`;
+            names[key] = `${disp.name} ${label}`;
+            shortNames[key] = `${disp.short} ${label}`;
+          }
         } catch (e) {
           console.log(
             `River: ${lender} chain ${chainId} failed:`,
@@ -230,11 +260,15 @@ export class RiverUpdater implements DataUpdater {
         }
       }
     }
-    return { [MARKETS_FILE]: result };
+    return { [MARKETS_FILE]: result, [LABELS_FILE]: { names, shortNames } };
   }
 
   /** Replace per lender+chain when the fetch returned markets; keep old on empty. */
-  mergeData(oldData: any, data: any): any {
+  mergeData(oldData: any, data: any, fileKey?: string): any {
+    // Labels file is shared across every lender family — accumulate.
+    if (fileKey === LABELS_FILE) {
+      return deepMergeData(oldData ?? {}, data ?? {});
+    }
     const merged: Record<string, Record<string, any>> = { ...(oldData ?? {}) };
     for (const [lender, chains] of Object.entries(
       (data ?? {}) as Record<string, Record<string, any>>,
@@ -244,7 +278,10 @@ export class RiverUpdater implements DataUpdater {
         if (Array.isArray(chainData?.markets) && chainData.markets.length > 0) {
           merged[lender][chainId] = chainData;
         } else if (!merged[lender][chainId]) {
-          merged[lender][chainId] = chainData ?? { minNetDebt: "0", markets: [] };
+          merged[lender][chainId] = chainData ?? {
+            minNetDebt: "0",
+            markets: [],
+          };
         }
       }
     }

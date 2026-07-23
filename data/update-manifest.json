@@ -1,12 +1,15 @@
 {
-  "version": "2026-07-23T12-41-50-997Z",
-  "generatedAt": "2026-07-23T12:41:50.997Z",
+  "version": "2026-07-23T14-27-28-569Z",
+  "generatedAt": "2026-07-23T14:27:28.570Z",
   "updatedFiles": [
-    "./data/liquity-markets.json"
+    "./data/lender-labels.json"
   ],
   "results": [
     {
-      "targetFile": "./data/liquity-markets.json"
+      "targetFile": "./data/river-markets.json"
+    },
+    {
+      "targetFile": "./data/lender-labels.json"
     }
   ]
 }

@@ -372,3 +372,27 @@ All data files follow a consistent nesting pattern:
 - BigInt values are serialized to strings in JSON output
 - Morpho uses append-only merge logic to preserve existing market IDs
 - TypeScript 6+ requires `moduleResolution: "Bundler"` (the deprecated `"Node"` option was removed); `"types": ["node"]` is set explicitly in `tsconfig.json` for Node built-in type resolution
+
+### Liquity V2 family (`src/fetch/liquity/`)
+
+Covers Liquity V2 and its friendly forks (USDaf, Felix, Nerite, Quill, Ēnosys
+Loans, Soneta, Ebisu) — one config row per deployment, shared adapter code.
+
+| File | Description |
+|------|-------------|
+| `config/liquity.json` | Hand-seeded per deployment (lender → chainId): shared addresses (CollateralRegistry, stable token, HintHelpers, MultiTroveGetter, gas-comp token), deviation params (minDebt, rate bounds, gasCompensation, debt-cap/param-getter/mutable flags), `branchAddressesRegistries` ORDERED BY collIndex (branch contracts don't expose their registry — must be seeded), per-fork `zappers` (trove-id discovery probing), `collWrappers` (wrapper-token branches), subgraph/API endpoints |
+| `data/liquity-markets.json` | Generated (`npm run update:liquity`): per-branch contract sets + risk constants (CCR/MCR/SCR/BCR, liquidation penalties, debt caps) enumerated from each CollateralRegistry and read from the seeded AddressesRegistries. Re-run refreshes owner-mutable constants on proxied forks (Felix, Ēnosys, Ebisu) |
+
+Gotcha: USDaf has TWO deployments — the live V2 registry is `0x33d680…`; their
+repo's broadcast manifest points at the abandoned legacy one.
+
+### River / Satoshi Protocol (`src/fetch/river/`)
+
+Prisma-lineage CDP behind one SatoshiXApp diamond per chain (BNB, Base, Hemi).
+
+| File | Description |
+|------|-------------|
+| `config/river.json` | Hand-seeded per chain: `{ xapp, debtToken, periphery }` |
+| `data/river-markets.json` | Generated (`npm run update:river`): per-chain `{ minNetDebt, markets[] }` — TroveManagers enumerated via the diamond's FactoryFacet, per-TM owner-mutable params snapshotted (MCR, interestRate, mint-fee bounds, maxSystemDebt, debtGasCompensation, pause/sunset flags) |
+
+Facet addresses get re-cut — the updaters only ever call the diamond.

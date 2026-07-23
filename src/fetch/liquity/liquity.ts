@@ -2,6 +2,7 @@ import { readFileSync } from "fs";
 import { erc20Abi } from "viem";
 import { multicallRetryUniversal } from "@1delta/providers";
 import { DataUpdater } from "../../types.js";
+import { mergeData as deepMergeData } from "../../utils.js";
 
 // ============================================================================
 // Liquity V2 family branch registry. Mirrors the Aave-fork model: every
@@ -29,6 +30,21 @@ import { DataUpdater } from "../../types.js";
 // ============================================================================
 
 const MARKETS_FILE = "./data/liquity-markets.json";
+const LABELS_FILE = "./data/lender-labels.json";
+
+// Display names per deployment — parent labels plus the prefix for the
+// per-branch labels (`<Brand> <COLL>`, short `<Short> <COLL>` — Fluid/Silo
+// style). Falls back to the raw key for unlisted deployments.
+const DISPLAY: Record<string, { name: string; short: string }> = {
+  LIQUITY_V2: { name: "Liquity V2", short: "LQV2" },
+  USDAF: { name: "Asymmetry USDaf", short: "USDaf" },
+  FELIX: { name: "Felix", short: "Felix" },
+  NERITE: { name: "Nerite", short: "Nerite" },
+  QUILL: { name: "Quill Finance", short: "Quill" },
+  ENOSYS_LOANS: { name: "Enosys Loans", short: "Enosys" },
+  SONETA: { name: "Soneta", short: "Soneta" },
+  EBISU: { name: "Ebisu", short: "Ebisu" },
+};
 const CONFIG_FILE = "./config/liquity.json";
 
 type LiquityChainCfg = {
@@ -104,15 +120,19 @@ const ADDRESSES_REGISTRY_ABI = REGISTRY_READS.map((name) => ({
 // Partial-mode fallback getters when no AddressesRegistry is seeded for a
 // branch: everything TroveManager + BorrowerOperations expose publicly.
 const TROVE_MANAGER_ABI = [
-  ...["troveNFT", "borrowerOperations", "stabilityPool", "sortedTroves", "activePool"].map(
-    (name) => ({
-      type: "function",
-      name,
-      stateMutability: "view",
-      inputs: [],
-      outputs: [{ name: "", type: "address" }],
-    }),
-  ),
+  ...[
+    "troveNFT",
+    "borrowerOperations",
+    "stabilityPool",
+    "sortedTroves",
+    "activePool",
+  ].map((name) => ({
+    type: "function",
+    name,
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "address" }],
+  })),
   // Non-vanilla fork extension (Nerite-style per-branch debt cap); called with
   // allowFailure and only consumed when the deployment sets `hasDebtCaps`.
   {
@@ -175,7 +195,9 @@ async function resolveTokenMeta(
     const sRaw = res[i * 2 + 1];
     out[t.toLowerCase()] = {
       decimals:
-        typeof dRaw === "bigint" || typeof dRaw === "number" ? Number(dRaw) : 18,
+        typeof dRaw === "bigint" || typeof dRaw === "number"
+          ? Number(dRaw)
+          : 18,
       symbol: typeof sRaw === "string" && sRaw.length > 0 ? sRaw : undefined,
     };
   });
@@ -191,7 +213,9 @@ async function fetchBranches(
   //    collIndex — catches branches added after the config was seeded).
   const [totalRaw] = (await multicallRetryUniversal({
     chain: chainId,
-    calls: [{ address: cfg.collateralRegistry, name: "totalCollaterals", args: [] }],
+    calls: [
+      { address: cfg.collateralRegistry, name: "totalCollaterals", args: [] },
+    ],
     abi: COLLATERAL_REGISTRY_ABI as any,
     allowFailure: false,
   })) as any[];
@@ -218,7 +242,9 @@ async function fetchBranches(
   //    seeded branches), partial fallback via TroveManager + BorrowerOperations.
   const regCalls = regs
     .slice(0, total)
-    .flatMap((reg) => REGISTRY_READS.map((name) => ({ address: reg, name, args: [] })));
+    .flatMap((reg) =>
+      REGISTRY_READS.map((name) => ({ address: reg, name, args: [] })),
+    );
   let regRes: any[] = [];
   if (regCalls.length > 0) {
     regRes = (await multicallRetryUniversal({
@@ -277,9 +303,13 @@ async function fetchBranches(
       }
       const tmRes = (await multicallRetryUniversal({
         chain: chainId,
-        calls: ["troveNFT", "borrowerOperations", "stabilityPool", "sortedTroves", "activePool"].map(
-          (name) => ({ address: troveManager, name, args: [] }),
-        ),
+        calls: [
+          "troveNFT",
+          "borrowerOperations",
+          "stabilityPool",
+          "sortedTroves",
+          "activePool",
+        ].map((name) => ({ address: troveManager, name, args: [] })),
         abi: TROVE_MANAGER_ABI,
         allowFailure: true,
       })) as any[];
@@ -339,7 +369,9 @@ async function fetchBranches(
     if (m?.symbol) b.name = `${stableSymbol} / ${m.symbol}`;
   }
 
-  console.log(`Liquity: ${lender} chain ${chainId}: ${branches.length} branches`);
+  console.log(
+    `Liquity: ${lender} chain ${chainId}: ${branches.length} branches`,
+  );
   return branches;
 }
 
@@ -356,12 +388,26 @@ export class LiquityUpdater implements DataUpdater {
     }
 
     const result: Record<string, Record<string, any[]>> = {};
+    const names: Record<string, string> = {};
+    const shortNames: Record<string, string> = {};
     for (const lender of lenders) {
+      const disp = DISPLAY[lender] ?? { name: lender, short: lender };
+      names[lender] = disp.name;
+      shortNames[lender] = disp.short;
+      // Per-branch labels. Market keys embed the CHAIN ID
+      // (`<LENDER>_<chainId>_<collIndex>`, Fluid convention) so they are
+      // globally unique — every branch gets a `<Brand> <COLL>` label.
       for (const [chainId, cfg] of Object.entries(config[lender])) {
         try {
           const branches = await fetchBranches(lender, chainId, cfg);
           if (!result[lender]) result[lender] = {};
           result[lender][chainId] = branches;
+          for (const b of branches) {
+            const coll = b.name?.split(" / ").pop() ?? `#${b.collIndex}`;
+            const key = `${lender}_${chainId}_${b.collIndex}`;
+            names[key] = `${disp.name} ${coll}`;
+            shortNames[key] = `${disp.short} ${coll}`;
+          }
         } catch (e) {
           console.log(
             `Liquity: ${lender} chain ${chainId} failed:`,
@@ -370,7 +416,7 @@ export class LiquityUpdater implements DataUpdater {
         }
       }
     }
-    return { [MARKETS_FILE]: result };
+    return { [MARKETS_FILE]: result, [LABELS_FILE]: { names, shortNames } };
   }
 
   /**
@@ -379,7 +425,12 @@ export class LiquityUpdater implements DataUpdater {
    * Guard: keep old data when a fetch came back empty for a lender+chain that
    * previously had branches (transient RPC blip protection).
    */
-  mergeData(oldData: any, data: any): any {
+  mergeData(oldData: any, data: any, fileKey?: string): any {
+    // Labels file is shared across every lender family — accumulate, never
+    // replace (matches the Midnight updater).
+    if (fileKey === LABELS_FILE) {
+      return deepMergeData(oldData ?? {}, data ?? {});
+    }
     const merged: Record<string, Record<string, any[]>> = {
       ...(oldData ?? {}),
     };
