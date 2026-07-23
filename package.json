@@ -13,6 +13,7 @@
     "update:morpho": "tsx src/update-morpho.ts",
     "update:midnight": "tsx src/update-midnight.ts",
     "update:liquity": "tsx src/update-liquity.ts",
+    "update:river": "tsx src/update-river.ts",
     "update:morpho-oracles": "tsx src/update-morpho-oracles.ts",
     "update:compound-v3-oracles": "tsx src/update-compound-v3-oracles.ts",
     "update:compound-v2-oracles": "tsx src/update-compound-v2-oracles.ts",

@@ -1,0 +1,19 @@
+{
+  "RIVER": {
+    "56": {
+      "xapp": "0x07bbc5a83b83a5c440d1caedbf1081426d0aa4ec",
+      "debtToken": "0xb4818bb69478730ef4e33cc068dd94278e2766cb",
+      "periphery": "0x0a1ca3190579504761a0efd0c94dfa2dede55be2"
+    },
+    "8453": {
+      "xapp": "0x9a3c724ee9603a7550499be73dc743b371811dd3",
+      "debtToken": "0x70654aad8b7734dc319d0c3608ec7b32e03fa162",
+      "periphery": "0x9d9f0d9a13d3ba201003dd2e8950059d2c08d782"
+    },
+    "43111": {
+      "xapp": "0x07bbc5a83b83a5c440d1caedbf1081426d0aa4ec",
+      "debtToken": "0xb4818bb69478730ef4e33cc068dd94278e2766cb",
+      "periphery": "0x0a1ca3190579504761a0efd0c94dfa2dede55be2"
+    }
+  }
+}
