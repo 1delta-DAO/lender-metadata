@@ -32,5 +32,258 @@
         "0x6106046f031a22713697e04c08b330ddaf3e8789"
       ]
     }
+  },
+  "USDAF": {
+    "1": {
+      "collateralRegistry": "0x33d68055cd54061991b2e98b9ab326ffce4d60fe",
+      "boldToken": "0x9cf12ccd6020b6888e4d4c4e4c7aca33c1eb91f8",
+      "hintHelpers": "0x838a1f38c361ffa1b23201640752149adb4e865a",
+      "multiTroveGetter": "0xb3683a407bddddfb126cf06fb52d974a08fd7e80",
+      "wethToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "gasCompensation": "37500000000000000",
+      "minDebt": "2000000000000000000000",
+      "minAnnualInterestRate": "5000000000000000",
+      "maxAnnualInterestRate": "2500000000000000000",
+      "branchAddressesRegistries": [
+        "0x3414bd84dff0900a9046a987f4df2e0ef08fa1ce",
+        "0x0c7b6c6a60ae2016199d393695667c1482719c82",
+        "0x330a0fdfc1818be022fedce96a041293e16dc6d1",
+        "0x0ad1c302203f0fbb6ca34641bdfef0bf4182377c",
+        "0xbd9f75471990041a3e7c22872c814a273485e999",
+        "0x2c5a85a3fd181857d02baff169d1e1cb220ead6d"
+      ],
+      "zappers": [
+        "0x9f69960304183768a01e0ba9f8a0164b556642d2",
+        "0x547d14f2e230cda0b99a17a1e396dc5b1e5d0920",
+        "0xe1dde16f0dc85e05893b20131eb49deed543d68d",
+        "0x54867de8786dbd761463729f570b76172733f010",
+        "0x14300f754c11ac4c848732151d80affb12f90374",
+        "0xf8853a3c8fed7e3ef145816b98f15278fcc2aa1c"
+      ],
+      "collWrappers": {
+        "5": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+      },
+      "subgraphUrl": "https://gateway.thegraph.com/api/{API_KEY}/subgraphs/id/2SVsZrbSRcLBh6HxZt5LK8sXVvFGJdpd5j2MGaLuk5sZ",
+      "apiBaseUrl": null
+    }
+  },
+  "FELIX": {
+    "999": {
+      "collateralRegistry": "0x9de1e57049c475736289cb006212f3e1dce4711b",
+      "boldToken": "0x02c6a2fa58cc01a18b8d9e00ea48d65e4df26c70",
+      "hintHelpers": "0xa32e89c658f7fdcc0bdb2717f253bacd99f864d4",
+      "multiTroveGetter": "0x708809ac6ac45ba95532c961fd46228fa6dd761e",
+      "wethToken": "0x5555555555555555555555555555555555555555",
+      "gasCompensation": "0",
+      "minDebt": "2000000000000000000000",
+      "minAnnualInterestRate": "5000000000000000",
+      "maxAnnualInterestRate": "2500000000000000000",
+      "hasDebtCaps": true,
+      "mutableParams": true,
+      "branchAddressesRegistries": [
+        "0x7201fb5c3ba06f10a858819f62221ae2f473815d",
+        "0xfc4e20bd9f0e4f8782bea92a7bd8002367882407",
+        "0x382d2fe4eed8e35a5855321e62fd45ad60ca589f",
+        "0x6a1ce00901c3deb2683a6c63fcd158cc3adc2740"
+      ],
+      "zappers": [
+        "0x999876bc29bc2251539c900a1bcfc6c934991f49",
+        "0x557de9e0c3cc187cee25e14325a7ef845dad286c",
+        "0xd389c600b302c05e619a25112b27ea07c62a6c8c"
+      ],
+      "collWrappers": {
+        "1": "0x9fdbda0a5e284c32744d2f17ee5c74b284993463"
+      },
+      "subgraphUrl": null,
+      "apiBaseUrl": null
+    }
+  },
+  "NERITE": {
+    "42161": {
+      "collateralRegistry": "0x7f7fbc2711c0d6e8ef757dbb82038032dd168e68",
+      "boldToken": "0x4ecf61a6c2fab8a047ceb3b3b263b401763e9d49",
+      "hintHelpers": "0x07ce30b1672d1ad4c00fc8f091608337e4748625",
+      "multiTroveGetter": "0xe80bd7c36ad662f1b007dc1b1c490fbf4c47ab88",
+      "wethToken": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+      "gasCompensation": "1000000000000000",
+      "minDebt": "500000000000000000000",
+      "minAnnualInterestRate": "5000000000000000",
+      "maxAnnualInterestRate": "2500000000000000000",
+      "hasDebtCaps": true,
+      "branchAddressesRegistries": [
+        "0xbb6c6b994409b320e25e7de129e0db5da60ae89b",
+        "0x5176fdd77fdef5b7f1edd457d02a8ec1cfebbb34",
+        "0x51253ae341f6dd1c4ff5692de0ee69492743895e",
+        "0xcbf5786902487c1165a98f48ebc65fa0e62739c6",
+        "0xc23928fd7d93ccb61ca60f09311de2dda66c02e4",
+        "0x7900b65266e157d9fce97e92ac3879cb712ded31",
+        "0xfe75add51a119e556acd53676b12f865a6737177",
+        "0xf329fb0e818bd92395785a4f863636bc0d85e1df"
+      ],
+      "zappers": [
+        "0x129524a8638edb4a3dbb741ea3a63b49558f931b",
+        "0xc803389d70fb4627aa62303adc2b833888b04cd8",
+        "0x6471b1aef6447ce94c32428809adb3d364faf37e",
+        "0x9b5a1ce2a86537f6d9d816c740593425f07755d8",
+        "0x9ccfad2b90672f4d80451d56e2afe5884b36354e",
+        "0x19a9eb1f9c5ef7db9b5583b744d30a62a9da3eed",
+        "0x5a6fbd7bb05dbec02d8cd4214ecc48ea1c91cbce",
+        "0x01e3c5831fbd3fc00ff58c7c14daea46183f8a34",
+        "0x4548b802fd41c783e0aee687273d5a417fefa2ad",
+        "0x724e96e94117a10e9ca5c5af002aa9f5a90c178d",
+        "0x27a2688da49bac2f04f82d0cd916b0f04cf5a52c",
+        "0x1c605810a7036144d6f175d340d5fa1daaa8dcb5",
+        "0x6fe92d16bed3ce6c419442d57ab8142cb38bdcf8",
+        "0x0a20361c2327661514988f76432f8c290d47fe7f",
+        "0x3cf201d9b789b0d4bef12b249a43e5c520ee3ae4",
+        "0x5d5b129a3d2fc95589006df0d8f513440489eec5"
+      ],
+      "subgraphUrl": "https://gateway.thegraph.com/api/{API_KEY}/subgraphs/id/G87zC6pwPLFV1Xs2hXPVCJYQ66GH3TBPw6L98G6NKoSK",
+      "apiBaseUrl": "https://nerite-arbitrum-one-api.summerstone.xyz/"
+    }
+  },
+  "QUILL": {
+    "534352": {
+      "collateralRegistry": "0x358d90036e70542ae24b3813c0efecc1f8811442",
+      "boldToken": "0xdb9e8f82d6d45fff803161f2a5f75543972b229a",
+      "hintHelpers": "0x64207686342b27298ed5aa06ef18628abc0bfb39",
+      "multiTroveGetter": "0x2cdb9d86cd71391e1e1ba3b55860b60aaa6b1b1d",
+      "wethToken": "0x5300000000000000000000000000000000000004",
+      "gasCompensation": "37500000000000000",
+      "minDebt": "500000000000000000000",
+      "minAnnualInterestRate": "60000000000000000",
+      "maxAnnualInterestRate": "3500000000000000000",
+      "hasForkParamGetters": true,
+      "branchAddressesRegistries": [
+        "0xe58a321eed288c84fd0b4f6d4892d099054caebd",
+        "0xbe4b85734a046b34b24c2538cba6205c98a74aeb",
+        "0x6a036d49287fd7d6808629e95f831a1addc62b95",
+        "0x1cb0f2a6ba0c22388dd28550a90ec5d46c82cdba"
+      ],
+      "zappers": [
+        "0xf08e2de38eef727b01066a6db9b1f46622c4df26",
+        "0x757126b92078ab726bbc98e55b365eca8919910c",
+        "0xba546c927b59d619c55a3ab5237ec82ff86e3265",
+        "0x3bcc123a224f13ab8dc5385f2bd70e474c685fc4"
+      ],
+      "subgraphUrl": "https://api.goldsky.com/api/public/project_cm5h0u7evbyt901vv3tlbb2gt/subgraphs/quill-scroll-mainnet-v2/0.2.0/gn",
+      "apiBaseUrl": null
+    }
+  },
+  "ENOSYS_LOANS": {
+    "14": {
+      "collateralRegistry": "0x9474206bc035d03d142264fd9913d1d51246d3ac",
+      "boldToken": "0x6cd3a5ba46fa254d4d2e3c2b37350ae337e94a0f",
+      "hintHelpers": "0x0f493519aff37a4ec95f31301b7c4f987915acb0",
+      "multiTroveGetter": "0xb80c59bbceb205bca25eea2e4221717f23b339d3",
+      "wethToken": "0x1d80c49bbbcd1c0911346656b529df9e5c2f783d",
+      "gasCompensation": "100000000000000000",
+      "minDebt": "500000000000000000000",
+      "minAnnualInterestRate": "5000000000000000",
+      "maxAnnualInterestRate": "2500000000000000000",
+      "mutableParams": true,
+      "branchAddressesRegistries": [
+        "0xe492569dbb3273548c96c89ab934bddc6217c6f7",
+        "0xdb2e8d166762c7e70ea8f088b945d213aeb313fb",
+        "0x115d86db85489b3b30437684d3e1204cefec280d",
+        "0x772ee1192144be3b00447b697151687cecdb5a1d"
+      ],
+      "zappers": [],
+      "subgraphUrl": "https://api.goldsky.com/api/public/project_cmdh0x5br3njr01x9f48chl94/subgraphs/loans-flare/0.4.0-prod/gn",
+      "apiBaseUrl": "https://flrfinance.github.io/api.liquity.org-fork/v2/flare.json"
+    }
+  },
+  "SONETA": {
+    "146": {
+      "collateralRegistry": "0x52851b9ebab7f11eaad4551166dcb40fa28b659a",
+      "boldToken": "0x926c23ba34925526c2817a88db13085bbbb976fc",
+      "hintHelpers": "0xc60b08886033869df91e8479114649146be10cc2",
+      "multiTroveGetter": "0x1900dbc177c72d2a9d87f594ce2b4ac032a37bde",
+      "wethToken": "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+      "gasCompensation": "37500000000000000",
+      "minDebt": "2000000000000000000000",
+      "minAnnualInterestRate": "5000000000000000",
+      "maxAnnualInterestRate": "2500000000000000000",
+      "branchAddressesRegistries": [
+        "0xdcc18ea6457ec725c04ee58449a0b9b2da6831a5",
+        "0x4d57e271f329df4a91f2fb1f4126fff740542543",
+        "0x9894e1653e0318d632559c6e8f2d2ed10aedc447",
+        "0x6285ae8e2f9627bae43b7dc040eeef4b2fb81251"
+      ],
+      "zappers": [
+        "0xe33c80b224b2cc313af7af55e6d7f5bcd883290e",
+        "0xff189d531a94ad9d5641f4498c7bfeb0e7d4c2f6",
+        "0xac80889388d74661b1675ce841deaa89f5970a4d",
+        "0x8a372b6a4f180003ac520443bd3e93cac62f2d48"
+      ],
+      "collWrappers": {
+        "1": "0xecac9c5f704e954931349da37f60e39f515c11c1"
+      },
+      "subgraphUrl": "https://api.goldsky.com/api/public/project_cmh1lybht009x5gp2fnth070b/subgraphs/soneta-sonic-mainnet/1.1.3/gn",
+      "apiBaseUrl": "https://soneta-sonic-mainnet-api.summerstone.xyz/"
+    }
+  },
+  "EBISU": {
+    "1": {
+      "collateralRegistry": "0x5e159fac2d137f7b83a12b9f30ac6ab2ba6d45e7",
+      "boldToken": "0x09fd37d9aa613789c517e76df1c53aece2b60df4",
+      "hintHelpers": "0xbb6a1a621b0e9614d28e95b11970de2e4a558092",
+      "multiTroveGetter": "0xdc6432379b6ecf5d8998ddbd649389c57d138228",
+      "wethToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "gasCompensation": "37500000000000000",
+      "minDebt": "2000000000000000000000",
+      "minAnnualInterestRate": "5000000000000000",
+      "maxAnnualInterestRate": "2500000000000000000",
+      "mutableParams": true,
+      "branchAddressesRegistries": [
+        "0x329a7baa50bb43a6149af8c9cf781876b6fd7b3a",
+        "0x411ed8575a1e3822bbc763dc578dd9bfaf526c1f",
+        "0x0cac6a40ee0d35851fd6d9710c5180f30b494350",
+        "0x7f034988af49248d3d5bd81a2ce76ed4a3006243",
+        "0x0c774f22e4b782167ef9635d9ecfba61dd4e94ea"
+      ],
+      "zappers": [
+        "0x4df2d6325660eb0c0a80eaf508d1470f04edbf98",
+        "0x54965fd4dacbc5ab969c2f52e866c1a37ad66923",
+        "0x44ed748354cbd60ac5273abbbef0dcf1996a51fb",
+        "0x175a17755ea596875cb3c996d007072c3f761f6b",
+        "0x4166393c55d33da6df87831fa8c5d8f83c961692",
+        "0x6a883bfa534754e3b31aa810d6e546f9d0be2f20"
+      ],
+      "subgraphUrl": "https://api.goldsky.com/api/public/project_cmaln6teg7wjt0109ff7u43s3/subgraphs/ebisu-main/1.0.0/gn",
+      "apiBaseUrl": null
+    },
+    "9745": {
+      "collateralRegistry": "0x602096a2f43b43d11dcb3713702dda963c45adc6",
+      "boldToken": "0xef7b1a03e0897c33b63159e38d779e3970c0e2fc",
+      "hintHelpers": "0x3a4ae0b41b11e3c95c65ab71df5d084d7ba57c95",
+      "multiTroveGetter": "0x064619e7416a21b2578ff2a6020482634aaaa109",
+      "wethToken": "0x6100e367285b01f48d07953803a2d8dca5d19873",
+      "gasCompensation": "10000000000000000",
+      "minDebt": "500000000000000000000",
+      "minAnnualInterestRate": "5000000000000000",
+      "maxAnnualInterestRate": "2500000000000000000",
+      "mutableParams": true,
+      "branchAddressesRegistries": [
+        "0x7139c7855d88c4e8f6f96ebd8bd89a18b99719dd",
+        "0xff6ca090ac2bde76ec668435c88d515f145ff416",
+        "0x8d521034e49337daf002a01f9da4852607711c18",
+        "0xe265dcdc27427fffd69c588f79b43d723c673727",
+        "0x1577995c547d5912b3415681bad2af22062b6c65",
+        "0x9e4ee17bb606b7c8a4fc4d2d048015edcc368d8f",
+        "0x5b85d32baa507fdf472e6a391d90219236d732ee"
+      ],
+      "zappers": [
+        "0xa2d0edc2d8c8a1c69359ea9908ac803f43d8f72f",
+        "0x6b6cda41e7f3453f14223ea02c15939a196e0395",
+        "0xad04ac0e59fe9d8d45ea9465ba47ebccd6b64118",
+        "0xb7d2762dfe4049b77e0cf941dbd43d1e4de8cc5a",
+        "0x4bff88ca33022ac96454822f58b9abadb5a120bd",
+        "0x4482920e2400c216afaed85e92dc065307af0416",
+        "0x10c14374104f9fc2dae4b38f945ff8a52f48151d"
+      ],
+      "subgraphUrl": "https://api.goldsky.com/api/public/project_cmaln6teg7wjt0109ff7u43s3/subgraphs/ebisu-plasma/1.0.1/gn",
+      "apiBaseUrl": null
+    }
   }
 }

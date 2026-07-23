@@ -36,6 +36,10 @@ type LiquityChainCfg = {
   boldToken: string;
   hasDebtCaps?: boolean;
   branchAddressesRegistries?: string[];
+  /** Fork wrapper tokens: collIndex → the user-facing asset the branch
+   *  collateral wraps (Felix feUBTC←UBTC, USDaf WBTC18←WBTC, Soneta
+   *  WSTA-LBTC←LBTC). Copied onto the generated branch records. */
+  collWrappers?: Record<string, string>;
 };
 type LiquityConfig = Record<string, Record<string, LiquityChainCfg>>;
 
@@ -230,6 +234,8 @@ async function fetchBranches(
     const troveManager = String(enumRes[i * 2 + 1]).toLowerCase();
     const reg = regs[i];
     const entry: any = { collIndex: i, collToken, troveManager };
+    const wrapper = cfg.collWrappers?.[String(i)];
+    if (wrapper) entry.collWrapper = wrapper.toLowerCase();
 
     if (reg) {
       const r: Record<string, any> = {};
