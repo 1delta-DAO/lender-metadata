@@ -1,0 +1,306 @@
+{
+  "10": {
+    "0x22ab31cd55130435b5efbf9224b6a9d5ec36533f": {
+      "asset": "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
+      "assetSymbol": "wstETH",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "wstETH / USD",
+      "market": "0x22ab31cd55130435b5efbf9224b6a9d5ec36533f",
+      "oracle": "0x698b585cbc4407e2d54aa898b2600b53c68958f7",
+      "priceDescription": "WSTETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "WSTETH / USD",
+      "source": "0x698b585cbc4407e2d54aa898b2600b53c68958f7",
+      "sourcePath": [
+        {
+          "address": "0x698b585cbc4407e2d54aa898b2600b53c68958f7",
+          "description": "WSTETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x0d110cc7876d73c3c4190324bcf4c59416bbd259",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x0d110cc7876d73c3c4190324bcf4c59416bbd259"
+    },
+    "0x6926b434cce9b5b7966ae1bfeef6d0a7dcf3a8bb": {
+      "asset": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "assetSymbol": "USDC",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "USDC / USD",
+      "market": "0x6926b434cce9b5b7966ae1bfeef6d0a7dcf3a8bb",
+      "oracle": "0x16a9fa2fda030272ce99b29cf780dfa30361e0f3",
+      "priceDescription": "USDC / USD",
+      "provider": "chainlink",
+      "rawDescription": "USDC / USD",
+      "source": "0x16a9fa2fda030272ce99b29cf780dfa30361e0f3",
+      "sourcePath": [
+        {
+          "address": "0x16a9fa2fda030272ce99b29cf780dfa30361e0f3",
+          "description": "USDC / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0xd1cb03cc31caa72d34dba7ebe21897d9580c4af0",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0xd1cb03cc31caa72d34dba7ebe21897d9580c4af0"
+    },
+    "0x6f748fd65d7c71949ba6641b3248c4c191f3b322": {
+      "asset": "0x68f180fcce6836688e9084f035309e29bf0a2095",
+      "assetSymbol": "WBTC",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "WBTC / USD",
+      "market": "0x6f748fd65d7c71949ba6641b3248c4c191f3b322",
+      "oracle": "0x718a5788b89454aae3a028ae9c111a29be6c2a6f",
+      "priceDescription": "WBTC / USD",
+      "provider": "chainlink",
+      "rawDescription": "WBTC / USD",
+      "source": "0x718a5788b89454aae3a028ae9c111a29be6c2a6f",
+      "sourcePath": [
+        {
+          "address": "0x718a5788b89454aae3a028ae9c111a29be6c2a6f",
+          "description": "WBTC / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x65f2c716937fb44b2c28417a7afc2daccf1c2d61",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x65f2c716937fb44b2c28417a7afc2daccf1c2d61"
+    },
+    "0x81c9a7b55a4df39a9b7b5f781ec0e53539694873": {
+      "asset": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+      "assetSymbol": "USDC",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "USDC / USD",
+      "market": "0x81c9a7b55a4df39a9b7b5f781ec0e53539694873",
+      "oracle": "0x16a9fa2fda030272ce99b29cf780dfa30361e0f3",
+      "priceDescription": "USDC / USD",
+      "provider": "chainlink",
+      "rawDescription": "USDC / USD",
+      "source": "0x16a9fa2fda030272ce99b29cf780dfa30361e0f3",
+      "sourcePath": [
+        {
+          "address": "0x16a9fa2fda030272ce99b29cf780dfa30361e0f3",
+          "description": "USDC / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0xd1cb03cc31caa72d34dba7ebe21897d9580c4af0",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0xd1cb03cc31caa72d34dba7ebe21897d9580c4af0"
+    },
+    "0xa430a427bd00210506589906a71b54d6c256cedb": {
+      "asset": "0x4200000000000000000000000000000000000042",
+      "assetSymbol": "OP",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "OP / USD",
+      "market": "0xa430a427bd00210506589906a71b54d6c256cedb",
+      "oracle": "0x0d276fc14719f9292d5c1ea2198673d1f4269246",
+      "priceDescription": "OP / USD",
+      "provider": "chainlink",
+      "rawDescription": "OP / USD",
+      "source": "0x0d276fc14719f9292d5c1ea2198673d1f4269246",
+      "sourcePath": [
+        {
+          "address": "0x0d276fc14719f9292d5c1ea2198673d1f4269246",
+          "description": "OP / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x4f6dfdfd4d68f68b2692e79f9e94796fc8015770",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x4f6dfdfd4d68f68b2692e79f9e94796fc8015770"
+    },
+    "0xc4d4500326981eacd020e20a81b1c479c161c7ef": {
+      "asset": "0x4200000000000000000000000000000000000006",
+      "assetSymbol": "WETH",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "WETH / USD",
+      "market": "0xc4d4500326981eacd020e20a81b1c479c161c7ef",
+      "oracle": "0x13e3ee699d1909e989722e753853ae30b17e08c5",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0x13e3ee699d1909e989722e753853ae30b17e08c5",
+      "sourcePath": [
+        {
+          "address": "0x13e3ee699d1909e989722e753853ae30b17e08c5",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x02f5e9e9dcc66ba6392f6904d5fcf8625d9b19c9",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x02f5e9e9dcc66ba6392f6904d5fcf8625d9b19c9"
+    }
+  },
+  "8453": {
+    "0x1dcf89dfa88363ef33d49dd591b1ee5e84dd0f75": {
+      "asset": "0xcb585250f852c6c6bf90434ab21a00f02833a4af",
+      "assetSymbol": "cbXRP",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "cbXRP / USD",
+      "market": "0x1dcf89dfa88363ef33d49dd591b1ee5e84dd0f75",
+      "oracle": "0x9f0c1dd78c4cbdf5b9cf923a549a201edc676d34",
+      "priceDescription": "XRP / USD",
+      "provider": "chainlink",
+      "rawDescription": "XRP / USD",
+      "source": "0x9f0c1dd78c4cbdf5b9cf923a549a201edc676d34",
+      "sourcePath": [
+        {
+          "address": "0x9f0c1dd78c4cbdf5b9cf923a549a201edc676d34",
+          "description": "XRP / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x92a7c3a57e17aff701c159c5480073b095100b62",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x92a7c3a57e17aff701c159c5480073b095100b62"
+    },
+    "0x52ee5238e5676598551c8d2bbccb62c72fc3a0c4": {
+      "asset": "0x4200000000000000000000000000000000000006",
+      "assetSymbol": "WETH",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "WETH / USD",
+      "market": "0x52ee5238e5676598551c8d2bbccb62c72fc3a0c4",
+      "oracle": "0x71041dddad3595f9ced3dccfbe3d1f4b0a16bb70",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0x71041dddad3595f9ced3dccfbe3d1f4b0a16bb70",
+      "sourcePath": [
+        {
+          "address": "0x71041dddad3595f9ced3dccfbe3d1f4b0a16bb70",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x1e0b2c3896338fbb201c4f0a27c6904801dca06b",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x1e0b2c3896338fbb201c4f0a27c6904801dca06b"
+    },
+    "0x61edacb54aa8a689013682529df8914c87692e4b": {
+      "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "assetSymbol": "USDC",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "USDC / USD",
+      "market": "0x61edacb54aa8a689013682529df8914c87692e4b",
+      "oracle": "0x7e860098f58bbfc8648a4311b374b1d669a2bc6b",
+      "priceDescription": "USDC / USD",
+      "provider": "chainlink",
+      "rawDescription": "USDC / USD",
+      "source": "0x7e860098f58bbfc8648a4311b374b1d669a2bc6b",
+      "sourcePath": [
+        {
+          "address": "0x7e860098f58bbfc8648a4311b374b1d669a2bc6b",
+          "description": "USDC / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0xe2f30af46dddddb7795995d615c828f722e2e6f0",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0xe2f30af46dddddb7795995d615c828f722e2e6f0"
+    },
+    "0x8c2f35c8076bcb5d4b696bae11aca0ac0dd873e4": {
+      "asset": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "assetSymbol": "cbBTC",
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "cbBTC / USD",
+      "market": "0x8c2f35c8076bcb5d4b696bae11aca0ac0dd873e4",
+      "oracle": "0x07da0e54543a844a80abe69c8a12f22b3aa59f9d",
+      "priceDescription": "cbBTC / USD",
+      "provider": "chainlink",
+      "rawDescription": "cbBTC / USD",
+      "source": "0x07da0e54543a844a80abe69c8a12f22b3aa59f9d",
+      "sourcePath": [
+        {
+          "address": "0x07da0e54543a844a80abe69c8a12f22b3aa59f9d",
+          "description": "cbBTC / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x51ce3091cf646587e02cad83b580992f8723e718",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x51ce3091cf646587e02cad83b580992f8723e718"
+    }
+  }
+}

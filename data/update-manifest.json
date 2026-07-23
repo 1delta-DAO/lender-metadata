@@ -1,15 +1,12 @@
 {
-  "version": "2026-07-23T14-27-28-569Z",
-  "generatedAt": "2026-07-23T14:27:28.570Z",
+  "version": "2026-07-23T15-34-19-693Z",
+  "generatedAt": "2026-07-23T15:34:19.694Z",
   "updatedFiles": [
-    "./data/lender-labels.json"
+    "./data/term-finance-oracles-classified.json"
   ],
   "results": [
     {
-      "targetFile": "./data/river-markets.json"
-    },
-    {
-      "targetFile": "./data/lender-labels.json"
+      "targetFile": "./data/term-finance-oracles-classified.json"
     }
   ]
 }

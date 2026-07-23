@@ -22,6 +22,8 @@
     "update:euler-oracles": "tsx src/update-euler-oracles.ts",
     "update:silo-oracles": "tsx src/update-silo-oracles.ts",
     "update:fluid-oracles": "tsx src/update-fluid-oracles.ts",
+    "update:exactly-oracles": "tsx src/update-exactly-oracles.ts",
+    "update:term-oracles": "tsx src/update-term-oracles.ts",
     "update:fluid": "tsx src/update-fluid.ts",
     "update:lista-markets": "tsx src/update-lista-markets.ts",
     "update:lista-vaults": "tsx src/update-lista-vaults.ts",
