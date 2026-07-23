@@ -1,13 +1,11 @@
 {
-  "version": "2026-07-22T05-07-08-149Z",
-  "generatedAt": "2026-07-22T05:07:08.149Z",
+  "version": "2026-07-23T05-12-07-325Z",
+  "generatedAt": "2026-07-23T05:12:07.325Z",
   "updatedFiles": [
     "./data/lender-labels.json",
-    "./data/morpho-type-oracles.json",
     "./data/morpho-curators.json",
     "./data/morpho-oracles-data.json",
     "./data/euler-vaults.json",
-    "./data/lender-labels.json",
     "./data/lender-labels.json",
     "./data/lender-labels.json",
     "./config/dolomite-emode.json",
@@ -95,24 +93,6 @@
     },
     {
       "targetFile": "./data/aave-v4-oracle-sources.json"
-    },
-    {
-      "targetFile": "./config/silo-v2-peripherals.json"
-    },
-    {
-      "targetFile": "./data/silo-v2-markets.json"
-    },
-    {
-      "targetFile": "./data/lender-labels.json"
-    },
-    {
-      "targetFile": "./config/silo-v3-peripherals.json"
-    },
-    {
-      "targetFile": "./data/silo-v3-markets.json"
-    },
-    {
-      "targetFile": "./data/lender-labels.json"
     },
     {
       "targetFile": "./config/fluid-resolvers.json"
