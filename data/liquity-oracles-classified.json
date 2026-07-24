@@ -1,0 +1,1198 @@
+{
+  "1": {
+    "EBISU_1_0": {
+      "collIndex": 0,
+      "collSymbol": "weETH",
+      "collToken": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "weETH / USD",
+      "lender": "EBISU",
+      "oracle": "0x36fb029e6feec43d96be2f8ccc0e572d1663f5fc",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0x36fb029e6feec43d96be2f8ccc0e572d1663f5fc",
+      "sourcePath": [
+        {
+          "address": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x7d4e742018fb52e48b08be73d041c18b21de6fb5",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419"
+    },
+    "EBISU_1_1": {
+      "collIndex": 1,
+      "collSymbol": "sUSDe",
+      "collToken": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "sUSDe / USD",
+      "lender": "EBISU",
+      "oracle": "0x3e58fb6ffd3a568487c72a170411ebf7be6a2062",
+      "priceDescription": "USDe / USD",
+      "provider": "redstone",
+      "rawDescription": "RedStone Price Feed for USDe",
+      "source": "0x3e58fb6ffd3a568487c72a170411ebf7be6a2062",
+      "sourcePath": [
+        {
+          "address": "0xbc5fbcf58ceaea19d523abc76515b9aefb5cfd58",
+          "description": "USDe / USD",
+          "decimals": 8,
+          "kind": "redstone"
+        }
+      ],
+      "underlyingAggregator": "0xbc5fbcf58ceaea19d523abc76515b9aefb5cfd58"
+    },
+    "EBISU_1_2": {
+      "collIndex": 2,
+      "collSymbol": "WBTC",
+      "collToken": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "WBTC / USD",
+      "lender": "EBISU",
+      "oracle": "0x83387ff1234c2525ec0eb37dfe30d005356a222b",
+      "priceDescription": "BTC / USD",
+      "provider": "chainlink",
+      "rawDescription": "BTC / USD",
+      "source": "0x83387ff1234c2525ec0eb37dfe30d005356a222b",
+      "sourcePath": [
+        {
+          "address": "0xf4030086522a5beea4988f8ca5b36dbc97bee88c",
+          "description": "BTC / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x4a3411ac2948b33c69666b35cc6d055b27ea84f1",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0xf4030086522a5beea4988f8ca5b36dbc97bee88c"
+    },
+    "EBISU_1_3": {
+      "collIndex": 3,
+      "collSymbol": "LBTC",
+      "collToken": "0x8236a87084f8b84306f72007f36f2618a5634494",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "LBTC / USD",
+      "lender": "EBISU",
+      "oracle": "0x71aa4e0ae5435aa3d4724d14df91c5a26720cc4f",
+      "priceDescription": "BTC / USD",
+      "provider": "chainlink",
+      "rawDescription": "BTC / USD",
+      "source": "0x71aa4e0ae5435aa3d4724d14df91c5a26720cc4f",
+      "sourcePath": [
+        {
+          "address": "0xf4030086522a5beea4988f8ca5b36dbc97bee88c",
+          "description": "BTC / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x4a3411ac2948b33c69666b35cc6d055b27ea84f1",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0xf4030086522a5beea4988f8ca5b36dbc97bee88c"
+    },
+    "EBISU_1_4": {
+      "collIndex": 4,
+      "collSymbol": "stcUSD",
+      "collToken": "0x88887be419578051ff9f4eb6c858a951921d8888",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "stcUSD / USD",
+      "lender": "EBISU",
+      "oracle": "0xdb0cd67899e071a8798a58c9d2dd43795833c71d",
+      "priceDescription": "cUSD / USD",
+      "provider": "redstone",
+      "rawDescription": "RedStone Price Feed for cUSD_FUNDAMENTAL",
+      "source": "0xdb0cd67899e071a8798a58c9d2dd43795833c71d",
+      "sourcePath": [
+        {
+          "address": "0x9a5a3c3ed0361505cc1d4e824b3854de5724434a",
+          "description": "cUSD / USD",
+          "decimals": 8,
+          "kind": "redstone"
+        }
+      ],
+      "underlyingAggregator": "0x9a5a3c3ed0361505cc1d4e824b3854de5724434a"
+    },
+    "LIQUITY_V2_1_0": {
+      "collIndex": 0,
+      "collSymbol": "WETH",
+      "collToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "WETH / USD",
+      "lender": "LIQUITY_V2",
+      "oracle": "0xcc5f8102eb670c89a4a3c567c13851260303c24f",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0xcc5f8102eb670c89a4a3c567c13851260303c24f",
+      "sourcePath": [
+        {
+          "address": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x7d4e742018fb52e48b08be73d041c18b21de6fb5",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419"
+    },
+    "LIQUITY_V2_1_1": {
+      "collIndex": 1,
+      "collSymbol": "wstETH",
+      "collToken": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "wstETH / USD",
+      "lender": "LIQUITY_V2",
+      "oracle": "0xe7aa2ba9e086a379d3beb224098bc634a46e314e",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0xe7aa2ba9e086a379d3beb224098bc634a46e314e",
+      "sourcePath": [
+        {
+          "address": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x7d4e742018fb52e48b08be73d041c18b21de6fb5",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419"
+    },
+    "LIQUITY_V2_1_2": {
+      "collIndex": 2,
+      "collSymbol": "rETH",
+      "collToken": "0xae78736cd615f374d3085123a210448e74fc6393",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "rETH / USD",
+      "lender": "LIQUITY_V2",
+      "oracle": "0x34f1e9c7dcc279ec70d3c4488eb2d80fba8b7b2b",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0x34f1e9c7dcc279ec70d3c4488eb2d80fba8b7b2b",
+      "sourcePath": [
+        {
+          "address": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x7d4e742018fb52e48b08be73d041c18b21de6fb5",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419"
+    },
+    "USDAF_1_0": {
+      "collIndex": 0,
+      "collSymbol": "ysyBOLD",
+      "collToken": "0x23346b04a7f55b8760e5860aa5a77383d63491cd",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "ysyBOLD / USD",
+      "lender": "USDAF",
+      "oracle": "0x7f575323ddedfbad449fef5459fad031fe49520b",
+      "priceDescription": "st-yBOLD / USD",
+      "provider": "chainlink",
+      "rawDescription": "st-yBOLD / USD",
+      "source": "0x7f575323ddedfbad449fef5459fad031fe49520b",
+      "sourcePath": [
+        {
+          "address": "0xc1ed3729cfcf9f93a7dbe1e4669bc67793182d03",
+          "description": "st-yBOLD / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        }
+      ],
+      "underlyingAggregator": "0xc1ed3729cfcf9f93a7dbe1e4669bc67793182d03"
+    },
+    "USDAF_1_1": {
+      "collIndex": 1,
+      "collSymbol": "scrvUSD",
+      "collToken": "0x0655977feb2f289a4ab78af67bab0d17aab84367",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "scrvUSD / USD",
+      "lender": "USDAF",
+      "oracle": "0xf125c72ae447efdf3fa3601eda9ac0ebec06cbb8",
+      "priceDescription": "scrvUSD / USD",
+      "provider": "chainlink",
+      "rawDescription": "scrvUSD / USD",
+      "source": "0xf125c72ae447efdf3fa3601eda9ac0ebec06cbb8",
+      "sourcePath": [
+        {
+          "address": "0x5a0605efb3a50adc9f81dd456812953655aa4ec9",
+          "description": "scrvUSD / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        }
+      ],
+      "underlyingAggregator": "0x5a0605efb3a50adc9f81dd456812953655aa4ec9"
+    },
+    "USDAF_1_2": {
+      "collIndex": 2,
+      "collSymbol": "sUSDS",
+      "collToken": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "sUSDS / USD",
+      "lender": "USDAF",
+      "oracle": "0x2113468843cf2d0fd976690f4ec6e4213df46911",
+      "priceDescription": "sUSDS / USD",
+      "provider": "chainlink",
+      "rawDescription": "sUSDS / USD",
+      "source": "0x2113468843cf2d0fd976690f4ec6e4213df46911",
+      "sourcePath": [
+        {
+          "address": "0x9d09d5175783f0caa56d6d1e7590c2b935082d10",
+          "description": "sUSDS / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        }
+      ],
+      "underlyingAggregator": "0x9d09d5175783f0caa56d6d1e7590c2b935082d10"
+    },
+    "USDAF_1_3": {
+      "collIndex": 3,
+      "collSymbol": "sfrxUSD",
+      "collToken": "0xcf62f905562626cfcdd2261162a51fd02fc9c5b6",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "sfrxUSD / USD",
+      "lender": "USDAF",
+      "oracle": "0x653df748bf7a692555dcdbf4c504a8c84807f7c7",
+      "priceDescription": "sfrxUSD / USD",
+      "provider": "chainlink",
+      "rawDescription": "sfrxUSD / USD",
+      "source": "0x653df748bf7a692555dcdbf4c504a8c84807f7c7",
+      "sourcePath": [
+        {
+          "address": "0x48ba7b711a8d5dadc6690de2e86533f70ee5b433",
+          "description": "sfrxUSD / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        }
+      ],
+      "underlyingAggregator": "0x48ba7b711a8d5dadc6690de2e86533f70ee5b433"
+    },
+    "USDAF_1_4": {
+      "collIndex": 4,
+      "collSymbol": "tBTC",
+      "collToken": "0x18084fba666a33d37592fa2633fd49a74dd93a88",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "tBTC / USD",
+      "lender": "USDAF",
+      "oracle": "0xeaf3b36748d89d64ef1b6b3e1d7637c3e4745094",
+      "priceDescription": "tBTC / USD",
+      "provider": "chainlink",
+      "rawDescription": "tBTC / USD",
+      "source": "0xeaf3b36748d89d64ef1b6b3e1d7637c3e4745094",
+      "sourcePath": [
+        {
+          "address": "0x39fca0f77ba22926e8e5ec5df68271eb49a3a775",
+          "description": "tBTC / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        }
+      ],
+      "underlyingAggregator": "0x39fca0f77ba22926e8e5ec5df68271eb49a3a775"
+    },
+    "USDAF_1_5": {
+      "collIndex": 5,
+      "collSymbol": "WBTC18",
+      "collToken": "0xe065bc161b90c9c4bba2de7f1e194b70a3267c47",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "WBTC18 / USD",
+      "lender": "USDAF",
+      "oracle": "0x4b74d043336678d2f62dae6595bc42dccabc3bb1",
+      "priceDescription": "WBTC / USD",
+      "provider": "chainlink",
+      "rawDescription": "WBTC / USD",
+      "source": "0x4b74d043336678d2f62dae6595bc42dccabc3bb1",
+      "sourcePath": [
+        {
+          "address": "0x1919de21635276a80aa3384a852df8189e1b7205",
+          "description": "WBTC / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        }
+      ],
+      "underlyingAggregator": "0x1919de21635276a80aa3384a852df8189e1b7205"
+    }
+  },
+  "14": {
+    "ENOSYS_LOANS_14_0": {
+      "collIndex": 0,
+      "collSymbol": "FXRP",
+      "collToken": "0xad552a648c74d49e10027ab8a618a3ad4901c5be",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "FXRP / USD",
+      "lender": "ENOSYS_LOANS",
+      "oracle": "0xfc35d431ce1445b9c79ff38594ef454618d2ec49",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0xfc35d431ce1445b9c79ff38594ef454618d2ec49",
+      "sourcePath": [
+        {
+          "address": "0xfc35d431ce1445b9c79ff38594ef454618d2ec49",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "ENOSYS_LOANS_14_1": {
+      "collIndex": 1,
+      "collSymbol": "WFLR",
+      "collToken": "0x1d80c49bbbcd1c0911346656b529df9e5c2f783d",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "WFLR / USD",
+      "lender": "ENOSYS_LOANS",
+      "oracle": "0xbcb5420d7f6346db739a7c49fc90ab37553b68dc",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0xbcb5420d7f6346db739a7c49fc90ab37553b68dc",
+      "sourcePath": [
+        {
+          "address": "0xbcb5420d7f6346db739a7c49fc90ab37553b68dc",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "ENOSYS_LOANS_14_2": {
+      "collIndex": 2,
+      "collSymbol": "stXRP",
+      "collToken": "0x4c18ff3c89632c3dd62e796c0afa5c07c4c1b2b3",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "stXRP / USD",
+      "lender": "ENOSYS_LOANS",
+      "oracle": "0x030cfe7bed11e0cba106b4c5fff8edae793653a7",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x030cfe7bed11e0cba106b4c5fff8edae793653a7",
+      "sourcePath": [
+        {
+          "address": "0x030cfe7bed11e0cba106b4c5fff8edae793653a7",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "ENOSYS_LOANS_14_3": {
+      "collIndex": 3,
+      "collSymbol": "sFLR",
+      "collToken": "0x12e605bc104e93b45e1ad99f9e555f659051c2bb",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "sFLR / USD",
+      "lender": "ENOSYS_LOANS",
+      "oracle": "0x051699d88ab204c4c848e89a1b439d4d9887460e",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x051699d88ab204c4c848e89a1b439d4d9887460e",
+      "sourcePath": [
+        {
+          "address": "0x051699d88ab204c4c848e89a1b439d4d9887460e",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    }
+  },
+  "146": {
+    "SONETA_146_0": {
+      "collIndex": 0,
+      "collSymbol": "wS",
+      "collToken": "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "wS / USD",
+      "lender": "SONETA",
+      "oracle": "0xc59098dfad429670ec63bb2b7721a211a79b72d6",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0xc59098dfad429670ec63bb2b7721a211a79b72d6",
+      "sourcePath": [
+        {
+          "address": "0xc59098dfad429670ec63bb2b7721a211a79b72d6",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "SONETA_146_1": {
+      "collIndex": 1,
+      "collSymbol": "WSTA-LBTC",
+      "collToken": "0xbd09ff7f423cf8a23628b87678123e7628330339",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "WSTA-LBTC / USD",
+      "lender": "SONETA",
+      "oracle": "0x6130c1524b95d17453e441c5d4b6d281ebca4e2c",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x6130c1524b95d17453e441c5d4b6d281ebca4e2c",
+      "sourcePath": [
+        {
+          "address": "0x6130c1524b95d17453e441c5d4b6d281ebca4e2c",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "SONETA_146_2": {
+      "collIndex": 2,
+      "collSymbol": "wOS",
+      "collToken": "0x9f0df7799f6fdad409300080cff680f5a23df4b1",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "wOS / USD",
+      "lender": "SONETA",
+      "oracle": "0xb63ab17850d4770279de7dcbc2b0fe20c7866c45",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0xb63ab17850d4770279de7dcbc2b0fe20c7866c45",
+      "sourcePath": [
+        {
+          "address": "0xb63ab17850d4770279de7dcbc2b0fe20c7866c45",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "SONETA_146_3": {
+      "collIndex": 3,
+      "collSymbol": "stS",
+      "collToken": "0xe5da20f15420ad15de0fa650600afc998bbe3955",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "stS / USD",
+      "lender": "SONETA",
+      "oracle": "0xe70d245c4aea9236bfd1fbfec00aa1945e16f7d1",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0xe70d245c4aea9236bfd1fbfec00aa1945e16f7d1",
+      "sourcePath": [
+        {
+          "address": "0xe70d245c4aea9236bfd1fbfec00aa1945e16f7d1",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    }
+  },
+  "999": {
+    "FELIX_999_0": {
+      "collIndex": 0,
+      "collSymbol": "WHYPE",
+      "collToken": "0x5555555555555555555555555555555555555555",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "WHYPE / USD",
+      "lender": "FELIX",
+      "oracle": "0x12a1868b89789900e413a6241ca9032dd1873a51",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x12a1868b89789900e413a6241ca9032dd1873a51",
+      "sourcePath": [
+        {
+          "address": "0x12a1868b89789900e413a6241ca9032dd1873a51",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "FELIX_999_1": {
+      "collIndex": 1,
+      "collSymbol": "feUBTC",
+      "collToken": "0xefbd9cfe88235f0e648aefb52c8e8dc152a9ad6f",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "feUBTC / USD",
+      "lender": "FELIX",
+      "oracle": "0xf59f338424062dd1d44a9b4dd2721128a45358ab",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0xf59f338424062dd1d44a9b4dd2721128a45358ab",
+      "sourcePath": [
+        {
+          "address": "0xf59f338424062dd1d44a9b4dd2721128a45358ab",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "FELIX_999_2": {
+      "collIndex": 2,
+      "collSymbol": "kHYPE",
+      "collToken": "0xfd739d4e423301ce9385c1fb8850539d657c296d",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "kHYPE / USD",
+      "lender": "FELIX",
+      "oracle": "0x0a04e685f12e47b22b03c3763add63f1dd73265c",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x0a04e685f12e47b22b03c3763add63f1dd73265c",
+      "sourcePath": [
+        {
+          "address": "0x0a04e685f12e47b22b03c3763add63f1dd73265c",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "FELIX_999_3": {
+      "collIndex": 3,
+      "collSymbol": "wstHYPE",
+      "collToken": "0x94e8396e0869c9f2200760af0621afd240e1cf38",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "wstHYPE / USD",
+      "lender": "FELIX",
+      "oracle": "0x067e69ad6bdb8ee95cac31b34626f48eb6f169a2",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x067e69ad6bdb8ee95cac31b34626f48eb6f169a2",
+      "sourcePath": [
+        {
+          "address": "0x067e69ad6bdb8ee95cac31b34626f48eb6f169a2",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    }
+  },
+  "9745": {
+    "EBISU_9745_0": {
+      "collIndex": 0,
+      "collSymbol": "WXPL",
+      "collToken": "0x6100e367285b01f48d07953803a2d8dca5d19873",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "WXPL / USD",
+      "lender": "EBISU",
+      "oracle": "0x26183259a7c0743251a319847e5910a17750da0b",
+      "priceDescription": "XPL / USD",
+      "provider": "chainlink",
+      "rawDescription": "XPL / USD",
+      "source": "0x26183259a7c0743251a319847e5910a17750da0b",
+      "sourcePath": [
+        {
+          "address": "0xf932477c37715ae6657ab884414bd9876fe3f750",
+          "description": "XPL / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x9f9c2126d92f2068180bd6c3fea0e394a19c5fa0",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0xf932477c37715ae6657ab884414bd9876fe3f750"
+    },
+    "EBISU_9745_1": {
+      "collIndex": 1,
+      "collSymbol": "WETH",
+      "collToken": "0x9895d81bb462a195b4922ed7de0e3acd007c32cb",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "WETH / USD",
+      "lender": "EBISU",
+      "oracle": "0xb2da303c9bfd5fb1183bd9333257d7d7b7f2b4c9",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0xb2da303c9bfd5fb1183bd9333257d7d7b7f2b4c9",
+      "sourcePath": [
+        {
+          "address": "0x43a7dd2125266c5c4c26eb86cd61241132426fe7",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0xe63662c518b738905d99bd234e2f118e546bf76e",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x43a7dd2125266c5c4c26eb86cd61241132426fe7"
+    },
+    "EBISU_9745_2": {
+      "collIndex": 2,
+      "collSymbol": "XAUt0",
+      "collToken": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "XAUt0 / USD",
+      "lender": "EBISU",
+      "oracle": "0x27ccfdf00290e846b94cd7528a181e6a227f247d",
+      "priceDescription": "XAUT / USD",
+      "provider": "chainlink",
+      "rawDescription": "XAUT / USD",
+      "source": "0x27ccfdf00290e846b94cd7528a181e6a227f247d",
+      "sourcePath": [
+        {
+          "address": "0x354df1ca4ae838a45405b3486ed0161aa7f01191",
+          "description": "XAUT / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0xc819c6d8745fc03d8b90a2a38795ca5ef8cf1fcf",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x354df1ca4ae838a45405b3486ed0161aa7f01191"
+    },
+    "EBISU_9745_3": {
+      "collIndex": 3,
+      "collSymbol": "sUSDe",
+      "collToken": "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "sUSDe / USD",
+      "lender": "EBISU",
+      "oracle": "0xd7297fcb274aa8bec2f3287dad42ce5ee2f5b662",
+      "priceDescription": "USDE / USD",
+      "provider": "chainlink",
+      "rawDescription": "USDE / USD",
+      "source": "0xd7297fcb274aa8bec2f3287dad42ce5ee2f5b662",
+      "sourcePath": [
+        {
+          "address": "0x0dfdcf9af39be41e40a52a80fa86e23a69a69c3b",
+          "description": "USDE / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x90f5131df5ebfb54e27c6c89f542ef2b4a399b6e",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x0dfdcf9af39be41e40a52a80fa86e23a69a69c3b"
+    },
+    "EBISU_9745_4": {
+      "collIndex": 4,
+      "collSymbol": "weETH",
+      "collToken": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "weETH / USD",
+      "lender": "EBISU",
+      "oracle": "0xf4a98651ef151458730aad93a806379fbc853f35",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0xf4a98651ef151458730aad93a806379fbc853f35",
+      "sourcePath": [
+        {
+          "address": "0x43a7dd2125266c5c4c26eb86cd61241132426fe7",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0xe63662c518b738905d99bd234e2f118e546bf76e",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x43a7dd2125266c5c4c26eb86cd61241132426fe7"
+    },
+    "EBISU_9745_5": {
+      "collIndex": 5,
+      "collSymbol": "syrupUSDT",
+      "collToken": "0xc4374775489cb9c56003bf2c9b12495fc64f0771",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "syrupUSDT / USD",
+      "lender": "EBISU",
+      "oracle": "0x6365ac5e5f32d0ff631d683517dba0d49edf0811",
+      "priceDescription": "USDT / USD",
+      "provider": "chainlink",
+      "rawDescription": "USDT / USD",
+      "source": "0x6365ac5e5f32d0ff631d683517dba0d49edf0811",
+      "sourcePath": [
+        {
+          "address": "0x70b77fcdbe2293423e41add2fb599808396807bc",
+          "description": "USDT / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0xb59c000f4f5109ba3dc83ec81619f38c113aea1b",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x70b77fcdbe2293423e41add2fb599808396807bc"
+    },
+    "EBISU_9745_6": {
+      "collIndex": 6,
+      "collSymbol": "sUSDai",
+      "collToken": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "sUSDai / USD",
+      "lender": "EBISU",
+      "oracle": "0xae1168706e53d6affaca4e1ebf37155edf7cd3a3",
+      "priceDescription": "USDAI / USD",
+      "provider": "chainlink",
+      "rawDescription": "USDAI / USD",
+      "source": "0xae1168706e53d6affaca4e1ebf37155edf7cd3a3",
+      "sourcePath": [
+        {
+          "address": "0x157b02531ad702346b43686b9186b5271ea2bdad",
+          "description": "USDAI / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0xdb2d1a8043fcd7958738678e6e6de788f10a9025",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x157b02531ad702346b43686b9186b5271ea2bdad"
+    }
+  },
+  "42161": {
+    "NERITE_42161_0": {
+      "collIndex": 0,
+      "collSymbol": "WETH",
+      "collToken": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "WETH / USD",
+      "lender": "NERITE",
+      "oracle": "0x8483efa691ce3f20edcc9f8453f85b64f9872fcb",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x8483efa691ce3f20edcc9f8453f85b64f9872fcb",
+      "sourcePath": [
+        {
+          "address": "0x4df393fa84e4a0cfdf14ce52f2a4e0c3d1ab0668",
+          "description": null,
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x4df393fa84e4a0cfdf14ce52f2a4e0c3d1ab0668"
+    },
+    "NERITE_42161_1": {
+      "collIndex": 1,
+      "collSymbol": "wstETH",
+      "collToken": "0x5979d7b546e38e414f7e9822514be443a4800529",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "wstETH / USD",
+      "lender": "NERITE",
+      "oracle": "0x2148affe49a44a15d6bc71a0a8f302d43cf99d52",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x2148affe49a44a15d6bc71a0a8f302d43cf99d52",
+      "sourcePath": [
+        {
+          "address": "0x4df393fa84e4a0cfdf14ce52f2a4e0c3d1ab0668",
+          "description": null,
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x4df393fa84e4a0cfdf14ce52f2a4e0c3d1ab0668"
+    },
+    "NERITE_42161_2": {
+      "collIndex": 2,
+      "collSymbol": "rETH",
+      "collToken": "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "rETH / USD",
+      "lender": "NERITE",
+      "oracle": "0x28d0931811b956366f86164d1c088fcbeb0711d5",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x28d0931811b956366f86164d1c088fcbeb0711d5",
+      "sourcePath": [
+        {
+          "address": "0x4df393fa84e4a0cfdf14ce52f2a4e0c3d1ab0668",
+          "description": null,
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x4df393fa84e4a0cfdf14ce52f2a4e0c3d1ab0668"
+    },
+    "NERITE_42161_3": {
+      "collIndex": 3,
+      "collSymbol": "rsETH",
+      "collToken": "0x4186bfc76e2e237523cbc30fd220fe055156b41f",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "rsETH / USD",
+      "lender": "NERITE",
+      "oracle": "0x95e9327e6abf146570cd24402bdbcb56a9a5ba8a",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x95e9327e6abf146570cd24402bdbcb56a9a5ba8a",
+      "sourcePath": [
+        {
+          "address": "0x4df393fa84e4a0cfdf14ce52f2a4e0c3d1ab0668",
+          "description": null,
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x4df393fa84e4a0cfdf14ce52f2a4e0c3d1ab0668"
+    },
+    "NERITE_42161_4": {
+      "collIndex": 4,
+      "collSymbol": "weETH",
+      "collToken": "0x35751007a407ca6feffe80b3cb397736d2cf4dbe",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "weETH / USD",
+      "lender": "NERITE",
+      "oracle": "0x39c2a023b8aed406671a0bed1b02fe548f0d2098",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x39c2a023b8aed406671a0bed1b02fe548f0d2098",
+      "sourcePath": [
+        {
+          "address": "0x4df393fa84e4a0cfdf14ce52f2a4e0c3d1ab0668",
+          "description": null,
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x4df393fa84e4a0cfdf14ce52f2a4e0c3d1ab0668"
+    },
+    "NERITE_42161_5": {
+      "collIndex": 5,
+      "collSymbol": "ARB",
+      "collToken": "0x912ce59144191c1204e64559fe8253a0e49e6548",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "ARB / USD",
+      "lender": "NERITE",
+      "oracle": "0xc2a8b601947beaf2efe650a39de3e3e0b5c95721",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0xc2a8b601947beaf2efe650a39de3e3e0b5c95721",
+      "sourcePath": [
+        {
+          "address": "0xc2a8b601947beaf2efe650a39de3e3e0b5c95721",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "NERITE_42161_6": {
+      "collIndex": 6,
+      "collSymbol": "COMP",
+      "collToken": "0x354a6da3fcde098f8389cad84b0182725c6c91de",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "COMP / USD",
+      "lender": "NERITE",
+      "oracle": "0x375bbb7cfc3b438d9d4a0f745569017f47eb55d8",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x375bbb7cfc3b438d9d4a0f745569017f47eb55d8",
+      "sourcePath": [
+        {
+          "address": "0x375bbb7cfc3b438d9d4a0f745569017f47eb55d8",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": null
+    },
+    "NERITE_42161_7": {
+      "collIndex": 7,
+      "collSymbol": "tBTC",
+      "collToken": "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "tBTC / USD",
+      "lender": "NERITE",
+      "oracle": "0x993d4ed0ec1936bd86d765666dfb96bef6fdad10",
+      "priceDescription": "UNKNOWN",
+      "provider": "unknown",
+      "rawDescription": null,
+      "source": "0x993d4ed0ec1936bd86d765666dfb96bef6fdad10",
+      "sourcePath": [
+        {
+          "address": "0x1af6168b78adee8f3cf3e99156fc066cfcb03f9e",
+          "description": null,
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x1af6168b78adee8f3cf3e99156fc066cfcb03f9e"
+    }
+  },
+  "534352": {
+    "QUILL_534352_0": {
+      "collIndex": 0,
+      "collSymbol": "WETH",
+      "collToken": "0x5300000000000000000000000000000000000004",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "WETH / USD",
+      "lender": "QUILL",
+      "oracle": "0xb3b7b3764a445bea9a50321e5df024f4daa9f5c9",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0xb3b7b3764a445bea9a50321e5df024f4daa9f5c9",
+      "sourcePath": [
+        {
+          "address": "0x6bf14cb0a831078629d993fdebcb182b21a8774c",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x52d9a4fac326934c593b451dda6f53bba053577f",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x6bf14cb0a831078629d993fdebcb182b21a8774c"
+    },
+    "QUILL_534352_1": {
+      "collIndex": 1,
+      "collSymbol": "wstETH",
+      "collToken": "0xf610a9dfb7c89644979b4a0f27063e9e7d7cda32",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "wstETH / USD",
+      "lender": "QUILL",
+      "oracle": "0x1f07651182559bf23240632484669bc01c5b9afb",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0x1f07651182559bf23240632484669bc01c5b9afb",
+      "sourcePath": [
+        {
+          "address": "0x6bf14cb0a831078629d993fdebcb182b21a8774c",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x52d9a4fac326934c593b451dda6f53bba053577f",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x6bf14cb0a831078629d993fdebcb182b21a8774c"
+    },
+    "QUILL_534352_2": {
+      "collIndex": 2,
+      "collSymbol": "weETH",
+      "collToken": "0x01f0a31698c4d065659b9bdc21b3610292a1c506",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "weETH / USD",
+      "lender": "QUILL",
+      "oracle": "0x4f2be395032c67396f5d1e10c8abfb1df7267eef",
+      "priceDescription": "ETH / USD",
+      "provider": "chainlink",
+      "rawDescription": "ETH / USD",
+      "source": "0x4f2be395032c67396f5d1e10c8abfb1df7267eef",
+      "sourcePath": [
+        {
+          "address": "0x6bf14cb0a831078629d993fdebcb182b21a8774c",
+          "description": "ETH / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x52d9a4fac326934c593b451dda6f53bba053577f",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x6bf14cb0a831078629d993fdebcb182b21a8774c"
+    },
+    "QUILL_534352_3": {
+      "collIndex": 3,
+      "collSymbol": "SCR",
+      "collToken": "0xd29687c813d741e2f938f4ac377128810e217b1b",
+      "correctOracle": null,
+      "denominatorMatch": true,
+      "fixedRate": null,
+      "intendedPair": "SCR / USD",
+      "lender": "QUILL",
+      "oracle": "0xeee530331ebb3dd1067859dc712905386e5c0661",
+      "priceDescription": "SCR / USD",
+      "provider": "chainlink",
+      "rawDescription": "SCR / USD",
+      "source": "0xeee530331ebb3dd1067859dc712905386e5c0661",
+      "sourcePath": [
+        {
+          "address": "0x26f6f7c468ee309115d19aa2055db5a74f8ce7a5",
+          "description": "SCR / USD",
+          "decimals": 8,
+          "kind": "chainlink"
+        },
+        {
+          "address": "0x5653502a209a57d353a7700de49ccc37e39b04a4",
+          "description": null,
+          "decimals": 8,
+          "kind": "unknown"
+        }
+      ],
+      "underlyingAggregator": "0x26f6f7c468ee309115d19aa2055db5a74f8ce7a5"
+    }
+  }
+}

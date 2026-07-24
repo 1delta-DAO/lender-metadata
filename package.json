@@ -24,6 +24,8 @@
     "update:fluid-oracles": "tsx src/update-fluid-oracles.ts",
     "update:exactly-oracles": "tsx src/update-exactly-oracles.ts",
     "update:term-oracles": "tsx src/update-term-oracles.ts",
+    "update:midnight-oracles": "tsx src/update-midnight-oracles.ts",
+    "update:liquity-oracles": "tsx src/update-liquity-oracles.ts",
     "update:fluid": "tsx src/update-fluid.ts",
     "update:lista-markets": "tsx src/update-lista-markets.ts",
     "update:lista-vaults": "tsx src/update-lista-vaults.ts",
