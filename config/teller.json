@@ -1,0 +1,95 @@
+{
+  "8453": {
+    "tellerV2": "0x5cfD3aeD08a444Be32839bD911Ebecd688861164",
+    "marketRegistry": "0x2bD9697bF0AB44bE5cA698fB5787d8F13ca48Ffc",
+    "collateralManager": "0x71B04a8569914bCb99D5F95644CF6b089c826024",
+    "lenderManager": "0x5594f9EE0DdF1e2D21ac8125dfeA66fc4c85Cd01",
+    "lenderCommitmentForwarder": "0x84B550EE6959FA3F3A44498836F2A9473734ba78",
+    "smartCommitmentForwarder": "0x0708480670BdE591e275B06Cd19EcaDFC93A1f16",
+    "lenderCommitmentGroupFactory": "0x7FBCefE4aE4c0C9E70427D0B9F1504Ed39d141BC",
+    "lenderCommitmentGroupFactoryV2": "0x48EA70BCe76FE2F0c79B29Bf852a1DCF957982aa",
+    "lenderCommitmentGroupFactoryV3": "0xD8D67872904Ee0778dFf44f05e6F2A7a246db10b"
+  },
+  "42161": {
+    "tellerV2": "0x5cfD3aeD08a444Be32839bD911Ebecd688861164",
+    "marketRegistry": "0x2bD9697bF0AB44bE5cA698fB5787d8F13ca48Ffc",
+    "collateralManager": "0x71B04a8569914bCb99D5F95644CF6b089c826024",
+    "lenderManager": "0x5594f9EE0DdF1e2D21ac8125dfeA66fc4c85Cd01",
+    "lenderCommitmentForwarder": "0x84B550EE6959FA3F3A44498836F2A9473734ba78",
+    "smartCommitmentForwarder": "0x0848E884b2DBb63727aa3216b921C279f6DC9a91",
+    "lenderCommitmentGroupFactory": "0xC2a093B641496Ac8AA9d6a17f216ADF4a42FC9B6",
+    "lenderCommitmentGroupFactoryV2": "0xE9D02C0e0449A396A09A42fE03Ff06300C972Db5"
+  },
+  "1": {
+    "tellerV2": "0x00182FdB0B880eE24D428e3Cc39383717677C37e",
+    "marketRegistry": "0x5e30357d5136Bc4BfaDBA1ab341D0da09Fe7a9F1",
+    "collateralManager": "0x2551A099129ad9b0b1FEc16f34D9CB73c237be8b",
+    "lenderManager": "0xDBb554e621e1cC52D9aD63b6E47FC98568264115",
+    "lenderCommitmentForwarder": "0x17A8e82351661DFD568FEE6D7c38695b67e1e924",
+    "smartCommitmentForwarder": "0x80314D77E86d70A67126DA86EC823F5fc018c010",
+    "lenderCommitmentGroupFactory": "0x0848E884b2DBb63727aa3216b921C279f6DC9a91",
+    "lenderCommitmentGroupFactoryV2": "0x21499A1Fd9f36ce527CB4A9032072ef1bb7a22F6"
+  },
+  "137": {
+    "tellerV2": "0xD3D79A066F2cD471841C047D372F218252Dbf8Ed",
+    "marketRegistry": "0xeF0f89baC623eD7C875bC2F23b5403DcF90ba8Bd",
+    "collateralManager": "0x76888a882a4fF57455B5e74B791DD19DF3ba51Bb",
+    "lenderManager": "0x8199DC6d35275f998aA459b29d642577818E9D3e",
+    "lenderCommitmentForwarder": "0x1727ADd0680412e839c500ccE4a2A20e3d96fF5C",
+    "smartCommitmentForwarder": "0xb02165859CE5F61597BC09C8c0F78276777D9bf0",
+    "lenderCommitmentGroupFactory": "0x2fF5ea5CF5061EB0fcfB7A2AafB8CCC79f3F73ea",
+    "lenderCommitmentGroupFactoryV2": "0xA7faf9435810fB571f61e1e116b3F18DE0B3583A"
+  },
+  "10": {
+    "tellerV2": "0x7c9CDF020E476704702A5c82E52c7539D26b0a94",
+    "marketRegistry": "0x905D0a6D78F1b517E3557C0ac536F45F417bD782",
+    "collateralManager": "0xb8E8b0aa1F49dD5128941571802235457189538d",
+    "lenderManager": "0xCae59Fb1D1d709C1a46944A4E1fa52e7B267E451",
+    "lenderCommitmentForwarder": "0x3C111250572f08493CdC262e210093F92A67DBD9",
+    "smartCommitmentForwarder": "0xE9D02C0e0449A396A09A42fE03Ff06300C972Db5",
+    "lenderCommitmentGroupFactoryV2": "0x72f136B0d905780d69EbdD71fb999BFB64B9e375"
+  },
+  "56": {
+    "tellerV2": "0x90D08f8Df66dFdE93801783FF7A36876453DAE75",
+    "marketRegistry": "0xdb2Ba4a2b90c6670f240D59AfcBeb35cd9Edd515",
+    "collateralManager": "0x9D55Cf23D26a8C17670bb8Ee25D58481ff7aD295",
+    "lenderManager": "0x9Fa5A22A3c0b8030147d363f68A763DEB9f00acB",
+    "smartCommitmentForwarder": "0xb7695470E9c8d6E84F4786C240960B7822106b63",
+    "lenderCommitmentGroupFactoryV2": "0x0EfD3E33Ba2EdE028e50a3E7f81E084996d161aa"
+  },
+  "999": {
+    "tellerV2": "0x90D08f8Df66dFdE93801783FF7A36876453DAE75",
+    "marketRegistry": "0xdb2Ba4a2b90c6670f240D59AfcBeb35cd9Edd515",
+    "collateralManager": "0x9D55Cf23D26a8C17670bb8Ee25D58481ff7aD295",
+    "lenderManager": "0xB7c92a2aB27884371E899A7094ABFf54B2675a54",
+    "lenderCommitmentForwarder": "0xa1106d888F1FA689c6935e0983687432eF2a28c1",
+    "smartCommitmentForwarder": "0x48EE9c344d5C6d202F4b3225A694957a3412008d",
+    "lenderCommitmentGroupFactoryV2": "0x5360af9B95701504F783d8654bA02B0AF5155f64"
+  },
+  "747474": {
+    "tellerV2": "0xf7B14778035fEAF44540A0bC1D4ED859bCB28229",
+    "marketRegistry": "0xCAed03f8c7410F327F7E535bd7a339ee4b14Ab9b",
+    "collateralManager": "0x6455F2E1CCb14bd0b675A309276FB5333Dec524f",
+    "lenderManager": "0xb7695470E9c8d6E84F4786C240960B7822106b63",
+    "lenderCommitmentForwarder": "0x0b65C94CfF84afa6D9CE3D287b1227D9Cc7CdfB7",
+    "smartCommitmentForwarder": "0x9Fa5A22A3c0b8030147d363f68A763DEB9f00acB",
+    "lenderCommitmentGroupFactoryV2": "0x3D495036Dfeb1bBfCCabAC74e90e01cDD5C8E578"
+  },
+  "33139": {
+    "tellerV2": "0x3AF8DB041fcaFA539C2c78f73aa209383ba703ed",
+    "marketRegistry": "0x0708480670BdE591e275B06Cd19EcaDFC93A1f16",
+    "collateralManager": "0x90D08f8Df66dFdE93801783FF7A36876453DAE75",
+    "lenderManager": "0x0AeeeD450EcCaFaA140222De43963B179B514540",
+    "smartCommitmentForwarder": "0x7f43c21D4FE1807BF2CF25e6F048A03b57226e03",
+    "lenderCommitmentGroupFactoryV2": "0x0EfD3E33Ba2EdE028e50a3E7f81E084996d161aa",
+    "lenderCommitmentGroupFactoryV3": "0x26E2BD4F67136a7929DFE82BD6392633eb5610C2"
+  },
+  "50": {
+    "tellerV2": "0x5d3eCF8877eDAB28e14bD7d243fA8B0fE416E95E",
+    "marketRegistry": "0xCAed03f8c7410F327F7E535bd7a339ee4b14Ab9b",
+    "collateralManager": "0x6455F2E1CCb14bd0b675A309276FB5333Dec524f",
+    "lenderManager": "0x13a5735F356B4ede9D3F65D3eDdb62651df1cC37",
+    "smartCommitmentForwarder": "0xfDDcEc68cfa40c38Faf05F918484fC416a221BFF",
+    "lenderCommitmentGroupFactoryV2": "0x0848E884b2DBb63727aa3216b921C279f6DC9a91"
+  }
+}
