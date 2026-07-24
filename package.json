@@ -43,7 +43,9 @@
     "update:1delta": "node scripts/update-1delta-packages.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "postinstall": "node scripts/patch-abis.cjs"
+    "postinstall": "node scripts/patch-abis.cjs",
+    "update:teller": "tsx src/update-teller.ts",
+    "update:teller-oracles": "tsx src/update-teller-oracles.ts"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
