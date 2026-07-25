@@ -45,7 +45,8 @@
     "test:watch": "vitest",
     "postinstall": "node scripts/patch-abis.cjs",
     "update:teller": "tsx src/update-teller.ts",
-    "update:teller-oracles": "tsx src/update-teller-oracles.ts"
+    "update:teller-oracles": "tsx src/update-teller-oracles.ts",
+    "update:teller-labels": "tsx src/update-teller-labels.ts"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
