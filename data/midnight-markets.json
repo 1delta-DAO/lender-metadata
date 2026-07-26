@@ -117,6 +117,64 @@
       "name": "cbBTC/USDC - 2026-09-25"
     },
     {
+      "marketId": "0x90ebaaeb439d2b1f48bff467aa0bdd2d6971a4e2d5e6999041183add9796c5e9",
+      "loanToken": "0x4200000000000000000000000000000000000006",
+      "loanDecimals": 18,
+      "collateralParams": [
+        {
+          "token": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+          "lltv": "860000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0xb03855ad5afd6b8db8091dd5551cac4ed621d9e6",
+          "decimals": 18
+        }
+      ],
+      "maturity": "1785510000",
+      "rcfThreshold": "2000000000000000000",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0x0000000000000000000000000000000000000000",
+      "settlementFeeCbp": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "continuousFee": "0",
+      "name": "cbETH/WETH - 2026-07-31"
+    },
+    {
+      "marketId": "0x9ec9a984206134142fc10801551d12bbabee09b93484e76130a987348e468581",
+      "loanToken": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0x4200000000000000000000000000000000000006",
+          "lltv": "860000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0xfea2d58cefcb9fcb597723c6bae66ffe4193afe4",
+          "decimals": 18
+        }
+      ],
+      "maturity": "1785510000",
+      "rcfThreshold": "3000000000",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0x0000000000000000000000000000000000000000",
+      "settlementFeeCbp": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "continuousFee": "0",
+      "name": "WETH/USDC - 2026-07-31"
+    },
+    {
       "marketId": "0xe813eab6cc14f7b742b404472b341de9e55fd2d4e7aca847b49b02c9af877a41",
       "loanToken": "0x4200000000000000000000000000000000000006",
       "loanDecimals": 18,
