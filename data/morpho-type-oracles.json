@@ -1927,6 +1927,13 @@
         "collateralAssetDecimals": 18
       },
       {
+        "oracle": "0xFd465cb96e21b6fBb3DE242b638635D57Ae0Be1c",
+        "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "collateralAsset": "0xf252c5bd43907a6cab079e990845a37a7c5730d9",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 18
+      },
+      {
         "oracle": "0x68066D2891254F1F3285Cac0bB16B65B28EE3cAb",
         "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "collateralAsset": "0xf458ad24b1de7c653e8471efb0b87710b316b7d9",
