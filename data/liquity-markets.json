@@ -627,7 +627,8 @@
         "liquidationPenaltySP": "50000000000000000",
         "liquidationPenaltyRedistribution": "100000000000000000",
         "collDecimals": 6,
-        "name": "CDP / FXRP"
+        "name": "CDP / FXRP",
+        "priceDecimals": 18
       },
       {
         "collIndex": 1,
@@ -673,7 +674,8 @@
         "liquidationPenaltySP": "50000000000000000",
         "liquidationPenaltyRedistribution": "100000000000000000",
         "collDecimals": 6,
-        "name": "CDP / stXRP"
+        "name": "CDP / stXRP",
+        "priceDecimals": 18
       },
       {
         "collIndex": 3,
@@ -866,7 +868,8 @@
         "liquidationPenaltySP": "50000000000000000",
         "liquidationPenaltyRedistribution": "200000000000000000",
         "collDecimals": 8,
-        "name": "ebUSD / WBTC"
+        "name": "ebUSD / WBTC",
+        "priceDecimals": 28
       },
       {
         "collIndex": 3,
@@ -889,7 +892,8 @@
         "liquidationPenaltySP": "50000000000000000",
         "liquidationPenaltyRedistribution": "200000000000000000",
         "collDecimals": 8,
-        "name": "ebUSD / LBTC"
+        "name": "ebUSD / LBTC",
+        "priceDecimals": 28
       },
       {
         "collIndex": 4,
@@ -983,7 +987,8 @@
         "liquidationPenaltySP": "50000000000000000",
         "liquidationPenaltyRedistribution": "200000000000000000",
         "collDecimals": 6,
-        "name": "ebUSD / XAUt0"
+        "name": "ebUSD / XAUt0",
+        "priceDecimals": 30
       },
       {
         "collIndex": 3,

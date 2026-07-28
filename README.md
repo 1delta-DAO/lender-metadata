@@ -381,7 +381,7 @@ Loans, Soneta, Ebisu) — one config row per deployment, shared adapter code.
 | File | Description |
 |------|-------------|
 | `config/liquity.json` | Hand-seeded per deployment (lender → chainId): shared addresses (CollateralRegistry, stable token, HintHelpers, MultiTroveGetter, gas-comp token), deviation params (minDebt, rate bounds, gasCompensation, debt-cap/param-getter/mutable flags), `branchAddressesRegistries` ORDERED BY collIndex (branch contracts don't expose their registry — must be seeded), per-fork `zappers` (trove-id discovery probing), `collWrappers` (wrapper-token branches), subgraph/API endpoints |
-| `data/liquity-markets.json` | Generated (`npm run update:liquity`): per-branch contract sets + risk constants (CCR/MCR/SCR/BCR, liquidation penalties, debt caps) enumerated from each CollateralRegistry and read from the seeded AddressesRegistries. Re-run refreshes owner-mutable constants on proxied forks (Felix, Ēnosys, Ebisu) |
+| `data/liquity-markets.json` | Generated (`npm run update:liquity`): per-branch contract sets + risk constants (CCR/MCR/SCR/BCR, liquidation penalties, debt caps) enumerated from each CollateralRegistry and read from the seeded AddressesRegistries. Re-run refreshes owner-mutable constants on proxied forks (Felix, Ēnosys, Ebisu). Also emits `priceDecimals` on NON-18-dec branches — the scale of `PriceFeed.lastGoodPrice()`, which is fork-dependent (Ebisu bakes `36 − collDecimals` into the feed; Ēnosys keeps 18 and normalizes collateral in its CR math) and is solved for against the branch's own `getCurrentICR`; left unset when the branch has no trove to sample |
 
 Gotcha: USDaf has TWO deployments — the live V2 registry is `0x33d680…`; their
 repo's broadcast manifest points at the abandoned legacy one.

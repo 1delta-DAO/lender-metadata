@@ -152,6 +152,69 @@ const BORROWER_OPERATIONS_ABI = ["CCR", "MCR", "SCR", "BCR"].map((name) => ({
   outputs: [{ name: "", type: "uint256" }],
 })) as any;
 
+// Reads used to derive `priceDecimals` on non-18-dec branches (see
+// `detectPriceDecimals`). TroveManager + PriceFeed, names unique across both.
+const PRICE_SCALE_ABI = [
+  {
+    type: "function",
+    name: "lastGoodPrice",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    type: "function",
+    name: "getTroveIdsCount",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    type: "function",
+    name: "getTroveFromTroveIdsArray",
+    stateMutability: "view",
+    inputs: [{ name: "_index", type: "uint256" }],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    type: "function",
+    name: "getCurrentICR",
+    stateMutability: "view",
+    inputs: [
+      { name: "_troveId", type: "uint256" },
+      { name: "_price", type: "uint256" },
+    ],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    type: "function",
+    name: "getLatestTroveData",
+    stateMutability: "view",
+    inputs: [{ name: "_troveId", type: "uint256" }],
+    outputs: [
+      {
+        name: "",
+        type: "tuple",
+        components: [
+          { name: "entireDebt", type: "uint256" },
+          { name: "entireColl", type: "uint256" },
+          { name: "redistBoldDebtGain", type: "uint256" },
+          { name: "redistCollGain", type: "uint256" },
+          { name: "accruedInterest", type: "uint256" },
+          { name: "recordedDebt", type: "uint256" },
+          { name: "annualInterestRate", type: "uint256" },
+          { name: "weightedRecordedDebt", type: "uint256" },
+          { name: "accruedBatchManagementFee", type: "uint256" },
+          { name: "lastInterestRateAdjTime", type: "uint256" },
+        ],
+      },
+    ],
+  },
+] as any;
+
+/** How many troves to sample per branch before giving up on the derivation. */
+const PRICE_SCALE_TROVE_SAMPLES = 3;
+
 function readConfig(): LiquityConfig {
   try {
     return JSON.parse(readFileSync(CONFIG_FILE, "utf8"));
@@ -202,6 +265,142 @@ async function resolveTokenMeta(
     };
   });
   return out;
+}
+
+const big = (v: any): bigint | undefined =>
+  typeof v === "bigint" ? v : typeof v === "number" ? BigInt(v) : undefined;
+
+/**
+ * Derive `priceDecimals` (the scale of `PriceFeed.lastGoodPrice()`) for
+ * branches whose collateral is NOT 18-dec.
+ *
+ * Canonical Liquity V2 only ever lists 18-dec collateral, so the feed is plain
+ * 1e18 there. Forks that added non-18-dec collateral had to put the decimal
+ * scaling SOMEWHERE, and they disagree on where:
+ *   - Ebisu bakes it into the feed  -> `lastGoodPrice` = USD x 10^(36-collDec),
+ *     trove collateral stays in raw token units;
+ *   - Enosys leaves the feed at 1e18 and normalizes collateral to 18 dec inside
+ *     its CR math.
+ * Both satisfy `collRaw * price / 1e18 = USD_WAD`, so NO single read tells them
+ * apart — but the branch's own `getCurrentICR` pins it exactly. From
+ * `ICR = collUSD / debt` (WAD):
+ *
+ *   10^priceDec = collRaw * priceRaw * 10^debtDec * 1e18
+ *                 ---------------------------------------
+ *                 10^collDec * debtRaw * ICR_wad
+ *
+ * Sample a few troves (a redeemed/zombie trove can have zero debt -> ICR is
+ * uint256 max) and accept the first that lands on a clean power of ten. Leaving
+ * the field off is safe: the SDK falls back to a plausibility auto-detect.
+ */
+async function detectPriceDecimals(
+  lender: string,
+  chainId: string,
+  branches: any[],
+  debtDecimals: number,
+): Promise<void> {
+  const targets = branches.filter(
+    (b) => b.collDecimals !== 18 && b.priceFeed && b.troveManager,
+  );
+  if (targets.length === 0) return;
+
+  const mc = async (calls: any[]) => {
+    try {
+      return (await multicallRetryUniversal({
+        chain: chainId,
+        calls,
+        abi: PRICE_SCALE_ABI,
+        allowFailure: true,
+      })) as any[];
+    } catch {
+      return [];
+    }
+  };
+
+  // A: current price + trove count per branch.
+  const headRes = await mc(
+    targets.flatMap((b) => [
+      { address: b.priceFeed, name: "lastGoodPrice", args: [] },
+      { address: b.troveManager, name: "getTroveIdsCount", args: [] },
+    ]),
+  );
+
+  // B: the first N trove ids of every branch that has any.
+  const probes: { b: any; price: bigint; slot: number }[] = [];
+  const idCalls: any[] = [];
+  targets.forEach((b, i) => {
+    const price = big(headRes[i * 2]);
+    const count = big(headRes[i * 2 + 1]) ?? 0n;
+    if (!price || price === 0n || count === 0n) return;
+    const n = Math.min(Number(count), PRICE_SCALE_TROVE_SAMPLES);
+    for (let k = 0; k < n; k++) {
+      probes.push({ b, price, slot: idCalls.length });
+      idCalls.push({
+        address: b.troveManager,
+        name: "getTroveFromTroveIdsArray",
+        args: [k],
+      });
+    }
+  });
+  if (idCalls.length === 0) return;
+  const idRes = await mc(idCalls);
+
+  // C: per candidate trove, its coll/debt and the branch's own ICR for it.
+  const live = probes.filter((p) => big(idRes[p.slot]) !== undefined);
+  if (live.length === 0) return;
+  const dataRes = await mc(
+    live.flatMap((p) => [
+      {
+        address: p.b.troveManager,
+        name: "getLatestTroveData",
+        args: [big(idRes[p.slot])],
+      },
+      {
+        address: p.b.troveManager,
+        name: "getCurrentICR",
+        args: [big(idRes[p.slot]), p.price],
+      },
+    ]),
+  );
+
+  const WAD = 10n ** 18n;
+  for (let i = 0; i < live.length; i++) {
+    const { b, price } = live[i];
+    if (b.priceDecimals !== undefined) continue;
+    const t = dataRes[i * 2];
+    const icr = big(dataRes[i * 2 + 1]);
+    const debt = big(t?.entireDebt ?? t?.[0]);
+    const coll = big(t?.entireColl ?? t?.[1]);
+    if (!icr || !debt || !coll || debt === 0n || coll === 0n) continue;
+
+    const num = coll * price * 10n ** BigInt(debtDecimals) * WAD;
+    const den = 10n ** BigInt(b.collDecimals) * debt * icr;
+    if (den === 0n) continue;
+    const exp = Math.log10(Number(num) / Number(den));
+    const rounded = Math.round(exp);
+    // Must be a clean power of ten in a sane range — `getCurrentICR` rounds, so
+    // allow a little slack, but reject anything that is not obviously 10^k.
+    if (Math.abs(exp - rounded) > 0.01 || rounded < 6 || rounded > 36) {
+      console.log(
+        `Liquity: ${lender} chain ${chainId} collIndex ${b.collIndex}: could not derive priceDecimals (got 10^${exp.toFixed(3)}) — leaving unset`,
+      );
+      continue;
+    }
+    b.priceDecimals = rounded;
+    if (rounded !== 36 - b.collDecimals && rounded !== 18) {
+      console.log(
+        `Liquity: ${lender} chain ${chainId} collIndex ${b.collIndex}: unusual priceDecimals ${rounded} for ${b.collDecimals}-dec collateral`,
+      );
+    }
+  }
+
+  for (const b of targets) {
+    if (b.priceDecimals === undefined) {
+      console.log(
+        `Liquity: ${lender} chain ${chainId} collIndex ${b.collIndex}: ${b.collDecimals}-dec collateral with no usable trove — priceDecimals unset (SDK auto-detects)`,
+      );
+    }
+  }
 }
 
 async function fetchBranches(
@@ -368,6 +567,15 @@ async function fetchBranches(
     b.collDecimals = m?.decimals ?? 18;
     if (m?.symbol) b.name = `${stableSymbol} / ${m.symbol}`;
   }
+
+  // 5. Feed scale for non-18-dec collateral — fork-dependent, so derive it from
+  //    each branch's own CR math rather than assuming a convention.
+  await detectPriceDecimals(
+    lender,
+    chainId,
+    branches,
+    meta[cfg.boldToken.toLowerCase()]?.decimals ?? 18,
+  );
 
   console.log(
     `Liquity: ${lender} chain ${chainId}: ${branches.length} branches`,
