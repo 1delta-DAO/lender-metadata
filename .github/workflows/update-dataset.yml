@@ -14,14 +14,17 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
               with:
                   fetch-depth: 0
-                  token: ${{ secrets.GH_PAT }}
+                  # Prefer a PAT if configured; otherwise fall back to the
+                  # built-in GITHUB_TOKEN so checkout/push still work when GH_PAT
+                  # is missing or expired.
+                  token: ${{ secrets.GH_PAT || github.token }}
 
-            - uses: actions/setup-node@v4
+            - uses: actions/setup-node@v5
               with:
-                  node-version: "20"
+                  node-version: "22"
 
             - name: Install dependencies
               run: npm ci
@@ -46,9 +49,10 @@ jobs:
                     git config user.name "github-actions[bot]"
                     git config user.email "github-actions[bot]@users.noreply.github.com"
 
-                    # Commit only data changes (adjust if needed)
+                    # Stage generated data + config (the Morpho updater writes
+                    # labels/vaults under data/ and markets/pools under config/).
                     git checkout -b "$BRANCH_NAME"
-                    git add data/**
+                    git add data config
                     git commit -m "chore(data): update $(date -u +'%Y-%m-%dT%H:%M:%SZ') [skip ci]"
                     git push origin "$BRANCH_NAME"
                     echo "Pushed branch: $BRANCH_NAME"
@@ -61,7 +65,7 @@ jobs:
             - name: Create Pull Request
               if: steps.commit.outputs.has_changes == 'true'
               env:
-                  GH_TOKEN: ${{ secrets.GH_PAT }}
+                  GH_TOKEN: ${{ secrets.GH_PAT || github.token }}
                   BRANCH_NAME: ${{ env.BRANCH_NAME }}
               run: |
                   gh pr create \
