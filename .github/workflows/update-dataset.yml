@@ -65,8 +65,11 @@ jobs:
 
             - name: Create Pull Request
               if: steps.commit.outputs.has_changes == 'true'
+              # Checkout/push use the built-in GITHUB_TOKEN (above). PR creation
+              # needs a PAT because the org disables "Actions can create PRs".
+              # GH_PAT only needs: Pull requests → write (+ Contents → read).
               env:
-                  GH_TOKEN: ${{ github.token }}
+                  GH_TOKEN: ${{ secrets.GH_PAT }}
                   BRANCH_NAME: ${{ env.BRANCH_NAME }}
               run: |
                   gh pr create \
