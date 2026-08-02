@@ -133,6 +133,32 @@
             "liquidationRewardOverride": 0.02
           }
         ]
+      },
+      "21": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "1",
+              "2"
+            ],
+            "marginRatioOverride": 0.25,
+            "liquidationRewardOverride": 0.07
+          }
+        ]
+      },
+      "22": {
+        "feature": "SINGLE_COLLATERAL_WITH_STRICT_DEBT",
+        "singleCollateral": [
+          {
+            "debtMarketIds": [
+              "1",
+              "2"
+            ],
+            "marginRatioOverride": 0.6666666666666666,
+            "liquidationRewardOverride": 0.15
+          }
+        ]
       }
     },
     "setter": "0x7bcaf5253c417c84bbd1b7dfe4ca4f0a4c4ca435"
@@ -158,7 +184,11 @@
   "5000": {
     "categories": {},
     "marketCategories": {},
-    "riskFeatures": {},
+    "riskFeatures": {
+      "14": {
+        "feature": "BORROW_ONLY"
+      }
+    },
     "setter": "0x7bcaf5253c417c84bbd1b7dfe4ca4f0a4c4ca435"
   },
   "8453": {
