@@ -14,6 +14,7 @@ import { FluidUpdater } from "./fetch/fluid/fluid.js";
 import { GearboxUpdater } from "./fetch/gearbox/gearbox.js";
 import { DolomiteUpdater } from "./fetch/dolomite.js";
 import { MidnightUpdater } from "./fetch/midnight/midnight.js";
+import { TermMarketsUpdater } from "./fetch/term/term.js";
 
 // ============================================================================
 // Usage Examples & Main Function
@@ -43,6 +44,13 @@ async function main(): Promise<void> {
   // Morpho Midnight: fixed-rate order-book markets rebuilt from the Midnight
   // API each run (markets expire). Writes data/midnight-markets.json.
   manager.registerUpdater(new MidnightUpdater());
+  // Term Finance: fixed-maturity tri-party repos rebuilt from the Term subgraph
+  // each run. Repos EXPIRE and new ones are listed continuously, so a static
+  // snapshot goes stale within weeks — matured repos keep being advertised as
+  // borrowable while the freshly listed ones (the only ones with an OPEN
+  // auction, i.e. the only borrowable ones) are missing entirely. Writes
+  // data/term-finance-markets.json AND its labels.
+  manager.registerUpdater(new TermMarketsUpdater());
 
   // You can now update from specific sources:
   // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });
