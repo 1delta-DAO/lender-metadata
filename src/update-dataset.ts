@@ -15,6 +15,7 @@ import { GearboxUpdater } from "./fetch/gearbox/gearbox.js";
 import { DolomiteUpdater } from "./fetch/dolomite.js";
 import { MidnightUpdater } from "./fetch/midnight/midnight.js";
 import { TermMarketsUpdater } from "./fetch/term/term.js";
+import { InverseUpdater } from "./fetch/inverse/inverse.js";
 
 // ============================================================================
 // Usage Examples & Main Function
@@ -51,6 +52,12 @@ async function main(): Promise<void> {
   // auction, i.e. the only borrowable ones) are missing entirely. Writes
   // data/term-finance-markets.json AND its labels.
   manager.registerUpdater(new TermMarketsUpdater());
+  // Inverse FiRM: roster from the protocol API, on-chain verified (on-chain
+  // wins; failed verification drops the row). Governance adds/pauses markets
+  // and mutates CF/minDebt/dailyLimit, and the DBR price snapshot drifts —
+  // all refreshed here. Writes data/inverse-markets.json + labels + the
+  // config/inverse.json snapshot field.
+  manager.registerUpdater(new InverseUpdater());
 
   // You can now update from specific sources:
   // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });

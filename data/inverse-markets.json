@@ -16,6 +16,19 @@
           "name": "WETH"
         },
         {
+          "address": "0x743a502cf0e213f6fee56cd9c6b03de7fa951dcf",
+          "collToken": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "8000",
+          "liquidationIncentiveBps": "1000",
+          "liquidationFactorBps": "3580",
+          "minDebt": "0",
+          "dailyLimit": "0",
+          "borrowPaused": true,
+          "name": "stETH"
+        },
+        {
           "address": "0x63fad99705a255fe2d500e498dbb3a9ae5aa1ee8",
           "collToken": "0xd533a949740bb3306d119cc777fa900ba034cd52",
           "collDecimals": 18,
@@ -40,6 +53,19 @@
           "dailyLimit": "500000",
           "borrowPaused": false,
           "name": "cvxCRV"
+        },
+        {
+          "address": "0xb516247596ca36bf32876199fbdcad6b3322330b",
+          "collToken": "0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68",
+          "collDecimals": 18,
+          "escrowImplementation": "0x502a7759809bd673cd39a0055beed44b40eaac98",
+          "collateralFactorBps": "3000",
+          "liquidationIncentiveBps": "1000",
+          "liquidationFactorBps": "5000",
+          "minDebt": "3000",
+          "dailyLimit": "25000",
+          "borrowPaused": true,
+          "name": "INV"
         },
         {
           "address": "0x27b6c301fd441f3345d61b7a4245e1f823c3f9c4",

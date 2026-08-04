@@ -1,16 +1,20 @@
 {
-  "version": "2026-08-03T16-56-23-924Z",
-  "generatedAt": "2026-08-03T16:56:23.924Z",
+  "version": "2026-08-04T09-00-01-133Z",
+  "generatedAt": "2026-08-04T09:00:01.133Z",
   "updatedFiles": [
-    "./data/term-finance-markets.json",
-    "./data/lender-labels.json"
+    "./data/inverse-markets.json",
+    "./data/lender-labels.json",
+    "./config/inverse.json"
   ],
   "results": [
     {
-      "targetFile": "./data/term-finance-markets.json"
+      "targetFile": "./data/inverse-markets.json"
     },
     {
       "targetFile": "./data/lender-labels.json"
+    },
+    {
+      "targetFile": "./config/inverse.json"
     }
   ]
 }
