@@ -1,0 +1,190 @@
+{
+  "INVERSE": {
+    "1": {
+      "markets": [
+        {
+          "address": "0x63df5e23db45a2066508318f172ba45b9cd37035",
+          "collToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "8500",
+          "liquidationIncentiveBps": "1000",
+          "liquidationFactorBps": "7500",
+          "minDebt": "3000",
+          "dailyLimit": "2000000",
+          "borrowPaused": false,
+          "name": "WETH"
+        },
+        {
+          "address": "0x63fad99705a255fe2d500e498dbb3a9ae5aa1ee8",
+          "collToken": "0xd533a949740bb3306d119cc777fa900ba034cd52",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "6300",
+          "liquidationIncentiveBps": "1000",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "500000",
+          "borrowPaused": false,
+          "name": "CRV"
+        },
+        {
+          "address": "0x3474ad0e3a9775c9f68b415a7a9880b0cab9397a",
+          "collToken": "0x62b9c7356a2dc64a1969e19c23e4f579f9810aa7",
+          "collDecimals": 18,
+          "escrowImplementation": "0x2f32a5e5e000d1a7257090df260fc08f0bab2125",
+          "collateralFactorBps": "4800",
+          "liquidationIncentiveBps": "1200",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "500000",
+          "borrowPaused": false,
+          "name": "cvxCRV"
+        },
+        {
+          "address": "0x27b6c301fd441f3345d61b7a4245e1f823c3f9c4",
+          "collToken": "0x27b5739e22ad9033bcbf192059122d163b60349d",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "4800",
+          "liquidationIncentiveBps": "1200",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "50000",
+          "borrowPaused": false,
+          "name": "st-yCRV"
+        },
+        {
+          "address": "0xdc2265cbd15bed67b5f2c0b82e23fce4a07ddf6b",
+          "collToken": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
+          "collDecimals": 18,
+          "escrowImplementation": "0xf2a2b6c1f47c75ffacdbf60b35f2ed2d35f0a9c1",
+          "collateralFactorBps": "6500",
+          "liquidationIncentiveBps": "1000",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "500000",
+          "borrowPaused": false,
+          "name": "CVX"
+        },
+        {
+          "address": "0x3fd3dabb9f9480621c8a111603d3ba70f17550bc",
+          "collToken": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "8500",
+          "liquidationIncentiveBps": "1000",
+          "liquidationFactorBps": "7500",
+          "minDebt": "3000",
+          "dailyLimit": "2000000",
+          "borrowPaused": false,
+          "name": "wstETH"
+        },
+        {
+          "address": "0x48ba574edf0bc4e2e40b529863aaa6a67c264e7c",
+          "collToken": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "collDecimals": 8,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "8500",
+          "liquidationIncentiveBps": "1000",
+          "liquidationFactorBps": "7500",
+          "minDebt": "3000",
+          "dailyLimit": "2000000",
+          "borrowPaused": false,
+          "name": "WBTC"
+        },
+        {
+          "address": "0x79ef6d28c41e47a588e2f2ffb4140eb6d952aec4",
+          "collToken": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "9000",
+          "liquidationIncentiveBps": "500",
+          "liquidationFactorBps": "7000",
+          "minDebt": "3000",
+          "dailyLimit": "1000000",
+          "borrowPaused": false,
+          "name": "sUSDe"
+        },
+        {
+          "address": "0x2a256306d8ba899e33b01e495982656884ac77ff",
+          "collToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "collDecimals": 8,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "8500",
+          "liquidationIncentiveBps": "1000",
+          "liquidationFactorBps": "7500",
+          "minDebt": "3000",
+          "dailyLimit": "1000000",
+          "borrowPaused": false,
+          "name": "cbBTC"
+        },
+        {
+          "address": "0xb427fc22561f3963b04202f9bb5bcebd76c14a99",
+          "collToken": "0x744793b5110f6ca9cc7cdfe1ce16677c3eb192ef",
+          "collDecimals": 18,
+          "escrowImplementation": "0x141e4a7efe8addb63d4a51b30a9a8656ce0678f5",
+          "collateralFactorBps": "9200",
+          "liquidationIncentiveBps": "400",
+          "liquidationFactorBps": "10000",
+          "minDebt": "5000",
+          "dailyLimit": "5000000",
+          "borrowPaused": false,
+          "name": "sUSDe-DOLA"
+        },
+        {
+          "address": "0x4e264618dc015219cd83dbc53b31251d73c2db1a",
+          "collToken": "0x1fc80cfcf5b345b904a0fb36d4222196ed9eb8a5",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "9200",
+          "liquidationIncentiveBps": "400",
+          "liquidationFactorBps": "10000",
+          "minDebt": "5000",
+          "dailyLimit": "5000000",
+          "borrowPaused": false,
+          "name": "yv-sUSDe-DOLA"
+        },
+        {
+          "address": "0xd68d3a44d46dd50bfeba8cca544717b76e7c4b29",
+          "collToken": "0x8b83c4aa949254895507d09365229bc3a8c7f710",
+          "collDecimals": 18,
+          "escrowImplementation": "0x44e2a62695d525caada1378405e4d565d8741df0",
+          "collateralFactorBps": "9000",
+          "liquidationIncentiveBps": "500",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "2000000",
+          "borrowPaused": false,
+          "name": "sUSDS-DOLA"
+        },
+        {
+          "address": "0x4a33bafa8a31e4ec9649f65646022cad1957808b",
+          "collToken": "0x342d24f2a3233f7ac8a7347fa239187bfd186066",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "9000",
+          "liquidationIncentiveBps": "500",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "2000000",
+          "borrowPaused": false,
+          "name": "yv-sUSDS-DOLA"
+        },
+        {
+          "address": "0xc45e9c231ab5d9bd3f1131e7901b100d8d236c4d",
+          "collToken": "0x76a962ba6770068bcf454d34dde17175611e6637",
+          "collDecimals": 18,
+          "escrowImplementation": "0x88df2a32c1130ae8371bf6b5d5c644a485fc650b",
+          "collateralFactorBps": "8700",
+          "liquidationIncentiveBps": "500",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "500000",
+          "borrowPaused": false,
+          "name": "scrvUSD-sDOLA"
+        }
+      ]
+    }
+  }
+}
