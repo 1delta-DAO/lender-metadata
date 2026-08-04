@@ -37,7 +37,9 @@ const AUDITOR_ABI = [
 ] as const;
 
 export type ExactlyOracleMarketData = {
-  /** Market (ERC4626) address — the leaf id (marketUid = EXACTLY_<market>). */
+  /** Market (ERC4626) address. NOTE Exactly is cross-margin under ONE
+   *  `EXACTLY` lender key, so join downstream rows on (chain, ASSET) —
+   *  `marketUid = EXACTLY:<chainId>:<asset>` — never on this address. */
   market: string;
   asset: string;
   assetSymbol: string | null;
