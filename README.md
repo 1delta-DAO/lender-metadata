@@ -396,3 +396,57 @@ Prisma-lineage CDP behind one SatoshiXApp diamond per chain (BNB, Base, Hemi).
 | `data/river-markets.json` | Generated (`npm run update:river`): per-chain `{ minNetDebt, markets[] }` — TroveManagers enumerated via the diamond's FactoryFacet, per-TM owner-mutable params snapshotted (MCR, interestRate, mint-fee bounds, maxSystemDebt, debtGasCompensation, pause/sunset flags) |
 
 Facet addresses get re-cut — the updaters only ever call the diamond.
+
+### TermMax (`src/fetch/termmax/`)
+
+Fixed-rate, fixed-maturity AMM over zero-coupon bonds. Three layers: a MARKET
+mints FT/XT/GT and holds no liquidity, per-maker ORDER contracts own the pricing
+curve, and optional ERC-4626 vaults curate orders.
+
+| File | Description |
+|------|-------------|
+| `config/termmax.json` | Generated (`npm run update:termmax`): per chain `{ routerV2?, routerV1?, oracleAggregatorV2, viewer, whitelistManager?, marketFactories[] }`. **Chain config only — there is no market roster file.** |
+
+**Why no market file.** TermMax markets churn on every maturity roll (~15% of
+the book turned over on a single date in Jul-2026) and matured markets *vanish
+from the upstream list entirely* rather than lingering with a flag, so a
+checked-in roster would be stale within weeks. `margin-fetcher` discovers
+markets at runtime from the TermMax API instead.
+
+**Everything is verified on-chain.** The chain roster and candidate addresses
+come from TermMax's own API, but each address is then probed and anything that
+fails is dropped — a drifted or compromised API cannot inject an address:
+
+| Field | Probe |
+|-------|-------|
+| `routerV2` | `getVersion()` returns `"2.x"` |
+| `viewer` | `getPositionDetails([], addr)` does not revert |
+| `oracleAggregatorV2` | `getPrice(debtToken)` returns non-zero for a live market |
+| `whitelistManager` | `isWhitelisted(router, MARKET)` responds |
+
+`whitelistManager` addresses are absent from the API's `globalConfig` (docs-site
+only), so they are seeded in the updater and verified like everything else.
+
+**Gotcha — there are two routers, and they take different borrow arguments.**
+Confirmed by reading each proxy's EIP-1967 implementation slot and scanning the
+implementation bytecode for the selector:
+
+| Router | Borrow entry point |
+|--------|--------------------|
+| **V1** (Ethereum `0xc47591f5…`) | `borrowTokenFromCollateral(recipient, market, collIn, orders[], tokenAmtsWantBuy[], maxDebt, deadline)` — takes the ORDER LIST directly (`0xfc1c1b21`) |
+| **V2** (Ethereum `0xd7b162c1…`) | `borrowTokenFromCollateral(recipient, market, collIn, maxDebt, SwapPath)` — routes the FT sale through a whitelisted `TermMaxSwapAdapter` (`0x4a8f69be`) |
+
+The V2 form needs an adapter whitelisted under `ContractModule.ADAPTER`, and
+**there is none on Ethereum** — the only whitelisted adapters are Odos and
+Pendle. Every market row's `routerAddr` points at V1, and TermMax's own API DTO
+is the V1 `{orders[], tokenAmtsWantBuy[]}` shape. Consumers building a borrow
+should target V1.
+
+**Not every chain has a V2 router.** BNB (56) and Arbitrum (42161) expose a
+router with no `getVersion`, so the updater records it as `routerV1` and leaves
+`routerV2` unset rather than mislabelling it. Read the presence of `routerV2` —
+do not assume it.
+
+`getVersion()` is also how `v2` vs `v2_01` is told apart elsewhere: they are
+`"2.0.0"` and `"2.0.1"`, both V2 revisions sharing one ABI. There are no live V1
+*markets* — only the V1 *router* is still in use.
