@@ -1,13 +1,12 @@
 {
-  "version": "2026-08-04T11-47-13-930Z",
-  "generatedAt": "2026-08-04T11:47:13.930Z",
+  "version": "2026-08-04T12-15-27-607Z",
+  "generatedAt": "2026-08-04T12:15:27.607Z",
   "updatedFiles": [
-    "./data/usdd-markets.json",
     "./data/lender-labels.json"
   ],
   "results": [
     {
-      "targetFile": "./data/usdd-markets.json"
+      "targetFile": "./config/termmax.json"
     },
     {
       "targetFile": "./data/lender-labels.json"

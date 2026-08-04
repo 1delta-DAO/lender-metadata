@@ -176,7 +176,7 @@ async function tryRead(
  */
 async function fetchChain(
   chainId: string,
-): Promise<TermMaxChainConfig | undefined> {
+): Promise<{ config: TermMaxChainConfig; markets: any[] } | undefined> {
   let cfg: any;
   let markets: any[] = [];
   try {
@@ -291,7 +291,74 @@ async function fetchChain(
     `  TermMax ${chainId}: ${out.routerV2 ? "routerV2" : "routerV1 only"}, ` +
       `${markets.length} live markets, ${factories.length} factories`,
   );
-  return out;
+  return { config: out, markets };
+}
+
+// ---------------------------------------------------------------------------
+// Per-market display labels
+//
+// TermMax market keys are `TERMMAX_<MARKET_ADDR>`, which tells a user nothing —
+// and a pair typically has MANY keys differing only by maturity, so the raw key
+// is actively confusing in a list. Same problem Term Finance solves with
+// per-repo labels, so the format mirrors it:
+//
+//   names       "TermMax USDC / PT-sUSDE — 2026-08-16"
+//   shortNames  "TM USDC/PT-sUSDE 2026-08-16"
+//
+// The upstream `symbol` is `"<debt>/<collateral>@<DDMMMYYYY>"`, sometimes with
+// the collateral carrying its own maturity suffix
+// (`USDC/PT-sUSDE-13AUG2026@16AUG2026`). The trailing `@…` is dropped — the
+// MATURITY TIMESTAMP is authoritative for the date, not the symbol text, and
+// the collateral's own maturity is left in place because it identifies the
+// asset (PT-sUSDE-13AUG2026 is a different token from PT-sUSDE-27AUG2026).
+// ---------------------------------------------------------------------------
+
+/** `1786845600` → `"2026-08-16"` (UTC). Empty when unusable. */
+function maturityDate(maturity: unknown): string {
+  const secs = Number(maturity);
+  if (!Number.isFinite(secs) || secs <= 0) return "";
+  return new Date(secs * 1000).toISOString().slice(0, 10);
+}
+
+/** Split `"USDC/PT-sUSDE-13AUG2026@16AUG2026"` into its debt/collateral pair. */
+function parsePair(symbol: unknown): string {
+  const raw = String(symbol ?? "").trim();
+  if (!raw) return "";
+  const at = raw.lastIndexOf("@");
+  const pair = at > 0 ? raw.slice(0, at) : raw;
+  return pair.includes("/") ? pair : "";
+}
+
+function buildLabels(
+  perChain: Record<string, any[]>,
+): { names: Record<string, string>; shortNames: Record<string, string> } {
+  // Bare dispatch key first — this is what enables the parent-label fallback
+  // for any per-market key that has not been generated yet.
+  const names: Record<string, string> = { TERMMAX: DISPLAY.name };
+  const shortNames: Record<string, string> = { TERMMAX: DISPLAY.short };
+
+  for (const markets of Object.values(perChain)) {
+    for (const m of markets ?? []) {
+      const addr = m?.contracts?.marketAddr;
+      if (!isAddr(addr)) continue;
+      const key = `TERMMAX_${String(addr).slice(2).toUpperCase()}`;
+      const pair = parsePair(m.symbol);
+      // The maturity timestamp wins over anything parsed out of the symbol.
+      const day = maturityDate(
+        typeof m.maturity === "number"
+          ? m.maturity
+          : Date.parse(String(m.maturity ?? "")) / 1000,
+      );
+      if (pair) {
+        names[key] = `${DISPLAY.name} ${pair.replace(/\//g, " / ")}${day ? ` — ${day}` : ""}`;
+        shortNames[key] = `TM ${pair}${day ? ` ${day}` : ""}`;
+      } else {
+        names[key] = `${DISPLAY.name}${day ? ` — ${day}` : ""}`;
+        shortNames[key] = `TM${day ? ` ${day}` : ""}`;
+      }
+    }
+  }
+  return { names, shortNames };
 }
 
 export class TermMaxUpdater implements DataUpdater {
@@ -311,9 +378,12 @@ export class TermMaxUpdater implements DataUpdater {
 
     console.log(`TermMax: ${chainIds.length} chains reported by the API`);
     const config: Record<string, TermMaxChainConfig> = {};
+    const marketsByChain: Record<string, any[]> = {};
     for (const chainId of chainIds) {
       const row = await fetchChain(chainId);
-      if (row) config[chainId] = row;
+      if (!row) continue;
+      config[chainId] = row.config;
+      marketsByChain[chainId] = row.markets;
     }
 
     if (Object.keys(config).length === 0) {
@@ -321,12 +391,13 @@ export class TermMaxUpdater implements DataUpdater {
       return {};
     }
 
+    const labels = buildLabels(marketsByChain);
+    const perMarket = Object.keys(labels.names).length - 1; // minus the bare key
+    console.log(`TermMax: ${perMarket} per-market labels`);
+
     return {
       [CONFIG_FILE]: config,
-      [LABELS_FILE]: {
-        names: { TERMMAX: DISPLAY.name },
-        shortNames: { TERMMAX: DISPLAY.short },
-      },
+      [LABELS_FILE]: labels,
     };
   }
 
