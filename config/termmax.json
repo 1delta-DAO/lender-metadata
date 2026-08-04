@@ -1,0 +1,102 @@
+{
+  "1": {
+    "marketFactories": [
+      "0x1c86801e8ad0726298383e30c2c1a844887a61bd",
+      "0xc53ab74eeb5e818147eb6d06134d81d3ac810987",
+      "0xc1e9640f04b802bbf0b02a4e9fe394039abe8b59"
+    ],
+    "oracleAggregatorV2": "0x16110f65047a46d39ffeb3dadd61ed33ec9fabc2",
+    "routerV1": "0xc47591f5c023e44931c78d5a993834875b79fb11",
+    "routerV2": "0xd7b162c1fa3c8cd0cb03e2c256715a4f4bec42d0",
+    "viewer": "0x4d7049bb90eb273b65b340676d7a2826c565fa64",
+    "whitelistManager": "0xB84f2a39b271D92586c61232a73ee1F7adFBf317"
+  },
+  "56": {
+    "marketFactories": [
+      "0x96839e9b0482bffa7e129ce9feefceb1e895fc2b",
+      "0x4a34b4caaa6ad23b95d6ec6394472fbb857eb064",
+      "0x22105089afc8f35d55a9efb19785fd350addd7c3"
+    ],
+    "oracleAggregatorV2": "0xc7de1a55758bdba5cc6b6f7535006ee1349a6d37",
+    "routerV1": "0xb7634db4f4710bb992118bc37d1f63e00e2704a4",
+    "viewer": "0x10e3501bdc4ca75a7d2003462a2ac8d65b2b7037",
+    "whitelistManager": "0x6119E236d3798777A3f2553926070958DF5704F1"
+  },
+  "196": {
+    "marketFactories": [
+      "0x3d2c215de72877c3611cd0a9d8d69f60f1a5db93"
+    ],
+    "oracleAggregatorV2": "0x276c0e52508d94ff2d4106b1559c8c4bc3a75dec",
+    "routerV1": "0xb0eccbad4b4cc190261c29c6e8d85bcf04284a8b",
+    "routerV2": "0xa50929a67daf9ff3567e2bb3411204a134f72546",
+    "viewer": "0x4d7049bb90eb273b65b340676d7a2826c565fa64",
+    "whitelistManager": "0x41e1f213bF4aDA84a0D4E6A9b5E0F0a211F5A723"
+  },
+  "223": {
+    "marketFactories": [
+      "0x5ba2d33fb50d08d7755787e729183fedd6a3f3e7"
+    ],
+    "oracleAggregatorV2": "0x3b798263e9eae3254d86ac30b198f7aa2f82fd82",
+    "routerV1": "0x3cb5fa87703c7165cc5f2087b3e80b58fb6d8ce8",
+    "routerV2": "0x830fbad7cd1c3cc5b693dc64b985f2901b253c5b",
+    "viewer": "0x10e3501bdc4ca75a7d2003462a2ac8d65b2b7037",
+    "whitelistManager": "0x03c4FCF963E5FBC0dC5851d2340624E70492acb9"
+  },
+  "999": {
+    "marketFactories": [
+      "0x3b323c3700c5eee539e7256fd81eb124d7ed52db",
+      "0xd8ca160a42bc951fb7bd436c35f35d18e122e06c"
+    ],
+    "oracleAggregatorV2": "0x8b2ae4e2070b3e9bf9625fc61290700a2e24a808",
+    "routerV1": "0xad4b718378a9b4144b1a549915d794d4d67523db",
+    "routerV2": "0xfa8be638a78fa426c4228df1002fd54fa48a6caf",
+    "viewer": "0x4d7049bb90eb273b65b340676d7a2826c565fa64"
+  },
+  "1672": {
+    "marketFactories": [
+      "0xedc206e67eac5c949c0a90a02e29b4b2791c8395"
+    ],
+    "oracleAggregatorV2": "0x490df22f542e778fafab441beb19d358be048a20",
+    "routerV1": "0x503f0828157f088420deb26338f33c270c8e95f1",
+    "routerV2": "0xc56cf74254c5add64fa1198476233bec1878145b",
+    "viewer": "0x10e3501bdc4ca75a7d2003462a2ac8d65b2b7037"
+  },
+  "4663": {
+    "marketFactories": [
+      "0xf8f8d8e6f139841a30c8c3d6a2f656f195755ceb"
+    ],
+    "oracleAggregatorV2": "0x3b798263e9eae3254d86ac30b198f7aa2f82fd82",
+    "routerV1": "0x3cb5fa87703c7165cc5f2087b3e80b58fb6d8ce8",
+    "routerV2": "0xae2b872d4ba3e68e7392067c39b30a573f5fd2ff",
+    "viewer": "0xffbf40c2d4c320f688f230940735ba33d1144452"
+  },
+  "8453": {
+    "marketFactories": [
+      "0x08c50bd46992d35694208ec3cf1f1edce38f5fd1",
+      "0x2afef28a8ab57d2f5a5663ef69351e9d3abf1779"
+    ],
+    "oracleAggregatorV2": "0xc1114e635661d13137e642828f1da71948b2caad",
+    "routerV1": "0x3cb5fa87703c7165cc5f2087b3e80b58fb6d8ce8",
+    "routerV2": "0x830fbad7cd1c3cc5b693dc64b985f2901b253c5b",
+    "viewer": "0x57b2d6687417857a9b5bd90733e8915b397f4a07"
+  },
+  "42161": {
+    "marketFactories": [
+      "0xcaf2632bdb12aa20b17f3e80ceaf9781b4ad4f38"
+    ],
+    "oracleAggregatorV2": "0xdf020051fc6f3378459bc9269372aa46feea77ca",
+    "routerV1": "0x7fa333b184868d88ac78a82ec06d5e87d4b0322e",
+    "viewer": "0x57b2d6687417857a9b5bd90733e8915b397f4a07",
+    "whitelistManager": "0x7a571901687E7F30431B4E86bdd1baB6caE51D43"
+  },
+  "80094": {
+    "marketFactories": [
+      "0x2a15cc106bca1ee17a411d77a9c53ec3509d47c2"
+    ],
+    "oracleAggregatorV2": "0xf5c6664c5b33e3fc16afa43621650652fcd85d65",
+    "routerV1": "0xb7634db4f4710bb992118bc37d1f63e00e2704a4",
+    "routerV2": "0xc7de1a55758bdba5cc6b6f7535006ee1349a6d37",
+    "viewer": "0x4d7049bb90eb273b65b340676d7a2826c565fa64",
+    "whitelistManager": "0x6Cf2B79D1A2173339399a3ecB44086327c9ce308"
+  }
+}
