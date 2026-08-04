@@ -397,6 +397,20 @@ Prisma-lineage CDP behind one SatoshiXApp diamond per chain (BNB, Base, Hemi).
 
 Facet addresses get re-cut — the updaters only ever call the diamond.
 
+### USDD 2.0 (`src/fetch/usdd/`)
+
+Faithful MakerDAO fork from the TRON ecosystem, deployed on Ethereum + BNB.
+**The EVM CDP book is EMPTY by design** — `cdpManager.cdpi()` reads 0 on both
+chains and no collateral ilk has ever been filed (every user CDP is TRON-only;
+see `USDD_PLAN.md` in the lending-sdks repo). The roster stays empty until USDD
+governance files an EVM ilk, and this updater doubles as the automated
+re-evaluation trigger: run it quarterly (or wire it into `update:dataset`).
+
+| File | Description |
+|------|-------------|
+| `config/usdd.json` | Hand-seeded per chain: core Maker surfaces (`vat`, `jug`, `spot`, `dog`, `cdpManager`, `proxyActions`, `proxyRegistry`, `usdd`, `usddJoin`), the savings pair (`pot`, `susdd`) and the 1:1 `psms[]` (swap modules, NOT markets). NB their docs list the TRON Vat address in the BNB table — the real BNB Vat (`0x41f1402a…`) was recovered via `Jug.vat()` on-chain. |
+| `data/usdd-markets.json` | Generated (`npm run update:usdd`): per-chain `{ markets[], cdpi }`. Candidate ilks come from the chain-scoped API (`latest-collateral?chain=` — the chain-blind `vault/collaterals` endpoint returns the TRON book), filtered to `collateralType 1` (2 = PSM, 3 = Smart Allocator — never markets), then each is VERIFIED on-chain (Vat/Spot/Jug/Dog params, gem-join `ilk()` round-trip; on-chain values win). `cdpi` is snapshotted every run so a first EVM CDP is visible in the log even before an ilk carries debt. |
+
 ### TermMax (`src/fetch/termmax/`)
 
 Fixed-rate, fixed-maturity AMM over zero-coupon bonds. Three layers: a MARKET
