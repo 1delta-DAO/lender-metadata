@@ -1,0 +1,97 @@
+name: update-sdks
+
+# Keep the @1delta/* dependencies current.
+#
+# These are pinned as `^0.0.x`, and below 0.1.0 npm's caret matches nothing but
+# that exact patch — `^0.0.310` means `=0.0.310`. So `npm ci` reinstalls the
+# same version forever and this repo never picks up a new SDK release on its
+# own. Left alone it drifted 99 margin-fetcher releases behind, which meant the
+# nightly update-dataset job ran against a nearly year-old fetcher: any updater
+# needing a newer symbol fails with a confusing error, and newly supported
+# lenders silently produce no data.
+#
+# Runs weekly and opens a PR when anything moved, so the bump is reviewed
+# rather than applied blind — a new SDK can change output shapes, and this
+# repo's data files are consumed by the workers at runtime.
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: "0 4 * * 1" # Mondays, 04:00 UTC (before the nightly data run)
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    run:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v5
+              with:
+                  fetch-depth: 0
+                  token: ${{ github.token }}
+
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: "22"
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Bump @1delta/* to latest
+              run: npm run update:1delta
+
+            # A bumped SDK can change the types the updaters compile against, so
+            # prove the repo still builds BEFORE opening the PR. A failure here
+            # is the useful signal: it means an SDK change needs code work, not
+            # just a version bump.
+            - name: Typecheck
+              run: npm run typecheck
+
+            - name: Test
+              run: npm test
+
+            - name: Compute branch name
+              run: echo "BRANCH_NAME=update-sdks-$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
+
+            - name: Commit & push if changed
+              id: commit
+              env:
+                  BRANCH_NAME: ${{ env.BRANCH_NAME }}
+              run: |
+                  # Only the dependency manifests — this workflow must never
+                  # sweep up unrelated working-tree changes.
+                  if [[ -n "$(git status --porcelain -- package.json package-lock.json)" ]]; then
+                    git config user.name "github-actions[bot]"
+                    git config user.email "github-actions[bot]@users.noreply.github.com"
+                    git checkout -b "$BRANCH_NAME"
+                    git add package.json package-lock.json
+                    git commit -m "chore(deps): bump @1delta/* to latest [skip ci]"
+                    git push origin "$BRANCH_NAME"
+                    echo "has_changes=true" >> $GITHUB_OUTPUT
+                  else
+                    echo "Already on the latest @1delta/* versions."
+                    echo "has_changes=false" >> $GITHUB_OUTPUT
+                  fi
+
+            - name: Create Pull Request
+              if: steps.commit.outputs.has_changes == 'true'
+              # PR creation needs a PAT because the org disables "Actions can
+              # create PRs" — same constraint as the update-dataset workflow.
+              env:
+                  GH_TOKEN: ${{ secrets.GH_PAT }}
+                  BRANCH_NAME: ${{ env.BRANCH_NAME }}
+              run: |
+                  gh pr create \
+                    --title "chore(deps): bump @1delta/* to latest" \
+                    --body "Automated \`@1delta/*\` dependency bump.
+
+                  Typecheck and tests passed against the new versions. Review the
+                  diff for SDK changes that affect updater output shapes before
+                  merging — the data files here are read at runtime by the workers.
+
+                  Opened by the \`update-sdks\` workflow." \
+                    --head "$BRANCH_NAME" \
+                    --base main

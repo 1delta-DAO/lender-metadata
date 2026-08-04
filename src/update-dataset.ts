@@ -15,6 +15,8 @@ import { GearboxUpdater } from "./fetch/gearbox/gearbox.js";
 import { DolomiteUpdater } from "./fetch/dolomite.js";
 import { MidnightUpdater } from "./fetch/midnight/midnight.js";
 import { TermMarketsUpdater } from "./fetch/term/term.js";
+import { TellerPoolsUpdater } from "./fetch/teller-pools-data.js";
+import { TellerOracleDataUpdater } from "./fetch/teller-oracle-data.js";
 import { InverseUpdater } from "./fetch/inverse/inverse.js";
 
 // ============================================================================
@@ -52,6 +54,13 @@ async function main(): Promise<void> {
   // auction, i.e. the only borrowable ones) are missing entirely. Writes
   // data/term-finance-markets.json AND its labels.
   manager.registerUpdater(new TermMarketsUpdater());
+  // Teller: LenderCommitmentGroup pools. Token metadata is read ON-CHAIN
+  // because the Teller middleware API has returned wrong tokens/decimals, and
+  // the roster changes as pools are deployed — so, like Term, a hand-committed
+  // snapshot goes stale. Writes data/teller-pools.json AND its labels; the
+  // oracle updater classifies the per-pool DEX TWAP routes.
+  manager.registerUpdater(new TellerPoolsUpdater());
+  manager.registerUpdater(new TellerOracleDataUpdater());
   // Inverse FiRM: roster from the protocol API, on-chain verified (on-chain
   // wins; failed verification drops the row). Governance adds/pauses markets
   // and mutates CF/minDebt/dailyLimit, and the DBR price snapshot drifts —

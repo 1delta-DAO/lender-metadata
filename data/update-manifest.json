@@ -1,12 +1,13 @@
 {
-  "version": "2026-08-04T12-15-27-607Z",
-  "generatedAt": "2026-08-04T12:15:27.607Z",
+  "version": "2026-08-04T12-52-48-607Z",
+  "generatedAt": "2026-08-04T12:52:48.608Z",
   "updatedFiles": [
+    "./data/teller-pools.json",
     "./data/lender-labels.json"
   ],
   "results": [
     {
-      "targetFile": "./config/termmax.json"
+      "targetFile": "./data/teller-pools.json"
     },
     {
       "targetFile": "./data/lender-labels.json"
