@@ -1,5 +1,8 @@
 import { readFileSync } from "fs";
-import { multicallRetryUniversal, getEvmClientUniversal } from "@1delta/providers";
+import {
+  multicallRetryUniversal,
+  getEvmClientUniversal,
+} from "@1delta/providers";
 import { DataUpdater } from "../../types.js";
 import { mergeData as deepMergeData } from "../../utils.js";
 
@@ -48,7 +51,9 @@ const DUST_FLOOR_USD = 1_000;
 /** Curve's own UI default band count. */
 const DEFAULT_BANDS = 10;
 
-const DISPLAY = { LLAMALEND: { name: "LlamaLend", short: "LlamaLend" } } as const;
+const DISPLAY = {
+  LLAMALEND: { name: "LlamaLend", short: "LlamaLend" },
+} as const;
 
 /** Curve's `blockchainId` → our chain id. */
 const CHAIN_BY_SLUG: Record<string, string> = {
@@ -79,8 +84,14 @@ type LlamaLendChainCfg = {
   oneWayFactory?: string;
   lendFactory?: string;
   configurator?: string;
-  leverageZap?: string;
-  oneDeltaCallbacker?: string;
+  /** Curve's deployed v1 zaps + the routers they are hard-wired to. */
+  leverageZapOdos?: string;
+  leverageZapOdosRouter?: string;
+  leverageZap1inch?: string;
+  leverageZap1inchRouter?: string;
+  /** Lowest factory index the zaps accept (9 on ETH/ARB, 0 on OP). */
+  leverageStartId?: number;
+  crvUsdFactory?: string;
   apiBaseUrl?: string | null;
   apiChainSlug?: string;
 };
@@ -223,9 +234,12 @@ export class LlamaLendUpdater implements DataUpdater {
           const delegatable = data.markets.filter(
             (m: any) => m.supportsDelegation,
           ).length;
+          const leverageable = data.markets.filter(
+            (m: any) => m.supportsLeverage,
+          ).length;
           console.log(
             `LlamaLend: chain ${chainId}: ${data.markets.length} markets ` +
-              `(${delegatable} delegation-capable, ` +
+              `(${delegatable} delegation-capable, ${leverageable} leverage-capable, ` +
               `${data.markets.filter((m: any) => m.version === 2).length} v2)`,
           );
 
@@ -291,6 +305,9 @@ async function fetchJson(url: string): Promise<any> {
 /** How many RPC endpoints to try before giving up on a chain's scan. */
 const MAX_RPC_IDS = 8;
 
+/** Full passes over the endpoint list — see the note in `scanDelegation`. */
+const SCAN_ROUNDS = 3;
+
 /**
  * Classify one controller's runtime bytecode.
  *
@@ -355,40 +372,58 @@ async function scanDelegation(
   const out: Record<string, boolean | undefined> = {};
   for (const c of controllers) out[c.toLowerCase()] = undefined;
 
-  for (let rpcId = 0; rpcId < MAX_RPC_IDS; rpcId++) {
-    const pending = controllers.filter(
-      (c) => out[c.toLowerCase()] === undefined,
-    );
-    if (pending.length === 0) break;
+  // Several rounds over the endpoint list, not one. A single sweep leaves
+  // stragglers: the one endpoint that serves `eth_getCode` can still drop an
+  // individual request, and by then every other endpoint has been exhausted.
+  // Since ONE unresolved market aborts the whole chain (see the caller), a
+  // straggler is as costly as a total outage.
+  for (let round = 0; round < SCAN_ROUNDS; round++) {
+    for (let rpcId = 0; rpcId < MAX_RPC_IDS; rpcId++) {
+      const pending = controllers.filter(
+        (c) => out[c.toLowerCase()] === undefined,
+      );
+      if (pending.length === 0) return finishScan(chainId, controllers, out);
 
-    let client: any;
-    try {
-      client = getEvmClientUniversal({ chain: chainId, rpcId });
-    } catch {
-      continue;
-    }
-
-    let failures = 0;
-    for (const c of pending) {
-      const lower = c.toLowerCase();
+      let client: any;
       try {
-        const code = (await client.getCode({ address: c as any })) as
-          | string
-          | undefined;
-        out[lower] = classifyCode(chainId, c, code ?? "0x");
+        client = getEvmClientUniversal({ chain: chainId, rpcId });
       } catch {
-        failures++;
-        // An endpoint that refuses the FIRST call refuses all of them —
-        // don't spend a round-trip per market discovering that.
-        if (failures >= 3) break;
+        continue;
+      }
+
+      let failures = 0;
+      for (const c of pending) {
+        const lower = c.toLowerCase();
+        try {
+          const code = (await client.getCode({ address: c as any })) as
+            string | undefined;
+          out[lower] = classifyCode(chainId, c, code ?? "0x");
+          // A success proves the endpoint serves getCode, so an earlier
+          // failure here was transient, not a refusal — stop counting toward
+          // the give-up threshold.
+          failures = 0;
+        } catch {
+          failures++;
+          // An endpoint that refuses getCode refuses every call; don't spend
+          // a round-trip per market discovering that.
+          if (failures >= 3) break;
+        }
       }
     }
   }
 
+  return finishScan(chainId, controllers, out);
+}
+
+function finishScan(
+  chainId: string,
+  controllers: string[],
+  out: Record<string, boolean | undefined>,
+): Record<string, boolean | undefined> {
   const unresolved = Object.values(out).filter((v) => v === undefined).length;
   if (unresolved > 0) {
     console.log(
-      `LlamaLend: chain ${chainId}: ${unresolved}/${controllers.length} delegation scans UNRESOLVED after ${MAX_RPC_IDS} RPC attempts`,
+      `LlamaLend: chain ${chainId}: ${unresolved}/${controllers.length} delegation scans UNRESOLVED after ${SCAN_ROUNDS} rounds over ${MAX_RPC_IDS} endpoints`,
     );
   }
   return out;
@@ -405,7 +440,10 @@ function rateModelFor(
   if (typeof minRate === "bigint") return "semilog";
   // A rate calculator means `r0` is an external yield that moves on its own —
   // the curve cannot be cached across refreshes.
-  if (typeof rateCalculator === "string" && /^0x[0-9a-f]{40}$/i.test(rateCalculator)) {
+  if (
+    typeof rateCalculator === "string" &&
+    /^0x[0-9a-f]{40}$/i.test(rateCalculator)
+  ) {
     return "hyperbolic-dynamic";
   }
   return version === 1 ? "hyperbolic-dynamic" : "hyperbolic";
@@ -471,7 +509,8 @@ async function fetchChain(
   // chain (mergeData then keeps the previous, known-good rows) rather than
   // quietly demote every market to direct-only.
   const unresolved = candidates.filter(
-    (r: any) => delegation[String(r.controllerAddress).toLowerCase()] === undefined,
+    (r: any) =>
+      delegation[String(r.controllerAddress).toLowerCase()] === undefined,
   );
   if (unresolved.length > 0) {
     throw new Error(
@@ -500,9 +539,13 @@ async function fetchChain(
     // AMM the controller reports must be the one the API named. Either
     // mismatch means the API row does not describe this contract.
     const chainColl =
-      typeof collateralToken === "string" ? collateralToken.toLowerCase() : undefined;
+      typeof collateralToken === "string"
+        ? collateralToken.toLowerCase()
+        : undefined;
     const chainBorrowed =
-      typeof borrowedToken === "string" ? borrowedToken.toLowerCase() : undefined;
+      typeof borrowedToken === "string"
+        ? borrowedToken.toLowerCase()
+        : undefined;
     const chainAmm = typeof amm === "string" ? amm.toLowerCase() : undefined;
     if (
       !chainColl ||
@@ -525,6 +568,22 @@ async function fetchChain(
 
     const version: 1 | 2 = r.registryId === "oneway-v2" ? 2 : 1;
     const controller = String(r.controllerAddress).toLowerCase();
+    // The API's `id` is `<registry>-<factoryIndex>`; that index IS the
+    // `controller_id` the leverage zap's callback_args needs.
+    const factoryIndex = Number(String(r.id ?? "").split("-").pop());
+    if (!Number.isInteger(factoryIndex) || factoryIndex < 0) {
+      console.log(
+        `LlamaLend: chain ${chainId}: DROPPING ${r.controllerAddress} — no factory index in id "${r.id}"`,
+      );
+      return;
+    }
+    // v2 markets live in LendFactory, which the v1 zaps do not index, so they
+    // can never be leveraged through this route regardless of their index.
+    const supportsLeverage =
+      version === 1 &&
+      typeof cfg.leverageStartId === "number" &&
+      factoryIndex >= cfg.leverageStartId &&
+      Boolean(cfg.leverageZapOdos || cfg.leverageZap1inch);
     const collSymbol = r.assets.collateral.symbol ?? "COLL";
     const borrowedSymbol = r.assets.borrowed.symbol ?? "LOAN";
 
@@ -546,6 +605,8 @@ async function fetchChain(
       priceOracle:
         typeof priceOracle === "string" ? priceOracle.toLowerCase() : undefined,
       version,
+      factoryIndex,
+      supportsLeverage,
       // FAIL CLOSED — see scanDelegation.
       supportsDelegation: delegation[controller] === true,
       ammA: ammA.toString(),

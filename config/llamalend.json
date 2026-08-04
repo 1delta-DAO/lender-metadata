@@ -3,18 +3,31 @@
     "1": {
       "apiChainSlug": "ethereum",
       "configurator": "0x6065858d0ef0aa240dfdf6f1a0b2ae34b41f49bc",
-      "leverageZap": "0x5d847c892891b503c3483d3abbc2a23774279b85",
+      "crvUsdFactory": "0xc9332fdcb1c491dcc683bae86fe3cb70360738bc",
       "lendFactory": "0x8f6b56ec5ddf1f2691a1059f1d3cd97ac9eab0bd",
+      "leverageStartId": 9,
+      "leverageZap1inch": "0x3294514b78df4bb90132567fcf8e5e99f390b687",
+      "leverageZap1inchRouter": "0x111111125421ca6dc452d289314280a0f8842a65",
+      "leverageZapOdos": "0xc5898606bdb494a994578453b92e7910a90aa873",
+      "leverageZapOdosRouter": "0xcf5540fffcdc3d510b18bfca6d2b9987b0772559",
       "oneWayFactory": "0xea6876dde9e3467564acbee1ed5bac88783205e0"
     },
     "10": {
       "apiChainSlug": "optimism",
       "configurator": "0xd36c590531caf5f620c57faf5827ce8e7f6e5bec",
-      "leverageZap": "0xdbebdae6f2d47b553b984e4091693824cf38584a",
-      "lendFactory": "0x5f94073e3f51c1fff92ffc6b4b06b7af193b3640"
+      "lendFactory": "0x5f94073e3f51c1fff92ffc6b4b06b7af193b3640",
+      "leverageStartId": 0,
+      "leverageZapOdos": "0x273e44b9a1841857d9360e8792bb59f9e1ffe9da",
+      "leverageZapOdosRouter": "0xca423977156bb05b13a2ba3b76bc5419e2fe9680",
+      "oneWayFactory": "0x5ea8f3d674c70b020586933a0a5b250734798bef"
     },
     "42161": {
       "apiChainSlug": "arbitrum",
+      "leverageStartId": 9,
+      "leverageZap1inch": "0x61c404b60ee9c5fb09f70f9a645dd38fe5b3a956",
+      "leverageZap1inchRouter": "0x111111125421ca6dc452d289314280a0f8842a65",
+      "leverageZapOdos": "0xb7b240cfa985306563a301bc417bc9715059a117",
+      "leverageZapOdosRouter": "0xa669e7a0d4b3e4fa48af2de86bd4cd7126be4e13",
       "oneWayFactory": "0xcaec110c784c9df37240a8ce096d352a75922dea"
     }
   }
