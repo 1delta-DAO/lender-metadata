@@ -1,0 +1,60 @@
+{
+  "USDD": {
+    "1": {
+      "vat": "0xff77f6209239deb2c076179499f2346b0032097f",
+      "jug": "0xdb218163fe160fedf0c702c37124e8c194e99329",
+      "spot": "0x8c4c758152da3e04b95b5eaca75585d79013c6b0",
+      "dog": "0x9681604090395e835ff54187f638ded8dc983cbf",
+      "cdpManager": "0xb5b08e58e804e5937f56b1e633cf85abbd269127",
+      "proxyActions": "0xb80751ef88d07fa33ee4fc0c6f8b4b6c6c31e708",
+      "proxyRegistry": "0x8be6b814beb37e8028258777af0ec6648a2a908e",
+      "usdd": "0x4f8e5de400de08b164e7421b3ee387f461becd1a",
+      "usddJoin": "0x983dfef6d71862d809e239845da5a959492f63b8",
+      "debtDecimals": 18,
+      "pot": "0xe789578252cc026ffb3413a1104ba223fdeca500",
+      "susdd": "0xc5d6a7b61d18afa11435a889557b068bb9f29930",
+      "psms": [
+        {
+          "ilk": "PSM-USDT-A",
+          "psm": "0xce355440c00014a229bbec030a2b8f8eb45a2897",
+          "gemJoin": "0x217e42ceb2eae9ecb788fdf0e31c806c531760a3",
+          "gem": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "gemSymbol": "USDT",
+          "gemDecimals": 6
+        },
+        {
+          "ilk": "PSM-USDC-A",
+          "psm": "0x12d0351f68035a41d13fc8324562e2d51b7a3b93",
+          "gemJoin": "0x9a7e1b324060db7342aea08c0dc56f55ced6f519",
+          "gem": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "gemSymbol": "USDC",
+          "gemDecimals": 6
+        }
+      ]
+    },
+    "56": {
+      "vat": "0x41f1402ab4d900115d1f16a14a3cf4bdf2f2705c",
+      "jug": "0x12a2a264d6980fb22e5ebb090002bd8f5e618e0b",
+      "spot": "0xc1779812be28cd205e45098e079620a830b5ffce",
+      "dog": "0x6badab4336b17e8d0839fd0c046e21b41196280b",
+      "cdpManager": "0xa4109496a660ebc8d74de991ac3b04c136c9ba09",
+      "proxyActions": "0x777684f6425d095e9166f5f694f50e48a16bcb25",
+      "proxyRegistry": "0x0144fcce201dc3957fcf75269c10c21cca41ba73",
+      "usdd": "0x45e51bc23d592eb2dba86da3985299f7895d66ba",
+      "usddJoin": "0x6b00039d76795fd59baf17e0c9c6d87011e7edac",
+      "debtDecimals": 18,
+      "pot": "0xf0c506e48383c1925c025ec9f4a9e1dd94ff8b18",
+      "susdd": "0x8ba9da757d1d66c58b1ae7e2ed6c04087348a82d",
+      "psms": [
+        {
+          "ilk": "PSM-USDT-A",
+          "psm": "0x939d3fb56cd12d68caa1125cc57a8d2391f7ee29",
+          "gemJoin": "0xe229fda620b8a9b98ef184830ee3063f0f86b790",
+          "gem": "0x55d398326f99059ff775485246999027b3197955",
+          "gemSymbol": "USDT",
+          "gemDecimals": 18
+        }
+      ]
+    }
+  }
+}
