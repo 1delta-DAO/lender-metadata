@@ -14,7 +14,10 @@
 // ============================================================================
 
 import type { AbiEvent } from "viem";
-import { getEvmClientUniversal } from "@1delta/providers";
+import {
+  getEvmClientUniversal,
+  getEvmClientWithCustomRpcsUniversal,
+} from "@1delta/providers";
 
 // Per-scan getLogs budget. Override with EVENT_SCAN_MAX_CALLS for chains whose
 // RPC caps ranges tightly over a long history (more calls = longer but deeper).
@@ -148,6 +151,23 @@ async function pickWidestRpc(
 ): Promise<{ client: any; latest: bigint; span: bigint }> {
   let best: { client: any; latest: bigint; span: bigint } | null = null;
   let lastErr: unknown;
+
+  // Per-chain RPC override (comma-separated) for chains whose provider-configured
+  // RPC is rate-limited/unusable — e.g. `EVENT_SCAN_RPCS_2818=https://rpc.morphl2.io`.
+  // Probed first; if it serves a range it's used outright.
+  const override = process.env[`EVENT_SCAN_RPCS_${chainId}`];
+  if (override) {
+    const rpcs = override.split(",").map((s) => s.trim()).filter(Boolean);
+    try {
+      const client = getEvmClientWithCustomRpcsUniversal({ chain: chainId, rpcs } as any);
+      const latest = await withRetry<bigint>(() => client.getBlockNumber());
+      const span = await probeSpan(client, address, event, latest, state);
+      if (span != null) return { client, latest, span };
+    } catch (err) {
+      lastErr = err; // fall through to the configured RPCs
+    }
+  }
+
   for (let rpcId = 0; rpcId < MAX_RPCS_TO_PROBE; rpcId++) {
     let client: any;
     let latest: bigint;

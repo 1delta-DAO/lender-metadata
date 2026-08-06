@@ -553,6 +553,35 @@
         "version": "v1"
       }
     ],
+    "2818": [
+      {
+        "vault": "0x4a791f0f4f2fe4dc6634535d235cbf2792c5b389",
+        "underlying": "0xcfb1186f4e93d60e60a8bdd997427d1f33bc372b",
+        "version": "v2"
+      },
+      {
+        "vault": "0x6a5d4b49166204335857cbb131268238f32111b5",
+        "underlying": "0xcfb1186f4e93d60e60a8bdd997427d1f33bc372b",
+        "name": "Test BTC USDC Vault",
+        "version": "v2"
+      },
+      {
+        "vault": "0x7cf2c1a184c2f17e0413a13b21b1fdafd51df08c",
+        "underlying": "0x2346878c739487b121490b4bea53e12a078725e6",
+        "version": "v2"
+      },
+      {
+        "vault": "0x9131eb40bd0bdce73c72755f1bb2cf39a9453341",
+        "underlying": "0xcfb1186f4e93d60e60a8bdd997427d1f33bc372b",
+        "name": "Gauntlet USDC",
+        "version": "v2"
+      },
+      {
+        "vault": "0xce9c4db406f37268fe010d15866857b1589fbbb2",
+        "underlying": "0xcfb1186f4e93d60e60a8bdd997427d1f33bc372b",
+        "version": "v2"
+      }
+    ],
     "4114": [
       {
         "vault": "0x72f8c254548839fa1db4156ae01d8c6ae5885ee4",
