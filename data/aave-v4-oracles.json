@@ -85,6 +85,30 @@
       "oracle": "0x0083421fd178749af2201dda5a7c3feb5790b80c"
     },
     {
+      "underlying": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+      "spoke": "0x774b9655413c34809c1f1b16b654465a89ebe989",
+      "reserveId": 0,
+      "oracle": "0x47a7cc7fd47aced15087a8b6e0acfddcd63c811a"
+    },
+    {
+      "underlying": "0x87b65c4aaffa76881f9e96f3e7ed945ddfc3cd7a",
+      "spoke": "0x774b9655413c34809c1f1b16b654465a89ebe989",
+      "reserveId": 1,
+      "oracle": "0x47a7cc7fd47aced15087a8b6e0acfddcd63c811a"
+    },
+    {
+      "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "spoke": "0x774b9655413c34809c1f1b16b654465a89ebe989",
+      "reserveId": 2,
+      "oracle": "0x47a7cc7fd47aced15087a8b6e0acfddcd63c811a"
+    },
+    {
+      "underlying": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+      "spoke": "0x774b9655413c34809c1f1b16b654465a89ebe989",
+      "reserveId": 3,
+      "oracle": "0x47a7cc7fd47aced15087a8b6e0acfddcd63c811a"
+    },
+    {
       "underlying": "0x8236a87084f8b84306f72007f36f2618a5634494",
       "spoke": "0x7ec68b5695e803e98a21a9a05d744f28b0a7753d",
       "reserveId": 0,
