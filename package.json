@@ -54,7 +54,8 @@
     "update:teller-labels": "tsx src/update-teller-labels.ts",
     "update:term": "tsx src/update-term.ts",
     "update:term-labels": "tsx src/update-term-labels.ts",
-    "update:curvance-labels": "tsx src/update-curvance-labels.ts"
+    "update:curvance-labels": "tsx src/update-curvance-labels.ts",
+    "update:resupply-labels": "tsx src/update-resupply-labels.ts"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
