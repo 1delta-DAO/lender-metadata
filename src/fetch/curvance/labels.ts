@@ -28,14 +28,23 @@
 // other lenders:
 //
 //  1. The `<debt> / <collateral>` convention assumes exactly one borrowable
-//     leg. Curvance markets can have BOTH legs borrowable (eBTC | WBTC does
-//     today), so there is no unique debt side to put first.
+//     leg. FIVE of the 25 Curvance markets have BOTH legs borrowable, so there
+//     is no unique debt side to put first.
 //  2. A label's job is to let a user match a position to what they see in the
 //     protocol's own UI. Matching Curvance beats matching our other lenders.
 //
-// Ordering within a market is therefore: collateral-only leg first; when both
-// legs are borrowable, the leg with the LOWER debt cap first (a stable, purely
-// on-chain tiebreak — never array order, which the registry does not promise).
+// Ordering within a market is `queryTokensListed`'s ARRAY ORDER, verified
+// 2026-08-07 to be the canonical one on all 25 live markets:
+//
+//  - on the 20 markets with a single borrowable leg, the collateral-only leg is
+//    first in 20/20, so array order and "collateral first" agree; and
+//  - on the 5 markets where BOTH legs are borrowable and "collateral first" has
+//    nothing to say (WMON|AUSD, WMON|USDC, WBTC|USDC, WETH|USDC, eBTC|WBTC),
+//    array order reproduces Curvance's own naming exactly.
+//
+// A derived tiebreak does NOT reproduce that — ordering the both-borrowable
+// markets by debt cap inverts every one of them (`USDC / WMON`, `WBTC / eBTC`).
+// So take the order the protocol gives and do not compute one.
 // ============================================================================
 
 import {
@@ -219,13 +228,12 @@ export async function discoverCurvanceMarkets(): Promise<CurvanceMarket[]> {
   return out;
 }
 
-/** Collateral-only leg first; both-borrowable tiebroken by lower debt cap. */
+/**
+ * The protocol's own order, unmodified — see the header. `legs` is built in
+ * `queryTokensListed` order and is not re-sorted anywhere.
+ */
 function orderLegs(legs: CurvanceLeg[]): CurvanceLeg[] {
-  return [...legs].sort((a, b) => {
-    if (a.borrowable !== b.borrowable) return a.borrowable ? 1 : -1;
-    if (a.debtCap !== b.debtCap) return a.debtCap < b.debtCap ? -1 : 1;
-    return a.cToken.toLowerCase() < b.cToken.toLowerCase() ? -1 : 1;
-  });
+  return legs;
 }
 
 export interface BuiltLabels {
