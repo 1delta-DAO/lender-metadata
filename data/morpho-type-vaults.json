@@ -14,6 +14,12 @@
         "version": "v1"
       },
       {
+        "vault": "0x2e3bbd03dbc6d890c8c7e06be4e065c5c0eee7e8",
+        "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "name": "Lista WETH Savings",
+        "version": "v1"
+      },
+      {
         "vault": "0x9651ae50a5763c6f9b883f9d50e8116281cfcab2",
         "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "name": "Lista USDC Savings",
