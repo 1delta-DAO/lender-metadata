@@ -115,6 +115,35 @@
       ],
       "continuousFee": "0",
       "name": "cbBTC/WETH - 2026-08-28"
+    },
+    {
+      "marketId": "0xeb8ee91c68c8cba3eebe7c8bfd8da4039fe274add65c2ed28015b137bbcc34cd",
+      "loanToken": "0x4200000000000000000000000000000000000006",
+      "loanDecimals": 18,
+      "collateralParams": [
+        {
+          "token": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "lltv": "860000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0xd09048c8b568dbf5f189302bea26c9edabfc4858",
+          "decimals": 6
+        }
+      ],
+      "maturity": "1790348400",
+      "rcfThreshold": "2000000000000000000",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0x0000000000000000000000000000000000000000",
+      "settlementFeeCbp": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "continuousFee": "0",
+      "name": "USDC/WETH - 2026-09-25"
     }
   ]
 }
