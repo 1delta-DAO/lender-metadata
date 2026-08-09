@@ -1,0 +1,20 @@
+{
+  "SKY": {
+    "1": {
+      "vat": "0x35d1b3f3d7966a1dfe207aa4514c12a259a0492b",
+      "jug": "0x19c0976f590d67707e62397c87829d896dc0f1f1",
+      "spot": "0x65c79fcb50ca1594b025960e539ed7a9a6d434a3",
+      "dog": "0x135954d155898d42c90d2a57824c690e0c7bef1b",
+      "cdpManager": "0x5ef30b9986345249bc32d8928b7ee64de9435e39",
+      "proxyActions": "0x82ecd135dce65fbc6dbdd0e4237e0af93ffd5038",
+      "proxyRegistry": "0x4678f0a6958e4d2bc4f1baf7bc52e8f3564f3fe4",
+      "debtToken": "0x6b175474e89094c44da98b954eedeac495271d0f",
+      "debtJoin": "0x9759a6ac90977b93b58547b4a71c78317f391a28",
+      "debtSymbol": "DAI",
+      "debtDecimals": 18,
+      "ilkRegistry": "0x5a464c28d19848f44199d003bef5ecc87d090f87",
+      "chainlog": "0xda0ab1e0017debcd72be8599041a2aa3ba7e740f",
+      "end": "0x0e2e8f1d1326a4b9633d96222ce399c708b19c28"
+    }
+  }
+}
