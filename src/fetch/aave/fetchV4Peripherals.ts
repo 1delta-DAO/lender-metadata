@@ -1,6 +1,6 @@
 import { sleep } from "../../utils.js";
 
-const DEFAULT_GRAPHQL_URL = "https://api.aave.com/graphql";
+export const DEFAULT_GRAPHQL_URL = "https://api.aave.com/graphql";
 
 export type PositionManagerEntry = {
   name: string;
@@ -174,7 +174,7 @@ export function mergeAaveV4PeripheralsData(
 
 type GqlError = { message: string };
 
-async function aaveGql<T>(
+export async function aaveGql<T>(
   url: string,
   query: string,
   variables: Record<string, unknown> | undefined,
@@ -208,7 +208,7 @@ query Chains($chainIds: [ChainId!]!) {
 }
 `;
 
-const SPOKES_QUERY = `
+export const SPOKES_QUERY = `
 query Spokes($hub: EvmAddress!, $chainId: ChainId!) {
   spokes(request: { query: { hub: { address: $hub, chainId: $chainId } } }) {
     id
@@ -241,7 +241,7 @@ export type FetchV4PeripheralsOptions = {
   throttleMs?: number;
 };
 
-async function fetchAllPositionManagersForSpoke(
+export async function fetchAllPositionManagersForSpoke(
   graphqlUrl: string,
   fetchFn: typeof fetch,
   spokeId: string,

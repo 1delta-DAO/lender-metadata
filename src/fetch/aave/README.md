@@ -24,7 +24,12 @@ of the form `AAVE_V4_<SPOKE_HEX>` (consumer side).
 | [`data/aave-v4-spokes.json`](../../../data/aave-v4-spokes.json) | data | `chain → spoke → SpokeEntry` (reserves nested) |
 | [`data/aave-v4-oracles.json`](../../../data/aave-v4-oracles.json) | data | `chain → OracleRow[]` |
 | [`data/aave-v4-oracle-sources.json`](../../../data/aave-v4-oracle-sources.json) | data | `chain → OracleSourceRow[]` |
-| [`config/aave-v4-peripherals.json`](../../../config/aave-v4-peripherals.json) | config (manual) | `chain → { nativeGateway, signatureGateway, perHub, perSpoke }` |
+| [`config/aave-v4-peripherals.json`](../../../config/aave-v4-peripherals.json) | config (manual + generated) | `chain → { nativeGateway, signatureGateway, perHub, perSpoke }` |
+| [`data/lender-labels.json`](../../../data/lender-labels.json) | data (shared) | `names/shortNames → AAVE_V4_<SPOKE>` |
+
+Gateways and `perHub` in the peripherals file are hand-curated; `perSpoke`
+entries are generated — `spokeName` by `update:aave-v4-labels`, the
+`positionManagers` names by `update:aave-v4-pm-names`.
 
 There is no `aave-v4-reserves.json`, `aave-v4-reserve-details.json`, or
 `aave-v4-hubs.json`. Reserve data lives inside each spoke entry. The hub
@@ -168,6 +173,44 @@ through the `DataManager`.
    `manager.updateFromSource("Aave V4")` from a small script — see
    `update-dataset.ts`.)
 4. Verify the new entries in `data/aave-v4-spokes.json`.
+5. Name the new spokes and their position managers:
+   ```bash
+   npm run update:aave-v4-labels     # spoke names + AAVE_V4_<SPOKE> labels
+   npm run update:aave-v4-pm-names   # Giver/Taker/Config PM names
+   ```
+
+## Spoke names and lender labels
+
+Every spoke is its own lender (`aave-v4-<spoke>` → `AAVE_V4_<SPOKE>`), so
+each one needs a row in `data/lender-labels.json` or the UI renders the raw
+id. The names are curated by Aave and published **only** through their
+GraphQL API — they are not readable on-chain, which is why
+[`fetchV4Configs.ts`](./fetchV4Configs.ts) falls back to the synthetic
+`Spoke 0xabcd..1234` placeholder.
+
+`npm run update:aave-v4-labels` ([`v4SpokeLabels.ts`](./v4SpokeLabels.ts),
+runner [`update-aave-v4-labels.ts`](../../update-aave-v4-labels.ts)) walks
+every hub in [`v4Hubs.ts`](./v4Hubs.ts), reads the names off the API, and
+writes both:
+
+- `config/aave-v4-peripherals.json` → `perSpoke[spoke].spokeName`, which
+  `update:dataset` then propagates to `label` in `data/aave-v4-spokes.json`;
+- `data/lender-labels.json` → `names`/`shortNames` under `AAVE_V4_<SPOKE>`.
+
+Notes:
+
+- It is **additive** on labels — a delisted spoke keeps its name so users
+  holding a stale position can still read it.
+- A spoke reachable through several hubs (Ethena Ecosystem via Core *and*
+  Plus) collapses to one entry; a per-hub name disagreement is warned about.
+- A brand-new spoke also gets its position managers fetched, so the entry is
+  complete on arrival. The API returns `"Unknown"` for Giver/Taker/Config, so
+  follow with `npm run update:aave-v4-pm-names`.
+- Spokes the API does not name stay unlabelled by design — publishing
+  `"Aave V4 Spoke 0x774b..e989"` would look intentional. The script reports
+  how many it skipped.
+- `update:aave-v4-pm-names` does **not** cover any of this: it names position
+  managers inside the peripherals file, a different key space.
 
 ## Validation checklist
 

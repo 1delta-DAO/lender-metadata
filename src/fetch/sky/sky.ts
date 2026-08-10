@@ -333,7 +333,12 @@ export class SkyUpdater implements DataUpdater {
             `Sky: chain ${chainId} → ${data.markets.length} class-1 markets (${live} borrowable, ${data.markets.length - live} offboarded)`,
           );
           for (const m of data.markets) {
-            const key = `${lender}_${chainId}_${m.ilk}`;
+            // `_` is the ONLY separator in a market key — the ilk's own `-`
+            // is re-spelled (`WBTC-A` → `SKY_1_WBTC_A`). A key mixing both
+            // cannot round-trip through a slug/case layer; margin-fetcher's
+            // `dssLenderKey` is the canonical definition. The true ilk is
+            // carried in the row's `ilk` field, so nothing is lost.
+            const key = `${lender}_${chainId}_${m.ilk.replace(/-/g, "_")}`;
             names[key] = `${disp.name} ${m.name}`;
             shortNames[key] = `${disp.short} ${m.collSymbol}`;
           }
