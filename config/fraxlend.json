@@ -1,0 +1,75 @@
+{
+  "FRAXLEND": {
+    "1": {
+      "deployer": "0xd6e9d27c75afd88ad24cd5edccdc76fd2fc3a751",
+      "leverageSwapper": "0xa49fd918238b1a7003659138fb91f194306b595b",
+      "pairs": [
+        {
+          "address": "0xab3cb84c310186b2fa4b4503624a5d90b5dcb22d",
+          "symbol": "ffrxUSD(sfrxETH)-58",
+          "label": "frxUSD / sfrxETH"
+        },
+        {
+          "address": "0x78bb3aec3d855431bd9289fd98da13f9ebb7ef15",
+          "symbol": "fFRAX(sfrxETH)-16",
+          "label": "FRAX / sfrxETH"
+        },
+        {
+          "address": "0xc045a53936d793839bfca146058976ef4285161e",
+          "symbol": "ffrxUSD(sfrxUSD)-69",
+          "label": "frxUSD / sfrxUSD"
+        },
+        {
+          "address": "0x28cdf6ce79702aaefbf217cf98cbd11f5639b9f1",
+          "symbol": "ffrxUSD(sUSDe)-59",
+          "label": "frxUSD / sUSDe"
+        },
+        {
+          "address": "0x8087346b8865e5b0bf9f8a49742c2d83f6a50a6c",
+          "symbol": "ffrxUSD(scrvUSD)-61",
+          "label": "frxUSD / scrvUSD"
+        },
+        {
+          "address": "0x470c677af6cce089ac38245332bfa03b22b4caed",
+          "symbol": "ffrxUSD(WFRAX)-68",
+          "label": "frxUSD / WFRAX"
+        },
+        {
+          "address": "0x1c0c222989a37247d974937782cebc8bf4f25733",
+          "symbol": "fFRAX(FXB_20261231)-24",
+          "label": "FRAX / FXB Dec-2026"
+        },
+        {
+          "address": "0x8e5f09de0cd7841239410f929a905e214443d9e0",
+          "symbol": "ffrxUSD(WBTC)-62",
+          "label": "frxUSD / WBTC"
+        },
+        {
+          "address": "0xb5a46f712f03808ae5c4b885c6f598fa06442684",
+          "symbol": "fFRAX(wstETH)-28",
+          "label": "FRAX / wstETH"
+        },
+        {
+          "address": "0xc6cada314389430d396c7b0c70c6281e99ca7fe8",
+          "symbol": "fFRAX(UNI)-19",
+          "label": "FRAX / UNI"
+        },
+        {
+          "address": "0xb5ae5b75c0df5632c572a657109375646ce66f90",
+          "symbol": "fFRAX(sUSDe)-31",
+          "label": "FRAX / sUSDe"
+        },
+        {
+          "address": "0xa201e7bbb7ca60ab88514d12dd91fc6748e6d050",
+          "symbol": "ffrxUSD(srRoyUSDC)-70",
+          "label": "frxUSD / srRoyUSDC"
+        },
+        {
+          "address": "0x7093f6141293f7c4f67e5efd922ac934402e452d",
+          "symbol": "fFRAX(LINK)-27",
+          "label": "FRAX / LINK"
+        }
+      ]
+    }
+  }
+}
