@@ -296,7 +296,17 @@ async function fetchChain(
       dust: String(vat.dust ?? vat[4]),
       /** `line == 0` ⇒ OFFBOARDED: borrowing disabled, repay/withdraw open. */
       offboarded: BigInt(vat.line ?? vat[3]) === 0n,
-      name: `DAI / ${collSymbol}`,
+      /**
+       * The ILK is part of the name, not metadata about it.
+       *
+       * `DAI / WETH` alone is shared by ETH-A, ETH-B and ETH-C — three markets
+       * holding $762M, $508M and $12M, rendered identically everywhere this
+       * name reaches. They are not variants of one product: the ilk sets the
+       * liquidation ratio (`mat`), the stability fee (`duty`) and the debt
+       * ceiling (`line`), which is the entire reason Maker mints more than one
+       * per collateral. `ETH-A` is also how a Maker user already refers to it.
+       */
+      name: `DAI / ${k.ilk}`,
     });
   }
   return { markets };
