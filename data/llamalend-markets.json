@@ -676,6 +676,31 @@
           "gauge": "0xbe0451815b546f705ef3f398b8179ae3aadda14e",
           "borrowCap": "51800000000000000000000000",
           "name": "crvUSD / syrupUSDC"
+        },
+        {
+          "controller": "0xfd85e847cdd2549f213e276e4b57b0690169f043",
+          "vault": "0xcb6e2c3d9dba8fe6245b2c969320f2485dfce2fd",
+          "amm": "0xc8c469e3964707295302299dbbf88f13eb9c40a3",
+          "collateralToken": "0xe5f130253ff137f9917c0107659a4c5262abf6b0",
+          "collateralDecimals": 18,
+          "collateralSymbol": "svZCHF",
+          "borrowedToken": "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e",
+          "borrowedDecimals": 18,
+          "borrowedSymbol": "crvUSD",
+          "monetaryPolicy": "0x547de3c2e2960cc7879ee6626f2763cbc24d4921",
+          "priceOracle": "0xa44b313a8d3fedc6f024ec25cfbf2e15487c1951",
+          "version": 2,
+          "factoryIndex": 3,
+          "supportsLeverage": false,
+          "supportsDelegation": true,
+          "ammA": "180",
+          "loanDiscount": "48000000000000000",
+          "liquidationDiscount": "28000000000000000",
+          "defaultBands": 10,
+          "rateModel": "hyperbolic",
+          "gauge": "0x02385a45868ad548c00609701b35fc4488199dd9",
+          "borrowCap": "500000000000000000000000",
+          "name": "crvUSD / svZCHF"
         }
       ]
     },
