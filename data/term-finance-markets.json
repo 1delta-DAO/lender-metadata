@@ -1435,6 +1435,28 @@
       "bidLocker": "0x79f021d8df950ee8059db22032ba5e00a45c91f2"
     },
     {
+      "termRepoId": "0xa65dcd8a8a3b1b864b70a45438e210aab3292dcf6726e4d3c0944643932a2db8",
+      "servicer": "0x1e45c9bc388b0beeb35369dc8cd4f888de50e607",
+      "repoToken": "0x6d7d1277a74e40044a390737e6046a7c6a059b05",
+      "collateralManager": "0x35b268a3503aa8d7a307adc3eee561547ec9f2bb",
+      "purchaseToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
+          "maintenanceRatio": "1092896174900000000",
+          "decimals": 6,
+          "liquidatedDamages": "80000000000000000"
+        }
+      ],
+      "maturity": "1790870400",
+      "redemptionTimestamp": "1790956800",
+      "name": "USDC / PT-reUSD-10DEC2026 — 2026-10-01",
+      "endOfRepurchaseWindow": "1790953200",
+      "redemptionValue": "1000000000000000000",
+      "servicingFee": "0"
+    },
+    {
       "termRepoId": "0xa786a10b64a7a9454c7116015247248ed20cdef0584726bbc03cec927efb9204",
       "servicer": "0x9027e85c2bd6b35203b7a47a09293c171c624d4a",
       "repoToken": "0x0babedc6d5e116690ec1eb4d94a0e8b55b5e0da6",
@@ -1475,6 +1497,28 @@
       "redemptionTimestamp": "1787328000",
       "name": "USDC / weETH — 2026-08-20",
       "endOfRepurchaseWindow": "1787324400",
+      "redemptionValue": "1000000000000000000",
+      "servicingFee": "0"
+    },
+    {
+      "termRepoId": "0xaad91abc0174d4c7cbee359e2d82799311fdfdb0d0e01ad35d13e69f2da3024a",
+      "servicer": "0x30bd32ed542412ef540b18b5424a09954d97637c",
+      "repoToken": "0x23060f86f00506de81194f65139276c3a0baaacd",
+      "collateralManager": "0x8db407086e3d3f9ce2651d05e12087591f33bd89",
+      "purchaseToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0xc26a6fa2c37b38e549a4a1807543801db684f99c",
+          "maintenanceRatio": "1298701298700000000",
+          "decimals": 18,
+          "liquidatedDamages": "100000000000000000"
+        }
+      ],
+      "maturity": "1790870400",
+      "redemptionTimestamp": "1790956800",
+      "name": "USDC / AA_FalconXUSDC — 2026-10-01",
+      "endOfRepurchaseWindow": "1790953200",
       "redemptionValue": "1000000000000000000",
       "servicingFee": "0"
     },
