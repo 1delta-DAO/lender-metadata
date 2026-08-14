@@ -230,6 +230,28 @@
       "bidLocker": "0x00e62fe5fbf5e4ef408b1c8b6188bca01bff2a1e"
     },
     {
+      "termRepoId": "0x1040b14f8de5788fbbc37cd1be24bcc5a4ab4838fc3a6db19b9618641b9566e8",
+      "servicer": "0x7ea57316bb308eed5b5bd40960b9f7dc701e218f",
+      "repoToken": "0x633bae0ed4a65d3c19f4904c74d6757e86bf5a36",
+      "collateralManager": "0x6f05033b984a2f70eb986a3c4ee54273e7ae0d80",
+      "purchaseToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+          "maintenanceRatio": "1162790697700000000",
+          "decimals": 18,
+          "liquidatedDamages": "55000000000000000"
+        }
+      ],
+      "maturity": "1790870400",
+      "redemptionTimestamp": "1790956800",
+      "name": "USDC / weETH — 2026-10-01",
+      "endOfRepurchaseWindow": "1790953200",
+      "redemptionValue": "1000000000000000000",
+      "servicingFee": "0"
+    },
+    {
       "termRepoId": "0x118bc2511b801d38855dd937c8ac0c7ce54b0d341bea2f1abda4b8b03c596561",
       "servicer": "0x2a830beeb2a3c8376974dad925e405aef1490532",
       "repoToken": "0x3086b60d4f67a3fa9565e15390fb6640f7a7de2f",
@@ -886,6 +908,28 @@
       "servicingFee": "0"
     },
     {
+      "termRepoId": "0x5a9db4c3172a9f4151ffc5275506bd5302f263761a12f044253bb14e3c13a4ab",
+      "servicer": "0xcd3983d26c8d05301dd688ce2e25e59bd8337e4d",
+      "repoToken": "0x90c3bd58438f4b28137a7f613b5b9ddbd9031fa6",
+      "collateralManager": "0xb8d66be430cd9125c017286355c56615f68db251",
+      "purchaseToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0x280839980a7ed0d7717f64125fe241012e5f5815",
+          "maintenanceRatio": "1162790697700000000",
+          "decimals": 18,
+          "liquidatedDamages": "60000000000000000"
+        }
+      ],
+      "maturity": "1793894400",
+      "redemptionTimestamp": "1793980800",
+      "name": "USDC / strUSD — 2026-11-05",
+      "endOfRepurchaseWindow": "1793977200",
+      "redemptionValue": "1000000000000000000",
+      "servicingFee": "0"
+    },
+    {
       "termRepoId": "0x5cb3e15bcff6f1a81e25d68e89977a8d3551721224813d5fed3f92f0f432c59e",
       "servicer": "0x4d0838eb45f5f1c7ecab00ff662ad614e2700e84",
       "repoToken": "0x55906af8e99f77c8d233be76dbe9455084326ab1",
@@ -951,6 +995,28 @@
       "redemptionTimestamp": "1790352000",
       "name": "USDC / reUSD — 2026-09-24",
       "endOfRepurchaseWindow": "1790348400",
+      "redemptionValue": "1000000000000000000",
+      "servicingFee": "0"
+    },
+    {
+      "termRepoId": "0x642225429483be3d7db3c4d5992a27401902df225ce07996626af9d3ebc13df9",
+      "servicer": "0x40c88c1d9f803c6e61c0987dff4faaf889fb8fca",
+      "repoToken": "0xaa317d0644377444fff215917d2231fc351da36a",
+      "collateralManager": "0x6b2f4ccbf5f0b0b5429a05ee3c160c30491a59fd",
+      "purchaseToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "maintenanceRatio": "1162790697700000000",
+          "decimals": 18,
+          "liquidatedDamages": "55000000000000000"
+        }
+      ],
+      "maturity": "1790870400",
+      "redemptionTimestamp": "1790956800",
+      "name": "USDC / wstETH — 2026-10-01",
+      "endOfRepurchaseWindow": "1790953200",
       "redemptionValue": "1000000000000000000",
       "servicingFee": "0"
     },
@@ -1182,31 +1248,6 @@
       "endOfRepurchaseWindow": "1788534000",
       "redemptionValue": "1000000000000000000",
       "servicingFee": "0"
-    },
-    {
-      "termRepoId": "0x83a00d6f62ccaabff8788690e7c74d1d8ff9c05f2453b4963490f2af7d7af80e",
-      "servicer": "0x2d9c2fa80e057fbd89c85864340c60b37eb91227",
-      "repoToken": "0xd83e57a09062343b6df8bc200b0a4c5e742ac209",
-      "collateralManager": "0x933c2a46e34cd02db6aeb1d50b7938a52060fc30",
-      "purchaseToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-      "loanDecimals": 6,
-      "collateralParams": [
-        {
-          "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
-          "maintenanceRatio": "1250000000000000000",
-          "decimals": 8,
-          "liquidatedDamages": "80000000000000000"
-        }
-      ],
-      "maturity": "1785945600",
-      "redemptionTimestamp": "1786032000",
-      "name": "USDC / cbBTC — 2026-08-05",
-      "endOfRepurchaseWindow": "1786028400",
-      "redemptionValue": "1000000000000000000",
-      "servicingFee": "5000000000000000",
-      "auction": "0x80099997299283adabcdbf9c0beed50d1565a930",
-      "offerLocker": "0x4ee74cba6e689fb4aa28a6b6a8fc84de3adb5168",
-      "bidLocker": "0x1d746913ac7284396a090e610c4dc45db989e189"
     },
     {
       "termRepoId": "0x848bd81ff31acd9fc1bc8ca56558620f5342d8ad987313ea2ab32c930da7913e",
@@ -1452,6 +1493,28 @@
       "maturity": "1790870400",
       "redemptionTimestamp": "1790956800",
       "name": "USDC / PT-reUSD-10DEC2026 — 2026-10-01",
+      "endOfRepurchaseWindow": "1790953200",
+      "redemptionValue": "1000000000000000000",
+      "servicingFee": "0"
+    },
+    {
+      "termRepoId": "0xa76d32ab994764ae41424b7553c54d6b76ae9a918825e6d79217afe36f6953ed",
+      "servicer": "0x99fe7e977dfe42700f4424bc4b2bbb3efcc6e691",
+      "repoToken": "0x79186b31d4ac4d8bd16d3cb9d8e9425236ca882d",
+      "collateralManager": "0xaf1d590d02703b4b430e365e45af706ea85395fd",
+      "purchaseToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "loanDecimals": 18,
+      "collateralParams": [
+        {
+          "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "maintenanceRatio": "1100000000000000000",
+          "decimals": 18,
+          "liquidatedDamages": "30000000000000000"
+        }
+      ],
+      "maturity": "1790870400",
+      "redemptionTimestamp": "1790956800",
+      "name": "WETH / wstETH — 2026-10-01",
       "endOfRepurchaseWindow": "1790953200",
       "redemptionValue": "1000000000000000000",
       "servicingFee": "0"
