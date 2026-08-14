@@ -596,6 +596,19 @@
         "version": "v1"
       }
     ],
+    "4326": [
+      {
+        "vault": "0x85fcb4604f25e17ae4e1eac202adba4f999d7ff5",
+        "underlying": "0xfafddbb3fc7688494971a79cc65dca3ef82079e7",
+        "name": "Feather EM USDm",
+        "version": "v2"
+      },
+      {
+        "vault": "0xf55c695ebaf1f4eefeda0833ef6a29c90e7b7f05",
+        "underlying": "0x838ac89cb0734f16977b00ba4995f17518df69c7",
+        "version": "v2"
+      }
+    ],
     "4663": [
       {
         "vault": "0x1950ba61f8d523fe75fa32b2a71150b7cfd6f160",
