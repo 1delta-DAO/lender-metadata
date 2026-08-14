@@ -41,6 +41,7 @@ export const MORPHO_MAIN_CHAIN_IDS = [
   "1329",
   "1868",
   "4114",
+  "4326",
   "8453",
   "42161",
   "42220",
@@ -61,6 +62,7 @@ export const cannotUseApi = (chainId: string, fork: string) => {
       chainId === Chain.CELO_MAINNET ||
       chainId === Chain.LISK ||
       chainId === Chain.TAC_MAINNET ||
+      chainId === Chain.MEGAETH_MAINNET ||
       hasMysticApi(chainId)
     );
   }

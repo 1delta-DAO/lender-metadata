@@ -100,6 +100,12 @@ export async function getMarketsOnChain(
             lltv,
             collateralAsset,
             oracleAddress: oracle,
+            // `listed` mirrors the API/subgraph flag that consumers gate on
+            // (MorphoBlueUpdater drops any market where it is falsy, so an
+            // absent flag means the chain contributes NO oracle entries at
+            // all). There is no listing concept on-chain: every market here
+            // was read straight out of the core, so existence IS the flag.
+            listed: true,
           });
         }
       });

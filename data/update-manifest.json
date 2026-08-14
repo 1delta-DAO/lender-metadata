@@ -1,18 +1,12 @@
 {
-  "version": "2026-08-13T08-47-10-548Z",
-  "generatedAt": "2026-08-13T08:47:10.548Z",
+  "version": "2026-08-14T19-36-47-732Z",
+  "generatedAt": "2026-08-14T19:36:47.733Z",
   "updatedFiles": [
-    "./config/inverse.json"
+    "./data/morpho-oracles-data.json"
   ],
   "results": [
     {
-      "targetFile": "./data/inverse-markets.json"
-    },
-    {
-      "targetFile": "./data/lender-labels.json"
-    },
-    {
-      "targetFile": "./config/inverse.json"
+      "targetFile": "./data/morpho-oracles-data.json"
     }
   ]
 }
