@@ -1,6 +1,15 @@
 import { sleep } from "../../utils.js";
+import { AAVE_V4_HUB_SEED } from "./v4Hubs.js";
 
 export const DEFAULT_GRAPHQL_URL = "https://api.aave.com/graphql";
+
+/**
+ * chainId -> hubs on that chain. Mirrors `AAVE_V4_HUB_SEED`, which is the only
+ * seed there is: the `config/aave-v4-hubs.json` this module used to load was
+ * deleted when the seed moved into code, and reading the missing file is why
+ * the peripherals pass silently fetched nothing for every chain.
+ */
+type HubSeedMap = { [chainId: string]: { hub: string }[] };
 
 export type PositionManagerEntry = {
   name: string;
@@ -14,24 +23,53 @@ export type SpokePeripheralEntry = {
   positionManagers: PositionManagerEntry[];
 };
 
-export type ForkPeripherals = {
-  hub: string;
-  spokes: Record<string, SpokePeripheralEntry>;
+export type HubGateways = {
+  nativeGateway?: string;
+  signatureGateway?: string;
 };
 
+/**
+ * Per-chain peripherals, in the shape `config/aave-v4-peripherals.json`
+ * actually carries and that `@1delta/data-sdk`'s `AaveV4ChainPeripherals`
+ * reads: gateways keyed by HUB, spoke metadata keyed by SPOKE.
+ *
+ * There is deliberately no fork dimension. It was removed from the data (a
+ * spoke can hang off several hubs, so `fork -> hub -> spokes` could not
+ * represent the tree) but this fetcher kept emitting it, which is how the
+ * peripherals pass came to throw on every run — see the note on
+ * `mergeAaveV4PeripheralsData`.
+ *
+ * Every field is optional because ABSENT and EMPTY are different claims: a
+ * deployment with no native gateway (ether.fi's OP instance ships none) must
+ * not publish `nativeGateway: ""`, which reads as "there is one, we lost it".
+ */
 export type ChainPeripherals = {
-  nativeGateway: string;
-  signatureGateway: string;
-  forks: Record<string, ForkPeripherals>;
+  nativeGateway?: string;
+  signatureGateway?: string;
+  /** keyed by lowercase hub address */
+  perHub?: Record<string, HubGateways>;
+  /** keyed by lowercase spoke address */
+  perSpoke?: Record<string, SpokePeripheralEntry>;
 };
 
 /** chainId string -> chain peripherals */
 export type AaveV4PeripheralsOutput = Record<string, ChainPeripherals>;
 
+/** Drop keys whose value is empty, so absent stays absent in the JSON. */
+function compact<T extends Record<string, unknown>>(obj: T): T {
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(obj)) {
+    if (v === undefined || v === "") continue;
+    if (typeof v === "object" && v !== null && Object.keys(v).length === 0) continue;
+    out[k] = v;
+  }
+  return out as T;
+}
+
 /** Stable key ordering for JSON diffs */
 export function sortPeripheralsTree(data: AaveV4PeripheralsOutput): AaveV4PeripheralsOutput {
   const out: AaveV4PeripheralsOutput = {};
-  const chainKeys = Object.keys(data).sort((a, b) => {
+  const chainKeys = Object.keys(data ?? {}).sort((a, b) => {
     const na = Number(a);
     const nb = Number(b);
     if (!Number.isNaN(na) && !Number.isNaN(nb) && na !== nb) return na - nb;
@@ -39,27 +77,28 @@ export function sortPeripheralsTree(data: AaveV4PeripheralsOutput): AaveV4Periph
   });
   for (const chain of chainKeys) {
     const c = data[chain];
-    const forks: Record<string, ForkPeripherals> = {};
-    for (const fk of Object.keys(c.forks).sort()) {
-      const f = c.forks[fk];
-      const spokes: Record<string, SpokePeripheralEntry> = {};
-      for (const sk of Object.keys(f.spokes).sort()) {
-        spokes[sk] = f.spokes[sk];
-      }
-      forks[fk] = { hub: f.hub, spokes };
+    if (!c) continue;
+
+    const perHub: Record<string, HubGateways> = {};
+    for (const hk of Object.keys(c.perHub ?? {}).sort()) {
+      const g = compact({ ...(c.perHub?.[hk] ?? {}) });
+      if (Object.keys(g).length > 0) perHub[hk] = g;
     }
-    out[chain] = {
+
+    const perSpoke: Record<string, SpokePeripheralEntry> = {};
+    for (const sk of Object.keys(c.perSpoke ?? {}).sort()) {
+      perSpoke[sk] = c.perSpoke![sk];
+    }
+
+    out[chain] = compact({
       nativeGateway: c.nativeGateway,
       signatureGateway: c.signatureGateway,
-      forks,
-    };
+      perHub,
+      perSpoke,
+    });
   }
   return out;
 }
-
-type HubSeedMap = {
-  [fork: string]: { [chainId: string]: { hub: string } };
-};
 
 const ZERO = "0x0000000000000000000000000000000000000000";
 
@@ -73,13 +112,33 @@ function isValidAddr(a: string | undefined): boolean {
   return x.length === 42 && x.startsWith("0x") && x !== ZERO;
 }
 
-function pickGateway(incoming: string | undefined, existing: string | undefined): string {
+/**
+ * Keep a known gateway rather than let a partial fetch blank it, but return
+ * `undefined` — not `""` — when neither side has one. See `ChainPeripherals`.
+ */
+function pickGateway(
+  incoming: string | undefined,
+  existing: string | undefined,
+): string | undefined {
   if (isValidAddr(incoming)) return normAddr(incoming!);
   if (isValidAddr(existing)) return normAddr(existing!);
-  return "";
+  return undefined;
 }
 
-/** Merge PM rows by lowercase address; incoming fields win on conflict. */
+/**
+ * A name the API supplies that carries no information. Aave's GraphQL returns
+ * "Unknown" for every Giver/Taker/Config PM, so it must never overwrite the
+ * curated name `update:aave-v4-pm-names` derives from the deployed bytecode.
+ */
+function isPlaceholderName(name: string | undefined): boolean {
+  const n = (name ?? "").trim();
+  return n === "" || n.toLowerCase() === "unknown";
+}
+
+/**
+ * Merge PM rows by lowercase address; incoming fields win on conflict, EXCEPT
+ * a placeholder `name`, which never displaces a name already on record.
+ */
 export function mergePositionManagerLists(
   prev: PositionManagerEntry[],
   next: PositionManagerEntry[],
@@ -92,7 +151,17 @@ export function mergePositionManagerLists(
   for (const n of next) {
     const k = normAddr(n.address);
     const existing = merged.get(k);
-    merged.set(k, existing ? { ...existing, ...n, address: k } : { ...n, address: k });
+    if (!existing) {
+      merged.set(k, { ...n, address: k });
+      continue;
+    }
+    merged.set(k, {
+      ...existing,
+      ...n,
+      address: k,
+      name:
+        isPlaceholderName(n.name) && !isPlaceholderName(existing.name) ? existing.name : n.name,
+    });
   }
   return [...merged.values()].sort((a, b) => a.address.localeCompare(b.address));
 }
@@ -109,20 +178,25 @@ function mergeSpokeEntry(
   };
 }
 
-function mergeForkEntry(prev: ForkPeripherals | undefined, next: ForkPeripherals): ForkPeripherals {
-  if (!prev) return next;
-  const spokes: Record<string, SpokePeripheralEntry> = { ...prev.spokes };
-  for (const [addr, spoke] of Object.entries(next.spokes)) {
-    spokes[addr] = mergeSpokeEntry(spokes[addr], spoke);
-  }
-  return {
-    hub: isValidAddr(next.hub) ? normAddr(next.hub) : prev.hub,
-    spokes,
-  };
+function mergeHubGateways(
+  prev: HubGateways | undefined,
+  next: HubGateways | undefined,
+): HubGateways {
+  return compact({
+    nativeGateway: pickGateway(next?.nativeGateway, prev?.nativeGateway),
+    signatureGateway: pickGateway(next?.signatureGateway, prev?.signatureGateway),
+  });
 }
 
 /**
- * Deep merge for persisted peripherals: preserves prior gateways/spokes when a fetch is partial.
+ * Deep merge for persisted peripherals: preserves prior gateways/spokes when a
+ * fetch is partial.
+ *
+ * APPEND-ONLY, and that is load-bearing. Aave's GraphQL API only knows the
+ * hubs Aave itself operates, so a whitelabel instance (ether.fi on OP) fetches
+ * as an empty chain; and `positionManagers[].name` is overwritten downstream by
+ * `update:aave-v4-pm-names`, which classifies by bytecode. Neither may be
+ * clobbered by an empty round.
  */
 export function mergeAaveV4PeripheralsData(
   oldData: AaveV4PeripheralsOutput,
@@ -134,38 +208,24 @@ export function mergeAaveV4PeripheralsData(
   for (const chain of chains) {
     const o = oldData?.[chain];
     const n = newData?.[chain];
-    if (!n && o) {
-      result[chain] = o;
-      continue;
-    }
-    if (!o && n) {
-      result[chain] = n;
-      continue;
-    }
-    if (!n && !o) continue;
+    if (!o && !n) continue;
 
-    const forks = new Set([...Object.keys(o?.forks ?? {}), ...Object.keys(n?.forks ?? {})]);
-    const forksOut: Record<string, ForkPeripherals> = {};
+    const perHub: Record<string, HubGateways> = {};
+    for (const hub of new Set([...Object.keys(o?.perHub ?? {}), ...Object.keys(n?.perHub ?? {})])) {
+      const merged = mergeHubGateways(o?.perHub?.[hub], n?.perHub?.[hub]);
+      if (Object.keys(merged).length > 0) perHub[hub] = merged;
+    }
 
-    for (const fork of forks) {
-      const fo = o?.forks?.[fork];
-      const fn = n?.forks?.[fork];
-      if (!fn && fo) {
-        forksOut[fork] = fo;
-        continue;
-      }
-      if (!fo && fn) {
-        forksOut[fork] = fn;
-        continue;
-      }
-      if (!fn && !fo) continue;
-      forksOut[fork] = mergeForkEntry(fo, fn!);
+    const perSpoke: Record<string, SpokePeripheralEntry> = { ...(o?.perSpoke ?? {}) };
+    for (const [addr, spoke] of Object.entries(n?.perSpoke ?? {})) {
+      perSpoke[addr] = mergeSpokeEntry(perSpoke[addr], spoke);
     }
 
     result[chain] = {
       nativeGateway: pickGateway(n?.nativeGateway, o?.nativeGateway),
       signatureGateway: pickGateway(n?.signatureGateway, o?.signatureGateway),
-      forks: forksOut,
+      perHub,
+      perSpoke,
     };
   }
 
@@ -285,30 +345,21 @@ export async function fetchAllPositionManagersForSpoke(
 }
 
 export async function fetchAaveV4Peripherals(
-  hubSeed: HubSeedMap,
+  hubSeed: HubSeedMap = AAVE_V4_HUB_SEED,
   opts: FetchV4PeripheralsOptions = {},
 ): Promise<AaveV4PeripheralsOutput> {
   const graphqlUrl = opts.graphqlUrl ?? process.env.AAVE_GRAPHQL_URL ?? DEFAULT_GRAPHQL_URL;
   const fetchFn = opts.fetchFn ?? fetch;
   const throttleMs = opts.throttleMs ?? 150;
 
-  const chainIdStrs = new Set<string>();
-  for (const fork of Object.keys(hubSeed)) {
-    for (const c of Object.keys(hubSeed[fork] ?? {})) {
-      chainIdStrs.add(c);
-    }
-  }
+  const chainIdStrs = new Set<string>(Object.keys(hubSeed ?? {}));
 
   const chainIdsNum = [...chainIdStrs].map((c) => Number(c)).filter((n) => !Number.isNaN(n));
 
   const result: AaveV4PeripheralsOutput = {};
 
   for (const cid of chainIdStrs) {
-    result[cid] = {
-      nativeGateway: "",
-      signatureGateway: "",
-      forks: {},
-    };
+    result[cid] = { perHub: {}, perSpoke: {} };
   }
 
   if (chainIdsNum.length > 0) {
@@ -339,10 +390,9 @@ export async function fetchAaveV4Peripherals(
     }
   }
 
-  for (const fork of Object.keys(hubSeed)) {
-    const byChain = hubSeed[fork] ?? {};
-    for (const chainIdStr of Object.keys(byChain)) {
-      const hubAddr = byChain[chainIdStr]?.hub;
+  for (const chainIdStr of Object.keys(hubSeed ?? {})) {
+    for (const seed of hubSeed[chainIdStr] ?? []) {
+      const hubAddr = seed?.hub;
       if (!hubAddr) continue;
 
       const chainIdNum = Number(chainIdStr);
@@ -351,18 +401,19 @@ export async function fetchAaveV4Peripherals(
         continue;
       }
 
-      if (!result[chainIdStr]) {
-        result[chainIdStr] = {
-          nativeGateway: "",
-          signatureGateway: "",
-          forks: {},
-        };
-      }
+      result[chainIdStr] ??= { perHub: {}, perSpoke: {} };
 
-      result[chainIdStr].forks[fork] = {
-        hub: normAddr(hubAddr),
-        spokes: {},
-      };
+      // Gateways are published per CHAIN by the API; record them against each
+      // hub on that chain. A hub the API does not know (a whitelabel instance)
+      // gets no entry at all rather than an empty one.
+      const hubKey = normAddr(hubAddr);
+      const chainGateways = mergeHubGateways(undefined, {
+        nativeGateway: result[chainIdStr].nativeGateway,
+        signatureGateway: result[chainIdStr].signatureGateway,
+      });
+      if (Object.keys(chainGateways).length > 0) {
+        result[chainIdStr].perHub![hubKey] = chainGateways;
+      }
 
       try {
         const spokeData = await aaveGql<{
@@ -385,16 +436,16 @@ export async function fetchAaveV4Peripherals(
               sp.id,
               throttleMs,
             );
-            result[chainIdStr].forks[fork].spokes[addrKey] = {
+            result[chainIdStr].perSpoke![addrKey] = {
               spokeName: String(sp.name ?? ""),
               spokeId: String(sp.id ?? ""),
               positionManagers: pms,
             };
           } catch (err: any) {
             console.error(
-              `[Aave V4 Peripherals] spokePositionManagers failed fork=${fork} chain=${chainIdStr} spoke=${addrKey}: ${err?.message ?? err}`,
+              `[Aave V4 Peripherals] spokePositionManagers failed hub=${hubKey} chain=${chainIdStr} spoke=${addrKey}: ${err?.message ?? err}`,
             );
-            result[chainIdStr].forks[fork].spokes[addrKey] = {
+            result[chainIdStr].perSpoke![addrKey] = {
               spokeName: String(sp.name ?? ""),
               spokeId: String(sp.id ?? ""),
               positionManagers: [],
@@ -404,7 +455,7 @@ export async function fetchAaveV4Peripherals(
         }
       } catch (err: any) {
         console.error(
-          `[Aave V4 Peripherals] spokes query failed fork=${fork} chain=${chainIdStr}: ${err?.message ?? err}`,
+          `[Aave V4 Peripherals] spokes query failed hub=${hubKey} chain=${chainIdStr}: ${err?.message ?? err}`,
         );
       }
     }

@@ -10,6 +10,7 @@ import {
   type AaveV4ReserveDetail,
 } from "./aave/fetchV4Reserves.js";
 import { fetchAaveV4Oracles } from "./aave/fetchV4Oracles.js";
+import { isPlaceholderSpokeLabel } from "./aave/v4SpokeLabels.js";
 import { readJsonFile } from "./utils/index.js";
 
 const ZERO_ADDR = "0x0000000000000000000000000000000000000000";
@@ -103,10 +104,19 @@ function mergeSpokeEntry(
       ? prev.oracle
       : next.oracle;
 
+  // Discovery cannot read a spoke name on-chain, so `next.label` is the
+  // `Spoke 0xabcd..1234` placeholder unless something curated it. Letting that
+  // win would revert every real label on each run — including the ones
+  // `update:aave-v4-labels` back-fills FROM this field, and the hand-set ones
+  // that are the only option for a whitelabel hub Aave's API does not list.
+  const label = isPlaceholderSpokeLabel(next.label)
+    ? pickStr(prev.label, next.label)
+    : next.label;
+
   return {
     spoke: next.spoke,
     oracle,
-    label: pickStr(next.label, prev.label),
+    label,
     dynamicConfigKeyMax: Math.max(
       prev.dynamicConfigKeyMax ?? 0,
       next.dynamicConfigKeyMax ?? 0,

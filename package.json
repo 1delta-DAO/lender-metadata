@@ -38,6 +38,7 @@
     "update:lista-vaults": "tsx src/update-lista-vaults.ts",
     "update:mystic-markets": "tsx src/update-mystic-markets.ts",
     "update:mystic-vaults": "tsx src/update-mystic-vaults.ts",
+    "update:aave-v4": "tsx src/update-aave-v4.ts",
     "update:aave-v4-pm-names": "tsx src/update-aave-v4-pm-names.ts",
     "update:aave-v4-labels": "tsx src/update-aave-v4-labels.ts",
     "update:onchain-vaults": "tsx src/update-onchain-vaults.ts",

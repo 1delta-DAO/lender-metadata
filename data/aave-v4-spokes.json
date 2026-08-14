@@ -791,6 +791,163 @@
       ]
     }
   },
+  "10": {
+    "0x7eb4d25f137868662350603a2863f682287b0768": {
+      "spoke": "0x7eb4d25f137868662350603a2863f682287b0768",
+      "oracle": "0x",
+      "label": "Spoke 0x7eb4..0768",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_ETHERFI",
+      "reserves": []
+    },
+    "0xdffcc3536d932eb51df51a7f5fa407c4270d5308": {
+      "spoke": "0xdffcc3536d932eb51df51a7f5fa407c4270d5308",
+      "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
+      "label": "ether.fi Cash",
+      "dynamicConfigKeyMax": 1,
+      "baseHubAttribution": "AAVE_V4_ETHERFI",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 0,
+          "underlying": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 1,
+          "underlying": "0x4200000000000000000000000000000000000006",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 2,
+          "underlying": "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 3,
+          "assetId": 3,
+          "underlying": "0xdcb612005417dc906ff72c87df732e5a90d49e11",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 4,
+          "assetId": 4,
+          "underlying": "0x80eede496655fb9047dd39d9f418d5483ed600df",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 5,
+          "assetId": 5,
+          "underlying": "0x5a7facb970d094b6c7ff1df0ea68d99e6e73cbff",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 6,
+          "assetId": 6,
+          "underlying": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 7,
+          "assetId": 7,
+          "underlying": "0x939778d83b46b456224a33fb59630b11dec56663",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 8,
+          "assetId": 8,
+          "underlying": "0xe0080d2f853ecddbd81a643dc10da075df26fd3f",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 9,
+          "assetId": 9,
+          "underlying": "0x86b5780b606940eb59a062aa85a07959518c0161",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 10,
+          "assetId": 10,
+          "underlying": "0x4200000000000000000000000000000000000042",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 11,
+          "assetId": 11,
+          "underlying": "0xd83e3d560ba6f05094d9d8b3eb8aaea571d1864e",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 12,
+          "assetId": 12,
+          "underlying": "0xa519afbc91986c0e7501d7e34968fee51cd901ac",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 13,
+          "assetId": 13,
+          "underlying": "0xf0bb20865277abd641a307ece5ee04e79073416c",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 14,
+          "assetId": 14,
+          "underlying": "0x5f46d540b6ed704c3c8789105f30e075aa900726",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 15,
+          "assetId": 15,
+          "underlying": "0x08c6f91e2b681faf5e17227f2a44c307b3c1364c",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 16,
+          "assetId": 16,
+          "underlying": "0xca5921df65e2e1b0b98ae91c0187ba80d4124898",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 17,
+          "assetId": 17,
+          "underlying": "0xcc476b1a49bcdf5192561e87b6fb8ea78aa28c13",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 18,
+          "assetId": 18,
+          "underlying": "0x17bc8ffd82b8a36e737ca1141c025089589b915e",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 19,
+          "assetId": 19,
+          "underlying": "0xc1e636aae7d6b46229fc2c362d562610519e8d7c",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 20,
+          "assetId": 20,
+          "underlying": "0x41a7f2bb9789199654c206f09392674c1af6676c",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 21,
+          "assetId": 21,
+          "underlying": "0x3c99d3a81b27583b2e26dbd387c10411f2763516",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        },
+        {
+          "reserveId": 22,
+          "assetId": 22,
+          "underlying": "0x5f8b2d2b97ad4d63188f44965778f6004d5bc387",
+          "hub": "0x66753c4e3fc84f1ed0e3c267c927284e9d90c572"
+        }
+      ]
+    }
+  },
   "43114": {
     "0x2c4aea1a5f000889c6dffe8f52377afc2cb113a6": {
       "spoke": "0x2c4aea1a5f000889c6dffe8f52377afc2cb113a6",
