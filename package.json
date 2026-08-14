@@ -34,6 +34,7 @@
     "update:liquity-oracles": "tsx src/update-liquity-oracles.ts",
     "update:fluid": "tsx src/update-fluid.ts",
     "update:lista-markets": "tsx src/update-lista-markets.ts",
+    "update:lista-collateral-providers": "tsx src/update-lista-collateral-providers.ts",
     "update:lista-vaults": "tsx src/update-lista-vaults.ts",
     "update:mystic-markets": "tsx src/update-mystic-markets.ts",
     "update:mystic-vaults": "tsx src/update-mystic-vaults.ts",

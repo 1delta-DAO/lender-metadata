@@ -1,0 +1,300 @@
+{
+  "1": {
+    "0x50dce7e3b24510ec6ec2f7ad3b2035aa32861aec": {
+      "kind": "smart-lp",
+      "collateralToken": "0x0c1bffa53cf93220381d88c8fa1bf823a932aa23",
+      "collateralSymbol": "USDT & USDC-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x35c9a4dae1ff05788f24b5b32721d89340cbb636",
+      "dexInfo": "0xd2231a59936e39d48f5c0d735bf073c7ee3de02a",
+      "dexLp": "0x923c67ced114dd7341e65c0e2be47f3b0927d667",
+      "coins": [
+        {
+          "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "symbol": "USDC",
+          "decimals": 6,
+          "isNative": false
+        },
+        {
+          "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "symbol": "USDT",
+          "decimals": 6,
+          "isNative": false
+        }
+      ]
+    },
+    "0x61864d70c652d7a6a4fc4fc5afb6b7febdc4b194": {
+      "kind": "smart-lp",
+      "collateralToken": "0x986325959e84a46361d4a4cf18b9e95f2206405b",
+      "collateralSymbol": "USDT & USD1-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0xd46bfa2b03a8467d3fe1685d8d79eb195cb19675",
+      "dexInfo": "0xd2231a59936e39d48f5c0d735bf073c7ee3de02a",
+      "dexLp": "0xa7aba0a4603d274d2536ae21cf6abe7aa7293d9e",
+      "coins": [
+        {
+          "address": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
+          "symbol": "USD1",
+          "decimals": 18,
+          "isNative": false
+        },
+        {
+          "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "symbol": "USDT",
+          "decimals": 6,
+          "isNative": false
+        }
+      ]
+    },
+    "0x6ae702d18b0fcff0deb7273d4453e9af67ec153b": {
+      "kind": "smart-lp",
+      "collateralToken": "0xe830a2f63eee5d3ceadeda0c138cc176b037dae8",
+      "collateralSymbol": "USDC & USDe-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0xa838d405c6e62b1e030abe802fa42b2eb307cb78",
+      "dexInfo": "0xd2231a59936e39d48f5c0d735bf073c7ee3de02a",
+      "dexLp": "0x0c7e7c34512ab591545db02e4fd7fe0a7b84a34f",
+      "coins": [
+        {
+          "address": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+          "symbol": "USDe",
+          "decimals": 18,
+          "isNative": false
+        },
+        {
+          "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "symbol": "USDC",
+          "decimals": 6,
+          "isNative": false
+        }
+      ]
+    },
+    "0x893666d84b374f96ab500f56728283eebb94a9ac": {
+      "kind": "smart-lp",
+      "collateralToken": "0x5432e4fe5736b9b7ddc1be34ac45bdb557f2be22",
+      "collateralSymbol": "WBTC & cbBTC-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x94e4a9f24a954047adb3ad4434bf1174f6824e16",
+      "dexInfo": "0xd2231a59936e39d48f5c0d735bf073c7ee3de02a",
+      "dexLp": "0x6ee2d8b77f5559d88057738821951a855eb5f123",
+      "coins": [
+        {
+          "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "symbol": "WBTC",
+          "decimals": 8,
+          "isNative": false
+        },
+        {
+          "address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "symbol": "cbBTC",
+          "decimals": 8,
+          "isNative": false
+        }
+      ]
+    },
+    "0xdfdb56a9e2f68c74fca76c95e852d920890b36d4": {
+      "kind": "smart-lp",
+      "collateralToken": "0xcc28aa85f146f28fc3f47b28334be3cc3646ea16",
+      "collateralSymbol": "USDT & USDe-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x56a475772fc0a63752bc16ddc7e2f7a38eb97f86",
+      "dexInfo": "0xd2231a59936e39d48f5c0d735bf073c7ee3de02a",
+      "dexLp": "0x0d893a28e0e5cc661866eb63c3451bee590387c3",
+      "coins": [
+        {
+          "address": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+          "symbol": "USDe",
+          "decimals": 18,
+          "isNative": false
+        },
+        {
+          "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "symbol": "USDT",
+          "decimals": 6,
+          "isNative": false
+        }
+      ]
+    },
+    "0xfe34bf713f3c2499026cdfa5af43eb22aa2d1adb": {
+      "kind": "native",
+      "collateralToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "collateralSymbol": "WETH",
+      "collateralDecimals": 18
+    }
+  },
+  "56": {
+    "0x1cc913cde4df80d271230f615482c1270c0a56c8": {
+      "kind": "smart-lp",
+      "collateralToken": "0xc970dc3af680c2f316b821842e5782a05e886a90",
+      "collateralSymbol": "lisAster & ASTER-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x510d69b25a2177eddce9becdb0a66a511c944840",
+      "dexInfo": "0x73d2623c8497421b55234e6b25fb744625557a1a",
+      "dexLp": "0x0f84dd5ebfceb6fe65b1552a310a000349278068",
+      "coins": [
+        {
+          "address": "0x000ae314e2a2172a039b26378814c252734f556a",
+          "symbol": "ASTER",
+          "decimals": 18,
+          "isNative": false
+        },
+        {
+          "address": "0xa17a497d20cc143508fe3b63578b13ba6b9c9f06",
+          "symbol": "lisAster",
+          "decimals": 18,
+          "isNative": false
+        }
+      ]
+    },
+    "0x33f7a980a246f9b8fea2254e3065576e127d4d5f": {
+      "kind": "erc20",
+      "collateralToken": "0xb0b84d294e0c75a6abe60171b70edeb2efd14a1b",
+      "collateralSymbol": "slisBNB",
+      "collateralDecimals": 18
+    },
+    "0x367384c54756a25340c63057d87ea22d47fd5701": {
+      "kind": "native",
+      "collateralToken": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "collateralSymbol": "WBNB",
+      "collateralDecimals": 18
+    },
+    "0x5fd3971104cf3bab1dc89ef904da26f54f75c06b": {
+      "kind": "smart-lp",
+      "collateralToken": "0x23bc296d67619ea11c9a8b49b8c396b798af3330",
+      "collateralSymbol": "USDC & USDT-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0xf5448fc2beb9324900d08225fe4530ba3bbf654f",
+      "dexInfo": "0x73d2623c8497421b55234e6b25fb744625557a1a",
+      "dexLp": "0xf6136d7e72446c724ecaeef514ae7b2ab4dbb60b",
+      "coins": [
+        {
+          "address": "0x55d398326f99059ff775485246999027b3197955",
+          "symbol": "USDT",
+          "decimals": 18,
+          "isNative": false
+        },
+        {
+          "address": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+          "symbol": "USDC",
+          "decimals": 18,
+          "isNative": false
+        }
+      ]
+    },
+    "0x6a39b04f8a7db71cee17f9978004c028bff2e144": {
+      "kind": "smart-lp",
+      "collateralToken": "0x6c7eba17ddb5d0435fcfb9053bb3087c1d10beb3",
+      "collateralSymbol": "lisUSD & USDT-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x8df7891fb2cb3e98c7ab3cfb4d9a59fbcc63c956",
+      "dexInfo": "0x73d2623c8497421b55234e6b25fb744625557a1a",
+      "dexLp": "0x05f657273a8bc6612e0f20e1c2e947dfef9ffcaa",
+      "coins": [
+        {
+          "address": "0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+          "symbol": "lisUSD",
+          "decimals": 18,
+          "isNative": false
+        },
+        {
+          "address": "0x55d398326f99059ff775485246999027b3197955",
+          "symbol": "USDT",
+          "decimals": 18,
+          "isNative": false
+        }
+      ]
+    },
+    "0x791cd65f2b8cb7ca3a6c1c4d28a0b23d8e566495": {
+      "kind": "smart-lp",
+      "collateralToken": "0x091e6ed7794d74b73081d32cab59fa47ff15418d",
+      "collateralSymbol": "USD1 & USDT-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x723ccd2fb5897673ad108706578886baa15d7242",
+      "dexInfo": "0x73d2623c8497421b55234e6b25fb744625557a1a",
+      "dexLp": "0x639526a3fadcb1b1b4b9512592e9bcd3b47e9e2b",
+      "coins": [
+        {
+          "address": "0x55d398326f99059ff775485246999027b3197955",
+          "symbol": "USDT",
+          "decimals": 18,
+          "isNative": false
+        },
+        {
+          "address": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
+          "symbol": "USD1",
+          "decimals": 18,
+          "isNative": false
+        }
+      ]
+    },
+    "0x9994d77e5cdcad9f9055b13402a7bf8c24d4c841": {
+      "kind": "smart-lp",
+      "collateralToken": "0xbbd3e74e69e6bddda8e5aadc1460611a8f7cd05a",
+      "collateralSymbol": "U & USDT-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x6783a05b98cb83c3f456197a035b9c17a9d57388",
+      "dexInfo": "0x73d2623c8497421b55234e6b25fb744625557a1a",
+      "dexLp": "0x0f6e7eb2700bc499448008841a61c3abd820c95d",
+      "coins": [
+        {
+          "address": "0x55d398326f99059ff775485246999027b3197955",
+          "symbol": "USDT",
+          "decimals": 18,
+          "isNative": false
+        },
+        {
+          "address": "0xce24439f2d9c6a2289f741120fe202248b666666",
+          "symbol": "U",
+          "decimals": 18,
+          "isNative": false
+        }
+      ]
+    },
+    "0xa5f53ca56d87d7d4fec508665d23f29bfb2749db": {
+      "kind": "smart-lp",
+      "collateralToken": "0x6f4d7532a402d76f552e1f047ff7e23bfe1a9f03",
+      "collateralSymbol": "BTCB & solvBTC-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x45409865870f0cbc71c01cc00ff8c0b2de3eb7d9",
+      "dexInfo": "0x73d2623c8497421b55234e6b25fb744625557a1a",
+      "dexLp": "0x3f5af48b4a3ac89177ca6afb59e5469f7ef5ce45",
+      "coins": [
+        {
+          "address": "0x4aae823a6a0b376de6a78e74ecc5b079d38cbcf7",
+          "symbol": "SolvBTC",
+          "decimals": 18,
+          "isNative": false
+        },
+        {
+          "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+          "symbol": "BTCB",
+          "decimals": 18,
+          "isNative": false
+        }
+      ]
+    },
+    "0xc3be83de4b19afc4f6021ea5011b75a3542024de": {
+      "kind": "smart-lp",
+      "collateralToken": "0x719f6445cdac08b84611d0f19d733f57214bcfee",
+      "collateralSymbol": "slisBNB & BNB-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x3dcea6afba8af84b25f1f8947058af1ac4c06131",
+      "dexInfo": "0x73d2623c8497421b55234e6b25fb744625557a1a",
+      "dexLp": "0x1bc8b041c1b89b0109e56f2eb197b5c09bcc1cf0",
+      "coins": [
+        {
+          "address": "0xb0b84d294e0c75a6abe60171b70edeb2efd14a1b",
+          "symbol": "slisBNB",
+          "decimals": 18,
+          "isNative": false
+        },
+        {
+          "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "symbol": "NATIVE",
+          "decimals": 18,
+          "isNative": true
+        }
+      ]
+    }
+  }
+}

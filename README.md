@@ -332,6 +332,60 @@ Covers Morpho Blue and Lista DAO markets. Fetches from both on-chain calls and G
 
 ---
 
+### Lista collateral providers (`src/update-lista-collateral-providers.ts`)
+
+| File | Description |
+|------|-------------|
+| `data/lista-providers.json` | Chain-level native (WBNB/WETH) provider |
+| `data/lista-collateral-providers.json` | **Shape** of every per-market collateral provider |
+
+Moolah gates collateral behind a per-market provider (`providers(id, collateral)`):
+when set, only that contract may supply/withdraw. Two incompatible shapes exist and
+nothing on-chain announces which is which —
+
+- `erc20` / `native` — forwards Moolah's own selectors (`0x238d6579` /
+  `0x8720316d`) and takes the collateral token itself;
+- `smart-lp` — Lista's `SmartProvider`, which zaps a two-coin StableSwap pool:
+  `supplyCollateral(mp, onBehalf, amount0, amount1, minLp)` and friends. Its
+  collateral receipt is `onlyMoolah`-transferable, so the real deposit inputs are
+  the **pool coins**, never the collateral token.
+
+Encoding one shape for the other reverts with empty data, so consumers look the
+provider up here and **fail closed** on an address they do not know.
+
+Only immutable wiring is stored (`TOKEN` is a constructor immutable; `dex` /
+`dexInfo` / `dexLP` are `initialize`-only; pool `coins` and their decimals never
+move). Prices, virtual price and balances are runtime reads. The market → provider
+mapping is deliberately **absent** — the Lista lens already returns
+`collateralProvider` per market, so only a NEW PROVIDER needs a publish here; new
+markets on a known provider need none.
+
+```json
+{
+  "1": {
+    "0xdfdb56a9e2f68c74fca76c95e852d920890b36d4": {
+      "kind": "smart-lp",
+      "collateralToken": "0xcc28aa85f146f28fc3f47b28334be3cc3646ea16",
+      "collateralSymbol": "USDT & USDe-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x56a475772fc0a63752bc16ddc7e2f7a38eb97f86",
+      "dexInfo": "0xd2231a59936e39d48f5c0d735bf073c7ee3de02a",
+      "dexLp": "0x0d893a28e0e5cc661866eb63c3451bee590387c3",
+      "coins": [
+        { "address": "0x4c9edd…", "symbol": "USDe", "decimals": 18, "isNative": false },
+        { "address": "0xdac17f…", "symbol": "USDT", "decimals": 6, "isNative": false }
+      ]
+    }
+  }
+}
+```
+
+**Coin order comes from the pool, never from the symbol** — the entry above is named
+"USDT & USDe" but `coins` is `[USDe, USDT]`. The generator asserts
+`provider.token(i) == dex.coins(i)` and `dexLP == dex.token()` on every run.
+
+---
+
 ## Oracle classification
 
 On top of the raw oracle files, a classification layer decodes each lender's price
