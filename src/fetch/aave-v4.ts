@@ -11,6 +11,11 @@ import {
 } from "./aave/fetchV4Reserves.js";
 import { fetchAaveV4Oracles } from "./aave/fetchV4Oracles.js";
 import { isPlaceholderSpokeLabel } from "./aave/v4SpokeLabels.js";
+import {
+  fetchAaveV4Access,
+  type AaveV4AccessByChain,
+  type AaveV4SpokeAccess,
+} from "./aave/fetchV4Access.js";
 import { readJsonFile } from "./utils/index.js";
 
 const ZERO_ADDR = "0x0000000000000000000000000000000000000000";
@@ -57,6 +62,13 @@ export type SpokeJsonEntry = {
   dynamicConfigKeyMax: number;
   baseHubAttribution: string;
   reserves: SpokeReserveJson[];
+  /**
+   * Present only on spokes that restrict a user-facing operation beyond the
+   * stock V4 rules — see `fetchV4Access.ts`. ABSENT means "behaves like a
+   * stock spoke", which is also what an unknown/failed probe leaves, so the
+   * merge below never lets a flake clear a gate that was once observed.
+   */
+  access?: AaveV4SpokeAccess;
 };
 
 export type SpokesJson = {
@@ -113,10 +125,16 @@ function mergeSpokeEntry(
     ? pickStr(prev.label, next.label)
     : next.label;
 
+  // Fail closed: an absent `access` on the incoming side means "probe said
+  // nothing", which must not unlock a market that was previously observed to
+  // be gated. Only a successful probe can change the gate.
+  const access = next.access ?? prev.access;
+
   return {
     spoke: next.spoke,
     oracle,
     label,
+    ...(access ? { access } : {}),
     dynamicConfigKeyMax: Math.max(
       prev.dynamicConfigKeyMax ?? 0,
       next.dynamicConfigKeyMax ?? 0,
@@ -232,6 +250,7 @@ function buildSpokesJson(
   configs: AaveV4SpokesByChain,
   reservesByChain: { [chainId: string]: { [spoke: string]: AaveV4ReserveDetail[] } },
   maxKeysByChain: { [chainId: string]: { [spoke: string]: number } },
+  accessByChain: AaveV4AccessByChain = {},
 ): SpokesJson {
   const peripherals = readJsonFile("./config/aave-v4-peripherals.json") as Record<
     string,
@@ -267,6 +286,7 @@ function buildSpokesJson(
         .sort((a, b) => a.reserveId - b.reserveId);
 
       const spokeName = peripherals[chain]?.perSpoke?.[spoke]?.spokeName;
+      const access = accessByChain[chain]?.[spoke];
       out[chain][spoke] = {
         spoke,
         oracle: cfg.oracle,
@@ -274,6 +294,7 @@ function buildSpokesJson(
         dynamicConfigKeyMax: maxKeysByChain[chain]?.[spoke] ?? 0,
         baseHubAttribution: cfg.baseHubAttribution,
         reserves,
+        ...(access ? { access } : {}),
       };
     }
   }
@@ -295,8 +316,17 @@ export class AaveV4Updater implements DataUpdater {
     // Step 3: Discover oracle sources per (spoke, reserveId)
     const { oracles, sources } = await fetchAaveV4Oracles(spokes, reserves);
 
+    // Step 4: Detect per-spoke operation restrictions (whitelabel instances)
+    console.log("Probing spoke access restrictions");
+    const access = await fetchAaveV4Access(spokes);
+
     // Assemble the consolidated spokes-with-reserves shape
-    const spokesJson = buildSpokesJson(spokes, reserves, maxDynamicConfigKeys);
+    const spokesJson = buildSpokesJson(
+      spokes,
+      reserves,
+      maxDynamicConfigKeys,
+      access,
+    );
 
     return {
       [spokesFile]: spokesJson,

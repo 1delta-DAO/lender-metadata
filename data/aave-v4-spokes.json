@@ -804,6 +804,16 @@
       "spoke": "0xdffcc3536d932eb51df51a7f5fa407c4270d5308",
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "label": "ether.fi Cash",
+      "access": {
+        "restrictedOperations": [
+          "borrow"
+        ],
+        "gate": {
+          "contract": "0xdc515cb479a64552c5a11a57109c314e40a1a778",
+          "check": "isEtherFiSafe(address)",
+          "label": "ether.fi Cash Safe"
+        }
+      },
       "dynamicConfigKeyMax": 1,
       "baseHubAttribution": "AAVE_V4_ETHERFI",
       "reserves": [
