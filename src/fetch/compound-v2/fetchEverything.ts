@@ -4,6 +4,7 @@ import { multicallRetryUniversal } from "@1delta/providers";
 import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { Lender } from "@1delta/lender-registry";
+import { fetchPauseFallback } from "./pause.js";
 
 type AddressMap = { [fork: string]: string };
 
@@ -12,7 +13,13 @@ type CTokenMap = { [chainId: string]: AddressMap };
 type CompoundV2ForkMap = { [fork: string]: CTokenMap };
 
 type CTokenArray = {
-  [chainId: string]: { cToken: string; underlying: string }[];
+  [chainId: string]: {
+    cToken: string;
+    underlying: string;
+    // only emitted for forks whose Comptroller has no guardian getters
+    mintPaused?: boolean;
+    borrowPaused?: boolean;
+  }[];
 };
 
 type CompoundV2ForkArray = { [fork: string]: CTokenArray };
@@ -182,11 +189,33 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
         }),
       );
 
+      // Pause flags, but ONLY for a Comptroller with no guardian getters —
+      // everywhere else the fetcher reads them live and a published copy would
+      // just go stale. See ./pause.ts for how they are resolved.
+      const comptroller = COMPOUND_V2_COMPTROLLERS[fork]?.[chain];
+      const pause = comptroller
+        ? await fetchPauseFallback(chain, comptroller, markets)
+        : undefined;
+      if (pause)
+        console.log(
+          `  ${fork} on ${chain}: no pause getters — resolved ${Object.keys(pause).length} markets by simulation`,
+        );
+
       const dataArrayOnChain = currReserves.map(
-        (underlying: any, i: number) => ({
-          cToken: markets[i].toLowerCase(),
-          underlying: underlying.toLowerCase(),
-        }),
+        (underlying: any, i: number) => {
+          const cToken = markets[i].toLowerCase();
+          const flags = pause?.[cToken];
+          return {
+            cToken,
+            underlying: underlying.toLowerCase(),
+            ...(flags
+              ? {
+                  mintPaused: flags.mintPaused,
+                  borrowPaused: flags.borrowPaused,
+                }
+              : {}),
+          };
+        },
       );
 
       cTokens[fork][chain] = dataOnChain;
