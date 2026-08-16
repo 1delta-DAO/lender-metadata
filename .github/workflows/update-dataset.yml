@@ -37,6 +37,19 @@ jobs:
                   npm run build
                   npm run update:dataset
 
+            # Roll the files the SDK reads into ONE artifact, so a consumer can
+            # initialize with a single request instead of 67. Must run AFTER
+            # update:dataset — it reads the files that step just wrote — and
+            # before the commit, so the bundle is staged in the same PR as the
+            # sources it was built from. Never let those two diverge: a bundle
+            # committed a run behind its sources is stale data that looks fresh.
+            #
+            # The output is deterministic (no timestamp inside), so an unchanged
+            # dataset produces an unchanged bundle and the `git status` check
+            # below stays false. See src/build-bundle.ts.
+            - name: Build metadata bundle
+              run: npm run build:bundle
+
             - name: Compute branch name
               id: vars
               run: echo "BRANCH_NAME=update-dataset-$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
@@ -51,9 +64,11 @@ jobs:
                     git config user.email "github-actions[bot]@users.noreply.github.com"
 
                     # Stage generated data + config (the Morpho updater writes
-                    # labels/vaults under data/ and markets/pools under config/).
+                    # labels/vaults under data/ and markets/pools under config/)
+                    # plus the bundle built from them — staged together so the
+                    # artifact can never ship a run behind its sources.
                     git checkout -b "$BRANCH_NAME"
-                    git add data config
+                    git add data config bundle
                     git commit -m "chore(data): update $(date -u +'%Y-%m-%dT%H:%M:%SZ') [skip ci]"
                     git push origin "$BRANCH_NAME"
                     echo "Pushed branch: $BRANCH_NAME"

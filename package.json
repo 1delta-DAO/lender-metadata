@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:bundle": "tsx src/build-bundle.ts",
     "typecheck": "tsc --noEmit",
     "update:dataset": "tsx dist/update-dataset.js",
     "update:morpho": "tsx src/update-morpho.ts",
