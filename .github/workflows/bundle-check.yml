@@ -1,0 +1,60 @@
+name: bundle-check
+
+# Keeps bundle/lender-meta.json honest.
+#
+# The nightly `update-dataset` job regenerates the bundle alongside the files it
+# writes, so the automated path is safe. HAND-EDITED changes are not: this repo
+# carries curated allowlists and configs that people edit directly, and nothing
+# in that flow rebuilds the bundle. A PR that edits `data/foo.json` and stops
+# there ships sources and artifact out of sync — and consumers read the artifact,
+# so they would quietly serve the OLD contents of that file with no error
+# anywhere.
+#
+# This rebuilds and fails if the committed bundle differs. That converts a silent
+# data-staleness bug into a red check with a one-line fix.
+
+on:
+    pull_request:
+        paths:
+            - "config/**"
+            - "data/**"
+            - "bundle/**"
+            - "src/build-bundle.ts"
+    push:
+        branches: [main]
+        paths:
+            - "config/**"
+            - "data/**"
+            - "bundle/**"
+            - "src/build-bundle.ts"
+
+jobs:
+    check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: "22"
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Rebuild the bundle
+              run: npm run build:bundle
+
+            - name: Fail if the committed bundle is stale
+              run: |
+                  if ! git diff --quiet -- bundle/; then
+                    echo "::error::bundle/ is out of date with config/ and data/."
+                    echo ""
+                    echo "The sources changed but the bundle was not rebuilt, so consumers"
+                    echo "reading bundle/lender-meta.json would serve the OLD contents."
+                    echo ""
+                    echo "Fix locally:  npm run build:bundle  &&  git add bundle && git commit"
+                    echo ""
+                    git diff --stat -- bundle/
+                    exit 1
+                  fi
+                  echo "bundle/ is in sync with its sources."
