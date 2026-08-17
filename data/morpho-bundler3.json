@@ -17,13 +17,26 @@
     "generalAdapter1": "0x79481C87f24A3C4332442A2E9faaf675e5F141f0",
     "paraswapAdapter": "0x31F539f4Ed14fA1fd18781e93f6739249692aDC5"
   },
+  "14": {
+    "bundler3": "0xb371CFee69984D1F3447D49217889C7388bA2027",
+    "generalAdapter1": "0x43F4861c9E7f584cFDc9B6BA3F0c2462895BDd67"
+  },
   "25": {
     "bundler3": "0xb1c59fE6A0DCE25b804F6113C441Bf4F3a4Ab6bC",
     "generalAdapter1": "0xCa470cBBc3de56FDe336466f2107cC969174d513"
   },
+  "50": {
+    "bundler3": "0xed9bdc3E6081db528b6D5CDDf47EcB05337c62A7",
+    "generalAdapter1": "0xAB2Ab6A8bb1082C5d8400D6206c6A13cE413e0c0"
+  },
   "56": {
     "bundler3": "0x16D40b9DF1497468195BFAfeb2718e486E15bF91",
-    "generalAdapter1": "0x87c93660ECe6E68C6492EabBbBdbaafA102ae3a3"
+    "generalAdapter1": "0x87c93660ECe6E68C6492EabBbBdbaafA102ae3a3",
+    "paraswapAdapter": "0xBb12B012Fa31f7FE418236cAf625713Edc852F82"
+  },
+  "100": {
+    "bundler3": "0x2AC3ea771547926D4714078e807eFbeF70D0997f",
+    "generalAdapter1": "0x832625F5C0aAD4bc14d39291156D37898a40973b"
   },
   "130": {
     "bundler3": "0x7DD85759182495AF7F6757DA75036d24A9B58bc3",
@@ -59,6 +72,10 @@
     "bundler3": "0x3D07BF2FFb23248034bF704F3a4786F1ffE2a448",
     "generalAdapter1": "0x30fa9A3cF56931ACEea42E28D35519a97D90aA67"
   },
+  "714": {
+    "bundler3": "0x4D403d6a3D25A865Ed57caef884f076E0fa00eCa",
+    "generalAdapter1": "0x9B05CCA3299E3558a324f72aaB4D404625557B3D"
+  },
   "988": {
     "bundler3": "0xA0bb114F927dF03d9a1a639b9c71F71B0FaFDf1B",
     "generalAdapter1": "0x59b1F4376a81e39c466A0A218447E4D36f39A96b"
@@ -87,9 +104,33 @@
     "bundler3": "0xc13A3Ca3B0120EE6121d1E0ca9Da22fDD7ed28Cd",
     "generalAdapter1": "0x3716AA06304D1bC70f553Da44904d13086A4a791"
   },
+  "2818": {
+    "bundler3": "0xDB83A44Bf8f53966f7A4F7dCE7F8CdAaBCf83628",
+    "generalAdapter1": "0xcaeec65c85Fe964c8Bd814cb8E4CaF8B06bde776"
+  },
+  "4114": {
+    "bundler3": "0xe7C7271AfE4E49C12c66a0B8A9B774ed8b1640C8",
+    "generalAdapter1": "0x722B0e321544042741B3E45F200FBEDAc20529dC"
+  },
+  "4153": {
+    "bundler3": "0x31A77d9c1Fa2c8d45170E7048F46d7B06C9B5BB4",
+    "generalAdapter1": "0x24E07727aa13b9A330CB73c65958dE4C3A667408"
+  },
+  "4217": {
+    "bundler3": "0x5A3B829dcDBE1979cdD9F648Afb6D39dCF805E33",
+    "generalAdapter1": "0x3a2A86bD16629B054f7f3d87F0a7570F3881a43c"
+  },
+  "4326": {
+    "bundler3": "0xf53D4c8f0f83F697CD6bB303567400cCf411aA63",
+    "generalAdapter1": "0x74d3cbc721613C8461df92658d0a20dF275Ca31b"
+  },
   "4663": {
     "bundler3": "0x6478e9393d4C5bB4d53ee881d1DE78786A0344a6",
     "generalAdapter1": "0xc5E188541D107e8B79e43478bDE365F1406665D6"
+  },
+  "8217": {
+    "bundler3": "0x27880B18ae04a05F1D603B87AEb2a27491FfaBA9",
+    "generalAdapter1": "0x8e36C2c6d7771820BF14a75f725f3cf0374a7823"
   },
   "8453": {
     "bundler3": "0x6BFd8137e702540E7A42B74178A4a49Ba43920C4",
@@ -98,6 +139,10 @@
     "erc20WrapperAdapter": "0xdeEf55F0A7366cC3Baf5E04313269389Fe17E9AE",
     "compoundV3MigrationAdapter": "0x85D4812Ef92c040d4270eD8547b6835e41FbbB70",
     "aaveV3CoreMigrationAdapter": "0xb27Aa2a964eAd5ed661D86974b37e4fB995b36f5"
+  },
+  "9745": {
+    "bundler3": "0xeC6f72cF30fb5d3D0f9Bea8509B61902Cf3B1E45",
+    "generalAdapter1": "0x6A7389f9D4fD199254479d6735aAd7aa5D4Db0cE"
   },
   "16661": {
     "bundler3": "0xbDaFC7ceF85C5fF69164330F521089C9E15DDDae",
@@ -126,6 +171,15 @@
     "bundler3": "0x8eDa6E01a20E3Cd90B3B2AF6F790cB8FADEf3Ea8",
     "generalAdapter1": "0x9623090C3943ad63F7d794378273610Dd0deeFD4"
   },
+  "43114": {
+    "bundler3": "0x708e04d46D82d8f1D0A70a3Aa0a780F27fcb3F92",
+    "generalAdapter1": "0x8BcC016Ab7334A16DCcbEE9AB3FD6E52fEb29E96",
+    "paraswapAdapter": "0x0ED0478946E00ca8BCF65475E7c8dfACA4a30005"
+  },
+  "48900": {
+    "bundler3": "0x04C17BA8BAe185e655086e7f35357F7c3C70Dc53",
+    "generalAdapter1": "0x2d09A9A5d41863314571E3c902D1b9DDfe6cAf9e"
+  },
   "57073": {
     "bundler3": "0x7db0F1E2bf1f47ec82220090F388d75D8B9BB6BC",
     "generalAdapter1": "0xB8B2aDdCDe1cdC94AaE18a0F8A19df03D8683610"
@@ -145,6 +199,10 @@
   "534352": {
     "bundler3": "0x60F9159d4dCd724e743212416FD57d8aC0B60768",
     "generalAdapter1": "0xD2780fae0869cDc06EE202152304A39653361525"
+  },
+  "685689": {
+    "bundler3": "0xE09314FE5Fc41FEc8f3e6042085dD3CeE24c877c",
+    "generalAdapter1": "0x79e6825ccb881d276f988a5dA8125e1c6BEa07Ae"
   },
   "747474": {
     "bundler3": "0xA8C5e23C9C0DF2b6fF716486c6bBEBB6661548C8",
