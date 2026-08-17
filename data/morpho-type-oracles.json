@@ -5358,6 +5358,27 @@
       }
     ]
   },
+  "480": {
+    "MORPHO_BLUE": []
+  },
+  "988": {
+    "MORPHO_BLUE": [
+      {
+        "oracle": "0xD1493f70eE808cb056Dd71aC1EA0CdE82055254c",
+        "loanAsset": "0x779ded0c9e1022225f8e0630b35a9b54be713736",
+        "collateralAsset": "0xd1db209087516883ec705cfeb99e80bb6032d540",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 6
+      },
+      {
+        "oracle": "0x4fc5FcBF3Cf6e9791115A39a19f60Bacc27b526F",
+        "loanAsset": "0x779ded0c9e1022225f8e0630b35a9b54be713736",
+        "collateralAsset": "0xfdd22ce6d1f66bc0ec89b20bf16ccb6670f55a5a",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 6
+      }
+    ]
+  },
   "999": {
     "MORPHO_BLUE": [
       {
@@ -6196,6 +6217,17 @@
       }
     ]
   },
+  "4217": {
+    "MORPHO_BLUE": [
+      {
+        "oracle": "0xa59e9ACD8499343ae7b944df898fc20388ACD245",
+        "loanAsset": "0x20c0000000000000000000000000000000000000",
+        "collateralAsset": "0x20c000000000000000000000c412ec89d0c08be5",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 6
+      }
+    ]
+  },
   "4326": {
     "MORPHO_BLUE": [
       {
@@ -6213,6 +6245,34 @@
         "collateralAssetDecimals": 18
       }
     ]
+  },
+  "4663": {
+    "MORPHO_BLUE": [
+      {
+        "oracle": "0x152c638fad68913739Ee19Ba8eF47fAEB09DCa91",
+        "loanAsset": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "collateralAsset": "0x40858070814a57fdf33a613ae84fe0a8b4a874f7",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 6
+      },
+      {
+        "oracle": "0xE64849bd4AD03DfaBbe02bb521de19997a19055f",
+        "loanAsset": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "collateralAsset": "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 18
+      },
+      {
+        "oracle": "0xe694c531F65c4BaBc88A52d7178476e095e51574",
+        "loanAsset": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "collateralAsset": "0xde770c84fe66e063336b31737cfe9790f18c4087",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 6
+      }
+    ]
+  },
+  "5042": {
+    "MORPHO_BLUE": []
   },
   "8453": {
     "MORPHO_BLUE": [
