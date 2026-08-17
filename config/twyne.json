@@ -1,0 +1,31 @@
+{
+  "TWYNE": {
+    "1": {
+      "evc": "0xef39D6493884C4C84D38a4bFF879Ce16CEdE702a",
+      "collateralVaultFactory": "0xa1517cCe0bE75700A8838EA1cEE0dc383cd3A332",
+      "vaultManager": "0x0acd3A3c8Ab6a5F7b5A594C88DFa28999dA858aC",
+      "oracleRouter": "0xb001f039D76bA48E577A17c04b6940DB37aF8648",
+      "healthStatsViewer": "0xe3632980F6D1a405211eAA698c125E4f3753337e",
+      "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+      "swapper": "0x2Bba09866b6F1025258542478C39720A09B728bF",
+      "swapVerifier": "0xae26485ACDDeFd486Fe9ad7C2b34169d360737c7",
+      "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "aavePool": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+      "operators": {
+        "EULER_V2": {
+          "leverage": "0x335AB81f1C3d9f72639004d3e982902458CF29b3"
+        },
+        "AAVE_V3": {
+          "leverage": "0x451949bde57aBe2F5DBD4758Cd50C6DCfC093A4C",
+          "deleverage": "0x37d5c87b7996063583c7e164c1d7fe27a6ae5b01",
+          "teleport": "0x868a21426852A775395d4b90De23B3e3E662bd78"
+        }
+      },
+      "legacyOperators": {
+        "AAVE_V3": {
+          "deleverage": "0x229fE10bC00bBE99Ac99703647D4f74F31605e91"
+        }
+      }
+    }
+  }
+}

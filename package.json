@@ -18,6 +18,7 @@
     "update:inverse": "tsx src/update-inverse.ts",
     "update:llamalend": "tsx src/update-llamalend.ts",
     "update:termmax": "tsx src/update-termmax.ts",
+    "update:twyne": "tsx src/update-twyne.ts",
     "update:usdd": "tsx src/update-usdd.ts",
     "update:frankencoin": "tsx src/update-frankencoin.ts",
     "update:sky": "tsx src/update-sky.ts",
