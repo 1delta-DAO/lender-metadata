@@ -16,6 +16,12 @@ Covers Aave V2, Aave V3, and forks (Lendle, Meridian, Aurelius, ZeroLend, LayerB
 | `data/aave-reserves.json` | List of underlying reserve addresses |
 | `data/aave-oracles.json` | Oracle contract address per fork/chain |
 | `config/aave-pools.json` | Pool and ProtocolDataProvider addresses |
+| `config/aave-weth-gateway.json` | WrappedTokenGateway (native-token wrapper) per fork/chain |
+
+`aave-weth-gateway.json` is hand-maintained. `node scripts/discover-weth-gateways.mjs verify`
+re-checks every entry on-chain (`getWETHAddress()` plus the gateway's unlimited allowance on
+its market's Pool); `... discover [--logs] [chainId ...]` looks for the gateways still missing
+for markets in `config/aave-pools.json` and prints a JSON block to merge.
 
 **`aave-tokens.json`** — derivative token mapping:
 ```json
@@ -276,6 +282,11 @@ Covers Init lending protocol on Mantle and Blast.
 ### Morpho (`src/fetch/morpho/`)
 
 Covers Morpho Blue and Lista DAO markets. Fetches from both on-chain calls and Goldsky subgraphs.
+
+**Vault names & curators** — how `data/morpho-type-vaults.json` is populated
+(API-vs-registry routing, the discovery jobs, and the `update:vault-curators`
+resolution rungs) is documented in
+**[`MORPHO_VAULT_NAMES.md`](MORPHO_VAULT_NAMES.md)**.
 
 | File | Description |
 |------|-------------|
