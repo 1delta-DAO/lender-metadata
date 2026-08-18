@@ -27,6 +27,7 @@
     "update:compound-v2-oracles": "tsx src/update-compound-v2-oracles.ts",
     "update:dolomite-oracles": "tsx src/update-dolomite-oracles.ts",
     "update:aave-oracles": "tsx src/update-aave-oracles.ts",
+    "update:aave-emodes": "tsx src/update-aave-emodes.ts",
     "update:euler-oracles": "tsx src/update-euler-oracles.ts",
     "update:silo-oracles": "tsx src/update-silo-oracles.ts",
     "update:fluid-oracles": "tsx src/update-fluid-oracles.ts",

@@ -1,5 +1,6 @@
 import { DataUpdater } from "../types.js";
 import { mergeData } from "../utils.js";
+import { fetchAaveEModeCounts } from "./aave/fetchEModes.js";
 import { fetchAaveTypePriceOracles } from "./aave/fetchOracles.js";
 import { fetchAaveTypeTokenData } from "./aave/fetchReserves.js";
 
@@ -16,13 +17,15 @@ export class AaveUpdater implements DataUpdater {
     const { reserves, tokens, AAVE_FORK_POOL_DATA } =
       await fetchAaveTypeTokenData();
     const oracles = await fetchAaveTypePriceOracles(AAVE_FORK_POOL_DATA);
-    // Placeholder for another data source
-    // This could fetch from another API, parse files, etc.
+    // The pool has no e-mode count getter, so consumers cannot know how many
+    // categories to read. Probe it and publish it on the pool row; deployments
+    // whose probe was not clean are simply absent and keep their old count.
+    const eModeCounts = await fetchAaveEModeCounts(AAVE_FORK_POOL_DATA);
     return {
       [aaveAddresses]: reserves,
       [tokensFile]: tokens,
       [oraclesFile]: oracles,
-      [pools]: AAVE_FORK_POOL_DATA,
+      [pools]: mergeData(AAVE_FORK_POOL_DATA, eModeCounts),
     };
   }
 
