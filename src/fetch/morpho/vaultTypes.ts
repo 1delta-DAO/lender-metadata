@@ -9,6 +9,14 @@ export type MorphoTypeVault = {
   underlying: string;
   name?: string;
   /**
+   * Human curator/brand name (e.g. `Steakhouse Financial`). Filled by
+   * `update-vault-curators.ts` — Morpho's global curator roster joined on the
+   * vault's on-chain `curator()`/`owner()` address, with a conservative
+   * name-derived fallback — because the chains in this file have no Morpho-API
+   * coverage and their consumers cannot learn the curator any other way.
+   */
+  curatorName?: string;
+  /**
    * Vault interface version:
    *   - `v1` — MetaMorpho (withdraw-queue → Morpho Blue markets)
    *   - `v2` — Vaults V2 (adapter-based; no withdraw queue)

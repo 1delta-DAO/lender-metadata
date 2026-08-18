@@ -155,19 +155,22 @@
         "vault": "0x1aeada3c251215f1294720b80fcb3d1d005f3585",
         "underlying": "0x1d80c49bbbcd1c0911346656b529df9e5c2f783d",
         "name": "Core wFLR",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Clearstar"
       },
       {
         "vault": "0x53184adabf312b490bf1ebcfdc896feff6019a14",
         "underlying": "0xad552a648c74d49e10027ab8a618a3ad4901c5be",
         "name": "Core FXRP",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Clearstar"
       },
       {
         "vault": "0xe8dd6a1e13244a27bdaa19ccbf33013647c675d1",
         "underlying": "0xe7cd86e13ac4309349f30b3435a9d337750fc82d",
         "name": "Core USDT0",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Clearstar"
       }
     ],
     "146": [
@@ -181,7 +184,8 @@
         "vault": "0x2e651455c2455053dcaa02593989e0d3a4770166",
         "underlying": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
         "name": "CC-USDC Vault",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "CC"
       },
       {
         "vault": "0x6ae5e57135ebd44ea1ff7f3fec4dede488aaef47",
@@ -212,7 +216,8 @@
         "vault": "0x0b73fee93ccf9ae81c37a5197c5b971ae21a800b",
         "underlying": "0xb76d91340f5ce3577f0a056d29f6e3eb4e88b140",
         "name": "SingularV TON Tonstakers",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "SingularV"
       },
       {
         "vault": "0x1231792b6c38ac12c65a36b4c48059d297bfe6b3",
@@ -223,7 +228,8 @@
         "vault": "0x26f38a9eaf377744296a907a9226066315b9147f",
         "underlying": "0x61d66bc21fed820938021b06e9b2291f3fb91945",
         "name": "9Summits Kilimandjaro ETH",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "9Summits"
       },
       {
         "vault": "0x2903a9e55bb8a05e6cbdd5c5d00203bf527fa9db",
@@ -234,25 +240,29 @@
         "vault": "0x4183bd253dc1918a04bd8a8dd546baad58898109",
         "underlying": "0xaf988c3f7cb2aceabb15f96b19388a259b6c438f",
         "name": "Re7 USDT",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x47d45b47399ccea4a89d696aef79ff8584340334",
         "underlying": "0x7048c9e4abd0cf0219e95a17a8c6908dfc4f0ee4",
         "name": "Re7 cbBTC",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x657f5dd51d71cfbea847fdecbca5b3fd0b82541d",
         "underlying": "0x61d66bc21fed820938021b06e9b2291f3fb91945",
         "name": "Re7 WETH",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x691680bfaaf25a64bb713b6a145e0de48144e713",
         "underlying": "0xb63b9f0eb4a6e6f191529d71d4d88cc8900df2c9",
         "name": "Rafael's TAC Vault",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Rafael's TAC"
       },
       {
         "vault": "0x6fa0f705608d76a2b80ecc784318060e2d084169",
@@ -263,7 +273,8 @@
         "vault": "0x84bbc0be5a6f831a4e2c28a2f3b892c70acaa5b3",
         "underlying": "0xb76d91340f5ce3577f0a056d29f6e3eb4e88b140",
         "name": "Re7 TON ",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x8a4c98a72d7176742a5462aa9ca8f5655a7d78cb",
@@ -275,13 +286,15 @@
         "vault": "0x8d81f489a309294644ac6a586b58495534a54ce0",
         "underlying": "0x61d66bc21fed820938021b06e9b2291f3fb91945",
         "name": "Re7 WETH",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x8f1da931679dc2ac59811ace6a401c5c935a60dc",
         "underlying": "0xaf988c3f7cb2aceabb15f96b19388a259b6c438f",
         "name": "Re7 USDT",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x97a9ce0c463f8855191a4181dca264dd02028649",
@@ -293,13 +306,15 @@
         "vault": "0x9a057627f023f5c37ebc6e7959720848968d7a43",
         "underlying": "0xaf988c3f7cb2aceabb15f96b19388a259b6c438f",
         "name": "Edge UltraYield USDT",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "UltraYield"
       },
       {
         "vault": "0x9a5411e72fe645d4a6a177568bee94c9ae6aa102",
         "underlying": "0xaf988c3f7cb2aceabb15f96b19388a259b6c438f",
         "name": "MEV Capital USDT",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "MEV Capital"
       },
       {
         "vault": "0xbe5380f260db5d372a33d8bbc72593aba1357c7e",
@@ -310,25 +325,29 @@
         "vault": "0xc5e1bd2473811bb782326006a3c03477f7834d35",
         "underlying": "0x61d66bc21fed820938021b06e9b2291f3fb91945",
         "name": "Re7 WETH",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0xcd11d8c53c0e8ea7e53d0ea8a66ba4ac323adad6",
         "underlying": "0xd44f691aed69fe43180b95b6f82f89c18fb93094",
         "name": "SingularV tsTON Tonstakers",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "SingularV"
       },
       {
         "vault": "0xe9bd3590a68939344953b4f912d83b7c8c2a1f77",
         "underlying": "0xecac9c5f704e954931349da37f60e39f515c11c1",
         "name": "Re7 LBTC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0xf49f14cff1ba2ee7e23222a76e0c2b3d0bde06dc",
         "underlying": "0x7048c9e4abd0cf0219e95a17a8c6908dfc4f0ee4",
         "name": "Re7 cbBTC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       }
     ],
     "1135": [
@@ -341,31 +360,36 @@
         "vault": "0x50cb55be8cf05480a844642cb979820c847782ae",
         "underlying": "0x43f2376d5d03553ae72f4a8093bbe9de4336eb08",
         "name": "Re7 USDT",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x7cbaa98bd5e171a658fdf761ed1db33806a0d346",
         "underlying": "0x4200000000000000000000000000000000000006",
         "name": "Re7 WETH",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x8258f0c79465c95afac325d6ab18797c9ddacf55",
         "underlying": "0xac485391eb2d7d88253a7f1ef18c37f4242d1a24",
         "name": "Re7 LSK",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x9cf2f0af475398ca01f099974960adbc9cb87025",
         "underlying": "0x9bfa177621119e64cecbeabe184ab9993e2ef727",
         "name": "Re7 mBTC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "RE7 Labs"
       },
       {
         "vault": "0xd92f564a29992251297980187a6b74faa3d50699",
         "underlying": "0xf242275d3a6527d877f2c927a82d9b057609cc71",
         "name": "Re7 USDC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0xe9cb4c4d3f0798e3087d4d49d3307cdb302cec55",
@@ -379,7 +403,8 @@
         "vault": "0x015f10a56e97e02437d294815d8e079e1903e41c",
         "underlying": "0xe15fc38f6d8c56af07bbcbe3baf5708a2bf42392",
         "name": "Feather USDC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Feather"
       },
       {
         "vault": "0x433ee8a4cda6e6f1d8009d5748ab02c8e4430beb",
@@ -391,7 +416,8 @@
         "vault": "0x50715ae180ff0ea799dc8ab635c2d876e528bfe8",
         "underlying": "0x142cdc44890978b506e745bb3bd11607b7f7faef",
         "name": "Feather PYUSD0",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Feather"
       },
       {
         "vault": "0x6137dcfdd3c83fe2922b1cba4105d2e92b327a06",
@@ -409,19 +435,22 @@
         "vault": "0x8e181221d5602d4cf2b87f3a817c0dac680a7223",
         "underlying": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
         "name": "Feather WBTC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Feather"
       },
       {
         "vault": "0x948fcc6b7f68f4830cd69db1481a9e1a142a4923",
         "underlying": "0xe30fedd158a2e3b13e9badaeabafc5516e95e8c7",
         "name": "Feather SEI",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Feather"
       },
       {
         "vault": "0x94e6a8714f36cd7220560638882fc137ab5eb79c",
         "underlying": "0x160345fc359604fc6e70e3c5facbde5f7a9342d8",
         "name": "Feather WETH",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Feather"
       },
       {
         "vault": "0x959c4c55876c193132eaec2675a13b7fe3e85648",
@@ -433,7 +462,8 @@
         "vault": "0xbd183661d2e8cefa31799fe3a4cc6f2127963dc5",
         "underlying": "0x9151434b16b9763660705744891fa906f660ecc5",
         "name": "Feather USDT",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Feather"
       },
       {
         "vault": "0xf79a4c5d8253d16d6f60a17ef4bd490ebff2ce52",
@@ -447,13 +477,15 @@
         "vault": "0x047cd0a91e9b92ed979189a6c8a120bf280f02e5",
         "underlying": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
         "name": "RockawayX USDC",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "RockawayX"
       },
       {
         "vault": "0x05a5d2170326da9ac8685ae3247e618dae54f427",
         "underlying": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
         "name": "RockawayX USDC YIELD",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "RockawayX"
       },
       {
         "vault": "0x79ded579756072372510ff3a86f884433a697b5c",
@@ -466,25 +498,29 @@
         "vault": "0x04c451be70c41e4a88f7ac436ae767d64ae79049",
         "underlying": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
         "name": "Re7 WBTC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x13baebf2c4138299f082830408706b0586615a62",
         "underlying": "0xba9986d2381edf1da03b0b9c1f8b00dc4aacc369",
         "name": "UntitledBank USDC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "UntitledBank"
       },
       {
         "vault": "0x41baa218a118fb2249cbcf836c1e8ee336d67faa",
         "underlying": "0x4200000000000000000000000000000000000006",
         "name": "Re7 WETH",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0x4cef4337979e8d9681954f0915cdb4735570e30a",
         "underlying": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
         "name": "Vaulty Vault",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Vaulty"
       },
       {
         "vault": "0x94665e0df3c8c25119d80b2e3c703ccd127bf37e",
@@ -495,19 +531,22 @@
         "vault": "0xba738d34c4e278e1cd64aaa9bbd569688e8dc5dc",
         "underlying": "0x2cae934a1e84f693fbb78ca5ed3b0a6893259441",
         "name": "Re7 ASTR",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0xcd05581e39fcd70572d2eac8cc3c79647ffc7fae",
         "underlying": "0x2cae934a1e84f693fbb78ca5ed3b0a6893259441",
         "name": "UntitledBank ASTR",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "UntitledBank"
       },
       {
         "vault": "0xecdbe2af33e68cf96f6716f706b078fa94e978cb",
         "underlying": "0xba9986d2381edf1da03b0b9c1f8b00dc4aacc369",
         "name": "Re7 USDC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       }
     ],
     "2741": [
@@ -520,43 +559,50 @@
         "vault": "0x528ee813c1f74042e98c94a522aaf2ca917003d2",
         "underlying": "0x3439153eb7af838ad19d56e1571fbd09333c2809",
         "name": "Aborean WETH Vault",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Aborean"
       },
       {
         "vault": "0xa31bb6305b6772a8edfaeb337e009471d221b919",
         "underlying": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
         "name": "Re7 USDC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0xa3c311d7faf0eff5a504f3d732bdd964efd9871e",
         "underlying": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
         "name": "Re7 USDC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0xd4d138f323d03f84c3411fa06465dc8bbd832524",
         "underlying": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
         "name": "Re7 USDC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0xd8662b55c253d28840a0ada6dc927c65968f466b",
         "underlying": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
         "name": "Aborean USDC Vault",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Aborean"
       },
       {
         "vault": "0xeb44e927549d715e558a8b978ce67d4ce8bf6b4b",
         "underlying": "0x9ebe3a824ca958e4b3da772d2065518f009cba62",
         "name": "Aborean PENGU Vault",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Aborean"
       },
       {
         "vault": "0xf412722f8615e687d3bd7e9133fadc31cdec7292",
         "underlying": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
         "name": "Re7 USDC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "RE7 Labs"
       }
     ],
     "2818": [
@@ -580,7 +626,8 @@
         "vault": "0x9131eb40bd0bdce73c72755f1bb2cf39a9453341",
         "underlying": "0xcfb1186f4e93d60e60a8bdd997427d1f33bc372b",
         "name": "Gauntlet USDC",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Gauntlet"
       },
       {
         "vault": "0xce9c4db406f37268fe010d15866857b1589fbbb2",
@@ -593,7 +640,8 @@
         "vault": "0x72f8c254548839fa1db4156ae01d8c6ae5885ee4",
         "underlying": "0x8d82c4e3c936c7b5724a382a9c5a4e6eb7ab6d5d",
         "name": "UltraYield ctUSD Prime",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "UltraYield"
       }
     ],
     "4326": [
@@ -601,7 +649,8 @@
         "vault": "0x85fcb4604f25e17ae4e1eac202adba4f999d7ff5",
         "underlying": "0xfafddbb3fc7688494971a79cc65dca3ef82079e7",
         "name": "Feather EM USDm",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Feather"
       },
       {
         "vault": "0xf55c695ebaf1f4eefeda0833ef6a29c90e7b7f05",
@@ -620,19 +669,22 @@
         "vault": "0x37788ff0c1d4e45a7fe06bc7e71e0cc00121d0a8",
         "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
         "name": "Purinta USDG",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Purinta"
       },
       {
         "vault": "0xbeeff033f34c046626b8d0a041844c5d1a5409dd",
         "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
         "name": "Steakhouse USDG",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Steakhouse Financial"
       },
       {
         "vault": "0xbeeff0fb1dc19344a87b8479dab60a2e16160737",
         "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
         "name": "Ethena x Steakhouse USDG",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Steakhouse Financial"
       }
     ],
     "8217": [
@@ -640,7 +692,8 @@
         "vault": "0x32936d1bebddb4b85018aacb9b119748c65a76bb",
         "underlying": "0xd077a400968890eacc75cdc901f0356c943e4fdb",
         "name": "Feather USDT",
-        "version": "v2"
+        "version": "v2",
+        "curatorName": "Feather"
       },
       {
         "vault": "0xa8d31bf381256d097fffa3f1e6d57c1419741a9d",
@@ -654,7 +707,8 @@
         "vault": "0xc8d034c3ce153d0f3a2ef1b45f685b4f9c25aba8",
         "underlying": "0x4200000000000000000000000000000000000006",
         "name": "Vaulty Vault",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Vaulty"
       },
       {
         "vault": "0xf4461806c58d9e7cd74e79b113d81d127634b807",
@@ -672,31 +726,36 @@
         "vault": "0x3f76b687db863c0c6f5878087536e35dc9cd1c48",
         "underlying": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
         "name": "MEV Capital USDC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "MEV Capital"
       },
       {
         "vault": "0x5bbc286202d388740d1dc7551bae02a12ad95df3",
         "underlying": "0xd221812de1bd094f35587ee8e174b07b6167d9af",
         "name": "MEV Capital wETH",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "MEV Capital"
       },
       {
         "vault": "0x5f0bc22528705c3d6379ac4f80e3014b467fb9f3",
         "underlying": "0x8ac2901dd8a1f17a1a4768a6ba4c3751e3995b2d",
         "name": "MEV Capital wBTC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "MEV Capital"
       },
       {
         "vault": "0xb2cdf6403da1ef1bb911d87d0dd155a699869bc2",
         "underlying": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
         "name": "Feather USDT",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Feather"
       },
       {
         "vault": "0xe4d614fc548beadc729beb53a5c8e9adfa202c39",
         "underlying": "0x471ece3750da237f93b8e339c536989b8978a438",
         "name": "Feather CELO",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Feather"
       }
     ],
     "43111": [
@@ -704,7 +763,8 @@
         "vault": "0x05c2e246156d37b39a825a25dd08d5589e3fd883",
         "underlying": "0xad11a8beb98bbf61dbb1aa0f6d6f2ecd87b35afa",
         "name": "Clearstar USDC.e",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Clearstar"
       },
       {
         "vault": "0x339b3b6413345b4d3beb524c12cd3910c6dd8dbb",
@@ -715,25 +775,29 @@
         "vault": "0x7e8195b96bbcfad0e20243dcc686d188a827f256",
         "underlying": "0xbf7d0f62b64b23053949b3a88a03da5bfd35b2e2",
         "name": "Metronome msETH Vault",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Clearstar"
       },
       {
         "vault": "0xa1e2f3830abb1e21119122b5b09581ec9543ed02",
         "underlying": "0xbb0d083fb1be0a9f6157ec484b6c79e0a4e31c2e",
         "name": "Vaulty Vault",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Vaulty"
       },
       {
         "vault": "0xa7db73f80a173c31a1241bf97f4452a07e443c6c",
         "underlying": "0xaa40c0c7644e0b2b224509571e10ad20d9c4ef28",
         "name": "Clearstar Reactor hemiBTC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Clearstar"
       },
       {
         "vault": "0xacf5a4b865995f76929e25a36c753fa6473a1e1e",
         "underlying": "0xad11a8beb98bbf61dbb1aa0f6d6f2ecd87b35afa",
         "name": "MEV Capital USDC",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "MEV Capital"
       }
     ],
     "57073": [
@@ -758,7 +822,8 @@
         "vault": "0xe804fe1711ca643e531559a8ccb73171211fde61",
         "underlying": "0x0200c29006150606b650577bbe7b6248f58470c1",
         "name": "Vaulty Vault",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Vaulty"
       }
     ],
     "59144": [
@@ -773,13 +838,15 @@
         "vault": "0x30bba9cd9eb8c95824aa42faa1bb397b07545bc1",
         "underlying": "0xfcbd14dc51f0a4d49d5e53c2e0950e0bc26d0dce",
         "name": "Re7 HONEY",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       },
       {
         "vault": "0xb5f473c4b7f402d8f7bed42b6d516f5ff3306b01",
         "underlying": "0xfcbd14dc51f0a4d49d5e53c2e0950e0bc26d0dce",
         "name": "Clearstar Reactor HONEY",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Clearstar"
       }
     ],
     "98866": [
@@ -793,13 +860,15 @@
         "vault": "0xbb748a1346820560875cb7a9cd6b46c203230e07",
         "underlying": "0xca59ca09e5602fae8b629dee83ffa819741f14be",
         "name": "Mystic wETH",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Mystic"
       },
       {
         "vault": "0xc0df5784f28046d11813356919b869dda5815b16",
         "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
         "name": "Re7 RWA Yield",
-        "version": "v1"
+        "version": "v1",
+        "curatorName": "Re7"
       }
     ]
   }
