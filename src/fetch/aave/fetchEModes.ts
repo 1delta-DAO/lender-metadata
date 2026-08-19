@@ -95,6 +95,21 @@ const AAVE_CHAIN_FILTER = new Set(
     .filter(Boolean),
 );
 
+/**
+ * Chains we no longer serve. Their deployments are still in the pool config but
+ * nothing fetches them, so probing only produces failures and a warning per
+ * deployment on every daily run.
+ *
+ * Not derived from `getEvmChain` on purpose: this package installs
+ * `@1delta/providers` from npm, and the published build still maps Corn even
+ * though the source has dropped it — the same staleness that let an
+ * `isAaveV3Type` allowlist hide DTRINITY. An explicit list cannot go stale in
+ * the direction that matters.
+ */
+const DEPRECATED_CHAINS = new Set<string>([
+  "21000000", // Corn
+]);
+
 /** Forks that are Aave-V3-shaped but carry no e-mode surface at all. */
 const NO_E_MODES = new Set<string>([Lender.YLDR]);
 
@@ -165,6 +180,11 @@ export async function fetchAaveEModeCounts(
   }
 
   for (const chain of Object.keys(chainToForks)) {
+    if (DEPRECATED_CHAINS.has(chain)) {
+      console.log(`  e-modes: chain ${chain} is deprecated — skipped`);
+      continue;
+    }
+
     // `pending` shrinks as deployments settle; only the ones still near the end
     // of the scanned window are carried into the next round.
     let pending: Probe[] = chainToForks[chain].map(({ fork, pool }) => ({
