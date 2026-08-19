@@ -17,7 +17,7 @@
           "externalLiqBuffer": 9999,
           "creditIrm": "0x75726b84a1bbdc8873a15962f33b28c4a45b1808",
           "symbol": "wstETH",
-          "name": "wstETH / Aave V3"
+          "name": "wstETH / WETH · Aave V3"
         },
         {
           "key": "TWYNE_1_F096777233D19EDF16F297CFD900DD268D53A8D2_4C9EDD5852CD905F086C759E8383E09BFF1E68B3",
@@ -35,7 +35,7 @@
           "creditIrm": "0x96fede3f0a74e2ca1ff8f72e070ce25fd17e24a9",
           "collateralMaturity": 1775088000,
           "symbol": "PT-srUSDe-2APR2026",
-          "name": "PT-srUSDe-2APR2026 / Aave V3"
+          "name": "PT-srUSDe-2APR2026 / USDe · Aave V3"
         },
         {
           "key": "TWYNE_1_585A808D887F3887A586D36AB54AA0C2EF044229_4C9EDD5852CD905F086C759E8383E09BFF1E68B3",
@@ -53,7 +53,7 @@
           "creditIrm": "0x95cc21b22cad991fe90b4be573968d52e1a31715",
           "collateralMaturity": 1782345600,
           "symbol": "PT-srUSDe-25JUN2026",
-          "name": "PT-srUSDe-25JUN2026 / Aave V3"
+          "name": "PT-srUSDe-25JUN2026 / USDe · Aave V3"
         },
         {
           "key": "TWYNE_1_79CF33E623555E899D4EE122B9BFA0214FA5A4A1_4C9EDD5852CD905F086C759E8383E09BFF1E68B3",
@@ -71,7 +71,7 @@
           "creditIrm": "0x95cc21b22cad991fe90b4be573968d52e1a31715",
           "collateralMaturity": 1792627200,
           "symbol": "PT-srUSDe-22OCT2026",
-          "name": "PT-srUSDe-22OCT2026 / Aave V3"
+          "name": "PT-srUSDe-22OCT2026 / USDe · Aave V3"
         },
         {
           "key": "TWYNE_1_87B8081A3ACE680F35125F469526AC10F5418CA7_A0B86991C6218B36C1D19D4A2E9EB0CE3606EB48",
@@ -87,7 +87,7 @@
           "externalLiqBuffer": 10000,
           "creditIrm": "0x16f8ed4e6c10e9089dce1680c1e4ca4230c943de",
           "symbol": "WETH",
-          "name": "WETH / Euler V2"
+          "name": "WETH / USDC · Euler V2"
         },
         {
           "key": "TWYNE_1_87B8081A3ACE680F35125F469526AC10F5418CA7_DAC17F958D2EE523A2206206994597C13D831EC7",
@@ -103,7 +103,7 @@
           "externalLiqBuffer": 10000,
           "creditIrm": "0x16f8ed4e6c10e9089dce1680c1e4ca4230c943de",
           "symbol": "WETH",
-          "name": "WETH / Euler V2"
+          "name": "WETH / USDT · Euler V2"
         },
         {
           "key": "TWYNE_1_87B8081A3ACE680F35125F469526AC10F5418CA7_2260FAC5E5542A773AA44FBCFEDF7C193BC2C599",
@@ -119,7 +119,7 @@
           "externalLiqBuffer": 10000,
           "creditIrm": "0x16f8ed4e6c10e9089dce1680c1e4ca4230c943de",
           "symbol": "WETH",
-          "name": "WETH / Euler V2"
+          "name": "WETH / WBTC · Euler V2"
         },
         {
           "key": "TWYNE_1_7613D202AF490C3D1CE1873B0A7022A34E89815F_C02AAA39B223FE8D0A0E5C4F27EAD9083C756CC2",
@@ -135,7 +135,7 @@
           "externalLiqBuffer": 9900,
           "creditIrm": "0x26a79e3bc30638f92212a3349c185fa67f37d01c",
           "symbol": "wstETH",
-          "name": "wstETH / Euler V2"
+          "name": "wstETH / WETH · Euler V2"
         }
       ]
     }

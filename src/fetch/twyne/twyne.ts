@@ -397,6 +397,23 @@ async function fetchChain(chainId: string, cfg: TwyneChainCfg) {
     });
   });
 
+  // The DEBT asset's symbol. A Twyne market is a PAIR — one credit vault backs
+  // several debt assets (the Euler eWETH vault backs USDC, USDT and WBTC) — so
+  // a label built from the collateral alone names three different markets
+  // identically, and a user picking one cannot tell what they would be
+  // borrowing. This is the earn-identity rule applied to the lender side.
+  const targetAssets = [...new Set(candidates.map((c) => c.asset))];
+  const targetReads = (await multicallRetryUniversal({
+    chain: chainId,
+    calls: targetAssets.map((a) => ({ address: a, name: "symbol", args: [] })),
+    abi: READ_ABI,
+    allowFailure: true,
+  })) as any[];
+  const targetSymbol = new Map<string, string | undefined>();
+  targetAssets.forEach((a, i) => {
+    targetSymbol.set(lower(a), ok(targetReads[i]) ? String(targetReads[i]) : undefined);
+  });
+
   // Per-candidate: still whitelisted? eMode category? beacon for the target?
   const perMarket = (await multicallRetryUniversal({
     chain: chainId,
@@ -464,9 +481,20 @@ async function fetchChain(chainId: string, cfg: TwyneChainCfg) {
       // read one.
       ...(und?.maturity ? { collateralMaturity: und.maturity } : {}),
       symbol: und?.symbol ?? coll.symbol ?? iv.symbol,
+      // COLLATERAL / DEBT, then the external venue.
+      //
+      // Collateral first, deliberately, and the opposite of `llamalend-markets`
+      // (`crvUSD / WETH` = borrowed / collateral): a LlamaLend market is
+      // identified by what it lends, a Twyne market by the CREDIT VAULT it
+      // reserves from — which is the collateral side, and is what the market
+      // key is built out of. Flipping it here would make the label disagree
+      // with the key.
+      //
+      // The debt half is what makes the label an IDENTITY: without it the three
+      // Euler eWETH markets are all "WETH / Euler V2".
       name: `${und?.symbol ?? coll.symbol ?? "?"} / ${
-        c.vaultType === "AAVE_V3" ? "Aave V3" : "Euler V2"
-      }`,
+        targetSymbol.get(lower(c.asset)) ?? "?"
+      } · ${c.vaultType === "AAVE_V3" ? "Aave V3" : "Euler V2"}`,
     });
   });
 
