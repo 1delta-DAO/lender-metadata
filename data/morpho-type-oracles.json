@@ -660,6 +660,13 @@
         "collateralAssetDecimals": 8
       },
       {
+        "oracle": "0x39228D120B999E6F6918df162ceF928BEB954448",
+        "loanAsset": "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
+        "collateralAsset": "0x22ae3d9a738471f405169af055d31c687087d4c7",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 6
+      },
+      {
         "oracle": "0x3B1BFDB445Eb31bCFB7932A33309cBf1089681dA",
         "loanAsset": "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
         "collateralAsset": "0x3de0ff76e8b528c092d47b9dac775931cef80f49",
@@ -1015,6 +1022,13 @@
         "collateralAsset": "0x09ad9c6dcadcc3ab0b3e107e8e7da69c2eea8599",
         "loanAssetDecimals": 6,
         "collateralAssetDecimals": 18
+      },
+      {
+        "oracle": "0xf8D5E47A54DA277F3D6b8946D8D87969469CDC4D",
+        "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "collateralAsset": "0x0b985c624bb2949432cce77cfd246f01390a0517",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 6
       },
       {
         "oracle": "0x637060c43e0Bf6ab68AB59e7ad72ceE45cE84Ad5",
@@ -1514,7 +1528,7 @@
         "collateralAssetDecimals": 6
       },
       {
-        "oracle": "0xB962ecE4655CC4d9c8FC564C02F91154e0832d72",
+        "oracle": "0xDCc04fFaCD7B49035cCdBbbA59a5f955944129DB",
         "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "collateralAsset": "0x8236a87084f8b84306f72007f36f2618a5634494",
         "loanAssetDecimals": 6,
@@ -1764,6 +1778,13 @@
         "collateralAsset": "0xba100000625a3754423978a60c9317c58a424e3d",
         "loanAssetDecimals": 6,
         "collateralAssetDecimals": 18
+      },
+      {
+        "oracle": "0x034f45AcCB8949e55366BEc6d4023d1C1E372Dad",
+        "loanAsset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "collateralAsset": "0xba96292ee7673e3b546cc90db6d97111cd9a314f",
+        "loanAssetDecimals": 6,
+        "collateralAssetDecimals": 6
       },
       {
         "oracle": "0x172c922D179028B0B621f0Fa8DE7442bCf342629",
