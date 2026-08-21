@@ -209,6 +209,32 @@
           "dailyLimit": "500000",
           "borrowPaused": false,
           "name": "scrvUSD-sDOLA"
+        },
+        {
+          "address": "0xf9287c29cb888f4834b7d2757a833d509e7f9d9a",
+          "collToken": "0x48d670d189b4b48757992d36897bca6e3f889040",
+          "collDecimals": 18,
+          "escrowImplementation": "0x683a904da9cd1b3a2326b7bc110a44ecced8362a",
+          "collateralFactorBps": "8500",
+          "liquidationIncentiveBps": "500",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "350000",
+          "borrowPaused": false,
+          "name": "reUSD-sDOLA"
+        },
+        {
+          "address": "0x1fd4985cdd57bdb1ed646b10b7952fcd58946916",
+          "collToken": "0x7c439df9ade8831180ea4d546c1e910d4ba71a86",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "8500",
+          "liquidationIncentiveBps": "500",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "150000",
+          "borrowPaused": false,
+          "name": "yv-reUSD-sDOLA"
         }
       ]
     }
