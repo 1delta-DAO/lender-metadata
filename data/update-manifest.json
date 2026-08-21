@@ -1,13 +1,13 @@
 {
-  "version": "2026-08-18T20-29-06-109Z",
-  "generatedAt": "2026-08-18T20:29:06.110Z",
+  "version": "2026-08-21T20-50-27-544Z",
+  "generatedAt": "2026-08-21T20:50:27.544Z",
   "updatedFiles": [
-    "./data/twyne-markets.json",
+    "./config/termmax.json",
     "./data/lender-labels.json"
   ],
   "results": [
     {
-      "targetFile": "./data/twyne-markets.json"
+      "targetFile": "./config/termmax.json"
     },
     {
       "targetFile": "./data/lender-labels.json"
