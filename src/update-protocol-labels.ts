@@ -56,6 +56,18 @@ const PROTOCOL_BY_FAMILY: Record<string, string> = {
   LIQUITY_V2: "Liquity",
   RADIANT_V2: "Radiant",
   LAYERBANK_V3: "LayerBank",
+  // Compound V2 forks that run ISOLATED POOLS as separate lender keys. Each pool
+  // is its own `Lender` member, so prefix inheritance does not reach it from a
+  // bare family entry — without these, "Venus BNB", "Venus BTC", "Venus DeFi" …
+  // each become their own protocol bucket and filtering by "Venus" returns the
+  // core pool alone. Same shape as the Euler/Silo split this file exists to fix.
+  VENUS: "Venus",
+  ENCLABS: "Enclabs",
+  KINETIC: "Kinetic",
+  TECTONIC: "Tectonic",
+  BENQI: "Benqi",
+  BASTION: "Bastion",
+  KEOM: "Keom Protocol",
 };
 
 /**
