@@ -11,6 +11,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1100000000000000000",
+          "initialRatio": "1125000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -36,6 +37,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1100000000000000000",
+          "initialRatio": "1125000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -58,6 +60,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1052500000000000000",
+          "initialRatio": "1075000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -80,6 +83,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -102,6 +106,7 @@
         {
           "token": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -124,6 +129,7 @@
         {
           "token": "0x7191878f1fe834b28f4d0cead0e4375b814c4abb",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 18,
           "liquidatedDamages": "50000000000000000"
         }
@@ -146,6 +152,7 @@
         {
           "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -171,6 +178,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -193,6 +201,7 @@
         {
           "token": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -215,6 +224,7 @@
         {
           "token": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 18,
           "liquidatedDamages": "80000000000000000"
         }
@@ -237,6 +247,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -259,6 +270,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -281,6 +293,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -303,6 +316,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -328,6 +342,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -350,6 +365,7 @@
         {
           "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -375,6 +391,7 @@
         {
           "token": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 18,
           "liquidatedDamages": "80000000000000000"
         }
@@ -397,6 +414,7 @@
         {
           "token": "0x74299580811e1c3c1a2831db079ba0a8f513998f",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "60000000000000000"
         }
@@ -419,6 +437,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -441,6 +460,7 @@
         {
           "token": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 18,
           "liquidatedDamages": "80000000000000000"
         }
@@ -463,6 +483,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -485,6 +506,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -507,6 +529,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1052500000000000000",
+          "initialRatio": "1075000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -529,6 +552,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -551,6 +575,7 @@
         {
           "token": "0xc26a6fa2c37b38e549a4a1807543801db684f99c",
           "maintenanceRatio": "1298701298700000000",
+          "initialRatio": "1330000000000000000",
           "decimals": 18,
           "liquidatedDamages": "100000000000000000"
         }
@@ -573,6 +598,7 @@
         {
           "token": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -595,6 +621,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -617,6 +644,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -639,6 +667,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -661,6 +690,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -683,6 +713,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -708,6 +739,7 @@
         {
           "token": "0x74299580811e1c3c1a2831db079ba0a8f513998f",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "60000000000000000"
         }
@@ -730,6 +762,7 @@
         {
           "token": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 18,
           "liquidatedDamages": "80000000000000000"
         }
@@ -752,6 +785,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1052500000000000000",
+          "initialRatio": "1075000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -777,6 +811,7 @@
         {
           "token": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -799,6 +834,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1052500000000000000",
+          "initialRatio": "1075000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -821,6 +857,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -843,6 +880,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1100000000000000000",
+          "initialRatio": "1125000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -865,6 +903,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -887,6 +926,7 @@
         {
           "token": "0x280839980a7ed0d7717f64125fe241012e5f5815",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "60000000000000000"
         }
@@ -909,6 +949,7 @@
         {
           "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -931,6 +972,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -953,6 +995,7 @@
         {
           "token": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 18,
           "liquidatedDamages": "80000000000000000"
         }
@@ -975,6 +1018,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -997,6 +1041,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -1019,6 +1064,7 @@
         {
           "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1041,6 +1087,7 @@
         {
           "token": "0xc26a6fa2c37b38e549a4a1807543801db684f99c",
           "maintenanceRatio": "1298701298700000000",
+          "initialRatio": "1330000000000000000",
           "decimals": 18,
           "liquidatedDamages": "100000000000000000"
         }
@@ -1063,6 +1110,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -1085,6 +1133,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1110,6 +1159,7 @@
         {
           "token": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 18,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1132,6 +1182,7 @@
         {
           "token": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1154,6 +1205,7 @@
         {
           "token": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1176,6 +1228,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1198,6 +1251,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1052500000000000000",
+          "initialRatio": "1075000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -1220,6 +1274,7 @@
         {
           "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
           "maintenanceRatio": "1",
+          "initialRatio": "1",
           "decimals": 6,
           "liquidatedDamages": "2"
         }
@@ -1245,6 +1300,7 @@
         {
           "token": "0xc26a6fa2c37b38e549a4a1807543801db684f99c",
           "maintenanceRatio": "1298701298700000000",
+          "initialRatio": "1330000000000000000",
           "decimals": 18,
           "liquidatedDamages": "100000000000000000"
         }
@@ -1267,6 +1323,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1289,6 +1346,7 @@
         {
           "token": "0xc26a6fa2c37b38e549a4a1807543801db684f99c",
           "maintenanceRatio": "1298701298700000000",
+          "initialRatio": "1330000000000000000",
           "decimals": 18,
           "liquidatedDamages": "100000000000000000"
         }
@@ -1311,6 +1369,7 @@
         {
           "token": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 18,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1333,6 +1392,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1355,6 +1415,7 @@
         {
           "token": "0xc26a6fa2c37b38e549a4a1807543801db684f99c",
           "maintenanceRatio": "1298701298700000000",
+          "initialRatio": "1330000000000000000",
           "decimals": 18,
           "liquidatedDamages": "100000000000000000"
         }
@@ -1377,6 +1438,7 @@
         {
           "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1402,6 +1464,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1424,6 +1487,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1100000000000000000",
+          "initialRatio": "1125000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -1446,6 +1510,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1468,6 +1533,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -1490,6 +1556,7 @@
         {
           "token": "0xc26a6fa2c37b38e549a4a1807543801db684f99c",
           "maintenanceRatio": "1298701298700000000",
+          "initialRatio": "1330000000000000000",
           "decimals": 18,
           "liquidatedDamages": "100000000000000000"
         }
@@ -1512,6 +1579,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1100000000000000000",
+          "initialRatio": "1125000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -1534,6 +1602,7 @@
         {
           "token": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 18,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1556,6 +1625,7 @@
         {
           "token": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1578,6 +1648,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -1603,6 +1674,7 @@
         {
           "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1625,6 +1697,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1052500000000000000",
+          "initialRatio": "1075000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -1647,6 +1720,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -1669,6 +1743,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1052500000000000000",
+          "initialRatio": "1075000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -1691,6 +1766,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1713,6 +1789,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -1735,6 +1812,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1757,6 +1835,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1100000000000000000",
+          "initialRatio": "1125000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -1782,6 +1861,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1804,6 +1884,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -1826,6 +1907,7 @@
         {
           "token": "0x74299580811e1c3c1a2831db079ba0a8f513998f",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "60000000000000000"
         }
@@ -1848,6 +1930,7 @@
         {
           "token": "0x74299580811e1c3c1a2831db079ba0a8f513998f",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "60000000000000000"
         }
@@ -1870,6 +1953,7 @@
         {
           "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1892,6 +1976,7 @@
         {
           "token": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
           "maintenanceRatio": "1092896174900000000",
+          "initialRatio": "1123595505600000000",
           "decimals": 18,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1914,6 +1999,7 @@
         {
           "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
           "maintenanceRatio": "1052500000000000000",
+          "initialRatio": "1075000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -1939,6 +2025,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1100000000000000000",
+          "initialRatio": "1125000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -1964,6 +2051,7 @@
         {
           "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -1989,6 +2077,7 @@
         {
           "token": "0x74299580811e1c3c1a2831db079ba0a8f513998f",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "60000000000000000"
         }
@@ -2011,6 +2100,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -2033,6 +2123,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "55000000000000000"
         }
@@ -2058,6 +2149,7 @@
         {
           "token": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -2080,6 +2172,7 @@
         {
           "token": "0xc26a6fa2c37b38e549a4a1807543801db684f99c",
           "maintenanceRatio": "1298701298700000000",
+          "initialRatio": "1330000000000000000",
           "decimals": 18,
           "liquidatedDamages": "100000000000000000"
         }
@@ -2102,6 +2195,7 @@
         {
           "token": "0xecfafdc7741323a945a163ed068b5a3c43483957",
           "maintenanceRatio": "1050000000000000000",
+          "initialRatio": "1100000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -2124,6 +2218,7 @@
         {
           "token": "0xc26a6fa2c37b38e549a4a1807543801db684f99c",
           "maintenanceRatio": "1298701298700000000",
+          "initialRatio": "1330000000000000000",
           "decimals": 18,
           "liquidatedDamages": "100000000000000000"
         }
@@ -2146,6 +2241,7 @@
         {
           "token": "0xc26a6fa2c37b38e549a4a1807543801db684f99c",
           "maintenanceRatio": "1298701298700000000",
+          "initialRatio": "1330000000000000000",
           "decimals": 18,
           "liquidatedDamages": "100000000000000000"
         }
@@ -2168,6 +2264,7 @@
         {
           "token": "0x74299580811e1c3c1a2831db079ba0a8f513998f",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "60000000000000000"
         }
@@ -2190,6 +2287,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -2212,6 +2310,7 @@
         {
           "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -2237,6 +2336,7 @@
         {
           "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
           "maintenanceRatio": "1100000000000000000",
+          "initialRatio": "1125000000000000000",
           "decimals": 18,
           "liquidatedDamages": "30000000000000000"
         }
@@ -2259,6 +2359,7 @@
         {
           "token": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 8,
           "liquidatedDamages": "80000000000000000"
         }
@@ -2281,6 +2382,7 @@
         {
           "token": "0x74299580811e1c3c1a2831db079ba0a8f513998f",
           "maintenanceRatio": "1162790697700000000",
+          "initialRatio": "1300000000000000000",
           "decimals": 18,
           "liquidatedDamages": "60000000000000000"
         }
@@ -2303,6 +2405,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }
@@ -2325,6 +2428,7 @@
         {
           "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
           "maintenanceRatio": "1333333333333000000",
+          "initialRatio": "1500000000000000000",
           "decimals": 6,
           "liquidatedDamages": "80000000000000000"
         }

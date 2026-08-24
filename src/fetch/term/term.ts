@@ -49,7 +49,11 @@ interface TermRepoNode {
   endOfRepurchaseWindow?: string;
   servicingFee?: string;
   delisted?: boolean;
-  collateralRatios?: { collateralToken: string; maintenanceRatio: string }[];
+  collateralRatios?: {
+    collateralToken: string;
+    maintenanceRatio: string;
+    initialRatio?: string;
+  }[];
   liquidatedDamagesSchedule?: {
     collateralToken: string;
     liquidatedDamages: string;
@@ -117,7 +121,7 @@ const REPOS_QUERY = `
       endOfRepurchaseWindow
       servicingFee
       delisted
-      collateralRatios { collateralToken maintenanceRatio }
+      collateralRatios { collateralToken maintenanceRatio initialRatio }
       liquidatedDamagesSchedule { collateralToken liquidatedDamages }
       collateralTokensMeta { id symbol decimals }
     }
@@ -218,6 +222,12 @@ function toMarket(
     return {
       token: c.collateralToken.toLowerCase(),
       maintenanceRatio: String(c.maintenanceRatio),
+      // The OPEN-position bound: the servicer enforces the INITIAL margin
+      // ratio at mint, stricter than maintenance. margin-fetcher publishes
+      // `borrowCollateralFactor` from this (falling back to maintenance when
+      // absent) — without it every max-loop/max-borrow overestimates and the
+      // Terminal 1 carry sufficiency check refuses the advertised "max".
+      ...(c.initialRatio ? { initialRatio: String(c.initialRatio) } : {}),
       decimals: Number(meta?.decimals ?? 18),
       // Absent for a few legacy repos; the margin-fetcher falls back to an
       // LLTV-derived penalty, so omit rather than publish a fabricated 0.

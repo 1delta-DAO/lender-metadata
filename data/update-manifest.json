@@ -1,13 +1,12 @@
 {
-  "version": "2026-08-21T20-50-27-544Z",
-  "generatedAt": "2026-08-21T20:50:27.544Z",
+  "version": "2026-08-22T12-14-54-056Z",
+  "generatedAt": "2026-08-22T12:14:54.056Z",
   "updatedFiles": [
-    "./config/termmax.json",
-    "./data/lender-labels.json"
+    "./data/term-finance-markets.json"
   ],
   "results": [
     {
-      "targetFile": "./config/termmax.json"
+      "targetFile": "./data/term-finance-markets.json"
     },
     {
       "targetFile": "./data/lender-labels.json"
