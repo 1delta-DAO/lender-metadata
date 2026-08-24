@@ -2,3 +2,7 @@ node_modules
 .tmp
 .claude
 scripts/discover-weth-gateways.mjs
+# Scratch probes run against the address book. Four of these were swept into
+# commits during the 2026-08 compound-v2 sweep (6b11e33, cleaned up in d0ff531)
+# — the pattern is here so a one-off script can never ride along again.
+src/tmp-*.ts
