@@ -1,15 +1,12 @@
 {
-  "version": "2026-08-22T12-14-54-056Z",
-  "generatedAt": "2026-08-22T12:14:54.056Z",
+  "version": "2026-08-24T09-52-23-081Z",
+  "generatedAt": "2026-08-24T09:52:23.081Z",
   "updatedFiles": [
-    "./data/term-finance-markets.json"
+    "./data/compound-v2-oracles-classified.json"
   ],
   "results": [
     {
-      "targetFile": "./data/term-finance-markets.json"
-    },
-    {
-      "targetFile": "./data/lender-labels.json"
+      "targetFile": "./data/compound-v2-oracles-classified.json"
     }
   ]
 }

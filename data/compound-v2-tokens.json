@@ -1,4 +1,232 @@
 {
+  "APESWAP_LENDING": {
+    "56": [
+      {
+        "cToken": "0xc2e840bdd02b4a1d970c87a912d8576a7e61d314",
+        "underlying": "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95"
+      },
+      {
+        "cToken": "0xaa1b1e1f251610ae10e4d553b05c662e60992eed",
+        "underlying": "0x2170ed0880ac9a755fd29b2688956bd959f933f8"
+      },
+      {
+        "cToken": "0x0096b6b49d13b347033438c4a699df3afd9d2f96",
+        "underlying": "0xe9e7cea3dedca5984780bafc599bd69add087d56"
+      },
+      {
+        "cToken": "0xdbfd516d42743ca3f1c555311f7846095d85f6fd",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955"
+      },
+      {
+        "cToken": "0x3353f5bcfd7e4b146f2ed8f1e8d875733cd754a7",
+        "underlying": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+      },
+      {
+        "cToken": "0x91b66a9ef4f4cad7f8af942855c37dd53520f151",
+        "underlying": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
+      },
+      {
+        "cToken": "0x34878f6a484005aa90e7188a546ea9e52b538f6f",
+        "underlying": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      {
+        "cToken": "0x5fce5d208dc325ff602c77497dc18f8eadac8ada",
+        "underlying": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c"
+      },
+      {
+        "cToken": "0x92d106c39ac068eb113b3ecb3273b23cd19e6e26",
+        "underlying": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402"
+      },
+      {
+        "cToken": "0x3ee2bd8c244b5b3656673c2a49447e41d31f8e1e",
+        "underlying": "0x1bdd3cf7f79cfb8edbb955f20ad99211551ba275"
+      }
+    ]
+  },
+  "ASO_FINANCE": {
+    "81457": [
+      {
+        "cToken": "0x001ff326a2836bdd77b28e992344983681071f87",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x8c67bc3d11c71489567f4dbd96a8c6fbd8073465",
+        "underlying": "0x4300000000000000000000000000000000000003"
+      },
+      {
+        "cToken": "0x1bd93d32e64fff30f66a438deb07d57a7b665966",
+        "underlying": "0xf7bc58b8d8f97adc129cfc4c9f45ce3c0e1d2692"
+      },
+      {
+        "cToken": "0x796c484d621f3761ca47df1e5b2e8079fb11efe2",
+        "underlying": "0x04c0599ae5a44757c0af6f9ec3b93da8976c150a"
+      },
+      {
+        "cToken": "0x548493067e0b202373491ea3397eb4b0ba1de19a",
+        "underlying": "0x2416092f143378750bb29b79ed961ab195cceea5"
+      },
+      {
+        "cToken": "0x6be7446a952d132ab8f9aba0b57a0308dce8503e",
+        "underlying": "0xf7bc58b8d8f97adc129cfc4c9f45ce3c0e1d2692"
+      },
+      {
+        "cToken": "0x25bb64ca1eebf70dc92dadceef59c1581b00f8d0",
+        "underlying": "0xb1a5700fa2358173fe465e6ea4ff52e36e88e2ad"
+      }
+    ]
+  },
+  "AURIGAMI": {
+    "1313161554": [
+      {
+        "cToken": "0x4f0d864b1abf4b701799a0b30b57a22dfeb5917b",
+        "underlying": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802"
+      },
+      {
+        "cToken": "0xca9511b610ba5fc7e311fdef9ce16050ee4449e9",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0xcfb6b0498cb7555e7e21502e0f449bf28760adbb",
+        "underlying": "0xf4eb217ba2454613b15dbdea6e5f22276410e89e"
+      },
+      {
+        "cToken": "0xad5a2437ff55ed7a8cad3b797b3ec7c5a19b1c54",
+        "underlying": "0x4988a896b1227218e4a686fde5eabdcabd91571f"
+      },
+      {
+        "cToken": "0xce4166363e3a584dac84a47bcd3414b43efcdd1c",
+        "underlying": "0xe3520349f477a5f6eb06107066048508498a291b"
+      },
+      {
+        "cToken": "0xae4fac24dcdae0132c6d04f564dcf059616e9423",
+        "underlying": "0xc42c30ac6cc15fac9bd938618bcaa1a1fae8501d"
+      },
+      {
+        "cToken": "0x3195949f267702723bc614cae037cdc8d1e94786",
+        "underlying": "0x07f9f7f963c5cd2bbffd30ccfb964be114332e30"
+      },
+      {
+        "cToken": "0x8888682e24dd4df7b7ff2b91fccb575737e433bf",
+        "underlying": "0x8bec47865ade3b172a928df8f990bc7f2a3b9f79"
+      },
+      {
+        "cToken": "0x6ea6c03061bddce23d4ec60b6e6e880c33d24dca",
+        "underlying": "0xfa94348467f64d5a457f75f8bc40495d33c65abb"
+      },
+      {
+        "cToken": "0xc9011e629c9d0b8b1e4a2091e123fbb87b3a792c",
+        "underlying": "0x09c9d464b58d96837f8d8b6f4d9fe4ad408d3a4f"
+      },
+      {
+        "cToken": "0x5ccad065400341db391fd3a4b7f50087b678d7cc",
+        "underlying": "0x5183e1b1091804bc2602586919e6880ac1cf2896"
+      },
+      {
+        "cToken": "0xc7ea819ebf08e5ff481d4708a602f92380afbb0a",
+        "underlying": "0xb39eeb9e168ef6c639f5e282fef1f6bc4dcae375"
+      },
+      {
+        "cToken": "0x10d56d6e5968016df5930e8ce50d2d08ec59774c",
+        "underlying": "0x368ebb46aca6b8d0787c96b2b20bd3cc3f2c45f7"
+      },
+      {
+        "cToken": "0xddfd0407220026c6566979b5be6a4983d1247a3e",
+        "underlying": "0x80da25da4d783e57d2fcda0436873a193a4beccf"
+      }
+    ]
+  },
+  "BASIC": {
+    "4689": [
+      {
+        "cToken": "0x83c51de03f03c5e23f02f674dbd2032e164112fc",
+        "underlying": "0xa00744882684c3e4747faefd68d283ea44099d03"
+      },
+      {
+        "cToken": "0x8fe03600dc4d5ec17bdcb8c257245babd8cccbc8",
+        "underlying": "0x6fbcdc1169b5130c59e72e51ed68a84841c98cd1"
+      },
+      {
+        "cToken": "0x8e350a24e49d89d001617cf3484832c11fa94538",
+        "underlying": "0x3b2bf2b523f54c4e454f08aa286d03115aff326c"
+      },
+      {
+        "cToken": "0x9dd8afa0b94f22db2f3916eb876daef63e5f0a0c",
+        "underlying": "0x0258866edaf84d6081df17660357ab20a07d0c80"
+      },
+      {
+        "cToken": "0xa81e1ded2a53c66d7d4c0ad325543b8ce48f9149",
+        "underlying": "0xcdf79194c6c285077a58da47641d4dbe51f63542"
+      }
+    ]
+  },
+  "BASTION": {
+    "1313161554": [
+      {
+        "cToken": "0x4e8fe8fd314cfc09bdb0942c5adcc37431abdcd0",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x8c14ea853321028a7bb5e4fb0d0147f183d3b677",
+        "underlying": "0xc42c30ac6cc15fac9bd938618bcaa1a1fae8501d"
+      },
+      {
+        "cToken": "0xe5308dc623101508952948b141fd9eabd3337d99",
+        "underlying": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802"
+      },
+      {
+        "cToken": "0x845e15a441cfc1871b7ac610b0e922019bad9826",
+        "underlying": "0x4988a896b1227218e4a686fde5eabdcabd91571f"
+      },
+      {
+        "cToken": "0xfa786bac375d8806185555149235acdb182c033b",
+        "underlying": "0xf4eb217ba2454613b15dbdea6e5f22276410e89e"
+      }
+    ]
+  },
+  "BASTION_AURORA": {
+    "1313161554": [
+      {
+        "cToken": "0x94fa9979751a74e6b133eb95aeca8565c0809bab",
+        "underlying": "0x8bec47865ade3b172a928df8f990bc7f2a3b9f79"
+      },
+      {
+        "cToken": "0x8e9fb3f2cc8b08184cb5fb7bcdc61188e80c3cb0",
+        "underlying": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802"
+      },
+      {
+        "cToken": "0x86538ca055e7fd992a26c5604f349e2ede3ce42d",
+        "underlying": "0xfa94348467f64d5a457f75f8bc40495d33c65abb"
+      },
+      {
+        "cToken": "0x08ac1236ae3982ec9463efe10f0f320d9f5a9a4b",
+        "underlying": "0x9f1f933c660a1dc856f0e0fe058435879c5ccef0"
+      }
+    ]
+  },
+  "BASTION_NEAR": {
+    "1313161554": [
+      {
+        "cToken": "0x4a45075d3e752f3676610fc427f5e6915ce63a63",
+        "underlying": "0xc42c30ac6cc15fac9bd938618bcaa1a1fae8501d"
+      },
+      {
+        "cToken": "0xb76108eb764b4427505c4bb020a37d95b3ef5afe",
+        "underlying": "0x07f9f7f963c5cd2bbffd30ccfb964be114332e30"
+      }
+    ]
+  },
+  "BASTION_STNEAR": {
+    "1313161554": [
+      {
+        "cToken": "0x30fff4663a8dcdd9ed81e60acf505e6159f19bbc",
+        "underlying": "0x07f9f7f963c5cd2bbffd30ccfb964be114332e30"
+      },
+      {
+        "cToken": "0x10a9153a7b4da83aa1056908c710f1aaccb3ef85",
+        "underlying": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802"
+      }
+    ]
+  },
   "BENQI": {
     "43114": [
       {
@@ -92,6 +320,22 @@
       {
         "cToken": "0x51758d811696acb994aa993bd3dd088b6c3320f3",
         "underlying": "0x5e0e90e268bc247cc850c789a0db0d5c7621fb59"
+      }
+    ]
+  },
+  "BLUME": {
+    "81457": [
+      {
+        "cToken": "0x3ef8c3e4b0267e38217dee78731871d8f021679a",
+        "underlying": "0x4300000000000000000000000000000000000003",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x901d7160c07c2750a254c1f9e2949a0d1860a219",
+        "underlying": "0x4300000000000000000000000000000000000004",
+        "mintPaused": false,
+        "borrowPaused": false
       }
     ]
   },
@@ -888,6 +1132,36 @@
         "underlying": "0x4eac4c4e9050464067d673102f8e24b2fcceb350"
       }
     ],
+    "8453": [
+      {
+        "cToken": "0xba2e90b4dcdb235e46b9554360e31f2afa1d8b35",
+        "underlying": "0x4200000000000000000000000000000000000006"
+      },
+      {
+        "cToken": "0x7896d186c2b6d977c93d77e272ea4e1721eb428c",
+        "underlying": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22"
+      },
+      {
+        "cToken": "0xef1b7c8ba6c3f6bcb248b56c96a80d5234898793",
+        "underlying": "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+      },
+      {
+        "cToken": "0x69f2959f0fbc5057b06a0c5f55b15b209d90d32f",
+        "underlying": "0x50c5725949a6f0c72e6c4a641f24049a917db0cb"
+      },
+      {
+        "cToken": "0x7da57da16c2874d6a0277b5d5412e689b815fd60",
+        "underlying": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+      },
+      {
+        "cToken": "0xfce1271d975d4ffa676967e7940b58b0b9176e3f",
+        "underlying": "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452"
+      },
+      {
+        "cToken": "0x97dfbff1e89eac4fb84a372d6a4ec9cf52225afb",
+        "underlying": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
+      }
+    ],
     "42161": [
       {
         "cToken": "0xd5794ea7b269db3a0ccb396774cc2d0936ffbd86",
@@ -900,6 +1174,90 @@
       {
         "cToken": "0x5eb35daf9ef97e9e8cc33c486bad884a62cae9ce",
         "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+      }
+    ]
+  },
+  "DEEPR": {
+    "8822": [
+      {
+        "cToken": "0x5041af7b6461717d97ea3422dfc61553c1f8f8b4",
+        "underlying": "0x4eb8e03461360c2acbb4b5963a18b8f9faee8221"
+      },
+      {
+        "cToken": "0x0f571c5f3c328f57cdddf204d752c7ddb49686d5",
+        "underlying": "0x160345fc359604fc6e70e3c5facbde5f7a9342d8"
+      },
+      {
+        "cToken": "0x260817581206317e2665080a2e66854e922269d0",
+        "underlying": "0x6e47f8d48a01b44df3fff35d258a10a3aedc114c"
+      },
+      {
+        "cToken": "0xf96adbfcd3eb9fd61fada3f2ed70ac47e3e1e045",
+        "underlying": "0xfbda5f676cb37624f28265a144a48b0d6e87d3b6"
+      }
+    ]
+  },
+  "DEMETER": {
+    "56": [
+      {
+        "cToken": "0x89bb17af665ec0607268c697bb294117992027cf",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0xb275b6ae294159278547297dbe7617f66a7bc6e2",
+        "underlying": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x6c9fcbd7ad9dfb241f4fa2cc08faabb42d764606",
+        "underlying": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x4a345187bfae9a14da764c2222c4b7e816c18216",
+        "underlying": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x5c4e2b1e6e03ccf5f3c3356c008a69c7f93bd10b",
+        "underlying": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0xb0568dbd78d3920903e71fc3f3034c0a4a7d1ccb",
+        "underlying": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x606bb7e9b80ba73d1303f1c3625cf7f09249d680",
+        "underlying": "0x0d8ce2a99bb6e3b7db580ed848240e4a0f9ae153",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x511069c79dff79dfc0d0c69c4b4a40c4cade68f4",
+        "underlying": "0x8ff795a6f4d97e7887c79bea79aba5cc76444adf",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x217d2c538628762981e18c32a0b789f94d2368df",
+        "underlying": "0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x336dd5b84ca82f0d0ceb790d257f0e66dd3c5478",
+        "underlying": "0xbf5140a22578168fd562dccf235e5d43a02ce9b1",
+        "mintPaused": false,
+        "borrowPaused": false
       }
     ]
   },
@@ -1141,6 +1499,100 @@
       }
     ]
   },
+  "ENZO": {
+    "200901": [
+      {
+        "cToken": "0xe277aed3ff3eb9824edc52fe7703df0c5ed8b313",
+        "underlying": "0xff204e2681a6fa0e2c3fade68a1b28fb90e4fc5f"
+      },
+      {
+        "cToken": "0xf6fa83e30c7d3978f86141016ee9471d77f48ae0",
+        "underlying": "0xfe9f969faf8ad72a83b761138bf25de87eff9dd2"
+      },
+      {
+        "cToken": "0xbb0cb5c5e49d5c3903932d07831fb8c1bb1651d2",
+        "underlying": "0x9827431e8b77e87c9894bd50b055d6be56be0030"
+      },
+      {
+        "cToken": "0xab7f136bbb18808f0c981d0307d3360ca92ad171",
+        "underlying": "0xef63d4e178b3180beec9b0e143e0f37f4c93f4c2"
+      },
+      {
+        "cToken": "0x7b8b014d11cebea98b7fbbf6ff82f44e97a3670b",
+        "underlying": "0x07373d112edc4570b46996ad1187bc4ac9fb5ed0"
+      },
+      {
+        "cToken": "0xd0ad7f7d780678a4b76eb62fb5ff3baedcf34bdf",
+        "underlying": "0xf6718b2701d4a6498ef77d7c152b2137ab28b8a3"
+      },
+      {
+        "cToken": "0xf8099cbc17242b8c2847457cdb44857d1f060e82",
+        "underlying": "0xf8c374ce88a3be3d374e8888349c7768b607c755"
+      }
+    ]
+  },
+  "FILDA": {
+    "56": [
+      {
+        "cToken": "0xab9cd8ac3d8a54d7faee07b4aa4914a57f4db578",
+        "underlying": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+      },
+      {
+        "cToken": "0x8aee1d27d906895cc771380ba5a49bbd421dd5a0",
+        "underlying": "0xe9e7cea3dedca5984780bafc599bd69add087d56"
+      },
+      {
+        "cToken": "0x5480c79f4a02657e33586751a66c331f0230bb2d",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955"
+      },
+      {
+        "cToken": "0x5b07f2582d0cc26e400d56266aebb201c93560ed",
+        "underlying": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
+      },
+      {
+        "cToken": "0x891672f0b855b55b20ea3732c1fbdf389e712829",
+        "underlying": "0x2170ed0880ac9a755fd29b2688956bd959f933f8"
+      }
+    ],
+    "4689": [
+      {
+        "cToken": "0x8aee1d27d906895cc771380ba5a49bbd421dd5a0",
+        "underlying": "0xa00744882684c3e4747faefd68d283ea44099d03"
+      },
+      {
+        "cToken": "0x7cfb238c628f321ba905d1beec2bfb18ae56fcdb",
+        "underlying": "0x6fbcdc1169b5130c59e72e51ed68a84841c98cd1"
+      },
+      {
+        "cToken": "0xca7d7f202894e851e495bebcd2a62e0898dd1814",
+        "underlying": "0x3b2bf2b523f54c4e454f08aa286d03115aff326c"
+      },
+      {
+        "cToken": "0xea1ca194ff0d211f86fb8e9d8be985e35cd16968",
+        "underlying": "0x0258866edaf84d6081df17660357ab20a07d0c80"
+      },
+      {
+        "cToken": "0x9278c8d3159baaabfdaeea4db61f830993211b51",
+        "underlying": "0xc7b93720f73b037394ce00f954f849ed484a3dea"
+      },
+      {
+        "cToken": "0xaee67519049092ab91efd033f7d350d62b9f166b",
+        "underlying": "0x84abcb2832be606341a50128aeb1db43aa017449"
+      },
+      {
+        "cToken": "0xd2c2e7a01497e223af2de23f8844f1499fd4b30d",
+        "underlying": "0xa41412dafd1f1c0ae90f9fe7f137ea10a1bb5daa"
+      },
+      {
+        "cToken": "0xe83e3ec894ee3a0508d6b1ad93136d74f7c632b9",
+        "underlying": "0xe82b7054471d3f5cc825c50350da3bca64f7be4e"
+      },
+      {
+        "cToken": "0x6429303b3c394be140e81a56bfac87c1c2267e45",
+        "underlying": "0x543f4e80a0c2e226008f65f96964235523d16329"
+      }
+    ]
+  },
   "FLUX_FINANCE": {
     "1": [
       {
@@ -1168,124 +1620,222 @@
   "GAMMA": {
     "56": [
       {
-        "cToken": "0x24664791b015659fcb71ab2c9c0d56996462082f",
-        "underlying": "0x0000000000000000000000000000000000000000"
-      },
-      {
-        "cToken": "0xcfa5b884689dc09e4503e84f7877d3a583fcceef",
-        "underlying": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c"
-      },
-      {
-        "cToken": "0x66fd9d390de6172691ec0ddf0ac7f231c1f9a434",
-        "underlying": "0x2170ed0880ac9a755fd29b2688956bd959f933f8"
-      },
-      {
-        "cToken": "0x928fa017ebf781947102690c9b176996b2e00f22",
+        "cToken": "0xe983cf03314830d9b4d5e87594bb50215438e19a",
         "underlying": "0xe9e7cea3dedca5984780bafc599bd69add087d56"
       },
       {
-        "cToken": "0x854a534cefaf8fd20a70c9dc976c4f65324d7b42",
+        "cToken": "0xb56aea60744ed5aea8f1639dd1f574b102618d46",
         "underlying": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
       },
       {
-        "cToken": "0x4c2bddc208b58534eddc1fba7b2828cab70797b5",
+        "cToken": "0x045e2df638ebec29130dd3be61161cba5f00a9c8",
         "underlying": "0x55d398326f99059ff775485246999027b3197955"
       },
       {
-        "cToken": "0xa5ae8459e710f95ca0c93d73f63a66d9996f1ace",
-        "underlying": "0x23396cf899ca06c4472205fc903bdb4de249d6fc"
-      },
-      {
-        "cToken": "0x8b2f098411ce4b32c9d2110fef257cf01d006ba5",
-        "underlying": "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3"
-      },
-      {
-        "cToken": "0xf701a48e5c751a213b7c540f84b64b5a6109962e",
-        "underlying": "0xb3cb6d2f8f2fde203a022201c81a96c167607f15"
-      },
-      {
-        "cToken": "0x7c8300867c975f0c248214089fd29f4fb4a1cacd",
-        "underlying": "0x72b7d61e8fc8cf971960dd9cfa59b8c829d91991"
-      },
-      {
-        "cToken": "0xb3a4ce0654524dcf4b5165cee280ebe69a6e8133",
-        "underlying": "0x72b7d61e8fc8cf971960dd9cfa59b8c829d91991"
-      },
-      {
-        "cToken": "0x0c6dd143f4b86567d6c21e8ccfd0300f00896442",
-        "underlying": "0xb3cb6d2f8f2fde203a022201c81a96c167607f15"
-      },
-      {
-        "cToken": "0xb7ed4a5af620b52022fb26035c565277035d4fd7",
-        "underlying": "0x72b7d61e8fc8cf971960dd9cfa59b8c829d91991"
-      },
-      {
-        "cToken": "0x939e98eec2aa37bab8c5d94bc90c6e00911d27b4",
-        "underlying": "0x14016e85a25aeb13065688cafb43044c2ef86784"
-      },
-      {
-        "cToken": "0x7a9cb040e4ddd5271c36a8c8deadd3ba1b5a5949",
-        "underlying": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
-      },
-      {
-        "cToken": "0x6022ba7e5a70e1baa98d47a566f3495a26511b25",
+        "cToken": "0xc73009ceecf7a11da93d1472211486bb883beb40",
         "underlying": "0x90c97f71e18723b0cf0dfa30ee176ab653e89f40"
       },
       {
-        "cToken": "0x84a785e400c43d341d5cbcdc7f0dceb49cae7d00",
-        "underlying": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402"
+        "cToken": "0x9c53267a58a54df78dad8db48a118222998c71b4",
+        "underlying": "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3"
       },
       {
-        "cToken": "0x9b81d1df15fd9c07007d9a9b8ff75d40a5a80d94",
+        "cToken": "0x190354707ad8221be30bf5f097fa51c9b1ebdb29",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x666fa13501ce90c6f8c078313bd72f1f95197c5d",
+        "underlying": "0x2170ed0880ac9a755fd29b2688956bd959f933f8"
+      },
+      {
+        "cToken": "0x2c120ca3e7ccdff2d3680953a4c984519acb8050",
+        "underlying": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c"
+      },
+      {
+        "cToken": "0xc019728cccdc45cda6a051802878c00e563c1e78",
+        "underlying": "0x1ce0c2827e2ef14d5c4f29a091d735a204794041"
+      },
+      {
+        "cToken": "0x5d6c2a76fe1a117a2b0eb436a49923a01e497d79",
+        "underlying": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+      },
+      {
+        "cToken": "0x407e49480643e338ae36612b220f0607e90429dc",
         "underlying": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47"
       },
       {
-        "cToken": "0x820cde110d5f17b9f985fbb80f10d4f7158f130f",
-        "underlying": "0x0eb3a705fc54725037cc9e008bdede697f62f335"
+        "cToken": "0xcd221e1504442671671d3330cb8e916a5edc3fc7",
+        "underlying": "0xb3cb6d2f8f2fde203a022201c81a96c167607f15"
       },
       {
-        "cToken": "0xeb23d803ec8d598662441807456620cf96eb0470",
-        "underlying": "0xcc42724c6683b7e57334c4e856f4c9965ed682bd"
+        "cToken": "0x2f5d7a9d8d32c16e41af811744db9f15d853e0a5",
+        "underlying": "0x72b7d61e8fc8cf971960dd9cfa59b8c829d91991"
       },
       {
-        "cToken": "0x45646b30c3bb8c02bcfe10314308a8055e705ebf",
-        "underlying": "0x570a5d26f7765ecb712c0924e4de545b89fd43df"
-      },
-      {
-        "cToken": "0x88fd42e447d39c3259b53623f2536bd855e47c48",
-        "underlying": "0x156ab3346823b651294766e23e6cf87254d68962"
-      },
-      {
-        "cToken": "0xaf7602fb6a83f04886032467b487101b80ebccc0",
-        "underlying": "0x3d4350cd54aef9f9b2c29435e0fa809957b3f30a"
-      },
-      {
-        "cToken": "0xa652e6c8f3e257ab2ae366d61a3bf75f55e5eb2e",
-        "underlying": "0x8b04e56a8cd5f4d465b784ccf564899f30aaf88c"
-      },
-      {
-        "cToken": "0xe58aa5826eb6e0568982018c0db833adbff925df",
-        "underlying": "0x1ce0c2827e2ef14d5c4f29a091d735a204794041"
-      },
-      {
-        "cToken": "0xb3a350f549113c60d074587dc40cd25c83d4d3b0",
-        "underlying": "0xad29abb318791d579433d831ed122afeaf29dcfe"
-      },
-      {
-        "cToken": "0x4bdde0904abb1695775cc79c69dd0d61507232e4",
-        "underlying": "0x8b04e56a8cd5f4d465b784ccf564899f30aaf88c"
-      },
-      {
-        "cToken": "0x2a29572b771a8d8057a046fe80c45a77dbb6e804",
-        "underlying": "0x1ce0c2827e2ef14d5c4f29a091d735a204794041"
-      },
-      {
-        "cToken": "0x5e11ec8ec1a57a93e5ddc8ad950cea60ead9014b",
-        "underlying": "0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd"
-      },
-      {
-        "cToken": "0x2acaf66e67876d18cc5a27eb90aa32b06ab4785b",
+        "cToken": "0x0be66da1d2e4482e95d7e4c5051eb662711aa667",
         "underlying": "0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe"
+      },
+      {
+        "cToken": "0xe39fa6154cce2f859bc6976cd19a0d49f4962428",
+        "underlying": "0x1bdd3cf7f79cfb8edbb955f20ad99211551ba275"
+      }
+    ]
+  },
+  "HOVER": {
+    "2222": [
+      {
+        "cToken": "0xb51efaf2f7afb8a2f5be0b730281e414fb487636",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x1bf92be674483d54a8e3a589e456c39eac4339bd",
+        "underlying": "0x15932e26f5bd4923d46a2b205191c4b5d5f43fe3"
+      },
+      {
+        "cToken": "0xce86ebc669bbf07a64a0a55bb105cc2b5b5d1961",
+        "underlying": "0x919c1c267bc06a7039e03fcc2ef738525769109c"
+      }
+    ]
+  },
+  "IRON_BANK": {
+    "10": [
+      {
+        "cToken": "0x17533a1bde957979e3977ebbfbc31e6deeb25c7d",
+        "underlying": "0x4200000000000000000000000000000000000006"
+      },
+      {
+        "cToken": "0x1d073cf59ae0c169cbc58b6fdd518822ae89173a",
+        "underlying": "0x7f5c764cbc14f9669b88837ca1490cca17c31607"
+      },
+      {
+        "cToken": "0x874c01c2d1767efa01fa54b2ac16be96fad5a742",
+        "underlying": "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58"
+      },
+      {
+        "cToken": "0x049e04bee77cffb055f733a138a2f204d3750283",
+        "underlying": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1"
+      },
+      {
+        "cToken": "0xcdb9b4db65c913ab000b40204248c8a53185d14d",
+        "underlying": "0x68f180fcce6836688e9084f035309e29bf0a2095"
+      },
+      {
+        "cToken": "0x4645e0952678e9566fb529d9313f5730e4e1c412",
+        "underlying": "0x4200000000000000000000000000000000000042"
+      },
+      {
+        "cToken": "0xe724ffa5d30782499086682c8362cb3673bf69ae",
+        "underlying": "0x8700daec35af8ff88c16bdf0418774cb3d7599b4"
+      },
+      {
+        "cToken": "0x04f0fd3cd03b17a3e5921c0170ca6dd3952841ca",
+        "underlying": "0x8c6f28f2f1a3c87f0f938b96d27520d9751ec8d9"
+      }
+    ],
+    "43114": [
+      {
+        "cToken": "0xb3c68d69e95b095ab4b33b4cb67dbc0fbf3edf56",
+        "underlying": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+      },
+      {
+        "cToken": "0x338eee1f7b89ce6272f302bdc4b952c13b221f1d",
+        "underlying": "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab"
+      },
+      {
+        "cToken": "0xceb1ce674f38398432d20bc8f90345e91ef46fd3",
+        "underlying": "0xc7198437980c041c805a1edcba50c1ce5db95118"
+      },
+      {
+        "cToken": "0xe28965073c49a02923882b8329d3e8c1d805e832",
+        "underlying": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+      },
+      {
+        "cToken": "0x085682716f61a72bf8c573fbaf88cca68c60e99b",
+        "underlying": "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+      },
+      {
+        "cToken": "0xb09b75916c5f4097c8b5812e63e216fef97661fc",
+        "underlying": "0x50b7545627a5162f82a992c33b87adc75187b218"
+      },
+      {
+        "cToken": "0x18931772adb90e7f214b6cbc78ddd6e0f090d4b1",
+        "underlying": "0x5947bb275c521040051d82396192181b413227a3"
+      },
+      {
+        "cToken": "0xec5aa19566aa442c8c50f3c6734b6bb23ff21cd7",
+        "underlying": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+      },
+      {
+        "cToken": "0xbf1430d9ec170b7e97223c7f321782471c587b29",
+        "underlying": "0x130966628846bfd36ff31a822705796e8cb8c18d"
+      },
+      {
+        "cToken": "0x02c9133627a14214879175a7a222d0a7f7404efb",
+        "underlying": "0x2147efff675e4a4ee1c2f918d181cdbd7a8e208f"
+      },
+      {
+        "cToken": "0x3af7c11d112c1c730e5cee339ca5b48f9309acbc",
+        "underlying": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7"
+      }
+    ]
+  },
+  "KAWA": {
+    "1329": [
+      {
+        "cToken": "0x20e56093357d91ce85b0e3c2f0e4bdc676e94edb",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x7a6400705d62f7dd0dc03efcb9f4b863b0814eb3",
+        "underlying": "0x3894085ef7ff0f0aedf52e2a2704928d1ec074f1"
+      },
+      {
+        "cToken": "0xd88a4f76c494b0edf4ba0fe1bf060cd1d3a7d6ac",
+        "underlying": "0xb75d0b03c06a926e488e2659df1a861f860bd3d1"
+      }
+    ]
+  },
+  "KEOM": {
+    "169": [
+      {
+        "cToken": "0x8903dc1f4736d2fcb90c1497aebbaba133daac76",
+        "underlying": "0x0000000000000000000000000000000000000000",
+        "mintPaused": false,
+        "borrowPaused": true
+      },
+      {
+        "cToken": "0xe371cdaf86482f07e7b2ea17f4ccd5b202f59f15",
+        "underlying": "0xb73603c5d87fa094b7314c74ace2e64d165016fb",
+        "mintPaused": false,
+        "borrowPaused": true
+      },
+      {
+        "cToken": "0x4769222c2ba104623023de49188030f6f30a332f",
+        "underlying": "0xf417f5a458ec102b90352f697d6e2ac3a3d2851f",
+        "mintPaused": false,
+        "borrowPaused": true
+      },
+      {
+        "cToken": "0xd01dc0711a7de394bec97dccaa41d7960dfd33ee",
+        "underlying": "0x95cef13441be50d20ca4558cc0a27b601ac544e5",
+        "mintPaused": false,
+        "borrowPaused": true
+      }
+    ]
+  },
+  "KEOM_STONE": {
+    "169": [
+      {
+        "cToken": "0xd773ffa79258f2d7458f1b74d075f4524ee3cca0",
+        "underlying": "0x0000000000000000000000000000000000000000",
+        "mintPaused": false,
+        "borrowPaused": true
+      },
+      {
+        "cToken": "0x4b9952e818265bfef67eb5e850bca3c914ee42ed",
+        "underlying": "0xec901da9c68e90798bbbb74c11406a32a70652c3",
+        "mintPaused": false,
+        "borrowPaused": true
       }
     ]
   },
@@ -1353,6 +1903,46 @@
       }
     ]
   },
+  "LANDER": {
+    "56": [
+      {
+        "cToken": "0x617dd78f430aa23756d3336997d168bd8a6843fe",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955"
+      },
+      {
+        "cToken": "0x0a30a5ff808f1a144f2b392d59cabd56d96050e8",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x1fcbd267d4b5858e5094e94ce65d94783f49967d",
+        "underlying": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c"
+      },
+      {
+        "cToken": "0x9e0847584e6a107784cbeedf585282a281400703",
+        "underlying": "0x2170ed0880ac9a755fd29b2688956bd959f933f8"
+      },
+      {
+        "cToken": "0x6a9008650f1c58ae819f140585d238263b5087e9",
+        "underlying": "0xba2ae424d960c26247dd6c32edc70b295c744c43"
+      },
+      {
+        "cToken": "0xb10bde77fca1786eb2693a180b9916600074b815",
+        "underlying": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
+      },
+      {
+        "cToken": "0xfd4aace5e61fb10e017c699e18c79d409651d661",
+        "underlying": "0x8ff795a6f4d97e7887c79bea79aba5cc76444adf"
+      },
+      {
+        "cToken": "0x6eb2903bd6f8f0f8171d2cb7836e13a599cd9818",
+        "underlying": "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3"
+      },
+      {
+        "cToken": "0xdb1d85e89a68fd23ddef13b48634c3105aecfb3f",
+        "underlying": "0x4338665cbb7b2485a8855a139b75d5e34ab0db94"
+      }
+    ]
+  },
   "LODESTAR": {
     "42161": [
       {
@@ -1417,7 +2007,153 @@
       }
     ]
   },
+  "MACHFI": {
+    "146": [
+      {
+        "cToken": "0x9f5d9f2fdda7494aa58c90165cf8e6b070fe92e6",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0xc84f54b2db8752f80dee5b5a48b64a2774d2b445",
+        "underlying": "0x29219dd400f2bf60e5a23d13be72b486d4038894"
+      },
+      {
+        "cToken": "0x15ef11b942cc14e582797a61e95d47218808800d",
+        "underlying": "0x50c42deacd8fc9773493ed674b675be577f2634b"
+      },
+      {
+        "cToken": "0xbaa06b4d6f45ac93b6c53962ea861e6e3052dc74",
+        "underlying": "0xe5da20f15420ad15de0fa650600afc998bbe3955"
+      },
+      {
+        "cToken": "0xe5a79db6623bca3c65337dd6695ae6b1f53bec45",
+        "underlying": "0xd3dce716f3ef535c5ff8d041c1a41c3bd89b97ae"
+      },
+      {
+        "cToken": "0x7752f826e0cc11eb049004b050ef1d4cbe9f3bd1",
+        "underlying": "0xbb30e76d9bb2cc9631f7fc5eb8e87b5aff32bfbd"
+      },
+      {
+        "cToken": "0x08a1821fbb570359d458fa1e6740a1e677aa45b8",
+        "underlying": "0x3bce5cb273f0f148010bbea2470e7b5df84c7812"
+      },
+      {
+        "cToken": "0x368d75a257371d8e80a3582eefc061c187062fd1",
+        "underlying": "0x9f0df7799f6fdad409300080cff680f5a23df4b1"
+      }
+    ]
+  },
+  "MENDI": {
+    "59144": [
+      {
+        "cToken": "0x333d8b480bdb25ea7be4dd87eeb359988ce1b30d",
+        "underlying": "0x176211869ca2b568f2a7d4ee941e073a821ee1ff"
+      },
+      {
+        "cToken": "0xf669c3c03d9fdf4339e19214a749e52616300e89",
+        "underlying": "0xa219439258ca9da29e9cc4ce5596924745e12b93"
+      },
+      {
+        "cToken": "0xad7f33984bed10518012013d4ab0458d37fee6f3",
+        "underlying": "0xe5d7c2a44ffddf6b295a15c148167daaaf5cf34f"
+      },
+      {
+        "cToken": "0x1f27f81c1d13dd96a3b75d42e3d5d92b709869aa",
+        "underlying": "0x4af15ec2a0bd43db75dd04e62faa3b8ef36b00d5"
+      },
+      {
+        "cToken": "0x9be5e24f05bbafc28da814bd59284878b388a40f",
+        "underlying": "0x3aab2285ddcddad8edf438c1bab47e1a9d05a9b4"
+      },
+      {
+        "cToken": "0xceed853798ff1c95ceb4dc48f68394eb7a86a782",
+        "underlying": "0xb5bedd42000b71fdde22d3ee8a79bd49a568fc8f"
+      },
+      {
+        "cToken": "0x8a90d208666deec08123444f67bf5b1836074a67",
+        "underlying": "0x2416092f143378750bb29b79ed961ab195cceea5"
+      },
+      {
+        "cToken": "0x9b4971ac84054597eded7dc7b4b7e8a0c90753b5",
+        "underlying": "0x1bf74c010e6320bab11e2e5a532b5ac15e0b8aa6"
+      },
+      {
+        "cToken": "0x109f4af9ec6a5ede198f7a4d9d9d7390de29362a",
+        "underlying": "0xd2671165570f41bbb3b0097893300b6eb6101e6c"
+      }
+    ]
+  },
+  "MINTEREST": {
+    "2818": [
+      {
+        "cToken": "0xecbe4a2519f1e26df8dfde95a4a2b89de832896c",
+        "underlying": "0xc7d67a9cbb121b3b0b9c053dd9f469523243379a",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x793ce6ac5112da5db9c046848af99c749e14b1a4",
+        "underlying": "0xe34c91815d7fc18a9e2148bcd4241d0a5848b693",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x3847fc18759b74629134da3fc8bf4ff59bbc4e1b",
+        "underlying": "0x5300000000000000000000000000000000000011",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x28d679c9d3eb5998d915392a6ba54f24a1bb0824",
+        "underlying": "0x803dce4d3f4ae2e17af6c51343040dee320c149d",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x68a1667955ed214799f6cc548df4ac3110faa047",
+        "underlying": "0x55d1f1879969bdbb9960d269974564c58dbc3238",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x4074f7ed630fd9a7cc797c18c0dbfa37ac1912a4",
+        "underlying": "0x7dcc39b4d1c53cb31e1abc0e358b43987fef80f7",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x3a0d47e26127bfae638ea41a51721ebd35e7300f",
+        "underlying": "0x950e7fb62398c3ccababc0e3e0de3137fb0dacd2",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x88508ca9221d4b4d8a63ff753416cb4dba7bec83",
+        "underlying": "0x11476323d8dfcbafac942588e2f38823d2dd308e",
+        "mintPaused": false,
+        "borrowPaused": false
+      }
+    ]
+  },
   "MOONWELL": {
+    "1": [
+      {
+        "cToken": "0xb85ca1decc4971f8094da7676f8b71002a9590c4",
+        "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      },
+      {
+        "cToken": "0xe655790552c68f2871eb44b2cfe3dcfe6a63e62e",
+        "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      },
+      {
+        "cToken": "0xeddc25b67d474eeecfa4f69227b81d870c467011",
+        "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+      },
+      {
+        "cToken": "0x636080eb65f1b665b646f47d31f21901cdaaee9f",
+        "underlying": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
+      }
+    ],
     "10": [
       {
         "cToken": "0x8e08617b0d66359d73aa11e11017834c29155525",
@@ -1649,7 +2385,127 @@
       }
     ]
   },
+  "PAXO": {
+    "50": [
+      {
+        "cToken": "0x54ecc8832b65c2db0c53235cde94991c5cdcabf9",
+        "underlying": "0x49d3f7543335cf38fa10889ccff10207e22110b5"
+      },
+      {
+        "cToken": "0xce39ec58257c790f622fa7dfd5b4cc372f41ed9e",
+        "underlying": "0x951857744785e80e2de051c32ee7b25f9c458c42"
+      },
+      {
+        "cToken": "0x98f99c3f405a828188c88e8ea9fd02393b438217",
+        "underlying": "0x1ebb2c8a71a9ec59bf558886a8adf8f4a565814f"
+      },
+      {
+        "cToken": "0xfc839b46019606b425f8b4c65b4479c3315de5c6",
+        "underlying": "0x49d3f7543335cf38fa10889ccff10207e22110b5"
+      },
+      {
+        "cToken": "0xb7c3b74f897adce04db33d9438d60a8fcf70cbc1",
+        "underlying": "0x1ebb2c8a71a9ec59bf558886a8adf8f4a565814f"
+      },
+      {
+        "cToken": "0x84c395e6db4c1bbd78475a641fd96306d2b1d949",
+        "underlying": "0x36726235dadbdb4658d33e62a249dca7c4b2bc68"
+      },
+      {
+        "cToken": "0x34aa3fb5f02df5fbd03545ed3b35b90e51eee88d",
+        "underlying": "0xff7412ea7c8445c46a8254dfb557ac1e48094391"
+      },
+      {
+        "cToken": "0x040d58b6bacf8ed07d6ee9eab7db1c2627e026e3",
+        "underlying": "0x0e11710aad67e7427cfbc12c353284c2e335f62c"
+      },
+      {
+        "cToken": "0xcc402f9573132b006d6b63b5d5b5a986767959a5",
+        "underlying": "0x951857744785e80e2de051c32ee7b25f9c458c42"
+      }
+    ],
+    "59144": [
+      {
+        "cToken": "0x54ecc8832b65c2db0c53235cde94991c5cdcabf9",
+        "underlying": "0x176211869ca2b568f2a7d4ee941e073a821ee1ff"
+      },
+      {
+        "cToken": "0xce39ec58257c790f622fa7dfd5b4cc372f41ed9e",
+        "underlying": "0xe5d7c2a44ffddf6b295a15c148167daaaf5cf34f"
+      },
+      {
+        "cToken": "0x48014ede3ec0cfa64dfb50eb7a2e74e4ad536cb3",
+        "underlying": "0x3aab2285ddcddad8edf438c1bab47e1a9d05a9b4"
+      },
+      {
+        "cToken": "0xf9a65e52dec5b525a44d0bd2986a97ff3bd72d13",
+        "underlying": "0x60892e742d91d16be2cb0ffe847e85445989e30b"
+      }
+    ]
+  },
+  "REACTOR_FUSION": {
+    "324": [
+      {
+        "cToken": "0x04e9db37d8ea0760072e1ace3f2a219988fdac29",
+        "underlying": "0x3355df6d4c9c3035724fd0e3914de96a5a83aaf4"
+      },
+      {
+        "cToken": "0xc5db68f30d21cbe0c9eac7be5ea83468d69297e6",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x0a976e1e7d3052beb46085acbe1e0daccf4a19cf",
+        "underlying": "0xbbeb516fb02a01611cbbe0453fe3c580d7281011"
+      },
+      {
+        "cToken": "0x894cccb9908a0319381c305f947ad0ef44838591",
+        "underlying": "0x493257fd37edb34451f62edf8d2a0c418852ba4c"
+      },
+      {
+        "cToken": "0x0e392b6b05c112677096920ad938a0752d1451f3",
+        "underlying": "0x5a7d6b2f92c77fad6ccabd7ee0624e64907eaf3e"
+      },
+      {
+        "cToken": "0x930da5e58f7f0d6dc417ab07e07558c78cff1445",
+        "underlying": "0x1d17cbcf0d6d143135ae902365d2e5e2a16538d4"
+      }
+    ]
+  },
   "SEGMENT": {
+    "30": [
+      {
+        "cToken": "0x8f9958ec0feecccf0fec871b7bbb3d8d0b7a4d3c",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x83493175f7e1b22b91c567bc020756149ac22554",
+        "underlying": "0xef213441a85df4d7acbdae0cf78004e1e486bb96"
+      },
+      {
+        "cToken": "0x6fb5dff578b59528d0d2b06958504585eeeb74f2",
+        "underlying": "0x6b1a73d547f4009a26b8485b63d7015d248ad406"
+      },
+      {
+        "cToken": "0xe33b366611d3ed04fbb5fe26c021623efd1ebe7e",
+        "underlying": "0xe700691da7b9851f2f35f8b8182c69c53ccad9db"
+      },
+      {
+        "cToken": "0x6d6d54dc98b137b157596c58eb066f4ab22d3ea2",
+        "underlying": "0xc1411567d2670e24d9c4daaa7cda95686e1250aa"
+      },
+      {
+        "cToken": "0x14b308afdb91bab37a7e78ea69c1f3808ffcae3a",
+        "underlying": "0x2acc95758f8b5f583470ba265eb685a8f45fc9d5"
+      },
+      {
+        "cToken": "0x2f98cec447ece713ef166bd5f76139d66c141bf3",
+        "underlying": "0xf4d27c56595ed59b66cc7f03cff5193e4bd74a61"
+      },
+      {
+        "cToken": "0xeb96bd89b7ad64b499fd59bf110543eed3c002d2",
+        "underlying": "0x3a15461d8ae0f0fb5fa2629e9da7d66a794a6e37"
+      }
+    ],
     "56": [
       {
         "cToken": "0x8969b89d5f38359fbe95bbe392f5ad82dd93e226",
@@ -1728,6 +2584,44 @@
       {
         "cToken": "0x7e844423510a5081de839e600f7960c7ce84eb82",
         "underlying": "0x0000000000000000000000000000000000000000",
+        "mintPaused": false,
+        "borrowPaused": false
+      }
+    ],
+    "223": [
+      {
+        "cToken": "0x9cae44fcb592f7db5eab9af15423224beaf8f24b",
+        "underlying": "0xd48d3a551757ac47655fce25bde1b0b6b1cb2a5a",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0xeff5cd04b461247f5008b35074f45ba0f0b11eff",
+        "underlying": "0x0000000000000000000000000000000000000000",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0xd7c6cc5aef7396182c5d7ebdac66ff674f3ddcf4",
+        "underlying": "0x796e4d53067ff374b89b2ac101ce0c1f72ccaac2",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x328ead4750c14d6df06477ecdd4663a2274b8dad",
+        "underlying": "0x681202351a488040fa4fdcc24188afb582c9dd62",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x63f8279bccdb75c0f38e0cd6b6a0c72a0a760ff9",
+        "underlying": "0xe544e8a38add9b1abf21922090445ba93f74b9e5",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x22a384129513e4b2a3bb9f4bcc0abb00017d31d6",
+        "underlying": "0x1cf57a532a99bface2f1bfd8360f0a5755e58163",
         "mintPaused": false,
         "borrowPaused": false
       }
@@ -1938,6 +2832,70 @@
         "underlying": "0xecf21b335b41f9d5a89f6186a99c19a3c467871f",
         "mintPaused": false,
         "borrowPaused": false
+      }
+    ]
+  },
+  "SOLIDLIZARD": {
+    "42161": [
+      {
+        "cToken": "0x7ed839038c88c404ecb7fc265b4ebafacdeb9254",
+        "underlying": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      },
+      {
+        "cToken": "0x8b33b2578b892168502de9597210161bfccb21ef",
+        "underlying": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f"
+      },
+      {
+        "cToken": "0x34b4f227004d0cfc579e6203dd6f3c99b18e2051",
+        "underlying": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      },
+      {
+        "cToken": "0x30ff193de615ed096469cec7d9b61d3243a71ad2",
+        "underlying": "0x912ce59144191c1204e64559fe8253a0e49e6548"
+      },
+      {
+        "cToken": "0x4596a5a4216608054a3f2afd3adbed9e8463b1de",
+        "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+      },
+      {
+        "cToken": "0x8eb739ea075ea9f16b6f1d96f914852ac46f33a3",
+        "underlying": "0x5979d7b546e38e414f7e9822514be443a4800529"
+      },
+      {
+        "cToken": "0xf52124764b20b2063b89ac1a0a06d2437ae02fd7",
+        "underlying": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5"
+      }
+    ]
+  },
+  "SONNE": {
+    "8453": [
+      {
+        "cToken": "0xb864ba2aab1f53bc3af7ae49a318202dd3fd54c2",
+        "underlying": "0x50c5725949a6f0c72e6c4a641f24049a917db0cb"
+      },
+      {
+        "cToken": "0x225886c9beb5eee254f79d58bbd80cf9f200d4d0",
+        "underlying": "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+      },
+      {
+        "cToken": "0x5f5c479fe590cd4442a05ae4a941dd991a633b8e",
+        "underlying": "0x4200000000000000000000000000000000000006"
+      },
+      {
+        "cToken": "0xfd68f92b45b633bbe0f475294c1a86aecd62985a",
+        "underlying": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+      },
+      {
+        "cToken": "0x6c91beeceedda2089307fab818e12757948bf489",
+        "underlying": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22"
+      },
+      {
+        "cToken": "0x7a6468053cdcd7e8fe507d7edb77336f5057d206",
+        "underlying": "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452"
+      },
+      {
+        "cToken": "0xfa78196ace4048c4ccce6d3d97890d7b6c8f59da",
+        "underlying": "0x940181a94a35a4569e4529a3cdfb74e38fd98631"
       }
     ]
   },
@@ -2156,6 +3114,94 @@
         "borrowPaused": false
       }
     ],
+    "143": [
+      {
+        "cToken": "0x16c7d1f9ea48f7de5e8bc3165a04e8340da574fa",
+        "underlying": "0x0000000000000000000000000000000000000000",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x313ba7e5508e3deb17cd5aba9d7a1b15bde77879",
+        "underlying": "0x8bf591eae535f93a242d5a954d3cde648b48a5a8",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0xe19fd48c972e2db074c4b0b29ff2f0d3e1aefe52",
+        "underlying": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0xf4db30e806609516d14cdb53d9bc306c99505451",
+        "underlying": "0xee8c0e9f1bffb4eb878d8f15f368a02a35481242",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0xe123f60140f5ace0a76577299cbec4bf93ce10aa",
+        "underlying": "0x0c65a0bc65a5d819235b71f554d210d3f80e0852",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0xe4b55045ed14815c7c42eeef8ee431b89422c389",
+        "underlying": "0xa3227c5969757783154c60bf0bc1944180ed81b9",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x05cb8e47b37f0b1600a92a75a9f5087d7e96a1d5",
+        "underlying": "0x1b68626dca36c7fe922fd2d55e4f631d962de19c",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x9c93423939c4e3d48d99bad147ad808be89b2043",
+        "underlying": "0x8498312a6b3cbd158bf0c93abdcf29e6e4f55081",
+        "mintPaused": false,
+        "borrowPaused": false
+      }
+    ],
+    "223": [
+      {
+        "cToken": "0xabcdc5827f92525f56004540459045ec3e432ebf",
+        "underlying": "0x0000000000000000000000000000000000000000",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x163cebbd83a4e2821ff06c9b0707a8a64fec0abc",
+        "underlying": "0xe544e8a38add9b1abf21922090445ba93f74b9e5",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0xa6ae238d9caf65dfa67670fde3156efee9334488",
+        "underlying": "0x681202351a488040fa4fdcc24188afb582c9dd62",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x7465fedb29023d11effe8c74e82a7ecebf15e947",
+        "underlying": "0x796e4d53067ff374b89b2ac101ce0c1f72ccaac2",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0x8c38b023afe895296e2598ae111752223185b35c",
+        "underlying": "0x8bf591eae535f93a242d5a954d3cde648b48a5a8",
+        "mintPaused": false,
+        "borrowPaused": false
+      },
+      {
+        "cToken": "0xb1fdc3f660b0953253141b2509c43014d5d3d733",
+        "underlying": "0xe85411c030fb32a9d8b14bbbc6cb19417391f711",
+        "mintPaused": false,
+        "borrowPaused": false
+      }
+    ],
     "1116": [
       {
         "cToken": "0x9aa55bcf3e41d0d98fce816c4ec6e791b0f6d154",
@@ -2233,55 +3279,81 @@
     "2345": [
       {
         "cToken": "0xb2ff02eef85dc4eae95ab32aa887e0cc69df8d8e",
-        "underlying": "0xafb068838136358cfa6b54bea580b86df70bba7f"
+        "underlying": "0xafb068838136358cfa6b54bea580b86df70bba7f",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0xabcdc5827f92525f56004540459045ec3e432ebf",
-        "underlying": "0xe85411c030fb32a9d8b14bbbc6cb19417391f711"
+        "underlying": "0xe85411c030fb32a9d8b14bbbc6cb19417391f711",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0xa6ae238d9caf65dfa67670fde3156efee9334488",
-        "underlying": "0x78e26e8b953c7c78a58d69d8b9a91745c2bbb258"
+        "underlying": "0x78e26e8b953c7c78a58d69d8b9a91745c2bbb258",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0x7f5a7ae2688a7ba6a9b36141335044c058a08b3e",
-        "underlying": "0xd93cc64f0a64044790268c1117bdc7a26a872d2c"
+        "underlying": "0xd93cc64f0a64044790268c1117bdc7a26a872d2c",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0x7465fedb29023d11effe8c74e82a7ecebf15e947",
-        "underlying": "0x1c22531aa9747d76fff8f0a43b37954ca67d28e0"
+        "underlying": "0x1c22531aa9747d76fff8f0a43b37954ca67d28e0",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0x52f3bdfb5e2b0fa3269842159c0d624262708600",
-        "underlying": "0x02f294cc9ceb2c80fba3fd779e17fe191cc360c4"
+        "underlying": "0x02f294cc9ceb2c80fba3fd779e17fe191cc360c4",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0x60b8067cf3640bcc7c3b2cfbe6eac3c2ca40934e",
-        "underlying": "0x0000000000000000000000000000000000000000"
+        "underlying": "0x0000000000000000000000000000000000000000",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0x611375907733d9576907e125fb29704712f0bafa",
-        "underlying": "0x45c3807abead12ce8b88d6b0ac868ceed7389497"
+        "underlying": "0x45c3807abead12ce8b88d6b0ac868ceed7389497",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0xe123f60140f5ace0a76577299cbec4bf93ce10aa",
-        "underlying": "0x6a9a65b84843f5fd4ac9a0471c4fc11afffbce4a"
+        "underlying": "0x6a9a65b84843f5fd4ac9a0471c4fc11afffbce4a",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0xa4578ab5cda88aae7603afab24b4c0d24a7858d1",
-        "underlying": "0xbc10000000000000000000000000000000000001"
+        "underlying": "0xbc10000000000000000000000000000000000001",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0x8b2da7d9242e631c6f3e1d40db3407b2f15ffa84",
-        "underlying": "0x5f0d03e20bb2973fdbfe271c84603de48d93b88f"
+        "underlying": "0x5f0d03e20bb2973fdbfe271c84603de48d93b88f",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0x3d592e26050e132ee3d1504aca74f0f4ed75e5cc",
-        "underlying": "0xfe41e7e5cb3460c483ab2a38eb605cda9e2d248e"
+        "underlying": "0xfe41e7e5cb3460c483ab2a38eb605cda9e2d248e",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0xf5d682d42e16550cc5d8f48193243103d2ceaf0a",
-        "underlying": "0x941508f0b823f1bc40a9beefce5e544e525a94c3"
+        "underlying": "0x941508f0b823f1bc40a9beefce5e544e525a94c3",
+        "mintPaused": false,
+        "borrowPaused": false
       }
     ],
     "8453": [
@@ -3001,6 +4073,42 @@
       }
     ]
   },
+  "TROPYKUS": {
+    "30": [
+      {
+        "cToken": "0xd2ec53e8dd00d204d3d9313af5474eb9f5188ef6",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x544eb90e766b405134b3b3f62b6b4c23fcd5fda2",
+        "underlying": "0xe700691da7b9851f2f35f8b8182c69c53ccad9db"
+      },
+      {
+        "cToken": "0x0aeadb9d4c6a80462a47e87e76e487fa8b9a37d7",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0xe17551201eeaefbd625ca4fb48d49c06e7ac064b",
+        "underlying": "0xb5999795be0ebb5bab23144aa5fd6a02d080299f"
+      },
+      {
+        "cToken": "0xedaefc6b596ed38d712100976969975a37c84464",
+        "underlying": "0xef213441a85df4d7acbdae0cf78004e1e486bb96"
+      },
+      {
+        "cToken": "0x3134b7fbfca5db217eca523eab1941452cf35163",
+        "underlying": "0x2acc95758f8b5f583470ba265eb685a8f45fc9d5"
+      },
+      {
+        "cToken": "0x405062731d8656af5950ef952be9fa110878036b",
+        "underlying": "0x440cd83c160de5c96ddb20246815ea44c7abbca8"
+      },
+      {
+        "cToken": "0xddf3ce45fcf080df61ee61dac5ddefef7ed4f46c",
+        "underlying": "0x3a15461d8ae0f0fb5fa2629e9da7d66a794a6e37"
+      }
+    ]
+  },
   "UNITUS": {
     "1": [
       {
@@ -3510,6 +4618,74 @@
       {
         "cToken": "0xb276fb21e29e8055044d31d093f8f1a4a88ca0bc",
         "underlying": "0xbc404429558292ee2d769e57d57d6e74bbd2792d"
+      }
+    ]
+  },
+  "USDFI": {
+    "56": [
+      {
+        "cToken": "0xc1ea72c901c014a76dd9656b1c5965a86a6b735c",
+        "underlying": "0x2170ed0880ac9a755fd29b2688956bd959f933f8"
+      },
+      {
+        "cToken": "0xd6c50114aa0f6a569e47c28620de49725f9c8f45",
+        "underlying": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c"
+      },
+      {
+        "cToken": "0x62c79f52041887ed095a5697bcc89ab1297384d6",
+        "underlying": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
+      },
+      {
+        "cToken": "0xfa246eef86d6e58409c8b5ad7e778e336321f7cb",
+        "underlying": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+      },
+      {
+        "cToken": "0x147ba3da72064eadcdb7eaba4e930b6a233b7304",
+        "underlying": "0xe7df6907120684add86f686e103282ee5cd17b02"
+      },
+      {
+        "cToken": "0xf34992ad64ccacb0b86d4cabadd1af0797c3fb3b",
+        "underlying": "0x7df1938170869afe410098540c051a8a50308988"
+      },
+      {
+        "cToken": "0x32c13d51188afd2d882b5de6447387dc8b528a59",
+        "underlying": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      {
+        "cToken": "0x0e8ca6aa4bfb21666b8f19e61a606954c17cc016",
+        "underlying": "0xe9e7cea3dedca5984780bafc599bd69add087d56"
+      },
+      {
+        "cToken": "0xd577bbc634104811d3288f27a31e441ea9eb0277",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955"
+      },
+      {
+        "cToken": "0xce925d3ce4751fee25b0ce6386b79e69cee03db9",
+        "underlying": "0x1bdd3cf7f79cfb8edbb955f20ad99211551ba275"
+      },
+      {
+        "cToken": "0x360238efea31f1e154442633cddd3091f483edce",
+        "underlying": "0x90c97f71e18723b0cf0dfa30ee176ab653e89f40"
+      },
+      {
+        "cToken": "0xb47e066d7bf5676caf2b34cbec9175c040733c26",
+        "underlying": "0xa3870fbbeb730ba99e4107051612af3465ca9f5e"
+      },
+      {
+        "cToken": "0x42151f5f25917e99195edcfe516c5f2fe25c3be8",
+        "underlying": "0x11a38e06699b238d6d9a0c7a01f3ac63a07ad318"
+      },
+      {
+        "cToken": "0xb84104de16e19551ec49218fe279901bc9f6643e",
+        "underlying": "0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5"
+      },
+      {
+        "cToken": "0xc89be1bf7cb95f7d8bd8f2bd2b0bee39d690d06d",
+        "underlying": "0xc9f5955f6da20e44a068f3d58fb2404f56f9a6f2"
+      },
+      {
+        "cToken": "0x661f93ce51bb7fe83af5c1084bef308fb5d02ff8",
+        "underlying": "0x8bf75bc68fd337dfd8186d731df8b3c2cb14b9e6"
       }
     ]
   },
@@ -4614,6 +5790,56 @@
         "underlying": "0x2ed9a5c8c13b93955103b9a7c167b67ef4d568a3",
         "mintPaused": true,
         "borrowPaused": true
+      }
+    ]
+  },
+  "XPERT": {
+    "8453": [
+      {
+        "cToken": "0xc44f35cd72803ebf07a54464b452d190ce8e5ed3",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x7861f17a38fd52bdcdd369a825707763fc11f6db",
+        "underlying": "0x4200000000000000000000000000000000000006"
+      },
+      {
+        "cToken": "0xf2e56547294fe97f3e755c4bb3362e6216d1097a",
+        "underlying": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+      },
+      {
+        "cToken": "0x5e935d83268adb44992e25bcf39e8d3f03cf906f",
+        "underlying": "0x940181a94a35a4569e4529a3cdfb74e38fd98631"
+      },
+      {
+        "cToken": "0xc6d64cf7d19f608b052e73d46197cbfc72a6347f",
+        "underlying": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
+      },
+      {
+        "cToken": "0xf128cf824e559f3c1f0249e1fe5088f39ddd744b",
+        "underlying": "0xd7e56615be35e53a5f74944652125da78d502b03"
+      }
+    ],
+    "57073": [
+      {
+        "cToken": "0x5e935d83268adb44992e25bcf39e8d3f03cf906f",
+        "underlying": "0x0000000000000000000000000000000000000000"
+      },
+      {
+        "cToken": "0x1b8eec91df44dd904dbd03bf6a3b723fb738bc39",
+        "underlying": "0x4200000000000000000000000000000000000006"
+      },
+      {
+        "cToken": "0x99793c9ae73866a432b95d6bd3e143684bffb283",
+        "underlying": "0x2d270e6886d130d724215a266106e6832161eaed"
+      },
+      {
+        "cToken": "0x92bd8f8c28c427dce89ea626a05689a8259c5ce3",
+        "underlying": "0x0200c29006150606b650577bbe7b6248f58470c1"
+      },
+      {
+        "cToken": "0x32316c282e577f261b5ece606b4cab89bf55e5c5",
+        "underlying": "0x73e0c0d45e048d25fc26fa3159b0aa04bfa4db98"
       }
     ]
   }
