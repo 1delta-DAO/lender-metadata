@@ -5,6 +5,7 @@ import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { Lender } from "@1delta/lender-registry";
 import { fetchPauseFallback } from "./pause.js";
+import { findNativeMarkets } from "./native.js";
 
 type AddressMap = { [fork: string]: string };
 
@@ -175,6 +176,31 @@ export async function fetchCompoundV2TypeTokenData(): Promise<{
       const currReserves = underlyingResults.map((result: any) => {
         return !result || result === "0x" ? zeroAddress : result;
       });
+
+      // `underlying()` reverting is the usual native-market tell, but it is not
+      // the only shape: a few forks ship a CEther-style market that ANSWERS
+      // `underlying()` with the wrapped token (FILDA fBNB/fIOTX, BASIC bIOTX,
+      // ENZO eBTC). Published with that underlying they take the ERC-20
+      // deposit branch, whose `mint(uint256)` these delegators swallow SILENTLY
+      // — a status-1 transaction that mints nothing. Probe the entry point and
+      // correct the row. See ./native.ts for why only an empty success counts,
+      // and why an unreachable probe must change nothing.
+      const nativeOverrides = await findNativeMarkets(
+        chain,
+        markets.filter(
+          (_: string, i: number) =>
+            currReserves[i].toLowerCase() !== zeroAddress,
+        ),
+      );
+      if (nativeOverrides.size > 0) {
+        console.log(
+          `  ${fork} on ${chain}: ${nativeOverrides.size} native market(s) reported a wrapped underlying — corrected to the zero address`,
+        );
+        for (let i = 0; i < markets.length; i++) {
+          if (nativeOverrides.has(markets[i].toLowerCase()))
+            currReserves[i] = zeroAddress;
+        }
+      }
 
       // assign reserves
       reserves[fork][chain] = currReserves.map((r: any) => r.toLowerCase());
