@@ -1,0 +1,34 @@
+{
+  "FLYING_TULIP": {
+    "1": {
+      "positionsManager": "0xbe4050a73a7Fb384c65E885a15C33461A4B20055",
+      "lendingLens": "0x3682168023E6bA8D1F995FdA1D920827C5A8A43E",
+      "configRegistry": "0xA8777c3D446fa7F0b0FC97a80C1Ea1d37F1ca33E",
+      "accountValuesLens": "0x7aD77FddEf64Ec8325E8d2d02c2708AA2a412eF7",
+      "oracleRouter": "0xe4372dB43D2814750a19b93950157AD81D93674A",
+      "ft": "0x5DD1A7A369e8273371d2DBf9d83356057088082c",
+      "ftUSD": "0xF7D85EC4E7710f71992752eac2111312e73E9C9C",
+      "engines": {
+        "metaActions": "0x3633EB60D08756674472e2D34d6fFb5f4c1c29f2",
+        "metaSessionActions": "0x4f83aC5c8A79986D0916a8849730d9CEF63a3497",
+        "rfqEngine": "0xEB00B335Ca52216Fb60fdFFA361397367C39Dc32",
+        "leverageRfqEngine": "0x8263a07504d93cB95e0a74f3627bb15faaf140e2"
+      }
+    },
+    "146": {
+      "positionsManager": "0xbe4050a73a7Fb384c65E885a15C33461A4B20055",
+      "lendingLens": "0x3682168023E6bA8D1F995FdA1D920827C5A8A43E",
+      "configRegistry": "0xA8777c3D446fa7F0b0FC97a80C1Ea1d37F1ca33E",
+      "accountValuesLens": "0x7aD77FddEf64Ec8325E8d2d02c2708AA2a412eF7",
+      "oracleRouter": "0xe4372dB43D2814750a19b93950157AD81D93674A",
+      "ft": "0x5DD1A7A369e8273371d2DBf9d83356057088082c",
+      "ftUSD": "0xF7D85EC4E7710f71992752eac2111312e73E9C9C",
+      "engines": {
+        "metaActions": "0x3633EB60D08756674472e2D34d6fFb5f4c1c29f2",
+        "metaSessionActions": "0x4f83aC5c8A79986D0916a8849730d9CEF63a3497",
+        "rfqEngine": "0xEB00B335Ca52216Fb60fdFFA361397367C39Dc32",
+        "leverageRfqEngine": "0x8263a07504d93cB95e0a74f3627bb15faaf140e2"
+      }
+    }
+  }
+}
