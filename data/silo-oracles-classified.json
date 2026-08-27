@@ -377,6 +377,35 @@
       "underlyingAggregator": null,
       "version": "v2"
     },
+    "0x10033b25700df8ff01c5e4384e246406311a6e16": {
+      "configuredPair": "yb-cbBTC / cbBTC",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": null,
+      "intendedPair": "yb-cbBTC / cbBTC",
+      "market": "yb-cbBTC-cbBTC",
+      "maxLtvOracle": "0xf90be42388a6681b5bf42302338314437eccd318",
+      "numeraire": "cbBTC",
+      "priceDescription": "yb-cbBTC / cbBTC",
+      "provider": "silo-oracle",
+      "quoteToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0x10033b25700df8ff01c5e4384e246406311a6e16",
+      "solvencyOracle": "0xf90be42388a6681b5bf42302338314437eccd318",
+      "sourcePath": [
+        {
+          "address": "0xf90be42388a6681b5bf42302338314437eccd318",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0x722fc3640ba007c3e9867ccdb0dca59f2e2f29f9",
+      "tokenSymbol": "yb-cbBTC",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
     "0x1577c73e7f3155b86804b5d8752dc14a5a69bd93": {
       "configuredPair": "mAPOLLO / SVA8D",
       "correctOracle": true,
@@ -1449,6 +1478,35 @@
       "tokenSymbol": "USDC",
       "underlyingAggregator": null,
       "version": "v2"
+    },
+    "0x3bc7e4ee63e1f3827d88dad3eafa6009cc6558ac": {
+      "configuredPair": "wsyb-cbBTC / cbBTC",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "innerOracle": null,
+      "intendedPair": "wsyb-cbBTC / cbBTC",
+      "market": "wsyb-cbBTC-cbBTC",
+      "maxLtvOracle": "0x7a55a5c573ff2ae7918920ff423478e93da3ec55",
+      "numeraire": "cbBTC",
+      "priceDescription": "UNKNOWN",
+      "provider": "silo-oracle",
+      "quoteToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0x3bc7e4ee63e1f3827d88dad3eafa6009cc6558ac",
+      "solvencyOracle": "0x7a55a5c573ff2ae7918920ff423478e93da3ec55",
+      "sourcePath": [
+        {
+          "address": "0x7a55a5c573ff2ae7918920ff423478e93da3ec55",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0xfd0356811eb357ae8e050dfbedbbace0a89db0a7",
+      "tokenSymbol": "wsyb-cbBTC",
+      "underlyingAggregator": null,
+      "version": "v3"
     },
     "0x3bed9f60963b9afbc56ff925cd3549baf12cd271": {
       "configuredPair": "WETH / SVA8D",
@@ -2871,6 +2929,35 @@
       "underlyingAggregator": null,
       "version": "v2"
     },
+    "0x759c421e4f3da792e74503f5e808b1c9ec957a26": {
+      "configuredPair": "wsyb-cbBTC / cbBTC",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": null,
+      "intendedPair": "wsyb-cbBTC / cbBTC",
+      "market": "wsyb-cbBTC-cbBTC",
+      "maxLtvOracle": "0xf01f0713f56a03be2ad371ec9000dc3f622d998f",
+      "numeraire": "cbBTC",
+      "priceDescription": "wsyb-cbBTC / cbBTC",
+      "provider": "silo-oracle",
+      "quoteToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0x759c421e4f3da792e74503f5e808b1c9ec957a26",
+      "solvencyOracle": "0xf01f0713f56a03be2ad371ec9000dc3f622d998f",
+      "sourcePath": [
+        {
+          "address": "0xf01f0713f56a03be2ad371ec9000dc3f622d998f",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0x99128cddb6f4d79b37a7a9b5d763bac6160da987",
+      "tokenSymbol": "wsyb-cbBTC",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
     "0x75f968ddae7717aafb4fa9d19e57f02ffe9edae8": {
       "configuredPair": "USDC / SVA8D",
       "correctOracle": true,
@@ -3421,6 +3508,35 @@
       "tokenSymbol": "USDC",
       "underlyingAggregator": null,
       "version": "v2"
+    },
+    "0x9197e01a60ee5d9ab28248938674be5b51558867": {
+      "configuredPair": "yb-cbBTC / cbBTC",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": null,
+      "intendedPair": "yb-cbBTC / cbBTC",
+      "market": "yb-cbBTC-cbBTC",
+      "maxLtvOracle": "0xfd056e5025ef99262fa940ce085b6ecc9bcecd09",
+      "numeraire": "cbBTC",
+      "priceDescription": "yb-cbBTC / cbBTC",
+      "provider": "silo-oracle",
+      "quoteToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0x9197e01a60ee5d9ab28248938674be5b51558867",
+      "solvencyOracle": "0xfd056e5025ef99262fa940ce085b6ecc9bcecd09",
+      "sourcePath": [
+        {
+          "address": "0xfd056e5025ef99262fa940ce085b6ecc9bcecd09",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0x722fc3640ba007c3e9867ccdb0dca59f2e2f29f9",
+      "tokenSymbol": "yb-cbBTC",
+      "underlyingAggregator": null,
+      "version": "v3"
     },
     "0x93c8201c35666f9af8b3b943bad67b42ad0159a1": {
       "configuredPair": "USDC / USDC",
@@ -4002,6 +4118,35 @@
       "underlyingAggregator": null,
       "version": "v2"
     },
+    "0xabc8279757bb8676c5ec712db6415278c9c12980": {
+      "configuredPair": "yb-cbBTC / cbBTC",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": null,
+      "intendedPair": "yb-cbBTC / cbBTC",
+      "market": "yb-cbBTC-cbBTC",
+      "maxLtvOracle": "0xb5f562b7790c02c75b8ecdb77f8010eb6c34d64a",
+      "numeraire": "cbBTC",
+      "priceDescription": "yb-cbBTC / cbBTC",
+      "provider": "silo-oracle",
+      "quoteToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0xabc8279757bb8676c5ec712db6415278c9c12980",
+      "solvencyOracle": "0xb5f562b7790c02c75b8ecdb77f8010eb6c34d64a",
+      "sourcePath": [
+        {
+          "address": "0xb5f562b7790c02c75b8ecdb77f8010eb6c34d64a",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0x722fc3640ba007c3e9867ccdb0dca59f2e2f29f9",
+      "tokenSymbol": "yb-cbBTC",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
     "0xaecc5f8d7d9b4be5bd5f00dabcda820399c727d7": {
       "configuredPair": "PT-iUSD-19FEB2026 / USDC",
       "correctOracle": true,
@@ -4202,6 +4347,35 @@
       ],
       "token": "0xcc16cd49194e7aa3dca780c742580e2f9b418874",
       "tokenSymbol": "PT-avUSD-14MAY2026",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
+    "0xb55ea2be2cd3bd2aa6e284b3c0f0c2489e984479": {
+      "configuredPair": "wsyb-cbBTC / cbBTC",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "innerOracle": null,
+      "intendedPair": "wsyb-cbBTC / cbBTC",
+      "market": "wsyb-cbBTC-cbBTC",
+      "maxLtvOracle": "0xb2368c5fda80eee42fd9707b38284efb6b3c871b",
+      "numeraire": "cbBTC",
+      "priceDescription": "UNKNOWN",
+      "provider": "silo-oracle",
+      "quoteToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0xb55ea2be2cd3bd2aa6e284b3c0f0c2489e984479",
+      "solvencyOracle": "0xb2368c5fda80eee42fd9707b38284efb6b3c871b",
+      "sourcePath": [
+        {
+          "address": "0xb2368c5fda80eee42fd9707b38284efb6b3c871b",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0xfd0356811eb357ae8e050dfbedbbace0a89db0a7",
+      "tokenSymbol": "wsyb-cbBTC",
       "underlyingAggregator": null,
       "version": "v3"
     },
@@ -4642,14 +4816,14 @@
     },
     "0xccda6f6aa8abcfcab59195834ce7244f20f40226": {
       "configuredPair": "ezETH / WETH",
-      "correctOracle": true,
-      "denominatorMatch": true,
+      "correctOracle": null,
+      "denominatorMatch": null,
       "innerOracle": null,
       "intendedPair": "ezETH / WETH",
       "market": "ezETH/WETH",
       "maxLtvOracle": "0xac5d8b66f7f2f3b9c20feeb20aa58f265031ddf2",
       "numeraire": "WETH",
-      "priceDescription": "ezETH / WETH",
+      "priceDescription": "UNKNOWN",
       "provider": "silo-oracle",
       "quoteToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
       "sameOracle": true,
@@ -4898,6 +5072,35 @@
       ],
       "token": "0xb8d89678e75a973e74698c976716308abb8a46a4",
       "tokenSymbol": "savUSD",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
+    "0xda91b60783bcac95a95ba50feadd8ac3bff9e35a": {
+      "configuredPair": "yb-cbBTC / cbBTC",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": null,
+      "intendedPair": "yb-cbBTC / cbBTC",
+      "market": "yb-cbBTC-cbBTC",
+      "maxLtvOracle": "0xc615b7e88ce22d4383a9844368c8f7ee2deeef29",
+      "numeraire": "cbBTC",
+      "priceDescription": "yb-cbBTC / cbBTC",
+      "provider": "silo-oracle",
+      "quoteToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0xda91b60783bcac95a95ba50feadd8ac3bff9e35a",
+      "solvencyOracle": "0xc615b7e88ce22d4383a9844368c8f7ee2deeef29",
+      "sourcePath": [
+        {
+          "address": "0xc615b7e88ce22d4383a9844368c8f7ee2deeef29",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0xac0cfa7742069a8af0c63e14ffd0fe6b3e1bf8d2",
+      "tokenSymbol": "yb-cbBTC",
       "underlyingAggregator": null,
       "version": "v3"
     },
@@ -5248,6 +5451,93 @@
       "tokenSymbol": "USDC",
       "underlyingAggregator": null,
       "version": "v2"
+    },
+    "0xe8b5d7fa42bf186e6cb7c97bd10a44f4e9852fd8": {
+      "configuredPair": "wsyb-cbBTC / cbBTC",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "innerOracle": null,
+      "intendedPair": "wsyb-cbBTC / cbBTC",
+      "market": "wsyb-cbBTC-cbBTC",
+      "maxLtvOracle": "0x61a89a4a3229920669fea1b56f75766e93571d7a",
+      "numeraire": "cbBTC",
+      "priceDescription": "UNKNOWN",
+      "provider": "silo-oracle",
+      "quoteToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0xe8b5d7fa42bf186e6cb7c97bd10a44f4e9852fd8",
+      "solvencyOracle": "0x61a89a4a3229920669fea1b56f75766e93571d7a",
+      "sourcePath": [
+        {
+          "address": "0x61a89a4a3229920669fea1b56f75766e93571d7a",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0xa461868b837ea371ac197f1572b71d7cdc4fe42a",
+      "tokenSymbol": "wsyb-cbBTC",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
+    "0xec9ff453634f29729083ae11e87dcba39f7ddaa2": {
+      "configuredPair": "yb-cbBTC / cbBTC",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": null,
+      "intendedPair": "yb-cbBTC / cbBTC",
+      "market": "yb-cbBTC-cbBTC",
+      "maxLtvOracle": "0x097727b44cc316b203cd893d0c498de285e1d354",
+      "numeraire": "cbBTC",
+      "priceDescription": "yb-cbBTC / cbBTC",
+      "provider": "silo-oracle",
+      "quoteToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0xec9ff453634f29729083ae11e87dcba39f7ddaa2",
+      "solvencyOracle": "0x097727b44cc316b203cd893d0c498de285e1d354",
+      "sourcePath": [
+        {
+          "address": "0x097727b44cc316b203cd893d0c498de285e1d354",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0x722fc3640ba007c3e9867ccdb0dca59f2e2f29f9",
+      "tokenSymbol": "yb-cbBTC",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
+    "0xef4df252f0041695bdf0554ab9c94545ca50295e": {
+      "configuredPair": "wsyb-cbBTC / cbBTC",
+      "correctOracle": null,
+      "denominatorMatch": null,
+      "innerOracle": null,
+      "intendedPair": "wsyb-cbBTC / cbBTC",
+      "market": "wsyb-cbBTC-cbBTC",
+      "maxLtvOracle": "0x0c0869a2098157ad8d13352ab7f62f8a7394954f",
+      "numeraire": "cbBTC",
+      "priceDescription": "UNKNOWN",
+      "provider": "silo-oracle",
+      "quoteToken": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0xef4df252f0041695bdf0554ab9c94545ca50295e",
+      "solvencyOracle": "0x0c0869a2098157ad8d13352ab7f62f8a7394954f",
+      "sourcePath": [
+        {
+          "address": "0x0c0869a2098157ad8d13352ab7f62f8a7394954f",
+          "description": null,
+          "decimals": null,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0x0f5686907ae6a17d7a574a491ab9fd2bd2218efc",
+      "tokenSymbol": "wsyb-cbBTC",
+      "underlyingAggregator": null,
+      "version": "v3"
     },
     "0xef6add3c35f290841d81822cb9367385c9f0866e": {
       "configuredPair": "PT-wstUSR-25SEP2025 / SVA8D",
@@ -6998,26 +7288,26 @@
   },
   "1776": {
     "0x2727dad8584ebd3acd549c351ea94b9b3bf4fd88": {
-      "configuredPair": null,
-      "correctOracle": null,
-      "denominatorMatch": null,
-      "innerOracle": null,
-      "intendedPair": null,
+      "configuredPair": "yINJ / WINJ",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": "0x9015dbe366aff1f1ce95aef86609cc597e7d28a4",
+      "intendedPair": "yINJ / WINJ",
       "market": "yINJ-WINJ",
       "maxLtvOracle": "0xb37e1b01b5b057779b700e60acdbac54e10d9d10",
-      "numeraire": null,
-      "priceDescription": "UNKNOWN",
-      "provider": "silo-oracle",
-      "quoteToken": null,
+      "numeraire": "WINJ",
+      "priceDescription": "yINJ / WINJ",
+      "provider": "Silo Oracle",
+      "quoteToken": "0x0000000088827d2d103ee2d9a6b781773ae03ffb",
       "sameOracle": true,
       "side": "silo0",
       "silo": "0x2727dad8584ebd3acd549c351ea94b9b3bf4fd88",
       "solvencyOracle": "0xb37e1b01b5b057779b700e60acdbac54e10d9d10",
       "sourcePath": [
         {
-          "address": "0xb37e1b01b5b057779b700e60acdbac54e10d9d10",
-          "description": null,
-          "decimals": null,
+          "address": "0x9015dbe366aff1f1ce95aef86609cc597e7d28a4",
+          "description": "Silo Oracle",
+          "decimals": 18,
           "kind": "unknown"
         }
       ],
@@ -7027,26 +7317,26 @@
       "version": "v3"
     },
     "0x4aaadf5c3a4d839055531743121e1227153ff0fb": {
-      "configuredPair": null,
-      "correctOracle": null,
-      "denominatorMatch": null,
-      "innerOracle": null,
-      "intendedPair": null,
+      "configuredPair": "yINJ / WINJ",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": "0x752036a2817c2264e82b87f1a9f5a719557fb8bb",
+      "intendedPair": "yINJ / WINJ",
       "market": "yINJ-WINJ",
       "maxLtvOracle": "0x777398dc329a8a0a92c3d22ab5f0248b87c8e6f6",
-      "numeraire": null,
-      "priceDescription": "UNKNOWN",
-      "provider": "silo-oracle",
-      "quoteToken": null,
+      "numeraire": "WINJ",
+      "priceDescription": "yINJ / WINJ",
+      "provider": "Silo Oracle",
+      "quoteToken": "0x0000000088827d2d103ee2d9a6b781773ae03ffb",
       "sameOracle": true,
       "side": "silo0",
       "silo": "0x4aaadf5c3a4d839055531743121e1227153ff0fb",
       "solvencyOracle": "0x777398dc329a8a0a92c3d22ab5f0248b87c8e6f6",
       "sourcePath": [
         {
-          "address": "0x777398dc329a8a0a92c3d22ab5f0248b87c8e6f6",
-          "description": null,
-          "decimals": null,
+          "address": "0x752036a2817c2264e82b87f1a9f5a719557fb8bb",
+          "description": "Silo Oracle",
+          "decimals": 18,
           "kind": "unknown"
         }
       ],
@@ -7056,17 +7346,17 @@
       "version": "v3"
     },
     "0x8253842d7e416fc4a49c44718cd04c42c359429d": {
-      "configuredPair": null,
-      "correctOracle": null,
-      "denominatorMatch": null,
+      "configuredPair": "yINJ / WINJ",
+      "correctOracle": true,
+      "denominatorMatch": true,
       "innerOracle": null,
-      "intendedPair": null,
+      "intendedPair": "yINJ / WINJ",
       "market": "yINJ-WINJ",
       "maxLtvOracle": "0x4cd2ce4d16c1b2a39da0462d9c643fc0e9fb57a3",
-      "numeraire": null,
-      "priceDescription": "UNKNOWN",
+      "numeraire": "WINJ",
+      "priceDescription": "yINJ / WINJ",
       "provider": "silo-oracle",
-      "quoteToken": null,
+      "quoteToken": "0x0000000088827d2d103ee2d9a6b781773ae03ffb",
       "sameOracle": true,
       "side": "silo0",
       "silo": "0x8253842d7e416fc4a49c44718cd04c42c359429d",
@@ -7085,26 +7375,26 @@
       "version": "v3"
     },
     "0x8cfefc2c391a0a405b2769d69ccf7f98984bf3ab": {
-      "configuredPair": null,
-      "correctOracle": null,
-      "denominatorMatch": null,
-      "innerOracle": null,
-      "intendedPair": null,
+      "configuredPair": "yINJ / WINJ",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": "0x07ba9979fb460a1940f95d143ef11c8364f005b1",
+      "intendedPair": "yINJ / WINJ",
       "market": "yINJ-WINJ",
       "maxLtvOracle": "0xb4d4684fc91e13acf46a89ddaa5ab9234c3d6719",
-      "numeraire": null,
-      "priceDescription": "UNKNOWN",
-      "provider": "silo-oracle",
-      "quoteToken": null,
+      "numeraire": "WINJ",
+      "priceDescription": "yINJ / WINJ",
+      "provider": "Silo Oracle",
+      "quoteToken": "0x0000000088827d2d103ee2d9a6b781773ae03ffb",
       "sameOracle": true,
       "side": "silo0",
       "silo": "0x8cfefc2c391a0a405b2769d69ccf7f98984bf3ab",
       "solvencyOracle": "0xb4d4684fc91e13acf46a89ddaa5ab9234c3d6719",
       "sourcePath": [
         {
-          "address": "0xb4d4684fc91e13acf46a89ddaa5ab9234c3d6719",
-          "description": null,
-          "decimals": null,
+          "address": "0x07ba9979fb460a1940f95d143ef11c8364f005b1",
+          "description": "Silo Oracle",
+          "decimals": 18,
           "kind": "unknown"
         }
       ],
@@ -7469,14 +7759,14 @@
     },
     "0x12dcd0ed4e25ef0599c29034fde8bcbcdda47957": {
       "configuredPair": "RYT / USDC",
-      "correctOracle": true,
-      "denominatorMatch": true,
+      "correctOracle": null,
+      "denominatorMatch": null,
       "innerOracle": null,
       "intendedPair": "RYT / USDC",
       "market": "RYT/USDC",
       "maxLtvOracle": "0xf7eb33e74e1002395f179169fef93706fd59b49f",
       "numeraire": "USDC",
-      "priceDescription": "RYT / USDC",
+      "priceDescription": "UNKNOWN",
       "provider": "silo-oracle",
       "quoteToken": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
       "sameOracle": true,
@@ -11239,14 +11529,14 @@
     },
     "0xfd625acff4227f4fc5eb904104030c308a4b3457": {
       "configuredPair": "ETH+ / WETH",
-      "correctOracle": true,
-      "denominatorMatch": true,
+      "correctOracle": null,
+      "denominatorMatch": null,
       "innerOracle": null,
       "intendedPair": "ETH+ / WETH",
       "market": "ETH+/WETH",
       "maxLtvOracle": "0x21de6ae542290298fcf5f3dc325b7d521ff9a61d",
       "numeraire": "WETH",
-      "priceDescription": "ETH+ / WETH",
+      "priceDescription": "UNKNOWN",
       "provider": "silo-oracle",
       "quoteToken": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
       "sameOracle": true,
@@ -12283,6 +12573,35 @@
       "underlyingAggregator": null,
       "version": "v2"
     },
+    "0x5bb5e52a4b58b19a7ee690058c49f9d28aa6941c": {
+      "configuredPair": "USDC / USD",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": "0xf73ef0337b09b23ac84feed47af01ec7e25d62c0",
+      "intendedPair": "USDC / USD",
+      "market": "savUSD-USDC",
+      "maxLtvOracle": "0xbaff496a74b7ecbcd0dc35e1b50cf7489caa703b",
+      "numeraire": "USD",
+      "priceDescription": "USDC / USD",
+      "provider": "Silo Oracle",
+      "quoteToken": "0xa5478c6db3d9c25051bcad3dc23ba0a165b82189",
+      "sameOracle": true,
+      "side": "silo1",
+      "silo": "0x5bb5e52a4b58b19a7ee690058c49f9d28aa6941c",
+      "solvencyOracle": "0xbaff496a74b7ecbcd0dc35e1b50cf7489caa703b",
+      "sourcePath": [
+        {
+          "address": "0xf73ef0337b09b23ac84feed47af01ec7e25d62c0",
+          "description": "Silo Oracle",
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "tokenSymbol": "USDC",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
     "0x5ca96e12881e31b6e1355bbc52ad0b31db55ce29": {
       "configuredPair": "USDC / USDC",
       "correctOracle": true,
@@ -12572,6 +12891,35 @@
       "tokenSymbol": "USDC",
       "underlyingAggregator": null,
       "version": "v2"
+    },
+    "0x7423f8c39678feb2ee6075fa7e4e1bb11fa1605a": {
+      "configuredPair": "savUSD / USD",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": "0xf89bf465db8de4a86e5cac1111b87434d3ef77f7",
+      "intendedPair": "savUSD / USD",
+      "market": "savUSD-USDC",
+      "maxLtvOracle": "0xf57e89847ce237b915f5ce5952550d69488bbedb",
+      "numeraire": "USD",
+      "priceDescription": "savUSD / USD",
+      "provider": "Silo Oracle",
+      "quoteToken": "0xa5478c6db3d9c25051bcad3dc23ba0a165b82189",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0x7423f8c39678feb2ee6075fa7e4e1bb11fa1605a",
+      "solvencyOracle": "0xf57e89847ce237b915f5ce5952550d69488bbedb",
+      "sourcePath": [
+        {
+          "address": "0xf89bf465db8de4a86e5cac1111b87434d3ef77f7",
+          "description": "Silo Oracle",
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0x06d47f3fb376649c3a9dafe069b3d6e35572219e",
+      "tokenSymbol": "savUSD",
+      "underlyingAggregator": null,
+      "version": "v3"
     },
     "0x74e54cc5078e73b4042564c2f48e3687c469dacf": {
       "configuredPair": "sUSDp / USDC",
@@ -13211,6 +13559,35 @@
       "underlyingAggregator": null,
       "version": "v2"
     },
+    "0xaa470e7533de362a5bc952fb952f23321c3ddd06": {
+      "configuredPair": "savUSD / USD",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": "0x4242c1fb97109763f855f1f6946bb2a50f7a9323",
+      "intendedPair": "savUSD / USD",
+      "market": "savUSD-USDC",
+      "maxLtvOracle": "0x5b4b8dca0d40bf8b931e79d0d11a59cdaa50d329",
+      "numeraire": "USD",
+      "priceDescription": "savUSD / USD",
+      "provider": "Silo Oracle",
+      "quoteToken": "0xa5478c6db3d9c25051bcad3dc23ba0a165b82189",
+      "sameOracle": true,
+      "side": "silo0",
+      "silo": "0xaa470e7533de362a5bc952fb952f23321c3ddd06",
+      "solvencyOracle": "0x5b4b8dca0d40bf8b931e79d0d11a59cdaa50d329",
+      "sourcePath": [
+        {
+          "address": "0x4242c1fb97109763f855f1f6946bb2a50f7a9323",
+          "description": "Silo Oracle",
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0x06d47f3fb376649c3a9dafe069b3d6e35572219e",
+      "tokenSymbol": "savUSD",
+      "underlyingAggregator": null,
+      "version": "v3"
+    },
     "0xb7e08b89a62f784b4fc0520ef0721063210cee2c": {
       "configuredPair": "USDC / USDC",
       "correctOracle": true,
@@ -13587,6 +13964,35 @@
       "tokenSymbol": "USDC",
       "underlyingAggregator": null,
       "version": "v2"
+    },
+    "0xcfd0429d15f6af7f9244ffcce3e5ad2700ca4e06": {
+      "configuredPair": "USDC / USD",
+      "correctOracle": true,
+      "denominatorMatch": true,
+      "innerOracle": "0xf73ef0337b09b23ac84feed47af01ec7e25d62c0",
+      "intendedPair": "USDC / USD",
+      "market": "savUSD-USDC",
+      "maxLtvOracle": "0x42cc44704a131171db1191f7a304bed5181be6d3",
+      "numeraire": "USD",
+      "priceDescription": "USDC / USD",
+      "provider": "Silo Oracle",
+      "quoteToken": "0xa5478c6db3d9c25051bcad3dc23ba0a165b82189",
+      "sameOracle": true,
+      "side": "silo1",
+      "silo": "0xcfd0429d15f6af7f9244ffcce3e5ad2700ca4e06",
+      "solvencyOracle": "0x42cc44704a131171db1191f7a304bed5181be6d3",
+      "sourcePath": [
+        {
+          "address": "0xf73ef0337b09b23ac84feed47af01ec7e25d62c0",
+          "description": "Silo Oracle",
+          "decimals": 18,
+          "kind": "unknown"
+        }
+      ],
+      "token": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "tokenSymbol": "USDC",
+      "underlyingAggregator": null,
+      "version": "v3"
     },
     "0xd46deccf2c6e81321557a6aaa316d96c8af14e7a": {
       "configuredPair": "USDC / USDC",

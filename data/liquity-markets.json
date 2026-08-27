@@ -868,8 +868,7 @@
         "liquidationPenaltySP": "50000000000000000",
         "liquidationPenaltyRedistribution": "200000000000000000",
         "collDecimals": 8,
-        "name": "ebUSD / WBTC",
-        "priceDecimals": 28
+        "name": "ebUSD / WBTC"
       },
       {
         "collIndex": 3,
@@ -892,8 +891,7 @@
         "liquidationPenaltySP": "50000000000000000",
         "liquidationPenaltyRedistribution": "200000000000000000",
         "collDecimals": 8,
-        "name": "ebUSD / LBTC",
-        "priceDecimals": 28
+        "name": "ebUSD / LBTC"
       },
       {
         "collIndex": 4,
@@ -987,8 +985,7 @@
         "liquidationPenaltySP": "50000000000000000",
         "liquidationPenaltyRedistribution": "200000000000000000",
         "collDecimals": 6,
-        "name": "ebUSD / XAUt0",
-        "priceDecimals": 30
+        "name": "ebUSD / XAUt0"
       },
       {
         "collIndex": 3,

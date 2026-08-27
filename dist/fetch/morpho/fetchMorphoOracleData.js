@@ -258,30 +258,49 @@ function collectMarketInputs(morphoOracles, morphoTypeOracles) {
     }
     return out;
 }
-export async function fetchMorphoOracleData() {
-    const [morphoOracles, morphoTypeOracles] = await Promise.all([
-        readJsonFile(morphoOraclesFile),
-        readJsonFile(morphoTypeOraclesFile),
-    ]);
-    const marketInputsByChain = collectMarketInputs(morphoOracles, morphoTypeOracles);
+/**
+ * Classify Morpho-style oracles.
+ *
+ * `injectedByChain` lets a Morpho-lineage lender (Morpho Midnight) reuse the exact
+ * same on-chain oracle classification without going through the Morpho subgraph:
+ * it passes pre-resolved markets (each already carrying its `meta`). With
+ * `onlyInjected`, the Morpho subgraph/files are skipped entirely and ONLY those
+ * markets are classified — so the caller gets just its own markets. The
+ * classification logic below is untouched by this addition.
+ */
+export async function fetchMorphoOracleData(injectedByChain = {}, onlyInjected = false) {
+    let marketInputsByChain = {};
+    if (!onlyInjected) {
+        const [morphoOracles, morphoTypeOracles] = await Promise.all([
+            readJsonFile(morphoOraclesFile),
+            readJsonFile(morphoTypeOraclesFile),
+        ]);
+        marketInputsByChain = collectMarketInputs(morphoOracles, morphoTypeOracles);
+    }
     const result = {};
-    for (const [chainId, marketInputs] of Object.entries(marketInputsByChain)) {
-        if (marketInputs.length === 0)
+    const chainIds = new Set([...Object.keys(marketInputsByChain), ...Object.keys(injectedByChain)]);
+    for (const chainId of chainIds) {
+        const marketInputs = marketInputsByChain[chainId] ?? [];
+        const injected = injectedByChain[chainId] ?? [];
+        if (marketInputs.length === 0 && injected.length === 0)
             continue;
-        const morphoRows = await fetchMorphoMarketRowsForChain(chainId);
-        const metaByTriplet = new Map();
-        for (const r of morphoRows) {
-            metaByTriplet.set(marketTripletKey(r.loanAsset, r.collateralAsset, r.oracleAddress), r);
-        }
         const resolved = [];
-        for (const m of marketInputs) {
-            const meta = metaByTriplet.get(marketTripletKey(m.loanAsset, m.collateralAsset, m.oracle));
-            if (!meta) {
-                console.warn(`[morpho-oracles-data] skip unknown market chain=${chainId} oracle=${m.oracle} loan=${m.loanAsset} coll=${m.collateralAsset}`);
-                continue;
+        if (marketInputs.length > 0) {
+            const morphoRows = await fetchMorphoMarketRowsForChain(chainId);
+            const metaByTriplet = new Map();
+            for (const r of morphoRows) {
+                metaByTriplet.set(marketTripletKey(r.loanAsset, r.collateralAsset, r.oracleAddress), r);
             }
-            resolved.push({ ...m, meta });
+            for (const m of marketInputs) {
+                const meta = metaByTriplet.get(marketTripletKey(m.loanAsset, m.collateralAsset, m.oracle));
+                if (!meta) {
+                    console.warn(`[morpho-oracles-data] skip unknown market chain=${chainId} oracle=${m.oracle} loan=${m.loanAsset} coll=${m.collateralAsset}`);
+                    continue;
+                }
+                resolved.push({ ...m, meta });
+            }
         }
+        resolved.push(...injected);
         if (resolved.length === 0)
             continue;
         const oracles = [...new Set(resolved.map((r) => r.oracle))];

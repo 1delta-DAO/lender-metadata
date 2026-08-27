@@ -68,21 +68,21 @@
     "update:flying-tulip": "tsx src/update-flying-tulip.ts"
   },
   "devDependencies": {
-    "@types/node": "^25.6.0",
-    "tsx": "^4.21.0",
-    "typescript": "^6.0.2",
-    "vitest": "^4.1.4"
+    "@types/node": "^25.9.5",
+    "tsx": "^4.23.12",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.11"
   },
   "dependencies": {
-    "@1delta/abis": "^0.0.28",
-    "@1delta/calldata-sdk": "^0.0.167",
-    "@1delta/chain-registry": "^0.0.6",
-    "@1delta/data-sdk": "^0.0.36",
-    "@1delta/lender-registry": "^0.0.39",
+    "@1delta/abis": "^0.0.47",
+    "@1delta/calldata-sdk": "^0.0.204",
+    "@1delta/chain-registry": "^0.0.7",
+    "@1delta/data-sdk": "^0.0.52",
+    "@1delta/lender-registry": "^0.0.49",
     "@1delta/margin-fetcher": "^0.0.409",
-    "@1delta/providers": "^0.0.63",
+    "@1delta/providers": "^0.0.67",
     "lodash": "^4.18.1",
-    "viem": "^2.47.16"
+    "viem": "^2.56.0"
   },
   "overrides": {
     "@1delta/abis": "$@1delta/abis",

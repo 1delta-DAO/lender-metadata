@@ -4,6 +4,8 @@ import { multicallRetryUniversal } from "@1delta/providers";
 import { zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { Lender } from "@1delta/lender-registry";
+import { fetchPauseFallback } from "./pause.js";
+import { findNativeMarkets } from "./native.js";
 // aproach for compound V2
 // get cToken list from pool
 // fetch underlying per cToken
@@ -113,6 +115,22 @@ export async function fetchCompoundV2TypeTokenData() {
             const currReserves = underlyingResults.map((result) => {
                 return !result || result === "0x" ? zeroAddress : result;
             });
+            // `underlying()` reverting is the usual native-market tell, but it is not
+            // the only shape: a few forks ship a CEther-style market that ANSWERS
+            // `underlying()` with the wrapped token (FILDA fBNB/fIOTX, BASIC bIOTX,
+            // ENZO eBTC). Published with that underlying they take the ERC-20
+            // deposit branch, whose `mint(uint256)` these delegators swallow SILENTLY
+            // — a status-1 transaction that mints nothing. Probe the entry point and
+            // correct the row. See ./native.ts for why only an empty success counts,
+            // and why an unreachable probe must change nothing.
+            const nativeOverrides = await findNativeMarkets(chain, markets.filter((_, i) => currReserves[i].toLowerCase() !== zeroAddress));
+            if (nativeOverrides.size > 0) {
+                console.log(`  ${fork} on ${chain}: ${nativeOverrides.size} native market(s) reported a wrapped underlying — corrected to the zero address`);
+                for (let i = 0; i < markets.length; i++) {
+                    if (nativeOverrides.has(markets[i].toLowerCase()))
+                        currReserves[i] = zeroAddress;
+                }
+            }
             // assign reserves
             reserves[fork][chain] = currReserves.map((r) => r.toLowerCase());
             oracles[fork][chain] = oracle;
@@ -121,10 +139,29 @@ export async function fetchCompoundV2TypeTokenData() {
                     [a.toLowerCase()]: markets[i].toLowerCase(),
                 };
             }));
-            const dataArrayOnChain = currReserves.map((underlying, i) => ({
-                cToken: markets[i].toLowerCase(),
-                underlying: underlying.toLowerCase(),
-            }));
+            // Pause flags, but ONLY for a Comptroller with no guardian getters —
+            // everywhere else the fetcher reads them live and a published copy would
+            // just go stale. See ./pause.ts for how they are resolved.
+            const comptroller = COMPOUND_V2_COMPTROLLERS[fork]?.[chain];
+            const pause = comptroller
+                ? await fetchPauseFallback(chain, comptroller, markets)
+                : undefined;
+            if (pause)
+                console.log(`  ${fork} on ${chain}: no pause getters — resolved ${Object.keys(pause).length} markets by simulation`);
+            const dataArrayOnChain = currReserves.map((underlying, i) => {
+                const cToken = markets[i].toLowerCase();
+                const flags = pause?.[cToken];
+                return {
+                    cToken,
+                    underlying: underlying.toLowerCase(),
+                    ...(flags
+                        ? {
+                            mintPaused: flags.mintPaused,
+                            borrowPaused: flags.borrowPaused,
+                        }
+                        : {}),
+                };
+            });
             cTokens[fork][chain] = dataOnChain;
             cTokenArray[fork][chain] = dataArrayOnChain;
         }

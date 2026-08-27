@@ -18,8 +18,19 @@ import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
 import { sortRecord } from "./utils.js";
 const LABELS_FILE = "./data/lender-labels.json";
+const ADDRESSES_FILE = "./config/morpho-addresses.json";
 const API = "https://portal.1delta.io/v1/data/lending/lenders";
-const DEFAULT_CHAINS = "1,10,56,146,42161,8453,43114";
+// Chains that have Silo deployments but no Morpho core (so they're absent from
+// morpho-addresses.json). Silos exist on more chains than any hardcoded short
+// list — a too-narrow list was why XDC/Mantle silos never got labelled.
+const SILO_EXTRA_CHAINS = ["5000"]; // Mantle
+/** Query every chain we track (morpho-addresses) plus silo-only chains, so no
+ *  silo chain is ever missed. The portal API is filtered per chain; chains with
+ *  no silos simply return nothing. */
+function defaultChains() {
+    const addr = readJsonFile(ADDRESSES_FILE);
+    return [...new Set([...Object.keys(addr), ...SILO_EXTRA_CHAINS])].join(",");
+}
 const CONFIG_ABI = parseAbi([
     "function getSilos() view returns (address silo0, address silo1)",
 ]);
@@ -49,7 +60,7 @@ async function fetchUnnamed(chains, maxRiskScore) {
 }
 async function main() {
     const [chainsArg, riskArg] = process.argv.slice(2);
-    const chains = chainsArg || DEFAULT_CHAINS;
+    const chains = chainsArg || defaultChains();
     const maxRiskScore = riskArg || "10";
     const byChain = await fetchUnnamed(chains, maxRiskScore);
     const total = Object.values(byChain).reduce((a, l) => a + l.length, 0);

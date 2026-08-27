@@ -2,6 +2,8 @@ import { mergeData } from "../utils.js";
 import { fetchAaveV4Configs, } from "./aave/fetchV4Configs.js";
 import { fetchAaveV4Reserves, } from "./aave/fetchV4Reserves.js";
 import { fetchAaveV4Oracles } from "./aave/fetchV4Oracles.js";
+import { isPlaceholderSpokeLabel } from "./aave/v4SpokeLabels.js";
+import { fetchAaveV4Access, } from "./aave/fetchV4Access.js";
 import { readJsonFile } from "./utils/index.js";
 const ZERO_ADDR = "0x0000000000000000000000000000000000000000";
 function isValidOracle(oracle) {
@@ -53,10 +55,23 @@ function mergeSpokeEntry(prev, next) {
         : isValidOracle(prev.oracle)
             ? prev.oracle
             : next.oracle;
+    // Discovery cannot read a spoke name on-chain, so `next.label` is the
+    // `Spoke 0xabcd..1234` placeholder unless something curated it. Letting that
+    // win would revert every real label on each run — including the ones
+    // `update:aave-v4-labels` back-fills FROM this field, and the hand-set ones
+    // that are the only option for a whitelabel hub Aave's API does not list.
+    const label = isPlaceholderSpokeLabel(next.label)
+        ? pickStr(prev.label, next.label)
+        : next.label;
+    // Fail closed: an absent `access` on the incoming side means "probe said
+    // nothing", which must not unlock a market that was previously observed to
+    // be gated. Only a successful probe can change the gate.
+    const access = next.access ?? prev.access;
     return {
         spoke: next.spoke,
         oracle,
-        label: pickStr(next.label, prev.label),
+        label,
+        ...(access ? { access } : {}),
         dynamicConfigKeyMax: Math.max(prev.dynamicConfigKeyMax ?? 0, next.dynamicConfigKeyMax ?? 0),
         baseHubAttribution: pickStr(prev.baseHubAttribution, next.baseHubAttribution),
         reserves,
@@ -140,7 +155,7 @@ const oracleSourcesFile = "./data/aave-v4-oracle-sources.json";
  * Convert the in-memory spoke-config + reserve-detail maps into the
  * consolidated on-disk shape (reserves nested inside each spoke entry).
  */
-function buildSpokesJson(configs, reservesByChain, maxKeysByChain) {
+function buildSpokesJson(configs, reservesByChain, maxKeysByChain, accessByChain = {}) {
     const peripherals = readJsonFile("./config/aave-v4-peripherals.json");
     const out = {};
     for (const chain of Object.keys(configs)) {
@@ -168,6 +183,7 @@ function buildSpokesJson(configs, reservesByChain, maxKeysByChain) {
             }))
                 .sort((a, b) => a.reserveId - b.reserveId);
             const spokeName = peripherals[chain]?.perSpoke?.[spoke]?.spokeName;
+            const access = accessByChain[chain]?.[spoke];
             out[chain][spoke] = {
                 spoke,
                 oracle: cfg.oracle,
@@ -175,6 +191,7 @@ function buildSpokesJson(configs, reservesByChain, maxKeysByChain) {
                 dynamicConfigKeyMax: maxKeysByChain[chain]?.[spoke] ?? 0,
                 baseHubAttribution: cfg.baseHubAttribution,
                 reserves,
+                ...(access ? { access } : {}),
             };
         }
     }
@@ -189,8 +206,11 @@ export class AaveV4Updater {
         const { reserves, maxDynamicConfigKeys } = await fetchAaveV4Reserves(spokes);
         // Step 3: Discover oracle sources per (spoke, reserveId)
         const { oracles, sources } = await fetchAaveV4Oracles(spokes, reserves);
+        // Step 4: Detect per-spoke operation restrictions (whitelabel instances)
+        console.log("Probing spoke access restrictions");
+        const access = await fetchAaveV4Access(spokes);
         // Assemble the consolidated spokes-with-reserves shape
-        const spokesJson = buildSpokesJson(spokes, reserves, maxDynamicConfigKeys);
+        const spokesJson = buildSpokesJson(spokes, reserves, maxDynamicConfigKeys, access);
         return {
             [spokesFile]: spokesJson,
             [oraclesFile]: oracles,

@@ -3,11 +3,14 @@
 // Morpho Blue chain that has NO Morpho-API coverage, purely from on-chain data.
 // Append-only: existing vault entries are never removed.
 //
-// Two discovery modes:
-//   - Factory scan: for each chain in config/morpho-addresses.json that has a
-//     `metaMorphoFactory` and is NOT fetched via the Morpho API, enumerate
-//     vaults from the factory's `CreateMetaMorpho` events.
-//   - Manual:       complete an explicit address list via on-chain
+// Three discovery modes:
+//   - v1 factory scan: for each no-API chain in config/morpho-addresses.json
+//     with a `metaMorphoFactory`, enumerate vaults from its `CreateMetaMorpho`
+//     events.
+//   - v2 factory scan: for each no-API chain with a `vaultV2Factory` (e.g.
+//     Pharos, which has no MetaMorpho v1 factory), enumerate vaults from its
+//     `CreateVaultV2` events (name filled in with a follow-up `name()` read).
+//   - Manual:          complete an explicit address list via on-chain
 //     `asset()` / `name()`, for no-API chains that have no factory wired in
 //     config (e.g. Berachain).
 //
@@ -18,7 +21,7 @@
 // ============================================================================
 import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
-import { fetchMorphoVaultsByAddress, fetchMorphoVaultsByEvents, } from "./fetch/morpho/fetchMorphoVaultsByEvents.js";
+import { fetchMorphoVaultsByAddress, fetchMorphoVaultsByEvents, fetchMorphoVaultV2ByEvents, } from "./fetch/morpho/fetchMorphoVaultsByEvents.js";
 import { MORPHO_MAIN_CHAIN_IDS, cannotUseApi } from "./fetch/morpho/morpho.js";
 import { FEATHER_CHAIN_IDS } from "./fetch/morpho/fetchFeatherApi.js";
 import { MYSTIC_CHAIN_IDS } from "./fetch/morpho/fetchMysticApi.js";
@@ -44,13 +47,19 @@ const MANUAL_VAULTS = {
         "0xB5f473c4b7F402d8f7bED42b6D516f5ff3306B01",
     ],
 };
-/** chainId -> metaMorphoFactory for every no-API chain that has one. */
-function discoveryTargets() {
+// Optional CLI chain-id filter (e.g. `tsx src/update-onchain-vaults.ts 1672`);
+// scans every no-API factory chain when empty. Lets a single chain be refreshed
+// without walking (and waiting on) every other chain's log history.
+const CHAIN_FILTER = new Set(process.argv.slice(2));
+/** chainId -> factory address for every no-API chain that has `field`. */
+function discoveryTargets(field) {
     const addrs = readJsonFile(ADDRESSES_FILE);
     const targets = {};
     for (const [chainId, cfg] of Object.entries(addrs)) {
-        const factory = cfg?.metaMorphoFactory;
+        const factory = cfg?.[field];
         if (!factory || API_CHAINS.has(chainId) || COVERED_BY_OTHER_JOBS.has(chainId))
+            continue;
+        if (CHAIN_FILTER.size && !CHAIN_FILTER.has(chainId))
             continue;
         targets[chainId] = factory;
     }
@@ -58,21 +67,42 @@ function discoveryTargets() {
 }
 async function main() {
     const byChain = {};
-    const targets = discoveryTargets();
     const failures = [];
-    console.log(`Discovering vaults on ${Object.keys(targets).length} no-API factory chains: ${Object.keys(targets).join(", ")}`);
-    await Promise.all(Object.entries(targets).map(async ([chainId, factory]) => {
+    const append = (chainId, vaults) => {
+        byChain[chainId] = [...(byChain[chainId] ?? []), ...vaults];
+    };
+    // MetaMorpho v1 factories (CreateMetaMorpho).
+    const v1Targets = discoveryTargets("metaMorphoFactory");
+    console.log(`Discovering v1 vaults on ${Object.keys(v1Targets).length} no-API factory chains: ${Object.keys(v1Targets).join(", ")}`);
+    await Promise.all(Object.entries(v1Targets).map(async ([chainId, factory]) => {
         try {
             const vaults = await fetchMorphoVaultsByEvents(chainId, factory);
-            byChain[chainId] = vaults;
-            console.log(`  chain ${chainId}: discovered ${vaults.length} vaults`);
+            append(chainId, vaults);
+            console.log(`  chain ${chainId}: discovered ${vaults.length} v1 vaults`);
         }
         catch (err) {
             failures.push(chainId);
-            console.warn(`  chain ${chainId}: discovery failed: ${err?.message ?? err}`);
+            console.warn(`  chain ${chainId}: v1 discovery failed: ${err?.message ?? err}`);
+        }
+    }));
+    // Vaults V2 factories (CreateVaultV2) — some no-API chains (e.g. Pharos) have
+    // only a Vaults V2 factory and no MetaMorpho v1 factory.
+    const v2Targets = discoveryTargets("vaultV2Factory");
+    console.log(`Discovering v2 vaults on ${Object.keys(v2Targets).length} no-API factory chains: ${Object.keys(v2Targets).join(", ")}`);
+    await Promise.all(Object.entries(v2Targets).map(async ([chainId, factory]) => {
+        try {
+            const vaults = await fetchMorphoVaultV2ByEvents(chainId, factory);
+            append(chainId, vaults);
+            console.log(`  chain ${chainId}: discovered ${vaults.length} v2 vaults`);
+        }
+        catch (err) {
+            failures.push(chainId);
+            console.warn(`  chain ${chainId}: v2 discovery failed: ${err?.message ?? err}`);
         }
     }));
     for (const [chainId, addresses] of Object.entries(MANUAL_VAULTS)) {
+        if (CHAIN_FILTER.size && !CHAIN_FILTER.has(chainId))
+            continue;
         try {
             const vaults = await fetchMorphoVaultsByAddress(chainId, addresses);
             byChain[chainId] = [...(byChain[chainId] ?? []), ...vaults];

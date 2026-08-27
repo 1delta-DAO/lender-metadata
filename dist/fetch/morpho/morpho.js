@@ -26,11 +26,17 @@ export const MORPHO_MAIN_CHAIN_IDS = [
     "137",
     "143",
     "239",
+    "480",
+    "988",
     "999",
     "1135",
     "1329",
     "1868",
     "4114",
+    "4217",
+    "4326",
+    "4663",
+    "5042",
     "8453",
     "42161",
     "42220",
@@ -49,6 +55,7 @@ export const cannotUseApi = (chainId, fork) => {
             chainId === Chain.CELO_MAINNET ||
             chainId === Chain.LISK ||
             chainId === Chain.TAC_MAINNET ||
+            chainId === Chain.MEGAETH_MAINNET ||
             hasMysticApi(chainId));
     }
     return true; // can't use api for moolah
@@ -152,14 +159,19 @@ export class MorphoBlueUpdater {
     //     id
     //   }
     // }
+    // NB: order by `UniqueKey`, NOT a numeric metric. The blue-api excludes
+    // markets with a null metric from the result set when you order by it, so
+    // `orderBy: SupplyAssetsUsd` silently drops every zero-supply (idle)
+    // market — ~700 on Base alone — and they never get a label. `UniqueKey` is
+    // present on every market, so pagination stays stable and complete.
     query(first, skip, chainId) {
         return `
     query GetMarkets {
       markets(first: ${first}, skip: ${skip}, where:  {
          chainId_in: [${chainId}]
       },
-      orderBy: SupplyAssetsUsd,
-      orderDirection: Desc
+      orderBy: UniqueKey,
+      orderDirection: Asc
       ) {
         items {
           marketId

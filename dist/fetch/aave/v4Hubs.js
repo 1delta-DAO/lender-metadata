@@ -24,4 +24,23 @@ export const AAVE_V4_HUB_SEED = {
             attribution: 'AAVE_V4_PRIME',
         },
     ],
+    '10': [
+        // ether.fi whitelabel instance — NOT an Aave-operated hub. Its spoke is an
+        // `EtherFiSpokeInstance` whose `borrow` is gated on
+        // `EtherFiDataProvider.isEtherFiSafe(onBehalfOf)`, and the only position
+        // manager ever listed on it is ether.fi's own LendGateway (the stock
+        // Giver/Taker/Config PMs and the Native/Signature gateways are
+        // deliberately not deployed). Aave's GraphQL API does not know this hub,
+        // so the label and peripherals passes find nothing for chain 10.
+        {
+            hub: '0x66753c4e3fC84f1eD0e3C267C927284E9d90C572',
+            attribution: 'AAVE_V4_ETHERFI',
+        },
+    ],
+    '43114': [
+        {
+            hub: '0xd07369fAE4A5BB13c9Ce446B052c7867B1AbDf6e',
+            attribution: 'AAVE_V4_CORE',
+        },
+    ],
 };
