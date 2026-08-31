@@ -81,6 +81,7 @@
     "@1delta/lender-registry": "^0.0.49",
     "@1delta/margin-fetcher": "^0.0.409",
     "@1delta/providers": "^0.0.67",
+    "@morpho-org/midnight-sdk": "^1.3.0",
     "lodash": "^4.18.1",
     "viem": "^2.56.0"
   },

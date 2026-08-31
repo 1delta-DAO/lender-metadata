@@ -7,13 +7,18 @@ import {
 
 const midnightMarketsFile = "./data/midnight-markets.json";
 const ZERO = "0x0000000000000000000000000000000000000000";
-const isAddr = (a: unknown): a is string => typeof a === "string" && /^0x[0-9a-f]{40}$/i.test(a);
+const isAddr = (a: unknown): a is string =>
+  typeof a === "string" && /^0x[0-9a-f]{40}$/i.test(a);
 
 type MidnightMarket = {
   marketId: string;
   loanToken: string;
   loanDecimals?: number;
-  collateralParams?: Array<{ token: string; oracle?: string; decimals?: number }>;
+  collateralParams?: Array<{
+    token: string;
+    oracle?: string;
+    decimals?: number;
+  }>;
 };
 
 /**
@@ -32,7 +37,10 @@ type MidnightMarket = {
  * single-collateral, so this is exact today; revisit if multi-leg markets appear.
  */
 export async function fetchMidnightOracleData(): Promise<MorphoOraclesDataMap> {
-  const raw = readJsonFile(midnightMarketsFile) as Record<string, MidnightMarket[]>;
+  const raw = readJsonFile(midnightMarketsFile) as Record<
+    string,
+    MidnightMarket[]
+  >;
   const injectedByChain: Record<string, ResolvedOracleMarket[]> = {};
 
   for (const [chainId, markets] of Object.entries(raw ?? {})) {
