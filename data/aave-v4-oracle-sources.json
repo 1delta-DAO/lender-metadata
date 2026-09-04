@@ -576,7 +576,7 @@
       "reserveId": 0,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0xe55eacdc1ec9da0f33b9cea7d136a47cc6008c69"
+      "source": "0x5b057985496a6ff09bf62c9ba867ae5ddeafa4e0"
     },
     {
       "underlying": "0x4200000000000000000000000000000000000006",
@@ -584,7 +584,7 @@
       "reserveId": 1,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0xcfe45ef2b9e138e5a2e1c25592441d5c556b3ca3"
+      "source": "0x4060f7d705a32dfc7b96f352e62589c25007e16b"
     },
     {
       "underlying": "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
@@ -592,7 +592,7 @@
       "reserveId": 2,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0x6a6b2529c1bc14f0a062d7903b4894b477bffc92"
+      "source": "0x7579977643ee68946db95d9cb5ff582674619025"
     },
     {
       "underlying": "0xdcb612005417dc906ff72c87df732e5a90d49e11",
@@ -600,7 +600,7 @@
       "reserveId": 3,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0xc1cf424a5d58bb943adba7ff3e1e1d2e354c2cd1"
+      "source": "0xdf1150433d0d7eb7913dc8d60687d3977c3c5fa9"
     },
     {
       "underlying": "0x80eede496655fb9047dd39d9f418d5483ed600df",
@@ -608,7 +608,7 @@
       "reserveId": 4,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0x859c126dad6952a798ecdc5c06f7063b8a9fcc31"
+      "source": "0x41d2200dbad68710c74e5a8e515d883b6177acf7"
     },
     {
       "underlying": "0x5a7facb970d094b6c7ff1df0ea68d99e6e73cbff",
@@ -616,7 +616,7 @@
       "reserveId": 5,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0x81ed135fc10ff855202e582d8cfd50e8a5533fd9"
+      "source": "0x6d6afbc1579eb8e17c170fc60a67161bc9f44874"
     },
     {
       "underlying": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
@@ -624,7 +624,7 @@
       "reserveId": 6,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0xfa80ba4b7ac946f3b45dc8ed537b1bebd8ec860f"
+      "source": "0x24a0f20d45d044640ab1cdcbcd23195ab2b4a810"
     },
     {
       "underlying": "0x939778d83b46b456224a33fb59630b11dec56663",
@@ -632,7 +632,7 @@
       "reserveId": 7,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0xd617e1d59aa992d985c07adc48c36ad2a00e751b"
+      "source": "0xd7b9c2d4ed89298433aa8ce035d9f593068ed34f"
     },
     {
       "underlying": "0xe0080d2f853ecddbd81a643dc10da075df26fd3f",
@@ -640,7 +640,7 @@
       "reserveId": 8,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0x53c3d3c36cae804e6b639ca2600662af51b4ffc9"
+      "source": "0x1fcd5397c65ce3ab3314416cc64c66128123b56a"
     },
     {
       "underlying": "0x86b5780b606940eb59a062aa85a07959518c0161",
@@ -648,7 +648,7 @@
       "reserveId": 9,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0xd452ca984e0606297bcb430e076087f126e24a38"
+      "source": "0x5924194cf0d39b8eae66afe52ef80a027f3dc39f"
     },
     {
       "underlying": "0x4200000000000000000000000000000000000042",
@@ -656,7 +656,7 @@
       "reserveId": 10,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0x3b79488486f0ad5f05a66ad377e25b829fff2bd5"
+      "source": "0x8774f71894a10056f7c7ac5e6863ff092ba7a3b5"
     },
     {
       "underlying": "0xd83e3d560ba6f05094d9d8b3eb8aaea571d1864e",
@@ -664,7 +664,7 @@
       "reserveId": 11,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0xb41ce833937aef200b77fa796baded2f6bea7d82"
+      "source": "0xa9d5227d0063904cb20d0fc9a2e71dd4cb19f8cd"
     },
     {
       "underlying": "0xa519afbc91986c0e7501d7e34968fee51cd901ac",
@@ -672,7 +672,7 @@
       "reserveId": 12,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0xc6d0023679769a532879ae50e57f40ab628201e7"
+      "source": "0x0547c7f5e4923895c5516d57aae108fdb943933f"
     },
     {
       "underlying": "0xf0bb20865277abd641a307ece5ee04e79073416c",
@@ -680,7 +680,7 @@
       "reserveId": 13,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0x48420d702a3190235b5a5d123ca82f876752add1"
+      "source": "0xb23a64323f7d8c31d28f8d5a7592b8914d881d0f"
     },
     {
       "underlying": "0x5f46d540b6ed704c3c8789105f30e075aa900726",
@@ -688,7 +688,7 @@
       "reserveId": 14,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0xd60ec8fcba09c7642099ea89a9d58721b00277c7"
+      "source": "0x16e73c673c09bd02098535d98dbd825e63f086d2"
     },
     {
       "underlying": "0x08c6f91e2b681faf5e17227f2a44c307b3c1364c",
@@ -696,7 +696,7 @@
       "reserveId": 15,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0x17dde04d8ff1024d3076944658ed9b6bd5f51451"
+      "source": "0x672e7e070e49fac6e26b3fec912c328d15859cf6"
     },
     {
       "underlying": "0xca5921df65e2e1b0b98ae91c0187ba80d4124898",
@@ -728,7 +728,7 @@
       "reserveId": 19,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0x253f4fb7082e314430972a2b783ad7514d20d64c"
+      "source": "0x8b44f7acf288ea79795223ddfd5f872f51d33fb9"
     },
     {
       "underlying": "0x41a7f2bb9789199654c206f09392674c1af6676c",
@@ -736,7 +736,7 @@
       "reserveId": 20,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0x7dc0eaff1ecaed8a8a5adc07dee1997ff4617800"
+      "source": "0xac28d7fe39d16aa0d35cdcc8ce939125cb3f091b"
     },
     {
       "underlying": "0x3c99d3a81b27583b2e26dbd387c10411f2763516",
@@ -744,7 +744,7 @@
       "reserveId": 21,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0xb5f61bdfca60c02d13377d4386288fe143b9d6be"
+      "source": "0x7106e8d7f272baa57dbb99372fbbc7fdd06d29dc"
     },
     {
       "underlying": "0x5f8b2d2b97ad4d63188f44965778f6004d5bc387",
@@ -752,7 +752,7 @@
       "reserveId": 22,
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
-      "source": "0x1cee92f999d536320afb740b2ea5318c45d9c93b"
+      "source": "0x81d0305b9dc94f8f177bbf6dbeb0278d7aff22df"
     }
   ],
   "43114": [
