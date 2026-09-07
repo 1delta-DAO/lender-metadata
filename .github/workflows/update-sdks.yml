@@ -28,6 +28,18 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            # PR creation at the end needs GH_PAT — verify it authenticates
+            # before spending time on install/typecheck/tests. (Validity
+            # check only — it can't verify Pull requests: write.)
+            - name: Fail fast if GH_PAT is invalid
+              env:
+                  GH_TOKEN: ${{ secrets.GH_PAT }}
+              run: |
+                  if ! gh api user --jq .login; then
+                    echo "::error::GH_PAT is invalid or expired. Rotate the secret (fine-grained PAT with Pull requests: write on this repo) before re-running."
+                    exit 1
+                  fi
+
             - uses: actions/checkout@v5
               with:
                   fetch-depth: 0
