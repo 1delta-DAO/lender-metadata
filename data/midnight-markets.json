@@ -719,6 +719,7 @@
       "marketFamilyId": "0x0a388bd87704c06817fe94b0b1ba372ca921634e40e13d93978ecc84b16da389",
       "tenorSeriesId": "c3e775ae-8d49-46f8-91cc-658f233533ed",
       "listed": false,
+      "deprecatedAt": "1788188204",
       "name": "WETH+vUSDC/USDC - 2027-01-29"
     },
     {
@@ -1127,7 +1128,9 @@
         0
       ],
       "continuousFee": "0",
+      "marketFamilyId": "0x0a388bd87704c06817fe94b0b1ba372ca921634e40e13d93978ecc84b16da389",
       "tenorSeriesId": "c3e775ae-8d49-46f8-91cc-658f233533ed",
+      "listed": false,
       "name": "WETH+vUSDC/USDC - 2026-11-27"
     },
     {
@@ -1450,7 +1453,9 @@
         0
       ],
       "continuousFee": "0",
+      "marketFamilyId": "0x0a388bd87704c06817fe94b0b1ba372ca921634e40e13d93978ecc84b16da389",
       "tenorSeriesId": "c3e775ae-8d49-46f8-91cc-658f233533ed",
+      "listed": false,
       "name": "WETH+vUSDC/USDC - 2026-12-25"
     },
     {

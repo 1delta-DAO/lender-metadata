@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "fs";
 import { MarketUtils } from "@morpho-org/midnight-sdk";
-import { classifyGating, curate } from "./midnight.js";
+import { classifyGating, curate, selectCarryForward } from "./midnight.js";
 
 const MARKETS = "./data/midnight-markets.json";
 const CONFIG = "./config/midnight.json";
@@ -172,5 +172,45 @@ describe("curate", () => {
     const { kept, dropped } = curate([mk(NOW - 1000, "0")], NOW);
     expect(kept).toHaveLength(0);
     expect(dropped).toBe(1);
+  });
+});
+
+/**
+ * The roster-level twin of `curate`: markets the SOURCE stopped serving. Tenor
+ * delisted two unmatured, non-empty markets on 2026-09-07 and the file
+ * published the loss — these pin the rule that only "matured AND proven empty"
+ * may leave the file.
+ */
+describe("selectCarryForward", () => {
+  const NOW = 1_800_000_000;
+  const mk = (maturity: number) =>
+    ({ marketId: "0xAB", maturity: String(maturity) }) as any;
+
+  it("carries an unmatured market the source dropped", () => {
+    const { carried, retired } = selectCarryForward([mk(NOW + 1)], {}, NOW);
+    expect(carried).toHaveLength(1);
+    expect(retired).toHaveLength(0);
+  });
+
+  it("carries a matured market that still holds units", () => {
+    const { carried } = selectCarryForward([mk(NOW - 1)], { "0xab": 5n }, NOW);
+    expect(carried).toHaveLength(1);
+  });
+
+  it("retires a market only when matured AND proven empty on-chain", () => {
+    const { carried, retired } = selectCarryForward(
+      [mk(NOW - 1)],
+      { "0xab": 0n },
+      NOW,
+    );
+    expect(carried).toHaveLength(0);
+    expect(retired).toHaveLength(1);
+  });
+
+  it("treats an unreadable totalUnits as retention, never as zero", () => {
+    // matured, but the marketState read failed → no key in the units map
+    const { carried, retired } = selectCarryForward([mk(NOW - 1)], {}, NOW);
+    expect(carried).toHaveLength(1);
+    expect(retired).toHaveLength(0);
   });
 });
