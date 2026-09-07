@@ -152,6 +152,12 @@
   "MORPHO_BLUE": {
     "14": [
       {
+        "vault": "0x0afc3d141ac0aea5ee0d9e9d1e05ec8240be33cc",
+        "underlying": "0xe7cd86e13ac4309349f30b3435a9d337750fc82d",
+        "name": "Mystic USDT0",
+        "version": "v2"
+      },
+      {
         "vault": "0x1aeada3c251215f1294720b80fcb3d1d005f3585",
         "underlying": "0x1d80c49bbbcd1c0911346656b529df9e5c2f783d",
         "name": "Core wFLR",
@@ -164,6 +170,11 @@
         "name": "Core FXRP",
         "version": "v2",
         "curatorName": "Clearstar"
+      },
+      {
+        "vault": "0x5eae7e544258e421cb2774e508e15ee8dade8200",
+        "underlying": "0x1702633bd12a03e8ea6fde795a3ecf0d3725b4e1",
+        "version": "v2"
       },
       {
         "vault": "0xe8dd6a1e13244a27bdaa19ccbf33013647c675d1",
@@ -642,6 +653,12 @@
         "name": "UltraYield ctUSD Prime",
         "version": "v1",
         "curatorName": "UltraYield"
+      },
+      {
+        "vault": "0xc063aca30b0d56ff0a9e446a94f8cdb421ab89fb",
+        "underlying": "0xefd1e95211adb15de3762b5b595769c767de51f2",
+        "name": "0x",
+        "version": "v2"
       }
     ],
     "4326": [
@@ -857,6 +874,64 @@
         "version": "v1"
       },
       {
+        "vault": "0x1ff49a8dfaaf1198e6284810196d72ca15429f63",
+        "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "name": "MEV PUSD Vault",
+        "version": "v1"
+      },
+      {
+        "vault": "0x29f298198c2aab4bddfe2e6693f80aeb5d2220dd",
+        "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "name": "Gauntlet pUSD Core",
+        "version": "v1"
+      },
+      {
+        "vault": "0x2ac4e824979bab88a71315f2f232e21a4081d4ed",
+        "underlying": "0x222365ef19f7947e5484218551b56bb3965aa7af",
+        "version": "v2"
+      },
+      {
+        "vault": "0x3de7ab60745f57fdea1205e2379261d3c81c7ba6",
+        "underlying": "0x78add880a697070c1e765ac44d65323a0dcce913",
+        "name": "Re7 USDC",
+        "version": "v1"
+      },
+      {
+        "vault": "0x47c28d06cb7b0d20a03f272ab7c7c5960006bda7",
+        "underlying": "0xea237441c92cae6fc17caaf9a7acb3f953be4bd1",
+        "name": "Mystic MEV Capital wPLUME",
+        "version": "v1"
+      },
+      {
+        "vault": "0x51333b99436e1ae3b2fade202beb8f9b5614f34e",
+        "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "name": "Edge UltraYield USDC",
+        "version": "v1"
+      },
+      {
+        "vault": "0x6f68f28bb38fb8fdbac6ffe11480ce55e1c047a7",
+        "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "name": "Vaulty Vault",
+        "version": "v1"
+      },
+      {
+        "vault": "0x6f8acb9c03abb7ba6ba24b4698b019ffe96eae60",
+        "underlying": "0x111208b9d12822630e343363ef44192843a73984",
+        "version": "v1"
+      },
+      {
+        "vault": "0xaff37c1b6ff4db3e229faf54ddefa5f07344710e",
+        "underlying": "0xea237441c92cae6fc17caaf9a7acb3f953be4bd1",
+        "name": "MEV Plume Vault",
+        "version": "v1"
+      },
+      {
+        "vault": "0xba465fcb8d32b875aed5ae9e2fb53ea303c2d312",
+        "underlying": "0x222365ef19f7947e5484218551b56bb3965aa7af",
+        "name": "Elixir Levered RWA vault",
+        "version": "v1"
+      },
+      {
         "vault": "0xbb748a1346820560875cb7a9cd6b46c203230e07",
         "underlying": "0xca59ca09e5602fae8b629dee83ffa819741f14be",
         "name": "Mystic wETH",
@@ -866,9 +941,44 @@
       {
         "vault": "0xc0df5784f28046d11813356919b869dda5815b16",
         "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
-        "name": "Re7 RWA Yield",
+        "name": "Re7 pUSD",
         "version": "v1",
         "curatorName": "Re7"
+      },
+      {
+        "vault": "0xc6e3030bde815409f636f6fe368efd6933924bdb",
+        "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "name": "Hyperdrive pUSD Prime",
+        "version": "v2"
+      },
+      {
+        "vault": "0xcc9430f4b7d182cc819ebc0c9a2dfca31b991d6e",
+        "underlying": "0xca59ca09e5602fae8b629dee83ffa819741f14be",
+        "name": "MEV Ethereum Vault",
+        "version": "v1"
+      },
+      {
+        "vault": "0xd178421e8410df2725a57b2839eb3876712569e6",
+        "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "name": "Pangolins pUSD",
+        "version": "v1"
+      },
+      {
+        "vault": "0xd2586890224ab02bf31334e15872cd9c93f68ba8",
+        "underlying": "0xae83e5bd2b9925792205051bed32de8e0747779b",
+        "version": "v2"
+      },
+      {
+        "vault": "0xd8b51a1e8db2b749fe6f2af8c23a25cc6387284e",
+        "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "name": "Wrapped Re7 RWA Yield",
+        "version": "v2"
+      },
+      {
+        "vault": "0xf4c9811be51df8ba28fd5c60d6f200b7b6f0c38f",
+        "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
+        "name": "ABRC",
+        "version": "v1"
       }
     ]
   }

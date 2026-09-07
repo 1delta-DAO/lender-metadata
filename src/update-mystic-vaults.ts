@@ -11,7 +11,10 @@
 
 import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
-import { fetchAllMysticVaults } from "./fetch/morpho/fetchMysticApi.js";
+import {
+  fetchAllMysticVaults,
+  mysticApiKeyConfigured,
+} from "./fetch/morpho/fetchMysticApi.js";
 import { detectVaultVersions } from "./fetch/morpho/vaultVersion.js";
 import type {
   MorphoTypeVault,
@@ -22,6 +25,15 @@ const VAULTS_FILE = "./data/morpho-type-vaults.json";
 const FORK = "MORPHO_BLUE";
 
 async function main(): Promise<void> {
+  if (!mysticApiKeyConfigured()) {
+    console.log(
+      "MYSTIC_API_KEY is not set — skipping. `morphoCache` has required an " +
+        "x-api-key since 2026-09 and 401s without one; " +
+        "`npm run update:onchain-vaults` covers these chains from the chain " +
+        "itself in the meantime.",
+    );
+    return;
+  }
   const vaults = await fetchAllMysticVaults();
   const totalFetched = Object.values(vaults).reduce(
     (acc, list) => acc + list.length,

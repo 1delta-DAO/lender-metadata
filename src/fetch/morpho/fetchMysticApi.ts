@@ -21,8 +21,42 @@ export const MYSTIC_CHAIN_IDS = new Set<string>([
   "4114", // Citrea
 ]);
 
+/** Does Mystic host a Morpho fork on this chain? Says nothing about ACCESS. */
 export function hasMysticApi(chainId: string): boolean {
   return MYSTIC_CHAIN_IDS.has(chainId);
+}
+
+/**
+ * Can we actually READ that API? Since 2026-09 `morphoCache` answers every
+ * request — including one with no `chainId` — with
+ * `401 {"message":"API key required. Send it as the \`x-api-key\` header."}`,
+ * and no key exists in this repo or in lending-sdks.
+ *
+ * Keep these two predicates apart. `hasMysticApi` is a fact about the chain and
+ * still gates `cannotUseApi` correctly (the OFFICIAL Morpho API does not index
+ * these forks, key or no key). `mysticApiUsable` is a fact about our
+ * credentials, and it is the one a fetch path must branch on — conflating them
+ * put every Mystic chain down a branch that can only 401, so each run paid a
+ * round trip to log a fallback warning for a source that never answers.
+ */
+export function mysticApiUsable(chainId: string): boolean {
+  return hasMysticApi(chainId) && Boolean(mysticApiKey());
+}
+
+/** Is a key configured at all? Chain-independent — the key is global. */
+export function mysticApiKeyConfigured(): boolean {
+  return Boolean(mysticApiKey());
+}
+
+/** Key from the environment; nothing sets one today. */
+function mysticApiKey(): string | undefined {
+  const k = process.env.MYSTIC_API_KEY;
+  return k && k.length > 0 ? k : undefined;
+}
+
+function mysticHeaders(): Record<string, string> {
+  const k = mysticApiKey();
+  return k ? { "x-api-key": k } : {};
 }
 
 interface MysticTokenMeta {
@@ -104,7 +138,9 @@ function dedupCurators(names: (string | undefined)[]) {
 export async function fetchMarketsFromMysticApi(
   chainId: string,
 ): Promise<{ markets: { items: any[] } }> {
-  const res = await fetch(`${FULL_URL}?chainId=${chainId}`);
+  const res = await fetch(`${FULL_URL}?chainId=${chainId}`, {
+    headers: mysticHeaders(),
+  });
   if (!res.ok) {
     throw new Error(
       `Mystic API error for chain ${chainId}: ${res.status} ${res.statusText}`,
@@ -186,7 +222,9 @@ export type MysticMarketsByChain = Record<string, MysticMarketInfo[]>;
 export async function fetchMysticMarkets(
   chainId: string,
 ): Promise<MysticMarketInfo[]> {
-  const res = await fetch(`${FULL_URL}?chainId=${chainId}`);
+  const res = await fetch(`${FULL_URL}?chainId=${chainId}`, {
+    headers: mysticHeaders(),
+  });
   if (!res.ok) {
     throw new Error(
       `Mystic API error for chain ${chainId}: ${res.status} ${res.statusText}`,
@@ -241,7 +279,9 @@ export type MysticVaultsByChain = Record<string, MysticVaultInfo[]>;
 export async function fetchMysticVaults(
   chainId: string,
 ): Promise<MysticVaultInfo[]> {
-  const res = await fetch(`${FULL_URL}?chainId=${chainId}`);
+  const res = await fetch(`${FULL_URL}?chainId=${chainId}`, {
+    headers: mysticHeaders(),
+  });
   if (!res.ok) {
     throw new Error(
       `Mystic API error for chain ${chainId}: ${res.status} ${res.statusText}`,

@@ -1,4 +1,17 @@
 export const MORPHO_CHAINLINK_ORACLE_V2_ABI = [
+  // Reachability sentinel. Every Morpho oracle implements `IOracle.price()`,
+  // including the non-V2 ones that revert on all six selectors below — so a
+  // failed `price()` means the ORACLE WAS NOT REACHED, while a successful one
+  // alongside six failures means the oracle genuinely has no feeds. Without it
+  // a transport failure is indistinguishable from "this oracle has nothing",
+  // and gets written as fact. See fetchOracleConfigs.
+  {
+    inputs: [],
+    name: "price",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
   {
     inputs: [],
     name: "BASE_FEED_1",

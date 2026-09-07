@@ -282,13 +282,40 @@ function isV2Result(raw: string | null): boolean {
   return typeof raw === "string" && raw.length === 42;
 }
 
-// Fetch BASE_FEED_1/2, QUOTE_FEED_1/2, BASE_VAULT, QUOTE_VAULT for a list of oracle addresses.
-// Also returns isV2 per oracle: true if any selector responded (even with address zero).
+// Fetch BASE_FEED_1/2, QUOTE_FEED_1/2, BASE_VAULT, QUOTE_VAULT for a list of
+// oracle addresses, plus a `price()` REACHABILITY SENTINEL.
+//
+// Returns per oracle:
+//   - isV2:   at least one selector answered with an address (even zero)
+//   - readOk: the oracle was actually REACHED this run
+//
+// `readOk` exists because `allowFailure: true` maps a revert and a transport
+// failure to the same `null`, and `toAddr(null)` then writes "this oracle has
+// no feeds" as a fact. On a rate-limited run that is catastrophic and silent:
+// viem marks a WHOLE CHUNK failed on one 429, so a single throttled batch turns
+// hundreds of fully-classified oracles into all-null entries with
+// `priceDescription: "UNKNOWN"`. Measured 2026-09-07: one run degraded 525 of
+// 563 Ethereum entries, nulling 2,430 fields, and nothing errored — the
+// market-level merge in MorphoOracleDataUpdater protects a market that is
+// MISSING from a run, not one that is present and hollow.
+//
+// `price()` separates the two: every Morpho oracle implements it, so a failed
+// `price()` means we did not reach the contract, while a successful `price()`
+// beside six failed selectors means the oracle really is not V2.
+//
+// An oracle whose own `price()` reverts (a broken or stale feed) reads as
+// unreachable and keeps its previous entry forever rather than being nulled.
+// That is the intended direction: stale-but-true beats confidently-empty.
 async function fetchOracleConfigs(
   chainId: string,
   oracles: string[]
-): Promise<{ configs: Record<string, OracleConfig>; isV2Map: Record<string, boolean> }> {
+): Promise<{
+  configs: Record<string, OracleConfig>;
+  isV2Map: Record<string, boolean>;
+  readOkMap: Record<string, boolean>;
+}> {
   const calls = oracles.flatMap((oracle) => [
+    { address: oracle, name: "price", args: [] },
     { address: oracle, name: "BASE_FEED_1", args: [] },
     { address: oracle, name: "BASE_FEED_2", args: [] },
     { address: oracle, name: "QUOTE_FEED_1", args: [] },
@@ -307,8 +334,12 @@ async function fetchOracleConfigs(
 
   const configs: Record<string, OracleConfig> = {};
   const isV2Map: Record<string, boolean> = {};
+  const readOkMap: Record<string, boolean> = {};
+  const STRIDE = 7;
   for (let i = 0; i < oracles.length; i++) {
-    const s = results.slice(6 * i, 6 * i + 6);
+    const slot = results.slice(STRIDE * i, STRIDE * i + STRIDE);
+    const priceResult = slot[0];
+    const s = slot.slice(1);
     configs[oracles[i]] = {
       baseFeed1: toAddr(s[0]),
       baseFeed2: toAddr(s[1]),
@@ -319,8 +350,21 @@ async function fetchOracleConfigs(
     };
     // Oracle is V2-compatible if at least one selector returned a proper address
     isV2Map[oracles[i]] = s.some(isV2Result);
+    // Reached iff `price()` answered, OR a config selector did — the latter is
+    // proof of contact on its own, so a reverting price() on a V2 oracle does
+    // not cost us a refresh.
+    readOkMap[oracles[i]] =
+      priceResult !== null && priceResult !== undefined
+        ? true
+        : isV2Map[oracles[i]];
   }
-  return { configs, isV2Map };
+  const unreachable = oracles.filter((o) => !readOkMap[o]);
+  if (unreachable.length > 0) {
+    console.warn(
+      `[morpho-oracles-data] chain ${chainId}: ${unreachable.length}/${oracles.length} oracles unreachable this run — their markets are OMITTED so the existing entries survive the merge`
+    );
+  }
+  return { configs, isV2Map, readOkMap };
 }
 
 /** Dedupe by loan/collateral/oracle triplet per chain. */
@@ -437,7 +481,11 @@ export async function fetchMorphoOracleData(
     );
 
     // Batch 1: feed + vault addresses for all oracles
-    const { configs: oracleConfigs, isV2Map } = await fetchOracleConfigs(chainId, oracles);
+    const {
+      configs: oracleConfigs,
+      isV2Map,
+      readOkMap,
+    } = await fetchOracleConfigs(chainId, oracles);
 
     // Batch 2: resolve wrapper oracles (no feeds/vaults) via currentOracle()
     const noSignalOracles = oracles.filter((o) => hasNoSignals(oracleConfigs[o]));
@@ -468,10 +516,14 @@ export async function fetchMorphoOracleData(
         console.log(
           `Morpho oracles [${chainId}]: fetching ${newUnderlyings.length} underlying oracle configs`
         );
-        const { configs: underlyingConfigs, isV2Map: underlyingIsV2Map } =
-          await fetchOracleConfigs(chainId, newUnderlyings);
+        const {
+          configs: underlyingConfigs,
+          isV2Map: underlyingIsV2Map,
+          readOkMap: underlyingReadOkMap,
+        } = await fetchOracleConfigs(chainId, newUnderlyings);
         Object.assign(oracleConfigs, underlyingConfigs);
         Object.assign(isV2Map, underlyingIsV2Map);
+        Object.assign(readOkMap, underlyingReadOkMap);
       }
 
       for (const [wrapper, underlying] of Object.entries(underlyingOracleMap)) {
@@ -481,6 +533,9 @@ export async function fetchMorphoOracleData(
         };
         // Wrapper inherits the V2 status of its underlying
         isV2Map[wrapper] = isV2Map[underlying] ?? false;
+        // ...and its read health: a wrapper we reached but whose underlying we
+        // did not is still an entry we cannot classify.
+        readOkMap[wrapper] = readOkMap[wrapper] && (readOkMap[underlying] ?? false);
       }
     }
 
@@ -828,6 +883,13 @@ export async function fetchMorphoOracleData(
           denominatorMatch: loanSym ? symbolsMatch(descLoan, loanSym) : null,
         };
       })();
+
+      // An oracle we could not reach this run contributes NOTHING: leaving the
+      // market out routes it into MorphoOracleDataUpdater.mergeData's retain
+      // path, which keeps the last good entry. Writing it would replace that
+      // entry wholesale with nulls — the market-level merge cannot tell a
+      // hollow entry from a fresh one.
+      if (readOkMap[oracle] === false) continue;
 
       result[chainId][marketId] = {
         oracle,

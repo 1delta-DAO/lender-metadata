@@ -14,10 +14,12 @@
 // ============================================================================
 
 import type { AbiEvent } from "viem";
+import { decodeEventLog, encodeEventTopics } from "viem";
 import {
   getEvmClientUniversal,
   getEvmClientWithCustomRpcsUniversal,
 } from "@1delta/providers";
+import { fetchLogsFromExplorer, hasExplorerLogApi } from "./explorerLogs.js";
 
 // Per-scan getLogs budget. Override with EVENT_SCAN_MAX_CALLS for chains whose
 // RPC caps ranges tightly over a long history (more calls = longer but deeper).
@@ -241,6 +243,25 @@ export async function scanContractEvents(
   event: AbiEvent,
   onLog: (log: any) => void,
 ): Promise<void> {
+  // Chains whose node cannot serve this scan read the same events out of the
+  // explorer's index instead — one request, whole history. See explorerLogs.ts
+  // for why the node path fails on each of them; the short version is that a
+  // PRUNED node breaks `findDeployBlock` below, and a scan anchored near head
+  // then completes cleanly having seen nothing.
+  if (hasExplorerLogApi(chainId)) {
+    const topic0 = encodeEventTopics({ abi: [event] })[0] as string;
+    const logs = await fetchLogsFromExplorer(chainId, address, topic0);
+    for (const log of logs) {
+      const { args } = decodeEventLog({
+        abi: [event],
+        topics: log.topics as [`0x${string}`, ...`0x${string}`[]],
+        data: log.data as `0x${string}`,
+      });
+      onLog({ args, blockNumber: BigInt(log.blockNumber) });
+    }
+    return;
+  }
+
   const state = { calls: 0, budget: MAX_LOG_CALLS };
   const { client, latest, span } = await pickWidestRpc(
     chainId,

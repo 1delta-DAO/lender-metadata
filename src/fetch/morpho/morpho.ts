@@ -14,6 +14,7 @@ import {
 } from "./fetchMorphoSubgraph.js";
 import {
   hasMysticApi,
+  mysticApiUsable,
   fetchMarketsFromMysticApi,
 } from "./fetchMysticApi.js";
 import { Lender } from "@1delta/lender-registry";
@@ -109,12 +110,30 @@ function sortEntriesById(data: DataStructure): DataStructure {
 }
 
 /**
- * Merges old and new data maps based on unique combinations of loanAsset and collateralAsset
+ * Merge old and new oracle-roster maps, keyed by the (oracle, loanAsset,
+ * collateralAsset) TRIPLET.
+ *
+ * The oracle belongs in the key. Morpho lets anyone open a market on any
+ * oracle, so one loan/collateral pair routinely has several — and every
+ * consumer identifies a row by the triplet, not the pair: margin-fetcher's
+ * `generateMarketId(oracle, loanAsset, collateralAsset)` builds the
+ * `MORPHO_BLUE_<id>` key from all three, and `collectMarketInputs` dedupes on
+ * `marketTripletKey(loan, coll, oracle)`.
+ *
+ * Keyed on the pair alone (as this did until 2026-09-07) the merge silently
+ * kept only the LAST row for each pair, on every run, in both directions —
+ * old entries displaced by new ones and vice versa. The damage was invisible
+ * because the file always looked self-consistent: afterwards no pair has two
+ * oracles, which reads as "there is only one" rather than "the rest were
+ * dropped". Measured against `morpho-oracles-data.json` (keyed by market id,
+ * so unaffected), Ethereum alone had 34 pairs served by multiple oracles —
+ * 37 rows this merge was discarding every time it ran.
+ *
  * @param {Object} oldDataMap - The old data map with chainId keys
  * @param {Object} newDataMap - The new data map with chainId keys
  * @returns {Object} Merged data map with new data taking precedence
  */
-function mergeOracleDataMaps(oldDataMap: any, newDataMap: any) {
+export function mergeOracleDataMaps(oldDataMap: any, newDataMap: any) {
   let merged: any = {};
 
   // iterate over chains
@@ -132,30 +151,39 @@ function mergeOracleDataMaps(oldDataMap: any, newDataMap: any) {
       const oldEntries = oldDataMap[chainId]?.[fork] || [];
       const newEntries = newDataMap[chainId]?.[fork] || [];
 
-      // Create a map for quick lookup using loanAsset + collateralAsset as key
+      // Quick-lookup key: the full triplet, lower-cased so a checksum-cased
+      // row from one source never reads as distinct from the same row in
+      // another.
+      const keyOf = (entry: any) =>
+        [entry.oracle, entry.loanAsset, entry.collateralAsset]
+          .map((v: unknown) => String(v ?? "").toLowerCase())
+          .join("-");
       const entryMap = new Map();
 
       // Add old entries first
       for (const entry of oldEntries) {
-        const key = `${entry.loanAsset}-${entry.collateralAsset}`;
-        entryMap.set(key, entry);
+        entryMap.set(keyOf(entry), entry);
       }
 
       // Add new entries (will overwrite old ones with same key)
       for (const entry of newEntries) {
-        const key = `${entry.loanAsset}-${entry.collateralAsset}`;
-        entryMap.set(key, entry);
+        entryMap.set(keyOf(entry), entry);
       }
 
       if (!merged[chainId]) merged[chainId] = {};
       if (!merged[chainId][fork]) merged[chainId][fork] = [];
       // Convert back to array and sort for consistency
       merged[chainId][fork] = Array.from(entryMap.values()).sort((a, b) => {
-        // Sort by loanAsset first, then by collateralAsset
+        // Sort by loanAsset, then collateralAsset, then oracle — the oracle
+        // tiebreak keeps the file order stable now that a pair can hold more
+        // than one row.
         if (a.loanAsset !== b.loanAsset) {
           return a.loanAsset.localeCompare(b.loanAsset);
         }
-        return a.collateralAsset.localeCompare(b.collateralAsset);
+        if (a.collateralAsset !== b.collateralAsset) {
+          return a.collateralAsset.localeCompare(b.collateralAsset);
+        }
+        return String(a.oracle ?? "").localeCompare(String(b.oracle ?? ""));
       });
     }
   }
@@ -296,8 +324,10 @@ export class MorphoBlueUpdater implements DataUpdater {
         try {
           if (cannotUseApi(chainId, fork)) {
             // Mystic Finance hosts a Morpho Blue fork on a few chains and
-            // exposes its own indexer; prefer it over on-chain reads.
-            if (fork === "MORPHO_BLUE" && hasMysticApi(chainId)) {
+            // exposes its own indexer; prefer it over on-chain reads WHEN WE
+            // CAN READ IT. Unkeyed it 401s, so gating on `hasMysticApi` alone
+            // spent a request per chain per run to log a fallback warning.
+            if (fork === "MORPHO_BLUE" && mysticApiUsable(chainId)) {
               try {
                 marketData = await fetchMarketsFromMysticApi(chainId);
               } catch (error) {
@@ -515,7 +545,9 @@ export async function fetchMorphoMarketRowsForChain(
     let marketData: any;
     try {
       if (cannotUseApi(chainId, fork)) {
-        if (fork === "MORPHO_BLUE" && hasMysticApi(chainId)) {
+        // Same key gate as the batch path above: unkeyed, this branch can
+        // only 401, so the on-chain read is the real source here.
+        if (fork === "MORPHO_BLUE" && mysticApiUsable(chainId)) {
           try {
             marketData = await fetchMarketsFromMysticApi(chainId);
           } catch (error) {

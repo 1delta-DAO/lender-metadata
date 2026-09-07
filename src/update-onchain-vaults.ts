@@ -15,9 +15,15 @@
 //     config (e.g. Berachain).
 //
 // Chains the main MorphoBlueUpdater fetches via the Morpho API are skipped here
-// (their vaults come from the API). Chains already covered by the Feather /
-// Mystic vault jobs are still scanned — the append-only merge makes the overlap
-// harmless and the on-chain scan strictly more complete.
+// (their vaults come from the API), as are chains a dedicated hosted-indexer
+// vault job already populates.
+//
+// The MYSTIC chains are NOT among the latter any more. `update:mystic-vaults`
+// is the job that was supposed to cover them, and since 2026-09 it cannot:
+// `morphoCache` requires an x-api-key nobody holds, so it skips. Excluding
+// them here on the strength of that job left Morpho vaults on Flare, Plume and
+// Citrea discovered by NOBODY, with no error on either side — the same shape
+// as the market-id gap in `update-onchain-markets.ts`.
 // ============================================================================
 
 import { writeTextIfChanged } from "./io.js";
@@ -29,7 +35,6 @@ import {
 } from "./fetch/morpho/fetchMorphoVaultsByEvents.js";
 import { MORPHO_MAIN_CHAIN_IDS, cannotUseApi } from "./fetch/morpho/morpho.js";
 import { FEATHER_CHAIN_IDS } from "./fetch/morpho/fetchFeatherApi.js";
-import { MYSTIC_CHAIN_IDS } from "./fetch/morpho/fetchMysticApi.js";
 import type {
   MorphoTypeVault,
   MorphoTypeVaultsByFork,
@@ -48,10 +53,7 @@ const API_CHAINS = new Set(
 // Chains already covered by dedicated vault jobs that discover via a hosted
 // indexer (update:lista-vaults runs separately too). Skipping them here avoids
 // slow, redundant on-chain log scans of chains we already populate cheaply.
-const COVERED_BY_OTHER_JOBS = new Set<string>([
-  ...FEATHER_CHAIN_IDS,
-  ...MYSTIC_CHAIN_IDS,
-]);
+const COVERED_BY_OTHER_JOBS = new Set<string>([...FEATHER_CHAIN_IDS]);
 
 // No-API chains that have no `metaMorphoFactory` in config: list vaults by
 // address and complete them on-chain.

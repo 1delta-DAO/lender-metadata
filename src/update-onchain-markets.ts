@@ -17,7 +17,6 @@ import { readJsonFile } from "./fetch/utils/index.js";
 import { fetchMorphoMarketsByEvents } from "./fetch/morpho/fetchMorphoMarketsByEvents.js";
 import { MORPHO_MAIN_CHAIN_IDS, cannotUseApi } from "./fetch/morpho/morpho.js";
 import { hasSubgraph } from "./fetch/morpho/fetchMorphoSubgraph.js";
-import { hasMysticApi } from "./fetch/morpho/fetchMysticApi.js";
 
 const ADDRESSES_FILE = "./config/morpho-addresses.json";
 const MARKETS_FILE = "./config/morpho-type-markets.json";
@@ -33,16 +32,22 @@ const FORK = "MORPHO_BLUE";
  * API, no subgraph and no Mystic coverage (MegaETH, Hemi, Berachain, BNB) would
  * silently never see a market created after its last event scan. Only chains
  * whose upstream indexer returns the full market list are skipped here.
+ *
+ * `hasMysticApi` is deliberately NOT credited any more. Since 2026-09 the
+ * Mystic `morphoCache` endpoint requires an `x-api-key` we do not hold and
+ * 401s on every request, so crediting it excluded Flare / Plume / Citrea from
+ * the event scan on the strength of an indexer that answers nothing — leaving
+ * their market ids frozen at whatever Mystic last served, with no error
+ * anywhere to show for it. The scan is the cheaper assumption in both
+ * directions: it is append-only, so running it on a chain whose upstream is
+ * healthy costs one log walk and discovers the same ids.
  */
 function defaultTargets(): string[] {
   const addresses: Record<string, { morpho?: string }> =
     readJsonFile(ADDRESSES_FILE);
   const inLoop = new Set(MORPHO_MAIN_CHAIN_IDS);
   const discoveredUpstream = (chainId: string) =>
-    inLoop.has(chainId) &&
-    (!cannotUseApi(chainId, FORK) ||
-      hasSubgraph(chainId) ||
-      hasMysticApi(chainId));
+    inLoop.has(chainId) && (!cannotUseApi(chainId, FORK) || hasSubgraph(chainId));
   return Object.keys(addresses).filter(
     (chainId) => addresses[chainId]?.morpho && !discoveredUpstream(chainId),
   );
