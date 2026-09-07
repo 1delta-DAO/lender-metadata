@@ -272,6 +272,111 @@ export function curate(
   return { kept, dropped: markets.length - kept.length };
 }
 
+/**
+ * Roster-level counterpart of `curate()`'s offboarded-but-nonempty rule.
+ *
+ * `curate()` can only protect markets the source still SERVES. On 2026-09-07
+ * Tenor silently removed two unmatured markets that still held units on-chain
+ * (cbBTC/USDC and cbETH+vWETH/WETH, both maturing 2027-01-29), and the
+ * per-chain replace in `mergeData` published the loss: live positions reading
+ * as nothing. So a previously-published market may leave the file only by the
+ * curate() rule — matured AND verified empty on-chain — never merely because
+ * an API stopped listing it. An unreadable `totalUnits` (RPC blip) carries the
+ * market forward too: deletion needs proof, retention does not.
+ */
+export function selectCarryForward(
+  missing: any[],
+  unitsById: Record<string, bigint>,
+  nowSec: number,
+): { carried: any[]; retired: any[] } {
+  const carried: any[] = [];
+  const retired: any[] = [];
+  for (const e of missing) {
+    const units = unitsById[e.marketId.toLowerCase()];
+    const matured = Number(e.maturity) <= nowSec;
+    if (matured && units === 0n) retired.push(e);
+    else carried.push(e);
+  }
+  return { carried, retired };
+}
+
+/**
+ * Rebuild a `RosterMarket` from a previously-published file entry, so a
+ * carried-forward market rides the normal pipeline: id re-verification,
+ * on-chain fee/meta refresh, label regeneration.
+ */
+function rosterFromStoredEntry(
+  chainId: string,
+  e: any,
+  totalUnits?: bigint,
+): RosterMarket {
+  const vaultLeg = (e.collateralParams ?? []).find(
+    (c: any) => c.collateralVault,
+  );
+  return {
+    marketId: e.marketId,
+    chainId,
+    loanToken: e.loanToken,
+    collaterals: (e.collateralParams ?? []).map((c: any) => ({
+      token: c.token,
+      oracle: c.oracle,
+      lltv: String(c.lltv),
+      liquidationCursor: String(c.liquidationCursor),
+    })),
+    maturity: String(e.maturity),
+    rcfThreshold: String(e.rcfThreshold),
+    enterGate: e.enterGate,
+    liquidatorGate: e.liquidatorGate,
+    settlementFeeCbp: e.settlementFeeCbp,
+    continuousFee: e.continuousFee,
+    seriesId: e.tenorSeriesId,
+    deprecatedAt: e.deprecatedAt ?? null,
+    collateralVault: vaultLeg?.collateralVault ?? null,
+    totalUnits: totalUnits?.toString(),
+    marketFamilyId: e.marketFamilyId,
+    listed: e.listed,
+  };
+}
+
+/**
+ * Read `marketState(id).totalUnits` for a set of markets. A missing key in the
+ * result means the read failed — callers must treat that as "unknown", not
+ * as zero.
+ */
+async function resolveTotalUnits(
+  chainId: string,
+  midnight: string,
+  marketIds: string[],
+): Promise<Record<string, bigint>> {
+  const out: Record<string, bigint> = {};
+  if (marketIds.length === 0) return out;
+  let res: any[] = [];
+  try {
+    res = (await multicallRetryUniversal({
+      chain: chainId,
+      calls: marketIds.map((id) => ({
+        address: midnight,
+        name: "marketState",
+        args: [id],
+      })),
+      abi: MARKET_STATE_ABI as any,
+      allowFailure: true,
+    })) as any[];
+  } catch (e) {
+    console.log(
+      `Midnight: totalUnits multicall failed on chain ${chainId}:`,
+      (e as any)?.shortMessage ?? (e as any)?.message ?? e,
+    );
+    return out;
+  }
+  marketIds.forEach((id, i) => {
+    const r = res[i];
+    if (Array.isArray(r) && r.length >= 1 && r[0] != null)
+      out[id.toLowerCase()] = BigInt(r[0]);
+  });
+  return out;
+}
+
 /** Resolve decimals + symbol for a set of tokens via a single multicall. */
 async function resolveTokenMeta(
   chainId: string,
@@ -421,8 +526,9 @@ function legLabel(
  *
  * Source ladder is **Tenor primary → Morpho fallback** (see `fetchRoster`), every
  * market id is re-derived from its own struct before it is written (see
- * `verifyMarketIds`), and curation keeps anything unmatured or still holding
- * units (see `curate`). Output → `data/midnight-markets.json`, shape
+ * `verifyMarketIds`), curation keeps anything unmatured or still holding
+ * units (see `curate`), and markets the source stops serving are carried
+ * forward until matured AND verified empty on-chain (see `selectCarryForward`). Output → `data/midnight-markets.json`, shape
  * `{ [chainId]: MidnightMarketConfig[] }` (consumed by data-sdk's
  * `midnightMarkets` registry). Deployment addresses live in the static
  * `config/midnight.json` and drive which chains/APIs this fetches.
@@ -448,6 +554,13 @@ export class MidnightUpdater implements DataUpdater {
     const names: Record<string, string> = {};
     const shortNames: Record<string, string> = {};
     const nowSec = Math.floor(Date.now() / 1000);
+
+    // Previous snapshot, needed by the carry-forward guard below. Absence is
+    // fine (first run) — there is simply nothing to carry.
+    let previous: Record<string, any[]> = {};
+    try {
+      previous = JSON.parse(readFileSync(MARKETS_FILE, "utf8"));
+    } catch {}
 
     for (const chainId of chainIds) {
       const midnight = config[chainId]?.midnight;
@@ -482,6 +595,43 @@ export class MidnightUpdater implements DataUpdater {
           `(${roster.length} fetched, ${roster.length - verified.length} failed id check, ` +
           `${dropped} dropped as matured+empty)`,
       );
+
+      // Carry-forward guard (see `selectCarryForward`): previously-published
+      // markets the source no longer serves. Compared against `verified`, not
+      // `roster`, so a market whose struct the source now serves BROKEN also
+      // falls back to our stored (self-verifying) copy instead of vanishing.
+      const prevChain: any[] = Array.isArray(previous[chainId])
+        ? previous[chainId]
+        : [];
+      const verifiedIds = new Set(verified.map((m) => m.marketId.toLowerCase()));
+      const missing = prevChain.filter(
+        (e) => e?.marketId && !verifiedIds.has(e.marketId.toLowerCase()),
+      );
+      if (missing.length > 0) {
+        const units = await resolveTotalUnits(
+          chainId,
+          midnight,
+          missing.map((e) => e.marketId),
+        );
+        const { carried, retired } = selectCarryForward(missing, units, nowSec);
+        for (const e of retired)
+          console.log(
+            `Midnight: chain ${chainId}: market ${e.marketId} (${e.name ?? "?"}) left the ${source} roster, matured and empty on-chain — retired`,
+          );
+        if (carried.length > 0) {
+          const rosters = carried.map((e) =>
+            rosterFromStoredEntry(chainId, e, units[e.marketId.toLowerCase()]),
+          );
+          const ok = verifyMarketIds(chainId, midnight, rosters);
+          for (const m of ok)
+            console.log(
+              `Midnight: chain ${chainId}: market ${m.marketId} missing from the ${source} roster but ` +
+                `${Number(m.maturity) > nowSec ? "unmatured" : "still holding units"} — carried forward`,
+            );
+          kept.push(...ok);
+        }
+      }
+
       if (kept.length === 0) {
         result[chainId] = [];
         continue;
