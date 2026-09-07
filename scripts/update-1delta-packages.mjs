@@ -40,7 +40,12 @@ if (prod.length === 0 && dev.length === 0) {
 function install(names, saveFlag) {
   if (names.length === 0) return;
   const specs = names.map((n) => `${n}@latest`);
-  const args = ["install", saveFlag, ...specs];
+  // --legacy-peer-deps: npm's peer-set resolver (Arborist #loadPeerSet)
+  // crashes with "Cannot read properties of null (reading 'edgesOut')" on
+  // this dependency tree since vitest 5.0.0 / @vitejs/devtools landed on the
+  // registry. The flag skips that resolver; drop it once plain
+  // `npm install` succeeds again.
+  const args = ["install", "--legacy-peer-deps", saveFlag, ...specs];
   console.log(`\n$ npm ${args.join(" ")}`);
   if (dryRun) return;
   execFileSync("npm", args, { cwd: root, stdio: "inherit" });
