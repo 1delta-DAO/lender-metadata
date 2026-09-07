@@ -219,7 +219,7 @@
           "liquidationIncentiveBps": "500",
           "liquidationFactorBps": "10000",
           "minDebt": "3000",
-          "dailyLimit": "350000",
+          "dailyLimit": "250000",
           "borrowPaused": false,
           "name": "reUSD-sDOLA"
         },
@@ -232,7 +232,7 @@
           "liquidationIncentiveBps": "500",
           "liquidationFactorBps": "10000",
           "minDebt": "3000",
-          "dailyLimit": "150000",
+          "dailyLimit": "250000",
           "borrowPaused": false,
           "name": "yv-reUSD-sDOLA"
         }
