@@ -8096,6 +8096,30 @@
       "type": 10000,
       "vaultId": 28
     },
+    "0x5eb4ba0c320b59f825cc8d2291f672247aa5d06f": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0x2d661c89d812261039af9764eceaaee884f5f67f",
+            "fToken": "0xcd9c28728b83c85ff79507cdc3f0c7296a0b6e81"
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+            "fToken": null
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "type": 10000,
+      "vaultId": 42
+    },
     "0x69deb634edc47a35b7b05056768d957f029cbc0a": {
       "borrow": {
         "assets": [
