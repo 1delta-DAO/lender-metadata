@@ -57,6 +57,23 @@ export const MORPHO_MAIN_CHAIN_IDS = [
   "98866",
 ];
 
+/**
+ * Chains where we deliberately serve markets Morpho itself does NOT `list`.
+ *
+ * This is the metadata-side counterpart of `MORPHO_UNLISTED_CHAINS` in
+ * margin-fetcher's `lending/public-data/morpho/unlisted.ts`, and **the two must
+ * hold the same chain ids**. Nothing can check that across repos, so state the
+ * reason at both ends: the fetcher decides which markets are SERVED and PRICED,
+ * this file decides which ones get a NAME and an oracle row. A chain in one set
+ * and not the other either serves markets with no label, or publishes a roster
+ * for markets nobody fetches.
+ *
+ * 4663 (Robinhood Chain): 189 of its 194 markets are unlisted, ~$570k, and
+ * essentially all of it is Longbow — a curated Morpho Blue deployment whose
+ * markets Morpho's own frontend does not carry. See LONGBOW.md in lending-sdks.
+ */
+const SERVES_UNLISTED_CHAINS = new Set<string>(["4663"]);
+
 export const cannotUseApi = (chainId: string, fork: string) => {
   if (fork === "MORPHO_BLUE") {
     return (
@@ -397,6 +414,10 @@ export class MorphoBlueUpdater implements DataUpdater {
           // That is the safe direction — see the null-clobber and pair-keyed
           // merge losses this file has already caused.
           const isListed: boolean = (el.listed ?? el.whitelisted) === true;
+          // A market is "served" if Morpho lists it, or if we have opted this
+          // chain out of Morpho's curation entirely.
+          const isServed: boolean =
+            isListed || SERVES_UNLISTED_CHAINS.has(chainId);
 
           if (!oracles[chainId]) oracles[chainId] = {};
           if (!oracles[chainId][fork]) oracles[chainId][fork] = [];
@@ -410,7 +431,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           const isZero = (addr: string | undefined) =>
             !addr || addr === "0x0000000000000000000000000000000000000000";
 
-          if (isListed && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
+          if (isServed && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
             oracles[chainId][fork].push({
               oracle,
               loanAsset,
@@ -457,13 +478,13 @@ export class MorphoBlueUpdater implements DataUpdater {
           // chains that cannot use the API and must keep running regardless of
           // curation (`fetchMorphoOnChain` / `fetchMysticApi` hardcode the flag
           // true for exactly that reason).
-          if (isListed) {
+          if (isServed) {
             names[enumName] = longName;
             shortNames[enumName] = shortName;
           }
 
           // curators
-          if (isListed && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
+          if (isServed && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
             if (!curators[chainId]) curators[chainId] = {};
             const uniqueCuratorList = Array.from(
               new Map(

@@ -677,6 +677,12 @@
     ],
     "4663": [
       {
+        "vault": "0x026df18fbd2a7639089d0a16293383ec687a5ca1",
+        "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "version": "v2",
+        "name": "Longbow Core USDG"
+      },
+      {
         "vault": "0x1950ba61f8d523fe75fa32b2a71150b7cfd6f160",
         "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
         "name": "RHVault",
@@ -688,6 +694,12 @@
         "name": "Purinta USDG",
         "version": "v2",
         "curatorName": "Purinta"
+      },
+      {
+        "vault": "0x65dc90cd3a0bcde967c8ae6019d6790b616e78f7",
+        "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "version": "v2",
+        "name": "Longbow Frontier USDG"
       },
       {
         "vault": "0xbeeff033f34c046626b8d0a041844c5d1a5409dd",
@@ -702,6 +714,12 @@
         "name": "Ethena x Steakhouse USDG",
         "version": "v2",
         "curatorName": "Steakhouse Financial"
+      },
+      {
+        "vault": "0xe129d4cb2d454c4acfac909d1576453a9b835f61",
+        "underlying": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+        "version": "v2",
+        "name": "Longbow ETH"
       }
     ],
     "8217": [

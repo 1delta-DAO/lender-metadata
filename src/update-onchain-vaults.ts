@@ -55,13 +55,34 @@ const API_CHAINS = new Set(
 // slow, redundant on-chain log scans of chains we already populate cheaply.
 const COVERED_BY_OTHER_JOBS = new Set<string>([...FEATHER_CHAIN_IDS]);
 
-// No-API chains that have no `metaMorphoFactory` in config: list vaults by
-// address and complete them on-chain.
-const MANUAL_VAULTS: Record<string, string[]> = {
+// Vaults listed by address and completed on-chain. Two reasons to be here:
+// a no-API chain with no `metaMorphoFactory` in config (Berachain), or a vault
+// no indexer carries (Longbow, below) — this loop is deliberately NOT filtered
+// by `API_CHAINS`, so an API chain can still name individual vaults the API
+// misses.
+//
+// An entry may be a bare address, or `{ address, name }` when the vault
+// publishes NO name on-chain. `name()` is settable post-deploy on a Vault V2
+// and Longbow never set it, so all three of theirs answer the empty string —
+// which is also why `blue-api`'s `vaultV2s` does not carry them (it returns 26
+// vaults for 4663 and none of these). Discovered nameless they would be three
+// blank, mutually indistinguishable rows, the failure `identityCollisions`
+// exists to catch. The fallback name is the curator's own published one
+// (`longbow.cash/api/v2/vaults`), used ONLY when the chain answers nothing —
+// an on-chain name always wins, so this self-heals if they ever set one.
+type ManualVault = string | { address: string; name: string };
+const MANUAL_VAULTS: Record<string, ManualVault[]> = {
   // Berachain
   "80094": [
     "0x30BbA9CD9Eb8c95824aa42Faa1Bb397b07545bc1",
     "0xB5f473c4b7F402d8f7bED42b6D516f5ff3306B01",
+  ],
+  // Robinhood Chain — Longbow's three curator vaults (Vault V2, unnamed
+  // on-chain). See LONGBOW.md in lending-sdks.
+  "4663": [
+    { address: "0x026df18fbd2A7639089D0a16293383ec687A5Ca1", name: "Longbow Core USDG" },
+    { address: "0x65dC90cd3a0BCDE967c8AE6019d6790b616E78F7", name: "Longbow Frontier USDG" },
+    { address: "0xe129D4Cb2d454C4ACFAc909d1576453A9b835f61", name: "Longbow ETH" },
   ],
 };
 
@@ -136,10 +157,25 @@ async function main(): Promise<void> {
     }),
   );
 
-  for (const [chainId, addresses] of Object.entries(MANUAL_VAULTS)) {
+  for (const [chainId, entries] of Object.entries(MANUAL_VAULTS)) {
     if (CHAIN_FILTER.size && !CHAIN_FILTER.has(chainId)) continue;
+    const addresses = entries.map((e) =>
+      typeof e === "string" ? e : e.address,
+    );
+    const fallbackNames = new Map(
+      entries
+        .filter((e): e is { address: string; name: string } => typeof e !== "string")
+        .map((e) => [e.address.toLowerCase(), e.name]),
+    );
     try {
       const vaults = await fetchMorphoVaultsByAddress(chainId, addresses);
+      // Only where the chain answered nothing — never override an on-chain name.
+      for (const v of vaults) {
+        if (!v.name) {
+          const fallback = fallbackNames.get(v.vault.toLowerCase());
+          if (fallback) v.name = fallback;
+        }
+      }
       byChain[chainId] = [...(byChain[chainId] ?? []), ...vaults];
       console.log(
         `  chain ${chainId}: read ${vaults.length}/${addresses.length} manual vaults`,
