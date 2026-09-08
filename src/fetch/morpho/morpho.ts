@@ -379,6 +379,25 @@ export class MorphoBlueUpdater implements DataUpdater {
         for (const el of items) {
           const hash: string = el.marketId ?? el.uniqueKey;
           const enumName = `${fork}_${hash.slice(2).toUpperCase()}`;
+
+          // ONE predicate for every write below.
+          //
+          // It used to be spelled out separately at each of the three call
+          // sites, and the label write simply did not carry it — so the roster
+          // described markets it could not price. Measured 2026-09-08: 7,506
+          // MORPHO_BLUE markets had a label in `lender-labels.json` while only
+          // 1,199 had a row in `morpho-oracles-data.json`, and on Robinhood
+          // Chain all 56 Longbow markets were named with 0 priced. A name is
+          // what makes a market look present; the oracle row is what makes it
+          // usable. They have to be gated together or the gap is invisible.
+          //
+          // NOTE the merge for `lender-labels.json` is additive (`mergeData` ->
+          // `deepMerge`), so this is FORWARD-only: labels already written for
+          // unlisted markets survive until something prunes them deliberately.
+          // That is the safe direction — see the null-clobber and pair-keyed
+          // merge losses this file has already caused.
+          const isListed: boolean = (el.listed ?? el.whitelisted) === true;
+
           if (!oracles[chainId]) oracles[chainId] = {};
           if (!oracles[chainId][fork]) oracles[chainId][fork] = [];
 
@@ -391,7 +410,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           const isZero = (addr: string | undefined) =>
             !addr || addr === "0x0000000000000000000000000000000000000000";
 
-          if ((el.listed ?? el.whitelisted) && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
+          if (isListed && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
             oracles[chainId][fork].push({
               oracle,
               loanAsset,
@@ -432,11 +451,19 @@ export class MorphoBlueUpdater implements DataUpdater {
           const longName = `${protocolPrefix} ${collSym}-${loanSym} ${bps}`;
           const shortName = `${shortPrefix} ${collSym}-${loanSym} ${bps}`;
 
-          names[enumName] = longName;
-          shortNames[enumName] = shortName;
+          // Same gate as the oracle roster above: do not NAME a market whose
+          // oracle we deliberately skipped. Deliberately placed AFTER the
+          // `MORPHO_BLUE_MARKETS` append, which is market DISCOVERY for the
+          // chains that cannot use the API and must keep running regardless of
+          // curation (`fetchMorphoOnChain` / `fetchMysticApi` hardcode the flag
+          // true for exactly that reason).
+          if (isListed) {
+            names[enumName] = longName;
+            shortNames[enumName] = shortName;
+          }
 
           // curators
-          if ((el.listed ?? el.whitelisted) && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
+          if (isListed && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
             if (!curators[chainId]) curators[chainId] = {};
             const uniqueCuratorList = Array.from(
               new Map(
