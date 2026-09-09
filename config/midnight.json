@@ -1,4 +1,14 @@
 {
+  "1": {
+    "midnight": "0x471686c42792F93528B000beF54bC10E3aa2045f",
+    "midnightBundles": "0x7c00dBB2b6b6b9B28745332e550dC8782Fcf77EC",
+    "midnightMempool": "0xde2d62449301a09A51EbF9326EA60d2e8BF4A8F7",
+    "ecrecoverRatifier": "0xAC439c81CAA6ef4C7B7E8F0110F8CE63A4b6D43e",
+    "ecrecoverAuthorizer": "0xfC3303119E46AF831CacdBDB6e1A04C9C369ffF7",
+    "setterRatifier": "0xb72c416382c8A6399D0765CebfB032F040B00B3c",
+    "apiBaseUrl": "https://api.morpho.org/v0/midnight",
+    "tenorApiUrl": "https://api.tenor.finance/graphql"
+  },
   "8453": {
     "midnight": "0xAdedD8ab6dE832766Fedf0FaC4992E5C4D3EA18A",
     "midnightBundles": "0x091183d729BE9f808c212b475E387A12E67850A7",

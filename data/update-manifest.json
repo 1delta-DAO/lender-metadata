@@ -1,31 +1,12 @@
 {
-  "version": "2026-09-09T08-33-24-727Z",
-  "generatedAt": "2026-09-09T08:33:24.727Z",
+  "version": "2026-09-09T10-49-18-281Z",
+  "generatedAt": "2026-09-09T10:49:18.281Z",
   "updatedFiles": [
-    "./data/compound-v3-base-data.json",
-    "./data/compound-v3-reserves.json",
-    "./data/compound-v3-oracles.json",
-    "./data/compound-v3-oracles-data.json",
-    "./data/compound-v3-oracles-classified.json"
+    "./data/midnight-oracles-data.json"
   ],
   "results": [
     {
-      "targetFile": "./data/compound-v3-base-data.json"
-    },
-    {
-      "targetFile": "./data/compound-v3-reserves.json"
-    },
-    {
-      "targetFile": "./data/compound-v3-oracles.json"
-    },
-    {
-      "targetFile": "./data/compound-v3-oracles-data.json"
-    },
-    {
-      "targetFile": "./config/compound-v3-pools.json"
-    },
-    {
-      "targetFile": "./data/compound-v3-oracles-classified.json"
+      "targetFile": "./data/midnight-oracles-data.json"
     }
   ]
 }
