@@ -63,13 +63,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x7f73eb1ae276ef4d155f9cf9a81986db343cf1ca",
+            "address": "0xcaf3794110f0b4d97134679ece913ab872e591b2",
             "description": "USDC / USD",
             "decimals": 18,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x7f73eb1ae276ef4d155f9cf9a81986db343cf1ca"
+        "underlyingAggregator": "0xcaf3794110f0b4d97134679ece913ab872e591b2"
       },
       "0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
         "asset": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
@@ -212,13 +212,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x1e0b2c3896338fbb201c4f0a27c6904801dca06b",
-            "description": null,
+            "address": "0x05c84a58fe042275b37db038baacd15f410c7bb0",
+            "description": "ETH / USD",
             "decimals": 8,
-            "kind": "unknown"
+            "kind": "chainlink"
           }
         ],
-        "underlyingAggregator": "0x1e0b2c3896338fbb201c4f0a27c6904801dca06b"
+        "underlyingAggregator": "0x05c84a58fe042275b37db038baacd15f410c7bb0"
       },
       "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca": {
         "asset": "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
@@ -241,13 +241,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0xe2f30af46dddddb7795995d615c828f722e2e6f0",
+            "address": "0x68be4c50235205ede361ac8244b1ee221cdda5e2",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0xe2f30af46dddddb7795995d615c828f722e2e6f0"
+        "underlyingAggregator": "0x68be4c50235205ede361ac8244b1ee221cdda5e2"
       }
     }
   },
@@ -658,13 +658,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0xd1cb03cc31caa72d34dba7ebe21897d9580c4af0",
+            "address": "0xdb5a1d830b72ce47b881c0093dbc9c6321091e78",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0xd1cb03cc31caa72d34dba7ebe21897d9580c4af0"
+        "underlyingAggregator": "0xdb5a1d830b72ce47b881c0093dbc9c6321091e78"
       },
       "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb": {
         "asset": "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
@@ -710,13 +710,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x02f5e9e9dcc66ba6392f6904d5fcf8625d9b19c9",
+            "address": "0x16c04812fa9db1d0236c3841dda8e86225bc3f3e",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x02f5e9e9dcc66ba6392f6904d5fcf8625d9b19c9"
+        "underlyingAggregator": "0x16c04812fa9db1d0236c3841dda8e86225bc3f3e"
       },
       "0x4200000000000000000000000000000000000042": {
         "asset": "0x4200000000000000000000000000000000000042",
@@ -739,13 +739,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x4f6dfdfd4d68f68b2692e79f9e94796fc8015770",
+            "address": "0x07c15082440a5e435ba15fe9ab704daead84897a",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x4f6dfdfd4d68f68b2692e79f9e94796fc8015770"
+        "underlyingAggregator": "0x07c15082440a5e435ba15fe9ab704daead84897a"
       },
       "0x57f5e098cad7a3d1eed53991d4d66c45c9af7812": {
         "asset": "0x57f5e098cad7a3d1eed53991d4d66c45c9af7812",
@@ -791,13 +791,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x65f2c716937fb44b2c28417a7afc2daccf1c2d61",
+            "address": "0x525a27268f0006b237bc21efd2d21499a6d1f729",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x65f2c716937fb44b2c28417a7afc2daccf1c2d61"
+        "underlyingAggregator": "0x525a27268f0006b237bc21efd2d21499a6d1f729"
       }
     },
     "130": {
@@ -1004,13 +1004,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x7f73eb1ae276ef4d155f9cf9a81986db343cf1ca",
+            "address": "0xcaf3794110f0b4d97134679ece913ab872e591b2",
             "description": "USDC / USD",
             "decimals": 18,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x7f73eb1ae276ef4d155f9cf9a81986db343cf1ca"
+        "underlyingAggregator": "0xcaf3794110f0b4d97134679ece913ab872e591b2"
       },
       "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
         "asset": "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
@@ -1044,31 +1044,31 @@
         "fixedRate": null,
         "intendedPair": "cbBTC / USD",
         "isBase": false,
-        "oracle": "0x8d38a3d6b3c3b7d96d6536da7eef94a9d7dbc991",
+        "oracle": "0x8c74b2811d2f1ad65517adb5c65773c1e520ed2f",
         "priceDescription": "cbBTC / USD",
         "provider": "chainlink",
-        "rawDescription": "cbBTC / USD",
+        "rawDescription": "cbBTC / USD SVR price feed",
         "sourcePath": [
           {
-            "address": "0x8d38a3d6b3c3b7d96d6536da7eef94a9d7dbc991",
+            "address": "0x8c74b2811d2f1ad65517adb5c65773c1e520ed2f",
             "description": "cbBTC / USD",
             "decimals": 8,
             "kind": "chainlink"
           },
           {
-            "address": "0x07da0e54543a844a80abe69c8a12f22b3aa59f9d",
-            "description": "cbBTC / USD",
-            "decimals": 8,
+            "address": "0x2231aedef63bef7f32fa1cec5851c5cd72746263",
+            "description": "CBBTC / USD",
+            "decimals": 18,
             "kind": "chainlink"
           },
           {
-            "address": "0x51ce3091cf646587e02cad83b580992f8723e718",
-            "description": null,
-            "decimals": 8,
+            "address": "0x3f335b20039774a46eaa7d33d762a2f3a1184fd1",
+            "description": "CBBTC / USD",
+            "decimals": 18,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x51ce3091cf646587e02cad83b580992f8723e718"
+        "underlyingAggregator": "0x3f335b20039774a46eaa7d33d762a2f3a1184fd1"
       }
     },
     "42161": {
@@ -1302,13 +1302,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x01065f4726bbbce2ef1a4bebc04af3209357c71e",
+            "address": "0x7c0679827b6892eb4693ab13a083888caf2ecb0c",
             "description": "USDC / USD",
             "decimals": 18,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x01065f4726bbbce2ef1a4bebc04af3209357c71e"
+        "underlyingAggregator": "0x7c0679827b6892eb4693ab13a083888caf2ecb0c"
       },
       "0xd09acb80c1e8f2291862c4978a008791c9167003": {
         "asset": "0xd09acb80c1e8f2291862c4978a008791c9167003",
@@ -1385,13 +1385,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0xa6f72813b20758f08923b48926df1ba54782f9ff",
+            "address": "0xef34744d4c68499b1bc76f9ee002ba93a69a476b",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0xa6f72813b20758f08923b48926df1ba54782f9ff"
+        "underlyingAggregator": "0xef34744d4c68499b1bc76f9ee002ba93a69a476b"
       },
       "0x3aab2285ddcddad8edf438c1bab47e1a9d05a9b4": {
         "asset": "0x3aab2285ddcddad8edf438c1bab47e1a9d05a9b4",
@@ -1497,13 +1497,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0xed746456ba6ad119e3d80681b34e0474da4e60f2",
+            "address": "0x8b20858abdbaf767651250dafa6af01514e06ce8",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0xed746456ba6ad119e3d80681b34e0474da4e60f2"
+        "underlyingAggregator": "0x8b20858abdbaf767651250dafa6af01514e06ce8"
       },
       "0x5300000000000000000000000000000000000004": {
         "asset": "0x5300000000000000000000000000000000000004",
@@ -1526,13 +1526,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x52d9a4fac326934c593b451dda6f53bba053577f",
+            "address": "0xd19c171fcf2eaaf4f53d8b059336ce7578f178c2",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x52d9a4fac326934c593b451dda6f53bba053577f"
+        "underlyingAggregator": "0xd19c171fcf2eaaf4f53d8b059336ce7578f178c2"
       },
       "0xf610a9dfb7c89644979b4a0f27063e9e7d7cda32": {
         "asset": "0xf610a9dfb7c89644979b4a0f27063e9e7d7cda32",
@@ -1640,13 +1640,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0xcc741360ba810cd879b05ba8b5a462fb6311fbbe",
+            "address": "0x51e9881835ad37b1fbbe23620e23aba902c0d266",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0xcc741360ba810cd879b05ba8b5a462fb6311fbbe"
+        "underlyingAggregator": "0x51e9881835ad37b1fbbe23620e23aba902c0d266"
       },
       "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4": {
         "asset": "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
@@ -1868,13 +1868,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x085a38e33a14b1e3078b0614380b4469aea4e0f2",
+            "address": "0xb10cb22245d54f58c66ee65353fab5d94ca21a1c",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x085a38e33a14b1e3078b0614380b4469aea4e0f2"
+        "underlyingAggregator": "0xb10cb22245d54f58c66ee65353fab5d94ca21a1c"
       }
     }
   },
@@ -2808,13 +2808,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x02f5e9e9dcc66ba6392f6904d5fcf8625d9b19c9",
+            "address": "0x16c04812fa9db1d0236c3841dda8e86225bc3f3e",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x02f5e9e9dcc66ba6392f6904d5fcf8625d9b19c9"
+        "underlyingAggregator": "0x16c04812fa9db1d0236c3841dda8e86225bc3f3e"
       },
       "0x4200000000000000000000000000000000000042": {
         "asset": "0x4200000000000000000000000000000000000042",
@@ -2837,13 +2837,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x4f6dfdfd4d68f68b2692e79f9e94796fc8015770",
+            "address": "0x07c15082440a5e435ba15fe9ab704daead84897a",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x4f6dfdfd4d68f68b2692e79f9e94796fc8015770"
+        "underlyingAggregator": "0x07c15082440a5e435ba15fe9ab704daead84897a"
       },
       "0x57f5e098cad7a3d1eed53991d4d66c45c9af7812": {
         "asset": "0x57f5e098cad7a3d1eed53991d4d66c45c9af7812",
@@ -2889,13 +2889,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x65f2c716937fb44b2c28417a7afc2daccf1c2d61",
+            "address": "0x525a27268f0006b237bc21efd2d21499a6d1f729",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x65f2c716937fb44b2c28417a7afc2daccf1c2d61"
+        "underlyingAggregator": "0x525a27268f0006b237bc21efd2d21499a6d1f729"
       },
       "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58": {
         "asset": "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
@@ -2918,13 +2918,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0xac37790ff4abf9483fae2d1f62fc61fe6b8e4789",
+            "address": "0xfd7f8e6ba7b6d36f4b3c9013de5fa527d8347643",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0xac37790ff4abf9483fae2d1f62fc61fe6b8e4789"
+        "underlyingAggregator": "0xfd7f8e6ba7b6d36f4b3c9013de5fa527d8347643"
       }
     },
     "137": {
@@ -3059,13 +3059,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x7bd7bd17a2cd5c0a5c31747d4507e95bb991eaea",
+            "address": "0xab5633015a8b68b61e4c24e815ac73e3cd855ad8",
             "description": null,
             "decimals": 8,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x7bd7bd17a2cd5c0a5c31747d4507e95bb991eaea"
+        "underlyingAggregator": "0xab5633015a8b68b61e4c24e815ac73e3cd855ad8"
       },
       "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6": {
         "asset": "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6",
@@ -3334,13 +3334,13 @@
             "kind": "chainlink"
           },
           {
-            "address": "0x41f14afb0eb605097c5950d2458415437a3d2bcd",
+            "address": "0x2d2918f92e9c0478ea39ccdd39f14f3b1737bf12",
             "description": "USDT / USD",
             "decimals": 18,
             "kind": "unknown"
           }
         ],
-        "underlyingAggregator": "0x41f14afb0eb605097c5950d2458415437a3d2bcd"
+        "underlyingAggregator": "0x2d2918f92e9c0478ea39ccdd39f14f3b1737bf12"
       }
     }
   },

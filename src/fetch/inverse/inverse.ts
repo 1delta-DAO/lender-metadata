@@ -40,6 +40,10 @@ type InverseChainCfg = {
   oracle: string;
   borrowController: string;
   debtDecimals?: number;
+  /** Curve tricrypto pool that IS the DBR market (TriDBR: DOLA/DBR/INV) —
+   *  the fetcher reads its `price_oracle(0)` EMA as the PRIMARY borrow
+   *  rate. Hand-maintained; carried through untouched by this run. */
+  dbrPricePool?: string;
   dbrPriceDolaSnapshot?: string;
 };
 type InverseConfig = Record<string, Record<string, InverseChainCfg>>;
@@ -228,8 +232,9 @@ export class InverseUpdater implements DataUpdater {
     const shortNames: Record<string, string> = {};
     const configOut: InverseConfig = {};
 
-    // DBR price snapshot refresh (the RUNTIME rate is live from /api/dbr;
-    // this snapshot is only the fetcher's offline fallback).
+    // DBR price snapshot refresh. The RUNTIME rate is read on-chain from
+    // `dbrPricePool` with /api/dbr behind it; this snapshot is only the
+    // LAST resort, after both of those have failed.
     let dbrSnapshot: string | undefined;
     try {
       const dbr = await fetchJson(DBR_URL);

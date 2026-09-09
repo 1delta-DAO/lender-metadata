@@ -23,6 +23,30 @@
       }
     }
   },
+  "COMPOUND_V3_INSTITUTIONAL_USDC": {
+    "1": {
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
+        "description": "Custom price feed for WBTC / USD",
+        "oracle": "0xc8E4c3F58d5FC4409522503927Ecea057EbbA1fc"
+      },
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": {
+        "description": "wstETH / USD CAPO SVR Price Feed",
+        "oracle": "0xA2699232B341881B1Ed85d91592b7c259E029aCf"
+      },
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
+        "description": "USDC / USD",
+        "oracle": "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6"
+      },
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
+        "description": "ETH / USD",
+        "oracle": "0xc0053f3FBcCD593758258334Dfce24C2A9A673aD"
+      },
+      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
+        "description": "CBBTC / USD",
+        "oracle": "0x50C1008722Ffa2d3170f3bA5cB9e7C0238bfa2a9"
+      }
+    }
+  },
   "COMPOUND_V3_USDBC": {
     "8453": {
       "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22": {
