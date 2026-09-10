@@ -1857,8 +1857,8 @@
       "underlyingOracle": null
     },
     "0x2015b0fa3d69301a0f258aa1c8b7da4769992e1bc01a0e63064154420e438a7b": {
-      "baseFeed1": "0xe07bd3177712a9edf526aba00e5f97d083cc944f",
-      "baseFeed1Description": "aFXArbUSDTRY / USDC",
+      "baseFeed1": null,
+      "baseFeed1Description": null,
       "baseFeed2": null,
       "baseFeed2Description": null,
       "baseVault": null,
@@ -1868,7 +1868,7 @@
       "collateralAssetDecimals": 6,
       "correctOracle": true,
       "denominatorMatch": true,
-      "fixedRate": null,
+      "fixedRate": true,
       "fork": "MORPHO_BLUE",
       "irm": "0x870ac11d48b15db9a138cf899d20f13f79ba00bc",
       "lltv": "860000000000000000",
@@ -2785,8 +2785,8 @@
       "underlyingOracle": null
     },
     "0x30d99308a5f2f4673b2cc5ad1718c731e6c790e20e26d23611f6e8d3422bda41": {
-      "baseFeed1": null,
-      "baseFeed1Description": null,
+      "baseFeed1": "0xc0053f3fbccd593758258334dfce24c2a9a673ad",
+      "baseFeed1Description": "ETH / USD",
       "baseFeed2": null,
       "baseFeed2Description": null,
       "baseVault": null,
@@ -2795,7 +2795,7 @@
       "collateralAsset": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
       "collateralAssetDecimals": 18,
       "correctOracle": true,
-      "denominatorMatch": true,
+      "denominatorMatch": false,
       "fixedRate": null,
       "fork": "MORPHO_BLUE",
       "irm": "0x870ac11d48b15db9a138cf899d20f13f79ba00bc",
@@ -2803,7 +2803,7 @@
       "loanAsset": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
       "loanAssetDecimals": 18,
       "oracle": "0x2de7967f06a7be992b62c35030ecc5ed14f842db",
-      "priceDescription": "WETH / RLUSD",
+      "priceDescription": "ETH / USD",
       "quoteFeed1": null,
       "quoteFeed1Description": null,
       "quoteFeed2": null,
@@ -15806,8 +15806,8 @@
       "underlyingOracle": null
     },
     "0xf3814af4869a6ce59ffef016e555dd4c1e92bf383b5ab89abe496044c6364746": {
-      "baseFeed1": null,
-      "baseFeed1Description": null,
+      "baseFeed1": "0xefdb275fc9c7946f36e632bef61379c5f5ab4c86",
+      "baseFeed1Description": "Pendle Chainlink-compatible Oracle",
       "baseFeed2": null,
       "baseFeed2Description": null,
       "baseVault": null,
@@ -15817,7 +15817,7 @@
       "collateralAssetDecimals": 18,
       "correctOracle": true,
       "denominatorMatch": true,
-      "fixedRate": true,
+      "fixedRate": null,
       "fork": "MORPHO_BLUE",
       "irm": "0x870ac11d48b15db9a138cf899d20f13f79ba00bc",
       "lltv": "860000000000000000",
