@@ -384,6 +384,12 @@
           "assetId": 4,
           "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
           "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 11,
+          "assetId": 8,
+          "underlying": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
         }
       ]
     },
@@ -754,6 +760,12 @@
           "assetId": 8,
           "underlying": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
           "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 4,
+          "assetId": 3,
+          "underlying": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+          "hub": "0x62d63197660c080236193ca60b70e49a08e90368"
         }
       ]
     },
