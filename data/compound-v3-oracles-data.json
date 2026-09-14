@@ -558,8 +558,8 @@
         "oracle": "0x8a5C2E36E02fB1BA95C9a3e96E6E16BbBDae9AAA"
       },
       "0xf469fbd2abcd6b9de8e169d128226c0fc90a012e": {
-        "description": "PumpBTC / BTC Exchange Rate",
-        "oracle": "0x351a133Fd850ea81ed8a782016e308aCBADDec91"
+        "description": "Constant price feed",
+        "oracle": "0x7BaDaB7109afBbF48eCd8d6498CaAcd2630b45B9"
       }
     }
   },
