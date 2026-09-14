@@ -19,6 +19,7 @@
     "config/euler-configs.json",
     "config/exactly.json",
     "config/fluid-resolvers.json",
+    "config/flying-tulip.json",
     "config/frankencoin.json",
     "config/fraxlend.json",
     "config/gearbox-resolvers.json",
@@ -37,6 +38,7 @@
     "config/teller.json",
     "config/term-finance.json",
     "config/termmax.json",
+    "config/twyne.json",
     "config/usdd.json",
     "data/aave-oracles.json",
     "data/aave-reserves.json",
@@ -54,6 +56,7 @@
     "data/euler-vaults.json",
     "data/exactly-markets.json",
     "data/fluid-vaults.json",
+    "data/flying-tulip-assets.json",
     "data/frankencoin-markets.json",
     "data/init-config.json",
     "data/inverse-markets.json",
@@ -72,6 +75,7 @@
     "data/sky-markets.json",
     "data/teller-pools.json",
     "data/term-finance-markets.json",
+    "data/twyne-markets.json",
     "data/usdd-markets.json"
   ]
 }
