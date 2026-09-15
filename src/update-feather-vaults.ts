@@ -14,6 +14,7 @@ import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
 import { fetchAllFeatherVaults } from "./fetch/morpho/fetchFeatherApi.js";
 import { detectVaultVersions } from "./fetch/morpho/vaultVersion.js";
+import { dropStubUnderlyings } from "./fetch/morpho/stubUnderlying.js";
 import type {
   MorphoTypeVault,
   MorphoTypeVaultsByFork,
@@ -42,7 +43,13 @@ async function main(): Promise<void> {
 
   let added = 0;
   let renamed = 0;
-  for (const [chainId, infos] of Object.entries(vaults)) {
+  let stubs = 0;
+  for (const [chainId, discovered] of Object.entries(vaults)) {
+    if (discovered.length === 0) continue;
+    // Feather indexes the factory smoke-test vault (DummyERC20 underlying)
+    // like any other — refuse it before it lands in an append-only file.
+    const { kept: infos, dropped } = await dropStubUnderlyings(chainId, discovered);
+    stubs += dropped.length;
     if (infos.length === 0) continue;
     const current: MorphoTypeVault[] = existing[FORK][chainId] ?? [];
     const known = new Map(current.map((v) => [v.vault.toLowerCase(), v]));
@@ -83,7 +90,7 @@ async function main(): Promise<void> {
     JSON.stringify(existing, null, 2) + "\n",
   );
   console.log(
-    `Added ${added} new Feather vaults, refreshed ${renamed} names; file ${writeResult}.`,
+    `Added ${added} new Feather vaults, refreshed ${renamed} names, refused ${stubs} stub-underlying vault(s); file ${writeResult}.`,
   );
 
   process.exit(0);

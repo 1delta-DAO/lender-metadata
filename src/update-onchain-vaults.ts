@@ -35,6 +35,7 @@ import {
 } from "./fetch/morpho/fetchMorphoVaultsByEvents.js";
 import { MORPHO_MAIN_CHAIN_IDS, cannotUseApi } from "./fetch/morpho/morpho.js";
 import { FEATHER_CHAIN_IDS } from "./fetch/morpho/fetchFeatherApi.js";
+import { dropStubUnderlyings } from "./fetch/morpho/stubUnderlying.js";
 import type {
   MorphoTypeVault,
   MorphoTypeVaultsByFork,
@@ -195,7 +196,14 @@ async function main(): Promise<void> {
 
   let added = 0;
   let renamed = 0;
-  for (const [chainId, vaults] of Object.entries(byChain)) {
+  let stubs = 0;
+  for (const [chainId, discovered] of Object.entries(byChain)) {
+    if (discovered.length === 0) continue;
+    // The factory's own create events include its deployment smoke-test — a
+    // nameless vault over a 129-byte DummyERC20 — on every chain. Refuse it
+    // before it lands in an append-only file (MORPHO_STUB_VAULTS.md).
+    const { kept: vaults, dropped } = await dropStubUnderlyings(chainId, discovered);
+    stubs += dropped.length;
     if (vaults.length === 0) continue;
     const current: MorphoTypeVault[] = existing[FORK][chainId] ?? [];
     const known = new Map(current.map((v) => [v.vault.toLowerCase(), v]));
@@ -222,7 +230,7 @@ async function main(): Promise<void> {
     JSON.stringify(existing, null, 2) + "\n",
   );
   console.log(
-    `Added ${added} new vaults, refreshed ${renamed} names; file ${writeResult}.`,
+    `Added ${added} new vaults, refreshed ${renamed} names, refused ${stubs} stub-underlying vault(s); file ${writeResult}.`,
   );
   if (failures.length > 0) {
     console.warn(

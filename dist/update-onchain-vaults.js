@@ -15,16 +15,22 @@
 //     config (e.g. Berachain).
 //
 // Chains the main MorphoBlueUpdater fetches via the Morpho API are skipped here
-// (their vaults come from the API). Chains already covered by the Feather /
-// Mystic vault jobs are still scanned — the append-only merge makes the overlap
-// harmless and the on-chain scan strictly more complete.
+// (their vaults come from the API), as are chains a dedicated hosted-indexer
+// vault job already populates.
+//
+// The MYSTIC chains are NOT among the latter any more. `update:mystic-vaults`
+// is the job that was supposed to cover them, and since 2026-09 it cannot:
+// `morphoCache` requires an x-api-key nobody holds, so it skips. Excluding
+// them here on the strength of that job left Morpho vaults on Flare, Plume and
+// Citrea discovered by NOBODY, with no error on either side — the same shape
+// as the market-id gap in `update-onchain-markets.ts`.
 // ============================================================================
 import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
 import { fetchMorphoVaultsByAddress, fetchMorphoVaultsByEvents, fetchMorphoVaultV2ByEvents, } from "./fetch/morpho/fetchMorphoVaultsByEvents.js";
 import { MORPHO_MAIN_CHAIN_IDS, cannotUseApi } from "./fetch/morpho/morpho.js";
 import { FEATHER_CHAIN_IDS } from "./fetch/morpho/fetchFeatherApi.js";
-import { MYSTIC_CHAIN_IDS } from "./fetch/morpho/fetchMysticApi.js";
+import { dropStubUnderlyings } from "./fetch/morpho/stubUnderlying.js";
 const VAULTS_FILE = "./data/morpho-type-vaults.json";
 const ADDRESSES_FILE = "./config/morpho-addresses.json";
 const FORK = "MORPHO_BLUE";
@@ -34,17 +40,19 @@ const API_CHAINS = new Set(MORPHO_MAIN_CHAIN_IDS.filter((c) => !cannotUseApi(c, 
 // Chains already covered by dedicated vault jobs that discover via a hosted
 // indexer (update:lista-vaults runs separately too). Skipping them here avoids
 // slow, redundant on-chain log scans of chains we already populate cheaply.
-const COVERED_BY_OTHER_JOBS = new Set([
-    ...FEATHER_CHAIN_IDS,
-    ...MYSTIC_CHAIN_IDS,
-]);
-// No-API chains that have no `metaMorphoFactory` in config: list vaults by
-// address and complete them on-chain.
+const COVERED_BY_OTHER_JOBS = new Set([...FEATHER_CHAIN_IDS]);
 const MANUAL_VAULTS = {
     // Berachain
     "80094": [
         "0x30BbA9CD9Eb8c95824aa42Faa1Bb397b07545bc1",
         "0xB5f473c4b7F402d8f7bED42b6D516f5ff3306B01",
+    ],
+    // Robinhood Chain — Longbow's three curator vaults (Vault V2, unnamed
+    // on-chain). See LONGBOW.md in lending-sdks.
+    "4663": [
+        { address: "0x026df18fbd2A7639089D0a16293383ec687A5Ca1", name: "Longbow Core USDG" },
+        { address: "0x65dC90cd3a0BCDE967c8AE6019d6790b616E78F7", name: "Longbow Frontier USDG" },
+        { address: "0xe129D4Cb2d454C4ACFAc909d1576453A9b835f61", name: "Longbow ETH" },
     ],
 };
 // Optional CLI chain-id filter (e.g. `tsx src/update-onchain-vaults.ts 1672`);
@@ -100,11 +108,23 @@ async function main() {
             console.warn(`  chain ${chainId}: v2 discovery failed: ${err?.message ?? err}`);
         }
     }));
-    for (const [chainId, addresses] of Object.entries(MANUAL_VAULTS)) {
+    for (const [chainId, entries] of Object.entries(MANUAL_VAULTS)) {
         if (CHAIN_FILTER.size && !CHAIN_FILTER.has(chainId))
             continue;
+        const addresses = entries.map((e) => typeof e === "string" ? e : e.address);
+        const fallbackNames = new Map(entries
+            .filter((e) => typeof e !== "string")
+            .map((e) => [e.address.toLowerCase(), e.name]));
         try {
             const vaults = await fetchMorphoVaultsByAddress(chainId, addresses);
+            // Only where the chain answered nothing — never override an on-chain name.
+            for (const v of vaults) {
+                if (!v.name) {
+                    const fallback = fallbackNames.get(v.vault.toLowerCase());
+                    if (fallback)
+                        v.name = fallback;
+                }
+            }
             byChain[chainId] = [...(byChain[chainId] ?? []), ...vaults];
             console.log(`  chain ${chainId}: read ${vaults.length}/${addresses.length} manual vaults`);
         }
@@ -123,7 +143,15 @@ async function main() {
         existing[FORK] = {};
     let added = 0;
     let renamed = 0;
-    for (const [chainId, vaults] of Object.entries(byChain)) {
+    let stubs = 0;
+    for (const [chainId, discovered] of Object.entries(byChain)) {
+        if (discovered.length === 0)
+            continue;
+        // The factory's own create events include its deployment smoke-test — a
+        // nameless vault over a 129-byte DummyERC20 — on every chain. Refuse it
+        // before it lands in an append-only file (MORPHO_STUB_VAULTS.md).
+        const { kept: vaults, dropped } = await dropStubUnderlyings(chainId, discovered);
+        stubs += dropped.length;
         if (vaults.length === 0)
             continue;
         const current = existing[FORK][chainId] ?? [];
@@ -143,7 +171,7 @@ async function main() {
         existing[FORK][chainId] = Array.from(known.values()).sort((a, b) => a.vault.localeCompare(b.vault));
     }
     const writeResult = await writeTextIfChanged(VAULTS_FILE, JSON.stringify(existing, null, 2) + "\n");
-    console.log(`Added ${added} new vaults, refreshed ${renamed} names; file ${writeResult}.`);
+    console.log(`Added ${added} new vaults, refreshed ${renamed} names, refused ${stubs} stub-underlying vault(s); file ${writeResult}.`);
     if (failures.length > 0) {
         console.warn(`Could not scan ${failures.length} chain(s) (unreachable RPC or too restrictive to scan in budget): ${failures.join(", ")}`);
     }

@@ -18,8 +18,38 @@ export const MYSTIC_CHAIN_IDS = new Set([
     "98866", // Plume
     "4114", // Citrea
 ]);
+/** Does Mystic host a Morpho fork on this chain? Says nothing about ACCESS. */
 export function hasMysticApi(chainId) {
     return MYSTIC_CHAIN_IDS.has(chainId);
+}
+/**
+ * Can we actually READ that API? Since 2026-09 `morphoCache` answers every
+ * request — including one with no `chainId` — with
+ * `401 {"message":"API key required. Send it as the \`x-api-key\` header."}`,
+ * and no key exists in this repo or in lending-sdks.
+ *
+ * Keep these two predicates apart. `hasMysticApi` is a fact about the chain and
+ * still gates `cannotUseApi` correctly (the OFFICIAL Morpho API does not index
+ * these forks, key or no key). `mysticApiUsable` is a fact about our
+ * credentials, and it is the one a fetch path must branch on — conflating them
+ * put every Mystic chain down a branch that can only 401, so each run paid a
+ * round trip to log a fallback warning for a source that never answers.
+ */
+export function mysticApiUsable(chainId) {
+    return hasMysticApi(chainId) && Boolean(mysticApiKey());
+}
+/** Is a key configured at all? Chain-independent — the key is global. */
+export function mysticApiKeyConfigured() {
+    return Boolean(mysticApiKey());
+}
+/** Key from the environment; nothing sets one today. */
+function mysticApiKey() {
+    const k = process.env.MYSTIC_API_KEY;
+    return k && k.length > 0 ? k : undefined;
+}
+function mysticHeaders() {
+    const k = mysticApiKey();
+    return k ? { "x-api-key": k } : {};
 }
 function curatorEntry(name) {
     return { id: name, image: "", verified: false, name };
@@ -48,7 +78,9 @@ function dedupCurators(names) {
  * API and the Goldsky subgraph path).
  */
 export async function fetchMarketsFromMysticApi(chainId) {
-    const res = await fetch(`${FULL_URL}?chainId=${chainId}`);
+    const res = await fetch(`${FULL_URL}?chainId=${chainId}`, {
+        headers: mysticHeaders(),
+    });
     if (!res.ok) {
         throw new Error(`Mystic API error for chain ${chainId}: ${res.status} ${res.statusText}`);
     }
@@ -113,7 +145,9 @@ export async function fetchMarketsFromMysticApi(chainId) {
  * lltv). Markets without a stable id are skipped.
  */
 export async function fetchMysticMarkets(chainId) {
-    const res = await fetch(`${FULL_URL}?chainId=${chainId}`);
+    const res = await fetch(`${FULL_URL}?chainId=${chainId}`, {
+        headers: mysticHeaders(),
+    });
     if (!res.ok) {
         throw new Error(`Mystic API error for chain ${chainId}: ${res.status} ${res.statusText}`);
     }
@@ -156,7 +190,9 @@ export async function fetchAllMysticMarkets() {
  * an underlying or address are skipped.
  */
 export async function fetchMysticVaults(chainId) {
-    const res = await fetch(`${FULL_URL}?chainId=${chainId}`);
+    const res = await fetch(`${FULL_URL}?chainId=${chainId}`, {
+        headers: mysticHeaders(),
+    });
     if (!res.ok) {
         throw new Error(`Mystic API error for chain ${chainId}: ${res.status} ${res.statusText}`);
     }

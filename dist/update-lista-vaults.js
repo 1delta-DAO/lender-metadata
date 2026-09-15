@@ -7,6 +7,7 @@ import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
 import { fetchListaVaults, resolveListaVaultUnderlyings, } from "./fetch/morpho/fetchListaApi.js";
 import { detectVaultVersions } from "./fetch/morpho/vaultVersion.js";
+import { dropStubUnderlyings } from "./fetch/morpho/stubUnderlying.js";
 const VAULTS_FILE = "./data/morpho-type-vaults.json";
 const FORK = "LISTA_DAO";
 async function main() {
@@ -24,6 +25,7 @@ async function main() {
         existing[FORK] = {};
     let added = 0;
     let renamed = 0;
+    let stubs = 0;
     for (const [chainId, infos] of Object.entries(vaults)) {
         const current = existing[FORK][chainId] ?? [];
         const known = new Map(current.map((v) => [v.vault.toLowerCase(), v]));
@@ -58,10 +60,13 @@ async function main() {
             console.warn(`Underlying resolution failed for chain ${chainId}:`, err);
             continue;
         }
-        for (const addr of toResolve) {
-            const underlying = underlyings[addr];
-            if (!underlying)
-                continue;
+        // Same guard as every other append job: a vault over a stub underlying
+        // (the factory smoke-test DummyERC20) is not a product.
+        const { kept: resolvable, dropped } = await dropStubUnderlyings(chainId, toResolve
+            .filter((addr) => underlyings[addr])
+            .map((addr) => ({ address: addr, underlying: underlyings[addr] })));
+        stubs += dropped.length;
+        for (const { address: addr, underlying } of resolvable) {
             const name = nameByAddr.get(addr);
             const version = versionByAddr.get(addr);
             known.set(addr, {
@@ -75,7 +80,7 @@ async function main() {
         existing[FORK][chainId] = Array.from(known.values()).sort((a, b) => a.vault.localeCompare(b.vault));
     }
     const writeResult = await writeTextIfChanged(VAULTS_FILE, JSON.stringify(existing, null, 2) + "\n");
-    console.log(`Added ${added} new Lista vaults, refreshed ${renamed} names; file ${writeResult}.`);
+    console.log(`Added ${added} new Lista vaults, refreshed ${renamed} names, refused ${stubs} stub-underlying vault(s); file ${writeResult}.`);
     process.exit(0);
 }
 main().catch((err) => {

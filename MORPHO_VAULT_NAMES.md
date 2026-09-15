@@ -41,6 +41,16 @@ Factories per chain live in `config/morpho-addresses.json`
 coverage, or is covered by the Feather/Mystic jobs, is skipped by
 `update:onchain-vaults` automatically.
 
+**Every one of these jobs refuses a vault whose underlying is a stub** before
+the append-only merge (`dropStubUnderlyings`, `src/fetch/morpho/stubUnderlying.ts`).
+The factory deployment script deploys a 129-byte `DummyERC20` and one nameless
+empty vault over it on every chain, and the create events / Feather index it
+like any product — 17 of them reached the catalogue and were offered to the
+token-list pipeline as "missing tokens" before the guard existed. The rule is
+`totalSupply()` reverts, or `name()` AND `symbol()` both fail; it fails open on
+an unreachable chain. `pnpm exec tsx src/audit-vault-underlyings.ts` re-checks
+the whole catalogue with the same classifier. See `MORPHO_STUB_VAULTS.md`.
+
 At fetch time the consumer prefers the **live on-chain `name()`** and uses the
 registry `name` only as a fallback — so a stale registry name cannot mislabel a
 live vault, and the registry name is what keeps a row legible when an RPC read

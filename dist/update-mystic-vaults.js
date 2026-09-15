@@ -10,11 +10,19 @@
 // ============================================================================
 import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
-import { fetchAllMysticVaults } from "./fetch/morpho/fetchMysticApi.js";
+import { fetchAllMysticVaults, mysticApiKeyConfigured, } from "./fetch/morpho/fetchMysticApi.js";
 import { detectVaultVersions } from "./fetch/morpho/vaultVersion.js";
+import { dropStubUnderlyings } from "./fetch/morpho/stubUnderlying.js";
 const VAULTS_FILE = "./data/morpho-type-vaults.json";
 const FORK = "MORPHO_BLUE";
 async function main() {
+    if (!mysticApiKeyConfigured()) {
+        console.log("MYSTIC_API_KEY is not set — skipping. `morphoCache` has required an " +
+            "x-api-key since 2026-09 and 401s without one; " +
+            "`npm run update:onchain-vaults` covers these chains from the chain " +
+            "itself in the meantime.");
+        return;
+    }
     const vaults = await fetchAllMysticVaults();
     const totalFetched = Object.values(vaults).reduce((acc, list) => acc + list.length, 0);
     console.log(`Fetched ${totalFetched} Mystic vaults across ${Object.keys(vaults).length} chains`);
@@ -29,7 +37,14 @@ async function main() {
         existing[FORK] = {};
     let added = 0;
     let renamed = 0;
-    for (const [chainId, infos] of Object.entries(vaults)) {
+    let stubs = 0;
+    for (const [chainId, discovered] of Object.entries(vaults)) {
+        if (discovered.length === 0)
+            continue;
+        // Same guard as every other append job: a vault over the factory
+        // smoke-test DummyERC20 is not a product (MORPHO_STUB_VAULTS.md).
+        const { kept: infos, dropped } = await dropStubUnderlyings(chainId, discovered);
+        stubs += dropped.length;
         if (infos.length === 0)
             continue;
         const current = existing[FORK][chainId] ?? [];
@@ -63,7 +78,7 @@ async function main() {
         existing[FORK][chainId] = Array.from(known.values()).sort((a, b) => a.vault.localeCompare(b.vault));
     }
     const writeResult = await writeTextIfChanged(VAULTS_FILE, JSON.stringify(existing, null, 2) + "\n");
-    console.log(`Added ${added} new Mystic vaults, refreshed ${renamed} names; file ${writeResult}.`);
+    console.log(`Added ${added} new Mystic vaults, refreshed ${renamed} names, refused ${stubs} stub-underlying vault(s); file ${writeResult}.`);
     process.exit(0);
 }
 main().catch((err) => {

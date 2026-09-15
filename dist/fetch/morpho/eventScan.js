@@ -12,7 +12,9 @@
 // throws so the caller can report the chain as failed rather than silently
 // returning a truncated result.
 // ============================================================================
+import { decodeEventLog, encodeEventTopics } from "viem";
 import { getEvmClientUniversal, getEvmClientWithCustomRpcsUniversal, } from "@1delta/providers";
+import { fetchLogsFromExplorer, hasExplorerLogApi } from "./explorerLogs.js";
 // Per-scan getLogs budget. Override with EVENT_SCAN_MAX_CALLS for chains whose
 // RPC caps ranges tightly over a long history (more calls = longer but deeper).
 // This is a floor: scanContractEvents raises it to comfortably cover the actual
@@ -204,6 +206,24 @@ async function scanChunk(client, address, event, from, to, onLog, state) {
  * should catch per-chain and continue.
  */
 export async function scanContractEvents(chainId, address, event, onLog) {
+    // Chains whose node cannot serve this scan read the same events out of the
+    // explorer's index instead — one request, whole history. See explorerLogs.ts
+    // for why the node path fails on each of them; the short version is that a
+    // PRUNED node breaks `findDeployBlock` below, and a scan anchored near head
+    // then completes cleanly having seen nothing.
+    if (hasExplorerLogApi(chainId)) {
+        const topic0 = encodeEventTopics({ abi: [event] })[0];
+        const logs = await fetchLogsFromExplorer(chainId, address, topic0);
+        for (const log of logs) {
+            const { args } = decodeEventLog({
+                abi: [event],
+                topics: log.topics,
+                data: log.data,
+            });
+            onLog({ args, blockNumber: BigInt(log.blockNumber) });
+        }
+        return;
+    }
     const state = { calls: 0, budget: MAX_LOG_CALLS };
     const { client, latest, span } = await pickWidestRpc(chainId, address, event, state);
     const deploy = await findDeployBlock(client, address);

@@ -172,11 +172,6 @@
         "curatorName": "Clearstar"
       },
       {
-        "vault": "0x5eae7e544258e421cb2774e508e15ee8dade8200",
-        "underlying": "0x1702633bd12a03e8ea6fde795a3ecf0d3725b4e1",
-        "version": "v2"
-      },
-      {
         "vault": "0xe8dd6a1e13244a27bdaa19ccbf33013647c675d1",
         "underlying": "0xe7cd86e13ac4309349f30b3435a9d337750fc82d",
         "name": "Core USDT0",
@@ -215,11 +210,6 @@
         "underlying": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
         "name": "Test USDC Vault",
         "version": "v1"
-      },
-      {
-        "vault": "0xd7f2f89e1991de2b9d62fbeeeb3bc0b01d032328",
-        "underlying": "0xf1e71beb3565f6bb7529e40dbd4469d8722f06bf",
-        "version": "v1"
       }
     ],
     "239": [
@@ -241,11 +231,6 @@
         "name": "9Summits Kilimandjaro ETH",
         "version": "v1",
         "curatorName": "9Summits"
-      },
-      {
-        "vault": "0x2903a9e55bb8a05e6cbdd5c5d00203bf527fa9db",
-        "underlying": "0xcf03b0b1abe1eefdfbeeabcfd3fc3e8ba6648015",
-        "version": "v1"
       },
       {
         "vault": "0x4183bd253dc1918a04bd8a8dd546baad58898109",
@@ -362,11 +347,6 @@
       }
     ],
     "1135": [
-      {
-        "vault": "0x389724731cea95c4a46cc93e96f211f389f31405",
-        "underlying": "0x5948d0849e691e304b45a36d34cb8c4d7b0093c9",
-        "version": "v1"
-      },
       {
         "vault": "0x50cb55be8cf05480a844642cb979820c847782ae",
         "underlying": "0x43f2376d5d03553ae72f4a8093bbe9de4336eb08",
@@ -497,11 +477,6 @@
         "name": "RockawayX USDC YIELD",
         "version": "v2",
         "curatorName": "RockawayX"
-      },
-      {
-        "vault": "0x79ded579756072372510ff3a86f884433a697b5c",
-        "underlying": "0x107b8999eec91f2beeaaece0c811f91b54ecdb85",
-        "version": "v2"
       }
     ],
     "1868": [
@@ -534,11 +509,6 @@
         "curatorName": "Vaulty"
       },
       {
-        "vault": "0x94665e0df3c8c25119d80b2e3c703ccd127bf37e",
-        "underlying": "0x7b6315379faf4379bb22c121309813c4b63e5430",
-        "version": "v1"
-      },
-      {
         "vault": "0xba738d34c4e278e1cd64aaa9bbd569688e8dc5dc",
         "underlying": "0x2cae934a1e84f693fbb78ca5ed3b0a6893259441",
         "name": "Re7 ASTR",
@@ -561,11 +531,6 @@
       }
     ],
     "2741": [
-      {
-        "vault": "0x225c6e63970bb04d0780b3abb047dba659ad3cec",
-        "underlying": "0xb941a54fabaf6cf3f91372c3042a5f94706892e5",
-        "version": "v1"
-      },
       {
         "vault": "0x528ee813c1f74042e98c94a522aaf2ca917003d2",
         "underlying": "0x3439153eb7af838ad19d56e1571fbd09333c2809",
@@ -629,11 +594,6 @@
         "version": "v2"
       },
       {
-        "vault": "0x7cf2c1a184c2f17e0413a13b21b1fdafd51df08c",
-        "underlying": "0x2346878c739487b121490b4bea53e12a078725e6",
-        "version": "v2"
-      },
-      {
         "vault": "0x9131eb40bd0bdce73c72755f1bb2cf39a9453341",
         "underlying": "0xcfb1186f4e93d60e60a8bdd997427d1f33bc372b",
         "name": "Gauntlet USDC",
@@ -653,12 +613,6 @@
         "name": "UltraYield ctUSD Prime",
         "version": "v1",
         "curatorName": "UltraYield"
-      },
-      {
-        "vault": "0xc063aca30b0d56ff0a9e446a94f8cdb421ab89fb",
-        "underlying": "0xefd1e95211adb15de3762b5b595769c767de51f2",
-        "name": "0x",
-        "version": "v2"
       }
     ],
     "4326": [
@@ -668,11 +622,6 @@
         "name": "Feather EM USDm",
         "version": "v2",
         "curatorName": "Feather"
-      },
-      {
-        "vault": "0xf55c695ebaf1f4eefeda0833ef6a29c90e7b7f05",
-        "underlying": "0x838ac89cb0734f16977b00ba4995f17518df69c7",
-        "version": "v2"
       }
     ],
     "4663": [
@@ -744,19 +693,9 @@
         "name": "Vaulty Vault",
         "version": "v1",
         "curatorName": "Vaulty"
-      },
-      {
-        "vault": "0xf4461806c58d9e7cd74e79b113d81d127634b807",
-        "underlying": "0xaf00a193c4b96764ab03bffee12689b90a4019ab",
-        "version": "v1"
       }
     ],
     "42220": [
-      {
-        "vault": "0x099272b39ae8e6d7d415e8ba252c3d2c59432087",
-        "underlying": "0xb386316a5a6d2090deaf1004ae92f7ef976d014d",
-        "version": "v1"
-      },
       {
         "vault": "0x3f76b687db863c0c6f5878087536e35dc9cd1c48",
         "underlying": "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
@@ -802,11 +741,6 @@
         "curatorName": "Clearstar"
       },
       {
-        "vault": "0x339b3b6413345b4d3beb524c12cd3910c6dd8dbb",
-        "underlying": "0xcd556db60203d02d1004a2a98fc65f8efebf792b",
-        "version": "v1"
-      },
-      {
         "vault": "0x7e8195b96bbcfad0e20243dcc686d188a827f256",
         "underlying": "0xbf7d0f62b64b23053949b3a88a03da5bfd35b2e2",
         "name": "Metronome msETH Vault",
@@ -849,11 +783,6 @@
         "version": "v1"
       },
       {
-        "vault": "0xb00123b1058c13559408b9d609ed417617f588ed",
-        "underlying": "0xedf3ac5ed52495ed160d9125ab2d8a9682f283dd",
-        "version": "v1"
-      },
-      {
         "vault": "0xe804fe1711ca643e531559a8ccb73171211fde61",
         "underlying": "0x0200c29006150606b650577bbe7b6248f58470c1",
         "name": "Vaulty Vault",
@@ -861,13 +790,7 @@
         "curatorName": "Vaulty"
       }
     ],
-    "59144": [
-      {
-        "vault": "0x3e89134a270b8f0dc3dfd8bf6e249fddb2f7a634",
-        "underlying": "0x8985e6da757b2eb714131f999050c586ef50f274",
-        "version": "v1"
-      }
-    ],
+    "59144": [],
     "80094": [
       {
         "vault": "0x30bba9cd9eb8c95824aa42faa1bb397b07545bc1",
@@ -933,11 +856,6 @@
         "version": "v1"
       },
       {
-        "vault": "0x6f8acb9c03abb7ba6ba24b4698b019ffe96eae60",
-        "underlying": "0x111208b9d12822630e343363ef44192843a73984",
-        "version": "v1"
-      },
-      {
         "vault": "0xaff37c1b6ff4db3e229faf54ddefa5f07344710e",
         "underlying": "0xea237441c92cae6fc17caaf9a7acb3f953be4bd1",
         "name": "MEV Plume Vault",
@@ -980,11 +898,6 @@
         "underlying": "0xdddd73f5df1f0dc31373357beac77545dc5a6f3f",
         "name": "Pangolins pUSD",
         "version": "v1"
-      },
-      {
-        "vault": "0xd2586890224ab02bf31334e15872cd9c93f68ba8",
-        "underlying": "0xae83e5bd2b9925792205051bed32de8e0747779b",
-        "version": "v2"
       },
       {
         "vault": "0xd8b51a1e8db2b749fe6f2af8c23a25cc6387284e",

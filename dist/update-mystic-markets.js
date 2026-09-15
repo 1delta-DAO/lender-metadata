@@ -17,7 +17,7 @@
 import { zeroAddress } from "viem";
 import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
-import { fetchAllMysticMarkets, } from "./fetch/morpho/fetchMysticApi.js";
+import { mysticApiKeyConfigured, fetchAllMysticMarkets, } from "./fetch/morpho/fetchMysticApi.js";
 const MARKETS_FILE = "./config/morpho-type-markets.json";
 const LABELS_FILE = "./data/lender-labels.json";
 const MISSING_ASSETS_LOG = "./data/mystic-missing-assets.log";
@@ -41,6 +41,12 @@ function enumName(marketId) {
     return `${FORK}_${marketId.slice(2).toUpperCase()}`;
 }
 async function main() {
+    if (!mysticApiKeyConfigured()) {
+        console.log("MYSTIC_API_KEY is not set — skipping. `morphoCache` has required an " +
+            "x-api-key since 2026-09 and 401s without one; `npm run update:onchain-markets` covers these " +
+            "chains from the chain itself in the meantime.");
+        return;
+    }
     const markets = await fetchAllMysticMarkets();
     const totalFetched = Object.values(markets).reduce((acc, list) => acc + list.length, 0);
     console.log(`Fetched ${totalFetched} Mystic markets across ${Object.keys(markets).length} chains`);

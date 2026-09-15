@@ -173,8 +173,9 @@ export class InverseUpdater {
         const names = {};
         const shortNames = {};
         const configOut = {};
-        // DBR price snapshot refresh (the RUNTIME rate is live from /api/dbr;
-        // this snapshot is only the fetcher's offline fallback).
+        // DBR price snapshot refresh. The RUNTIME rate is read on-chain from
+        // `dbrPricePool` with /api/dbr behind it; this snapshot is only the
+        // LAST resort, after both of those have failed.
         let dbrSnapshot;
         try {
             const dbr = await fetchJson(DBR_URL);

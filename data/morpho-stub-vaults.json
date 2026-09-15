@@ -1,0 +1,304 @@
+{
+  "_comment": "Morpho-type vaults whose asset() is the 129-byte factory smoke-test `DummyERC20` (approve()+decimals() only; name/symbol/totalSupply/balanceOf/transfer all revert). Identical bytecode on every chain (keccak prefix 0x9c7619a2bb38fa84) — the MetaMorpho factory deployment script deploys stub token + vault in one tx. These vaults are not products and their underlyings must NOT be added to token lists. Regenerate with `pnpm exec tsx src/audit-vault-underlyings.ts`. PURGED from data/morpho-type-vaults.json on 2026-09-14; every append job (feather / onchain / mystic / lista vaults) now runs candidates through `dropStubUnderlyings` (src/fetch/morpho/stubUnderlying.ts), so they cannot be re-added.",
+  "generatedAt": "2026-09-14T09:26:27.356Z",
+  "probed": {
+    "chains": 34,
+    "uniqueUnderlyings": 246,
+    "vaults": 3147,
+    "unreachableChains": [
+      "5042"
+    ]
+  },
+  "stubVaults": [
+    {
+      "chainId": "14",
+      "vault": "0x5eae7e544258e421cb2774e508e15ee8dade8200",
+      "underlying": "0x1702633bd12a03e8ea6fde795a3ecf0d3725b4e1",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v2",
+      "vaultName": null,
+      "vaultTotalAssets": null,
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "146",
+      "vault": "0xd7f2f89e1991de2b9d62fbeeeb3bc0b01d032328",
+      "underlying": "0xf1e71beb3565f6bb7529e40dbd4469d8722f06bf",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "239",
+      "vault": "0x2903a9e55bb8a05e6cbdd5c5d00203bf527fa9db",
+      "underlying": "0xcf03b0b1abe1eefdfbeeabcfd3fc3e8ba6648015",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "1135",
+      "vault": "0x389724731cea95c4a46cc93e96f211f389f31405",
+      "underlying": "0x5948d0849e691e304b45a36d34cb8c4d7b0093c9",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "1672",
+      "vault": "0x79ded579756072372510ff3a86f884433a697b5c",
+      "underlying": "0x107b8999eec91f2beeaaece0c811f91b54ecdb85",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v2",
+      "vaultName": null,
+      "vaultTotalAssets": null,
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "1868",
+      "vault": "0x94665e0df3c8c25119d80b2e3c703ccd127bf37e",
+      "underlying": "0x7b6315379faf4379bb22c121309813c4b63e5430",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "2741",
+      "vault": "0x225c6e63970bb04d0780b3abb047dba659ad3cec",
+      "underlying": "0xb941a54fabaf6cf3f91372c3042a5f94706892e5",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "2818",
+      "vault": "0x7cf2c1a184c2f17e0413a13b21b1fdafd51df08c",
+      "underlying": "0x2346878c739487b121490b4bea53e12a078725e6",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v2",
+      "vaultName": null,
+      "vaultTotalAssets": null,
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "4114",
+      "vault": "0xc063aca30b0d56ff0a9e446a94f8cdb421ab89fb",
+      "underlying": "0xefd1e95211adb15de3762b5b595769c767de51f2",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v2",
+      "vaultName": null,
+      "vaultTotalAssets": null,
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "4326",
+      "vault": "0xf55c695ebaf1f4eefeda0833ef6a29c90e7b7f05",
+      "underlying": "0x838ac89cb0734f16977b00ba4995f17518df69c7",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v2",
+      "vaultName": null,
+      "vaultTotalAssets": null,
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "34443",
+      "vault": "0xf4461806c58d9e7cd74e79b113d81d127634b807",
+      "underlying": "0xaf00a193c4b96764ab03bffee12689b90a4019ab",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "42220",
+      "vault": "0x099272b39ae8e6d7d415e8ba252c3d2c59432087",
+      "underlying": "0xb386316a5a6d2090deaf1004ae92f7ef976d014d",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "43111",
+      "vault": "0x339b3b6413345b4d3beb524c12cd3910c6dd8dbb",
+      "underlying": "0xcd556db60203d02d1004a2a98fc65f8efebf792b",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "57073",
+      "vault": "0xb00123b1058c13559408b9d609ed417617f588ed",
+      "underlying": "0xedf3ac5ed52495ed160d9125ab2d8a9682f283dd",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "59144",
+      "vault": "0x3e89134a270b8f0dc3dfd8bf6e249fddb2f7a634",
+      "underlying": "0x8985e6da757b2eb714131f999050c586ef50f274",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "98866",
+      "vault": "0x6f8acb9c03abb7ba6ba24b4698b019ffe96eae60",
+      "underlying": "0x111208b9d12822630e343363ef44192843a73984",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v1",
+      "vaultName": null,
+      "vaultTotalAssets": "0",
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    },
+    {
+      "chainId": "98866",
+      "vault": "0xd2586890224ab02bf31334e15872cd9c93f68ba8",
+      "underlying": "0xae83e5bd2b9925792205051bed32de8e0747779b",
+      "fork": "MORPHO_BLUE",
+      "vaultVersion": "v2",
+      "vaultName": null,
+      "vaultTotalAssets": null,
+      "underlyingCodeBytes": 129,
+      "underlyingCodeHashPrefix": "0x9c7619a2bb38fa84",
+      "reasons": [
+        "DummyERC20 fingerprint (129B, decimals()=0, approve-only)",
+        "name() and symbol() both revert/empty",
+        "totalSupply() reverts"
+      ],
+      "inCatalogue": false
+    }
+  ],
+  "purgedAt": "2026-09-14"
+}

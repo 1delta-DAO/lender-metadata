@@ -7,7 +7,7 @@ import { readJsonFile } from "../utils/index.js";
 import { Chain } from "@1delta/chain-registry";
 import { getMarketsOnChain } from "./fetchMorphoOnChain.js";
 import { hasSubgraph, fetchMarketsFromSubgraph, } from "./fetchMorphoSubgraph.js";
-import { hasMysticApi, fetchMarketsFromMysticApi, } from "./fetchMysticApi.js";
+import { hasMysticApi, mysticApiUsable, fetchMarketsFromMysticApi, } from "./fetchMysticApi.js";
 import { Lender } from "@1delta/lender-registry";
 import { computeMorphoMarketId } from "./morphoMarketId.js";
 const labelsFile = "./data/lender-labels.json";
@@ -45,6 +45,22 @@ export const MORPHO_MAIN_CHAIN_IDS = [
     "747474",
     "98866",
 ];
+/**
+ * Chains where we deliberately serve markets Morpho itself does NOT `list`.
+ *
+ * This is the metadata-side counterpart of `MORPHO_UNLISTED_CHAINS` in
+ * margin-fetcher's `lending/public-data/morpho/unlisted.ts`, and **the two must
+ * hold the same chain ids**. Nothing can check that across repos, so state the
+ * reason at both ends: the fetcher decides which markets are SERVED and PRICED,
+ * this file decides which ones get a NAME and an oracle row. A chain in one set
+ * and not the other either serves markets with no label, or publishes a roster
+ * for markets nobody fetches.
+ *
+ * 4663 (Robinhood Chain): 189 of its 194 markets are unlisted, ~$570k, and
+ * essentially all of it is Longbow — a curated Morpho Blue deployment whose
+ * markets Morpho's own frontend does not carry. See LONGBOW.md in lending-sdks.
+ */
+const SERVES_UNLISTED_CHAINS = new Set(["4663"]);
 export const cannotUseApi = (chainId, fork) => {
     if (fork === "MORPHO_BLUE") {
         return (chainId === Chain.HEMI_NETWORK ||
@@ -76,12 +92,30 @@ function sortEntriesById(data) {
     return sortedData;
 }
 /**
- * Merges old and new data maps based on unique combinations of loanAsset and collateralAsset
+ * Merge old and new oracle-roster maps, keyed by the (oracle, loanAsset,
+ * collateralAsset) TRIPLET.
+ *
+ * The oracle belongs in the key. Morpho lets anyone open a market on any
+ * oracle, so one loan/collateral pair routinely has several — and every
+ * consumer identifies a row by the triplet, not the pair: margin-fetcher's
+ * `generateMarketId(oracle, loanAsset, collateralAsset)` builds the
+ * `MORPHO_BLUE_<id>` key from all three, and `collectMarketInputs` dedupes on
+ * `marketTripletKey(loan, coll, oracle)`.
+ *
+ * Keyed on the pair alone (as this did until 2026-09-07) the merge silently
+ * kept only the LAST row for each pair, on every run, in both directions —
+ * old entries displaced by new ones and vice versa. The damage was invisible
+ * because the file always looked self-consistent: afterwards no pair has two
+ * oracles, which reads as "there is only one" rather than "the rest were
+ * dropped". Measured against `morpho-oracles-data.json` (keyed by market id,
+ * so unaffected), Ethereum alone had 34 pairs served by multiple oracles —
+ * 37 rows this merge was discarding every time it ran.
+ *
  * @param {Object} oldDataMap - The old data map with chainId keys
  * @param {Object} newDataMap - The new data map with chainId keys
  * @returns {Object} Merged data map with new data taking precedence
  */
-function mergeOracleDataMaps(oldDataMap, newDataMap) {
+export function mergeOracleDataMaps(oldDataMap, newDataMap) {
     let merged = {};
     // iterate over chains
     const allChainIds = new Set([
@@ -97,17 +131,20 @@ function mergeOracleDataMaps(oldDataMap, newDataMap) {
         for (const fork of allForks) {
             const oldEntries = oldDataMap[chainId]?.[fork] || [];
             const newEntries = newDataMap[chainId]?.[fork] || [];
-            // Create a map for quick lookup using loanAsset + collateralAsset as key
+            // Quick-lookup key: the full triplet, lower-cased so a checksum-cased
+            // row from one source never reads as distinct from the same row in
+            // another.
+            const keyOf = (entry) => [entry.oracle, entry.loanAsset, entry.collateralAsset]
+                .map((v) => String(v ?? "").toLowerCase())
+                .join("-");
             const entryMap = new Map();
             // Add old entries first
             for (const entry of oldEntries) {
-                const key = `${entry.loanAsset}-${entry.collateralAsset}`;
-                entryMap.set(key, entry);
+                entryMap.set(keyOf(entry), entry);
             }
             // Add new entries (will overwrite old ones with same key)
             for (const entry of newEntries) {
-                const key = `${entry.loanAsset}-${entry.collateralAsset}`;
-                entryMap.set(key, entry);
+                entryMap.set(keyOf(entry), entry);
             }
             if (!merged[chainId])
                 merged[chainId] = {};
@@ -115,11 +152,16 @@ function mergeOracleDataMaps(oldDataMap, newDataMap) {
                 merged[chainId][fork] = [];
             // Convert back to array and sort for consistency
             merged[chainId][fork] = Array.from(entryMap.values()).sort((a, b) => {
-                // Sort by loanAsset first, then by collateralAsset
+                // Sort by loanAsset, then collateralAsset, then oracle — the oracle
+                // tiebreak keeps the file order stable now that a pair can hold more
+                // than one row.
                 if (a.loanAsset !== b.loanAsset) {
                     return a.loanAsset.localeCompare(b.loanAsset);
                 }
-                return a.collateralAsset.localeCompare(b.collateralAsset);
+                if (a.collateralAsset !== b.collateralAsset) {
+                    return a.collateralAsset.localeCompare(b.collateralAsset);
+                }
+                return String(a.oracle ?? "").localeCompare(String(b.oracle ?? ""));
             });
         }
     }
@@ -245,8 +287,10 @@ export class MorphoBlueUpdater {
                 try {
                     if (cannotUseApi(chainId, fork)) {
                         // Mystic Finance hosts a Morpho Blue fork on a few chains and
-                        // exposes its own indexer; prefer it over on-chain reads.
-                        if (fork === "MORPHO_BLUE" && hasMysticApi(chainId)) {
+                        // exposes its own indexer; prefer it over on-chain reads WHEN WE
+                        // CAN READ IT. Unkeyed it 401s, so gating on `hasMysticApi` alone
+                        // spent a request per chain per run to log a fallback warning.
+                        if (fork === "MORPHO_BLUE" && mysticApiUsable(chainId)) {
                             try {
                                 marketData = await fetchMarketsFromMysticApi(chainId);
                             }
@@ -281,6 +325,26 @@ export class MorphoBlueUpdater {
                 for (const el of items) {
                     const hash = el.marketId ?? el.uniqueKey;
                     const enumName = `${fork}_${hash.slice(2).toUpperCase()}`;
+                    // ONE predicate for every write below.
+                    //
+                    // It used to be spelled out separately at each of the three call
+                    // sites, and the label write simply did not carry it — so the roster
+                    // described markets it could not price. Measured 2026-09-08: 7,506
+                    // MORPHO_BLUE markets had a label in `lender-labels.json` while only
+                    // 1,199 had a row in `morpho-oracles-data.json`, and on Robinhood
+                    // Chain all 56 Longbow markets were named with 0 priced. A name is
+                    // what makes a market look present; the oracle row is what makes it
+                    // usable. They have to be gated together or the gap is invisible.
+                    //
+                    // NOTE the merge for `lender-labels.json` is additive (`mergeData` ->
+                    // `deepMerge`), so this is FORWARD-only: labels already written for
+                    // unlisted markets survive until something prunes them deliberately.
+                    // That is the safe direction — see the null-clobber and pair-keyed
+                    // merge losses this file has already caused.
+                    const isListed = (el.listed ?? el.whitelisted) === true;
+                    // A market is "served" if Morpho lists it, or if we have opted this
+                    // chain out of Morpho's curation entirely.
+                    const isServed = isListed || SERVES_UNLISTED_CHAINS.has(chainId);
                     if (!oracles[chainId])
                         oracles[chainId] = {};
                     if (!oracles[chainId][fork])
@@ -291,7 +355,7 @@ export class MorphoBlueUpdater {
                     const loanAssetDecimals = el.loanAsset.decimals;
                     const collateralAssetDecimals = el.collateralAsset?.decimals;
                     const isZero = (addr) => !addr || addr === "0x0000000000000000000000000000000000000000";
-                    if ((el.listed ?? el.whitelisted) && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
+                    if (isServed && !isZero(collateralAsset) && !isZero(loanAsset) && !isZero(oracle)) {
                         oracles[chainId][fork].push({
                             oracle,
                             loanAsset,
@@ -328,10 +392,18 @@ export class MorphoBlueUpdater {
                     const shortPrefix = fork === Lender.LISTA_DAO ? "LD" : "MB";
                     const longName = `${protocolPrefix} ${collSym}-${loanSym} ${bps}`;
                     const shortName = `${shortPrefix} ${collSym}-${loanSym} ${bps}`;
-                    names[enumName] = longName;
-                    shortNames[enumName] = shortName;
+                    // Same gate as the oracle roster above: do not NAME a market whose
+                    // oracle we deliberately skipped. Deliberately placed AFTER the
+                    // `MORPHO_BLUE_MARKETS` append, which is market DISCOVERY for the
+                    // chains that cannot use the API and must keep running regardless of
+                    // curation (`fetchMorphoOnChain` / `fetchMysticApi` hardcode the flag
+                    // true for exactly that reason).
+                    if (isServed) {
+                        names[enumName] = longName;
+                        shortNames[enumName] = shortName;
+                    }
                     // curators
-                    if ((el.listed ?? el.whitelisted) && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
+                    if (isServed && !!el.supplyingVaults && el.supplyingVaults.length > 0) {
                         if (!curators[chainId])
                             curators[chainId] = {};
                         const uniqueCuratorList = Array.from(new Map(el.supplyingVaults
@@ -412,7 +484,9 @@ export async function fetchMorphoMarketRowsForChain(chainId) {
         let marketData;
         try {
             if (cannotUseApi(chainId, fork)) {
-                if (fork === "MORPHO_BLUE" && hasMysticApi(chainId)) {
+                // Same key gate as the batch path above: unkeyed, this branch can
+                // only 401, so the on-chain read is the real source here.
+                if (fork === "MORPHO_BLUE" && mysticApiUsable(chainId)) {
                     try {
                         marketData = await fetchMarketsFromMysticApi(chainId);
                     }
