@@ -27,6 +27,7 @@ const DEFAULT_RPCS = {
         "https://rpc.ankr.com/eth",
         "https://cloudflare-eth.com",
     ],
+    "5042": ["https://rpc.mainnet.arc.io"],
 };
 function rpcsForChain(chainId) {
     const env = process.env[`AAVE_V4_PM_RPC_${chainId}`];

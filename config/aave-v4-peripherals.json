@@ -382,6 +382,68 @@
     }
   },
   "10": {},
+  "5042": {
+    "signatureGateway": "0x0d36a4a21119bbbde559d59002254171d976289f",
+    "perHub": {
+      "0x17288dfc86205301064577b98b02b81017e6f79c": {
+        "signatureGateway": "0x0d36a4a21119bbbde559d59002254171d976289f"
+      }
+    },
+    "perSpoke": {
+      "0x4164ebcaf74670aa74c8d4f59de6157c0780f1bb": {
+        "spokeName": "Forex",
+        "spokeId": "NTA0Mjo6MHg0MTY0RUJDQUY3NDY3MGFhNzRDOEQ0RjU5ZGU2MTU3YzA3ODBGMWJC",
+        "positionManagers": [
+          {
+            "name": "Aave Giver Position Manager",
+            "address": "0x01da80eef3004ebbf90b7637b1de7ff30fbc7cf1",
+            "active": true
+          },
+          {
+            "name": "Aave Signature Gateway",
+            "address": "0x0d36a4a21119bbbde559d59002254171d976289f",
+            "active": true
+          },
+          {
+            "name": "Aave Config Position Manager",
+            "address": "0xa5aa65ae1c830d2ae10853ceea42ae653adb3312",
+            "active": true
+          },
+          {
+            "name": "Aave Taker Position Manager",
+            "address": "0xe9fae1c386c6f45b1fb3c3ef01ade424dad4bccf",
+            "active": true
+          }
+        ]
+      },
+      "0xb843bdc3a87a05e77e07df9fe48928b3a34b134d": {
+        "spokeName": "Main",
+        "spokeId": "NTA0Mjo6MHhCODQzYmRDM2E4N0EwNUU3N0UwN0RmOUZFNDg5MjhiM0EzNGIxMzRk",
+        "positionManagers": [
+          {
+            "name": "Aave Giver Position Manager",
+            "address": "0x01da80eef3004ebbf90b7637b1de7ff30fbc7cf1",
+            "active": true
+          },
+          {
+            "name": "Aave Signature Gateway",
+            "address": "0x0d36a4a21119bbbde559d59002254171d976289f",
+            "active": true
+          },
+          {
+            "name": "Aave Config Position Manager",
+            "address": "0xa5aa65ae1c830d2ae10853ceea42ae653adb3312",
+            "active": true
+          },
+          {
+            "name": "Aave Taker Position Manager",
+            "address": "0xe9fae1c386c6f45b1fb3c3ef01ade424dad4bccf",
+            "active": true
+          }
+        ]
+      }
+    }
+  },
   "43114": {
     "nativeGateway": "0xe4c7183a5f22c365140f41d733d8a8bad5a1a6ba",
     "signatureGateway": "0x6e3b91a951da9b515a5e98f0c7d210a697382e7f",

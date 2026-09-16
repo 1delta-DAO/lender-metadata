@@ -43,4 +43,13 @@ export const AAVE_V4_HUB_SEED = {
             attribution: 'AAVE_V4_CORE',
         },
     ],
+    // Circle Arc (mainnet 2026-09-16). Aave went straight to V4 here — there is
+    // no V3 market. Core hub with Main + Forex spokes (USDC, EURC, cirBTC, WETH).
+    // Gas is USDC so Aave deploys no NativeGateway (API returns the zero address).
+    '5042': [
+        {
+            hub: '0x17288dfc86205301064577b98B02b81017e6F79C',
+            attribution: 'AAVE_V4_CORE',
+        },
+    ],
 };

@@ -32,6 +32,7 @@ const DEFAULT_RPCS: Record<string, string[]> = {
     "https://rpc.ankr.com/eth",
     "https://cloudflare-eth.com",
   ],
+  "5042": ["https://rpc.mainnet.arc.io"],
 };
 
 function rpcsForChain(chainId: string): string[] {

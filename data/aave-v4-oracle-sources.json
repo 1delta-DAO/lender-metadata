@@ -771,6 +771,56 @@
       "source": "0x81d0305b9dc94f8f177bbf6dbeb0278d7aff22df"
     }
   ],
+  "5042": [
+    {
+      "underlying": "0x3600000000000000000000000000000000000000",
+      "spoke": "0x4164ebcaf74670aa74c8d4f59de6157c0780f1bb",
+      "reserveId": 0,
+      "oracle": "0x2abd2b5c30d649273b3b762b0e1758bac8f87cfe",
+      "decimals": 8,
+      "source": "0x729cfd10fc10a908ae9f9b35245cb6ee14d44d6b"
+    },
+    {
+      "underlying": "0xbef5f6d51cb62b58e6a8f77868681825c6fe21c1",
+      "spoke": "0x4164ebcaf74670aa74c8d4f59de6157c0780f1bb",
+      "reserveId": 1,
+      "oracle": "0x2abd2b5c30d649273b3b762b0e1758bac8f87cfe",
+      "decimals": 8,
+      "source": "0x3b381530cf032f1b2dc1974d228c8bd70bf41914"
+    },
+    {
+      "underlying": "0x3600000000000000000000000000000000000000",
+      "spoke": "0xb843bdc3a87a05e77e07df9fe48928b3a34b134d",
+      "reserveId": 0,
+      "oracle": "0x6ffe98f3422041236c19923edb949f18a69e8a09",
+      "decimals": 8,
+      "source": "0x729cfd10fc10a908ae9f9b35245cb6ee14d44d6b"
+    },
+    {
+      "underlying": "0xbef5f6d51cb62b58e6a8f77868681825c6fe21c1",
+      "spoke": "0xb843bdc3a87a05e77e07df9fe48928b3a34b134d",
+      "reserveId": 1,
+      "oracle": "0x6ffe98f3422041236c19923edb949f18a69e8a09",
+      "decimals": 8,
+      "source": "0x3b381530cf032f1b2dc1974d228c8bd70bf41914"
+    },
+    {
+      "underlying": "0x171a4217b86a807a64eb94757db6849fb4bdbaa0",
+      "spoke": "0xb843bdc3a87a05e77e07df9fe48928b3a34b134d",
+      "reserveId": 2,
+      "oracle": "0x6ffe98f3422041236c19923edb949f18a69e8a09",
+      "decimals": 8,
+      "source": "0x7777547914e03bcbb04ae034942765a0dbb26ae3"
+    },
+    {
+      "underlying": "0x128cc466b61f542da60c70e3aa11c10e19b84edb",
+      "spoke": "0xb843bdc3a87a05e77e07df9fe48928b3a34b134d",
+      "reserveId": 3,
+      "oracle": "0x6ffe98f3422041236c19923edb949f18a69e8a09",
+      "decimals": 8,
+      "source": "0x2c7dc3567b3490f53a8d32625d766834dd023f60"
+    }
+  ],
   "43114": [
     {
       "underlying": "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
