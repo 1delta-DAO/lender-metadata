@@ -71,8 +71,13 @@ export const MORPHO_MAIN_CHAIN_IDS = [
  * 4663 (Robinhood Chain): 189 of its 194 markets are unlisted, ~$570k, and
  * essentially all of it is Longbow — a curated Morpho Blue deployment whose
  * markets Morpho's own frontend does not carry. See LONGBOW.md in lending-sdks.
+ *
+ * 480 (World Chain): 0 of its 30 markets are listed — Morpho's frontend does not
+ * carry the chain at all — while the book holds ~$59.5M supplied. Enabled
+ * 2026-09-16 together with `MORPHO_UNLISTED_CHAINS` in lending-sdks
+ * (`margin-fetcher/src/lending/public-data/morpho/unlisted.ts`).
  */
-const SERVES_UNLISTED_CHAINS = new Set<string>(["4663"]);
+const SERVES_UNLISTED_CHAINS = new Set<string>(["4663", "480"]);
 
 export const cannotUseApi = (chainId: string, fork: string) => {
   if (fork === "MORPHO_BLUE") {
