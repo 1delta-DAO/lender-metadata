@@ -9,26 +9,26 @@ importers:
   .:
     dependencies:
       '@1delta/abis':
-        specifier: ^0.0.47
-        version: 0.0.47
+        specifier: ^0.0.50
+        version: 0.0.50
       '@1delta/calldata-sdk':
-        specifier: ^0.0.204
-        version: 0.0.204(typescript@6.0.3)
+        specifier: ^0.0.209
+        version: 0.0.209(typescript@6.0.3)
       '@1delta/chain-registry':
-        specifier: ^0.0.7
-        version: 0.0.7
+        specifier: ^0.0.8
+        version: 0.0.8
       '@1delta/data-sdk':
-        specifier: ^0.0.52
-        version: 0.0.52
+        specifier: ^0.0.56
+        version: 0.0.56
       '@1delta/lender-registry':
-        specifier: ^0.0.49
-        version: 0.0.49
+        specifier: ^0.0.50
+        version: 0.0.50
       '@1delta/margin-fetcher':
-        specifier: ^0.0.409
-        version: 0.0.409(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
+        specifier: ^5.0.77
+        version: 5.0.83(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
       '@1delta/providers':
-        specifier: ^0.0.67
-        version: 0.0.67(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
+        specifier: ^0.0.71
+        version: 0.0.71(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
       '@morpho-org/midnight-sdk':
         specifier: ^1.3.0
         version: 1.3.0(@morpho-org/morpho-ts@2.10.0)(viem@2.56.0(typescript@6.0.3))
@@ -54,20 +54,12 @@ importers:
 
 packages:
 
-  '@1delta/abis@0.0.28':
-    resolution: {integrity: sha512-TMyhgjB1dSGlVYMhVEWPlNWyrhKS7gT8WfG96SNhTfV6uS7Oxr+37wqw7Zjvks7/YrWkpdZcjNAvoZnivROQrg==}
+  '@1delta/abis@0.0.50':
+    resolution: {integrity: sha512-BPyWQr1j9P0UD6YjovxYdxkSziorh1ng3nb5nvfWH3swVfzmqKRxdbcrZg+Nho86Ss6KpDOklQsd0ygpJP0oQA==}
     engines: {node: '>=20'}
 
-  '@1delta/abis@0.0.46':
-    resolution: {integrity: sha512-mlJxqmMVoEYxJYBbsO6NJoNtlZkAL2LQF+CWZtiS3XaZ1HehP6ZiT73ssKaFl1dVLd6BWqbg/LypgdbBb+4gJw==}
-    engines: {node: '>=20'}
-
-  '@1delta/abis@0.0.47':
-    resolution: {integrity: sha512-qs318uDAvsvOB20wBiZYV8VEP1CxgUPAxWMy5I4aBsaw0xWtsqQXyBNThhOVUZSImWCRFpIha1fggDehhHoeOg==}
-    engines: {node: '>=20'}
-
-  '@1delta/calldata-sdk@0.0.167':
-    resolution: {integrity: sha512-iciIvYFzCMCKwNQ7ExYLgf+qmkY6zE0boJYSlqYdLXRoh0/2ut9kmML1Ysvkn05Lt4fep+LzxgU0R7cqLzjdyw==}
+  '@1delta/calldata-sdk@0.0.209':
+    resolution: {integrity: sha512-Nn+ccf2ZjeLiFG5fcW2Bx5IFDPbWvpIhdVm+rXNmnxG5IvOkEEET3Sx0XK1+6676QPj2oQvo2GyMwNum3LLs6g==}
     engines: {node: '>=20'}
     peerDependencies:
       '@1delta/universal-router': '*'
@@ -78,8 +70,8 @@ packages:
       test-routing:
         optional: true
 
-  '@1delta/calldata-sdk@0.0.204':
-    resolution: {integrity: sha512-IxUKpA6zqxOuk6KWIQCsoqDSv/Xo7uSbcedDWW7Z8aDWVAdAvZu086O5TkIDMQFevDcMnkgAvPaZEW6oZOujuw==}
+  '@1delta/calldata-sdk@0.0.213':
+    resolution: {integrity: sha512-n7cTTvvnwFlR3RYoDDiLqmtlUEXa4vuQ7H6Ii7ma5RYTKCvPovPyycxGA2gTav9zSSOf62kUdkr9hDC7Ztjh2w==}
     engines: {node: '>=20'}
     peerDependencies:
       '@1delta/universal-router': '*'
@@ -95,58 +87,47 @@ packages:
     peerDependencies:
       viem: ^2.0.0
 
-  '@1delta/chain-registry@0.0.6':
-    resolution: {integrity: sha512-jtw7tm+k52BDN0DA9oGxClZrX39+kViwwdOlWiyjH+mgkHN0e5O6MCbQLf2q2dl8sW8On9Lr6V2QHZmiIx3Wbg==}
-    engines: {node: '>=20'}
-
   '@1delta/chain-registry@0.0.7':
     resolution: {integrity: sha512-sBjx3jZFVfKoS/LoG6hnaHl0jy1NfpqtdUv+25ObED3iXd9kS1H0tZL0bvlXnbvSeDcTi7ecQjApJMHUsJdeew==}
     engines: {node: '>=20'}
 
-  '@1delta/data-sdk@0.0.35':
-    resolution: {integrity: sha512-+D1zFR0+QQsj91s4pEhYAgp8Mvi32iu93RgAuZumPMuIqvv4AF3jOP3Q2tLtYMlouFxmBTgLpzWVRWxg9L7k7g==}
+  '@1delta/chain-registry@0.0.8':
+    resolution: {integrity: sha512-irH3sBfwu+rysmJwOpDzt3RQlSwEZ96eAxrFGZjFQw41DA9iyixZUvBq+KxCKwMFtfCZ75Dlp2tUhBzeXMj2Iw==}
     engines: {node: '>=20'}
 
-  '@1delta/data-sdk@0.0.36':
-    resolution: {integrity: sha512-z+MGlCQ1HLRRcGfZkrSGy/EnK9Bnm1N04fMerECihEBZPbele93yylb3SYyiU0mjHtRTTbn5QeRH7wydy2xsxg==}
+  '@1delta/chain-registry@0.0.9':
+    resolution: {integrity: sha512-/mRV5Yy0wMLyDBqY0/xKw7QUQzPSWyMuI7H7qzbXc3lqKQ5YzGwLTaM/on1ZqEDkCCpKTyJpsKXdkUqsf2gE9Q==}
     engines: {node: '>=20'}
 
-  '@1delta/data-sdk@0.0.50':
-    resolution: {integrity: sha512-1w7o6E9jqyX90mh1UB65U1SYrnHiXcFWkpbPZRi+NuLDewf9t8rbCCzvuTs36SS7dvL2N/b71pyHqA8PAxpR0Q==}
+  '@1delta/data-sdk@0.0.56':
+    resolution: {integrity: sha512-fZvNSoDILkV7fwM5FKkb3RH9bX9bruGfINoy2eJVqiqhOZdXraG2K5EA2Uf4wCWkl0zRHB09j1fPvpIwc7w/Dw==}
     engines: {node: '>=20'}
 
-  '@1delta/data-sdk@0.0.52':
-    resolution: {integrity: sha512-+OkAd2bnuj4HhHslK2RkcOb1+WRAl0DRdlVvkxkujl+oR5nqmE3BdC7b7a8a3C1vaHxRVqDjmkXrXhmEOdQJ9A==}
+  '@1delta/data-sdk@0.0.57':
+    resolution: {integrity: sha512-muzwaX20pl+iDH2TCfB+WFt7XHWL75+6U3I5CR9/qMlSBV2hI+vn0R/0j1wPsmALwPmPLziAkNwrc5onabVoQQ==}
     engines: {node: '>=20'}
 
-  '@1delta/dex-registry@0.0.104':
-    resolution: {integrity: sha512-UeSGi0/42UYVWNbQduA5I81S/MZpHF9BnqmcV2LJGIkIuYLGBHXiVK/TNx1nblfc9R/bNpDkpjKojo3UI0wQvg==}
+  '@1delta/dex-registry@0.0.105':
+    resolution: {integrity: sha512-NednOac17Qd6mHmH6NszFcJ09El5x0GleyR+9B0vsZ9reibIIFp/AvwIWOygMN2UrNhRnx7LX/icNCN9KSIM/Q==}
     engines: {node: '>=20'}
 
-  '@1delta/lender-registry@0.0.34':
-    resolution: {integrity: sha512-EVBB2UGGKjVGo0H1Sv+mnL7T1WmyEHKCY41sxgDfMhfgSayt+tXgCnrpana8nn62dkKWyThP60CRMuZTyqO4dg==}
-    engines: {node: '>=20'}
-
-  '@1delta/lender-registry@0.0.37':
-    resolution: {integrity: sha512-R7A5/RLZvlhXKz73R+pwDZHctY7DcIcRMzVuUTxELRs6T5ebqYDjC25G73L9LcpnSqNjCsXsZ0iZCROEsWp4WQ==}
-    engines: {node: '>=20'}
-
-  '@1delta/lender-registry@0.0.38':
-    resolution: {integrity: sha512-lNi5V6zLVLUTHkq3Lf0Xnzdaf1YzcDm6nBK1M1PlcphG+ptGcs1VLVmLOuolstNhVESTLjPV00TPJdPOFnrJIw==}
+  '@1delta/dex-registry@0.0.107':
+    resolution: {integrity: sha512-/2drUWA8CSH93o8QGs3YLZVH4oNFuHLKUJa3f54/ZPgyiO5ZLEw4+Cu45O5gvJQJMDjjLxvQxRlTSLE/YvqG7w==}
     engines: {node: '>=20'}
 
   '@1delta/lender-registry@0.0.49':
     resolution: {integrity: sha512-zAsVGD62xNE7ctYcjj+c8oVJPcA6VzMRZZgsPGWAKCmAgsA34OjYjMsTxQB84E/1vY9Qh81AHZG2Ps/MtrBJ8A==}
     engines: {node: '>=20'}
 
-  '@1delta/margin-fetcher@0.0.409':
-    resolution: {integrity: sha512-EnDRLZuu/LDKKsayFavg7GM2xitgGmjKBJ0V833JvtVUbTBprpqlFs5A9kiFr3YjmupSO9j7BAI5wFr/t0i+Qw==}
+  '@1delta/lender-registry@0.0.50':
+    resolution: {integrity: sha512-YuEDZFY2TOdlr+4HQll2Zsz0OytWARxPyh9CM6vqJcZszbkp9Elj6TYUn2Jn1zBKtqeyWGnS4vNRy6BBapY/Fg==}
+    engines: {node: '>=20'}
 
-  '@1delta/providers@0.0.63':
-    resolution: {integrity: sha512-oFnfgig3DwUaBzIbQArBMPnoiNpHhPUSM9phj+jxTtCp5yd3BZ4spkPUbl+ahjcxqZ9nGFzo6gM1D7Gwo8RwFw==}
+  '@1delta/margin-fetcher@5.0.83':
+    resolution: {integrity: sha512-0Docm7JSRG1Eq9nDe94/9SeEfqyR4VS6ZPZPlSZ/gWWsSevIXmb+rcTUidVT62HzQdr0HQJ+jC5dPTG0s+vf3g==}
 
-  '@1delta/providers@0.0.67':
-    resolution: {integrity: sha512-86g8K9p9OcSbAKxGMPjzScnDFSXwnE6MdpfF4Boi4SP8PktXiihZcf6D6lhtE5JuEBA1PivMIl18q5YTyVDoDg==}
+  '@1delta/providers@0.0.71':
+    resolution: {integrity: sha512-amGXe2dRtHWCLPDGiEcWEuHYyMLm2ZW/PvOYn4NX7zXmk8+jjx4w9VsGaMZqCpO5dHaXtqOPOWlCR4zHkUZrGg==}
 
   '@1delta/proxy-fetch@0.0.1':
     resolution: {integrity: sha512-kjYR1siERu9wFZvr0xDF+LEK2ysuUqtdd1IRRAIgTVY3jbpSsOVD9PqREfhC7LXyXD33goMeqK3ESWUYOHRj5w==}
@@ -156,8 +137,8 @@ packages:
     resolution: {integrity: sha512-cjoOZWYURKWFe7bCwAlHxEY6qhowv0iGum1y/M2O74ykvN3zgV5g+nwNwZekM6r3JWnBkihGr+hZ+lnjNckagA==}
     engines: {node: '>=20'}
 
-  '@1delta/wnative@0.0.8':
-    resolution: {integrity: sha512-qCCWQX5wZFK6bIDw+JCVDUuBIwLISwEHEaZdPeEJ3PZ7oTBy27EX4Q0AekqqwW4LDoMVwFUTy4YGT4rpjJI2Fw==}
+  '@1delta/wnative@0.0.12':
+    resolution: {integrity: sha512-O/4ZpoAjD9AIZ3iYFJT1Pd5dALazve6gti+tVwyjSDM8VYpYq6t8zZ9BSFK7mSjy9guGfpAlrmDnhFcIH8m2lg==}
     engines: {node: '>=20'}
 
   '@adraffy/ens-normalize@1.11.1':
@@ -832,20 +813,17 @@ packages:
 
 snapshots:
 
-  '@1delta/abis@0.0.28': {}
+  '@1delta/abis@0.0.50': {}
 
-  '@1delta/abis@0.0.46': {}
-
-  '@1delta/abis@0.0.47': {}
-
-  '@1delta/calldata-sdk@0.0.167(typescript@6.0.3)':
+  '@1delta/calldata-sdk@0.0.209(typescript@6.0.3)':
     dependencies:
-      '@1delta/abis': 0.0.28
+      '@1delta/abis': 0.0.50
       '@1delta/calldatalib': 0.0.57(viem@2.56.0(typescript@6.0.3))
-      '@1delta/data-sdk': 0.0.36
-      '@1delta/dex-registry': 0.0.104
-      '@1delta/lender-registry': 0.0.37
-      '@1delta/wnative': 0.0.8
+      '@1delta/chain-registry': 0.0.8
+      '@1delta/data-sdk': 0.0.56
+      '@1delta/dex-registry': 0.0.105
+      '@1delta/lender-registry': 0.0.50
+      '@1delta/wnative': 0.0.10
       '@morpho-org/midnight-sdk': 1.3.0(@morpho-org/morpho-ts@2.10.0)(viem@2.56.0(typescript@6.0.3))
       '@morpho-org/morpho-ts': 2.10.0
       lodash: 4.18.1
@@ -858,15 +836,15 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@1delta/calldata-sdk@0.0.204(typescript@6.0.3)':
+  '@1delta/calldata-sdk@0.0.213(typescript@6.0.3)':
     dependencies:
-      '@1delta/abis': 0.0.46
+      '@1delta/abis': 0.0.50
       '@1delta/calldatalib': 0.0.57(viem@2.56.0(typescript@6.0.3))
-      '@1delta/chain-registry': 0.0.7
-      '@1delta/data-sdk': 0.0.52
-      '@1delta/dex-registry': 0.0.104
-      '@1delta/lender-registry': 0.0.49
-      '@1delta/wnative': 0.0.10
+      '@1delta/chain-registry': 0.0.9
+      '@1delta/data-sdk': 0.0.57
+      '@1delta/dex-registry': 0.0.107
+      '@1delta/lender-registry': 0.0.50
+      '@1delta/wnative': 0.0.12
       '@morpho-org/midnight-sdk': 1.3.0(@morpho-org/morpho-ts@2.10.0)(viem@2.56.0(typescript@6.0.3))
       '@morpho-org/morpho-ts': 2.10.0
       lodash: 4.18.1
@@ -883,40 +861,41 @@ snapshots:
     dependencies:
       viem: 2.56.0(typescript@6.0.3)
 
-  '@1delta/chain-registry@0.0.6': {}
-
   '@1delta/chain-registry@0.0.7': {}
 
-  '@1delta/data-sdk@0.0.35': {}
+  '@1delta/chain-registry@0.0.8': {}
 
-  '@1delta/data-sdk@0.0.36': {}
+  '@1delta/chain-registry@0.0.9': {}
 
-  '@1delta/data-sdk@0.0.50': {}
+  '@1delta/data-sdk@0.0.56': {}
 
-  '@1delta/data-sdk@0.0.52': {}
+  '@1delta/data-sdk@0.0.57': {}
 
-  '@1delta/dex-registry@0.0.104':
+  '@1delta/dex-registry@0.0.105':
     dependencies:
-      '@1delta/chain-registry': 0.0.6
-      '@1delta/lender-registry': 0.0.34
+      '@1delta/chain-registry': 0.0.7
+      '@1delta/lender-registry': 0.0.49
 
-  '@1delta/lender-registry@0.0.34': {}
-
-  '@1delta/lender-registry@0.0.37': {}
-
-  '@1delta/lender-registry@0.0.38': {}
+  '@1delta/dex-registry@0.0.107':
+    dependencies:
+      '@1delta/chain-registry': 0.0.9
+      '@1delta/lender-registry': 0.0.50
 
   '@1delta/lender-registry@0.0.49': {}
 
-  '@1delta/margin-fetcher@0.0.409(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))':
+  '@1delta/lender-registry@0.0.50': {}
+
+  '@1delta/margin-fetcher@5.0.83(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))':
     dependencies:
-      '@1delta/abis': 0.0.28
-      '@1delta/calldata-sdk': 0.0.167(typescript@6.0.3)
-      '@1delta/data-sdk': 0.0.36
-      '@1delta/dex-registry': 0.0.104
-      '@1delta/lender-registry': 0.0.38
-      '@1delta/providers': 0.0.63(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
+      '@1delta/abis': 0.0.50
+      '@1delta/calldata-sdk': 0.0.213(typescript@6.0.3)
+      '@1delta/chain-registry': 0.0.9
+      '@1delta/data-sdk': 0.0.57
+      '@1delta/dex-registry': 0.0.107
+      '@1delta/lender-registry': 0.0.50
+      '@1delta/providers': 0.0.71(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
       '@1delta/proxy-fetch': 0.0.1
+      '@1delta/wnative': 0.0.12
       async-retry: 1.3.3
       lodash: 4.18.1
     transitivePeerDependencies:
@@ -940,30 +919,10 @@ snapshots:
       - vite
       - zod
 
-  '@1delta/providers@0.0.63(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))':
+  '@1delta/providers@0.0.71(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))':
     dependencies:
-      '@1delta/chain-registry': 0.0.6
-      '@1delta/data-sdk': 0.0.35
-      vitest: 4.1.11(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@opentelemetry/api'
-      - '@types/node'
-      - '@vitest/browser-playwright'
-      - '@vitest/browser-preview'
-      - '@vitest/browser-webdriverio'
-      - '@vitest/coverage-istanbul'
-      - '@vitest/coverage-v8'
-      - '@vitest/ui'
-      - happy-dom
-      - jsdom
-      - msw
-      - vite
-
-  '@1delta/providers@0.0.67(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))':
-    dependencies:
-      '@1delta/chain-registry': 0.0.7
-      '@1delta/data-sdk': 0.0.50
+      '@1delta/chain-registry': 0.0.9
+      '@1delta/data-sdk': 0.0.57
       vitest: 4.1.11(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
     transitivePeerDependencies:
       - '@edge-runtime/vm'
@@ -984,7 +943,7 @@ snapshots:
 
   '@1delta/wnative@0.0.10': {}
 
-  '@1delta/wnative@0.0.8': {}
+  '@1delta/wnative@0.0.12': {}
 
   '@adraffy/ens-normalize@1.11.1': {}
 
