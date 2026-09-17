@@ -1,15 +1,17 @@
 {
-  "version": "2026-09-15T07-11-46-653Z",
-  "generatedAt": "2026-09-15T07:11:46.653Z",
+  "version": "2026-09-17T07-11-56-188Z",
+  "generatedAt": "2026-09-17T07:11:56.188Z",
   "updatedFiles": [
-    "./data/lender-labels.json",
-    "./data/morpho-type-oracles.json",
-    "./data/morpho-curators.json",
     "./data/morpho-oracles-data.json",
+    "./data/aave-reserves.json",
+    "./data/aave-tokens.json",
+    "./data/compound-v2-oracles.json",
+    "./data/euler-vaults.json",
     "./data/lender-labels.json",
     "./data/lender-labels.json",
-    "./data/lender-labels.json",
-    "./data/midnight-markets.json"
+    "./data/midnight-markets.json",
+    "./data/teller-oracles-classified.json",
+    "./config/inverse.json"
   ],
   "results": [
     {
