@@ -166,30 +166,19 @@
     "0x2335033046fce9acd23796657d3d39f7f51e2f07": {
       "collateral": "0x3845badade8e6dff049820680d1f14bd3903a5d0",
       "collateralSymbol": "SAND",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "SAND",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDC / SAND",
       "market": "0x2335033046fce9acd23796657d3d39f7f51e2f07",
-      "minTwapInterval": 5,
-      "oracle": "0x5b97b125cf8af96834f2d08c8f1291bd47724939",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "principalSymbol": "USDC",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0x5b97b125cf8af96834f2d08c8f1291bd47724939",
-          "zeroForOne": true,
-          "twapInterval": 5
-        },
-        {
-          "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-          "zeroForOne": false,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0x27a009064396e194b7fe39b899483a0ee044bdfe": {
       "collateral": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
@@ -240,30 +229,19 @@
     "0x2e5845a577072615b72e90e0c6b444c1974d6b30": {
       "collateral": "0x4d224452801aced8b2f0aebe155379bb5d594381",
       "collateralSymbol": "APE",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "APE",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDC / APE",
       "market": "0x2e5845a577072615b72e90e0c6b444c1974d6b30",
-      "minTwapInterval": 5,
-      "oracle": "0xac4b3dacb91461209ae9d41ec517c2b9cb1b7daf",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "principalSymbol": "USDC",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0xac4b3dacb91461209ae9d41ec517c2b9cb1b7daf",
-          "zeroForOne": true,
-          "twapInterval": 5
-        },
-        {
-          "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-          "zeroForOne": false,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0x36b8d0b0520d34a7b5c898c78e19b8dc3116df6d": {
       "collateral": "0xf042cfa86cf1d598a75bdb55c3507a1f39f9493b",
@@ -411,30 +389,19 @@
     "0x4992073de027250639328a94e918aaaa07c8ceb5": {
       "collateral": "0xc50673edb3a7b94e8cad8a7d4e0cd68864e33edf",
       "collateralSymbol": "PNKSTR",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "PNKSTR",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDC / PNKSTR",
       "market": "0x4992073de027250639328a94e918aaaa07c8ceb5",
-      "minTwapInterval": 5,
-      "oracle": "0x2b1a1262d8a9886f949787d85c41344476d2b00e",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "principalSymbol": "USDC",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0x2b1a1262d8a9886f949787d85c41344476d2b00e",
-          "zeroForOne": false,
-          "twapInterval": 5
-        },
-        {
-          "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-          "zeroForOne": false,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0x55c76ee3900ee4470bb4e2b25eb61a1a45f909cb": {
       "collateral": "0xec53bf9167f50cdeb3ae105f56099aaab9061f83",
@@ -490,30 +457,19 @@
     "0x648aecdabb04166daa1659da16b5d845b8aa4f72": {
       "collateral": "0xb0ffa8000886e57f86dd5264b9582b2ad87b2b91",
       "collateralSymbol": "W",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "W",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDC / W",
       "market": "0x648aecdabb04166daa1659da16b5d845b8aa4f72",
-      "minTwapInterval": 5,
-      "oracle": "0x86bc870520acf4e9c255270d7f51c814ad184960",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "principalSymbol": "USDC",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0x86bc870520acf4e9c255270d7f51c814ad184960",
-          "zeroForOne": true,
-          "twapInterval": 5
-        },
-        {
-          "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-          "zeroForOne": false,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0x673e91bafc796ab9ee30242c6da3112f932ac59b": {
       "collateral": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
@@ -597,30 +553,19 @@
     "0x73d01abac2f8778fe7618fa5652f69d4f6a89f7e": {
       "collateral": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
       "collateralSymbol": "SNX",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "SNX",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDC / SNX",
       "market": "0x73d01abac2f8778fe7618fa5652f69d4f6a89f7e",
-      "minTwapInterval": 5,
-      "oracle": "0xf5ce0293c24fd0990e0a5758e53f66a36ca0118f",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "principalSymbol": "USDC",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0xf5ce0293c24fd0990e0a5758e53f66a36ca0118f",
-          "zeroForOne": true,
-          "twapInterval": 5
-        },
-        {
-          "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-          "zeroForOne": false,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0x7752c0d4b7547da35ebb5f9271a5041df5af6afb": {
       "collateral": "0xe0f63a424a4439cbe457d80e4f4b51ad25b2c56c",
@@ -681,25 +626,19 @@
     "0x841947789a8cf61dcec81fcc43a5e756c5b2e1fe": {
       "collateral": "0xd9a442856c234a39a81a089c06451ebaa4306a72",
       "collateralSymbol": "pufETH",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "pufETH",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "WETH / pufETH",
       "market": "0x841947789a8cf61dcec81fcc43a5e756c5b2e1fe",
-      "minTwapInterval": 5,
-      "oracle": "0xbdb04e915b94fbfd6e8552ff7860e59db7d4499a",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
       "principalSymbol": "WETH",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0xbdb04e915b94fbfd6e8552ff7860e59db7d4499a",
-          "zeroForOne": false,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0x858ce7afbb3b9ad40766ea85f0fda8c69fb97ea8": {
       "collateral": "0x514910771af9ca656af840dff83e8264ecf986ca",
@@ -760,132 +699,87 @@
     "0x8bd2bd73c21438219f783b8fa9a664df30098338": {
       "collateral": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
       "collateralSymbol": "UNI",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "UNI",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDS / UNI",
       "market": "0x8bd2bd73c21438219f783b8Fa9a664DF30098338",
-      "minTwapInterval": 5,
-      "oracle": "0xd0fc8ba7e267f2bc56044a7715a489d851dc6d78",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
       "principalSymbol": "USDS",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0xd0fc8ba7e267f2bc56044a7715a489d851dc6d78",
-          "zeroForOne": true,
-          "twapInterval": 5
-        },
-        {
-          "pool": "0x8aee53b873176d9f938d24a53a8ae5cf36276464",
-          "zeroForOne": true,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0xa0b27e939f7a08bc4f08b4490c0eec137475c3dd": {
       "collateral": "0xd9a442856c234a39a81a089c06451ebaa4306a72",
       "collateralSymbol": "pufETH",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "pufETH",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDC / pufETH",
       "market": "0xa0b27e939f7a08bc4f08b4490c0eec137475c3dd",
-      "minTwapInterval": 5,
-      "oracle": "0xbdb04e915b94fbfd6e8552ff7860e59db7d4499a",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "principalSymbol": "USDC",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0xbdb04e915b94fbfd6e8552ff7860e59db7d4499a",
-          "zeroForOne": false,
-          "twapInterval": 5
-        },
-        {
-          "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-          "zeroForOne": false,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0xa7a02e9ef16afe2549e586c7a94fba154e572628": {
       "collateral": "0x56072c95faa701256059aa122697b133aded9279",
       "collateralSymbol": "SKY",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "SKY",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDC / SKY",
       "market": "0xa7a02e9ef16afe2549e586c7a94fba154e572628",
-      "minTwapInterval": 5,
-      "oracle": "0x764510ab1d39cf300e7abe8f5b8977d18f290628",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "principalSymbol": "USDC",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0x764510ab1d39cf300e7abe8f5b8977d18f290628",
-          "zeroForOne": true,
-          "twapInterval": 5
-        },
-        {
-          "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-          "zeroForOne": false,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0xb037eba32c93fe5084c59ec2631fc021f9ab12dc": {
       "collateral": "0x8ad3c73f833d3f9a523ab01476625f269aeb7cf0",
       "collateralSymbol": "TSLAx",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "TSLAx",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDC / TSLAx",
       "market": "0xb037eba32c93fe5084c59ec2631fc021f9ab12dc",
-      "minTwapInterval": 5,
-      "oracle": "0xa7fd774e0ad54a6d2ceafb4103615f473e589cc6",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "principalSymbol": "USDC",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0xa7fd774e0ad54a6d2ceafb4103615f473e589cc6",
-          "zeroForOne": true,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0xb2e9832ae0c9c069e9b3b0988ece02ce266f7ee2": {
       "collateral": "0x45804880de22913dafe09f4980848ece6ecbaf78",
       "collateralSymbol": "PAXG",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "PAXG",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDC / PAXG",
       "market": "0xb2e9832ae0c9c069e9b3b0988ece02ce266f7ee2",
-      "minTwapInterval": 5,
-      "oracle": "0x5ae13baaef0620fdae1d355495dc51a17adb4082",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "principalSymbol": "USDC",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0x5ae13baaef0620fdae1d355495dc51a17adb4082",
-          "zeroForOne": true,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0xb4734867003410857e23e745a39f00350316a77b": {
       "collateral": "0xba47214edd2bb43099611b208f75e4b42fdcfedc",
@@ -1020,30 +914,19 @@
     "0xd2caab8ac03d16fd260e6d6fa2570b1081088825": {
       "collateral": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
       "collateralSymbol": "UNI",
-      "correctOracle": true,
+      "correctOracle": null,
       "denominator": "UNI",
-      "generation": 2,
+      "generation": null,
       "intendedPair": "USDC / UNI",
       "market": "0xd2caab8ac03d16fd260e6d6fa2570b1081088825",
-      "minTwapInterval": 5,
-      "oracle": "0x1d42064fc4beb5f8aaf85f4617ae8b3b5b8bd801",
+      "minTwapInterval": null,
+      "oracle": null,
       "priceAdapter": null,
       "priceRouteHash": null,
       "principal": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "principalSymbol": "USDC",
-      "provider": "uniswap-v3-twap",
-      "routes": [
-        {
-          "pool": "0x1d42064fc4beb5f8aaf85f4617ae8b3b5b8bd801",
-          "zeroForOne": true,
-          "twapInterval": 5
-        },
-        {
-          "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-          "zeroForOne": false,
-          "twapInterval": 5
-        }
-      ]
+      "provider": "unknown",
+      "routes": []
     },
     "0xf6e81f7f03527e097a994d0b807272aff5434437": {
       "collateral": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
