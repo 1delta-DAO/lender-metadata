@@ -37,6 +37,12 @@ const EXPLORER_LOG_API = {
     "14": "https://flare-explorer.flare.network",
     "98866": "https://explorer.plume.org",
     "4114": "https://explorer.mainnet.citrea.xyz",
+    // Etherlink 42793: both official nodes cap `eth_getLogs` at 500 blocks and
+    // the core sits 32M blocks behind head (measured 2026-09-16), so even the
+    // scanner's smallest 10k probe span is rejected and the node path reports
+    // "no usable RPC". The Blockscout returns the full CreateMarket set (16
+    // events) in one request.
+    "42793": "https://explorer.etherlink.com",
 };
 /** Blockscout returns at most this many logs per v1 getLogs response. */
 const PAGE_LIMIT = 1000;

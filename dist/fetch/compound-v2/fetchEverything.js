@@ -1,7 +1,7 @@
 import { COMPTROLLER_ABIS, CompoundV2FetchFunctions } from "./abi.js";
 import { readJsonFile } from "../utils/index.js";
 import { multicallRetryUniversal } from "@1delta/providers";
-import { zeroAddress } from "viem";
+import { isAddress, zeroAddress } from "viem";
 import { sleep } from "../../utils.js";
 import { Lender } from "@1delta/lender-registry";
 import { fetchPauseFallback } from "./pause.js";
@@ -79,10 +79,25 @@ export async function fetchCompoundV2TypeTokenData() {
                 console.log(`No markets found for ${fork} on chain ${chain}`);
                 continue;
             }
+            // `oracle()` is read with `allowFailure`, so a failed read arrives as
+            // the `'0x'` sentinel — and that sentinel used to be PUBLISHED as the
+            // fork's oracle address. Downstream, margin-fetcher batched
+            // `getUnderlyingPrice` calls against it, viem refused to encode the
+            // target, and the throw took every other Compound V2 price on the
+            // chain with it (USDFI + ApeSwap on BNB cost Venus all 55 prices per
+            // cycle; Minterest did the same on Morph). Publish NO oracle for the
+            // fork instead: margin-fetcher skips a lender without one, and the
+            // merge keeps a previously good value if this run merely hiccuped.
+            const oracle = typeof oracleResult === "string" && isAddress(oracleResult)
+                ? oracleResult
+                : undefined;
+            if (!oracle) {
+                console.warn(`  ${fork} on ${chain}: oracle() read failed (${JSON.stringify(oracleResult)}) — not publishing an oracle for this fork`);
+            }
             forkMarketData.push({
                 fork,
                 markets: marketsResult,
-                oracle: oracleResult,
+                oracle,
             });
         }
         if (forkMarketData.length === 0)
@@ -133,7 +148,8 @@ export async function fetchCompoundV2TypeTokenData() {
             }
             // assign reserves
             reserves[fork][chain] = currReserves.map((r) => r.toLowerCase());
-            oracles[fork][chain] = oracle;
+            if (oracle)
+                oracles[fork][chain] = oracle;
             const dataOnChain = Object.assign({}, ...currReserves.map((a, i) => {
                 return {
                     [a.toLowerCase()]: markets[i].toLowerCase(),
