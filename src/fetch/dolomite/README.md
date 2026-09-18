@@ -43,11 +43,11 @@ RPC for those (`DOLOMITE_FALLBACK_RPCS`).
 
 ## File layout
 
-| File | Purpose |
-| --- | --- |
+| File                           | Purpose                                                                                                                                                               |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [constants.ts](./constants.ts) | `DOLOMITE_DEPLOYMENTS` (margin/expiry addresses per chain, non-testnet), `DOLOMITE_FALLBACK_RPCS`, and the minimal `getNumMarkets` / `getMarketTokenAddress` read ABI |
-| [fetcher.ts](./fetcher.ts) | `fetchDolomiteMarkets(chainId, margin)` — multicall path + direct-RPC fallback, returns the `marketId → token` map |
-| [dolomite.ts](../dolomite.ts) | `DolomiteUpdater` implementing `DataUpdater` — iterates chains and assembles the config object |
+| [fetcher.ts](./fetcher.ts)     | `fetchDolomiteMarkets(chainId, margin)` — multicall path + direct-RPC fallback, returns the `marketId → token` map                                                    |
+| [dolomite.ts](../dolomite.ts)  | `DolomiteUpdater` implementing `DataUpdater` — iterates chains and assembles the config object                                                                        |
 
 Output file:
 
@@ -69,8 +69,11 @@ omit the field — base lending + position ops still work everywhere.
   "42161": {
     "dolomiteMargin": "0x6Bd780E7fDf01D77e4d475c821f1e7AE05409072",
     "expiry": "0xDEc1ae3b570ac3c57871BBD7bFeacC807f973Bea",
-    "markets": { "0": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1", "1": "0xda10..." }
-  }
+    "markets": {
+      "0": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+      "1": "0xda10...",
+    },
+  },
 }
 ```
 
@@ -97,3 +100,27 @@ npm run update:dataset
 # just Dolomite (one-off)
 npx tsx -e "import('./src/data-manager.js').then(async ({DataManager})=>{const {DolomiteUpdater}=await import('./src/fetch/dolomite.js');const m=new DataManager();m.registerUpdater(new DolomiteUpdater());await m.updateFromSource('Dolomite',{});})"
 ```
+
+## Isolation-mode markets — `config/dolomite-isolation.json`
+
+An isolation-mode market's token (`dGM`, `dsavETH`, `dGMX`, `dPT-*` …) is an
+`IsolationModeVaultFactory`: it deploys one vault per user, the vault is the
+Dolomite ACCOUNT OWNER of the position, and the user only ever holds the
+factory's `UNDERLYING_TOKEN()`. Nothing about that is derivable from the
+`marketId → token` map, so [isolation.ts](./isolation.ts) writes, per chain,
+per isolation marketId:
+
+| field                                                                                | source                                                                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `factory`, `underlying`, `underlyingSymbol/Decimals`                                 | on-chain (`UNDERLYING_TOKEN()` + ERC-20 views)                                                                                                                                                                                                                               |
+| `allowableDebtMarketIds`, `allowableCollateralMarketIds`                             | on-chain; **empty = unrestricted**                                                                                                                                                                                                                                           |
+| `wrapper`, `unwrapper`, `wrapperInputMarketIds`, `unwrapperOutputMarketIds`, `async` | [isolation-converters.ts](./isolation-converters.ts), vendored from `@dolomite-exchange/zap-sdk`'s `ISOLATION_MODE_CONVERSION_MARKET_ID_MAP`, then **validated on-chain with `isTokenConverterTrusted`** — an untrusted or unknown pair is written as `null` (no loop route) |
+| `executionFeeWei`                                                                    | on-chain `executionFee()`; only the async (GMX V2 / GLV) factories have it                                                                                                                                                                                                   |
+
+Detection uses the protocol's own rule — `name()` starts with
+`"Dolomite Isolation:"` (or equals `"Dolomite: Fee + Staked GLP"`) — which is
+exactly what `RouterBase._isIsolationModeAsset` and
+`GenericTraderProxyV2Lib.isIsolationModeAsset` test, so the table and the
+contracts cannot disagree on membership. Live 2026-09-18: Arbitrum 39 (38 with
+trusted converters — the dead `djUSDC` V1 has none), Mantle 6, Berachain 2.
+Consumed by `@1delta/data-sdk` `dolomiteIsolation()`.

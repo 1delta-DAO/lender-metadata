@@ -4,9 +4,11 @@ import { DOLOMITE_DEPLOYMENTS } from "./dolomite/constants.js";
 import { fetchDolomiteMarkets } from "./dolomite/fetcher.js";
 import { getDolomiteSetter, fetchDolomiteEmode } from "./dolomite/emode.js";
 import { fetchDolomiteAggregatorTraders } from "./dolomite/aggregators.js";
+import { fetchDolomiteIsolation } from "./dolomite/isolation.js";
 
 const configFile = "./config/dolomite-margin.json";
 const emodeFile = "./config/dolomite-emode.json";
+const isolationFile = "./config/dolomite-isolation.json";
 
 /**
  * Dolomite is a single global cross-margin pool (DolomiteMargin core) per chain.
@@ -21,6 +23,7 @@ export class DolomiteUpdater implements DataUpdater {
   async fetchData(): Promise<{ [file: string]: Partial<any> }> {
     const out: Record<string, any> = {};
     const emode: Record<string, any> = {};
+    const isolation: Record<string, any> = {};
 
     const chains = Object.entries(DOLOMITE_DEPLOYMENTS);
 
@@ -48,13 +51,34 @@ export class DolomiteUpdater implements DataUpdater {
         out[chainId].aggregatorTraders = aggregatorTraders[chainId];
       }
 
-      // E-mode: only on chains with a configured risk-override setter (V2).
+      // Isolation-mode markets (per-user vault factories): underlying,
+      // allow-lists, wrapper/unwrapper trust. See src/fetch/dolomite/isolation.ts.
       const marketIds = Object.keys(markets);
+      if (marketIds.length > 0) {
+        try {
+          const iso = await fetchDolomiteIsolation(chainId, markets);
+          if (Object.keys(iso).length > 0) isolation[chainId] = iso;
+          console.log(
+            `Dolomite: chain ${chainId}: ${Object.keys(iso).length} isolation markets (${Object.values(iso).filter((m) => m.wrapper).length} with trusted converters)`,
+          );
+        } catch (e) {
+          console.log(
+            `Dolomite: failed to fetch isolation markets for chain ${chainId}:`,
+            (e as any)?.shortMessage ?? (e as any)?.message ?? e,
+          );
+        }
+      }
+
+      // E-mode: only on chains with a configured risk-override setter (V2).
       if (marketIds.length > 0) {
         try {
           const setter = await getDolomiteSetter(chainId);
           if (setter) {
-            emode[chainId] = await fetchDolomiteEmode(chainId, setter, marketIds);
+            emode[chainId] = await fetchDolomiteEmode(
+              chainId,
+              setter,
+              marketIds,
+            );
             console.log(
               `Dolomite: chain ${chainId}: e-mode categories ${Object.keys(emode[chainId].categories).join(",") || "none"}, ${Object.keys(emode[chainId].marketCategories).length} categorized markets`,
             );
@@ -72,7 +96,11 @@ export class DolomiteUpdater implements DataUpdater {
       if (i < chains.length - 1) await sleep(500);
     }
 
-    return { [configFile]: out, [emodeFile]: emode };
+    return {
+      [configFile]: out,
+      [emodeFile]: emode,
+      [isolationFile]: isolation,
+    };
   }
 
   mergeData(oldData: any, data: any, fileKey: string): Partial<any> {

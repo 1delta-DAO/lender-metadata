@@ -1,0 +1,1309 @@
+{
+  "5000": {
+    "7": {
+      "factory": "0xb3ff983d7927540b7f92602657a2a26977664e77",
+      "underlying": "0xba567cf0d8230c0ad8d8bfc50e587e06d6f118e9",
+      "underlyingSymbol": "PT-USDe-25JUL2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xb3f81b0f53cdee755c70665923e08a8f0e81d0c3",
+      "unwrapper": "0xdfb6baa334712cbbeb26b7537f62b81c2a87b1e8",
+      "wrapperInputMarketIds": [
+        "6"
+      ],
+      "unwrapperOutputMarketIds": [
+        "6"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "9": {
+      "factory": "0x6b68bdccb22931937d7d11e556d95a07e02fe3ce",
+      "underlying": "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8",
+      "underlyingSymbol": "WMNT",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x277118ca98f7a8c26afeb12928d0a37edb382d7e",
+      "unwrapper": "0xd4480794d7b2bacbcb749462dd5e6f4c555036f3",
+      "wrapperInputMarketIds": [
+        "1"
+      ],
+      "unwrapperOutputMarketIds": [
+        "1"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "10": {
+      "factory": "0xec0ad37432b489c40ed6da003b2c2f033928599e",
+      "underlying": "0x8be66a48ea1f4aff89cd2beb50b02d901dfb9584",
+      "underlyingSymbol": "PT-USDe-26DEC2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xe202e9883b0a5099e9c803a0b0c3d3b732a47e77",
+      "unwrapper": "0x1938392b71d20e846e9553ff95e91bdc9b15de86",
+      "wrapperInputMarketIds": [
+        "6"
+      ],
+      "unwrapperOutputMarketIds": [
+        "6"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "11": {
+      "factory": "0x5b12e419a57e3102ec1d47bd11ba5ec87ef264fb",
+      "underlying": "0x1333b49bbdd06544a25647f9127358d9a9486105",
+      "underlyingSymbol": "PT-mETH-26DEC2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x987afbff1487bf2b6b9b19238c1cfbcfd1d8a7b1",
+      "unwrapper": "0x63bd442334d457b58742a72b88abeaeffef6d451",
+      "wrapperInputMarketIds": [
+        "5"
+      ],
+      "unwrapperOutputMarketIds": [
+        "5"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "12": {
+      "factory": "0xe44cefd2e6b0b846e2720e7b823e173d9fdf8601",
+      "underlying": "0xc57c7be308cf2f52dcf095d8d4c67d5984270da0",
+      "underlyingSymbol": "PT-sMNT-3OCT2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xcb1b98acaec1700dc268eaf01d1f98b67a2af30d",
+      "unwrapper": "0x39871a4e6153547c2d0b1f8afcdc6530d8d9d061",
+      "wrapperInputMarketIds": [
+        "1"
+      ],
+      "unwrapperOutputMarketIds": [
+        "1"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "15": {
+      "factory": "0x8eb2ef96a70a6ec4f3dde550b96969a6aa25a563",
+      "underlying": "0xebf4ff21459fecf96e36cf1dd00db01367254bcd",
+      "underlyingSymbol": "PT-cmETH-13FEB2025",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xb317a2e95aa9b441006f9153ba810005e6acbe88",
+      "unwrapper": "0x0d8724ee17ab67b42a07d5feac99218019b534ec",
+      "wrapperInputMarketIds": [
+        "14"
+      ],
+      "unwrapperOutputMarketIds": [
+        "14"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    }
+  },
+  "42161": {
+    "6": {
+      "factory": "0x34df4e8062a8c8ae97e3382b452bd7bf60542698",
+      "underlying": "0x1addd80e6039594ee970e5872d247bf0414c8903",
+      "underlyingSymbol": "fsGLP",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xec3162ad61731b9e0b02f40504c88525d327f91b",
+      "unwrapper": "0xaacdc43568f9adc4d3b67a26bd04159ded39d79d",
+      "wrapperInputMarketIds": [
+        "2"
+      ],
+      "unwrapperOutputMarketIds": [
+        "2"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "9": {
+      "factory": "0x5c80ac681b6b0e7ef6e0751211012601e6cfb043",
+      "underlying": "0x5326e71ff593ecc2cf7acae5fe57582d6e74cff1",
+      "underlyingSymbol": "plvGLP",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x89649b0eea975a1930a36e13314d8bdde11f4698",
+      "unwrapper": "0x74d3cb3955e7517aec82d391c5767be50dba575f",
+      "wrapperInputMarketIds": [
+        "2"
+      ],
+      "unwrapperOutputMarketIds": [
+        "2"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "10": {
+      "factory": "0x2adba3f917bb0af2530f8f295ad2a6ff1111fc05",
+      "underlying": "0xe66998533a1992ece9ea99cdf47686f4fc8458e0",
+      "underlyingSymbol": "jUSDC",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "2",
+        "17"
+      ],
+      "allowableCollateralMarketIds": [
+        "10",
+        "2",
+        "17"
+      ],
+      "wrapper": null,
+      "unwrapper": null,
+      "wrapperInputMarketIds": [],
+      "unwrapperOutputMarketIds": [],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "11": {
+      "factory": "0x7b07e78561a3c2c1eade652a2a92da150743f4d7",
+      "underlying": "0x96015d0fb97139567a9ba675951816a0bb719e3c",
+      "underlyingSymbol": "PT-GLP-28MAR2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xa4f7fda96bce84b3ae352c98ddaf56e0ede4b91d",
+      "unwrapper": "0x35faf6b3f1dde3b9f7caca5f7c75544b5724a966",
+      "wrapperInputMarketIds": [
+        "40"
+      ],
+      "unwrapperOutputMarketIds": [
+        "40"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "16": {
+      "factory": "0x851729df6c39bdb6e92721f2adf750023d967ee8",
+      "underlying": "0x56051f8e46b67b4d286454995dbc6f5f3c433e34",
+      "underlyingSymbol": "YT-GLP-28MAR2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "0",
+        "1",
+        "2",
+        "5",
+        "4",
+        "13",
+        "17"
+      ],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xb149ca71070c921aa1b07a715ab3c4ee7ef532f7",
+      "unwrapper": "0x08ca33d639af1ec5bc1b90c359f49ff4b66d938f",
+      "wrapperInputMarketIds": [
+        "2"
+      ],
+      "unwrapperOutputMarketIds": [
+        "2"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "22": {
+      "factory": "0xc9375ef7635fe556f613ab528c9a2ed946bd075d",
+      "underlying": "0x685155d3bd593508fe32be39729810a591ed9c87",
+      "underlyingSymbol": "PT-rETH-26JUN2025",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x366c4b76c683790c49d69557a13a1d0ebcc3f37c",
+      "unwrapper": "0x0940649453d0a93021f472192f4f73951e32bc7e",
+      "wrapperInputMarketIds": [
+        "49"
+      ],
+      "unwrapperOutputMarketIds": [
+        "49"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "23": {
+      "factory": "0x1be165864c918527f2e3e131c2adc4da9b8c619b",
+      "underlying": "0x9741cac1a22ff3615fa074fd0b439975a5e137e9",
+      "underlyingSymbol": "PT-wstETH-27JUN2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x86926db1aed1fdd54018863d5c940ecf21a288ce",
+      "unwrapper": "0x2fc5f34bbf8685e9325bf9ea36ef9e0b421f28a8",
+      "wrapperInputMarketIds": [
+        "14"
+      ],
+      "unwrapperOutputMarketIds": [
+        "14"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "24": {
+      "factory": "0xfef14a3a1ec46d4eb18c784bc1e61297fc68bbc8",
+      "underlying": "0x1255638efeca62e12e344e0b6b22ea853ec6e2c7",
+      "underlyingSymbol": "PT-wstETH-26JUN2025",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xf735a02956f03da55acb74a7b4eec9d21556b475",
+      "unwrapper": "0x3670e7bca034e67c9e47cb90b54e753e10bb2b39",
+      "wrapperInputMarketIds": [
+        "14"
+      ],
+      "unwrapperOutputMarketIds": [
+        "14"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "28": {
+      "factory": "0x1d9e10b161ae54feabe1e3f71f658cac3468e3c3",
+      "underlying": "0x912ce59144191c1204e64559fe8253a0e49e6548",
+      "underlyingSymbol": "ARB",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x2e5973a6763dd2fcd182e2dd99d2e56c6f47b77f",
+      "unwrapper": "0x77e91d3f06c2c4b643f29d3fe74ca5af5e55ee68",
+      "wrapperInputMarketIds": [
+        "7"
+      ],
+      "unwrapperOutputMarketIds": [
+        "7"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "30": {
+      "factory": "0x790ff506ac24b03a21f3d0019227447ae2b55ca5",
+      "underlying": "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
+      "underlyingSymbol": "GMX",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x21f3395697b529a44ae1f4172ffcb9ebc9a83a74",
+      "unwrapper": "0x66aa62d0ecaa0967c78ab58e8d417a5017b7ea4e",
+      "wrapperInputMarketIds": [
+        "29"
+      ],
+      "unwrapperOutputMarketIds": [
+        "29"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "31": {
+      "factory": "0x2c799166c9f0dbf9efc5004cbce4c5a37fa39329",
+      "underlying": "0xc25cef6061cf5de5eb761b50e4743c1f5d7e5407",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "7",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "7",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "31",
+        "4",
+        "0"
+      ],
+      "wrapper": "0xc503064b1d7dcf39304c72c5b4750f0b01259ef0",
+      "unwrapper": "0x106fda10c64ffced99737b942ff7fc08a5ed0200",
+      "wrapperInputMarketIds": [
+        "17",
+        "7"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17",
+        "7"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "32": {
+      "factory": "0x1e8e8b7a2f827b3bc12b00ee402145061b7050ef",
+      "underlying": "0x47c031236e19d024b42f8ae6780e44a573170703",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "4",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "4",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "32",
+        "0"
+      ],
+      "wrapper": "0xc58ccfb7c8207ab9b1b2ce89b292c5db353e06d8",
+      "unwrapper": "0x2b9d148fabcaa522015492d205cad9f2b4852758",
+      "wrapperInputMarketIds": [
+        "17",
+        "4"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17",
+        "4"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "33": {
+      "factory": "0x505582242757f16d72f8c4462a616e388ca1b074",
+      "underlying": "0x70d95587d40a2caf56bd97485ab3eec10bee6336",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "0",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "4"
+      ],
+      "allowableCollateralMarketIds": [
+        "0",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "33",
+        "4"
+      ],
+      "wrapper": "0x8f6bc6ead4914c10e9dcba0289a3892eb32e7bf2",
+      "unwrapper": "0x0572e554784ea93312d18408aef2223431bed4ec",
+      "wrapperInputMarketIds": [
+        "17",
+        "0"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17",
+        "0"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "34": {
+      "factory": "0x18cb14564fbb015bd3439220d177799355abc0e0",
+      "underlying": "0x7f1fa204bb700853d36994da19f830b6ad18455c",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "3",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "3",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "34",
+        "4",
+        "0"
+      ],
+      "wrapper": "0x86bb92c9fc019a12535c9cbd152989f736f72b53",
+      "unwrapper": "0xa1b50f27456fc53b187dc1dcedd636e976af63e5",
+      "wrapperInputMarketIds": [
+        "17",
+        "3"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17",
+        "3"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "36": {
+      "factory": "0xa2e14377fa6ce3556e2248559e85dc44260e362f",
+      "underlying": "0x9becd6b4fb076348a455518aea23d3799361fe95",
+      "underlyingSymbol": "PT-weETH-25APR2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xff9b6d0a6a74900ebb6a9f8606cb1d0870fe41b0",
+      "unwrapper": "0xadcb9ec8bbbf8049cc67731a1b087738a7dc8cb3",
+      "wrapperInputMarketIds": [
+        "35"
+      ],
+      "unwrapperOutputMarketIds": [
+        "35"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "38": {
+      "factory": "0x12a3bb4fdbc5c932438e067338767ee4a9165f1b",
+      "underlying": "0x8ea5040d423410f1fdc363379af88e1db5ea1c34",
+      "underlyingSymbol": "PT-ezETH-27JUN2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x414b66cc66aaf55e90a5d60efe0a5e28c59d0dac",
+      "unwrapper": "0xed28b7138e0c126bce042653a4127f25e73b43a6",
+      "wrapperInputMarketIds": [
+        "37"
+      ],
+      "unwrapperOutputMarketIds": [
+        "37"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "41": {
+      "factory": "0x0c4d46076af67f8ba1cc3c01f7e873bd91ea41ab",
+      "underlying": "0x89cd713a6607787f93d6743e67777be9ad73c54b",
+      "underlyingSymbol": "PT-GLP-26SEP2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xbaa562cd044b0e64117c5ce07146b9c7ec0ec6eb",
+      "unwrapper": "0xf7e04e79616d52568b1c003e4187d053070cb5fe",
+      "wrapperInputMarketIds": [
+        "40"
+      ],
+      "unwrapperOutputMarketIds": [
+        "40"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "42": {
+      "factory": "0x6cc56e9ca71147d40b10a8cb8cbe911c1faf4cf8",
+      "underlying": "0x1c27ad8a19ba026adabd615f6bc77158130cfbe4",
+      "underlyingSymbol": "PT-weETH-27JUN2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xa3c4b5cbc7bf17200b401acaf7ac2f0c2880919e",
+      "unwrapper": "0x28cd0d7ae065be8ee674331789ed658c665939a2",
+      "wrapperInputMarketIds": [
+        "35"
+      ],
+      "unwrapperOutputMarketIds": [
+        "35"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "43": {
+      "factory": "0x14c60cb8301e879dfb9eecbebc013353b7e33012",
+      "underlying": "0xb0bde111812eac913b392d80d51966ec977be3a2",
+      "underlyingSymbol": "jUSDC",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "2",
+        "1",
+        "46",
+        "13",
+        "17",
+        "5"
+      ],
+      "allowableCollateralMarketIds": [
+        "43",
+        "2",
+        "1",
+        "46",
+        "13",
+        "17",
+        "5"
+      ],
+      "wrapper": "0x8427d514206a16b7ac5530f75d510502d4238767",
+      "unwrapper": "0x00e4180f25896229979a52d73be22963e93bc8ce",
+      "wrapperInputMarketIds": [
+        "17"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "44": {
+      "factory": "0xb15bbbfcff6c411410c66642306d1ffa7ecec4d8",
+      "underlying": "0x7c11f78ce78768518d743e81fdfa2f860c6b9a77",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "4",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "4",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "44",
+        "0"
+      ],
+      "wrapper": "0x039bc43fe68d76211b82707b1ee0960fc237362f",
+      "unwrapper": "0x71fcbbd889594639ea29a859b84265e41d1157c4",
+      "wrapperInputMarketIds": [
+        "4"
+      ],
+      "unwrapperOutputMarketIds": [
+        "4"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "45": {
+      "factory": "0x2d165a76dd3e552df3860789331ab73c5a3d7f92",
+      "underlying": "0x450bb6774dd8a756274e0ab4107953259d2ac541",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "0",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "4"
+      ],
+      "allowableCollateralMarketIds": [
+        "0",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "45",
+        "4"
+      ],
+      "wrapper": "0x6d1da0fcdf7b1351988f6d766c0b8c9c1b013907",
+      "unwrapper": "0x3338384dca79f2cc3d33611b257f904af3a5cfbe",
+      "wrapperInputMarketIds": [
+        "0"
+      ],
+      "unwrapperOutputMarketIds": [
+        "0"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "47": {
+      "factory": "0x20d51cb520c4622dcc3d7e35003dbab07d547e7e",
+      "underlying": "0xc7abb2c5f3bf3ceb389df0eecd6120d451170b50",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "12",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "12",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "5",
+        "47",
+        "4",
+        "0"
+      ],
+      "wrapper": "0x99190dd587d239eaa41aaa960195529bad97b333",
+      "unwrapper": "0x77a7dc42e1591575166d2a0b98e25dac7b311317",
+      "wrapperInputMarketIds": [
+        "17",
+        "12"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17",
+        "12"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "50": {
+      "factory": "0x4b82bd687042c4ea68a2a45b8204da74be0fb493",
+      "underlying": "0xb8b0a120f6a68dd06209619f62429fb1a8e92fec",
+      "underlyingSymbol": "PT-weETH-26SEP2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x0b0cbcd8a12ae53ac655baa0f07d73297445bf41",
+      "unwrapper": "0x471aaa8ecfca9b15b327bbf8d32fd95b417d0e71",
+      "wrapperInputMarketIds": [
+        "35"
+      ],
+      "unwrapperOutputMarketIds": [
+        "35"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "51": {
+      "factory": "0x9fb5a64ce2f659a6039aa57d45975fc097b3f373",
+      "underlying": "0x2ccfce9be49465cc6f947b5f6ac9383673733da9",
+      "underlyingSymbol": "PT-ezETH-26SEP2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xfd4bcbf149552926c1adde5bf189130116fb1186",
+      "unwrapper": "0x3545ff86ce52ecc92648a06b95aea9329b1e120d",
+      "wrapperInputMarketIds": [
+        "37"
+      ],
+      "unwrapperOutputMarketIds": [
+        "37"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "52": {
+      "factory": "0xcec868060a724199c0fbf62e61449175690a55bd",
+      "underlying": "0x30c98c0139b62290e26ac2a2158ac341dcaf1333",
+      "underlyingSymbol": "PT-rsETH-26SEP2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x56620d1184e24cb5f5e252fd2f3031c5c8b43cd0",
+      "unwrapper": "0x8d3a72927ea70351bec823827b037f2c809a509d",
+      "wrapperInputMarketIds": [
+        "49"
+      ],
+      "unwrapperOutputMarketIds": [
+        "49"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "55": {
+      "factory": "0x24c9121c75c099b38d40020872b8a0d2c27c614d",
+      "underlying": "0x1cbba6346f110c8a5ea739ef2d1eb182990e4eb2",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "55",
+        "4",
+        "0"
+      ],
+      "wrapper": "0xba32936ae28940bdda99e31f4d580a09018d7e47",
+      "unwrapper": "0xecd64fb5e83b40ab72fee9c1d0c3d1463ff86034",
+      "wrapperInputMarketIds": [
+        "17"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "56": {
+      "factory": "0x1beed3b7d1237b7773b5c4c249933e3ca5e027c1",
+      "underlying": "0x6853ea96ff216fab11d2d930ce3c508556a4bdc4",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "0",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4"
+      ],
+      "allowableCollateralMarketIds": [
+        "0",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "56",
+        "4"
+      ],
+      "wrapper": "0x2059e12116aabe982475b37af8800ec17572dbe6",
+      "unwrapper": "0xdfdbbd3b6d3c93e539e57f095ab68bf359f0d83c",
+      "wrapperInputMarketIds": [
+        "17",
+        "0"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17",
+        "0"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "57": {
+      "factory": "0x5c99f6cf6069698d234d50bf69ebd2f53e45ed1c",
+      "underlying": "0x55391d178ce46e7ac8eaaea50a72d1a5a8a622da",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "29",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "29",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "57",
+        "4",
+        "0"
+      ],
+      "wrapper": "0x471c5cf22bead0b3585de5bdf4c1138af30d1d2d",
+      "unwrapper": "0xd73cfb3f18dd39566374828c549cd67ad9953e66",
+      "wrapperInputMarketIds": [
+        "17",
+        "29"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17",
+        "29"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "58": {
+      "factory": "0x1ebb1c7023addbb2b6e30e6f4c8d4a4440bfd412",
+      "underlying": "0x09400d9db990d5ed3f35d7be61dfaeb900af03c9",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "58",
+        "4",
+        "0"
+      ],
+      "wrapper": "0xc33b3d653bac5be49be105c25a5373984ef0de09",
+      "unwrapper": "0xc874562c034fd246dd0f9c011668c2f087fe691f",
+      "wrapperInputMarketIds": [
+        "17"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "59": {
+      "factory": "0xc587646f67b38739006ed0200e2e0a26fdb01c9b",
+      "underlying": "0x0cf1fb4d1ff67a3d8ca92c9d6643f8f9be8e03e5",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "14",
+        "54",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "17",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "14",
+        "54",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "17",
+        "5",
+        "59",
+        "4",
+        "0"
+      ],
+      "wrapper": "0xd55a716e10ce7d2301058dc167408a504e1db5cb",
+      "unwrapper": "0x16b3600edb16eb9e7b40e026c26f1edad7e9b18d",
+      "wrapperInputMarketIds": [
+        "54",
+        "14"
+      ],
+      "unwrapperOutputMarketIds": [
+        "54",
+        "14"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "60": {
+      "factory": "0x24fe352a8303881dc8def80783682648623c57d2",
+      "underlying": "0xe2b2d203577c7cb3d043e89ccf90b5e24d19b66f",
+      "underlyingSymbol": "PT-weETH-26DEC2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x58e3bd68fdc9d63507f58a4f6e1e444a2b3cbd80",
+      "unwrapper": "0x68ae4ec21721df90191270e7e143b6de36913245",
+      "wrapperInputMarketIds": [
+        "35"
+      ],
+      "unwrapperOutputMarketIds": [
+        "35"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "61": {
+      "factory": "0x26abfe435447b236b8a014b296e1a8fa2b912aec",
+      "underlying": "0x355ec27c9d4530de01a103fa27f884a2f3da65ef",
+      "underlyingSymbol": "PT-rsETH-26DEC2024",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xa54076f7606101e7a851f23e3fe381ff437ee768",
+      "unwrapper": "0x64429d6681af74174913b74ac457fdf9c890b76e",
+      "wrapperInputMarketIds": [
+        "49"
+      ],
+      "unwrapperOutputMarketIds": [
+        "49"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "63": {
+      "factory": "0xcf248baf933c7b1b876b997246f25021a65383b3",
+      "underlying": "0xbd48149673724f9caee647bb4e9d9ddaf896efeb",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "29",
+        "29",
+        "2",
+        "1",
+        "46",
+        "13",
+        "17",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "29",
+        "29",
+        "2",
+        "1",
+        "46",
+        "13",
+        "17",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0",
+        "63"
+      ],
+      "wrapper": "0x35a0d00f74cb942e69ba85e39c0a084a87e7b91a",
+      "unwrapper": "0xcf5f2a2004365bed898746466c8f044511a1eea2",
+      "wrapperInputMarketIds": [
+        "29"
+      ],
+      "unwrapperOutputMarketIds": [
+        "29"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "64": {
+      "factory": "0xe5d6fe410c69b44c357403a1936b3bfaddbe340b",
+      "underlying": "0x784292e87715d93afd7cb8c941bacafaaa9a5102",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "21",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "21",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0",
+        "64"
+      ],
+      "wrapper": "0xc594b95d265f52edaeef00b4eec895681e092b4e",
+      "unwrapper": "0xa5cc625efa7166516cbbd341e54247a951e1bd03",
+      "wrapperInputMarketIds": [
+        "21",
+        "17"
+      ],
+      "unwrapperOutputMarketIds": [
+        "21",
+        "17"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "65": {
+      "factory": "0x6586f1db71513daf94b0431156d225a46c00f20b",
+      "underlying": "0x2b477989a149b17073d9c9c82ec9cb03591e20c6",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0",
+        "65"
+      ],
+      "wrapper": "0x21aeb970d207716cd4e32546882a4b3a71bfc858",
+      "unwrapper": "0x874b28fbbdee1bb188727212922c8c9c8e4a7e65",
+      "wrapperInputMarketIds": [
+        "17"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "66": {
+      "factory": "0xf5063b40fa66ab2fbda2e6807ac5759a41a1b0c3",
+      "underlying": "0x0418643f94ef14917f1345ce5c460c37de463ef7",
+      "underlyingSymbol": "GM",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4",
+        "0",
+        "66"
+      ],
+      "wrapper": "0x6f9f134924200acbe79de1811280e2e56eab65b7",
+      "unwrapper": "0x43f94d8425e97eed729affca299156f7bbf6de65",
+      "wrapperInputMarketIds": [
+        "17"
+      ],
+      "unwrapperOutputMarketIds": [
+        "17"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "67": {
+      "factory": "0x7e584529bb40220a2bd5d0c13e3d65abd4a47f0e",
+      "underlying": "0xdf03eed325b82bc1d4db8b49c30ecc9e05104b96",
+      "underlyingSymbol": "GLV [WBTC-USDC]",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "4",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "4",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "0",
+        "67"
+      ],
+      "wrapper": "0xf1fc64f05beba7e17f9c7bf841695f48ed025472",
+      "unwrapper": "0x3922979c997f9b25853d19906008ac53ed41e58c",
+      "wrapperInputMarketIds": [
+        "4",
+        "17"
+      ],
+      "unwrapperOutputMarketIds": [
+        "4",
+        "17"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "68": {
+      "factory": "0x11f4532c05fb8ea6320b1dc155bfdc2498a5d8b4",
+      "underlying": "0x528a5bac7e746c9a509a1f4f6df58a03d44279f9",
+      "underlyingSymbol": "GLV [WETH-USDC]",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "0",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4"
+      ],
+      "allowableCollateralMarketIds": [
+        "0",
+        "17",
+        "1",
+        "46",
+        "13",
+        "2",
+        "48",
+        "54",
+        "5",
+        "4",
+        "68"
+      ],
+      "wrapper": "0x2e8224572e40ad8d55ba3c113c191f4964dbbe2a",
+      "unwrapper": "0x62d93a9fba7ec629a718d6ddb560523a62daf90b",
+      "wrapperInputMarketIds": [
+        "0",
+        "17"
+      ],
+      "unwrapperOutputMarketIds": [
+        "0",
+        "17"
+      ],
+      "async": true,
+      "executionFeeWei": "1000000000000000"
+    },
+    "76": {
+      "factory": "0x51bc8e41cbec0aa97ec07c73597829c70b2eed46",
+      "underlying": "0x23e3df1196b3249c9b0a9476f990f105591872de",
+      "underlyingSymbol": "savETH",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [
+        "0"
+      ],
+      "allowableCollateralMarketIds": [
+        "0",
+        "76"
+      ],
+      "wrapper": "0x8e9d6c35cf0f1729cc01185d0049474101288b45",
+      "unwrapper": "0x991c93eec7956fffaa9ad2bccc415a0bb27e6826",
+      "wrapperInputMarketIds": [
+        "75"
+      ],
+      "unwrapperOutputMarketIds": [
+        "75"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    }
+  },
+  "80094": {
+    "38": {
+      "factory": "0x589b3b5e75d5475908c6c2ebd1f2f68eeca52ee4",
+      "underlying": "0xac03caba51e17c86c921e1f6cbfbdc91f8bb2e6b",
+      "underlyingSymbol": "iBGT",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0x873d4b9fb1efd97ec3d53dd645b16f85410c08b7",
+      "unwrapper": "0x34e08961bff5fe27b44f814a470970db6e90108a",
+      "wrapperInputMarketIds": [
+        "34"
+      ],
+      "unwrapperOutputMarketIds": [
+        "34"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    },
+    "39": {
+      "factory": "0x5db5ef3d657471d991e4de09983d2c92b0609749",
+      "underlying": "0x3000c6bf0aaeb813e252b584c4d9a82f99e7a71d",
+      "underlyingSymbol": "drUSD",
+      "underlyingDecimals": 18,
+      "allowableDebtMarketIds": [],
+      "allowableCollateralMarketIds": [],
+      "wrapper": "0xe728b67c258f2e60988bd2cebf0350bdc358e3e9",
+      "unwrapper": "0x645004487ae442049effd66b1a09ecb8d5274b1c",
+      "wrapperInputMarketIds": [
+        "8"
+      ],
+      "unwrapperOutputMarketIds": [
+        "8"
+      ],
+      "async": false,
+      "executionFeeWei": null
+    }
+  }
+}
