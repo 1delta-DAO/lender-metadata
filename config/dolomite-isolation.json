@@ -16,7 +16,8 @@
         "6"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x9784b2028a90c4f2162d832616b0cfc81588f9e58f1e682f4684e85c5da89ed2"
     },
     "9": {
       "factory": "0x6b68bdccb22931937d7d11e556d95a07e02fe3ce",
@@ -34,7 +35,8 @@
         "1"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x3611bc0464dd3375d59c3d1dd6b0e6c83a08f9073e47ee48fd927678ac7c5617"
     },
     "10": {
       "factory": "0xec0ad37432b489c40ed6da003b2c2f033928599e",
@@ -52,7 +54,8 @@
         "6"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x581e7c47f61da69d8cd2aa08172aca5d7265ce4f8831c4a4106164558a439d08"
     },
     "11": {
       "factory": "0x5b12e419a57e3102ec1d47bd11ba5ec87ef264fb",
@@ -70,7 +73,8 @@
         "5"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x3611bc0464dd3375d59c3d1dd6b0e6c83a08f9073e47ee48fd927678ac7c5617"
     },
     "12": {
       "factory": "0xe44cefd2e6b0b846e2720e7b823e173d9fdf8601",
@@ -88,7 +92,8 @@
         "1"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x11b6f50e652c2a27b14944bf24354e8899668ff8ac571e58bced32e794f9c61d"
     },
     "15": {
       "factory": "0x8eb2ef96a70a6ec4f3dde550b96969a6aa25a563",
@@ -106,7 +111,8 @@
         "14"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x968a2b9c48d85e1f43feb8b27803ba02d4534b3385ef6f6edd95f74975511212"
     }
   },
   "42161": {
@@ -126,7 +132,8 @@
         "2"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": null
     },
     "9": {
       "factory": "0x5c80ac681b6b0e7ef6e0751211012601e6cfb043",
@@ -144,7 +151,8 @@
         "2"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x6d09cd08a303e0ccd4c24b81dd41322f7399e5c19360ef9f819d2f48fd1b64ca"
     },
     "10": {
       "factory": "0x2adba3f917bb0af2530f8f295ad2a6ff1111fc05",
@@ -165,7 +173,8 @@
       "wrapperInputMarketIds": [],
       "unwrapperOutputMarketIds": [],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x0032811774d76fef65c931bbc8a50665b750d14e62b31f348dc3fbc9566fc5b6"
     },
     "11": {
       "factory": "0x7b07e78561a3c2c1eade652a2a92da150743f4d7",
@@ -183,7 +192,8 @@
         "40"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x0032811774d76fef65c931bbc8a50665b750d14e62b31f348dc3fbc9566fc5b6"
     },
     "16": {
       "factory": "0x851729df6c39bdb6e92721f2adf750023d967ee8",
@@ -209,7 +219,8 @@
         "2"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x5ceed0e9b34f60cddf1237e1d12197fc9f2771a45ebe7951c5e06ef8140d29f1"
     },
     "22": {
       "factory": "0xc9375ef7635fe556f613ab528c9a2ed946bd075d",
@@ -227,7 +238,8 @@
         "49"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x45a0a27b5c9ea7fa1a3da214e9e743189b28e3d054fb17e0d6917332caf7bf13"
     },
     "23": {
       "factory": "0x1be165864c918527f2e3e131c2adc4da9b8c619b",
@@ -245,7 +257,8 @@
         "14"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x45a0a27b5c9ea7fa1a3da214e9e743189b28e3d054fb17e0d6917332caf7bf13"
     },
     "24": {
       "factory": "0xfef14a3a1ec46d4eb18c784bc1e61297fc68bbc8",
@@ -263,7 +276,8 @@
         "14"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x45a0a27b5c9ea7fa1a3da214e9e743189b28e3d054fb17e0d6917332caf7bf13"
     },
     "28": {
       "factory": "0x1d9e10b161ae54feabe1e3f71f658cac3468e3c3",
@@ -281,7 +295,8 @@
         "7"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x5023da68d95eed40238a37623c9ad7c7060cd372946227b3bcaa6f1ac8ac7e82"
     },
     "30": {
       "factory": "0x790ff506ac24b03a21f3d0019227447ae2b55ca5",
@@ -299,7 +314,8 @@
         "29"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x5023da68d95eed40238a37623c9ad7c7060cd372946227b3bcaa6f1ac8ac7e82"
     },
     "31": {
       "factory": "0x2c799166c9f0dbf9efc5004cbce4c5a37fa39329",
@@ -340,7 +356,8 @@
         "7"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0xe3ad80f5509f151c0e888fa7cdc5b5a5e15108a070ad524cf9dc07186df184de"
     },
     "32": {
       "factory": "0x1e8e8b7a2f827b3bc12b00ee402145061b7050ef",
@@ -379,7 +396,8 @@
         "4"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0xe3ad80f5509f151c0e888fa7cdc5b5a5e15108a070ad524cf9dc07186df184de"
     },
     "33": {
       "factory": "0x505582242757f16d72f8c4462a616e388ca1b074",
@@ -418,7 +436,8 @@
         "0"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0xe3ad80f5509f151c0e888fa7cdc5b5a5e15108a070ad524cf9dc07186df184de"
     },
     "34": {
       "factory": "0x18cb14564fbb015bd3439220d177799355abc0e0",
@@ -459,7 +478,8 @@
         "3"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0xe3ad80f5509f151c0e888fa7cdc5b5a5e15108a070ad524cf9dc07186df184de"
     },
     "36": {
       "factory": "0xa2e14377fa6ce3556e2248559e85dc44260e362f",
@@ -477,7 +497,8 @@
         "35"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x89c20ad4d35b67428d3b7f42e85adbdd1fc5df45c3daeb06ae22a8f3ad63c2e4"
     },
     "38": {
       "factory": "0x12a3bb4fdbc5c932438e067338767ee4a9165f1b",
@@ -495,7 +516,8 @@
         "37"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0xbf8544f95ac5644fb23ad137ace98fba4a1b3d89ed415a06c64b420ed2295f69"
     },
     "41": {
       "factory": "0x0c4d46076af67f8ba1cc3c01f7e873bd91ea41ab",
@@ -513,7 +535,8 @@
         "40"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x962399922755c295e541a198151d7c26acb4e7068a2ed07fdc972ed51a646b30"
     },
     "42": {
       "factory": "0x6cc56e9ca71147d40b10a8cb8cbe911c1faf4cf8",
@@ -531,7 +554,8 @@
         "35"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x962399922755c295e541a198151d7c26acb4e7068a2ed07fdc972ed51a646b30"
     },
     "43": {
       "factory": "0x14c60cb8301e879dfb9eecbebc013353b7e33012",
@@ -564,7 +588,8 @@
         "17"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x962399922755c295e541a198151d7c26acb4e7068a2ed07fdc972ed51a646b30"
     },
     "44": {
       "factory": "0xb15bbbfcff6c411410c66642306d1ffa7ecec4d8",
@@ -601,7 +626,8 @@
         "4"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x36586cb60d05c6e079fd75eaa1a8e387d00a13b04a77b116d5645d9e0c715a5c"
     },
     "45": {
       "factory": "0x2d165a76dd3e552df3860789331ab73c5a3d7f92",
@@ -638,7 +664,8 @@
         "0"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x36586cb60d05c6e079fd75eaa1a8e387d00a13b04a77b116d5645d9e0c715a5c"
     },
     "47": {
       "factory": "0x20d51cb520c4622dcc3d7e35003dbab07d547e7e",
@@ -679,7 +706,8 @@
         "12"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0xf6a4302c77c6e44341d58522ef07d39ea7ea5de20c9a60d968b5e1801ee4635a"
     },
     "50": {
       "factory": "0x4b82bd687042c4ea68a2a45b8204da74be0fb493",
@@ -697,7 +725,8 @@
         "35"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x9784b2028a90c4f2162d832616b0cfc81588f9e58f1e682f4684e85c5da89ed2"
     },
     "51": {
       "factory": "0x9fb5a64ce2f659a6039aa57d45975fc097b3f373",
@@ -715,7 +744,8 @@
         "37"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x9784b2028a90c4f2162d832616b0cfc81588f9e58f1e682f4684e85c5da89ed2"
     },
     "52": {
       "factory": "0xcec868060a724199c0fbf62e61449175690a55bd",
@@ -733,7 +763,8 @@
         "49"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x9784b2028a90c4f2162d832616b0cfc81588f9e58f1e682f4684e85c5da89ed2"
     },
     "55": {
       "factory": "0x24c9121c75c099b38d40020872b8a0d2c27c614d",
@@ -774,7 +805,8 @@
         "17"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x11b6f50e652c2a27b14944bf24354e8899668ff8ac571e58bced32e794f9c61d"
     },
     "56": {
       "factory": "0x1beed3b7d1237b7773b5c4c249933e3ca5e027c1",
@@ -817,7 +849,8 @@
         "0"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x11b6f50e652c2a27b14944bf24354e8899668ff8ac571e58bced32e794f9c61d"
     },
     "57": {
       "factory": "0x5c99f6cf6069698d234d50bf69ebd2f53e45ed1c",
@@ -862,7 +895,8 @@
         "29"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x11b6f50e652c2a27b14944bf24354e8899668ff8ac571e58bced32e794f9c61d"
     },
     "58": {
       "factory": "0x1ebb1c7023addbb2b6e30e6f4c8d4a4440bfd412",
@@ -903,7 +937,8 @@
         "17"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x11b6f50e652c2a27b14944bf24354e8899668ff8ac571e58bced32e794f9c61d"
     },
     "59": {
       "factory": "0xc587646f67b38739006ed0200e2e0a26fdb01c9b",
@@ -948,7 +983,8 @@
         "14"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x11b6f50e652c2a27b14944bf24354e8899668ff8ac571e58bced32e794f9c61d"
     },
     "60": {
       "factory": "0x24fe352a8303881dc8def80783682648623c57d2",
@@ -966,7 +1002,8 @@
         "35"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x11b6f50e652c2a27b14944bf24354e8899668ff8ac571e58bced32e794f9c61d"
     },
     "61": {
       "factory": "0x26abfe435447b236b8a014b296e1a8fa2b912aec",
@@ -984,7 +1021,8 @@
         "49"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x11b6f50e652c2a27b14944bf24354e8899668ff8ac571e58bced32e794f9c61d"
     },
     "63": {
       "factory": "0xcf248baf933c7b1b876b997246f25021a65383b3",
@@ -1029,7 +1067,8 @@
         "29"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x968a2b9c48d85e1f43feb8b27803ba02d4534b3385ef6f6edd95f74975511212"
     },
     "64": {
       "factory": "0xe5d6fe410c69b44c357403a1936b3bfaddbe340b",
@@ -1074,7 +1113,8 @@
         "17"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x968a2b9c48d85e1f43feb8b27803ba02d4534b3385ef6f6edd95f74975511212"
     },
     "65": {
       "factory": "0x6586f1db71513daf94b0431156d225a46c00f20b",
@@ -1115,7 +1155,8 @@
         "17"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x968a2b9c48d85e1f43feb8b27803ba02d4534b3385ef6f6edd95f74975511212"
     },
     "66": {
       "factory": "0xf5063b40fa66ab2fbda2e6807ac5759a41a1b0c3",
@@ -1156,7 +1197,8 @@
         "17"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x968a2b9c48d85e1f43feb8b27803ba02d4534b3385ef6f6edd95f74975511212"
     },
     "67": {
       "factory": "0x7e584529bb40220a2bd5d0c13e3d65abd4a47f0e",
@@ -1199,7 +1241,8 @@
         "17"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x71126df1d24b6b30defa87ca90944929fdedb27e0311739fdd9c30774e253e52"
     },
     "68": {
       "factory": "0x11f4532c05fb8ea6320b1dc155bfdc2498a5d8b4",
@@ -1242,7 +1285,8 @@
         "17"
       ],
       "async": true,
-      "executionFeeWei": "1000000000000000"
+      "executionFeeWei": "1000000000000000",
+      "vaultInitCodeHash": "0x71126df1d24b6b30defa87ca90944929fdedb27e0311739fdd9c30774e253e52"
     },
     "76": {
       "factory": "0x51bc8e41cbec0aa97ec07c73597829c70b2eed46",
@@ -1265,7 +1309,8 @@
         "75"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0x19506a8d8be6bfd5d1ef2a8e7a0185a9f8f913633e6bbabc39538a23672d26ea"
     }
   },
   "80094": {
@@ -1285,7 +1330,8 @@
         "34"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0xd93f391b1ce48ec62fbb86e8e2476d8f61d65516d15bad11a5e4881b9a5c5ebd"
     },
     "39": {
       "factory": "0x5db5ef3d657471d991e4de09983d2c92b0609749",
@@ -1303,7 +1349,8 @@
         "8"
       ],
       "async": false,
-      "executionFeeWei": null
+      "executionFeeWei": null,
+      "vaultInitCodeHash": "0xd93f391b1ce48ec62fbb86e8e2476d8f61d65516d15bad11a5e4881b9a5c5ebd"
     }
   }
 }

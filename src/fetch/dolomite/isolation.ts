@@ -47,6 +47,15 @@ export interface DolomiteIsolationMarket {
    */
   async: boolean;
   executionFeeWei: string | null;
+  /**
+   * `getProxyVaultInitCodeHash()` — the factory deploys each user's vault with
+   * `CREATE2(salt = keccak256(abi.encodePacked(user)))`, so with this hash a
+   * consumer derives the vault address OFFLINE (`calculateVaultByAccount`)
+   * and can read a vault-owned position without the subgraph. Read per
+   * factory, never assumed shared: it is the proxy's creation code hash and
+   * differs per compiler build.
+   */
+  vaultInitCodeHash: string | null;
 }
 
 export type DolomiteIsolationChain = Record<string, DolomiteIsolationMarket>;
@@ -110,6 +119,13 @@ const factoryAbi = [
     stateMutability: "view",
     inputs: [],
     outputs: [{ type: "uint256" }],
+  },
+  {
+    type: "function",
+    name: "getProxyVaultInitCodeHash",
+    stateMutability: "pure",
+    inputs: [],
+    outputs: [{ type: "bytes32" }],
   },
 ] as const;
 
@@ -180,6 +196,7 @@ export async function fetchDolomiteIsolation(
       { address: f, name: "allowableDebtMarketIds" },
       { address: f, name: "allowableCollateralMarketIds" },
       { address: f, name: "executionFee" },
+      { address: f, name: "getProxyVaultInitCodeHash" },
       // Probe the seed's converters; the zero address stands in when there is
       // no seed so the call layout stays fixed (answers false).
       {
@@ -196,7 +213,7 @@ export async function fetchDolomiteIsolation(
   });
   const fac = await read(chainId, facCalls, factoryAbi);
 
-  const underlyings = iso.map((_, i) => fac[i * 6]);
+  const underlyings = iso.map((_, i) => fac[i * 7]);
   const undCalls = underlyings.flatMap((u) =>
     ok(u)
       ? [
@@ -210,7 +227,7 @@ export async function fetchDolomiteIsolation(
   const out: DolomiteIsolationChain = {};
   let u = 0;
   iso.forEach(([marketId, factory], i) => {
-    const base = i * 6;
+    const base = i * 7;
     const underlying = fac[base];
     if (!ok(underlying)) {
       console.log(
@@ -222,8 +239,9 @@ export async function fetchDolomiteIsolation(
     const decimals = und[u * 2 + 1];
     u++;
     const c = seed[factory.toLowerCase()];
-    const wrapperTrusted = c ? fac[base + 4] === true : false;
-    const unwrapperTrusted = c ? fac[base + 5] === true : false;
+    const initCodeHash = fac[base + 4];
+    const wrapperTrusted = c ? fac[base + 5] === true : false;
+    const unwrapperTrusted = c ? fac[base + 6] === true : false;
     if (c && !(wrapperTrusted && unwrapperTrusted)) {
       console.log(
         `Dolomite: chain ${chainId}: isolation market ${marketId} converters from the seed are NOT trusted on-chain (wrapper ${wrapperTrusted}, unwrapper ${unwrapperTrusted}) — written as null`,
@@ -250,6 +268,10 @@ export async function fetchDolomiteIsolation(
       async: c?.isAsync ?? false,
       // `executionFee()` only exists on the async (GMX V2 / GLV) factories.
       executionFeeWei: ok(fee) ? String(fee) : null,
+      vaultInitCodeHash:
+        typeof initCodeHash === "string" && initCodeHash.length === 66
+          ? initCodeHash.toLowerCase()
+          : null,
     };
   });
   return out;
