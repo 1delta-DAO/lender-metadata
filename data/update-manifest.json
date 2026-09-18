@@ -1,15 +1,18 @@
 {
-  "version": "2026-09-17T07-11-56-188Z",
-  "generatedAt": "2026-09-17T07:11:56.188Z",
+  "version": "2026-09-18T14-18-26-562Z",
+  "generatedAt": "2026-09-18T14:18:26.562Z",
   "updatedFiles": [
-    "./data/morpho-oracles-data.json",
-    "./data/aave-reserves.json",
-    "./data/aave-tokens.json",
+    "./data/lender-labels.json",
+    "./data/morpho-type-oracles.json",
+    "./data/morpho-curators.json",
     "./data/compound-v2-oracles.json",
     "./data/euler-vaults.json",
     "./data/lender-labels.json",
     "./data/lender-labels.json",
-    "./data/midnight-markets.json",
+    "./data/lender-labels.json",
+    "./config/dolomite-isolation.json",
+    "./data/lender-labels.json",
+    "./data/term-finance-markets.json",
     "./data/teller-oracles-classified.json",
     "./config/inverse.json"
   ],
@@ -136,6 +139,9 @@
     },
     {
       "targetFile": "./config/dolomite-emode.json"
+    },
+    {
+      "targetFile": "./config/dolomite-isolation.json"
     },
     {
       "targetFile": "./data/midnight-markets.json"
