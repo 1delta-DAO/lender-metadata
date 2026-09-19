@@ -1932,7 +1932,9 @@
         0
       ],
       "continuousFee": "0",
+      "marketFamilyId": "0x0a388bd87704c06817fe94b0b1ba372ca921634e40e13d93978ecc84b16da389",
       "tenorSeriesId": "c3e775ae-8d49-46f8-91cc-658f233533ed",
+      "listed": false,
       "name": "WETH+vUSDC/USDC - 2026-10-30"
     },
     {
@@ -2239,53 +2241,6 @@
       "tenorSeriesId": "584bf890-dd0e-44f8-acda-5684ed92dba4",
       "listed": true,
       "name": "cbBTC/USDC - 2026-09-25"
-    },
-    {
-      "marketId": "0x569a65680fb2943b9ac3263041e4d16c013b9fa7594415aeea7e0cb6acd6c523",
-      "loanToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-      "loanDecimals": 6,
-      "collateralParams": [
-        {
-          "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
-          "lltv": "860000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x663BECd10daE6C4A3Dcd89F1d76c1174199639B9",
-          "decimals": 8
-        },
-        {
-          "token": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC",
-          "lltv": "980000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x4a24e4bf269cE26aAD2dF00437e7730d25FCdE26",
-          "decimals": 18,
-          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC"
-        }
-      ],
-      "maturity": "1785369600",
-      "rcfThreshold": "3000000000",
-      "enterGate": "0x0000000000000000000000000000000000000000",
-      "liquidatorGate": "0x0000000000000000000000000000000000000000",
-      "gating": {
-        "enter": "open",
-        "liquidator": "open",
-        "enterGate": "0x0000000000000000000000000000000000000000",
-        "liquidatorGate": "0x0000000000000000000000000000000000000000"
-      },
-      "settlementFeeCbp": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "continuousFee": "0",
-      "marketFamilyId": "0x18020b41e963cade9f234de34b52352788ca7296d424ad8e7c9c596f541316e3",
-      "tenorSeriesId": "e7041445-c77d-4406-922a-1f7f33dd6ac0",
-      "listed": false,
-      "deprecatedAt": "1787256164",
-      "name": "cbBTC+vUSDC/USDC - 2026-07-30"
     },
     {
       "marketId": "0x5f21188cf50dcd269250911a64824736d09770d56796cae432a529a679351475",
