@@ -16,7 +16,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "sUSDai / USDC",
-      "oracle": "0x6f43dfe183896778cf6eb65e05d43a7269cf7a25",
+      "oracle": "0x08e954efd116563894dec499eff1ed34f4b1ef4e",
       "priceDescription": "sUSDai / USDC",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -204,6 +204,30 @@
       "vault": "0x0a90ed6964f6ba56902fd35ee11857a810dd5543",
       "vaultId": 125
     },
+    "0x0b8a681ed46ea8ec6b97d686df0631fbf84b03d2": {
+      "collateral": [
+        "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee"
+      ],
+      "collateralSymbols": [
+        "weETH"
+      ],
+      "correctOracle": null,
+      "debt": [
+        "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      ],
+      "debtSymbols": [
+        null
+      ],
+      "denominatorMatch": null,
+      "intendedPair": null,
+      "oracle": null,
+      "priceDescription": "UNKNOWN",
+      "provider": "fluid-oracle",
+      "type": 10000,
+      "underlyingAggregator": null,
+      "vault": "0x0b8a681ed46ea8ec6b97d686df0631fbf84b03d2",
+      "vaultId": 182
+    },
     "0x0c8c77b7ff4c2af7f6cebbe67350a490e3dd6cb3": {
       "collateral": [
         "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
@@ -296,7 +320,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "sUSDai / USDT",
-      "oracle": "0x0fd40857d3704b447ab928f50e092fc0971ec808",
+      "oracle": "0x260685860f8bc4feb060583124b930f873ddec5b",
       "priceDescription": "sUSDai / USDT",
       "provider": "composite",
       "type": 20000,
@@ -387,18 +411,18 @@
         "USDai",
         "USDC"
       ],
-      "correctOracle": null,
+      "correctOracle": true,
       "debt": [
         "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       ],
       "debtSymbols": [
         "USDC"
       ],
-      "denominatorMatch": null,
+      "denominatorMatch": true,
       "intendedPair": "USDai / USDC",
-      "oracle": null,
-      "priceDescription": "UNKNOWN",
-      "provider": "fluid-oracle",
+      "oracle": "0x6eb5422ef943864787e1580d92333a8c0748fccb",
+      "priceDescription": "USDai / USDC",
+      "provider": "composite",
       "type": 20000,
       "underlyingAggregator": null,
       "vault": "0x1449fa85260fd18edb742f9e2dfb2f2bade65c84",
@@ -511,7 +535,7 @@
         "reUSD",
         "USDT"
       ],
-      "correctOracle": null,
+      "correctOracle": true,
       "debt": [
         "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "0xdac17f958d2ee523a2206206994597c13d831ec7"
@@ -520,11 +544,11 @@
         "USDC",
         "USDT"
       ],
-      "denominatorMatch": null,
+      "denominatorMatch": true,
       "intendedPair": "reUSD / USDC",
-      "oracle": null,
-      "priceDescription": "UNKNOWN",
-      "provider": "fluid-oracle",
+      "oracle": "0x8fb2052d192b6fed032a7e24eec9852ec69ad5cc",
+      "priceDescription": "reUSD / USDC",
+      "provider": "composite",
       "type": 40000,
       "underlyingAggregator": null,
       "vault": "0x18aecd810742a6ae160f4c641fbbb14f15b7ed55",
@@ -672,9 +696,9 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "sUSDai / USDC",
-      "oracle": "0xbcc18859e9c0dc9fc14a242be7bf2a515489d514",
+      "oracle": "0xf9c7c6cf9308ab07e5b77860af01ed85930420d0",
       "priceDescription": "sUSDai / USDC",
-      "provider": "composite",
+      "provider": "fluid-oracle",
       "type": 30000,
       "underlyingAggregator": null,
       "vault": "0x1d3fadd621946c104d72bc2d01a79acdf9719eba",
@@ -687,7 +711,7 @@
       "collateralSymbols": [
         "reUSD"
       ],
-      "correctOracle": null,
+      "correctOracle": true,
       "debt": [
         "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
         "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
@@ -696,11 +720,11 @@
         "GHO",
         "USDC"
       ],
-      "denominatorMatch": null,
+      "denominatorMatch": true,
       "intendedPair": "reUSD / GHO",
-      "oracle": null,
-      "priceDescription": "UNKNOWN",
-      "provider": "fluid-oracle",
+      "oracle": "0x2bde6cd8f881182603cd923c02f7519203bce6bb",
+      "priceDescription": "reUSD / GHO",
+      "provider": "composite",
       "type": 30000,
       "underlyingAggregator": null,
       "vault": "0x1e3a423bbd2820b08a7dca2e5d683c143bb11c53",
@@ -902,9 +926,9 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "sUSDai / USDC",
-      "oracle": "0x0537684f6981345615f40440a5ccc12c6fbe2395",
+      "oracle": "0x826dda58e97a76bc16f56824a835867640113425",
       "priceDescription": "sUSDai / USDC",
-      "provider": "composite",
+      "provider": "fluid-oracle",
       "type": 40000,
       "underlyingAggregator": null,
       "vault": "0x26a5f44aac931f2abc1c89236a6dfde3ebeed997",
@@ -1438,7 +1462,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "sUSDai / USDT",
-      "oracle": "0xa837653b467cb1e193a7ab20ef1632b6dfa9284b",
+      "oracle": "0xcdc110dce4a65c15f613d37d99450dbbc853ea72",
       "priceDescription": "sUSDai / USDT",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -2378,7 +2402,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "sUSDai / USDC",
-      "oracle": "0x4007599f185f98c75aa2ae6a36993eb2cecc3fc4",
+      "oracle": "0x8b19bab5e5c4537f7820e4b8dd1d16237310a316",
       "priceDescription": "sUSDai / USDC",
       "provider": "composite",
       "type": 20000,
@@ -3652,9 +3676,9 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "sUSDai / USDC",
-      "oracle": "0x97c85c9191d1ed32397c5f05d1dce45b842b35d5",
+      "oracle": "0xeabc75df1832beb31ddfe18bd5cf693b2d6d37f2",
       "priceDescription": "sUSDai / USDC",
-      "provider": "composite",
+      "provider": "fluid-oracle",
       "type": 40000,
       "underlyingAggregator": null,
       "vault": "0xc16f5c0996b80a4ae4f75652bbe684b6f6b808eb",
@@ -4128,7 +4152,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "sUSDai / GHO",
-      "oracle": "0x5734caa6941e215528bc64f716b452520c2de395",
+      "oracle": "0x0327cbbbfd3bff6f32eb0a832f00c7b382b863b4",
       "priceDescription": "sUSDai / GHO",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5448,7 +5472,7 @@
       "intendedPair": "AUSD / USDC",
       "oracle": "0xbcbc81e9339056a78bfd11d934f7b33b371edd17",
       "priceDescription": "AUSD / USDC",
-      "provider": "fluid-oracle",
+      "provider": "composite",
       "type": 20000,
       "underlyingAggregator": null,
       "vault": "0x01c7c1c41dea58b043e700efb23dc077f12a125e",
@@ -5470,7 +5494,7 @@
       ],
       "denominatorMatch": null,
       "intendedPair": null,
-      "oracle": "0x86118f08b92d083123c45618af6009fcf0d580f4",
+      "oracle": "0x46e439a5b11e1ca32be92d5315b89e4a936b3792",
       "priceDescription": "UNKNOWN",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5494,7 +5518,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "WBTC / WETH",
-      "oracle": "0x132f3186aaade60279cf1a9e895919d5da72e13c",
+      "oracle": "0x3ba50229fd845465a867d2cd582e4c2647438263",
       "priceDescription": "WBTC / WETH",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5542,7 +5566,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "wstETH / WETH",
-      "oracle": "0x78c43e59fe3ba102964cbfdd89343b3dc42f9997",
+      "oracle": "0x8d72c81edfdd7f0601c00bdac5d09418cfbbedda",
       "priceDescription": "wstETH / WETH",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5572,7 +5596,7 @@
       "intendedPair": null,
       "oracle": "0x24df5133875926b030fad7604b93950943de28a3",
       "priceDescription": "UNKNOWN",
-      "provider": "fluid-oracle",
+      "provider": "composite",
       "type": 40000,
       "underlyingAggregator": null,
       "vault": "0x1c6068ec051f0ac1688ca1fe76810fa9c8644278",
@@ -5596,7 +5620,7 @@
       ],
       "denominatorMatch": null,
       "intendedPair": null,
-      "oracle": "0xc281c1ae946e09af92a7f56328cafc2484e9cab6",
+      "oracle": "0xe338411a9aaea0c689282057ac40d81abc51d6f7",
       "priceDescription": "UNKNOWN",
       "provider": "fluid-oracle",
       "type": 30000,
@@ -5646,7 +5670,7 @@
       ],
       "denominatorMatch": null,
       "intendedPair": null,
-      "oracle": "0xad3feae8c608681e989d393b48faee71e664050a",
+      "oracle": "0x4446de5ba71dceeddec8715921199e9dadf55735",
       "priceDescription": "UNKNOWN",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5670,7 +5694,7 @@
       ],
       "denominatorMatch": null,
       "intendedPair": null,
-      "oracle": "0x2bea4477c3c4710c99a9ccf5c2cd618a998fe405",
+      "oracle": "0xe48e7f98911d0311a0fccc5b0ff3f3f412bad16c",
       "priceDescription": "UNKNOWN",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5694,7 +5718,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "wstETH / USDT0",
-      "oracle": "0x3a16e2defa8c0973ed9933ed35244bcb28b85d26",
+      "oracle": "0x679b821c06e5f774c8e156564117a6349d2bb88f",
       "priceDescription": "wstETH / USDT0",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5746,7 +5770,7 @@
       "intendedPair": null,
       "oracle": "0xc0aab32bd6258773b43c0dc8e2049c6a4960c488",
       "priceDescription": "UNKNOWN",
-      "provider": "fluid-oracle",
+      "provider": "composite",
       "type": 20000,
       "underlyingAggregator": null,
       "vault": "0x6f72895cf6904489bcd862c941c3d02a3ee4f03e",
@@ -5768,7 +5792,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "wstETH / WBTC",
-      "oracle": "0xa19d38ce41059482b273049a4b7be405188bd915",
+      "oracle": "0x84b7486509e8edf3a5a85264040ba89bb0651f53",
       "priceDescription": "wstETH / WBTC",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5798,7 +5822,7 @@
       "intendedPair": null,
       "oracle": "0x9bc84b6054e5b7ae821abe497ffbaa452c49d88f",
       "priceDescription": "UNKNOWN",
-      "provider": "fluid-oracle",
+      "provider": "composite",
       "type": 40000,
       "underlyingAggregator": null,
       "vault": "0x92643e964ca4b2c165a95ca919b0a819aca6d5f1",
@@ -5820,7 +5844,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "WBTC / AUSD",
-      "oracle": "0xea53f758c14c3bc4510aec1b05e94fd946831adc",
+      "oracle": "0xa0ceeccc24b066b46855a8594f3467121a00fae0",
       "priceDescription": "WBTC / AUSD",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5844,7 +5868,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "wstETH / USDC",
-      "oracle": "0x1ec7a943f2e299b5e97c6d9cec1cac0d927dedb4",
+      "oracle": "0x7efe0e18127628f651a6baed960422fa02d6b3b6",
       "priceDescription": "wstETH / USDC",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5868,7 +5892,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "WETH / AUSD",
-      "oracle": "0x8eb7db4e6a239758e4c83afada7fae2489ed989b",
+      "oracle": "0xb03d445f76f079c0aee89dc63bd802bc7621516f",
       "priceDescription": "WETH / AUSD",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5918,7 +5942,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "WBTC / USDC",
-      "oracle": "0xbeaeea6ec8ee5bdfdaa4b4337bb9e120ce6a0330",
+      "oracle": "0x88bf879f2dcb72100c5538a375b535e39eab0864",
       "priceDescription": "WBTC / USDC",
       "provider": "fluid-oracle",
       "type": 30000,
@@ -5942,7 +5966,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "WETH / USDT0",
-      "oracle": "0x5f51af8512d108f29c1f8de692fa96f0d3776a54",
+      "oracle": "0x74473aecf4c00ce9644193eac50aa6c49c093d0d",
       "priceDescription": "WETH / USDT0",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5966,7 +5990,7 @@
       ],
       "denominatorMatch": null,
       "intendedPair": null,
-      "oracle": "0x0c1b4db4ac386f535c4a79aac12157dfbaf58b5e",
+      "oracle": "0x926cedc57f50747f44c522ee5ef175ab640f85dd",
       "priceDescription": "UNKNOWN",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -5990,7 +6014,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "WBTC / USDT0",
-      "oracle": "0xdf79ee3ab9ae7631a9b109d7345136274119fc72",
+      "oracle": "0x716271cc142fef7c0a785aa30eecdcc769384ee2",
       "priceDescription": "WBTC / USDT0",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -6014,7 +6038,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "WETH / WBTC",
-      "oracle": "0xfecf110aee99c9972a3214cba4822e9df5e92309",
+      "oracle": "0x208795b70a683f5e5e42917951c4af2a993fd777",
       "priceDescription": "WETH / WBTC",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -6038,7 +6062,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "WETH / USDC",
-      "oracle": "0x98612ee747eedf29d1399c8d0a3ebb008ee6e7a5",
+      "oracle": "0x603e507193873ad47bbca39099f05a1d34145042",
       "priceDescription": "WETH / USDC",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -6088,7 +6112,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "WETH / USDC",
-      "oracle": "0xbfc5fa79b8477d40fae7ffd4b8fec1740a830468",
+      "oracle": "0x4e1794195992acdc76b861bea37a4b808e6dc1cb",
       "priceDescription": "WETH / USDC",
       "provider": "fluid-oracle",
       "type": 30000,
@@ -6112,7 +6136,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "WBTC / USDC",
-      "oracle": "0x8d3b5e26e4bf490ad76f5646bfb4f0bac6a4ebe2",
+      "oracle": "0x5b43e84855246384f6feae85ce2a9e3637bdda3c",
       "priceDescription": "WBTC / USDC",
       "provider": "fluid-oracle",
       "type": 10000,
@@ -6138,7 +6162,7 @@
       ],
       "denominatorMatch": true,
       "intendedPair": "USDC / USDC",
-      "oracle": "0x4025254661a2e8dce7f86836aaeeea72277968d4",
+      "oracle": "0xd9331aa84aa2e915081f5e8c5cf3189fc90e8fe7",
       "priceDescription": "USDC / USDC",
       "provider": "fluid-oracle",
       "type": 20000,
@@ -6242,7 +6266,7 @@
       "intendedPair": "weETH / EURC",
       "oracle": "0xbaecf721d3453e75b3d0028c31a3732f50921ef8",
       "priceDescription": "weETH / EURC",
-      "provider": "fluid-oracle",
+      "provider": "chainlink",
       "type": 10000,
       "underlyingAggregator": null,
       "vault": "0x0c8c77b7ff4c2af7f6cebbe67350a490e3dd6cb3",
@@ -6508,7 +6532,7 @@
       "intendedPair": "cbETH / USDC",
       "oracle": "0x23f383bbd30a97c71e8ba7eb1605a053a2529de0",
       "priceDescription": "cbETH / USDC",
-      "provider": "fluid-oracle",
+      "provider": "chainlink",
       "type": 10000,
       "underlyingAggregator": null,
       "vault": "0x40d9b8417e6e1dcd358f04e3328bced061018a82",
@@ -6734,7 +6758,7 @@
       "intendedPair": "EURC / EURC",
       "oracle": "0x82a5c21553845d04b3378de9fbee91d0bce1e3e5",
       "priceDescription": "EURC / EURC",
-      "provider": "fluid-oracle",
+      "provider": "composite",
       "type": 40000,
       "underlyingAggregator": null,
       "vault": "0x69deb634edc47a35b7b05056768d957f029cbc0a",
@@ -6834,7 +6858,7 @@
       "intendedPair": "sUSDS / sUSDS",
       "oracle": "0xf1442714e502723d5bb253b806fd7555bee0336c",
       "priceDescription": "sUSDS / sUSDS",
-      "provider": "fluid-oracle",
+      "provider": "composite",
       "type": 40000,
       "underlyingAggregator": null,
       "vault": "0x92643e964ca4b2c165a95ca919b0a819aca6d5f1",
@@ -7204,7 +7228,7 @@
       "intendedPair": "wstETH / EURC",
       "oracle": "0x5f9be13e4a138dc6428f0a641a32ba9bcb046f6e",
       "priceDescription": "wstETH / EURC",
-      "provider": "fluid-oracle",
+      "provider": "chainlink",
       "type": 10000,
       "underlyingAggregator": null,
       "vault": "0xe16a6f5359abb1f61ce71e25dd0932e3e00b00eb",
@@ -7771,6 +7795,30 @@
       "underlyingAggregator": null,
       "vault": "0x5dae640956711e11016c1b27cf9968ba5b4a69cc",
       "vaultId": 28
+    },
+    "0x5eb4ba0c320b59f825cc8d2291f672247aa5d06f": {
+      "collateral": [
+        "0x0b2b2b2076d95dda7817e785989fe353fe955ef9"
+      ],
+      "collateralSymbols": [
+        "sUSDai"
+      ],
+      "correctOracle": true,
+      "debt": [
+        "0x2d661c89d812261039af9764eceaaee884f5f67f"
+      ],
+      "debtSymbols": [
+        "USDC"
+      ],
+      "denominatorMatch": true,
+      "intendedPair": "sUSDai / USDC",
+      "oracle": "0x510a92f1d101a3451e59b622c3fdc2794b51f83b",
+      "priceDescription": "sUSDai / USDC",
+      "provider": "fluid-oracle",
+      "type": 10000,
+      "underlyingAggregator": null,
+      "vault": "0x5eb4ba0c320b59f825cc8d2291f672247aa5d06f",
+      "vaultId": 42
     },
     "0x69deb634edc47a35b7b05056768d957f029cbc0a": {
       "collateral": [
@@ -8583,17 +8631,17 @@
       "collateralSymbols": [
         "reUSD"
       ],
-      "correctOracle": null,
+      "correctOracle": true,
       "debt": [
         "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
       ],
       "debtSymbols": [
         "USDC"
       ],
-      "denominatorMatch": null,
+      "denominatorMatch": true,
       "intendedPair": "reUSD / USDC",
-      "oracle": null,
-      "priceDescription": "UNKNOWN",
+      "oracle": "0xe1fe26f8b8aec9d384705eb6a1d5d4789dde2bd9",
+      "priceDescription": "reUSD / USDC",
       "provider": "fluid-oracle",
       "type": 10000,
       "underlyingAggregator": null,
@@ -9665,17 +9713,17 @@
       "collateralSymbols": [
         "reUSD"
       ],
-      "correctOracle": null,
+      "correctOracle": true,
       "debt": [
         "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
       ],
       "debtSymbols": [
         "USD₮0"
       ],
-      "denominatorMatch": null,
+      "denominatorMatch": true,
       "intendedPair": "reUSD / USD₮0",
-      "oracle": null,
-      "priceDescription": "UNKNOWN",
+      "oracle": "0x3c868698e83f595cbab6f9c2463a6494ae6d8c30",
+      "priceDescription": "reUSD / USD₮0",
       "provider": "fluid-oracle",
       "type": 10000,
       "underlyingAggregator": null,
@@ -9781,6 +9829,32 @@
       "underlyingAggregator": null,
       "vault": "0x97950bf81f5605d2d0be37f28a33a752d6f16bdf",
       "vaultId": 41
+    },
+    "0x989a44cb4dbb7ebe20e0abf3c1e1d727bf90f881": {
+      "collateral": [
+        "0x004b506865409877c9fa29bfb1eba929984b9bbc",
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      ],
+      "collateralSymbols": [
+        "USDG",
+        "USDC"
+      ],
+      "correctOracle": true,
+      "debt": [
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      ],
+      "debtSymbols": [
+        "USDC"
+      ],
+      "denominatorMatch": true,
+      "intendedPair": "USDG / USDC",
+      "oracle": "0xcdb77ad21326521b119cd7845ace8a95a7c292b7",
+      "priceDescription": "USDG / USDC",
+      "provider": "composite",
+      "type": 20000,
+      "underlyingAggregator": null,
+      "vault": "0x989a44cb4dbb7ebe20e0abf3c1e1d727bf90f881",
+      "vaultId": 93
     },
     "0x991416539e9da46db233bccbaea38c4f852776d4": {
       "collateral": [
@@ -9995,17 +10069,17 @@
       "collateralSymbols": [
         "reUSD"
       ],
-      "correctOracle": null,
+      "correctOracle": true,
       "debt": [
         "0x7dff72693f6a4149b17e7c6314655f6a9f7c8b33"
       ],
       "debtSymbols": [
         "GHO"
       ],
-      "denominatorMatch": null,
+      "denominatorMatch": true,
       "intendedPair": "reUSD / GHO",
-      "oracle": null,
-      "priceDescription": "UNKNOWN",
+      "oracle": "0x40ce87bbae34d95717aac2bc8ca8f936c0d32aa5",
+      "priceDescription": "reUSD / GHO",
       "provider": "fluid-oracle",
       "type": 10000,
       "underlyingAggregator": null,
@@ -10209,6 +10283,32 @@
       "underlyingAggregator": null,
       "vault": "0xbec491fef7b4f666b270f9d5e5c3f443cbf20991",
       "vaultId": 2
+    },
+    "0xbee8d906bac00610d8056c88eeec5e9e9d48104c": {
+      "collateral": [
+        "0x76ce01f0ef25aa66cc5f1e546a005e4a63b25609",
+        "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+      ],
+      "collateralSymbols": [
+        "reUSD",
+        "USD₮0"
+      ],
+      "correctOracle": true,
+      "debt": [
+        "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+      ],
+      "debtSymbols": [
+        "USD₮0"
+      ],
+      "denominatorMatch": true,
+      "intendedPair": "reUSD / USD₮0",
+      "oracle": "0xe932f679dfafe0bcf05ffadbb37766016754d61f",
+      "priceDescription": "reUSD / USD₮0",
+      "provider": "composite",
+      "type": 20000,
+      "underlyingAggregator": null,
+      "vault": "0xbee8d906bac00610d8056c88eeec5e9e9d48104c",
+      "vaultId": 95
     },
     "0xbfadea65591235f38809076e14803ac84acf3f97": {
       "collateral": [
@@ -10615,6 +10715,32 @@
       "underlyingAggregator": null,
       "vault": "0xeaef563015634a9d0ee6cf1357a3b205c35e028d",
       "vaultId": 16
+    },
+    "0xec57933d49a55b644837a3c7bf98ebb8ad780191": {
+      "collateral": [
+        "0x76ce01f0ef25aa66cc5f1e546a005e4a63b25609",
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      ],
+      "collateralSymbols": [
+        "reUSD",
+        "USDC"
+      ],
+      "correctOracle": true,
+      "debt": [
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      ],
+      "debtSymbols": [
+        "USDC"
+      ],
+      "denominatorMatch": true,
+      "intendedPair": "reUSD / USDC",
+      "oracle": "0x99caa9b892ac13a58721171542ebd9f83c5b4386",
+      "priceDescription": "reUSD / USDC",
+      "provider": "composite",
+      "type": 20000,
+      "underlyingAggregator": null,
+      "vault": "0xec57933d49a55b644837a3c7bf98ebb8ad780191",
+      "vaultId": 94
     },
     "0xf2c8f54447cbd591c396b0dd7ac15faf552d0fa4": {
       "collateral": [
