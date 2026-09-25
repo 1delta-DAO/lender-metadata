@@ -1429,7 +1429,9 @@
         0
       ],
       "continuousFee": "0",
+      "marketFamilyId": "0x09f2d6174f8364c6fbf4262f265e80aa9763fa0732910999dc8b17e0c314d556",
       "tenorSeriesId": "b63b5a5d-7f18-4c49-8868-a18d0f34433a",
+      "listed": false,
       "name": "vUSDC+siUSD/USDC - 2026-12-25"
     },
     {
@@ -1607,7 +1609,9 @@
         0
       ],
       "continuousFee": "0",
+      "marketFamilyId": "0xc562142d642390b074560320de9dee2dae18c0087336551077be39c8a453f64f",
       "tenorSeriesId": "ebebf999-4e22-4b10-95b9-bebad21e4953",
+      "listed": false,
       "name": "wstETH+vWETH/WETH - 2026-10-30"
     }
   ],
