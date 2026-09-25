@@ -2276,6 +2276,55 @@
       }
     }
   ],
+  "1672": [
+    {
+      "siloConfig": "0xea7c4089828e07c4a764e0b7d72596f7f4cca87c",
+      "name": "USDC-WPROS",
+      "hookReceiver": "0x6dc2d8a5775a3f1a6edf65d8ee8f87a074fc4963",
+      "silo0": {
+        "silo": "0xa648ab407a8224f4e671d7118dd0db6196040169",
+        "token": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+        "decimals": 6,
+        "symbol": "USDC",
+        "index": 0,
+        "protectedShareToken": "0x3927516493dadb063f5c0017d988076b311e3878",
+        "collateralShareToken": "0xa648ab407a8224f4e671d7118dd0db6196040169",
+        "debtShareToken": "0xfa3ccfb3b09a4399882f219db43c6f6da1fdd1f5",
+        "solvencyOracle": "0xb0bfd6cf3fa69b7b86c114b365590cdd492de85d",
+        "maxLtvOracle": "0xb0bfd6cf3fa69b7b86c114b365590cdd492de85d",
+        "interestRateModel": "0xc28052e78ba921dd6840d6b0cce48e1e9470c80f",
+        "maxLtv": "0",
+        "lt": "0",
+        "liquidationTargetLtv": "0",
+        "liquidationFee": "0",
+        "flashloanFee": "0",
+        "daoFee": "50000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      },
+      "silo1": {
+        "silo": "0xce4569c2e6f4f70e068c2e441bbe8b82251033e3",
+        "token": "0x52c48d4213107b20bc583832b0d951fb9ca8f0b0",
+        "decimals": 18,
+        "symbol": "WPROS",
+        "index": 1,
+        "protectedShareToken": "0x5693834810bb3a86411766439a4d7022576c5900",
+        "collateralShareToken": "0xce4569c2e6f4f70e068c2e441bbe8b82251033e3",
+        "debtShareToken": "0x9c57c378784ad90325bdff5dd5d79086b6ead7ef",
+        "solvencyOracle": "",
+        "maxLtvOracle": "",
+        "interestRateModel": "0x45a7254aa2e554dd7c34aff6346e7ef0bd2343c7",
+        "maxLtv": "800000000000000000",
+        "lt": "900000000000000000",
+        "liquidationTargetLtv": "700000000000000000",
+        "liquidationFee": "100000000000000000",
+        "flashloanFee": "0",
+        "daoFee": "50000000000000000",
+        "deployerFee": "0",
+        "keeperFee": "200000000000000000"
+      }
+    }
+  ],
   "1776": [
     {
       "siloConfig": "0x21893ef8d24c5cfad7e7bd7922a928533642baa0",
