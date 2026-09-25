@@ -43,6 +43,15 @@ export const AAVE_V4_HUB_SEED: { [chainId: string]: V4HubSeedEntry[] } = {
       attribution: 'AAVE_V4_ETHERFI',
     },
   ],
+  // Base (8453). "Coinbase Stocks" hub + spoke: Coinbase's tokenized US equities
+  // (AAPLc/AMZNc/GOOGLc/METAc/MSFTc/NVDAc/TSLAc, 8-dec) as collateral against
+  // USDC. Base has an Aave V3 market too — V4 here is this hub only.
+  '8453': [
+    {
+      hub: '0xa4d5947Eb727A052bae69C593FfC84247EC9864E',
+      attribution: 'AAVE_V4_COINBASE_STOCKS',
+    },
+  ],
   '43114': [
     {
       hub: '0xd07369fAE4A5BB13c9Ce446B052c7867B1AbDf6e',

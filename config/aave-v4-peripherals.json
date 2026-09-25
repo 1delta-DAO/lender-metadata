@@ -444,6 +444,49 @@
       }
     }
   },
+  "8453": {
+    "nativeGateway": "0xdfc11f7037ba11d9cc29a822844f5dc19c42b70d",
+    "signatureGateway": "0x5d488d3eaaa86ddb6d4f834fc34938054ec505a7",
+    "perHub": {
+      "0xa4d5947eb727a052bae69c593ffc84247ec9864e": {
+        "nativeGateway": "0xdfc11f7037ba11d9cc29a822844f5dc19c42b70d",
+        "signatureGateway": "0x5d488d3eaaa86ddb6d4f834fc34938054ec505a7"
+      }
+    },
+    "perSpoke": {
+      "0x17905db0e4a3514467539956c084180616ae7b8d": {
+        "spokeName": "Coinbase Stocks",
+        "spokeId": "ODQ1Mzo6MHgxNzkwNURiMGU0QTM1MTQ0Njc1Mzk5NTZjMDg0MTgwNjE2QUU3QjhE",
+        "positionManagers": [
+          {
+            "name": "Aave Signature Gateway",
+            "address": "0x5d488d3eaaa86ddb6d4f834fc34938054ec505a7",
+            "active": true
+          },
+          {
+            "name": "Aave Taker Position Manager",
+            "address": "0x8481204e528735af2f3391ad98f36e757a56d695",
+            "active": true
+          },
+          {
+            "name": "Aave Giver Position Manager",
+            "address": "0x9e81c2fde4e34cab3ab1667ca3c932dbaed95f08",
+            "active": true
+          },
+          {
+            "name": "Aave Native Gateway",
+            "address": "0xdfc11f7037ba11d9cc29a822844f5dc19c42b70d",
+            "active": true
+          },
+          {
+            "name": "Aave Config Position Manager",
+            "address": "0xe90f830bee4b190b4910e146908437075b0bdaaf",
+            "active": true
+          }
+        ]
+      }
+    }
+  },
   "43114": {
     "nativeGateway": "0xe4c7183a5f22c365140f41d733d8a8bad5a1a6ba",
     "signatureGateway": "0x6e3b91a951da9b515a5e98f0c7d210a697382e7f",

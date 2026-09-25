@@ -1066,6 +1066,81 @@
       "reserves": []
     }
   },
+  "8453": {
+    "0x5f8d0102f5b51fae6de9d2f2561bda63fb5db674": {
+      "spoke": "0x5f8d0102f5b51fae6de9d2f2561bda63fb5db674",
+      "oracle": "0x",
+      "label": "Spoke 0x5f8d..b674",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_COINBASE_STOCKS",
+      "reserves": []
+    },
+    "0x17905db0e4a3514467539956c084180616ae7b8d": {
+      "spoke": "0x17905db0e4a3514467539956c084180616ae7b8d",
+      "oracle": "0xabaf048fd7675ea34a84332371ffd5d55e322a47",
+      "label": "Coinbase Stocks",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_COINBASE_STOCKS",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 0,
+          "underlying": "0xb200000000000000000000c2e324d24d7eecd1fb",
+          "hub": "0xa4d5947eb727a052bae69c593ffc84247ec9864e"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 1,
+          "underlying": "0xb200000000000000000000d9192b6b456483c2e8",
+          "hub": "0xa4d5947eb727a052bae69c593ffc84247ec9864e"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 2,
+          "underlying": "0xb2000000000000000000002d0ba3164cc74f58b7",
+          "hub": "0xa4d5947eb727a052bae69c593ffc84247ec9864e"
+        },
+        {
+          "reserveId": 3,
+          "assetId": 3,
+          "underlying": "0xb2000000000000000000008bc8786b856e61707c",
+          "hub": "0xa4d5947eb727a052bae69c593ffc84247ec9864e"
+        },
+        {
+          "reserveId": 4,
+          "assetId": 4,
+          "underlying": "0xb200000000000000000000ab99cfa739e253872b",
+          "hub": "0xa4d5947eb727a052bae69c593ffc84247ec9864e"
+        },
+        {
+          "reserveId": 5,
+          "assetId": 5,
+          "underlying": "0xb20000000000000000000078ee7ce2fe4908108c",
+          "hub": "0xa4d5947eb727a052bae69c593ffc84247ec9864e"
+        },
+        {
+          "reserveId": 6,
+          "assetId": 6,
+          "underlying": "0xb2000000000000000000001e800a7f5189430cd0",
+          "hub": "0xa4d5947eb727a052bae69c593ffc84247ec9864e"
+        },
+        {
+          "reserveId": 7,
+          "assetId": 7,
+          "underlying": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "hub": "0xa4d5947eb727a052bae69c593ffc84247ec9864e"
+        }
+      ]
+    },
+    "0x7081ce7eb1282c53cf38ea9b622f6269cb8fefdc": {
+      "spoke": "0x7081ce7eb1282c53cf38ea9b622f6269cb8fefdc",
+      "oracle": "0x",
+      "label": "Spoke 0x7081..efdc",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_COINBASE_STOCKS",
+      "reserves": []
+    }
+  },
   "43114": {
     "0x2c4aea1a5f000889c6dffe8f52377afc2cb113a6": {
       "spoke": "0x2c4aea1a5f000889c6dffe8f52377afc2cb113a6",
