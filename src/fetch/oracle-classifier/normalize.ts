@@ -99,6 +99,11 @@ export function normalizeGenericDescription(desc: string): string {
     if (A && B) return `${A} / ${B}`;
   }
 
+  // Chainlink equity feeds on Base describe themselves as "Coinbase <TICKER>"
+  // (e.g. "Coinbase TSLA", 8 decimals, answer in USD) with no "/" at all.
+  const coinbaseEquity = prefixStripped.match(/^Coinbase\s+([A-Z][A-Z0-9]{0,9})$/);
+  if (coinbaseEquity) return `${coinbaseEquity[1]} / USD`;
+
   // "TokenA-TokenB Exchange Rate"
   const erMatch = prefixStripped.match(/^(.+?)\s+[Ee]xchange\s+[Rr]ate$/i);
   if (erMatch) {
@@ -161,6 +166,16 @@ const SYMBOL_ALIASES: Record<string, string> = {
   CBBTC: "BTC", // Coinbase Wrapped BTC
   BTCB: "BTC", // Binance-Peg BTC
   CBXRP: "XRP", // Coinbase Wrapped XRP
+  // Coinbase tokenized US equities on Base (AAPLc …), one share per token and
+  // priced by Chainlink's "Coinbase <TICKER>" feed (see normalizeGenericDescription).
+  // Symbols are uppercased before lookup, so "AAPLc" arrives as "AAPLC".
+  AAPLC: "AAPL",
+  AMZNC: "AMZN",
+  GOOGLC: "GOOGL",
+  METAC: "META",
+  MSFTC: "MSFT",
+  NVDAC: "NVDA",
+  TSLAC: "TSLA",
 };
 
 export function normalizeSymbol(sym: string | null | undefined): string | null {

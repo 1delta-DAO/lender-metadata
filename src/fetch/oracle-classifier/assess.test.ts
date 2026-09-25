@@ -198,3 +198,18 @@ describe("assessFeed — regression: ordinary feeds keep wrong-asset detection",
     expect(a.denominatorMatch).toBe(true);
   });
 });
+
+describe("Coinbase tokenized equities (Base Aave V4)", () => {
+  it("reads a 'Coinbase <TICKER>' feed as TICKER / USD and matches the c-suffixed token", async () => {
+    const { normalizeDescription } = await import("./normalize.js");
+    expect(normalizeDescription("Coinbase TSLA")).toBe("TSLA / USD");
+    expect(normalizeDescription("Coinbase Wrapped BTC")).toBe("Coinbase Wrapped BTC");
+    const a = assessFeed(
+      feed({ priceDescription: "TSLA / USD", rawDescription: "Coinbase TSLA" }),
+      "TSLAc",
+      "USD"
+    );
+    expect(a.correctOracle).toBe(true);
+    expect(a.denominatorMatch).toBe(true);
+  });
+});

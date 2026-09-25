@@ -1173,19 +1173,19 @@
     "0xb2000000000000000000001e800a7f5189430cd0": {
       "asset": "0xb2000000000000000000001e800a7f5189430cd0",
       "assetSymbol": "TSLAc",
-      "correctOracle": null,
-      "denominator": null,
-      "denominatorMatch": null,
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
       "fixedRate": null,
       "intendedPair": "TSLAc / USD",
-      "priceDescription": "UNKNOWN",
+      "priceDescription": "TSLA / USD",
       "provider": "chainlink",
       "rawDescription": "Coinbase TSLA",
       "source": "0xfaf869185383a24f8cb00e27bda6b63b9905dcb4",
       "sourcePath": [
         {
           "address": "0xfaf869185383a24f8cb00e27bda6b63b9905dcb4",
-          "description": "Coinbase TSLA",
+          "description": "TSLA / USD",
           "decimals": 8,
           "kind": "chainlink"
         },
@@ -1201,19 +1201,19 @@
     "0xb2000000000000000000002d0ba3164cc74f58b7": {
       "asset": "0xb2000000000000000000002d0ba3164cc74f58b7",
       "assetSymbol": "GOOGLc",
-      "correctOracle": null,
-      "denominator": null,
-      "denominatorMatch": null,
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
       "fixedRate": null,
       "intendedPair": "GOOGLc / USD",
-      "priceDescription": "UNKNOWN",
+      "priceDescription": "GOOGL / USD",
       "provider": "chainlink",
       "rawDescription": "Coinbase GOOGL",
       "source": "0x5bf49e0ffa937ce2fff033c739ad7c634c4d34f2",
       "sourcePath": [
         {
           "address": "0x5bf49e0ffa937ce2fff033c739ad7c634c4d34f2",
-          "description": "Coinbase GOOGL",
+          "description": "GOOGL / USD",
           "decimals": 8,
           "kind": "chainlink"
         },
@@ -1229,19 +1229,19 @@
     "0xb20000000000000000000078ee7ce2fe4908108c": {
       "asset": "0xb20000000000000000000078ee7ce2fe4908108c",
       "assetSymbol": "NVDAc",
-      "correctOracle": null,
-      "denominator": null,
-      "denominatorMatch": null,
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
       "fixedRate": null,
       "intendedPair": "NVDAc / USD",
-      "priceDescription": "UNKNOWN",
+      "priceDescription": "NVDA / USD",
       "provider": "chainlink",
       "rawDescription": "Coinbase NVDA",
       "source": "0x04689a41629776563e6822f76f2e57d148d28513",
       "sourcePath": [
         {
           "address": "0x04689a41629776563e6822f76f2e57d148d28513",
-          "description": "Coinbase NVDA",
+          "description": "NVDA / USD",
           "decimals": 8,
           "kind": "chainlink"
         },
@@ -1257,19 +1257,19 @@
     "0xb2000000000000000000008bc8786b856e61707c": {
       "asset": "0xb2000000000000000000008bc8786b856e61707c",
       "assetSymbol": "METAc",
-      "correctOracle": null,
-      "denominator": null,
-      "denominatorMatch": null,
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
       "fixedRate": null,
       "intendedPair": "METAc / USD",
-      "priceDescription": "UNKNOWN",
+      "priceDescription": "META / USD",
       "provider": "chainlink",
       "rawDescription": "Coinbase META",
       "source": "0x6526ae6797a76123638b863aee4dd27ba4e4b27d",
       "sourcePath": [
         {
           "address": "0x6526ae6797a76123638b863aee4dd27ba4e4b27d",
-          "description": "Coinbase META",
+          "description": "META / USD",
           "decimals": 8,
           "kind": "chainlink"
         },
@@ -1285,19 +1285,19 @@
     "0xb200000000000000000000ab99cfa739e253872b": {
       "asset": "0xb200000000000000000000ab99cfa739e253872b",
       "assetSymbol": "MSFTc",
-      "correctOracle": null,
-      "denominator": null,
-      "denominatorMatch": null,
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
       "fixedRate": null,
       "intendedPair": "MSFTc / USD",
-      "priceDescription": "UNKNOWN",
+      "priceDescription": "MSFT / USD",
       "provider": "chainlink",
       "rawDescription": "Coinbase MSFT",
       "source": "0xeb10a6c9aa7e537aed766c08c35dae35b321b18c",
       "sourcePath": [
         {
           "address": "0xeb10a6c9aa7e537aed766c08c35dae35b321b18c",
-          "description": "Coinbase MSFT",
+          "description": "MSFT / USD",
           "decimals": 8,
           "kind": "chainlink"
         },
@@ -1313,19 +1313,19 @@
     "0xb200000000000000000000c2e324d24d7eecd1fb": {
       "asset": "0xb200000000000000000000c2e324d24d7eecd1fb",
       "assetSymbol": "AAPLc",
-      "correctOracle": null,
-      "denominator": null,
-      "denominatorMatch": null,
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
       "fixedRate": null,
       "intendedPair": "AAPLc / USD",
-      "priceDescription": "UNKNOWN",
+      "priceDescription": "AAPL / USD",
       "provider": "chainlink",
       "rawDescription": "Coinbase AAPL",
       "source": "0x787f13dea48db0897cbcdd985de77809d837f988",
       "sourcePath": [
         {
           "address": "0x787f13dea48db0897cbcdd985de77809d837f988",
-          "description": "Coinbase AAPL",
+          "description": "AAPL / USD",
           "decimals": 8,
           "kind": "chainlink"
         },
@@ -1341,19 +1341,19 @@
     "0xb200000000000000000000d9192b6b456483c2e8": {
       "asset": "0xb200000000000000000000d9192b6b456483c2e8",
       "assetSymbol": "AMZNc",
-      "correctOracle": null,
-      "denominator": null,
-      "denominatorMatch": null,
+      "correctOracle": true,
+      "denominator": "USD",
+      "denominatorMatch": true,
       "fixedRate": null,
       "intendedPair": "AMZNc / USD",
-      "priceDescription": "UNKNOWN",
+      "priceDescription": "AMZN / USD",
       "provider": "chainlink",
       "rawDescription": "Coinbase AMZN",
       "source": "0x06a8e4b3abb3b7543d8396fb2b763d22820cb295",
       "sourcePath": [
         {
           "address": "0x06a8e4b3abb3b7543d8396fb2b763d22820cb295",
-          "description": "Coinbase AMZN",
+          "description": "AMZN / USD",
           "decimals": 8,
           "kind": "chainlink"
         },
