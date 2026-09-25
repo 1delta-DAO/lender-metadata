@@ -702,8 +702,8 @@
         "oracle": "0x73D3e8b769bC687AeEc487AAeFCAd31F4d9F84A7"
       },
       "0xc3eacf0612346366db554c991d7858716db09f58": {
-        "description": "rsETH / ETH CAPO Price Feed",
-        "oracle": "0x0090A563C4832E4E519F5f054483519b1A83c8C3"
+        "description": "Constant price feed",
+        "oracle": "0x3fb418B74Ec30bC3e940221F58A04e16afC6378B"
       }
     },
     "2020": {
@@ -822,8 +822,8 @@
         "oracle": "0xF1cEe2A82Cc42246c8C38253f118AbB6cAAd715B"
       },
       "0xd2671165570f41bbb3b0097893300b6eb6101e6c": {
-        "description": "wrsETH / ETH CAPO Price Feed",
-        "oracle": "0x8D50B433C0Dcf3636c29695122464Df5deb37eDc"
+        "description": "wrsETH / ETH price feed",
+        "oracle": "0x9feAc5a70435ef209F4013D46945AC1d4cba9397"
       },
       "0xe5d7c2a44ffddf6b295a15c148167daaaf5cf34f": {
         "description": "Constant price feed",
