@@ -129,7 +129,9 @@
         0
       ],
       "continuousFee": "0",
+      "marketFamilyId": "0x4e4d3a59130cb706a833f3231b9417e725493602730bb5be78441f7db8c8077d",
       "tenorSeriesId": "a487fd8e-9614-47ab-a583-dfd77e38d746",
+      "listed": false,
       "name": "reUSD+vUSDC/USDC - 2026-10-30"
     },
     {
@@ -619,7 +621,9 @@
         0
       ],
       "continuousFee": "0",
+      "marketFamilyId": "0x09f2d6174f8364c6fbf4262f265e80aa9763fa0732910999dc8b17e0c314d556",
       "tenorSeriesId": "b63b5a5d-7f18-4c49-8868-a18d0f34433a",
+      "listed": false,
       "name": "vUSDC+siUSD/USDC - 2026-10-30"
     },
     {
@@ -2338,53 +2342,6 @@
       "tenorSeriesId": "66a857ba-c4c5-4003-a3de-48b890a675cb",
       "listed": false,
       "name": "cbETH+vWETH/WETH - 2026-09-25"
-    },
-    {
-      "marketId": "0x74e310372280cc5c648a1f185db1ee906d2985a7dab8119568a9213f083efec0",
-      "loanToken": "0x4200000000000000000000000000000000000006",
-      "loanDecimals": 18,
-      "collateralParams": [
-        {
-          "token": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
-          "lltv": "945000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0xB03855Ad5AFD6B8db8091DD5551CAC4ed621d9E6",
-          "decimals": 18
-        },
-        {
-          "token": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
-          "lltv": "980000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
-          "decimals": 18,
-          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F"
-        }
-      ],
-      "maturity": "1790208000",
-      "rcfThreshold": "4000000000000000000",
-      "enterGate": "0x0000000000000000000000000000000000000000",
-      "liquidatorGate": "0x0000000000000000000000000000000000000000",
-      "gating": {
-        "enter": "open",
-        "liquidator": "open",
-        "enterGate": "0x0000000000000000000000000000000000000000",
-        "liquidatorGate": "0x0000000000000000000000000000000000000000"
-      },
-      "settlementFeeCbp": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "continuousFee": "0",
-      "marketFamilyId": "0x997f1f3780de5ff952ed877f3255a64cc6b142cccc84b1fc9f12a1b4fafcd4a8",
-      "tenorSeriesId": "66a857ba-c4c5-4003-a3de-48b890a675cb",
-      "listed": false,
-      "deprecatedAt": "1787256155",
-      "name": "cbETH+vWETH/WETH - 2026-09-24"
     },
     {
       "marketId": "0x776e8d667a394650c21615c9b5a9b5355f4aa777db3cebaebb057ffba588c7af",
