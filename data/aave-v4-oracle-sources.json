@@ -769,6 +769,30 @@
       "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
       "decimals": 8,
       "source": "0x81d0305b9dc94f8f177bbf6dbeb0278d7aff22df"
+    },
+    {
+      "underlying": "0x01bff41798a0bcf287b996046ca68b395dbc1071",
+      "spoke": "0xdffcc3536d932eb51df51a7f5fa407c4270d5308",
+      "reserveId": 23,
+      "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
+      "decimals": 8,
+      "source": "0x7579977643ee68946db95d9cb5ff582674619025"
+    },
+    {
+      "underlying": "0x5168e0cdeb3f308f47fdf0d9a2e250a2135c3cf5",
+      "spoke": "0xdffcc3536d932eb51df51a7f5fa407c4270d5308",
+      "reserveId": 24,
+      "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
+      "decimals": 8,
+      "source": "0x9b92a2d4468ff3df8a6be50ad043e8a5165459c2"
+    },
+    {
+      "underlying": "0xd4dd9e2f021bb459d5a5f6c24c12fe09c5d45553",
+      "spoke": "0xdffcc3536d932eb51df51a7f5fa407c4270d5308",
+      "reserveId": 25,
+      "oracle": "0xe8cbd37210bf1e29436dae183d7b9fe45e886fa8",
+      "decimals": 8,
+      "source": "0x7445e49137f073b836eb93fd2929820d730b948c"
     }
   ],
   "5042": [
