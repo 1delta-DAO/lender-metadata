@@ -34753,6 +34753,96 @@
         "underlyingAggregator": null
       }
     },
+    "2741": {
+      "0x0709f39376deee2a2dfc94a58edeb2eb9df012bd": {
+        "asset": "0x0709f39376deee2a2dfc94a58edeb2eb9df012bd",
+        "assetSymbol": "USDT",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "USDT / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "A port of a chainlink aggregator powered by pyth network feeds",
+        "source": "0x99b4ac8feda22be5241380885ede0ea430b7ff70",
+        "sourcePath": [
+          {
+            "address": "0x99b4ac8feda22be5241380885ede0ea430b7ff70",
+            "description": "A port of a chainlink aggregator powered by pyth network feeds",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x3439153eb7af838ad19d56e1571fbd09333c2809": {
+        "asset": "0x3439153eb7af838ad19d56e1571fbd09333c2809",
+        "assetSymbol": "WETH",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "WETH / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "A port of a chainlink aggregator powered by pyth network feeds",
+        "source": "0x446670d78559cbdc94ed9d5cd374fcc448f7fb4c",
+        "sourcePath": [
+          {
+            "address": "0x446670d78559cbdc94ed9d5cd374fcc448f7fb4c",
+            "description": "A port of a chainlink aggregator powered by pyth network feeds",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1": {
+        "asset": "0x84a71ccd554cc1b02749b35d22f684cc8ec987e1",
+        "assetSymbol": "USDC.e",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "USDC.e / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "A port of a chainlink aggregator powered by pyth network feeds",
+        "source": "0x5512e04eeadb8931fffdd48bbd7a066a01e96590",
+        "sourcePath": [
+          {
+            "address": "0x5512e04eeadb8931fffdd48bbd7a066a01e96590",
+            "description": "A port of a chainlink aggregator powered by pyth network feeds",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0x9ebe3a824ca958e4b3da772d2065518f009cba62": {
+        "asset": "0x9ebe3a824ca958e4b3da772d2065518f009cba62",
+        "assetSymbol": "PENGU",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "PENGU / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "unknown",
+        "rawDescription": "A port of a chainlink aggregator powered by pyth network feeds",
+        "source": "0x7ef2a6fe37e450841d77e2d8abf5f3984d5cb3a6",
+        "sourcePath": [
+          {
+            "address": "0x7ef2a6fe37e450841d77e2d8abf5f3984d5cb3a6",
+            "description": "A port of a chainlink aggregator powered by pyth network feeds",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": null
+      }
+    },
     "8453": {
       "0x04d5ddf5f3a8939889f11e97f8c4bb48317f1938": {
         "asset": "0x04d5ddf5f3a8939889f11e97f8c4bb48317f1938",
