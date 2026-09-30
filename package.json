@@ -65,7 +65,8 @@
     "update:curvance-labels": "tsx src/update-curvance-labels.ts",
     "update:fraxlend-labels": "tsx src/update-fraxlend-labels.ts",
     "update:resupply-labels": "tsx src/update-resupply-labels.ts",
-    "update:flying-tulip": "tsx src/update-flying-tulip.ts"
+    "update:flying-tulip": "tsx src/update-flying-tulip.ts",
+    "update:solana-labels": "tsx src/update-solana-labels.ts"
   },
   "devDependencies": {
     "@types/node": "^25.9.5",
