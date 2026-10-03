@@ -19,6 +19,7 @@ import {
 } from "./fetchMysticApi.js";
 import { Lender } from "@1delta/lender-registry";
 import { computeMorphoMarketId } from "./morphoMarketId.js";
+import { fetchVaultFundedUnlistedMarkets } from "./vaultFunded.js";
 
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-type-oracles.json";
@@ -78,6 +79,40 @@ export const MORPHO_MAIN_CHAIN_IDS = [
  * (`margin-fetcher/src/lending/public-data/morpho/unlisted.ts`).
  */
 const SERVES_UNLISTED_CHAINS = new Set<string>(["4663", "480"]);
+
+/**
+ * Optional run scope: `MORPHO_CHAIN_IDS=1,42161 pnpm update:morpho` (and
+ * `update:morpho-oracles`) walks only those chains. Every Morpho file merge is
+ * additive per chain, so a scoped run leaves the other chains untouched.
+ */
+export const morphoChainScope = (): Set<string> | null => {
+  const raw = process.env.MORPHO_CHAIN_IDS?.trim();
+  return raw ? new Set(raw.split(",").map((c) => c.trim()).filter(Boolean)) : null;
+};
+
+/**
+ * Per-chain set of "unlisted but vault-funded" market ids (lower-case), or an
+ * empty set where the rule does not apply (chains without blue-api coverage,
+ * chains in SERVES_UNLISTED_CHAINS) or discovery failed. A failure only means
+ * no ADDITIONS this run: every write gated on it merges additively.
+ * See `vaultFunded.ts` — the rule margin-fetcher serves by.
+ */
+export async function vaultFundedMarketIds(chainId: string, fork: string): Promise<Set<string>> {
+  if (fork !== "MORPHO_BLUE" || cannotUseApi(chainId, fork) || SERVES_UNLISTED_CHAINS.has(chainId))
+    return new Set();
+  try {
+    const markets = await fetchVaultFundedUnlistedMarkets(chainId);
+    if (markets.length > 0)
+      console.log(`Morpho [${chainId}]: ${markets.length} unlisted vault-funded markets served`);
+    return new Set(markets.map((m) => m.marketId.toLowerCase()));
+  } catch (e) {
+    console.warn(
+      `Morpho [${chainId}]: vault-funded discovery failed, listed markets only this run:`,
+      (e as Error).message
+    );
+    return new Set();
+  }
+}
 
 /**
  * blue-api removes `Market.oracleAddress` on 2026-10-21 in favour of
@@ -336,7 +371,10 @@ export class MorphoBlueUpdater implements DataUpdater {
   }
 
   async fetchData(): Promise<any> {
-    const chainids = MORPHO_MAIN_CHAIN_IDS;
+    const scope = morphoChainScope();
+    const chainids = scope
+      ? MORPHO_MAIN_CHAIN_IDS.filter((c) => scope.has(c))
+      : MORPHO_MAIN_CHAIN_IDS;
     const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
     const MORPHO_BLUE_MARKETS = await readJsonFile(marketsFile);
     const forks = Object.keys(MORPHO_BLUE_POOL_DATA);
@@ -407,6 +445,7 @@ export class MorphoBlueUpdater implements DataUpdater {
         }
 
         const items = marketData.markets?.items || [];
+        const vaultFunded = await vaultFundedMarketIds(chainId, fork);
 
         for (const el of items) {
           const hash: string = el.marketId ?? el.uniqueKey;
@@ -429,10 +468,14 @@ export class MorphoBlueUpdater implements DataUpdater {
           // That is the safe direction — see the null-clobber and pair-keyed
           // merge losses this file has already caused.
           const isListed: boolean = (el.listed ?? el.whitelisted) === true;
-          // A market is "served" if Morpho lists it, or if we have opted this
-          // chain out of Morpho's curation entirely.
+          // A market is "served" if Morpho lists it, if we have opted this
+          // chain out of Morpho's curation entirely, or if vaults fund it
+          // (>= MORPHO_VAULT_FUNDED_MIN_USD, see vaultFunded.ts) — the same
+          // three cases margin-fetcher serves and prices.
           const isServed: boolean =
-            isListed || SERVES_UNLISTED_CHAINS.has(chainId);
+            isListed ||
+            SERVES_UNLISTED_CHAINS.has(chainId) ||
+            vaultFunded.has(String(hash).toLowerCase());
 
           if (!oracles[chainId]) oracles[chainId] = {};
           if (!oracles[chainId][fork]) oracles[chainId][fork] = [];

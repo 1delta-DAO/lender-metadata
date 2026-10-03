@@ -10,7 +10,13 @@ import {
   VAULT_ASSET_ABI,
   VAULT_ACCOUNTING_ASSET_ABI,
 } from "./oracleAbi.js";
-import { fetchMorphoMarketRowsForChain, cannotUseApi, type MorphoMarketRow } from "./morpho.js";
+import {
+  fetchMorphoMarketRowsForChain,
+  cannotUseApi,
+  morphoChainScope,
+  vaultFundedMarketIds,
+  type MorphoMarketRow,
+} from "./morpho.js";
 import { marketTripletKey } from "./morphoMarketId.js";
 import { symbolsMatch } from "../oracle-classifier/normalize.js";
 
@@ -427,10 +433,30 @@ export type ResolvedOracleMarket = MarketInputRow & { meta: MorphoMarketRow };
  * are dust or tests, and every oracle here costs on-chain reads to decode.
  */
 async function fetchListedMarketInputsFromApi(chainId: string): Promise<MarketInputRow[]> {
+  return fetchMarketInputsFromApi(chainId, "listed: true");
+}
+
+/**
+ * The unlisted markets vaults fund (see `vaultFunded.ts`), as market-input
+ * triplets — the same set `MorphoBlueUpdater` writes into the roster, fetched
+ * again here so a run of this classifier alone does not depend on the roster
+ * having been refreshed first.
+ */
+async function fetchVaultFundedMarketInputsFromApi(chainId: string): Promise<MarketInputRow[]> {
+  const ids = [...(await vaultFundedMarketIds(chainId, "MORPHO_BLUE"))];
+  const out: MarketInputRow[] = [];
+  for (let i = 0; i < ids.length; i += 100) {
+    const keys = ids.slice(i, i + 100).map((k) => JSON.stringify(k)).join(", ");
+    out.push(...(await fetchMarketInputsFromApi(chainId, `uniqueKey_in: [${keys}]`)));
+  }
+  return out;
+}
+
+async function fetchMarketInputsFromApi(chainId: string, filter: string): Promise<MarketInputRow[]> {
   const out: MarketInputRow[] = [];
   const PAGE = 500;
   for (let skip = 0; ; skip += PAGE) {
-    const query = `{ markets(first: ${PAGE}, skip: ${skip}, where: { chainId_in: [${chainId}], listed: true }, orderBy: UniqueKey, orderDirection: Asc) { items { oracle { address } loanAsset { address decimals } collateralAsset { address decimals } } } }`;
+    const query = `{ markets(first: ${PAGE}, skip: ${skip}, where: { chainId_in: [${chainId}], ${filter} }, orderBy: UniqueKey, orderDirection: Asc) { items { oracle { address } loanAsset { address decimals } collateralAsset { address decimals } } } }`;
     const res = await fetch("https://blue-api.morpho.org/graphql", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -485,7 +511,12 @@ export async function fetchMorphoOracleData(
 
   const result: MorphoOraclesDataMap = {};
 
-  const chainIds = new Set([...Object.keys(marketInputsByChain), ...Object.keys(injectedByChain)]);
+  const scope = onlyInjected ? null : morphoChainScope();
+  const chainIds = new Set(
+    [...Object.keys(marketInputsByChain), ...Object.keys(injectedByChain)].filter(
+      (c) => !scope || scope.has(c)
+    )
+  );
   for (const chainId of chainIds) {
     const marketInputs = marketInputsByChain[chainId] ?? [];
     const injected = injectedByChain[chainId] ?? [];
@@ -496,7 +527,16 @@ export async function fetchMorphoOracleData(
     // Failure here is a warning: the seed list still classifies as before.
     if (!cannotUseApi(chainId, "MORPHO_BLUE")) {
       try {
-        const listed = await fetchListedMarketInputsFromApi(chainId);
+        // Listed markets, plus the unlisted ones vaults fund — the markets
+        // margin-fetcher serves on this chain. An idle market has no oracle
+        // and is dropped by the address check in fetchMarketInputsFromApi.
+        const listed = [
+          ...(await fetchListedMarketInputsFromApi(chainId)),
+          ...(await fetchVaultFundedMarketInputsFromApi(chainId).catch((e) => {
+            console.warn(`Morpho oracles [${chainId}]: vault-funded union failed:`, (e as Error).message);
+            return [] as MarketInputRow[];
+          })),
+        ];
         const have = new Set(marketInputs.map((m) => marketTripletKey(m.loanAsset, m.collateralAsset, m.oracle)));
         let added = 0;
         for (const m of listed) {
@@ -506,7 +546,7 @@ export async function fetchMorphoOracleData(
           marketInputs.push(m);
           added++;
         }
-        if (added) console.log(`Morpho oracles [${chainId}]: +${added} listed markets from blue-api not in morpho-oracles.json`);
+        if (added) console.log(`Morpho oracles [${chainId}]: +${added} listed/vault-funded markets from blue-api not in morpho-oracles.json`);
       } catch (e) {
         console.warn(`Morpho oracles [${chainId}]: blue-api listed-market union failed:`, (e as Error).message);
       }
