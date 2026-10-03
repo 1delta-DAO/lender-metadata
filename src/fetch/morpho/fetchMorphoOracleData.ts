@@ -430,7 +430,7 @@ async function fetchListedMarketInputsFromApi(chainId: string): Promise<MarketIn
   const out: MarketInputRow[] = [];
   const PAGE = 500;
   for (let skip = 0; ; skip += PAGE) {
-    const query = `{ markets(first: ${PAGE}, skip: ${skip}, where: { chainId_in: [${chainId}], listed: true }, orderBy: UniqueKey, orderDirection: Asc) { items { oracleAddress loanAsset { address decimals } collateralAsset { address decimals } } } }`;
+    const query = `{ markets(first: ${PAGE}, skip: ${skip}, where: { chainId_in: [${chainId}], listed: true }, orderBy: UniqueKey, orderDirection: Asc) { items { oracle { address } loanAsset { address decimals } collateralAsset { address decimals } } } }`;
     const res = await fetch("https://blue-api.morpho.org/graphql", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -441,7 +441,7 @@ async function fetchListedMarketInputsFromApi(chainId: string): Promise<MarketIn
     if (json.errors?.length) throw new Error(`blue-api: ${json.errors[0].message}`);
     const items: any[] = json.data?.markets?.items ?? [];
     for (const m of items) {
-      const oracle = m?.oracleAddress, loan = m?.loanAsset?.address, coll = m?.collateralAsset?.address;
+      const oracle = m?.oracle?.address, loan = m?.loanAsset?.address, coll = m?.collateralAsset?.address;
       if (!isValidNonZeroAddress(oracle) || !isValidNonZeroAddress(loan) || !isValidNonZeroAddress(coll)) continue;
       out.push({
         oracle: String(oracle).toLowerCase(),

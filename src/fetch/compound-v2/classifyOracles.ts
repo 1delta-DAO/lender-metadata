@@ -72,7 +72,61 @@ export type CompoundV2OraclesClassifiedMap = {
   [fork: string]: { [chainId: string]: { [cToken: string]: CompoundV2OracleAssetData } };
 };
 
-type Item = { fork: string; oracle: string; asset: string; cToken: string };
+type Item = { fork: string; oracle: string; asset: string; cToken: string; native?: boolean };
+
+// Native markets (vBNB, cETH, qiAVAX, …) have no ERC-20 underlying: c-tokens maps
+// them from the zero address. Venus' ResilientOracle keys the native coin by this
+// sentinel (`NATIVE_TOKEN_ADDR`, BSC vBNB → Chainlink BNB/USD), so it is the address
+// probed for the feed. Forks that answer by symbol (Moonwell getFeed) get the
+// native symbol, derived from the market's own cToken symbol (see nativeSymbols).
+// Skipping them used to leave the native market — Venus BNB alone held ~$440M on
+// 2026-10-03 — with no oracle row, hence no governance or tier row downstream.
+const NATIVE_SENTINEL = "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
+
+/**
+ * The native coin's symbol per cToken, read off the market itself: a fork names
+ * its markets `<prefix><underlyingSymbol>` (vUSDT, cDAI, qiUSDC), so the prefix is
+ * learned from the fork's ERC-20 markets on the chain and stripped from the native
+ * market's symbol (vBNB → BNB). No agreed prefix → null (left unverified, never guessed).
+ */
+async function nativeSymbols(
+  chainId: string,
+  items: Item[],
+  symbolByAsset: Map<string, string | null>
+): Promise<Map<string, string | null>> {
+  const out = new Map<string, string | null>();
+  const natives = items.filter((i) => i.native);
+  if (natives.length === 0) return out;
+  const forks = new Set(natives.map((n) => n.fork));
+  const sample = items.filter((i) => forks.has(i.fork));
+  const res = (await multicallRetryUniversal({
+    chain: chainId,
+    calls: sample.map((i) => ({ address: i.cToken, name: "symbol", args: [] })),
+    abi: SYMBOL_ABI,
+    allowFailure: true,
+    maxRetries: 6,
+  }).catch(() => [])) as unknown[];
+  const cSym = new Map<string, string | null>();
+  sample.forEach((i, k) => cSym.set(i.cToken, asString(res[k])));
+  for (const fork of forks) {
+    const votes = new Map<string, number>();
+    for (const i of sample) {
+      if (i.fork !== fork || i.native) continue;
+      const c = cSym.get(i.cToken);
+      const u = symbolByAsset.get(i.asset);
+      if (!c || !u || !c.endsWith(u) || c.length === u.length) continue;
+      const pre = c.slice(0, c.length - u.length);
+      votes.set(pre, (votes.get(pre) ?? 0) + 1);
+    }
+    const best = [...votes.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+    for (const n of natives) {
+      if (n.fork !== fork) continue;
+      const c = cSym.get(n.cToken);
+      out.set(n.cToken, best && c && c.startsWith(best) && c.length > best.length ? c.slice(best.length) : null);
+    }
+  }
+  return out;
+}
 
 /** Resolve per-asset feed addresses for one fork oracle, trying each known strategy. */
 async function extractFeeds(
@@ -148,10 +202,13 @@ export async function classifyCompoundV2Oracles(): Promise<CompoundV2OraclesClas
       const cmap = cTokens[fork]?.[chainId] ?? {};
       for (const [underlying, cToken] of Object.entries(cmap)) {
         if (!isAddr(cToken)) continue;
-        const asset = toAddr(underlying);
-        if (!asset || !isAddr(asset)) continue; // skip native (0x0) — no ERC20 feed to classify
+        // toAddr() maps the zero address to null, so test the raw key for native.
+        const native = typeof underlying === "string" && underlying.toLowerCase() === ZERO;
+        const raw = native ? ZERO : toAddr(underlying);
+        const asset = native ? NATIVE_SENTINEL : raw;
+        if (!asset || !isAddr(asset)) continue;
         if (!itemsByChain.has(chainId)) itemsByChain.set(chainId, []);
-        itemsByChain.get(chainId)!.push({ fork, oracle: oracle.toLowerCase(), asset, cToken: cToken.toLowerCase() });
+        itemsByChain.get(chainId)!.push({ fork, oracle: oracle.toLowerCase(), asset, cToken: cToken.toLowerCase(), native });
       }
     }
   }
@@ -172,6 +229,10 @@ export async function classifyCompoundV2Oracles(): Promise<CompoundV2OraclesClas
     }).catch(() => [])) as unknown[];
     const symbolByAsset = new Map<string, string | null>();
     assets.forEach((a, i) => symbolByAsset.set(a, asString(symResults[i])));
+    // Native markets: the sentinel has no symbol(); take it from the cToken.
+    const nativeSym = await nativeSymbols(chainId, items, symbolByAsset);
+    const nat = [...nativeSym.values()].find((v) => !!v) ?? null;
+    if (nat) symbolByAsset.set(NATIVE_SENTINEL, nat);
 
     // Per (fork, oracle): extract per-asset feeds with the right strategy.
     const byOracle = new Map<string, Item[]>();
@@ -232,7 +293,9 @@ export async function classifyCompoundV2Oracles(): Promise<CompoundV2OraclesClas
 
     for (const it of items) {
       const feed = feedOf.get(`${it.fork}|${it.asset}`) ?? null;
-      const assetSymbol = symbolByAsset.get(it.asset) ?? null;
+      const assetSymbol = it.native ? nativeSym.get(it.cToken) ?? null : symbolByAsset.get(it.asset) ?? null;
+      // Published `asset` stays the c-tokens convention (zero address = native coin).
+      const outAsset = it.native ? ZERO : it.asset;
 
       if (!result[it.fork]) result[it.fork] = {};
       if (!result[it.fork][chainId]) result[it.fork][chainId] = {};
@@ -245,7 +308,7 @@ export async function classifyCompoundV2Oracles(): Promise<CompoundV2OraclesClas
         const underSym = corr.under ? underSymOf.get(corr.under) ?? null : null;
         const forAsset = corr.corr ? corr.corr.toLowerCase() === it.asset : false;
         result[it.fork][chainId][it.cToken] = {
-          cToken: it.cToken, asset: it.asset, assetSymbol,
+          cToken: it.cToken, asset: outAsset, assetSymbol,
           oracle: it.oracle, source: feed,
           rawDescription: underSym ? `Correlated price via ${underSym}` : "Correlated-token oracle",
           priceDescription: assetSymbol ? `${assetSymbol} / USD` : "UNKNOWN",
@@ -269,7 +332,7 @@ export async function classifyCompoundV2Oracles(): Promise<CompoundV2OraclesClas
 
       result[it.fork][chainId][it.cToken] = {
         cToken: it.cToken,
-        asset: it.asset,
+        asset: outAsset,
         assetSymbol,
         oracle: it.oracle,
         source: feed && isAddr(feed) ? feed : null,

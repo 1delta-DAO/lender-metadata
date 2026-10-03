@@ -85,13 +85,28 @@ export async function fetchTellerPoolsOnChain(): Promise<TellerPoolsByChain> {
       { address: p.pool, name: "getMarketId", args: [] },
       { address: p.pool, name: "getMaxLoanDuration", args: [] },
     ]);
-    const res = (await multicallRetryUniversal({
-      chain: chainId,
-      calls,
-      abi: POOL_ABI as any,
-      allowFailure: true,
-      maxRetries: 4,
-    }).catch(() => [])) as any[];
+    // A whole-chain multicall failure means "no update", never "empty chain":
+    // this file is the pool ROSTER (discovery never re-adds — addresses come
+    // from the existing file), so dropping rows here is a permanent, monotonic
+    // loss. On 2026-09-09 one bad RPC night deleted 64 of 106 chain-1 pools
+    // (commit e7af954) and froze their prod rows for 23 days.
+    let res: any[];
+    try {
+      res = (await multicallRetryUniversal({
+        chain: chainId,
+        calls,
+        abi: POOL_ABI as any,
+        allowFailure: true,
+        maxRetries: 4,
+      })) as any[];
+    } catch (err) {
+      console.error(
+        `Teller pools [${chainId}]: multicall failed — keeping the existing ${pools.length} rows unchanged:`,
+        (err as any)?.message ?? err,
+      );
+      out[chainId] = rows ?? [];
+      continue;
+    }
 
     const resolved = pools.map((p, i) => {
       const b = i * 4;
@@ -131,9 +146,18 @@ export async function fetchTellerPoolsOnChain(): Promise<TellerPoolsByChain> {
       symByToken.set(t, typeof symRes[i] === "string" ? symRes[i] : undefined);
     });
 
+    // A pool whose reads failed THIS run keeps its existing row verbatim —
+    // "unreadable tonight" is an RPC statement, not a market statement. Only
+    // a pool that was never readable (no principal/collateral on file either)
+    // is dropped, and that is counted out loud.
+    let dropped = 0;
     out[chainId] = resolved
-      .filter((r) => isAddr(r.principal) && isAddr(r.collateral))
       .map((r) => {
+        if (!isAddr(r.principal) || !isAddr(r.collateral)) {
+          if (isAddr(r.p.principal) && isAddr(r.p.collateral)) return r.p;
+          dropped += 1;
+          return undefined;
+        }
         const pd = decByToken.get(r.principal!);
         const cd = decByToken.get(r.collateral!);
         const ps = symByToken.get(r.principal!) ?? r.p.principalSymbol;
@@ -152,9 +176,18 @@ export async function fetchTellerPoolsOnChain(): Promise<TellerPoolsByChain> {
         if (r.maxLoanDuration != null) row.maxLoanDuration = r.maxLoanDuration;
         if (r.p.isV2 != null) row.isV2 = r.p.isV2;
         return row;
-      });
-    const dropped = resolved.length - out[chainId].length;
-    if (dropped > 0) console.log(`  ${dropped} pool(s) dropped (unreadable tokens)`);
+      })
+      .filter((row): row is TellerPoolRow => row !== undefined);
+    const kept = resolved.filter(
+      (r) =>
+        (!isAddr(r.principal) || !isAddr(r.collateral)) &&
+        isAddr(r.p.principal) &&
+        isAddr(r.p.collateral),
+    ).length;
+    if (kept > 0)
+      console.log(`  ${kept} pool(s) unreadable this run — existing rows kept`);
+    if (dropped > 0)
+      console.log(`  ${dropped} pool(s) dropped (never had readable tokens)`);
   }
 
   return out;

@@ -79,6 +79,14 @@ export const MORPHO_MAIN_CHAIN_IDS = [
  */
 const SERVES_UNLISTED_CHAINS = new Set<string>(["4663", "480"]);
 
+/**
+ * blue-api removes `Market.oracleAddress` on 2026-10-21 in favour of
+ * `oracle { address }`, which is null for idle markets (no oracle) — those map
+ * to the zero address so the existing zero-address filters still drop them.
+ */
+const oracleAddressOf = (el: any): string =>
+  el?.oracle?.address ?? "0x0000000000000000000000000000000000000000";
+
 export const cannotUseApi = (chainId: string, fork: string) => {
   if (fork === "MORPHO_BLUE") {
     return (
@@ -268,7 +276,9 @@ export class MorphoBlueUpdater implements DataUpdater {
         items {
           marketId
           lltv
-          oracleAddress
+          oracle {
+            address
+          }
           irmAddress
           listed
           loanAsset {
@@ -427,7 +437,7 @@ export class MorphoBlueUpdater implements DataUpdater {
           if (!oracles[chainId]) oracles[chainId] = {};
           if (!oracles[chainId][fork]) oracles[chainId][fork] = [];
 
-          const oracle = el.oracleAddress;
+          const oracle = oracleAddressOf(el);
           const loanAsset = el.loanAsset.address.toLowerCase();
           const collateralAsset = el.collateralAsset?.address.toLowerCase();
           const loanAssetDecimals = el.loanAsset.decimals;
@@ -674,7 +684,7 @@ export async function fetchMorphoMarketRowsForChain(
     const items = marketData.markets?.items || [];
     for (const el of items) {
       const hash: string = el.marketId ?? el.uniqueKey;
-      const oracle = el.oracleAddress;
+      const oracle = oracleAddressOf(el);
       const loanAsset = el.loanAsset?.address?.toLowerCase();
       const collateralAsset = el.collateralAsset?.address?.toLowerCase();
       const lltvStr = el.lltv != null ? String(el.lltv) : "";
