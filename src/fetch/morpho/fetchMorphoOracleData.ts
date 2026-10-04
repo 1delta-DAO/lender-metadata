@@ -452,6 +452,45 @@ async function fetchVaultFundedMarketInputsFromApi(chainId: string): Promise<Mar
   return out;
 }
 
+/**
+ * Every MORPHO_BLUE market the 1delta yields recorder serves on this chain, as
+ * market-input triplets (idle markets drop out at the oracle-address check).
+ *
+ * Listed + vault-funded is not the whole served set: queried with
+ * `maxRiskScore=6`, the recorder's lender list also carries unlisted markets no
+ * vault funds — self-looped HERMES/USDC on Base ($214M nominal), a fake-USDT
+ * USDT/USDT on Ethereum ($301M nominal), GVLT/USDC on Arbitrum. Without an
+ * oracle row downstream cannot say who sets their price (found 2026-10-04,
+ * ~$2.4B of nominal deposits with no oracle / governance / tier row). A recorder
+ * failure only means no additions this run (the merge is additive).
+ */
+const RECORDER_URL = (process.env.RECORDER_URL ?? "https://yields-r0.1delta.io").replace(/\/$/, "");
+export async function recorderServedMorphoMarketIds(chainId: string): Promise<string[]> {
+  const res = await fetch(`${RECORDER_URL}/lending/lenders?chains=${chainId}&maxRiskScore=6`, {
+    signal: AbortSignal.timeout(60_000),
+  });
+  if (!res.ok) throw new Error(`recorder HTTP ${res.status}`);
+  const body = (await res.json()) as { ok?: boolean; items?: Array<{ lenderInfo?: { key?: string } }> };
+  if (body.ok === false || !Array.isArray(body.items)) throw new Error("recorder: no items");
+  const ids = new Set<string>();
+  for (const it of body.items) {
+    const k = it?.lenderInfo?.key ?? "";
+    const m = /^MORPHO_BLUE_([0-9A-Fa-f]{64})$/.exec(k);
+    if (m) ids.add(`0x${m[1].toLowerCase()}`);
+  }
+  return [...ids];
+}
+
+async function fetchRecorderServedMarketInputsFromApi(chainId: string): Promise<MarketInputRow[]> {
+  const ids = await recorderServedMorphoMarketIds(chainId);
+  const out: MarketInputRow[] = [];
+  for (let i = 0; i < ids.length; i += 100) {
+    const keys = ids.slice(i, i + 100).map((k) => JSON.stringify(k)).join(", ");
+    out.push(...(await fetchMarketInputsFromApi(chainId, `uniqueKey_in: [${keys}]`)));
+  }
+  return out;
+}
+
 async function fetchMarketInputsFromApi(chainId: string, filter: string): Promise<MarketInputRow[]> {
   const out: MarketInputRow[] = [];
   const PAGE = 500;
@@ -534,6 +573,11 @@ export async function fetchMorphoOracleData(
           ...(await fetchListedMarketInputsFromApi(chainId)),
           ...(await fetchVaultFundedMarketInputsFromApi(chainId).catch((e) => {
             console.warn(`Morpho oracles [${chainId}]: vault-funded union failed:`, (e as Error).message);
+            return [] as MarketInputRow[];
+          })),
+          // ...and every other market the recorder serves (unlisted, unfunded).
+          ...(await fetchRecorderServedMarketInputsFromApi(chainId).catch((e) => {
+            console.warn(`Morpho oracles [${chainId}]: recorder-served union failed:`, (e as Error).message);
             return [] as MarketInputRow[];
           })),
         ];
