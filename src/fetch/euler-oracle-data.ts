@@ -12,8 +12,17 @@ export class EulerOracleDataUpdater implements DataUpdater {
     return { [eulerClassifiedFile]: data };
   }
 
-  mergeData(_oldData: any, data: any, _fileKey: string): Partial<any> {
-    return mergeData(data ?? {}, {});
+  mergeData(oldData: any, data: any, _fileKey: string): Partial<any> {
+    // A chain whose RPC returned no vaults this run (deprecated chain, dead RPC)
+    // keeps its previous block instead of disappearing from the file.
+    const out: Record<string, any> = { ...(data ?? {}) };
+    for (const [chainId, block] of Object.entries(oldData ?? {})) {
+      const fresh = out[chainId];
+      if (!fresh || Object.keys(fresh).length === 0) {
+        if (block && Object.keys(block as object).length > 0) out[chainId] = block;
+      }
+    }
+    return mergeData(out, {});
   }
 
   defaults = {};

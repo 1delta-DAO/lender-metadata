@@ -356,6 +356,40 @@
       "source": null,
       "sourcePath": [],
       "underlyingAggregator": null
+    },
+    "21": {
+      "asset": "0x852724426b2851487b278a3377449bf26b06c1ba",
+      "assetSymbol": "BTCcx",
+      "correctOracle": null,
+      "denominator": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "BTCcx / USD",
+      "marketId": "21",
+      "oracle": "0xa150ef2d5827db283321d15d62d5d07fb41d636e",
+      "priceDescription": "UNKNOWN",
+      "provider": "dolomite-oracle",
+      "rawDescription": null,
+      "source": null,
+      "sourcePath": [],
+      "underlyingAggregator": null
+    },
+    "22": {
+      "asset": "0x8af3b9d0e53186ae13b32fd783f42663bf48d389",
+      "assetSymbol": "WLFIcx",
+      "correctOracle": null,
+      "denominator": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "WLFIcx / USD",
+      "marketId": "22",
+      "oracle": "0xa150ef2d5827db283321d15d62d5d07fb41d636e",
+      "priceDescription": "UNKNOWN",
+      "provider": "dolomite-oracle",
+      "rawDescription": null,
+      "source": null,
+      "sourcePath": [],
+      "underlyingAggregator": null
     }
   },
   "196": {
@@ -984,13 +1018,13 @@
           "kind": "chainlink"
         },
         {
-          "address": "0x1e0b2c3896338fbb201c4f0a27c6904801dca06b",
-          "description": null,
+          "address": "0x05c84a58fe042275b37db038baacd15f410c7bb0",
+          "description": "ETH / USD",
           "decimals": 8,
-          "kind": "unknown"
+          "kind": "chainlink"
         }
       ],
-      "underlyingAggregator": "0x1e0b2c3896338fbb201c4f0a27c6904801dca06b"
+      "underlyingAggregator": "0x05c84a58fe042275b37db038baacd15f410c7bb0"
     }
   },
   "42161": {
@@ -2268,6 +2302,40 @@
       "source": null,
       "sourcePath": [],
       "underlyingAggregator": null
+    },
+    "75": {
+      "asset": "0x23e3df1196b3249c9b0a9476f990f105591872de",
+      "assetSymbol": "savETH",
+      "correctOracle": null,
+      "denominator": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "savETH / USD",
+      "marketId": "75",
+      "oracle": "0xbfca44ab734e57dc823ca609a0714eec9ed06ca0",
+      "priceDescription": "UNKNOWN",
+      "provider": "dolomite-oracle",
+      "rawDescription": null,
+      "source": null,
+      "sourcePath": [],
+      "underlyingAggregator": null
+    },
+    "76": {
+      "asset": "0x51bc8e41cbec0aa97ec07c73597829c70b2eed46",
+      "assetSymbol": "dsavETH",
+      "correctOracle": null,
+      "denominator": null,
+      "denominatorMatch": null,
+      "fixedRate": null,
+      "intendedPair": "dsavETH / USD",
+      "marketId": "76",
+      "oracle": "0xbfca44ab734e57dc823ca609a0714eec9ed06ca0",
+      "priceDescription": "UNKNOWN",
+      "provider": "dolomite-oracle",
+      "rawDescription": null,
+      "source": null,
+      "sourcePath": [],
+      "underlyingAggregator": null
     }
   },
   "80094": {
@@ -2348,7 +2416,7 @@
       "fixedRate": null,
       "intendedPair": "WBTC / USD",
       "marketId": "4",
-      "oracle": "0xa150ef2d5827db283321d15d62d5d07fb41d636e",
+      "oracle": "0x622c8d85f0197efd2e4730ad5d78cf39c715b49d",
       "priceDescription": "UNKNOWN",
       "provider": "dolomite-oracle",
       "rawDescription": null,
@@ -2382,7 +2450,7 @@
       "fixedRate": null,
       "intendedPair": "LBTC / USD",
       "marketId": "6",
-      "oracle": "0x53e18f7483356cac74b1365ebf3f2f71f499a0dd",
+      "oracle": "0x622c8d85f0197efd2e4730ad5d78cf39c715b49d",
       "priceDescription": "UNKNOWN",
       "provider": "dolomite-oracle",
       "rawDescription": null,
@@ -2756,7 +2824,7 @@
       "fixedRate": null,
       "intendedPair": "eBTC / USD",
       "marketId": "28",
-      "oracle": "0x53e18f7483356cac74b1365ebf3f2f71f499a0dd",
+      "oracle": "0x622c8d85f0197efd2e4730ad5d78cf39c715b49d",
       "priceDescription": "UNKNOWN",
       "provider": "dolomite-oracle",
       "rawDescription": null,

@@ -56,6 +56,15 @@ export const MORPHO_MAIN_CHAIN_IDS = [
   "80094",
   "747474",
   "98866",
+  // Added 2026-10-04: Morpho Blue cores with live 1delta markets that no
+  // updater walked, so they had no oracle roster at all (Morph $14M, Pharos
+  // $24M, Abstract / XDC / Kaia < $1M). No blue-api, subgraph or Mystic
+  // coverage: on-chain only (see cannotUseApi).
+  "2818",
+  "1672",
+  "2741",
+  "50",
+  "8217",
 ];
 
 /**
@@ -120,7 +129,13 @@ export async function vaultFundedMarketIds(chainId: string, fork: string): Promi
  * to the zero address so the existing zero-address filters still drop them.
  */
 const oracleAddressOf = (el: any): string =>
-  el?.oracle?.address ?? "0x0000000000000000000000000000000000000000";
+  el?.oracle?.address ??
+  // The on-chain, subgraph and Mystic paths emit a flat `oracleAddress` (they
+  // never had the blue-api shape). Reading only `oracle.address` turned every
+  // market on those chains into a zero-oracle row, so no triplet / oracle row
+  // was added there after 2026-10-03 (found 2026-10-04).
+  el?.oracleAddress ??
+  "0x0000000000000000000000000000000000000000";
 
 export const cannotUseApi = (chainId: string, fork: string) => {
   if (fork === "MORPHO_BLUE") {
@@ -134,6 +149,11 @@ export const cannotUseApi = (chainId: string, fork: string) => {
       chainId === Chain.LISK ||
       chainId === Chain.TAC_MAINNET ||
       chainId === Chain.MEGAETH_MAINNET ||
+      chainId === Chain.MORPH ||
+      chainId === Chain.PHAROS_MAINNET ||
+      chainId === Chain.ABSTRACT ||
+      chainId === Chain.XDC_NETWORK ||
+      chainId === Chain.KAIA_MAINNET ||
       hasMysticApi(chainId)
     );
   }
@@ -481,6 +501,10 @@ export class MorphoBlueUpdater implements DataUpdater {
           if (!oracles[chainId][fork]) oracles[chainId][fork] = [];
 
           const oracle = oracleAddressOf(el);
+          // On-chain rows carry no loan object when the token's metadata could
+          // not be read (not in the token list, decimals() unreadable): skip
+          // it rather than abort the whole update.
+          if (!el.loanAsset?.address) continue;
           const loanAsset = el.loanAsset.address.toLowerCase();
           const collateralAsset = el.collateralAsset?.address.toLowerCase();
           const loanAssetDecimals = el.loanAsset.decimals;

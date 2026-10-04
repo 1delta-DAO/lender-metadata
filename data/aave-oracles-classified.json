@@ -17223,8 +17223,8 @@
         "sourcePath": [
           {
             "address": "0xfc2fd5b24b2baeea13b42809f582aa083cd29409",
-            "decimals": null,
             "description": null,
+            "decimals": null,
             "kind": "unknown"
           }
         ],
@@ -17245,8 +17245,8 @@
         "sourcePath": [
           {
             "address": "0x03396fe4e58a0778679e2731564f064fa5256c6e",
-            "decimals": null,
             "description": null,
+            "decimals": null,
             "kind": "unknown"
           }
         ],
@@ -17267,8 +17267,8 @@
         "sourcePath": [
           {
             "address": "0x90473a2fa1d9eb8fe6c45072d933218f828af834",
-            "decimals": null,
             "description": null,
+            "decimals": null,
             "kind": "unknown"
           }
         ],
@@ -17289,8 +17289,8 @@
         "sourcePath": [
           {
             "address": "0x8d470bde66ee52981d7d29bc2e6fca3b4dc17879",
-            "decimals": null,
             "description": null,
+            "decimals": null,
             "kind": "unknown"
           }
         ],
@@ -17311,8 +17311,8 @@
         "sourcePath": [
           {
             "address": "0x321f084b78756c5550e6ab200d88bb2602bce1a2",
-            "decimals": null,
             "description": null,
+            "decimals": null,
             "kind": "unknown"
           }
         ],
@@ -17333,8 +17333,8 @@
         "sourcePath": [
           {
             "address": "0x321f084b78756c5550e6ab200d88bb2602bce1a2",
-            "decimals": null,
             "description": null,
+            "decimals": null,
             "kind": "unknown"
           }
         ],
@@ -28478,8 +28478,8 @@
         "sourcePath": [
           {
             "address": "0xd066343ad6851f9ba89b568af61e97e89055f96b",
-            "decimals": null,
             "description": null,
+            "decimals": null,
             "kind": "unknown"
           }
         ],
@@ -28500,8 +28500,8 @@
         "sourcePath": [
           {
             "address": "0x4d775571182ca03e2a7d68ffc67d841befaf74cb",
-            "decimals": 8,
             "description": "XDC / USD",
+            "decimals": 8,
             "kind": "chainlink"
           }
         ],
@@ -28522,8 +28522,8 @@
         "sourcePath": [
           {
             "address": "0xd82403ceb1207073e527f65d5408470181104b12",
-            "decimals": 8,
             "description": "XDC / USD",
+            "decimals": 8,
             "kind": "chainlink"
           }
         ],
@@ -28544,8 +28544,8 @@
         "sourcePath": [
           {
             "address": "0xd82403ceb1207073e527f65d5408470181104b12",
-            "decimals": 8,
             "description": "XDC / USD",
+            "decimals": 8,
             "kind": "chainlink"
           }
         ],
@@ -28566,8 +28566,8 @@
         "sourcePath": [
           {
             "address": "0xd82403ceb1207073e527f65d5408470181104b12",
-            "decimals": 8,
             "description": "XDC / USD",
+            "decimals": 8,
             "kind": "chainlink"
           }
         ],
@@ -28588,8 +28588,30 @@
         "sourcePath": [
           {
             "address": "0xfa7bb19491393a94acb32a0d0b7c183f031d41f5",
-            "decimals": 8,
             "description": "USDT / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": null
+      },
+      "0xdc74c0daed82ae94486deef22991d2f54173c734": {
+        "asset": "0xdc74c0daed82ae94486deef22991d2f54173c734",
+        "assetSymbol": "psXDC",
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "psXDC / USD",
+        "priceDescription": "XDC / USD",
+        "provider": "chainlink",
+        "rawDescription": "XDC/USD",
+        "source": "0xd82403ceb1207073e527f65d5408470181104b12",
+        "sourcePath": [
+          {
+            "address": "0xd82403ceb1207073e527f65d5408470181104b12",
+            "description": "XDC / USD",
+            "decimals": 8,
             "kind": "chainlink"
           }
         ],
@@ -28610,8 +28632,8 @@
         "sourcePath": [
           {
             "address": "0x201aba32343fe6d69b8bbcd0fed4d89fe0c520a2",
-            "decimals": 8,
             "description": "USDC / USD",
+            "decimals": 8,
             "kind": "chainlink"
           }
         ],

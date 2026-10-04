@@ -2,7 +2,7 @@ import { multicallRetryUniversal } from "@1delta/providers";
 import { readJsonFile } from "../utils/index.js";
 import { SYMBOL_ABI } from "../oracle-classifier/abi.js";
 import { probeFeedGraph, resolveFeed } from "../oracle-classifier/feedResolver.js";
-import { asString, toAddr } from "../oracle-classifier/normalize.js";
+import { asString, symbolsMatch, toAddr } from "../oracle-classifier/normalize.js";
 import { assessFeed } from "../oracle-classifier/assess.js";
 
 const oraclesFile = "./data/compound-v2-oracles.json"; // fork -> chain -> PriceOracle address
@@ -46,6 +46,32 @@ const CORRELATED_ABI = [
   { name: "UNDERLYING_TOKEN", stateMutability: "view", type: "function", inputs: [], outputs: [{ type: "address" }] },
   { name: "RESILIENT_ORACLE", stateMutability: "view", type: "function", inputs: [], outputs: [{ type: "address" }] },
 ] as const;
+
+// Kinetic (Flare) ProtocolFTSOV3Oracle / OverridablePriceOracle: getPrice(asset)
+// returns an owner-posted assetPrices(asset) when set, else the Flare FTSOv2 feed
+// tokenConfigs(asset).ftsoV2FeedId (bytes21: category byte ‖ ASCII "XRP/USD"),
+// times exchangeAsset.getExchangeRate() when one is configured (sFLR). FTSO feeds
+// are not contracts, so there is no feed address to probe — decode the id itself.
+const KINETIC_FTSO_ABI = [
+  { name: "ftsoV2", stateMutability: "view", type: "function", inputs: [], outputs: [{ type: "address" }] },
+  { name: "assetPrices", stateMutability: "view", type: "function", inputs: [{ type: "address" }], outputs: [{ type: "uint256" }] },
+  { name: "tokenConfigs", stateMutability: "view", type: "function", inputs: [{ type: "address" }], outputs: [
+    { name: "asset", type: "address" },
+    { name: "ftsoV2FeedId", type: "bytes21" },
+    { name: "maxStalePeriod", type: "uint64" },
+    { name: "exchangeAsset", type: "address" },
+  ] },
+] as const;
+
+type FtsoConfig = { pair: string | null; feedId: string; maxStale: string; exchangeAsset: string | null; override: string | null };
+
+/** FTSOv2 feed id → "XRP / USD"; null when it is not a printable BASE/QUOTE name. */
+function ftsoPair(id: unknown): string | null {
+  if (typeof id !== "string" || !/^0x[0-9a-fA-F]{42}$/.test(id)) return null;
+  const name = Buffer.from(id.slice(4), "hex").toString("latin1").replace(/\0+$/, "");
+  const m = name.match(/^([A-Za-z0-9.]+)\/([A-Za-z0-9.]+)$/);
+  return m ? `${m[1]} / ${m[2]}` : null;
+}
 
 export type CompoundV2OracleAssetData = {
   /** cToken — the market's leaf identifier (marketUid = <fork>:<chain>:<cToken>). */
@@ -134,8 +160,46 @@ async function extractFeeds(
   oracle: string,
   assets: string[],
   symbolByAsset: Map<string, string | null>
-): Promise<{ provider: string; feedByAsset: Map<string, string | null> }> {
+): Promise<{ provider: string; feedByAsset: Map<string, string | null>; ftsoByAsset?: Map<string, FtsoConfig> }> {
   const feedByAsset = new Map<string, string | null>();
+
+  // Strategy 0: Kinetic ProtocolFTSOV3Oracle (ftsoV2() + tokenConfigs(asset)).
+  const ftso = (await multicallRetryUniversal({
+    chain: chainId,
+    calls: [{ address: oracle, name: "ftsoV2", args: [] }],
+    abi: KINETIC_FTSO_ABI as any,
+    allowFailure: true,
+    maxRetries: 3,
+  }).catch(() => [])) as any[];
+  if (isAddr(toAddr(ftso[0]))) {
+    // The native market's override (`etherPrice`) has no getter: leave it undecoded.
+    const erc20 = assets.filter((a) => a !== NATIVE_SENTINEL);
+    const res = (await multicallRetryUniversal({
+      chain: chainId,
+      calls: erc20.flatMap((a) => [
+        { address: oracle, name: "tokenConfigs", args: [a] },
+        { address: oracle, name: "assetPrices", args: [a] },
+      ]),
+      abi: KINETIC_FTSO_ABI as any,
+      allowFailure: true,
+      maxRetries: 3,
+    }).catch(() => [])) as any[];
+    const ftsoByAsset = new Map<string, FtsoConfig>();
+    erc20.forEach((a, i) => {
+      const cfg = res[2 * i];
+      const override = res[2 * i + 1];
+      if (!Array.isArray(cfg) || typeof override !== "bigint") return; // unread: stays UNKNOWN
+      if (!cfg[2] || BigInt(cfg[2]) === 0n) return; // not configured: getPrice reverts
+      ftsoByAsset.set(a, {
+        pair: ftsoPair(cfg[1]),
+        feedId: String(cfg[1]),
+        maxStale: String(cfg[2]),
+        exchangeAsset: isAddr(toAddr(cfg[3])) ? toAddr(cfg[3]) : null,
+        override: override > 0n ? override.toString() : null,
+      });
+    });
+    return { provider: "ftso", feedByAsset, ftsoByAsset };
+  }
 
   // Strategy A: Venus ResilientOracle → inner ChainlinkOracle → tokenConfigs(asset).feed
   const cfgs = (await multicallRetryUniversal({
@@ -243,13 +307,15 @@ export async function classifyCompoundV2Oracles(): Promise<CompoundV2OraclesClas
     }
 
     const feedOf = new Map<string, string | null>(); // `${fork}|${asset}` -> feed
+    const ftsoOf = new Map<string, FtsoConfig>(); // `${fork}|${asset}` -> Kinetic FTSO config
     const providerOfOracle = new Map<string, string>();
     for (const [key, group] of byOracle.entries()) {
       const [fork, oracle] = key.split("|");
       const groupAssets = [...new Set(group.map((g) => g.asset))];
-      const { provider, feedByAsset } = await extractFeeds(chainId, oracle, groupAssets, symbolByAsset);
+      const { provider, feedByAsset, ftsoByAsset } = await extractFeeds(chainId, oracle, groupAssets, symbolByAsset);
       providerOfOracle.set(key, provider);
       for (const a of groupAssets) feedOf.set(`${fork}|${a}`, feedByAsset.get(a) ?? null);
+      for (const [a, c] of ftsoByAsset ?? []) ftsoOf.set(`${fork}|${a}`, c);
     }
 
     const candidateFeeds = [...new Set([...feedOf.values()].filter(isAddr))] as string[];
@@ -299,6 +365,45 @@ export async function classifyCompoundV2Oracles(): Promise<CompoundV2OraclesClas
 
       if (!result[it.fork]) result[it.fork] = {};
       if (!result[it.fork][chainId]) result[it.fork][chainId] = {};
+
+      const ftsoCfg = ftsoOf.get(`${it.fork}|${it.asset}`);
+      if (ftsoCfg) {
+        const intendedPair = assetSymbol ? `${assetSymbol} / USD` : null;
+        const base: Omit<CompoundV2OracleAssetData, "rawDescription" | "priceDescription" | "provider" | "fixedRate" | "sourcePath" | "correctOracle" | "denominatorMatch" | "denominator"> = {
+          cToken: it.cToken, asset: outAsset, assetSymbol, oracle: it.oracle, source: null, underlyingAggregator: null, intendedPair,
+        };
+        if (ftsoCfg.override) {
+          // Owner-posted price: a fixed number until the owner changes it.
+          result[it.fork][chainId][it.cToken] = {
+            ...base, rawDescription: `owner-posted price ${ftsoCfg.override} (ProtocolFTSOV3Oracle assetPrices override)`,
+            priceDescription: intendedPair ?? "UNKNOWN", provider: "constant", fixedRate: true,
+            sourcePath: [{ address: it.oracle, description: "assetPrices override", decimals: null, kind: "constant" }],
+            denominator: "USD", correctOracle: null, denominatorMatch: null,
+          };
+          continue;
+        }
+        if (ftsoCfg.pair) {
+          const [fb, fq] = ftsoCfg.pair.split(" / ");
+          // With an exchangeAsset the feed prices the underlying of a rate (FLR for sFLR):
+          // the market asset is then priced via that rate, as assetSymbol / USD.
+          const priced = ftsoCfg.exchangeAsset ? assetSymbol : fb;
+          const priceDescription = priced ? `${priced} / ${fq}` : "UNKNOWN";
+          result[it.fork][chainId][it.cToken] = {
+            ...base,
+            rawDescription: ftsoCfg.exchangeAsset
+              ? `${assetSymbol} / ${fb} exchange rate (${ftsoCfg.exchangeAsset}.getExchangeRate()) * ${ftsoCfg.pair} (FTSOv2 ${ftsoCfg.feedId})`
+              : `${ftsoCfg.pair} (FTSOv2 ${ftsoCfg.feedId}, max stale ${ftsoCfg.maxStale}s)`,
+            priceDescription,
+            provider: ftsoCfg.exchangeAsset ? "exchange-rate" : "ftso",
+            fixedRate: null,
+            sourcePath: [{ address: ftsoCfg.feedId, description: ftsoCfg.pair, decimals: null, kind: "ftso" }],
+            denominator: fq,
+            correctOracle: assetSymbol && priced ? symbolsMatch(priced, assetSymbol) : null,
+            denominatorMatch: symbolsMatch(fq, "USD"),
+          };
+          continue;
+        }
+      }
 
       const corr = feed && isAddr(feed) ? correlated.get(feed) : undefined;
       if (corr && feed) {
