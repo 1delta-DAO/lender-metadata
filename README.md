@@ -255,7 +255,7 @@ Covers Euler V2 vaults across 20+ chains.
 
 ### Init (`src/fetch/init/`)
 
-Covers Init lending protocol on Mantle and Blast.
+Covers Init lending protocol on Mantle. (Blast, chain 81457, was removed 2026-10-04 — the chain is shutting down.)
 
 | File | Description |
 |------|-------------|

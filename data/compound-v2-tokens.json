@@ -43,38 +43,6 @@
       }
     ]
   },
-  "ASO_FINANCE": {
-    "81457": [
-      {
-        "cToken": "0x001ff326a2836bdd77b28e992344983681071f87",
-        "underlying": "0x0000000000000000000000000000000000000000"
-      },
-      {
-        "cToken": "0x8c67bc3d11c71489567f4dbd96a8c6fbd8073465",
-        "underlying": "0x4300000000000000000000000000000000000003"
-      },
-      {
-        "cToken": "0x1bd93d32e64fff30f66a438deb07d57a7b665966",
-        "underlying": "0xf7bc58b8d8f97adc129cfc4c9f45ce3c0e1d2692"
-      },
-      {
-        "cToken": "0x796c484d621f3761ca47df1e5b2e8079fb11efe2",
-        "underlying": "0x04c0599ae5a44757c0af6f9ec3b93da8976c150a"
-      },
-      {
-        "cToken": "0x548493067e0b202373491ea3397eb4b0ba1de19a",
-        "underlying": "0x2416092f143378750bb29b79ed961ab195cceea5"
-      },
-      {
-        "cToken": "0x6be7446a952d132ab8f9aba0b57a0308dce8503e",
-        "underlying": "0xf7bc58b8d8f97adc129cfc4c9f45ce3c0e1d2692"
-      },
-      {
-        "cToken": "0x25bb64ca1eebf70dc92dadceef59c1581b00f8d0",
-        "underlying": "0xb1a5700fa2358173fe465e6ea4ff52e36e88e2ad"
-      }
-    ]
-  },
   "AURIGAMI": {
     "1313161554": [
       {
@@ -320,22 +288,6 @@
       {
         "cToken": "0x51758d811696acb994aa993bd3dd088b6c3320f3",
         "underlying": "0x5e0e90e268bc247cc850c789a0db0d5c7621fb59"
-      }
-    ]
-  },
-  "BLUME": {
-    "81457": [
-      {
-        "cToken": "0x3ef8c3e4b0267e38217dee78731871d8f021679a",
-        "underlying": "0x4300000000000000000000000000000000000003",
-        "mintPaused": false,
-        "borrowPaused": false
-      },
-      {
-        "cToken": "0x901d7160c07c2750a254c1f9e2949a0d1860a219",
-        "underlying": "0x4300000000000000000000000000000000000004",
-        "mintPaused": false,
-        "borrowPaused": false
       }
     ]
   },
