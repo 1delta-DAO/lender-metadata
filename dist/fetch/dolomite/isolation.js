@@ -73,6 +73,13 @@ const factoryAbi = [
         inputs: [],
         outputs: [{ type: "uint256" }],
     },
+    {
+        type: "function",
+        name: "getProxyVaultInitCodeHash",
+        stateMutability: "pure",
+        inputs: [],
+        outputs: [{ type: "bytes32" }],
+    },
 ];
 // multicall with a direct-RPC fallback for chains outside @1delta/providers.
 async function read(chainId, calls, abi) {
@@ -125,6 +132,7 @@ export async function fetchDolomiteIsolation(chainId, markets) {
             { address: f, name: "allowableDebtMarketIds" },
             { address: f, name: "allowableCollateralMarketIds" },
             { address: f, name: "executionFee" },
+            { address: f, name: "getProxyVaultInitCodeHash" },
             // Probe the seed's converters; the zero address stands in when there is
             // no seed so the call layout stays fixed (answers false).
             {
@@ -140,7 +148,7 @@ export async function fetchDolomiteIsolation(chainId, markets) {
         ];
     });
     const fac = await read(chainId, facCalls, factoryAbi);
-    const underlyings = iso.map((_, i) => fac[i * 6]);
+    const underlyings = iso.map((_, i) => fac[i * 7]);
     const undCalls = underlyings.flatMap((u) => ok(u)
         ? [
             { address: u, name: "symbol" },
@@ -151,7 +159,7 @@ export async function fetchDolomiteIsolation(chainId, markets) {
     const out = {};
     let u = 0;
     iso.forEach(([marketId, factory], i) => {
-        const base = i * 6;
+        const base = i * 7;
         const underlying = fac[base];
         if (!ok(underlying)) {
             console.log(`Dolomite: chain ${chainId}: isolation market ${marketId} (${factory}) has no UNDERLYING_TOKEN — skipped`);
@@ -161,8 +169,9 @@ export async function fetchDolomiteIsolation(chainId, markets) {
         const decimals = und[u * 2 + 1];
         u++;
         const c = seed[factory.toLowerCase()];
-        const wrapperTrusted = c ? fac[base + 4] === true : false;
-        const unwrapperTrusted = c ? fac[base + 5] === true : false;
+        const initCodeHash = fac[base + 4];
+        const wrapperTrusted = c ? fac[base + 5] === true : false;
+        const unwrapperTrusted = c ? fac[base + 6] === true : false;
         if (c && !(wrapperTrusted && unwrapperTrusted)) {
             console.log(`Dolomite: chain ${chainId}: isolation market ${marketId} converters from the seed are NOT trusted on-chain (wrapper ${wrapperTrusted}, unwrapper ${unwrapperTrusted}) — written as null`);
         }
@@ -185,6 +194,9 @@ export async function fetchDolomiteIsolation(chainId, markets) {
             async: c?.isAsync ?? false,
             // `executionFee()` only exists on the async (GMX V2 / GLV) factories.
             executionFeeWei: ok(fee) ? String(fee) : null,
+            vaultInitCodeHash: typeof initCodeHash === "string" && initCodeHash.length === 66
+                ? initCodeHash.toLowerCase()
+                : null,
         };
     });
     return out;

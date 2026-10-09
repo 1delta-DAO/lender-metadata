@@ -9,8 +9,53 @@ async function getDeltaTokenList(chain) {
     const list = (await data.json()).list;
     return list;
 }
+const ERC20_META_ABI = parseAbi([
+    "function symbol() view returns (string)",
+    "function decimals() view returns (uint8)",
+]);
+const unwrapResult = (r) => r && typeof r === "object" && "result" in r ? r.result : r;
+/**
+ * symbol()/decimals() for tokens the token list does not carry. A token whose
+ * decimals cannot be read is left out (its market stays unresolved, as before):
+ * the triplet needs exact decimals, a guess would misprice the oracle check.
+ */
+async function readErc20Meta(chainId, addresses) {
+    const out = new Map();
+    try {
+        const res = (await multicallRetryUniversal({
+            chain: chainId,
+            calls: addresses.flatMap((address) => [
+                { address, name: "symbol", args: [] },
+                { address, name: "decimals", args: [] },
+            ]),
+            abi: ERC20_META_ABI,
+            allowFailure: true,
+        }));
+        addresses.forEach((address, i) => {
+            const sym = unwrapResult(res[2 * i]);
+            const dec = unwrapResult(res[2 * i + 1]);
+            const decimals = typeof dec === "number" ? dec : typeof dec === "bigint" ? Number(dec) : NaN;
+            if (!Number.isInteger(decimals))
+                return;
+            out.set(address, {
+                address,
+                // A reverted symbol() comes back as raw "0x" data under allowFailure.
+                symbol: typeof sym === "string" && sym.length > 0 && !/^0x[0-9a-f]*$/i.test(sym)
+                    ? sym
+                    : "unknown",
+                decimals,
+            });
+        });
+    }
+    catch (e) {
+        console.warn(`[morpho on-chain] chain ${chainId}: token metadata read failed:`, e.message);
+    }
+    return out;
+}
 export async function getMarketsOnChain(chainId, pools, marketsListOveride = undefined) {
-    const tokens = await getDeltaTokenList(chainId);
+    // A chain with no token list (or a failed fetch) still resolves through the
+    // on-chain metadata fallback below.
+    const tokens = (await getDeltaTokenList(chainId).catch(() => undefined)) ?? {};
     const data = [];
     for (const [forkName, forkData] of Object.entries(pools)) {
         const poolAddress = forkData[chainId];
@@ -56,6 +101,22 @@ export async function getMarketsOnChain(chainId, pools, marketsListOveride = und
             const decoded = forkName === Lender.MORPHO_BLUE
                 ? decodeMarkets(normalizeToBytes(returnData) ?? "0x")
                 : decodeListaMarkets(normalizeToBytes(returnData));
+            // Tokens missing from the 1delta token list used to make the whole
+            // market vanish (no loan/collateral object → no triplet, no label), e.g.
+            // the $1.1B-nominal USDC/xUSD market on Plume, whose collateral (Stream
+            // xUSD) is not listed there. Read symbol/decimals on-chain for those.
+            const missing = [
+                ...new Set(decoded
+                    .flatMap((m) => [m.loanToken, m.collateralToken])
+                    .filter((a) => a && a !== zeroAddress)
+                    .map((a) => a.toLowerCase())
+                    .filter((a) => !tokens[a])),
+            ];
+            if (missing.length > 0) {
+                const extra = await readErc20Meta(chainId, missing);
+                for (const [a, meta] of extra)
+                    tokens[a] = meta;
+            }
             decoded.forEach((market, i) => {
                 const uniqueKey = markets[i];
                 const { lltv, irm, oracle, loanToken, collateralToken, ...state } = market;

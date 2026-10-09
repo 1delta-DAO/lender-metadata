@@ -2,7 +2,7 @@ import { multicallRetryUniversal } from "@1delta/providers";
 import { toHex } from "viem";
 import { readJsonFile } from "../utils/index.js";
 import { MORPHO_CHAINLINK_ORACLE_V2_ABI, CURRENT_ORACLE_ABI, FEED_DESCRIPTION_ABI, REDSTONE_DATA_FEED_ID_ABI, VAULT_SYMBOL_ABI, VAULT_ASSET_ABI, VAULT_ACCOUNTING_ASSET_ABI, } from "./oracleAbi.js";
-import { fetchMorphoMarketRowsForChain } from "./morpho.js";
+import { fetchMorphoMarketRowsForChain, cannotUseApi, morphoChainScope, vaultFundedMarketIds, } from "./morpho.js";
 import { marketTripletKey } from "./morphoMarketId.js";
 import { symbolsMatch } from "../oracle-classifier/normalize.js";
 const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
@@ -297,6 +297,109 @@ function collectMarketInputs(morphoOracles, morphoTypeOracles) {
     return out;
 }
 /**
+ * Listed markets straight from the blue-api, as market-input triplets.
+ *
+ * `data/morpho-oracles.json` — the seed list this classifier walks for API
+ * chains — is hand-maintained and was last touched 2025-10-25. Every market
+ * created after that on Base / mainnet / Arbitrum … (cbBTC/USDC on Base, $1.6B;
+ * cbXRP/USDC, $57M; wstETH/WETH on mainnet, $108M) therefore had NO oracle row,
+ * so downstream nothing could say who governs its oracle or price feed. The
+ * blue-api knows every listed market with its oracle/loan/collateral, so union
+ * them in. Only LISTED markets: Base alone has ~4,300 markets and all but ~90
+ * are dust or tests, and every oracle here costs on-chain reads to decode.
+ */
+async function fetchListedMarketInputsFromApi(chainId) {
+    return fetchMarketInputsFromApi(chainId, "listed: true");
+}
+/**
+ * The unlisted markets vaults fund (see `vaultFunded.ts`), as market-input
+ * triplets — the same set `MorphoBlueUpdater` writes into the roster, fetched
+ * again here so a run of this classifier alone does not depend on the roster
+ * having been refreshed first.
+ */
+async function fetchVaultFundedMarketInputsFromApi(chainId) {
+    const ids = [...(await vaultFundedMarketIds(chainId, "MORPHO_BLUE"))];
+    const out = [];
+    for (let i = 0; i < ids.length; i += 100) {
+        const keys = ids.slice(i, i + 100).map((k) => JSON.stringify(k)).join(", ");
+        out.push(...(await fetchMarketInputsFromApi(chainId, `uniqueKey_in: [${keys}]`)));
+    }
+    return out;
+}
+/**
+ * Every MORPHO_BLUE market the 1delta yields recorder serves on this chain, as
+ * market-input triplets (idle markets drop out at the oracle-address check).
+ *
+ * Listed + vault-funded is not the whole served set: queried with
+ * `maxRiskScore=6`, the recorder's lender list also carries unlisted markets no
+ * vault funds — self-looped HERMES/USDC on Base ($214M nominal), a fake-USDT
+ * USDT/USDT on Ethereum ($301M nominal), GVLT/USDC on Arbitrum. Without an
+ * oracle row downstream cannot say who sets their price (found 2026-10-04,
+ * ~$2.4B of nominal deposits with no oracle / governance / tier row). A recorder
+ * failure only means no additions this run (the merge is additive).
+ */
+const RECORDER_URL = (process.env.RECORDER_URL ?? "https://yields-r0.1delta.io").replace(/\/$/, "");
+export async function recorderServedMorphoMarketIds(chainId) {
+    const res = await fetch(`${RECORDER_URL}/lending/lenders?chains=${chainId}&maxRiskScore=6`, {
+        signal: AbortSignal.timeout(60_000),
+    });
+    if (!res.ok)
+        throw new Error(`recorder HTTP ${res.status}`);
+    const body = (await res.json());
+    if (body.ok === false || !Array.isArray(body.items))
+        throw new Error("recorder: no items");
+    const ids = new Set();
+    for (const it of body.items) {
+        const k = it?.lenderInfo?.key ?? "";
+        const m = /^MORPHO_BLUE_([0-9A-Fa-f]{64})$/.exec(k);
+        if (m)
+            ids.add(`0x${m[1].toLowerCase()}`);
+    }
+    return [...ids];
+}
+async function fetchRecorderServedMarketInputsFromApi(chainId) {
+    const ids = await recorderServedMorphoMarketIds(chainId);
+    const out = [];
+    for (let i = 0; i < ids.length; i += 100) {
+        const keys = ids.slice(i, i + 100).map((k) => JSON.stringify(k)).join(", ");
+        out.push(...(await fetchMarketInputsFromApi(chainId, `uniqueKey_in: [${keys}]`)));
+    }
+    return out;
+}
+async function fetchMarketInputsFromApi(chainId, filter) {
+    const out = [];
+    const PAGE = 500;
+    for (let skip = 0;; skip += PAGE) {
+        const query = `{ markets(first: ${PAGE}, skip: ${skip}, where: { chainId_in: [${chainId}], ${filter} }, orderBy: UniqueKey, orderDirection: Asc) { items { oracle { address } loanAsset { address decimals } collateralAsset { address decimals } } } }`;
+        const res = await fetch("https://blue-api.morpho.org/graphql", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query }),
+        });
+        if (!res.ok)
+            throw new Error(`blue-api HTTP ${res.status}`);
+        const json = (await res.json());
+        if (json.errors?.length)
+            throw new Error(`blue-api: ${json.errors[0].message}`);
+        const items = json.data?.markets?.items ?? [];
+        for (const m of items) {
+            const oracle = m?.oracle?.address, loan = m?.loanAsset?.address, coll = m?.collateralAsset?.address;
+            if (!isValidNonZeroAddress(oracle) || !isValidNonZeroAddress(loan) || !isValidNonZeroAddress(coll))
+                continue;
+            out.push({
+                oracle: String(oracle).toLowerCase(),
+                loanAsset: String(loan).toLowerCase(),
+                collateralAsset: String(coll).toLowerCase(),
+                loanAssetDecimals: m.loanAsset?.decimals,
+                collateralAssetDecimals: m.collateralAsset?.decimals,
+            });
+        }
+        if (items.length < PAGE)
+            break;
+    }
+    return out;
+}
+/**
  * Classify Morpho-style oracles.
  *
  * `injectedByChain` lets a Morpho-lineage lender (Morpho Midnight) reuse the exact
@@ -316,26 +419,74 @@ export async function fetchMorphoOracleData(injectedByChain = {}, onlyInjected =
         marketInputsByChain = collectMarketInputs(morphoOracles, morphoTypeOracles);
     }
     const result = {};
-    const chainIds = new Set([...Object.keys(marketInputsByChain), ...Object.keys(injectedByChain)]);
+    const scope = onlyInjected ? null : morphoChainScope();
+    const chainIds = new Set([...Object.keys(marketInputsByChain), ...Object.keys(injectedByChain)].filter((c) => !scope || scope.has(c)));
     for (const chainId of chainIds) {
         const marketInputs = marketInputsByChain[chainId] ?? [];
         const injected = injectedByChain[chainId] ?? [];
         if (marketInputs.length === 0 && injected.length === 0)
             continue;
         const resolved = [];
+        // Union the seed file with the blue-api's listed markets (see helper above).
+        // Failure here is a warning: the seed list still classifies as before.
+        if (!cannotUseApi(chainId, "MORPHO_BLUE")) {
+            try {
+                // Listed markets, plus the unlisted ones vaults fund — the markets
+                // margin-fetcher serves on this chain. An idle market has no oracle
+                // and is dropped by the address check in fetchMarketInputsFromApi.
+                const listed = [
+                    ...(await fetchListedMarketInputsFromApi(chainId)),
+                    ...(await fetchVaultFundedMarketInputsFromApi(chainId).catch((e) => {
+                        console.warn(`Morpho oracles [${chainId}]: vault-funded union failed:`, e.message);
+                        return [];
+                    })),
+                    // ...and every other market the recorder serves (unlisted, unfunded).
+                    ...(await fetchRecorderServedMarketInputsFromApi(chainId).catch((e) => {
+                        console.warn(`Morpho oracles [${chainId}]: recorder-served union failed:`, e.message);
+                        return [];
+                    })),
+                ];
+                const have = new Set(marketInputs.map((m) => marketTripletKey(m.loanAsset, m.collateralAsset, m.oracle)));
+                let added = 0;
+                for (const m of listed) {
+                    const k = marketTripletKey(m.loanAsset, m.collateralAsset, m.oracle);
+                    if (have.has(k))
+                        continue;
+                    have.add(k);
+                    marketInputs.push(m);
+                    added++;
+                }
+                if (added)
+                    console.log(`Morpho oracles [${chainId}]: +${added} listed/vault-funded markets from blue-api not in morpho-oracles.json`);
+            }
+            catch (e) {
+                console.warn(`Morpho oracles [${chainId}]: blue-api listed-market union failed:`, e.message);
+            }
+        }
         if (marketInputs.length > 0) {
             const morphoRows = await fetchMorphoMarketRowsForChain(chainId);
+            // One triplet (loan, collateral, oracle) can back SEVERAL markets that
+            // differ only in LLTV / IRM — cbBTC/USDC on Base exists at 77 %, 86 % and
+            // 91.5 %, and the $1.6B one is the 86 %. Keying meta by triplet kept only
+            // the last row and silently dropped its siblings from the output, so the
+            // largest Morpho market on Base had no oracle row. The classification is
+            // per oracle, so fan the same result out to every market id.
             const metaByTriplet = new Map();
             for (const r of morphoRows) {
-                metaByTriplet.set(marketTripletKey(r.loanAsset, r.collateralAsset, r.oracleAddress), r);
+                const k = marketTripletKey(r.loanAsset, r.collateralAsset, r.oracleAddress);
+                const list = metaByTriplet.get(k) ?? [];
+                list.push(r);
+                metaByTriplet.set(k, list);
             }
             for (const m of marketInputs) {
-                const meta = metaByTriplet.get(marketTripletKey(m.loanAsset, m.collateralAsset, m.oracle));
+                const metas = metaByTriplet.get(marketTripletKey(m.loanAsset, m.collateralAsset, m.oracle));
+                const meta = metas?.[0];
                 if (!meta) {
                     console.warn(`[morpho-oracles-data] skip unknown market chain=${chainId} oracle=${m.oracle} loan=${m.loanAsset} coll=${m.collateralAsset}`);
                     continue;
                 }
-                resolved.push({ ...m, meta });
+                for (const mm of metas)
+                    resolved.push({ ...m, meta: mm });
             }
         }
         resolved.push(...injected);

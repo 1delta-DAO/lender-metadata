@@ -97,6 +97,7 @@ const AAVE_CHAIN_FILTER = new Set((process.env.AAVE_CHAIN_FILTER ?? "")
  */
 const DEPRECATED_CHAINS = new Set([
     "21000000", // Corn
+    "81457", // Blast — shutting down; removed from config 2026-10-04
 ]);
 /** Forks that are Aave-V3-shaped but carry no e-mode surface at all. */
 const NO_E_MODES = new Set([Lender.YLDR]);

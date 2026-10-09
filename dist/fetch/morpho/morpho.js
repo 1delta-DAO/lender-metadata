@@ -10,6 +10,7 @@ import { hasSubgraph, fetchMarketsFromSubgraph, } from "./fetchMorphoSubgraph.js
 import { hasMysticApi, mysticApiUsable, fetchMarketsFromMysticApi, } from "./fetchMysticApi.js";
 import { Lender } from "@1delta/lender-registry";
 import { computeMorphoMarketId } from "./morphoMarketId.js";
+import { fetchVaultFundedUnlistedMarkets } from "./vaultFunded.js";
 const labelsFile = "./data/lender-labels.json";
 const oraclesFile = "./data/morpho-type-oracles.json";
 const poolsFile = "./config/morpho-pools.json";
@@ -44,6 +45,15 @@ export const MORPHO_MAIN_CHAIN_IDS = [
     "80094",
     "747474",
     "98866",
+    // Added 2026-10-04: Morpho Blue cores with live 1delta markets that no
+    // updater walked, so they had no oracle roster at all (Morph $14M, Pharos
+    // $24M, Abstract / XDC / Kaia < $1M). No blue-api, subgraph or Mystic
+    // coverage: on-chain only (see cannotUseApi).
+    "2818",
+    "1672",
+    "2741",
+    "50",
+    "8217",
 ];
 /**
  * Chains where we deliberately serve markets Morpho itself does NOT `list`.
@@ -66,6 +76,48 @@ export const MORPHO_MAIN_CHAIN_IDS = [
  * (`margin-fetcher/src/lending/public-data/morpho/unlisted.ts`).
  */
 const SERVES_UNLISTED_CHAINS = new Set(["4663", "480"]);
+/**
+ * Optional run scope: `MORPHO_CHAIN_IDS=1,42161 pnpm update:morpho` (and
+ * `update:morpho-oracles`) walks only those chains. Every Morpho file merge is
+ * additive per chain, so a scoped run leaves the other chains untouched.
+ */
+export const morphoChainScope = () => {
+    const raw = process.env.MORPHO_CHAIN_IDS?.trim();
+    return raw ? new Set(raw.split(",").map((c) => c.trim()).filter(Boolean)) : null;
+};
+/**
+ * Per-chain set of "unlisted but vault-funded" market ids (lower-case), or an
+ * empty set where the rule does not apply (chains without blue-api coverage,
+ * chains in SERVES_UNLISTED_CHAINS) or discovery failed. A failure only means
+ * no ADDITIONS this run: every write gated on it merges additively.
+ * See `vaultFunded.ts` — the rule margin-fetcher serves by.
+ */
+export async function vaultFundedMarketIds(chainId, fork) {
+    if (fork !== "MORPHO_BLUE" || cannotUseApi(chainId, fork) || SERVES_UNLISTED_CHAINS.has(chainId))
+        return new Set();
+    try {
+        const markets = await fetchVaultFundedUnlistedMarkets(chainId);
+        if (markets.length > 0)
+            console.log(`Morpho [${chainId}]: ${markets.length} unlisted vault-funded markets served`);
+        return new Set(markets.map((m) => m.marketId.toLowerCase()));
+    }
+    catch (e) {
+        console.warn(`Morpho [${chainId}]: vault-funded discovery failed, listed markets only this run:`, e.message);
+        return new Set();
+    }
+}
+/**
+ * blue-api removes `Market.oracleAddress` on 2026-10-21 in favour of
+ * `oracle { address }`, which is null for idle markets (no oracle) — those map
+ * to the zero address so the existing zero-address filters still drop them.
+ */
+const oracleAddressOf = (el) => el?.oracle?.address ??
+    // The on-chain, subgraph and Mystic paths emit a flat `oracleAddress` (they
+    // never had the blue-api shape). Reading only `oracle.address` turned every
+    // market on those chains into a zero-oracle row, so no triplet / oracle row
+    // was added there after 2026-10-03 (found 2026-10-04).
+    el?.oracleAddress ??
+    "0x0000000000000000000000000000000000000000";
 export const cannotUseApi = (chainId, fork) => {
     if (fork === "MORPHO_BLUE") {
         return (chainId === Chain.HEMI_NETWORK ||
@@ -77,6 +129,11 @@ export const cannotUseApi = (chainId, fork) => {
             chainId === Chain.LISK ||
             chainId === Chain.TAC_MAINNET ||
             chainId === Chain.MEGAETH_MAINNET ||
+            chainId === Chain.MORPH ||
+            chainId === Chain.PHAROS_MAINNET ||
+            chainId === Chain.ABSTRACT ||
+            chainId === Chain.XDC_NETWORK ||
+            chainId === Chain.KAIA_MAINNET ||
             hasMysticApi(chainId));
     }
     return true; // can't use api for moolah
@@ -223,7 +280,9 @@ export class MorphoBlueUpdater {
         items {
           marketId
           lltv
-          oracleAddress
+          oracle {
+            address
+          }
           irmAddress
           listed
           loanAsset {
@@ -275,7 +334,10 @@ export class MorphoBlueUpdater {
         return { markets: { items: allItems } };
     }
     async fetchData() {
-        const chainids = MORPHO_MAIN_CHAIN_IDS;
+        const scope = morphoChainScope();
+        const chainids = scope
+            ? MORPHO_MAIN_CHAIN_IDS.filter((c) => scope.has(c))
+            : MORPHO_MAIN_CHAIN_IDS;
         const MORPHO_BLUE_POOL_DATA = await readJsonFile(poolsFile);
         const MORPHO_BLUE_MARKETS = await readJsonFile(marketsFile);
         const forks = Object.keys(MORPHO_BLUE_POOL_DATA);
@@ -327,6 +389,7 @@ export class MorphoBlueUpdater {
                     continue;
                 }
                 const items = marketData.markets?.items || [];
+                const vaultFunded = await vaultFundedMarketIds(chainId, fork);
                 for (const el of items) {
                     const hash = el.marketId ?? el.uniqueKey;
                     const enumName = `${fork}_${hash.slice(2).toUpperCase()}`;
@@ -347,14 +410,23 @@ export class MorphoBlueUpdater {
                     // That is the safe direction — see the null-clobber and pair-keyed
                     // merge losses this file has already caused.
                     const isListed = (el.listed ?? el.whitelisted) === true;
-                    // A market is "served" if Morpho lists it, or if we have opted this
-                    // chain out of Morpho's curation entirely.
-                    const isServed = isListed || SERVES_UNLISTED_CHAINS.has(chainId);
+                    // A market is "served" if Morpho lists it, if we have opted this
+                    // chain out of Morpho's curation entirely, or if vaults fund it
+                    // (>= MORPHO_VAULT_FUNDED_MIN_USD, see vaultFunded.ts) — the same
+                    // three cases margin-fetcher serves and prices.
+                    const isServed = isListed ||
+                        SERVES_UNLISTED_CHAINS.has(chainId) ||
+                        vaultFunded.has(String(hash).toLowerCase());
                     if (!oracles[chainId])
                         oracles[chainId] = {};
                     if (!oracles[chainId][fork])
                         oracles[chainId][fork] = [];
-                    const oracle = el.oracleAddress;
+                    const oracle = oracleAddressOf(el);
+                    // On-chain rows carry no loan object when the token's metadata could
+                    // not be read (not in the token list, decimals() unreadable): skip
+                    // it rather than abort the whole update.
+                    if (!el.loanAsset?.address)
+                        continue;
                     const loanAsset = el.loanAsset.address.toLowerCase();
                     const collateralAsset = el.collateralAsset?.address.toLowerCase();
                     const loanAssetDecimals = el.loanAsset.decimals;
@@ -544,7 +616,7 @@ export async function fetchMorphoMarketRowsForChain(chainId) {
         const items = marketData.markets?.items || [];
         for (const el of items) {
             const hash = el.marketId ?? el.uniqueKey;
-            const oracle = el.oracleAddress;
+            const oracle = oracleAddressOf(el);
             const loanAsset = el.loanAsset?.address?.toLowerCase();
             const collateralAsset = el.collateralAsset?.address?.toLowerCase();
             const lltvStr = el.lltv != null ? String(el.lltv) : "";
