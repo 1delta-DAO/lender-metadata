@@ -20,7 +20,7 @@
       "spoke": "0x94e7a5dcbe816e498b89ab752661904e2f56c485",
       "oracle": "0x99b2b6cea9c3d2fd8f4d90f86741c44b212a6127",
       "label": "Main",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 2,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -113,7 +113,7 @@
       "spoke": "0xe1900480ac69f0b296841cd01cc37546d92f35cd",
       "oracle": "0x664d73b6c3591333fd79510f7ce9ef81228824f5",
       "label": "Lido",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 2,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -134,7 +134,7 @@
       "spoke": "0xbf10bdfe177de0336afd7fccf80a904e15386219",
       "oracle": "0xd8b153faaa8f2b1bc774916fed333a4f3de48792",
       "label": "Etherfi",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 2,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -316,7 +316,7 @@
       "spoke": "0x973a023a77420ba610f06b3858ad991df6d85a08",
       "oracle": "0xda1266a7b8620819dae3f8bd6b546da36e505bb8",
       "label": "Bluechip",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 2,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -1082,6 +1082,27 @@
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": []
+    },
+    "0x18dde098d25722c14e09842a6fa7db6aafc395a2": {
+      "spoke": "0x18dde098d25722c14e09842a6fa7db6aafc395a2",
+      "oracle": "0x1dd77518ec8a68e91c0656660d7972e301fc00a4",
+      "label": "Spoke 0x18dd..95a2",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 4,
+          "underlying": "0x0dc6b79f3c3854e4d74514fd4d29be6c96beee39",
+          "hub": "0x17288dfc86205301064577b98b02b81017e6f79c"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 0,
+          "underlying": "0x3600000000000000000000000000000000000000",
+          "hub": "0x17288dfc86205301064577b98b02b81017e6f79c"
+        }
+      ]
     }
   },
   "8453": {

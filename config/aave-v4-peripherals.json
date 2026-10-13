@@ -390,6 +390,32 @@
       }
     },
     "perSpoke": {
+      "0x18dde098d25722c14e09842a6fa7db6aafc395a2": {
+        "spokeName": "Maple SyrupUSDC",
+        "spokeId": "NTA0Mjo6MHgxOERkZTA5OGQyNTcyMkMxNGUwOTg0MmE2RmE3ZGI2YUFGQzM5NWEy",
+        "positionManagers": [
+          {
+            "name": "Unknown",
+            "address": "0x01da80eef3004ebbf90b7637b1de7ff30fbc7cf1",
+            "active": true
+          },
+          {
+            "name": "Aave Signature Gateway",
+            "address": "0x0d36a4a21119bbbde559d59002254171d976289f",
+            "active": true
+          },
+          {
+            "name": "Unknown",
+            "address": "0xa5aa65ae1c830d2ae10853ceea42ae653adb3312",
+            "active": true
+          },
+          {
+            "name": "Unknown",
+            "address": "0xe9fae1c386c6f45b1fb3c3ef01ade424dad4bccf",
+            "active": true
+          }
+        ]
+      },
       "0x4164ebcaf74670aa74c8d4f59de6157c0780f1bb": {
         "spokeName": "Forex",
         "spokeId": "NTA0Mjo6MHg0MTY0RUJDQUY3NDY3MGFhNzRDOEQ0RjU5ZGU2MTU3YzA3ODBGMWJC",
