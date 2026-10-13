@@ -30,12 +30,7 @@ import {
   getLenderPublicDataAll,
   LENDER_BRAND_NAMES,
   lenderBrandKey,
-  // TEMPORARY: the sibling lending-sdks build (branch `solana`) until
-  // @1delta/margin-fetcher-sol and @1delta/svm-kit are published — then these
-  // become package imports. A `file:` dependency is NOT a substitute: npm
-  // reifies a linked package's own `workspace:*` deps into its folder and
-  // wipes the pnpm-managed node_modules there.
-} from "../../lending-sdks/packages/margin-fetcher-sol/dist/index.mjs";
+} from "@1delta/margin-fetcher-sol";
 import { writeTextIfChanged } from "./io.js";
 import { readJsonFile } from "./fetch/utils/index.js";
 import { sortRecord } from "./utils.js";
