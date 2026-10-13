@@ -235,6 +235,32 @@
           "dailyLimit": "250000",
           "borrowPaused": false,
           "name": "yv-reUSD-sDOLA"
+        },
+        {
+          "address": "0x3542b39dcedc01f82c6e7af0eec424726d019eaa",
+          "collToken": "0x3ff361197036ae1d24b939146d8a449a80f8427d",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "7500",
+          "liquidationIncentiveBps": "1000",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "20000",
+          "borrowPaused": false,
+          "name": "sinvUSD"
+        },
+        {
+          "address": "0xa95605313eb4544f784e699de93e9232dbfcf02d",
+          "collToken": "0x23346b04a7f55b8760e5860aa5a77383d63491cd",
+          "collDecimals": 18,
+          "escrowImplementation": "0xc06053fcad0a0df7cc32289a135bbea9030c010f",
+          "collateralFactorBps": "8500",
+          "liquidationIncentiveBps": "500",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "500000",
+          "borrowPaused": false,
+          "name": "ysyBOLD"
         }
       ]
     }

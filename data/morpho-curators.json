@@ -122,6 +122,14 @@
         "name": "Steakhouse Financial"
       }
     ],
+    "MORPHO_BLUE_0C93C623FD2A78A2FFA36B019F74C400C3F3D81FCB22851C88E0C96E510F9689": [
+      {
+        "id": "yearn",
+        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
+        "verified": true,
+        "name": "Yearn"
+      }
+    ],
     "MORPHO_BLUE_0CB56971212F588D1EA229118F35126B50F9AEC4FA1C19BF7860BDCC0E02210E": [
       {
         "id": "gauntlet",
@@ -2882,6 +2890,12 @@
     ],
     "MORPHO_BLUE_E3DF58F9D3011B7481FF36B939FA5F8DA642F34EA5792D25D3958DBF1EFA26D7": [
       {
+        "id": "clearstar",
+        "image": "https://cdn.morpho.org/v2/assets/images/clearstar.svg",
+        "verified": true,
+        "name": "Clearstar"
+      },
+      {
         "id": "yearn",
         "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
         "verified": true,
@@ -3030,12 +3044,6 @@
         "image": "https://cdn.morpho.org/v2/assets/images/steakhouse.svg",
         "verified": true,
         "name": "Steakhouse Financial"
-      },
-      {
-        "id": "yearn",
-        "image": "https://cdn.morpho.org/v2/assets/images/yearn.svg",
-        "verified": true,
-        "name": "Yearn"
       }
     ],
     "MORPHO_BLUE_EC97655FAB06B53BFAD9D8C2358768AED5A1C97B204D3E51E2A7CB0CB786A264": [
@@ -4618,6 +4626,14 @@
         "image": "https://cdn.morpho.org/v2/assets/images/mevcapital.png",
         "verified": true,
         "name": "MEV Capital"
+      }
+    ],
+    "MORPHO_BLUE_F5D30DCDAFB1C03369A7A269EDF1285F4456BCE0A9CB18F39E9ACA95F573EC68": [
+      {
+        "id": "felix",
+        "image": "https://cdn.morpho.org/v2/assets/images/felix.svg",
+        "verified": true,
+        "name": "Felix"
       }
     ],
     "MORPHO_BLUE_F9F0473B23EBEB82C83078F0F0F77F27AC534C9FB227CB4366E6057B6163FFBF": [

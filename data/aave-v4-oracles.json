@@ -599,6 +599,18 @@
   ],
   "5042": [
     {
+      "underlying": "0x0dc6b79f3c3854e4d74514fd4d29be6c96beee39",
+      "spoke": "0x18dde098d25722c14e09842a6fa7db6aafc395a2",
+      "reserveId": 0,
+      "oracle": "0x1dd77518ec8a68e91c0656660d7972e301fc00a4"
+    },
+    {
+      "underlying": "0x3600000000000000000000000000000000000000",
+      "spoke": "0x18dde098d25722c14e09842a6fa7db6aafc395a2",
+      "reserveId": 1,
+      "oracle": "0x1dd77518ec8a68e91c0656660d7972e301fc00a4"
+    },
+    {
       "underlying": "0x3600000000000000000000000000000000000000",
       "spoke": "0x4164ebcaf74670aa74c8d4f59de6157c0780f1bb",
       "reserveId": 0,
