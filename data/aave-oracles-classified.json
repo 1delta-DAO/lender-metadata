@@ -22517,6 +22517,232 @@
         "underlyingAggregator": null
       }
     },
+    "4663": {
+      "0x0bd7d308f8e1639fab988df18a8011f41eacad73": {
+        "asset": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+        "assetSymbol": "WETH",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "WETH / USD",
+        "priceDescription": "ETH / USD",
+        "provider": "chainlink",
+        "rawDescription": "ETH / USD",
+        "source": "0x78f3556b67e17df817d51ef5a990cdaf09e8d3a9",
+        "sourcePath": [
+          {
+            "address": "0x78f3556b67e17df817d51ef5a990cdaf09e8d3a9",
+            "description": "ETH / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          },
+          {
+            "address": "0x6091e64eb7138eef066a80fd3a0d7427b91f2721",
+            "description": "ETH / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": "0x6091e64eb7138eef066a80fd3a0d7427b91f2721"
+      },
+      "0x117cc2133c37b721f49de2a7a74833232b3b4c0c": {
+        "asset": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+        "assetSymbol": "SPY",
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "SPY / USD",
+        "priceDescription": "RHSPY / USD",
+        "provider": "chainlink",
+        "rawDescription": "RHSPY / USD",
+        "source": "0x319724394d3a0e3669269846abe664cd621f9f6a",
+        "sourcePath": [
+          {
+            "address": "0x319724394d3a0e3669269846abe664cd621f9f6a",
+            "description": "RHSPY / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          },
+          {
+            "address": "0x78bcb218fa04b9b3a278ebc865ed320bf8defbac",
+            "description": "RHSPY / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": "0x78bcb218fa04b9b3a278ebc865ed320bf8defbac"
+      },
+      "0x5fc5360d0400a0fd4f2af552add042d716f1d168": {
+        "asset": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "assetSymbol": "USDG",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "USDG / USD",
+        "priceDescription": "USDG / USD",
+        "provider": "chainlink",
+        "rawDescription": "USDG / USD",
+        "source": "0x61b7e5650328764b076a108eff5fa7282a1b9ad2",
+        "sourcePath": [
+          {
+            "address": "0x61b7e5650328764b076a108eff5fa7282a1b9ad2",
+            "description": "USDG / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          },
+          {
+            "address": "0x8beee3503f6860d5dac4ce26b5eee92982951c2e",
+            "description": "USDG / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": "0x8beee3503f6860d5dac4ce26b5eee92982951c2e"
+      },
+      "0x92fd66527192e3e61d4ddd13322aa222de86f9b5": {
+        "asset": "0x92fd66527192e3e61d4ddd13322aa222de86f9b5",
+        "assetSymbol": "SGOV",
+        "correctOracle": null,
+        "denominator": null,
+        "denominatorMatch": null,
+        "fixedRate": null,
+        "intendedPair": "SGOV / USD",
+        "priceDescription": "UNKNOWN",
+        "provider": "chainlink",
+        "rawDescription": "Robinhood SGOV-USD",
+        "source": "0xa0df4ee0fff975306345875e3548fcc519577a11",
+        "sourcePath": [
+          {
+            "address": "0xa0df4ee0fff975306345875e3548fcc519577a11",
+            "description": "Robinhood SGOV-USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          },
+          {
+            "address": "0x0e96b7708487f91baac09697593d3e8bf253f2d8",
+            "description": "Robinhood SGOV-USD",
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": "0x0e96b7708487f91baac09697593d3e8bf253f2d8"
+      },
+      "0xc9a981fee1f9dec688bb123ccdecc63d0debfc4e": {
+        "asset": "0xc9a981fee1f9dec688bb123ccdecc63d0debfc4e",
+        "assetSymbol": "GLD",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "GLD / USD",
+        "priceDescription": "GLD / USD",
+        "provider": "chainlink",
+        "rawDescription": "GLD / USD",
+        "source": "0x470a51258068043bd43dc0a56245625c9fe86eb0",
+        "sourcePath": [
+          {
+            "address": "0x470a51258068043bd43dc0a56245625c9fe86eb0",
+            "description": "GLD / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          },
+          {
+            "address": "0xea3f8e77a98d7877b6f8164569a8e82454cccdb8",
+            "description": null,
+            "decimals": 8,
+            "kind": "unknown"
+          }
+        ],
+        "underlyingAggregator": "0xea3f8e77a98d7877b6f8164569a8e82454cccdb8"
+      },
+      "0xcec185eb182c47d1ba1efc84e6959e18cd620be4": {
+        "asset": "0xcec185eb182c47d1ba1efc84e6959e18cd620be4",
+        "assetSymbol": "cbBTC",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "cbBTC / USD",
+        "priceDescription": "CBBTC / USD",
+        "provider": "chainlink",
+        "rawDescription": "CBBTC / USD",
+        "source": "0x0009cd492adf8167f9eebf1293556a673530a21a",
+        "sourcePath": [
+          {
+            "address": "0x0009cd492adf8167f9eebf1293556a673530a21a",
+            "description": "CBBTC / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          },
+          {
+            "address": "0xfaa5fda549575e3b602ad70e4bd8020a28387f96",
+            "description": "CBBTC / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": "0xfaa5fda549575e3b602ad70e4bd8020a28387f96"
+      },
+      "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec": {
+        "asset": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+        "assetSymbol": "NVDA",
+        "correctOracle": false,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "NVDA / USD",
+        "priceDescription": "RHNVDA / USD",
+        "provider": "chainlink",
+        "rawDescription": "RHNVDA / USD",
+        "source": "0x379ec4f7c378f34a1b47e4f3cbebcbac3e8e9f15",
+        "sourcePath": [
+          {
+            "address": "0x379ec4f7c378f34a1b47e4f3cbebcbac3e8e9f15",
+            "description": "RHNVDA / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          },
+          {
+            "address": "0xc9d16e4f2569b9e3ea0468fd85844953713dc2a2",
+            "description": "RHNVDA / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": "0xc9d16e4f2569b9e3ea0468fd85844953713dc2a2"
+      },
+      "0xd5f3879160bc7c32ebb4dc785f8a4f505888de68": {
+        "asset": "0xd5f3879160bc7c32ebb4dc785f8a4f505888de68",
+        "assetSymbol": "QQQ",
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
+        "fixedRate": null,
+        "intendedPair": "QQQ / USD",
+        "priceDescription": "QQQ / USD",
+        "provider": "chainlink",
+        "rawDescription": "Robinhood QQQ / USD",
+        "source": "0x80901d846d5d7b030f26b480776ee3b29374c2ae",
+        "sourcePath": [
+          {
+            "address": "0x80901d846d5d7b030f26b480776ee3b29374c2ae",
+            "description": "QQQ / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          },
+          {
+            "address": "0x25e996ce8b3529885d429241156e83e7b7744049",
+            "description": "QQQ / USD",
+            "decimals": 8,
+            "kind": "chainlink"
+          }
+        ],
+        "underlyingAggregator": "0x25e996ce8b3529885d429241156e83e7b7744049"
+      }
+    },
     "43111": {
       "0x03c7054bcb39f7b2e5b2c7acb37583e32d70cfa3": {
         "asset": "0x03c7054bcb39f7b2e5b2c7acb37583e32d70cfa3",
