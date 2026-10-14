@@ -213,3 +213,25 @@ describe("Coinbase tokenized equities (Base Aave V4)", () => {
     expect(a.denominatorMatch).toBe(true);
   });
 });
+
+describe("Robinhood Chain stock-token feeds (LayerBank V3 on 4663)", () => {
+  it("matches 'RH<TICKER> / USD' and parses 'Robinhood <TICKER>-USD'", async () => {
+    const { normalizeDescription } = await import("./normalize.js");
+    expect(normalizeDescription("Robinhood SGOV-USD")).toBe("SGOV / USD");
+    expect(normalizeDescription("Robinhood QQQ / USD")).toBe("QQQ / USD");
+    for (const [desc, symbol] of [
+      ["RHNVDA / USD", "NVDA"],
+      ["RHSPY / USD", "SPY"],
+      ["SGOV / USD", "SGOV"],
+    ]) {
+      const a = assessFeed(feed({ priceDescription: desc, rawDescription: desc }), symbol, "USD");
+      expect(a.correctOracle).toBe(true);
+      expect(a.denominatorMatch).toBe(true);
+    }
+    // the prefix is not a wildcard: RHSPY does not price NVDA
+    expect(
+      assessFeed(feed({ priceDescription: "RHSPY / USD", rawDescription: "RHSPY / USD" }), "NVDA", "USD")
+        .correctOracle,
+    ).toBe(false);
+  });
+});

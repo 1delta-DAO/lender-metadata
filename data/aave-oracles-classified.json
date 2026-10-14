@@ -22549,7 +22549,7 @@
       "0x117cc2133c37b721f49de2a7a74833232b3b4c0c": {
         "asset": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
         "assetSymbol": "SPY",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
@@ -22605,27 +22605,27 @@
       "0x92fd66527192e3e61d4ddd13322aa222de86f9b5": {
         "asset": "0x92fd66527192e3e61d4ddd13322aa222de86f9b5",
         "assetSymbol": "SGOV",
-        "correctOracle": null,
-        "denominator": null,
-        "denominatorMatch": null,
+        "correctOracle": true,
+        "denominator": "USD",
+        "denominatorMatch": true,
         "fixedRate": null,
         "intendedPair": "SGOV / USD",
-        "priceDescription": "UNKNOWN",
+        "priceDescription": "SGOV / USD",
         "provider": "chainlink",
         "rawDescription": "Robinhood SGOV-USD",
         "source": "0xa0df4ee0fff975306345875e3548fcc519577a11",
         "sourcePath": [
           {
             "address": "0xa0df4ee0fff975306345875e3548fcc519577a11",
-            "description": "Robinhood SGOV-USD",
+            "description": "SGOV / USD",
             "decimals": 8,
             "kind": "chainlink"
           },
           {
             "address": "0x0e96b7708487f91baac09697593d3e8bf253f2d8",
-            "description": "Robinhood SGOV-USD",
+            "description": "SGOV / USD",
             "decimals": 8,
-            "kind": "unknown"
+            "kind": "chainlink"
           }
         ],
         "underlyingAggregator": "0x0e96b7708487f91baac09697593d3e8bf253f2d8"
@@ -22689,7 +22689,7 @@
       "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec": {
         "asset": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
         "assetSymbol": "NVDA",
-        "correctOracle": false,
+        "correctOracle": true,
         "denominator": "USD",
         "denominatorMatch": true,
         "fixedRate": null,
