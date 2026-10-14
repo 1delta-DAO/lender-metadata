@@ -52,3 +52,12 @@ A running fetcher loads lender metadata once at boot (no TTL in
 yield-tracer's `ensureInitialized`). A corrected bundle reaches prod only
 after the fetcher boxes restart or redeploy. Verify the result in the data
 (rows for the new lender/chain), not in this repo.
+
+### Keep CI installable
+
+Both `bundle-check` and the nightly `update-dataset` start with `npm ci`. When
+`package.json` and `package-lock.json` drift (e.g. bumping one `@1delta/*`
+package by hand), both die at install. Then nothing rebuilds the bundle and
+nothing flags it as stale. This happened from 2026-10-12 to 2026-10-14. Bump the
+`@1delta/*` set together (they release in lockstep), run `npm install`, and
+commit the lockfile with it.
