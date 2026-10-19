@@ -48,6 +48,7 @@ import {
   type PublicClient,
 } from "viem";
 import { mainnet } from "viem/chains";
+import { mergeData as deepMergeData } from "../../utils.js";
 
 /** Resupply is Ethereum-only. */
 export const RESUPPLY_CHAIN_ID = 1;
@@ -167,4 +168,35 @@ export function buildResupplyLabels(pairs: ResupplyPair[]): {
     shortNames[key] = p.label;
   }
   return { names, shortNames };
+}
+
+/**
+ * Daily-run wrapper (`update:dataset`). Governance adds pairs to the registry at
+ * any time, and a pair with no label renders as its raw key — the CurveLendV2
+ * crvUSD/syrupUSDC pair (~$4M borrowed) sat unlabelled until 2026-10-19 because
+ * `update:resupply-labels` was manual-only. Additive like that script: an empty
+ * discovery writes nothing, and the merge never drops a retired pair's label.
+ */
+export class ResupplyLabelsUpdater {
+  name = "Resupply Pair Labels";
+  defaults = {};
+
+  async fetchData(): Promise<{ [file: string]: any }> {
+    const pairs = await discoverResupplyPairs();
+    if (pairs.length === 0) {
+      console.log("Resupply: discovery returned no pairs — keeping labels");
+      return {};
+    }
+    const built = buildResupplyLabels(pairs);
+    return {
+      "./data/lender-labels.json": {
+        names: built.names,
+        shortNames: built.shortNames,
+      },
+    };
+  }
+
+  mergeData(oldData: any, data: any): any {
+    return deepMergeData(oldData ?? {}, data ?? {});
+  }
 }

@@ -18,6 +18,7 @@ import { TermMarketsUpdater } from "./fetch/term/term.js";
 import { TellerPoolsUpdater } from "./fetch/teller-pools-data.js";
 import { TellerOracleDataUpdater } from "./fetch/teller-oracle-data.js";
 import { InverseUpdater } from "./fetch/inverse/inverse.js";
+import { ResupplyLabelsUpdater } from "./fetch/resupply/labels.js";
 
 // ============================================================================
 // Usage Examples & Main Function
@@ -67,6 +68,9 @@ async function main(): Promise<void> {
   // all refreshed here. Writes data/inverse-markets.json + labels + the
   // config/inverse.json snapshot field.
   manager.registerUpdater(new InverseUpdater());
+  // Resupply: no markets file (pairs are discovered on-chain at runtime), but
+  // new pairs need labels or they render as raw keys. Labels only.
+  manager.registerUpdater(new ResupplyLabelsUpdater());
 
   // You can now update from specific sources:
   // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });
