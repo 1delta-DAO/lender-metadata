@@ -492,6 +492,225 @@ async function resolveMarketCreated(
   return out;
 }
 
+const VAULT_SHARE_ABI = [
+  {
+    type: "function",
+    name: "asset",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "address" }],
+  },
+  {
+    type: "function",
+    name: "receiveSharesGate",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "address" }],
+  },
+] as const;
+
+/**
+ * Per collateral token: its ERC-4626 `asset()` and its Vault V2
+ * `receiveSharesGate()`, both `undefined` when the call reverts (not a vault /
+ * not a Vault V2). This is what finds the vault-as-collateral legs Tenor's API
+ * does not join: of the 17 Tenor collateral vaults in the 2026-10-20 roster, 4
+ * sat in Morpho-sourced markets with no `collateralVault` marker — named by
+ * their raw `cbXRP-USDC-collat` symbol, and routed as if a DEX could buy them.
+ */
+async function resolveVaultShares(
+  chainId: string,
+  tokens: string[],
+): Promise<Record<string, { asset?: string; gate?: string }>> {
+  const out: Record<string, { asset?: string; gate?: string }> = {};
+  if (tokens.length === 0) return out;
+  let res: any[] = [];
+  try {
+    res = (await multicallRetryUniversal({
+      chain: chainId,
+      calls: tokens.flatMap((t) => [
+        { address: t, name: "asset", args: [] },
+        { address: t, name: "receiveSharesGate", args: [] },
+      ]),
+      abi: VAULT_SHARE_ABI as any,
+      allowFailure: true,
+    })) as any[];
+  } catch (e) {
+    console.log(
+      `Midnight: vault-share multicall failed on chain ${chainId}:`,
+      (e as any)?.shortMessage ?? (e as any)?.message ?? e,
+    );
+    return out;
+  }
+  const addr = (v: any) =>
+    typeof v === "string" && /^0x[0-9a-fA-F]{40}$/.test(v)
+      ? v.toLowerCase()
+      : undefined;
+  tokens.forEach((t, i) => {
+    out[t.toLowerCase()] = {
+      asset: addr(res[i * 2]),
+      gate: addr(res[i * 2 + 1]),
+    };
+  });
+  return out;
+}
+
+/**
+ * Is collateral leg `token` a vault-as-collateral share of a market lending
+ * `loanToken`? Tenor's own join says so, OR the leg is an ERC-4626 over the
+ * loan token whose shares are GATED (a Vault V2 that only Midnight and Tenor's
+ * periphery may hold). Ungated 4626s over the loan token (an `sUSDS` posted on a
+ * USDS book) stay ordinary legs: anything can mint or buy those.
+ */
+export function isVaultLeg(
+  token: string,
+  loanToken: string,
+  tenorVault: string | null | undefined,
+  share: { asset?: string; gate?: string } | undefined,
+): boolean {
+  const t = token.toLowerCase();
+  if (tenorVault && tenorVault.toLowerCase() === t) return true;
+  return (
+    share?.asset === loanToken.toLowerCase() &&
+    !!share.gate &&
+    share.gate !== ZERO
+  );
+}
+
+const VAULT_V2_ALLOCATION_ABI = [
+  {
+    type: "function",
+    name: "adaptersLength",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    type: "function",
+    name: "adapters",
+    stateMutability: "view",
+    inputs: [{ name: "", type: "uint256" }],
+    outputs: [{ name: "", type: "address" }],
+  },
+  {
+    type: "function",
+    name: "performanceFee",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint96" }],
+  },
+  {
+    type: "function",
+    name: "managementFee",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint96" }],
+  },
+  {
+    type: "function",
+    name: "morpho",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "address" }],
+  },
+  {
+    type: "function",
+    name: "marketIdsLength",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    type: "function",
+    name: "marketIds",
+    stateMutability: "view",
+    inputs: [{ name: "", type: "uint256" }],
+    outputs: [{ name: "", type: "bytes32" }],
+  },
+] as const;
+
+/** Where a vault-as-collateral share's yield comes from. */
+export type CollateralVaultSource = {
+  /** The vault is one Morpho Vault V2 adapter supplying ONE Morpho Blue market. */
+  kind: "morpho-blue";
+  morpho: string;
+  /** bytes32 Morpho Blue market id (the `MORPHO_BLUE_<ID>` lender key). */
+  marketId: string;
+  /** Vault V2 fees, WAD per year (management) / WAD of yield (performance). */
+  performanceFee: string;
+  managementFee: string;
+};
+
+/**
+ * The single Morpho Blue market each vault supplies — what makes its yield a
+ * COMPOSITE: the share earns exactly that market's supply rate (net of the
+ * vault's own fees, all zero on Tenor's vaults at 2026-10-20), and that rate is
+ * already a stored lending row. Two rounds: the vault's adapter list, then the
+ * adapter's market list. Anything but exactly one adapter supplying exactly one
+ * market is left unmapped — a multi-market vault's rate is an allocation-
+ * weighted blend, which a single market id cannot state.
+ */
+async function resolveVaultSources(
+  chainId: string,
+  vaults: string[],
+): Promise<Record<string, CollateralVaultSource>> {
+  const out: Record<string, CollateralVaultSource> = {};
+  if (vaults.length === 0) return out;
+  const call = async (
+    calls: { address: string; name: string; args: any[] }[],
+  ) => {
+    try {
+      return (await multicallRetryUniversal({
+        chain: chainId,
+        calls,
+        abi: VAULT_V2_ALLOCATION_ABI as any,
+        allowFailure: true,
+      })) as any[];
+    } catch (e) {
+      console.log(
+        `Midnight: vault-allocation multicall failed on chain ${chainId}:`,
+        (e as any)?.shortMessage ?? (e as any)?.message ?? e,
+      );
+      return [] as any[];
+    }
+  };
+  const r1 = await call(
+    vaults.flatMap((v) => [
+      { address: v, name: "adaptersLength", args: [] },
+      { address: v, name: "adapters", args: [0n] },
+      { address: v, name: "performanceFee", args: [] },
+      { address: v, name: "managementFee", args: [] },
+    ]),
+  );
+  const adapters = vaults.map((_, i) =>
+    BigInt(r1[i * 4] ?? 0) === 1n && typeof r1[i * 4 + 1] === "string"
+      ? (r1[i * 4 + 1] as string)
+      : undefined,
+  );
+  const live = adapters.flatMap((a, i) => (a ? [{ a, i }] : []));
+  const r2 = await call(
+    live.flatMap(({ a }) => [
+      { address: a, name: "morpho", args: [] },
+      { address: a, name: "marketIdsLength", args: [] },
+      { address: a, name: "marketIds", args: [0n] },
+    ]),
+  );
+  live.forEach(({ i }, j) => {
+    const morpho = r2[j * 3];
+    const n = r2[j * 3 + 1];
+    const id = r2[j * 3 + 2];
+    if (typeof morpho !== "string" || BigInt(n ?? 0) !== 1n) return;
+    if (typeof id !== "string" || !/^0x[0-9a-f]{64}$/i.test(id)) return;
+    out[vaults[i].toLowerCase()] = {
+      kind: "morpho-blue",
+      morpho,
+      marketId: id.toLowerCase(),
+      performanceFee: String(r1[i * 4 + 2] ?? 0n),
+      managementFee: String(r1[i * 4 + 3] ?? 0n),
+    };
+  });
+  return out;
+}
+
 /** Resolve decimals + symbol for a set of tokens via a single multicall. */
 async function resolveTokenMeta(
   chainId: string,
@@ -621,16 +840,10 @@ export function classifyGating(enterGate?: string, liquidatorGate?: string) {
 function legLabel(
   token: string,
   loanSymbol: string | undefined,
-  collateralVault: string | null | undefined,
+  vaultLeg: boolean,
   sym: (a: string) => string,
 ): string {
-  if (
-    collateralVault &&
-    token.toLowerCase() === collateralVault.toLowerCase() &&
-    loanSymbol
-  ) {
-    return `v${loanSymbol}`;
-  }
+  if (vaultLeg && loanSymbol) return `v${loanSymbol}`;
   return sym(token);
 }
 
@@ -870,6 +1083,23 @@ export class MidnightUpdater implements DataUpdater {
         for (const c of m.collaterals) tokens.add(c.token.toLowerCase());
       }
       const meta = await resolveTokenMeta(chainId, [...tokens]);
+      const shares = await resolveVaultShares(chainId, [...tokens]);
+      const vaultSources = await resolveVaultSources(chainId, [
+        ...new Set(
+          kept.flatMap((m) =>
+            m.collaterals
+              .filter((c) =>
+                isVaultLeg(
+                  c.token,
+                  m.loanToken,
+                  m.collateralVault,
+                  shares[c.token.toLowerCase()],
+                ),
+              )
+              .map((c) => c.token.toLowerCase()),
+          ),
+        ),
+      ]);
       // Fees: Morpho's API first (every `/markets` row carries them); the
       // on-chain `marketState` snapshot only for markets it did not cover.
       const fees = await resolveMarketFees(
@@ -899,7 +1129,17 @@ export class MidnightUpdater implements DataUpdater {
           // joined all the symbols but carried only leg 0's LLTV, so a two-leg
           // market advertised one number for two different thresholds.
           const legSyms = m.collaterals.map((c) =>
-            legLabel(c.token, loanSym, m.collateralVault, sym),
+            legLabel(
+              c.token,
+              loanSym,
+              isVaultLeg(
+                c.token,
+                m.loanToken,
+                m.collateralVault,
+                shares[c.token.toLowerCase()],
+              ),
+              sym,
+            ),
           );
           const legBps = m.collaterals.map((c) => numberToBps(String(c.lltv)));
           const collLabel = legSyms.join("+") || "?";
@@ -923,12 +1163,16 @@ export class MidnightUpdater implements DataUpdater {
               };
               // Mark the ERC-4626 wrapper leg so consumers know entering it is a
               // wrap-then-supply, not a plain transfer, and that the collateral
-              // is itself a lending position.
-              if (
-                m.collateralVault &&
-                c.token.toLowerCase() === m.collateralVault.toLowerCase()
-              ) {
-                leg.collateralVault = m.collateralVault;
+              // is itself a lending position. `collateralVaultGated` says the
+              // share cannot be held outside Midnight at all (Tenor's vaults
+              // allowlist only Midnight and their own periphery as receivers).
+              const share = shares[c.token.toLowerCase()];
+              if (isVaultLeg(c.token, m.loanToken, m.collateralVault, share)) {
+                leg.collateralVault = c.token;
+                if (share?.gate && share.gate !== ZERO)
+                  leg.collateralVaultGated = true;
+                const source = vaultSources[c.token.toLowerCase()];
+                if (source) leg.collateralVaultSource = source;
               }
               return leg;
             }),

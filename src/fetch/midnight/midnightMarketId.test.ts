@@ -4,6 +4,7 @@ import { MarketUtils } from "@morpho-org/midnight-sdk";
 import {
   classifyGating,
   curate,
+  isVaultLeg,
   keepUniverseMarket,
   selectCarryForward,
 } from "./midnight.js";
@@ -284,5 +285,35 @@ describe("selectCarryForward", () => {
     const { carried, retired } = selectCarryForward([mk(NOW - 1)], {}, NOW);
     expect(carried).toHaveLength(1);
     expect(retired).toHaveLength(0);
+  });
+});
+
+/**
+ * Tenor's collateral vaults that Tenor's own API does not join (Morpho-sourced
+ * markets) must still be marked — a leg left unmarked is routed as if a DEX
+ * could buy its share. The rule: a 4626 over the loan token whose shares are
+ * gated. An ungated 4626 over the loan token (sUSDS on a USDS book) is an
+ * ordinary leg.
+ */
+describe("isVaultLeg", () => {
+  const USDC = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913";
+  const V = "0xe690a58ef52854513462745237f6a213a0d54df1";
+  const GATE = "0x3d7f6b28f46e44e3c40391f2b5f9f27ba067b8b7";
+  const ZERO = "0x0000000000000000000000000000000000000000";
+
+  it("trusts Tenor's join", () => {
+    expect(isVaultLeg(V, USDC, V, undefined)).toBe(true);
+  });
+  it("finds a gated 4626 over the loan token without it", () => {
+    expect(isVaultLeg(V, USDC, null, { asset: USDC, gate: GATE })).toBe(true);
+  });
+  it("leaves an ungated 4626 over the loan token alone", () => {
+    expect(isVaultLeg(V, USDC, null, { asset: USDC, gate: ZERO })).toBe(false);
+    expect(isVaultLeg(V, USDC, null, { asset: USDC })).toBe(false);
+  });
+  it("leaves a gated vault over another asset alone", () => {
+    expect(
+      isVaultLeg(V, USDC, null, { asset: "0x" + "22".repeat(20), gate: GATE }),
+    ).toBe(false);
   });
 });

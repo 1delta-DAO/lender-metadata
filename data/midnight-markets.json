@@ -187,7 +187,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xE5f7f5A74E6f4dA2F68b1aa017F204a1883eC0df",
           "decimals": 18,
-          "collateralVault": "0xe3891d8cA7E00Bc42157D9bb5797C88D9159AAC6"
+          "collateralVault": "0xe3891d8cA7E00Bc42157D9bb5797C88D9159AAC6",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x4565ac05d38b19374ccbb04c17cca60ca9353cd41824f0803d0fc7704f60eaed",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1793372400",
@@ -263,7 +271,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x2C198EC459e0a035078565dEdc3c206604b57d4D",
           "decimals": 18,
-          "collateralVault": "0x26C46ACb48B46cC99ccB3cf6C365BdaFa2556E80"
+          "collateralVault": "0x26C46ACb48B46cC99ccB3cf6C365BdaFa2556E80",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0xe3df58f9d3011b7481ff36b939fa5f8da642f34ea5792d25d3958dbf1efa26d7",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x056B269Eb1f75477a8666ae8C7fE01b64dD55eCc",
@@ -360,7 +376,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x2C198EC459e0a035078565dEdc3c206604b57d4D",
           "decimals": 18,
-          "collateralVault": "0x26C46ACb48B46cC99ccB3cf6C365BdaFa2556E80"
+          "collateralVault": "0x26C46ACb48B46cC99ccB3cf6C365BdaFa2556E80",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0xe3df58f9d3011b7481ff36b939fa5f8da642f34ea5792d25d3958dbf1efa26d7",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1790348400",
@@ -834,7 +858,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xE872d1d33b13B52aE7cD9A0CDD4102468350e5fa",
           "decimals": 18,
-          "collateralVault": "0x226ecbf4755a5F81ed721E18c3fDA11f004Ea9e0"
+          "collateralVault": "0x226ecbf4755a5F81ed721E18c3fDA11f004Ea9e0",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0xbbf7ce1b40d32d3e3048f5cf27eeaa6de8cb27b80194690aab191a63381d8c99",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xDBDC1Ef57537E34680B898E1FEBD3D68c7389bCB",
@@ -968,7 +1000,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xF2b498Bc8669A1E93B29e7B8dE62aC3a3D0A2A1b",
           "decimals": 18,
-          "collateralVault": "0x10FFd9ca0CBF71fFf388bc9d6e032BA0D4fCdE8d"
+          "collateralVault": "0x10FFd9ca0CBF71fFf388bc9d6e032BA0D4fCdE8d",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0xe07d416323a1afbfe0bf2fe27ffb549ff565cf5c86d21b79fc60664038e597c9",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xb8D89678E75a973E74698c976716308abB8a46A4",
@@ -1014,7 +1054,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x33904A10ea95040346b014b2b19E24cb41951881",
           "decimals": 18,
-          "collateralVault": "0x4F65De1753F4A6e2942A5e3fb0fF295b4cC94F91"
+          "collateralVault": "0x4F65De1753F4A6e2942A5e3fb0fF295b4cC94F91",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0xd98cd88ae5b336086b39fb1d62ba6171282e946105b010143f0e89f8fe7cff36",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xDA06eE2dACF9245Aa80072a4407deBDea0D7e341",
@@ -1148,7 +1196,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xE872d1d33b13B52aE7cD9A0CDD4102468350e5fa",
           "decimals": 18,
-          "collateralVault": "0x226ecbf4755a5F81ed721E18c3fDA11f004Ea9e0"
+          "collateralVault": "0x226ecbf4755a5F81ed721E18c3fDA11f004Ea9e0",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0xbbf7ce1b40d32d3e3048f5cf27eeaa6de8cb27b80194690aab191a63381d8c99",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xDBDC1Ef57537E34680B898E1FEBD3D68c7389bCB",
@@ -1237,7 +1293,16 @@
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
           "oracle": "0x5c4fd2864C21F0b81730B4EC74030130aA2193Ca",
-          "decimals": 18
+          "decimals": 18,
+          "collateralVault": "0x7579a75658A7A0b7d277296dFaEecF4018746091",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -1269,7 +1334,7 @@
       "continuousFee": "0",
       "marketFamilyId": "0x6d59957989707ea6310bb20f1fbcd55e21035d04dbce0bcba8afa04ef9ffd11a",
       "listed": false,
-      "name": "WETH-USDC-collat+WETH/USDC - 2026-09-25"
+      "name": "vUSDC+WETH/USDC - 2026-09-25"
     },
     {
       "marketId": "0x6a467e5d8482dbde25f057f33d8cb4366898e0a497877f46e26f33b7c2d4bf30",
@@ -1848,7 +1913,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x50124043e95EB753279e46B469cBe2635921eDdf",
           "decimals": 18,
-          "collateralVault": "0x8E44B1cbfAD6b63F27A074Ff50dF30eDbAa8B934"
+          "collateralVault": "0x8E44B1cbfAD6b63F27A074Ff50dF30eDbAa8B934",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x1badc8ce74acb0a8949233eb7b9227534ae473a5e71e7478827b55eddb143354",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xefE3c772C7020F14d5f6b9d7436f1b8Dfa8fB5AF",
@@ -2034,7 +2107,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x361904890a43d4af2D1b8cF642A6C5e661Da5641",
           "decimals": 18,
-          "collateralVault": "0xef6955d886fce26D87753dA45192eA50F59dc91c"
+          "collateralVault": "0xef6955d886fce26D87753dA45192eA50F59dc91c",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x975c6e8b71073a82216ae464bc44f67d71988450d2542d635d88bc78fca344b1",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1790348400",
@@ -2594,7 +2675,16 @@
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
           "oracle": "0x5c4fd2864C21F0b81730B4EC74030130aA2193Ca",
-          "decimals": 18
+          "decimals": 18,
+          "collateralVault": "0x7579a75658A7A0b7d277296dFaEecF4018746091",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1793372400",
@@ -2619,7 +2709,7 @@
       "continuousFee": "0",
       "marketFamilyId": "0x6d59957989707ea6310bb20f1fbcd55e21035d04dbce0bcba8afa04ef9ffd11a",
       "listed": false,
-      "name": "WETH+WETH-USDC-collat/USDC - 2026-10-30"
+      "name": "WETH+vUSDC/USDC - 2026-10-30"
     },
     {
       "marketId": "0xc028a0b50ba0c606fbf83e5620018f23019b1fb5d1d15b4a5a0d17cc72edcfeb",
@@ -2632,7 +2722,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x7C997e4dddF1D4B7C0D5f290B92d0909ba227c14",
           "decimals": 18,
-          "collateralVault": "0x09409fa71bCfd3f433571dbeec0C0A9C19B0d30E"
+          "collateralVault": "0x09409fa71bCfd3f433571dbeec0C0A9C19B0d30E",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x1590cb22d797e226df92ebc6e0153427e207299916e7e4e53461389ad68272fb",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xd3fD63209FA2D55B07A0f6db36C2f43900be3094",
@@ -2685,7 +2783,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x7C997e4dddF1D4B7C0D5f290B92d0909ba227c14",
           "decimals": 18,
-          "collateralVault": "0x09409fa71bCfd3f433571dbeec0C0A9C19B0d30E"
+          "collateralVault": "0x09409fa71bCfd3f433571dbeec0C0A9C19B0d30E",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x1590cb22d797e226df92ebc6e0153427e207299916e7e4e53461389ad68272fb",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1793372400",
@@ -3078,7 +3184,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xE5f7f5A74E6f4dA2F68b1aa017F204a1883eC0df",
           "decimals": 18,
-          "collateralVault": "0xe3891d8cA7E00Bc42157D9bb5797C88D9159AAC6"
+          "collateralVault": "0xe3891d8cA7E00Bc42157D9bb5797C88D9159AAC6",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x4565ac05d38b19374ccbb04c17cca60ca9353cd41824f0803d0fc7704f60eaed",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1790348400",
@@ -3426,7 +3540,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xE872d1d33b13B52aE7cD9A0CDD4102468350e5fa",
           "decimals": 18,
-          "collateralVault": "0x226ecbf4755a5F81ed721E18c3fDA11f004Ea9e0"
+          "collateralVault": "0x226ecbf4755a5F81ed721E18c3fDA11f004Ea9e0",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0xbbf7ce1b40d32d3e3048f5cf27eeaa6de8cb27b80194690aab191a63381d8c99",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xDBDC1Ef57537E34680B898E1FEBD3D68c7389bCB",
@@ -3561,7 +3683,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xE872d1d33b13B52aE7cD9A0CDD4102468350e5fa",
           "decimals": 18,
-          "collateralVault": "0x226ecbf4755a5F81ed721E18c3fDA11f004Ea9e0"
+          "collateralVault": "0x226ecbf4755a5F81ed721E18c3fDA11f004Ea9e0",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0xbbf7ce1b40d32d3e3048f5cf27eeaa6de8cb27b80194690aab191a63381d8c99",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xDBDC1Ef57537E34680B898E1FEBD3D68c7389bCB",
@@ -3703,7 +3833,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x4eA702113EFAE91B906fC9eC1415dd7a9B860c89",
           "decimals": 18,
-          "collateralVault": "0xe1Bdb88eE5DBaCE653ecD2123E8396BB5BA8adc5"
+          "collateralVault": "0xe1Bdb88eE5DBaCE653ecD2123E8396BB5BA8adc5",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1793372400",
@@ -4262,7 +4400,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x69A88F8497768416543A464fee0696AdF97F508F",
           "decimals": 18,
-          "collateralVault": "0xd68c6B17FEE2D1442d1063613845cFD52af3E1CA"
+          "collateralVault": "0xd68c6B17FEE2D1442d1063613845cFD52af3E1CA",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0x34CD04070dD72b14E241112F6d83812Df5Af7fCD",
+            "marketId": "0x7c62fa8a4f25b2b9e4c313929339336fcc8f8ef8bc2cc72d8802794606e74ba5",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1793372400",
@@ -4419,7 +4565,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x016d342dAC3a03c90d8eD4129DbDb12474153254",
           "decimals": 18,
-          "collateralVault": "0x13cb74900467dFcDC71d4b380f34E7561fC41032"
+          "collateralVault": "0x13cb74900467dFcDC71d4b380f34E7561fC41032",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0x34CD04070dD72b14E241112F6d83812Df5Af7fCD",
+            "marketId": "0x32074ceefe48b5d04725d9a1d0c3d3ef69c14680011681258a1ffe1ab4ce9079",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x3600000000000000000000000000000000000000",
@@ -4638,7 +4792,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
           "decimals": 18,
-          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F"
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1797465600",
@@ -5413,7 +5575,16 @@
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
           "oracle": "0xba6bb2A0bBdC2f1e96c69698b3aF4e8D648dE7Fc",
-          "decimals": 18
+          "decimals": 18,
+          "collateralVault": "0x46B5E25E46416cf728Fdf9dc400D3ce628F7FB05",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0xd4a903dc6d949519060c7707f9604fdc9772c046e05c2e3a8fce0bd7196e4109",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xcb585250f852C6c6bf90434AB21A00f02833a4af",
@@ -5445,7 +5616,7 @@
       "continuousFee": "0",
       "marketFamilyId": "0x2435bf44abcb4d6fc55a3568e36ac7c745b91a24b9d85cb39038a564356a24f9",
       "listed": false,
-      "name": "cbXRP-USDC-collat+cbXRP/USDC - 2026-12-25"
+      "name": "vUSDC+cbXRP/USDC - 2026-12-25"
     },
     {
       "marketId": "0x0ff1c8954cdf93471023055b88610fe1d230180208de2e09c850cc5f9869031b",
@@ -5849,7 +6020,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
           "decimals": 18,
-          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F"
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1787788800",
@@ -6359,7 +6538,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1797465600",
@@ -6730,7 +6917,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
           "decimals": 18,
-          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F"
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1785369600",
@@ -6820,7 +7015,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x4a24e4bf269cE26aAD2dF00437e7730d25FCdE26",
           "decimals": 18,
-          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC"
+          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1792627200",
@@ -7168,7 +7371,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x4200000000000000000000000000000000000006",
@@ -7440,7 +7651,16 @@
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
           "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
-          "decimals": 18
+          "decimals": 18,
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1801234800",
@@ -7465,7 +7685,7 @@
       "continuousFee": "0",
       "marketFamilyId": "0x997f1f3780de5ff952ed877f3255a64cc6b142cccc84b1fc9f12a1b4fafcd4a8",
       "listed": false,
-      "name": "cbETH+cbETH-WETH-collat/WETH - 2027-01-29"
+      "name": "cbETH+vWETH/WETH - 2027-01-29"
     },
     {
       "marketId": "0x3d3d4e846dac759424a3cc39617bbab590c4978ec97e46894679a4f1ca80e90f",
@@ -7993,7 +8213,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1790348400",
@@ -8114,7 +8342,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x4a24e4bf269cE26aAD2dF00437e7730d25FCdE26",
           "decimals": 18,
-          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC"
+          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
@@ -9058,7 +9294,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1801234800",
@@ -9347,7 +9591,16 @@
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
-          "decimals": 18
+          "decimals": 18,
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x4200000000000000000000000000000000000006",
@@ -9379,7 +9632,7 @@
       "continuousFee": "0",
       "marketFamilyId": "0x0a388bd87704c06817fe94b0b1ba372ca921634e40e13d93978ecc84b16da389",
       "listed": false,
-      "name": "WETH-USDC-collat+WETH/USDC - 2026-08-13"
+      "name": "vUSDC+WETH/USDC - 2026-08-13"
     },
     {
       "marketId": "0x651235c4e55e08ba21008a86a7bd922e43cacf3cace30801cc9dc8fcc5265423",
@@ -9473,7 +9726,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
           "decimals": 18,
-          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F"
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
@@ -10019,7 +10280,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x4a24e4bf269cE26aAD2dF00437e7730d25FCdE26",
           "decimals": 18,
-          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC"
+          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
@@ -10280,7 +10549,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
           "decimals": 18,
-          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F"
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
@@ -10722,7 +10999,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1795046400",
@@ -10798,7 +11083,16 @@
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
           "oracle": "0xD8AC22e9a2790F828D823B14865fA6aA4C6AE36f",
-          "decimals": 18
+          "decimals": 18,
+          "collateralVault": "0x9DC7A584a37abec8B6081B03C5e61326384D1150",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
@@ -10830,7 +11124,7 @@
       "continuousFee": "0",
       "marketFamilyId": "0x25a6adf8497f7973ca22b2297dfc90d3cf9e22e09acc034fb160079d2ee2c4a5",
       "listed": false,
-      "name": "cbBTC-USDC-collat+cbBTC/USDC - 2026-07-23"
+      "name": "vUSDC+cbBTC/USDC - 2026-07-23"
     },
     {
       "marketId": "0x914b3aa84e1ca8d30939ce708061fb36d6e201ef9dc0470bc563320047bca279",
@@ -11256,7 +11550,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x4a24e4bf269cE26aAD2dF00437e7730d25FCdE26",
           "decimals": 18,
-          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC"
+          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
@@ -11310,7 +11612,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1790208000",
@@ -12108,7 +12418,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x4200000000000000000000000000000000000006",
@@ -12198,7 +12516,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
           "decimals": 18,
-          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F"
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
@@ -12590,7 +12916,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x4200000000000000000000000000000000000006",
@@ -12680,7 +13014,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
           "decimals": 18,
-          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F"
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
@@ -13321,7 +13663,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
           "decimals": 18,
-          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F"
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1793372400",
@@ -13367,7 +13717,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
           "decimals": 18,
-          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F"
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1792627200",
@@ -13840,7 +14198,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x4a24e4bf269cE26aAD2dF00437e7730d25FCdE26",
           "decimals": 18,
-          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC"
+          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1797465600",
@@ -13887,7 +14253,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1798210800",
@@ -14138,7 +14512,16 @@
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
           "oracle": "0x4a24e4bf269cE26aAD2dF00437e7730d25FCdE26",
-          "decimals": 18
+          "decimals": 18,
+          "collateralVault": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1785974400",
@@ -14163,7 +14546,7 @@
       "continuousFee": "0",
       "marketFamilyId": "0x18020b41e963cade9f234de34b52352788ca7296d424ad8e7c9c596f541316e3",
       "listed": false,
-      "name": "cbBTC+cbBTC-USDC-collat/USDC - 2026-08-06"
+      "name": "cbBTC+vUSDC/USDC - 2026-08-06"
     },
     {
       "marketId": "0xe1878eec035b601f301484e63a49a428f8e008e2bf57a2fd88a3fc3a4c1b1acd",
@@ -14809,7 +15192,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         },
         {
           "token": "0x4200000000000000000000000000000000000006",
@@ -15319,7 +15710,15 @@
           "liquidationCursor": "300000000000000000",
           "oracle": "0x784519B1b59A1e1498f077066bB9336672bcc3EE",
           "decimals": 18,
-          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1"
+          "collateralVault": "0xe690a58EF52854513462745237F6A213a0d54dF1",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
         }
       ],
       "maturity": "1792627200",
