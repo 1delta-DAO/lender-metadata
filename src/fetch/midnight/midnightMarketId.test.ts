@@ -1,7 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "fs";
 import { MarketUtils } from "@morpho-org/midnight-sdk";
-import { classifyGating, curate, selectCarryForward } from "./midnight.js";
+import {
+  classifyGating,
+  curate,
+  keepUniverseMarket,
+  selectCarryForward,
+} from "./midnight.js";
 
 const MARKETS = "./data/midnight-markets.json";
 const CONFIG = "./config/midnight.json";
@@ -181,6 +186,49 @@ describe("curate", () => {
  * published the loss — these pin the rule that only "matured AND proven empty"
  * may leave the file.
  */
+/** MIDNIGHT_UNIVERSE_PLAN.md §3.1 — which of Morpho's markets the roster keeps. */
+describe("keepUniverseMarket", () => {
+  const NOW = 1_800_000_000;
+  const mk = (
+    o: Partial<{
+      maturity: number;
+      totalUnits: string;
+      lend: bigint;
+      borrow: bigint;
+    }>,
+  ) => ({
+    maturity: String(o.maturity ?? NOW + 1000),
+    totalUnits: o.totalUnits ?? "0",
+    lendDepth: o.lend ?? 0n,
+    borrowDepth: o.borrow ?? 0n,
+  });
+
+  it("keeps an unmatured market with lender offers (lend_depth = borrowable)", () => {
+    expect(keepUniverseMarket(mk({ lend: 1n }), false, NOW)).toBe(true);
+  });
+  it("keeps an unmatured market with only borrower offers", () => {
+    expect(keepUniverseMarket(mk({ borrow: 1n }), false, NOW)).toBe(true);
+  });
+  it("keeps any market holding units, matured or not", () => {
+    expect(
+      keepUniverseMarket(
+        mk({ maturity: NOW - 1, totalUnits: "5" }),
+        false,
+        NOW,
+      ),
+    ).toBe(true);
+  });
+  it("keeps whatever Tenor curates", () => {
+    expect(keepUniverseMarket(mk({}), true, NOW)).toBe(true);
+  });
+  it("skips an empty shell, and a matured book with depth but no units", () => {
+    expect(keepUniverseMarket(mk({}), false, NOW)).toBe(false);
+    expect(
+      keepUniverseMarket(mk({ maturity: NOW - 1, lend: 9n }), false, NOW),
+    ).toBe(false);
+  });
+});
+
 describe("selectCarryForward", () => {
   const NOW = 1_800_000_000;
   const mk = (maturity: number) =>
@@ -205,6 +253,30 @@ describe("selectCarryForward", () => {
     );
     expect(carried).toHaveLength(0);
     expect(retired).toHaveLength(1);
+  });
+
+  /**
+   * With Morpho's universe in hand, an unmatured market missing from the roster
+   * was cut for having no book; proven empty, it has nothing left to read.
+   */
+  it("with the universe, retires an UNMATURED market proven empty", () => {
+    const { retired } = selectCarryForward(
+      [mk(NOW + 1)],
+      { "0xab": 0n },
+      NOW,
+      true,
+    );
+    expect(retired).toHaveLength(1);
+  });
+
+  it("without the universe, keeps an unmatured market even if empty", () => {
+    const { carried } = selectCarryForward(
+      [mk(NOW + 1)],
+      { "0xab": 0n },
+      NOW,
+      false,
+    );
+    expect(carried).toHaveLength(1);
   });
 
   it("treats an unreadable totalUnits as retention, never as zero", () => {

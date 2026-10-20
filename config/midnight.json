@@ -18,5 +18,25 @@
     "setterRatifier": "0x800B5F12A61B8198a5a6EfD794Cac6699B294d63",
     "apiBaseUrl": "https://api.morpho.org/v0/midnight",
     "tenorApiUrl": "https://api.tenor.finance/graphql"
+  },
+  "4663": {
+    "midnight": "0x6120765Ba5336150BbdDdD0Cd9108B5bFD369632",
+    "midnightBundlesV2": "0xf2032F94025C921E8b31511650AfA60094ceD32b",
+    "midnightMempool": "0xcEF685D4796FA80F71a97e803D2c0b6719F1b4E2",
+    "ecrecoverRatifier": "0x90B800999e4ACd1bD20283BD450bBd2e06D91F7C",
+    "ecrecoverAuthorizer": "0x75FCdD113fe33a8bEd3CD3C35955DE094Bd2bdf8",
+    "setterRatifier": "0x708d6Bf6F847202a0755bb5636bE663B174242ea",
+    "apiBaseUrl": "https://api.morpho.org/v0/midnight",
+    "tenorApiUrl": "https://api.tenor.finance/graphql"
+  },
+  "5042": {
+    "midnight": "0x208786922BE56fDE2D1Fa60e6b9eC5D723e8d7b0",
+    "midnightBundlesV2": "0xEC9FE35d70E770De5f55392Cc0E8D3125f225f91",
+    "midnightMempool": "0x26bded5Fb01373CE875dEa14E52799D04C839C1A",
+    "ecrecoverRatifier": "0xA3B53aDe6668b6ceC03a9E56a993B47034F43715",
+    "ecrecoverAuthorizer": "0xe1dccAdc10c35AE9e2207059B233fE5c634CF20f",
+    "setterRatifier": "0x3915156EBFC246Ee9aC3236af561546B7D9D924c",
+    "apiBaseUrl": "https://api.morpho.org/v0/midnight",
+    "tenorApiUrl": "https://api.tenor.finance/graphql"
   }
 }
