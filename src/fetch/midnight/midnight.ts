@@ -63,6 +63,12 @@ type ChainCfg = {
 type RosterMarket = TenorFixedMarket & {
   marketFamilyId?: string;
   listed?: boolean;
+  /** The fee fields came from Morpho's API (authoritative; chain read = fallback). */
+  apiFees?: boolean;
+  /** Tenor curates this market. */
+  inTenor?: boolean;
+  /** Morpho's API knows this market. */
+  inMorpho?: boolean;
 };
 
 // Minimal `marketState(bytes32)` fragment — the only extra on-chain read this
@@ -108,69 +114,102 @@ function readConfig(): Record<string, ChainCfg> {
 }
 
 /**
- * Roster ladder: **Tenor primary → Morpho fallback**.
+ * Does a Morpho-listed market belong in the roster? (MIDNIGHT_UNIVERSE_PLAN.md
+ * §3.1.) Keep it when any of these holds:
+ *  - it is unmatured AND has someone to trade with (`lend_depth` or
+ *    `borrow_depth` > 0);
+ *  - it holds units — someone has a position, matured or not (the
+ *    offboarded-but-nonempty rule);
+ *  - Tenor curates it.
+ * Everything else is one of the ~1,900 permissionlessly-created empty shells:
+ * nothing to show and nothing to read, but `2 + legs` user-read slots each.
+ * `listed` is carried, never filtered on — 114 kept markets are unlisted
+ * precisely because they hold units.
+ */
+export function keepUniverseMarket(
+  m: Pick<
+    MorphoMidnightMarket,
+    "maturity" | "totalUnits" | "lendDepth" | "borrowDepth"
+  >,
+  inTenor: boolean,
+  nowSec: number,
+): boolean {
+  if (inTenor) return true;
+  let units = 0n;
+  try {
+    units = BigInt(m.totalUnits ?? "0");
+  } catch {}
+  if (units > 0n) return true;
+  return (
+    Number(m.maturity) > nowSec && (m.lendDepth > 0n || m.borrowDepth > 0n)
+  );
+}
+
+/**
+ * Roster: **Morpho for the universe, Tenor for enrichment** (it was "Tenor,
+ * else Morpho" until the plan above: the curated 86 markets missed 211 of the
+ * 226 books with money in them).
  *
- * Tenor is preferred because it curates — Morpho lists every permissionlessly
- * created market (187 on Base against Tenor's 36), most of them empty shells,
- * and each one costs the user-data path `2 + legs` multicall slots per account.
- * Morpho is the right thing to degrade to because it is the protocol operator's
- * own API; Tenor is a third party over the same contract.
+ * Morpho's `/markets` is every market on the chain with live depth, positions,
+ * `listed` and fees; `keepUniverseMarket` cuts it to the ones worth carrying.
+ * Tenor adds its series id, deprecation and vault join to those, and any market
+ * it curates that Morpho does not list rides along (`tenorOnly` — checked
+ * on-chain by the caller, since most are maturities never created).
  *
- * Both sources throw on an empty result, so "no markets" can never be mistaken
- * for an authoritative answer and silently wipe the roster.
+ * Either source alone still yields a roster: Tenor-only is the old curated
+ * list, Morpho-only loses the Tenor metadata. `universe` says whether Morpho
+ * answered, which decides how hard the caller may retire missing markets.
+ * Both failing throws, so "no markets" is never mistaken for an answer.
  */
 async function fetchRoster(
   chainId: string,
   cfg: ChainCfg,
-): Promise<{ markets: RosterMarket[]; source: "tenor" | "morpho" }> {
+  nowSec: number,
+): Promise<{
+  markets: RosterMarket[];
+  source: string;
+  universe: boolean;
+  tenorOnly: Set<string>;
+}> {
   const tenorUrl = cfg.tenorApiUrl || DEFAULT_TENOR_API;
   const morphoBase = cfg.apiBaseUrl || DEFAULT_API;
 
-  let tenor: TenorFixedMarket[] | null = null;
-  try {
-    const all = await fetchTenorFixedMarkets(tenorUrl);
-    const forChain = all.filter((m) => String(m.chainId) === String(chainId));
-    if (forChain.length > 0) tenor = forChain;
-    else
-      console.log(
-        `Midnight: Tenor returned no markets for chain ${chainId} — falling back to Morpho`,
-      );
-  } catch (e) {
+  const [tenorRes, morphoRes] = await Promise.allSettled([
+    fetchTenorFixedMarkets(tenorUrl),
+    fetchMorphoMidnightMarkets(morphoBase, chainId),
+  ]);
+
+  let tenor: TenorFixedMarket[] = [];
+  if (tenorRes.status === "fulfilled")
+    tenor = tenorRes.value.filter((m) => String(m.chainId) === String(chainId));
+  else
     console.log(
-      `Midnight: Tenor roster failed (${(e as any)?.message ?? e}) — falling back to Morpho`,
+      `Midnight: Tenor roster failed (${(tenorRes.reason as any)?.message ?? tenorRes.reason}) — Tenor metadata omitted`,
     );
-  }
+  const morpho = morphoRes.status === "fulfilled" ? morphoRes.value : null;
+  if (!morpho)
+    console.log(
+      `Midnight: Morpho universe failed on chain ${chainId} (${(morphoRes as any).reason?.message ?? (morphoRes as any).reason}) — Tenor roster only`,
+    );
+  if (!morpho && tenor.length === 0)
+    throw new Error(
+      `no Midnight roster for chain ${chainId} from either source`,
+    );
 
-  if (tenor) {
-    // Morpho carries two fields Tenor does not publish (`market_family_id`,
-    // `listed`). Enrich BEST-EFFORT: a Morpho outage must cost us those optional
-    // fields, never the roster, or the "fallback" would be a hard dependency in
-    // disguise.
-    let byId = new Map<string, MorphoMidnightMarket>();
-    try {
-      const morpho = await fetchMorphoMidnightMarkets(morphoBase, chainId);
-      byId = new Map(morpho.map((m) => [m.marketId.toLowerCase(), m]));
-    } catch (e) {
-      console.log(
-        `Midnight: Morpho enrichment unavailable (${(e as any)?.message ?? e}) — marketFamilyId/listed omitted`,
-      );
+  const tenorById = new Map(tenor.map((t) => [t.marketId.toLowerCase(), t]));
+  const markets: RosterMarket[] = [];
+  const seen = new Set<string>();
+  let shells = 0;
+
+  for (const m of morpho ?? []) {
+    const id = m.marketId.toLowerCase();
+    const t = tenorById.get(id);
+    if (!keepUniverseMarket(m, !!t, nowSec)) {
+      shells++;
+      continue;
     }
-    const markets: RosterMarket[] = tenor.map((m) => {
-      const extra = byId.get(m.marketId.toLowerCase());
-      return {
-        ...m,
-        marketFamilyId: extra?.marketFamilyId,
-        listed: extra?.listed,
-        // Prefer Morpho's units when present: it is the protocol's own view.
-        totalUnits: extra?.totalUnits ?? m.totalUnits,
-      };
-    });
-    return { markets, source: "tenor" };
-  }
-
-  const morpho = await fetchMorphoMidnightMarkets(morphoBase, chainId);
-  return {
-    markets: morpho.map((m) => ({
+    seen.add(id);
+    markets.push({
       marketId: m.marketId,
       chainId: m.chainId,
       loanToken: m.loanToken,
@@ -179,18 +218,41 @@ async function fetchRoster(
       rcfThreshold: m.rcfThreshold,
       enterGate: m.enterGate,
       liquidatorGate: m.liquidatorGate,
-      settlementFeeCbp: m.settlementFeeCbp,
-      continuousFee: m.continuousFee,
+      settlementFeeCbp: m.settlementFeeCbp ?? t?.settlementFeeCbp,
+      continuousFee: m.continuousFee ?? t?.continuousFee,
+      apiFees:
+        m.settlementFeeCbp !== undefined && m.continuousFee !== undefined,
       marketFamilyId: m.marketFamilyId,
       listed: m.listed,
-      totalUnits: m.totalUnits,
-      // Morpho knows nothing about Tenor's series, deprecation or vault join.
-      seriesId: undefined,
-      deprecatedAt: null,
-      collateralVault: null,
-    })),
-    source: "morpho",
-  };
+      totalUnits: m.totalUnits ?? t?.totalUnits,
+      seriesId: t?.seriesId,
+      deprecatedAt: t?.deprecatedAt ?? null,
+      collateralVault: t?.collateralVault ?? null,
+      inTenor: !!t,
+      inMorpho: true,
+    });
+  }
+
+  // Tenor-curated markets Morpho does not list (all of them, when Morpho is down).
+  const tenorOnly = new Set<string>();
+  for (const t of tenor) {
+    const id = t.marketId.toLowerCase();
+    if (seen.has(id)) continue;
+    markets.push({ ...t, inTenor: true, inMorpho: false });
+    if (morpho) tenorOnly.add(id);
+  }
+  if (tenorOnly.size > 0)
+    console.log(
+      `Midnight: chain ${chainId}: ${tenorOnly.size} Tenor markets unknown to Morpho's API: ${[...tenorOnly].join(", ")}`,
+    );
+  if (morpho)
+    console.log(
+      `Midnight: chain ${chainId}: Morpho universe ${morpho.length} markets, ${shells} empty shells skipped`,
+    );
+
+  const source =
+    morpho && tenor.length > 0 ? "morpho+tenor" : morpho ? "morpho" : "tenor";
+  return { markets, source, universe: !!morpho, tenorOnly };
 }
 
 /**
@@ -288,13 +350,21 @@ export function selectCarryForward(
   missing: any[],
   unitsById: Record<string, bigint>,
   nowSec: number,
+  /**
+   * Morpho's universe answered this run. Then an unmatured market missing from
+   * the roster was cut for having no book, and if it is ALSO proven empty
+   * on-chain there is nothing left to read — it may go. Without the universe
+   * (Morpho down, Tenor-only roster) "missing" means only "not curated", so the
+   * strict rule holds: matured AND proven empty.
+   */
+  universe = false,
 ): { carried: any[]; retired: any[] } {
   const carried: any[] = [];
   const retired: any[] = [];
   for (const e of missing) {
     const units = unitsById[e.marketId.toLowerCase()];
     const matured = Number(e.maturity) <= nowSec;
-    if (matured && units === 0n) retired.push(e);
+    if ((matured || universe) && units === 0n) retired.push(e);
     else carried.push(e);
   }
   return { carried, retired };
@@ -373,6 +443,270 @@ async function resolveTotalUnits(
     const r = res[i];
     if (Array.isArray(r) && r.length >= 1 && r[0] != null)
       out[id.toLowerCase()] = BigInt(r[0]);
+  });
+  return out;
+}
+
+/**
+ * Which markets exist on-chain. A Midnight market is CREATED (`touchMarket`, or
+ * its first take) — before that `marketState(id)` is all zeros, `tickSpacing`
+ * included, and every action reverts `MarketNotCreated`. A created market has
+ * a non-zero tick spacing. Checked 2026-10-20 on the 28 Tenor markets Morpho's
+ * API does not list: every one read all-zero, i.e. maturities Tenor registered
+ * that nobody ever opened (MIDNIGHT_UNIVERSE_PLAN.md Q1).
+ *
+ * A missing key = the read failed = unknown, never "not created".
+ */
+async function resolveMarketCreated(
+  chainId: string,
+  midnight: string,
+  marketIds: string[],
+): Promise<Record<string, boolean>> {
+  const out: Record<string, boolean> = {};
+  if (marketIds.length === 0) return out;
+  let res: any[] = [];
+  try {
+    res = (await multicallRetryUniversal({
+      chain: chainId,
+      calls: marketIds.map((id) => ({
+        address: midnight,
+        name: "marketState",
+        args: [id],
+      })),
+      abi: MARKET_STATE_ABI as any,
+      allowFailure: true,
+    })) as any[];
+  } catch (e) {
+    console.log(
+      `Midnight: marketState (created) multicall failed on chain ${chainId}:`,
+      (e as any)?.shortMessage ?? (e as any)?.message ?? e,
+    );
+    return out;
+  }
+  marketIds.forEach((id, i) => {
+    const r = res[i];
+    if (Array.isArray(r) && r.length >= 13)
+      out[id.toLowerCase()] =
+        Number(r[12] ?? 0) !== 0 || BigInt(r[0] ?? 0) > 0n;
+  });
+  return out;
+}
+
+const VAULT_SHARE_ABI = [
+  {
+    type: "function",
+    name: "asset",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "address" }],
+  },
+  {
+    type: "function",
+    name: "receiveSharesGate",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "address" }],
+  },
+] as const;
+
+/**
+ * Per collateral token: its ERC-4626 `asset()` and its Vault V2
+ * `receiveSharesGate()`, both `undefined` when the call reverts (not a vault /
+ * not a Vault V2). This is what finds the vault-as-collateral legs Tenor's API
+ * does not join: of the 17 Tenor collateral vaults in the 2026-10-20 roster, 4
+ * sat in Morpho-sourced markets with no `collateralVault` marker — named by
+ * their raw `cbXRP-USDC-collat` symbol, and routed as if a DEX could buy them.
+ */
+async function resolveVaultShares(
+  chainId: string,
+  tokens: string[],
+): Promise<Record<string, { asset?: string; gate?: string }>> {
+  const out: Record<string, { asset?: string; gate?: string }> = {};
+  if (tokens.length === 0) return out;
+  let res: any[] = [];
+  try {
+    res = (await multicallRetryUniversal({
+      chain: chainId,
+      calls: tokens.flatMap((t) => [
+        { address: t, name: "asset", args: [] },
+        { address: t, name: "receiveSharesGate", args: [] },
+      ]),
+      abi: VAULT_SHARE_ABI as any,
+      allowFailure: true,
+    })) as any[];
+  } catch (e) {
+    console.log(
+      `Midnight: vault-share multicall failed on chain ${chainId}:`,
+      (e as any)?.shortMessage ?? (e as any)?.message ?? e,
+    );
+    return out;
+  }
+  const addr = (v: any) =>
+    typeof v === "string" && /^0x[0-9a-fA-F]{40}$/.test(v)
+      ? v.toLowerCase()
+      : undefined;
+  tokens.forEach((t, i) => {
+    out[t.toLowerCase()] = {
+      asset: addr(res[i * 2]),
+      gate: addr(res[i * 2 + 1]),
+    };
+  });
+  return out;
+}
+
+/**
+ * Is collateral leg `token` a vault-as-collateral share of a market lending
+ * `loanToken`? Tenor's own join says so, OR the leg is an ERC-4626 over the
+ * loan token whose shares are GATED (a Vault V2 that only Midnight and Tenor's
+ * periphery may hold). Ungated 4626s over the loan token (an `sUSDS` posted on a
+ * USDS book) stay ordinary legs: anything can mint or buy those.
+ */
+export function isVaultLeg(
+  token: string,
+  loanToken: string,
+  tenorVault: string | null | undefined,
+  share: { asset?: string; gate?: string } | undefined,
+): boolean {
+  const t = token.toLowerCase();
+  if (tenorVault && tenorVault.toLowerCase() === t) return true;
+  return (
+    share?.asset === loanToken.toLowerCase() &&
+    !!share.gate &&
+    share.gate !== ZERO
+  );
+}
+
+const VAULT_V2_ALLOCATION_ABI = [
+  {
+    type: "function",
+    name: "adaptersLength",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    type: "function",
+    name: "adapters",
+    stateMutability: "view",
+    inputs: [{ name: "", type: "uint256" }],
+    outputs: [{ name: "", type: "address" }],
+  },
+  {
+    type: "function",
+    name: "performanceFee",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint96" }],
+  },
+  {
+    type: "function",
+    name: "managementFee",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint96" }],
+  },
+  {
+    type: "function",
+    name: "morpho",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "address" }],
+  },
+  {
+    type: "function",
+    name: "marketIdsLength",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    type: "function",
+    name: "marketIds",
+    stateMutability: "view",
+    inputs: [{ name: "", type: "uint256" }],
+    outputs: [{ name: "", type: "bytes32" }],
+  },
+] as const;
+
+/** Where a vault-as-collateral share's yield comes from. */
+export type CollateralVaultSource = {
+  /** The vault is one Morpho Vault V2 adapter supplying ONE Morpho Blue market. */
+  kind: "morpho-blue";
+  morpho: string;
+  /** bytes32 Morpho Blue market id (the `MORPHO_BLUE_<ID>` lender key). */
+  marketId: string;
+  /** Vault V2 fees, WAD per year (management) / WAD of yield (performance). */
+  performanceFee: string;
+  managementFee: string;
+};
+
+/**
+ * The single Morpho Blue market each vault supplies — what makes its yield a
+ * COMPOSITE: the share earns exactly that market's supply rate (net of the
+ * vault's own fees, all zero on Tenor's vaults at 2026-10-20), and that rate is
+ * already a stored lending row. Two rounds: the vault's adapter list, then the
+ * adapter's market list. Anything but exactly one adapter supplying exactly one
+ * market is left unmapped — a multi-market vault's rate is an allocation-
+ * weighted blend, which a single market id cannot state.
+ */
+async function resolveVaultSources(
+  chainId: string,
+  vaults: string[],
+): Promise<Record<string, CollateralVaultSource>> {
+  const out: Record<string, CollateralVaultSource> = {};
+  if (vaults.length === 0) return out;
+  const call = async (
+    calls: { address: string; name: string; args: any[] }[],
+  ) => {
+    try {
+      return (await multicallRetryUniversal({
+        chain: chainId,
+        calls,
+        abi: VAULT_V2_ALLOCATION_ABI as any,
+        allowFailure: true,
+      })) as any[];
+    } catch (e) {
+      console.log(
+        `Midnight: vault-allocation multicall failed on chain ${chainId}:`,
+        (e as any)?.shortMessage ?? (e as any)?.message ?? e,
+      );
+      return [] as any[];
+    }
+  };
+  const r1 = await call(
+    vaults.flatMap((v) => [
+      { address: v, name: "adaptersLength", args: [] },
+      { address: v, name: "adapters", args: [0n] },
+      { address: v, name: "performanceFee", args: [] },
+      { address: v, name: "managementFee", args: [] },
+    ]),
+  );
+  const adapters = vaults.map((_, i) =>
+    BigInt(r1[i * 4] ?? 0) === 1n && typeof r1[i * 4 + 1] === "string"
+      ? (r1[i * 4 + 1] as string)
+      : undefined,
+  );
+  const live = adapters.flatMap((a, i) => (a ? [{ a, i }] : []));
+  const r2 = await call(
+    live.flatMap(({ a }) => [
+      { address: a, name: "morpho", args: [] },
+      { address: a, name: "marketIdsLength", args: [] },
+      { address: a, name: "marketIds", args: [0n] },
+    ]),
+  );
+  live.forEach(({ i }, j) => {
+    const morpho = r2[j * 3];
+    const n = r2[j * 3 + 1];
+    const id = r2[j * 3 + 2];
+    if (typeof morpho !== "string" || BigInt(n ?? 0) !== 1n) return;
+    if (typeof id !== "string" || !/^0x[0-9a-f]{64}$/i.test(id)) return;
+    out[vaults[i].toLowerCase()] = {
+      kind: "morpho-blue",
+      morpho,
+      marketId: id.toLowerCase(),
+      performanceFee: String(r1[i * 4 + 2] ?? 0n),
+      managementFee: String(r1[i * 4 + 3] ?? 0n),
+    };
   });
   return out;
 }
@@ -506,17 +840,86 @@ export function classifyGating(enterGate?: string, liquidatorGate?: string) {
 function legLabel(
   token: string,
   loanSymbol: string | undefined,
-  collateralVault: string | null | undefined,
+  vaultLeg: boolean,
   sym: (a: string) => string,
 ): string {
-  if (
-    collateralVault &&
-    token.toLowerCase() === collateralVault.toLowerCase() &&
-    loanSymbol
-  ) {
-    return `v${loanSymbol}`;
-  }
+  if (vaultLeg && loanSymbol) return `v${loanSymbol}`;
   return sym(token);
+}
+
+type LabelRow = {
+  key: string;
+  chainId: string;
+  market: RosterMarket;
+  /** `<legs>-<loan> <lltvs> <date>` — what every label is built on. */
+  base: string;
+  entry: any;
+};
+
+const CHAIN_SHORT: Record<string, string> = {
+  "1": "Ethereum",
+  "8453": "Base",
+  "4663": "Robinhood",
+  "5042": "Arc",
+};
+const short = (a?: string | null) => (a ? a.slice(2, 8).toLowerCase() : "0");
+
+/**
+ * Suffixes for markets whose base label collides with another's. With the
+ * whole Morpho universe in the roster, the same legs + LLTVs + maturity recur
+ * across books that differ only in an ORACLE (13 on Ethereum alone), an
+ * rcf threshold, a gate — or a chain. Two rows that render identically are the
+ * repo's standing identity bug, so a colliding group gets the FIRST of these
+ * that tells every member apart: chain, leg oracles, rcf, gates, market id.
+ * Only colliding rows get a suffix.
+ */
+export function disambiguateMidnightLabels(
+  rows: Pick<LabelRow, "key" | "chainId" | "market" | "base">[],
+): Map<string, string> {
+  const out = new Map<string, string>();
+  const groups = new Map<string, typeof rows>();
+  for (const r of rows) {
+    const g = groups.get(r.base) ?? [];
+    g.push(r);
+    groups.set(r.base, g);
+  }
+  const discriminators: ((r: (typeof rows)[number]) => string)[] = [
+    (r) => CHAIN_SHORT[r.chainId] ?? `chain ${r.chainId}`,
+    (r) =>
+      `oracle ${r.market.collaterals.map((c) => short(c.oracle)).join("/")}`,
+    (r) => `rcf ${r.market.rcfThreshold}`,
+    (r) =>
+      isZeroAddr(r.market.enterGate) && isZeroAddr(r.market.liquidatorGate)
+        ? "ungated"
+        : `gate ${short(r.market.enterGate)}/${short(r.market.liquidatorGate)}`,
+    (r) => `#${r.market.marketId.slice(2, 10).toLowerCase()}`,
+  ];
+  for (const g of groups.values()) {
+    if (g.length < 2) continue;
+    // Chain first, then within each chain the first field that separates it.
+    const byChain = new Map<string, typeof rows>();
+    for (const r of g)
+      byChain.set(r.chainId, [...(byChain.get(r.chainId) ?? []), r]);
+    const multiChain = byChain.size > 1;
+    for (const members of byChain.values()) {
+      const parts = new Map<string, string[]>();
+      for (const r of members)
+        parts.set(r.key, multiChain ? [discriminators[0](r)] : []);
+      if (members.length > 1) {
+        const d =
+          discriminators
+            .slice(1)
+            .find((f) => new Set(members.map(f)).size === members.length) ??
+          discriminators[discriminators.length - 1];
+        for (const r of members) parts.get(r.key)!.push(d(r));
+      }
+      for (const r of members) {
+        const p = parts.get(r.key)!;
+        if (p.length > 0) out.set(r.key, p.join(" "));
+      }
+    }
+  }
+  return out;
 }
 
 /**
@@ -524,11 +927,13 @@ function legLabel(
  * EXPIRE and roll on a cadence, so this updater rebuilds the live market set per
  * chain on every run.
  *
- * Source ladder is **Tenor primary → Morpho fallback** (see `fetchRoster`), every
- * market id is re-derived from its own struct before it is written (see
- * `verifyMarketIds`), curation keeps anything unmatured or still holding
- * units (see `curate`), and markets the source stops serving are carried
- * forward until matured AND verified empty on-chain (see `selectCarryForward`). Output → `data/midnight-markets.json`, shape
+ * The roster is **Morpho's universe, cut to markets with a book or a position,
+ * plus everything Tenor curates** (see `fetchRoster` / `keepUniverseMarket`),
+ * minus Tenor maturities never created on-chain. Every market id is re-derived
+ * from its own struct before it is written (see `verifyMarketIds`), curation
+ * keeps anything unmatured or still holding units (see `curate`), and markets
+ * the sources stop serving are carried forward until verified empty on-chain
+ * (see `selectCarryForward`). Output → `data/midnight-markets.json`, shape
  * `{ [chainId]: MidnightMarketConfig[] }` (consumed by data-sdk's
  * `midnightMarkets` registry). Deployment addresses live in the static
  * `config/midnight.json` and drive which chains/APIs this fetches.
@@ -553,6 +958,7 @@ export class MidnightUpdater implements DataUpdater {
     // markets differing only in a second leg cannot render identically.
     const names: Record<string, string> = {};
     const shortNames: Record<string, string> = {};
+    const labelRows: LabelRow[] = [];
     const nowSec = Math.floor(Date.now() / 1000);
 
     // Previous snapshot, needed by the carry-forward guard below. Absence is
@@ -573,11 +979,15 @@ export class MidnightUpdater implements DataUpdater {
       }
 
       let roster: RosterMarket[];
-      let source: "tenor" | "morpho";
+      let source: string;
+      let universe = false;
+      let tenorOnly = new Set<string>();
       try {
-        const fetched = await fetchRoster(chainId, config[chainId]);
+        const fetched = await fetchRoster(chainId, config[chainId], nowSec);
         roster = fetched.markets;
         source = fetched.source;
+        universe = fetched.universe;
+        tenorOnly = fetched.tenorOnly;
       } catch (e) {
         // Both rungs failed. Emit an empty list; `mergeData` keeps the previous
         // file rather than wiping a chain on a transient outage.
@@ -589,11 +999,34 @@ export class MidnightUpdater implements DataUpdater {
       }
 
       const verified = verifyMarketIds(chainId, midnight, roster);
-      const { kept, dropped } = curate(verified, nowSec);
+
+      // Phantoms: Tenor markets Morpho does not know AND that were never
+      // created on-chain. Nothing can be read or taken there; dropped only on
+      // proof (a failed read keeps the market).
+      const phantomCandidates = verified.filter(
+        (m) =>
+          tenorOnly.has(m.marketId.toLowerCase()) &&
+          BigInt(m.totalUnits ?? "0") === 0n,
+      );
+      const created = await resolveMarketCreated(
+        chainId,
+        midnight,
+        phantomCandidates.map((m) => m.marketId),
+      );
+      const phantoms = new Set(
+        phantomCandidates
+          .map((m) => m.marketId.toLowerCase())
+          .filter((id) => created[id] === false),
+      );
+      const real = verified.filter(
+        (m) => !phantoms.has(m.marketId.toLowerCase()),
+      );
+
+      const { kept, dropped } = curate(real, nowSec);
       console.log(
         `Midnight: chain ${chainId}: ${kept.length} markets from ${source} ` +
           `(${roster.length} fetched, ${roster.length - verified.length} failed id check, ` +
-          `${dropped} dropped as matured+empty)`,
+          `${phantoms.size} never created on-chain, ${dropped} dropped as matured+empty)`,
       );
 
       // Carry-forward guard (see `selectCarryForward`): previously-published
@@ -603,7 +1036,9 @@ export class MidnightUpdater implements DataUpdater {
       const prevChain: any[] = Array.isArray(previous[chainId])
         ? previous[chainId]
         : [];
-      const verifiedIds = new Set(verified.map((m) => m.marketId.toLowerCase()));
+      const verifiedIds = new Set(
+        verified.map((m) => m.marketId.toLowerCase()),
+      );
       const missing = prevChain.filter(
         (e) => e?.marketId && !verifiedIds.has(e.marketId.toLowerCase()),
       );
@@ -613,10 +1048,15 @@ export class MidnightUpdater implements DataUpdater {
           midnight,
           missing.map((e) => e.marketId),
         );
-        const { carried, retired } = selectCarryForward(missing, units, nowSec);
+        const { carried, retired } = selectCarryForward(
+          missing,
+          units,
+          nowSec,
+          universe,
+        );
         for (const e of retired)
           console.log(
-            `Midnight: chain ${chainId}: market ${e.marketId} (${e.name ?? "?"}) left the ${source} roster, matured and empty on-chain — retired`,
+            `Midnight: chain ${chainId}: market ${e.marketId} (${e.name ?? "?"}) left the ${source} roster and is empty on-chain — retired`,
           );
         if (carried.length > 0) {
           const rosters = carried.map((e) =>
@@ -643,10 +1083,29 @@ export class MidnightUpdater implements DataUpdater {
         for (const c of m.collaterals) tokens.add(c.token.toLowerCase());
       }
       const meta = await resolveTokenMeta(chainId, [...tokens]);
+      const shares = await resolveVaultShares(chainId, [...tokens]);
+      const vaultSources = await resolveVaultSources(chainId, [
+        ...new Set(
+          kept.flatMap((m) =>
+            m.collaterals
+              .filter((c) =>
+                isVaultLeg(
+                  c.token,
+                  m.loanToken,
+                  m.collateralVault,
+                  shares[c.token.toLowerCase()],
+                ),
+              )
+              .map((c) => c.token.toLowerCase()),
+          ),
+        ),
+      ]);
+      // Fees: Morpho's API first (every `/markets` row carries them); the
+      // on-chain `marketState` snapshot only for markets it did not cover.
       const fees = await resolveMarketFees(
         chainId,
         midnight,
-        kept.map((m) => m.marketId),
+        kept.filter((m) => !m.apiFees).map((m) => m.marketId),
       );
 
       const dec = (a: string) =>
@@ -670,16 +1129,23 @@ export class MidnightUpdater implements DataUpdater {
           // joined all the symbols but carried only leg 0's LLTV, so a two-leg
           // market advertised one number for two different thresholds.
           const legSyms = m.collaterals.map((c) =>
-            legLabel(c.token, loanSym, m.collateralVault, sym),
+            legLabel(
+              c.token,
+              loanSym,
+              isVaultLeg(
+                c.token,
+                m.loanToken,
+                m.collateralVault,
+                shares[c.token.toLowerCase()],
+              ),
+              sym,
+            ),
           );
           const legBps = m.collaterals.map((c) => numberToBps(String(c.lltv)));
           const collLabel = legSyms.join("+") || "?";
           const bpsLabel = legBps.join("/");
 
-          names[key] = `Midnight ${collLabel}-${loanSym} ${bpsLabel} ${date}`
-            .replace(/\s+/g, " ")
-            .trim();
-          shortNames[key] = `MN ${collLabel}-${loanSym} ${bpsLabel} ${date}`
+          const base = `${collLabel}-${loanSym} ${bpsLabel} ${date}`
             .replace(/\s+/g, " ")
             .trim();
 
@@ -697,12 +1163,16 @@ export class MidnightUpdater implements DataUpdater {
               };
               // Mark the ERC-4626 wrapper leg so consumers know entering it is a
               // wrap-then-supply, not a plain transfer, and that the collateral
-              // is itself a lending position.
-              if (
-                m.collateralVault &&
-                c.token.toLowerCase() === m.collateralVault.toLowerCase()
-              ) {
-                leg.collateralVault = m.collateralVault;
+              // is itself a lending position. `collateralVaultGated` says the
+              // share cannot be held outside Midnight at all (Tenor's vaults
+              // allowlist only Midnight and their own periphery as receivers).
+              const share = shares[c.token.toLowerCase()];
+              if (isVaultLeg(c.token, m.loanToken, m.collateralVault, share)) {
+                leg.collateralVault = c.token;
+                if (share?.gate && share.gate !== ZERO)
+                  leg.collateralVaultGated = true;
+                const source = vaultSources[c.token.toLowerCase()];
+                if (source) leg.collateralVaultSource = source;
               }
               return leg;
             }),
@@ -713,9 +1183,9 @@ export class MidnightUpdater implements DataUpdater {
             gating: classifyGating(m.enterGate, m.liquidatorGate),
           };
 
-          // On-chain snapshot is authoritative for the mutable fees; the API's
-          // copy is the fallback when the read reverted.
-          const f = fees[m.marketId.toLowerCase()];
+          // Morpho's API copy of the mutable fees when it has one; otherwise the
+          // on-chain snapshot; otherwise whatever Tenor reported.
+          const f = m.apiFees ? undefined : fees[m.marketId.toLowerCase()];
           if (f) {
             entry.settlementFeeCbp = f.settlementFeeCbp;
             entry.continuousFee = f.continuousFee;
@@ -731,11 +1201,22 @@ export class MidnightUpdater implements DataUpdater {
           if (m.deprecatedAt) entry.deprecatedAt = m.deprecatedAt;
 
           entry.name = `${collLabel}/${loanSym} - ${date}`;
+          labelRows.push({ key, chainId, market: m, base, entry });
           return entry;
         });
 
       console.log(`Midnight: chain ${chainId}: ${markets.length} markets`);
       result[chainId] = markets;
+    }
+
+    // Names are global (one label space over every chain), so collisions are
+    // resolved over the whole run — see `disambiguateMidnightLabels`.
+    const suffix = disambiguateMidnightLabels(labelRows);
+    for (const r of labelRows) {
+      const sfx = suffix.get(r.key);
+      names[r.key] = `Midnight ${r.base}${sfx ? ` · ${sfx}` : ""}`;
+      shortNames[r.key] = `MN ${r.base}${sfx ? ` · ${sfx}` : ""}`;
+      if (sfx) r.entry.name = `${r.entry.name} · ${sfx}`;
     }
 
     return {

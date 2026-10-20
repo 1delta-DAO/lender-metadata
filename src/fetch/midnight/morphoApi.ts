@@ -1,7 +1,8 @@
 // ============================================================================
-// Morpho's hosted Midnight API — the FALLBACK rung of the roster ladder, and
-// the source of two fields Tenor does not publish (`market_family_id`,
-// `listed`).
+// Morpho's hosted Midnight API — the UNIVERSE of the roster (every market on
+// the chain, with its live depth and positions), and the source of the fields
+// Tenor does not publish (`market_family_id`, `listed`, the fee schedule).
+// See MIDNIGHT_UNIVERSE_PLAN.md in lending-sdks.
 //
 // It reads `GET /markets?chainId=`, NOT `GET /books`. That distinction is the
 // whole bug this replaces: `/books` only returns markets with a RESTING ORDER
@@ -33,20 +34,35 @@ export interface MorphoMidnightMarket {
   /** Morpho's own curation flag. Morpho-only field. */
   listed?: boolean;
   totalUnits?: string;
+  /**
+   * Full depth on each side, in loan-token assets. NAMING TRAP: `lend_depth`
+   * is what lenders OFFER (the bids) — the BORROWABLE side; `borrow_depth` is
+   * what borrowers ask for (the asks). Zero when the side is empty.
+   */
+  lendDepth: bigint;
+  borrowDepth: bigint;
 }
+
+const big = (v: unknown): bigint => {
+  try {
+    return v === null || v === undefined ? 0n : BigInt(String(v));
+  } catch {
+    return 0n;
+  }
+};
 
 const str = (v: unknown): string | undefined =>
   v === null || v === undefined ? undefined : String(v);
 
 /**
- * Page through `GET {base}/markets?chainId=` for one chain.
+ * Page through `GET {base}/markets?chain_ids=` for one chain.
  *
- * **The `chainId` query parameter is not honoured** — asking for chain 8453
- * returns Ethereum markets too (and asking for a nonexistent chain returns the
- * full set), so every row is filtered client-side on its own `chain_id`. Without
- * that, an Ethereum market lands in Base's roster keyed to Base's `midnight`
- * address, which is unusable. This was caught only by the market-id
- * re-derivation in the updater; nothing else would have flagged it.
+ * **The filter is `chain_ids` (snake case, comma list); `chainId=` is silently
+ * ignored** and returns every chain — that is how an Ethereum market once
+ * landed in Base's roster keyed to Base's `midnight` address, caught only by
+ * the market-id re-derivation in the updater. Every row is still filtered
+ * client-side on its own `chain_id`. `limit` up to 1000 is accepted (Morpho's
+ * whole universe is ~3 pages).
  *
  * Throws on transport failure or an empty result — like the Tenor client, an
  * empty roster must never be mistaken for an authoritative "no markets".
@@ -60,7 +76,7 @@ export async function fetchMorphoMidnightMarkets(
   let cursor: string | null = null;
 
   for (let page = 0; page < 200; page++) {
-    const url = `${base}/markets?chainId=${encodeURIComponent(chainId)}&limit=100${
+    const url = `${base}/markets?chain_ids=${encodeURIComponent(chainId)}&limit=1000${
       cursor ? `&cursor=${encodeURIComponent(cursor)}` : ""
     }`;
     const res = await fetch(url);
@@ -71,7 +87,7 @@ export async function fetchMorphoMidnightMarkets(
     if (!cursor) break;
   }
 
-  // The server ignores `chainId` — filter here, before anything trusts a row.
+  // Belt and braces — filter here, before anything trusts a row.
   const forChain = raw.filter(
     (m: any) => String(m?.chain_id) === String(chainId),
   );
@@ -110,6 +126,8 @@ export async function fetchMorphoMidnightMarkets(
       marketFamilyId: str(m.market_family_id),
       listed: typeof m.listed === "boolean" ? m.listed : undefined,
       totalUnits: str(m.total_units),
+      lendDepth: big(m.lend_depth),
+      borrowDepth: big(m.borrow_depth),
     });
   }
   return out;

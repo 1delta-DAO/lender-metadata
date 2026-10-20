@@ -1,7 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "fs";
 import { MarketUtils } from "@morpho-org/midnight-sdk";
-import { classifyGating, curate, selectCarryForward } from "./midnight.js";
+import {
+  classifyGating,
+  curate,
+  isVaultLeg,
+  keepUniverseMarket,
+  selectCarryForward,
+} from "./midnight.js";
 
 const MARKETS = "./data/midnight-markets.json";
 const CONFIG = "./config/midnight.json";
@@ -181,6 +187,49 @@ describe("curate", () => {
  * published the loss — these pin the rule that only "matured AND proven empty"
  * may leave the file.
  */
+/** MIDNIGHT_UNIVERSE_PLAN.md §3.1 — which of Morpho's markets the roster keeps. */
+describe("keepUniverseMarket", () => {
+  const NOW = 1_800_000_000;
+  const mk = (
+    o: Partial<{
+      maturity: number;
+      totalUnits: string;
+      lend: bigint;
+      borrow: bigint;
+    }>,
+  ) => ({
+    maturity: String(o.maturity ?? NOW + 1000),
+    totalUnits: o.totalUnits ?? "0",
+    lendDepth: o.lend ?? 0n,
+    borrowDepth: o.borrow ?? 0n,
+  });
+
+  it("keeps an unmatured market with lender offers (lend_depth = borrowable)", () => {
+    expect(keepUniverseMarket(mk({ lend: 1n }), false, NOW)).toBe(true);
+  });
+  it("keeps an unmatured market with only borrower offers", () => {
+    expect(keepUniverseMarket(mk({ borrow: 1n }), false, NOW)).toBe(true);
+  });
+  it("keeps any market holding units, matured or not", () => {
+    expect(
+      keepUniverseMarket(
+        mk({ maturity: NOW - 1, totalUnits: "5" }),
+        false,
+        NOW,
+      ),
+    ).toBe(true);
+  });
+  it("keeps whatever Tenor curates", () => {
+    expect(keepUniverseMarket(mk({}), true, NOW)).toBe(true);
+  });
+  it("skips an empty shell, and a matured book with depth but no units", () => {
+    expect(keepUniverseMarket(mk({}), false, NOW)).toBe(false);
+    expect(
+      keepUniverseMarket(mk({ maturity: NOW - 1, lend: 9n }), false, NOW),
+    ).toBe(false);
+  });
+});
+
 describe("selectCarryForward", () => {
   const NOW = 1_800_000_000;
   const mk = (maturity: number) =>
@@ -207,10 +256,64 @@ describe("selectCarryForward", () => {
     expect(retired).toHaveLength(1);
   });
 
+  /**
+   * With Morpho's universe in hand, an unmatured market missing from the roster
+   * was cut for having no book; proven empty, it has nothing left to read.
+   */
+  it("with the universe, retires an UNMATURED market proven empty", () => {
+    const { retired } = selectCarryForward(
+      [mk(NOW + 1)],
+      { "0xab": 0n },
+      NOW,
+      true,
+    );
+    expect(retired).toHaveLength(1);
+  });
+
+  it("without the universe, keeps an unmatured market even if empty", () => {
+    const { carried } = selectCarryForward(
+      [mk(NOW + 1)],
+      { "0xab": 0n },
+      NOW,
+      false,
+    );
+    expect(carried).toHaveLength(1);
+  });
+
   it("treats an unreadable totalUnits as retention, never as zero", () => {
     // matured, but the marketState read failed → no key in the units map
     const { carried, retired } = selectCarryForward([mk(NOW - 1)], {}, NOW);
     expect(carried).toHaveLength(1);
     expect(retired).toHaveLength(0);
+  });
+});
+
+/**
+ * Tenor's collateral vaults that Tenor's own API does not join (Morpho-sourced
+ * markets) must still be marked — a leg left unmarked is routed as if a DEX
+ * could buy its share. The rule: a 4626 over the loan token whose shares are
+ * gated. An ungated 4626 over the loan token (sUSDS on a USDS book) is an
+ * ordinary leg.
+ */
+describe("isVaultLeg", () => {
+  const USDC = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913";
+  const V = "0xe690a58ef52854513462745237f6a213a0d54df1";
+  const GATE = "0x3d7f6b28f46e44e3c40391f2b5f9f27ba067b8b7";
+  const ZERO = "0x0000000000000000000000000000000000000000";
+
+  it("trusts Tenor's join", () => {
+    expect(isVaultLeg(V, USDC, V, undefined)).toBe(true);
+  });
+  it("finds a gated 4626 over the loan token without it", () => {
+    expect(isVaultLeg(V, USDC, null, { asset: USDC, gate: GATE })).toBe(true);
+  });
+  it("leaves an ungated 4626 over the loan token alone", () => {
+    expect(isVaultLeg(V, USDC, null, { asset: USDC, gate: ZERO })).toBe(false);
+    expect(isVaultLeg(V, USDC, null, { asset: USDC })).toBe(false);
+  });
+  it("leaves a gated vault over another asset alone", () => {
+    expect(
+      isVaultLeg(V, USDC, null, { asset: "0x" + "22".repeat(20), gate: GATE }),
+    ).toBe(false);
   });
 });
