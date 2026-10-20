@@ -139,6 +139,29 @@
       "servicingFee": "0"
     },
     {
+      "termRepoId": "0x3797ab4614f6e43abfe181845529088b013360e20352134665499da8427cf1c5",
+      "servicer": "0x83ed1e323239ef9ba63b078f853193a9ad17525e",
+      "repoToken": "0x93aa34c2698de8c80d3239050e71fb7625fb5302",
+      "collateralManager": "0x42d70c8d8dcfdd3f3ccd0444faf0790f9466dda3",
+      "purchaseToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
+          "decimals": 8,
+          "liquidatedDamages": "80000000000000000"
+        }
+      ],
+      "maturity": "1795017600",
+      "redemptionTimestamp": "1795104000",
+      "name": "USDC / cbBTC — 2026-11-18",
+      "endOfRepurchaseWindow": "1795100400",
+      "redemptionValue": "1000000000000000000",
+      "servicingFee": "0"
+    },
+    {
       "termRepoId": "0x390a097b3f3b56399656fb13d6c784329cc6e8f513f548cfe930eacafca5976e",
       "servicer": "0x57d8335db5be3a164a9b2f4cc2f8ed532d8842ab",
       "repoToken": "0x0e673c2f744235d1ea16ff47cbc61cdbd8ce23db",
@@ -414,6 +437,29 @@
       "redemptionTimestamp": "1792166400",
       "name": "USDC / reUSD — 2026-10-15",
       "endOfRepurchaseWindow": "1792162800",
+      "redemptionValue": "1000000000000000000",
+      "servicingFee": "0"
+    },
+    {
+      "termRepoId": "0xd2b494fd92924c5c5fb2ea6fa8285ef716bc7f52ec608e65c6bdb4a6b0f3b24b",
+      "servicer": "0x1faaa55844e8dc82830f62fd6c0786ae63500c60",
+      "repoToken": "0xb5c160ca51ae73504d04a0aa2d5292b08673dabf",
+      "collateralManager": "0xd9b217e0858096bd7b042999f02959c931bc83de",
+      "purchaseToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "maintenanceRatio": "1250000000000000000",
+          "initialRatio": "1500000000000000000",
+          "decimals": 8,
+          "liquidatedDamages": "80000000000000000"
+        }
+      ],
+      "maturity": "1797436800",
+      "redemptionTimestamp": "1797523200",
+      "name": "USDC / cbBTC — 2026-12-16",
+      "endOfRepurchaseWindow": "1797519600",
       "redemptionValue": "1000000000000000000",
       "servicingFee": "0"
     },
