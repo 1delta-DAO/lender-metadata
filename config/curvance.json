@@ -1,0 +1,81 @@
+{
+  "CURVANCE": {
+    "143": {
+      "centralRegistry": "0x1310f352f1389969Ece6741671c4B919523912fF",
+      "optimizerReader": "0x821a4a2Be28888917106B3A628c8edaffEbF2e2F",
+      "optimizers": {
+        "hyAUSD": "0xaD663aC84052b52BE4ed1b27BA416505e84a00Bf"
+      },
+      "oracleManager": "0x65ADF8aE8420A58278De066593E6fF1713A137c5",
+      "positionManagers": {
+        "0x01C4a0d396EFE982B1B103BE9910321d34e1aEA9": {
+          "simplePositionManager": "0x8cA51d155C07e91B206Cf11C8D52d5aB082657F6"
+        },
+        "0x05e70717fA8BD0F21a9F826d093d99f6Da4f1554": {
+          "simplePositionManager": "0x2619BB5Acfe51317c4C36a63578FD56148e68C74"
+        },
+        "0x2DB9AB1bB00d7000b21A2EbcE7D1a9b91F351E72": {
+          "simplePositionManager": "0xCb1709fAF66A73b4f6026b531Bef9AF971368f50"
+        },
+        "0x38104e87Eb96ce5ef1C23a06878dB0D657B4a699": {
+          "simplePositionManager": "0x7B918FF5EDc44B29ced4d3dc52Fb8b859025325c"
+        },
+        "0x4409e2161B6f9A25ACbC471a37390654Ed272249": {
+          "simplePositionManager": "0xb85dEf309F7eEEb8f581909c7afB623dDf59AdD9"
+        },
+        "0x4B0a39eCC3e5A5dA3ce6D492D4D255cD1F0209F7": {
+          "simplePositionManager": "0xb8F6f480E645dBa96Df9eD3948D900725bA9e9Ec"
+        },
+        "0x5EA0a1Cf3501C954b64902c5e92100b8A2CaB1Ac": {
+          "nativeVaultPositionManager": "0x82f88A810E86a730699231F5fBF5686c643467C8",
+          "simplePositionManager": "0x669786FF3da7544c98FE74eE1006D787118d1770"
+        },
+        "0x627a15859d09C1550e2934991AA95aFc6896e3Ef": {
+          "simplePositionManager": "0xF8613b7b4e8bFb5E7155fb4D3bc9f9B93d895C31"
+        },
+        "0x7C822B093A116654F824Ec2A35CD23a3749E4f90": {
+          "simplePositionManager": "0x9e4638fd67bE15360bfebC5e07AECfF33dfda917"
+        },
+        "0x830D40CDFdc494BC1A2729a7381bfCe44326c944": {
+          "simplePositionManager": "0xA3d212D4705caf42C35d6EaE0C85E94c4cd329E4"
+        },
+        "0x83840d837E7A3E00bBb0B8501E60E989A8987c37": {
+          "simplePositionManager": "0xd8d3E46E52C3AB8FD98D04143984C763B4Bbc584"
+        },
+        "0x90fc1A4abC4ee5f8a9560dE069067D9606d2909C": {
+          "simplePositionManager": "0x9352318f75e8Cb7C47C5B086D56d3e6D761b7419"
+        },
+        "0xBBE7A3c45aDBb16F6490767b663428c34aA341Eb": {
+          "simplePositionManager": "0x491e8712885E4e0b98864F13393ced8c1a61FD57",
+          "vaultPositionManager": "0xe94AC990873C3B59A417d25C1ec1398807FB41A1"
+        },
+        "0xBc4cd7bbd8d38027A88838B88BA04561FA778C35": {
+          "simplePositionManager": "0x5e339724818c4b46E1Bc6966FeB4ea2924Ca17D9"
+        },
+        "0xE1C24B2E93230FBe33d32Ba38ECA3218284143e2": {
+          "nativeVaultPositionManager": "0x2fAA792502aC5a329DcCc1580C5308fCc0a772fe",
+          "simplePositionManager": "0x7E8705a164DA7Cc5a4119C750b1F79837AD89D5E"
+        },
+        "0xa6A2A92F126b79Ee0804845ee6B52899b4491093": {
+          "simplePositionManager": "0x960c49E523e6A87282D2bC5032d0AeCb35Dc20ef"
+        },
+        "0xb00aFF53a4Df2b4E2f97a3d9ffaDb55564C8E42F": {
+          "simplePositionManager": "0x77B90040E6dFE8A62293Cd91CAeE35296EC266Ee"
+        },
+        "0xb3E9E0134354cc91b7FB9F9d6C3ab0dE7854BB49": {
+          "simplePositionManager": "0x3A1B2Dc11a81Fe106eC667BaB4056fC72498ff73"
+        },
+        "0xd6365555f6a697C7C295bA741100AA644cE28545": {
+          "simplePositionManager": "0xd807efC94376618B4d9CE6eAaf89607006d3B881"
+        },
+        "0xe5970cDB1916B2cCF6185C86C174EEE2d330D05B": {
+          "simplePositionManager": "0x3d6ba6C90E1738cb01C46E72F284C7Bd57eB11EC"
+        }
+      },
+      "protocolReader": "0xC5E6DD26095Cc1fa2369f7885dF263e150228D8b",
+      "swapTargets": {
+        "kyberswap": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5"
+      }
+    }
+  }
+}

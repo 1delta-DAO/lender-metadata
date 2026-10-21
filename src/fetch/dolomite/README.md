@@ -51,7 +51,7 @@ RPC for those (`DOLOMITE_FALLBACK_RPCS`).
 
 Output file:
 
-- `config/dolomite-margin.json` — `{ [chainId]: { dolomiteMargin, expiry, markets, depositWithdrawalProxy, borrowPositionProxy, genericTraderProxy } }`
+- `config/dolomite-margin.json` — `{ [chainId]: { dolomiteMargin, expiry, markets, depositWithdrawalProxy, borrowPositionProxy, genericTraderProxy, depositWithdrawalRouter, borrowPositionRouter, genericTraderRouter, aggregatorTraders, odosExecutor? } }` (the three routers are the `*RouterProxy` entries of the modules deployments file)
 
 The three proxy addresses (static, from `deployed.json`) feed the **calldata-sdk**
 `DolomiteLending` / `DolomiteTrader` encoders, which take them as args; consumers

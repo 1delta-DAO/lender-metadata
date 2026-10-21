@@ -71,8 +71,8 @@ lender missing from the registry looks exactly like a lender with no markets.
 Two guards, and only the second one is real:
 
 1. `build-bundle.ts` fails if a manifest path is absent from the tree, unless
-   it is listed in `optional` (`config/curvance.json` and
-   `config/resupply.json` are — those lenders ship without published config).
+   it is listed in `optional` (none are today — `config/curvance.json` and
+   `config/resupply.json` were, until they were published 2026-10-21).
 2. **The consumer must fall back** to fetching any path the bundle does not
    carry. That is what turns drift into a slower read instead of missing data,
    and it is the guard that has to exist in `initializer-sdk`.

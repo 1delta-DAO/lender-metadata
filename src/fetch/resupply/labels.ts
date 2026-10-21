@@ -1,12 +1,12 @@
 // ============================================================================
 // Build display labels for Resupply pairs.
 //
-// Like Curvance, Resupply has NO file in this repo: its roster is discovered
-// from `ResupplyRegistry.getAllPairAddresses()` at runtime (governance adds
-// pairs — 7 appeared between the docs' published list and 2026-08 — and retires
-// them by zeroing `borrowLimit` rather than removing them), and the deployment
-// seed is a built-in in @1delta/data-sdk. So labels are the only Resupply
-// artifact this repo owns, and this module is their sole source.
+// Resupply has no markets file in this repo: its roster is discovered from
+// `ResupplyRegistry.getAllPairAddresses()` at runtime (governance adds pairs —
+// 7 appeared between the docs' published list and 2026-08 — and retires them
+// by zeroing `borrowLimit` rather than removing them). The deployment row is
+// `config/resupply.json`, written by `./config.ts`. This module is the sole
+// source of the pair labels.
 //
 // Self-contained (inline address, inline ABI, raw viem) for the same reason as
 // the Curvance builder: the published @1delta/abis and @1delta/data-sdk this

@@ -1,18 +1,16 @@
 {
   "version": 1,
   "note": "Paths bundled into bundle/lender-meta.json. Contract with @1delta/initializer-sdk \u2014 see bundle/README.md.",
-  "optional": [
-    "config/curvance.json",
-    "config/resupply.json"
-  ],
   "files": [
     "config/aave-oracles-config.json",
     "config/aave-pools.json",
     "config/aave-v4-peripherals.json",
     "config/aave-weth-gateway.json",
+    "config/alchemix.json",
     "config/compound-v2-oracles-config.json",
     "config/compound-v2-pools.json",
     "config/compound-v3-pools.json",
+    "config/cooler.json",
     "config/curvance.json",
     "config/dolomite-emode.json",
     "config/dolomite-isolation.json",
@@ -32,6 +30,7 @@
     "config/morpho-pools.json",
     "config/morpho-type-markets.json",
     "config/resupply.json",
+    "config/ripe.json",
     "config/river.json",
     "config/silo-v2-peripherals.json",
     "config/silo-v3-peripherals.json",

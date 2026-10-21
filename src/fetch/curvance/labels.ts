@@ -1,10 +1,11 @@
 // ============================================================================
 // Build display labels for Curvance markets.
 //
-// Curvance is the one integrated lender with NO file in this repo: its roster
-// is a built-in seed (`CURVANCE_MONAD_CONFIG` in @1delta/data-sdk), because the
-// protocol publishes no market list and Monad's 100-block `eth_getLogs` cap
-// makes the registry events unscannable. So there is no `data/curvance-*.json`
+// Curvance has no markets file in this repo — only the deployment row
+// `config/curvance.json` (a copy of data-sdk's `CURVANCE_MONAD_CONFIG` seed,
+// Position Managers included, maintained by hand) — because the protocol
+// publishes no market list and Monad's 100-block `eth_getLogs` cap makes the
+// registry events unscannable. So there is no `data/curvance-*.json`
 // to read labels off — this module DISCOVERS the markets on-chain, the same two
 // multicall rounds the margin-fetcher uses:
 //

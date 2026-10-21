@@ -1,0 +1,104 @@
+{
+  "ALCHEMIX": {
+    "1": {
+      "markets": [
+        {
+          "alchemist": "0xfa995B6ABc387376C3e7De5f6d394Ab5B6beE26B",
+          "debtSymbol": "alETH",
+          "debtToken": "0x0100546F2cD4C9D97f798fFC9755E47865FF7Ee6",
+          "isEth": true,
+          "myt": "0x29bcfeD246ce37319d94eBa107db90C453D4c43D",
+          "mytSymbol": "mixWETH",
+          "positionNft": "0x15da4c7db6404b92894d5214FAc92057Fb8a263d",
+          "router": "0xDb852896A23c7E2519b75AeA692caCf834d086Ab",
+          "transmuter": "0x073598132f37756a7E665FB52f1757463120bd3C",
+          "underlying": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+        },
+        {
+          "alchemist": "0xeB83112d925268BeDe86654C13D423a987587e3E",
+          "debtSymbol": "alUSD",
+          "debtToken": "0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9",
+          "isEth": false,
+          "myt": "0x9B44efCa3e2a707B63Dc00CE79d646E5E5D24bA5",
+          "mytSymbol": "mixUSDC",
+          "positionNft": "0x872a03FabC86b59c883CD9c439E969321b719bEB",
+          "router": "0x6733Aa6b2A622e43e8fF61945E8Fbe5f1b6b00FD",
+          "transmuter": "0x2584E8b0616b3E750492c9629a3b27679C410cb9",
+          "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        }
+      ]
+    },
+    "10": {
+      "markets": [
+        {
+          "alchemist": "0xDeD3A04612FF12b57317abE38e68026Fc9D28114",
+          "debtSymbol": "alETH",
+          "debtToken": "0x3E29D3A9316dAB217754d13b28646B76607c5f04",
+          "isEth": true,
+          "myt": "0x91b8657aea26Caa8A0E9D6DD4E24727Ccf32F822",
+          "mytSymbol": "mixWETH",
+          "positionNft": "0x763F5d567403add750e13234DB896CFe6b423059",
+          "router": "0xC774F30484818F06a261A89A1d66367e6BBE3e5A",
+          "transmuter": "0x2584E8b0616b3E750492c9629a3b27679C410cb9",
+          "underlying": "0x4200000000000000000000000000000000000006"
+        },
+        {
+          "alchemist": "0x930750a3510E703535e943E826ABa3c364fFC1De",
+          "debtSymbol": "alUSD",
+          "debtToken": "0xCB8FA9a76b8e203D8C3797bF438d8FB81Ea3326A",
+          "isEth": false,
+          "myt": "0xAf510a560744880410f0f65e3341A020FBC2cA41",
+          "mytSymbol": "mixUSDC",
+          "positionNft": "0xF700c7e40efCA6f7a810e172AFCee3592ff4aD33",
+          "router": "0x3c0546587d27354635a4972390a7B96F962d8BBd",
+          "transmuter": "0x693b7594Ae0633d9c5574D0da46a040f92F5b281",
+          "underlying": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85"
+        }
+      ]
+    },
+    "8453": {
+      "markets": [
+        {
+          "alchemist": "0xEb380d86EeD275C9F2eD77745aB1B2ccf364BF7A",
+          "debtSymbol": "alUSDb",
+          "debtToken": "0x877014E21c32feA108B6A1f45f367efc9a2d9B9F",
+          "isEth": false,
+          "myt": "0xb8BeFE5a6941ca4022a52042075ff269C3C67467",
+          "mytSymbol": "mixUSDC",
+          "positionNft": "0xDeD3A04612FF12b57317abE38e68026Fc9D28114",
+          "router": "0x720D1F945279A6D82EeDcC9B7f85767279Ea2F96",
+          "transmuter": "0x5B1c7180C630d3B2b6782Df70f43aE5Ea80425ba",
+          "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        }
+      ]
+    },
+    "42161": {
+      "markets": [
+        {
+          "alchemist": "0xDeD3A04612FF12b57317abE38e68026Fc9D28114",
+          "debtSymbol": "alETH",
+          "debtToken": "0x17573150d67d820542EFb24210371545a4868B03",
+          "isEth": true,
+          "myt": "0xfe8F223F3d81462F55bf8609897B8cEcfA4B195C",
+          "mytSymbol": "mixWETH",
+          "positionNft": "0x763F5d567403add750e13234DB896CFe6b423059",
+          "router": "0xC774F30484818F06a261A89A1d66367e6BBE3e5A",
+          "transmuter": "0x2584E8b0616b3E750492c9629a3b27679C410cb9",
+          "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+        },
+        {
+          "alchemist": "0x930750a3510E703535e943E826ABa3c364fFC1De",
+          "debtSymbol": "alUSD",
+          "debtToken": "0xCB8FA9a76b8e203D8C3797bF438d8FB81Ea3326A",
+          "isEth": false,
+          "myt": "0xEba62B842081CeF5a8184318Dc5C4E4aACa9f651",
+          "mytSymbol": "mixUSDC",
+          "positionNft": "0xF700c7e40efCA6f7a810e172AFCee3592ff4aD33",
+          "router": "0x3c0546587d27354635a4972390a7B96F962d8BBd",
+          "transmuter": "0x693b7594Ae0633d9c5574D0da46a040f92F5b281",
+          "underlying": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+        }
+      ]
+    }
+  }
+}
