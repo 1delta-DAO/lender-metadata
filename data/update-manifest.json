@@ -1,25 +1,17 @@
 {
-  "version": "2026-10-20T07-01-14-629Z",
-  "generatedAt": "2026-10-20T07:01:14.629Z",
+  "version": "2026-10-21T06-56-03-634Z",
+  "generatedAt": "2026-10-21T06:56:03.634Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-type-oracles.json",
-    "./data/morpho-curators.json",
-    "./data/morpho-oracles-data.json",
-    "./data/aave-reserves.json",
-    "./data/aave-tokens.json",
-    "./config/aave-pools.json",
     "./data/euler-vaults.json",
     "./data/lender-labels.json",
     "./data/lender-labels.json",
     "./data/lender-labels.json",
-    "./config/dolomite-margin.json",
     "./data/midnight-markets.json",
     "./data/lender-labels.json",
-    "./data/term-finance-markets.json",
     "./data/lender-labels.json",
-    "./data/lender-labels.json",
-    "./config/inverse.json"
+    "./data/lender-labels.json"
   ],
   "results": [
     {
@@ -36,9 +28,6 @@
     },
     {
       "targetFile": "./data/morpho-curators.json"
-    },
-    {
-      "targetFile": "./data/morpho-oracles-data.json"
     },
     {
       "targetFile": "./data/aave-reserves.json"
