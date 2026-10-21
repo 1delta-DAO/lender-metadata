@@ -29,6 +29,18 @@
         "rfqEngine": "0xEB00B335Ca52216Fb60fdFFA361397367C39Dc32",
         "leverageRfqEngine": "0x8263a07504d93cB95e0a74f3627bb15faaf140e2"
       }
+    },
+    "56": {
+      "positionsManager": "0xB36d39C72d66153B7f32E1320BEe3280657353Bd",
+      "lendingLens": "0xc374d2ae274f31bf53c561d0b4024136cc692f48",
+      "configRegistry": "0xd41D2077b45d28706c42843cBC17439AEAa4Ae8B",
+      "accountValuesLens": "0x1d88ffc0147855f589e506d3611814c34b1a7133",
+      "oracleRouter": "0xe4372dB43D2814750a19b93950157AD81D93674A",
+      "ft": "0x5DD1A7A369e8273371d2DBf9d83356057088082c",
+      "ftUSD": "0xF7D85EC4E7710f71992752eac2111312e73E9C9C",
+      "engines": {
+        "metaSessionActions": "0x97fa3B5A531f4E2Fa84CcaF1B53F5c4e512c4077"
+      }
     }
   }
 }
