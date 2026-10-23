@@ -7,11 +7,19 @@
         "nativeGateway": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
         "signatureGateway": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d"
       },
+      "0x62d63197660c080236193ca60b70e49a08e90368": {
+        "nativeGateway": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+        "signatureGateway": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d"
+      },
       "0x943827dca022d0f354a8a8c332da1e5eb9f9f931": {
         "nativeGateway": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
         "signatureGateway": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d"
       },
       "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9": {
+        "nativeGateway": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
+        "signatureGateway": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d"
+      },
+      "0xd138fcb0e8c52fdbb2ac4573fa4d8925cf11e9c2": {
         "nativeGateway": "0xe68ab4f90fe026b9873f5f276ed2d7efbbbe42be",
         "signatureGateway": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d"
       }
@@ -255,6 +263,94 @@
           }
         ]
       },
+      "0x9ebf0c19bf7dfe859820cc09e846114b53814e52": {
+        "spokeName": "RLUSD Yield",
+        "spokeId": "MTo6MHg5RWJGMEMxOUJGN2RGRTg1OTgyMENjMDlFODQ2MTE0YjUzODE0ZTUy",
+        "positionManagers": [
+          {
+            "name": "Aave Giver Position Manager",
+            "address": "0x4cf59b43adc4a183d3f7ed5ec9c0aca1ce3f25a4",
+            "active": true
+          },
+          {
+            "name": "Unknown",
+            "address": "0x5e4331d626a0ecbafe9affe68de2376cff1b5ff4",
+            "active": true
+          },
+          {
+            "name": "Aave Taker Position Manager",
+            "address": "0xa25963b913d69574290afac4a8202d43060b826f",
+            "active": true
+          },
+          {
+            "name": "Aave Config Position Manager",
+            "address": "0xcf423ce5a423bacbf3dd4ccc9a8db30ad3b8775b",
+            "active": true
+          },
+          {
+            "name": "Unknown",
+            "address": "0xe48500d7c81135d0207df7bc6d03a082eb6b7d2f",
+            "active": true
+          }
+        ]
+      },
+      "0xa37e7cdc557f3c7f745fb3f337b6439979662c46": {
+        "spokeName": "Bluechip",
+        "spokeId": "MTo6MHhBMzdlN2NkQzU1N2YzQzdmNzQ1RkIzRjMzN2I2NDM5OTc5NjYyYzQ2",
+        "positionManagers": [
+          {
+            "name": "Aave Giver Position Manager",
+            "address": "0x4cf59b43adc4a183d3f7ed5ec9c0aca1ce3f25a4",
+            "active": true
+          },
+          {
+            "name": "Unknown",
+            "address": "0x5e4331d626a0ecbafe9affe68de2376cff1b5ff4",
+            "active": true
+          },
+          {
+            "name": "Aave Taker Position Manager",
+            "address": "0xa25963b913d69574290afac4a8202d43060b826f",
+            "active": true
+          },
+          {
+            "name": "Aave Config Position Manager",
+            "address": "0xcf423ce5a423bacbf3dd4ccc9a8db30ad3b8775b",
+            "active": true
+          },
+          {
+            "name": "Unknown",
+            "address": "0xe48500d7c81135d0207df7bc6d03a082eb6b7d2f",
+            "active": true
+          }
+        ]
+      },
+      "0xad75ce6354f87f3135ce10621d385d8d1e2562c2": {
+        "spokeName": "PAXG Gold",
+        "spokeId": "MTo6MHhBRDc1Y0U2MzU0Zjg3RjMxMzVjRTEwNjIxZDM4NWQ4RDFlMjU2MkMy",
+        "positionManagers": [
+          {
+            "name": "Aave Giver Position Manager",
+            "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+            "active": true
+          },
+          {
+            "name": "Aave Config Position Manager",
+            "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+            "active": true
+          },
+          {
+            "name": "Aave Taker Position Manager",
+            "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+            "active": true
+          },
+          {
+            "name": "Aave Signature Gateway",
+            "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+            "active": true
+          }
+        ]
+      },
       "0xba1b3d55d249692b669a164024a838309b7508af": {
         "spokeName": "Ethena Ecosystem",
         "spokeId": "MTo6MHhiYTFCM0Q1NUQyNDk2OTJiNjY5QTE2NDAyNEE4MzgzMDlCNzUwOEFG",
@@ -282,6 +378,37 @@
           {
             "name": "Aave Signature Gateway",
             "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+            "active": true
+          }
+        ]
+      },
+      "0xbb97b61ad6747d337e5805f2d159d275bb1f0828": {
+        "spokeName": "OUSD Yield",
+        "spokeId": "MTo6MHhiYjk3YjYxQWQ2NzQ3RDMzN0U1ODA1RjJkMTU5ZDI3NUJCMWYwODI4",
+        "positionManagers": [
+          {
+            "name": "Aave Giver Position Manager",
+            "address": "0x4cf59b43adc4a183d3f7ed5ec9c0aca1ce3f25a4",
+            "active": true
+          },
+          {
+            "name": "Unknown",
+            "address": "0x5e4331d626a0ecbafe9affe68de2376cff1b5ff4",
+            "active": true
+          },
+          {
+            "name": "Aave Taker Position Manager",
+            "address": "0xa25963b913d69574290afac4a8202d43060b826f",
+            "active": true
+          },
+          {
+            "name": "Aave Config Position Manager",
+            "address": "0xcf423ce5a423bacbf3dd4ccc9a8db30ad3b8775b",
+            "active": true
+          },
+          {
+            "name": "Unknown",
+            "address": "0xe48500d7c81135d0207df7bc6d03a082eb6b7d2f",
             "active": true
           }
         ]
@@ -395,7 +522,7 @@
         "spokeId": "NTA0Mjo6MHgxOERkZTA5OGQyNTcyMkMxNGUwOTg0MmE2RmE3ZGI2YUFGQzM5NWEy",
         "positionManagers": [
           {
-            "name": "Unknown",
+            "name": "Aave Giver Position Manager",
             "address": "0x01da80eef3004ebbf90b7637b1de7ff30fbc7cf1",
             "active": true
           },
@@ -405,12 +532,12 @@
             "active": true
           },
           {
-            "name": "Unknown",
+            "name": "Aave Config Position Manager",
             "address": "0xa5aa65ae1c830d2ae10853ceea42ae653adb3312",
             "active": true
           },
           {
-            "name": "Unknown",
+            "name": "Aave Taker Position Manager",
             "address": "0xe9fae1c386c6f45b1fb3c3ef01ade424dad4bccf",
             "active": true
           }

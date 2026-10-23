@@ -29,6 +29,17 @@ export const AAVE_V4_HUB_SEED: { [chainId: string]: V4HubSeedEntry[] } = {
       hub: '0x943827DCA022D0F354a8a8c332dA1e5Eb9F9F931',
       attribution: 'AAVE_V4_PRIME',
     },
+    // Sentora-curated hub (RLUSD Yield / Bluechip / OUSD Yield spokes).
+    {
+      hub: '0xD138FcB0E8C52fDbB2Ac4573FA4d8925cf11e9c2',
+      attribution: 'AAVE_V4_SENTORA',
+    },
+    // USDG hub. USDG Pendle + Maple SyrupUSDG are also reachable via Core
+    // (first-seen keeps their CORE attribution); PAXG Gold is only here.
+    {
+      hub: '0x62d63197660c080236193CA60b70E49A08E90368',
+      attribution: 'AAVE_V4_GLOBAL_DOLLAR',
+    },
   ],
   '10': [
     // ether.fi whitelabel instance — NOT an Aave-operated hub. Its spoke is an
