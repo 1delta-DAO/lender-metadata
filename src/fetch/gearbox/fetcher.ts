@@ -1,6 +1,6 @@
 import type { Address } from "viem";
 import { stringToHex, zeroAddress } from "viem";
-import { multicallRetryUniversal } from "@1delta/providers";
+import { getEvmClientUniversal, multicallRetryUniversal } from "@1delta/providers";
 import { addressProviderV310Abi, marketCompressorAbi } from "./abi.js";
 
 const BOT_LIST_KEY = stringToHex("BOT_LIST", { size: 32 });
@@ -14,6 +14,8 @@ export interface GearboxCreditManager {
   name: string;
   expirationDate: bigint;
   isPaused: boolean;
+  /** The pool's share symbol (`edgeUSDC`, `dWMON`) — what tells apart two CMs a curator named alike. */
+  poolSymbol?: string;
 }
 
 /**
@@ -28,24 +30,42 @@ export async function getV310CreditManagers(
 ): Promise<GearboxCreditManager[]> {
   if (configurators.length === 0) return [];
 
-  const [markets] = (await multicallRetryUniversal({
-    chain: chainId,
-    calls: [
-      {
+  const filter = { configurators, pools: [], underlying: zeroAddress };
+  let markets: readonly any[] | undefined;
+  try {
+    const [viaMulticall] = (await multicallRetryUniversal({
+      chain: chainId,
+      calls: [{ address: marketCompressor, name: "getMarkets", args: [filter] }],
+      abi: marketCompressorAbi,
+      allowFailure: false,
+    })) as [readonly any[] | string];
+    if (Array.isArray(viaMulticall) && viaMulticall.length) markets = viaMulticall;
+  } catch {
+    // fall through to the direct call
+  }
+  // `getMarkets` walks every market of the configurators. On Monad the inner
+  // call runs out of gas inside Multicall3's `aggregate3` and comes back as an
+  // empty result rather than an error — a SILENT "no credit managers", which
+  // left all 21 Monad CMs without a label (the Curvance ProtocolReader trap).
+  // A direct `eth_call` has the full gas budget; rotate RPCs on failure.
+  let lastErr: unknown;
+  for (let rpcId = 0; !markets && rpcId < 4; rpcId++) {
+    try {
+      markets = (await getEvmClientUniversal({
+        chain: chainId,
+        rpcId,
+        timeoutMs: 30_000,
+      }).readContract({
         address: marketCompressor,
-        name: "getMarkets",
-        args: [
-          {
-            configurators,
-            pools: [],
-            underlying: zeroAddress,
-          },
-        ],
-      },
-    ],
-    abi: marketCompressorAbi,
-    allowFailure: false,
-  })) as [readonly any[]];
+        abi: marketCompressorAbi as any,
+        functionName: "getMarkets",
+        args: [filter],
+      })) as readonly any[];
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  if (!markets) throw lastErr ?? new Error(`getMarkets returned nothing on ${chainId}`);
 
   const out: GearboxCreditManager[] = [];
   for (const market of markets ?? []) {
@@ -60,6 +80,10 @@ export async function getV310CreditManagers(
         name,
         expirationDate: BigInt(facade?.expirationDate ?? 0),
         isPaused: Boolean(facade?.isPaused),
+        poolSymbol:
+          typeof market?.pool?.symbol === "string" && market.pool.symbol
+            ? market.pool.symbol
+            : undefined,
       });
     }
   }
