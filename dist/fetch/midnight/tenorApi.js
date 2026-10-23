@@ -1,5 +1,7 @@
 // ============================================================================
-// Tenor GraphQL client — the PRIMARY roster source for Morpho Midnight markets.
+// Tenor GraphQL client — the CURATION metadata for Morpho Midnight markets
+// (series, vault-as-collateral join, deprecation). Morpho's `/markets` is the
+// universe; Tenor enriches it and adds the markets it curates.
 //
 // Tenor (docs.tenor.finance) is a platform layer over Morpho Midnight, not a
 // separate protocol: same core contract, same market ids, same offers. What it
@@ -10,8 +12,8 @@
 // structure, and its own deprecation flags.
 //
 // Keyless and CORS-open. Responses carry `x-ratelimit-*` headers (25/s, 150/10s,
-// 1000/rolling) and a per-request complexity budget of 1000 — the roster query
-// below costs ~46, so it comfortably fits in one request.
+// 1000/rolling) and a per-request complexity budget of 1000 — one 100-row page
+// of the roster query costs ~46. The query is paged with `skip`.
 //
 // TRAPS (all bit us or nearly did while building this):
 //  - GraphQL errors return **HTTP 200** with an `errors` array. A `res.ok` check
@@ -25,8 +27,12 @@
 //  - Collateral leg ORDER is part of the market-id hash. Never sort or dedupe.
 // ============================================================================
 const DEFAULT_TENOR_API = "https://api.tenor.finance/graphql";
-const ROSTER_QUERY = `{
-  morphoFixedMarkets(first: 100) {
+/** Page size: 250 is rejected by the complexity budget, 100 fits. */
+const PAGE = 100;
+/** Hard stop on the `skip` walk — far above today's single page. */
+const MAX_PAGES = 50;
+const rosterQuery = (skip) => `{
+  morphoFixedMarkets(first: ${PAGE}, skip: ${skip}) {
     pageInfo { countTotal count }
     items {
       fixedMarketIdentifier
@@ -57,7 +63,9 @@ const ROSTER_QUERY = `{
 }`;
 const str = (v) => v === null || v === undefined ? undefined : String(v);
 /**
- * Fetch Tenor's curated fixed-market roster.
+ * Fetch Tenor's curated fixed-market roster, every page (`skip`). The query
+ * was once a single `first: 100` with `countTotal: 96` — at 101 markets it
+ * would have truncated silently.
  *
  * Throws on transport failure, on a GraphQL `errors` array, or on a response
  * that carries no items — every one of those must fall through to the Morpho
@@ -66,21 +74,31 @@ const str = (v) => v === null || v === undefined ? undefined : String(v);
  * treating either as authoritative would wipe the market list.
  */
 export async function fetchTenorFixedMarkets(apiUrl = DEFAULT_TENOR_API) {
-    const res = await fetch(apiUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: ROSTER_QUERY }),
-    });
-    if (!res.ok)
-        throw new Error(`Tenor API HTTP ${res.status}`);
-    const json = await res.json();
-    // HTTP 200 + an `errors` array is the documented failure shape.
-    if (Array.isArray(json?.errors) && json.errors.length > 0) {
-        throw new Error(`Tenor API GraphQL error: ${json.errors
-            .map((e) => e?.message ?? "?")
-            .join("; ")}`);
+    const items = [];
+    for (let page = 0; page < MAX_PAGES; page++) {
+        const res = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: rosterQuery(page * PAGE) }),
+        });
+        if (!res.ok)
+            throw new Error(`Tenor API HTTP ${res.status}`);
+        const json = await res.json();
+        // HTTP 200 + an `errors` array is the documented failure shape.
+        if (Array.isArray(json?.errors) && json.errors.length > 0) {
+            throw new Error(`Tenor API GraphQL error: ${json.errors
+                .map((e) => e?.message ?? "?")
+                .join("; ")}`);
+        }
+        const conn = json?.data?.morphoFixedMarkets;
+        const batch = conn?.items ?? [];
+        items.push(...batch);
+        const total = Number(conn?.pageInfo?.countTotal);
+        if (batch.length < PAGE)
+            break;
+        if (Number.isFinite(total) && items.length >= total)
+            break;
     }
-    const items = json?.data?.morphoFixedMarkets?.items ?? [];
     if (items.length === 0)
         throw new Error("Tenor API returned no markets");
     const out = [];

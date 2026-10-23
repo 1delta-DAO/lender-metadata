@@ -11,22 +11,56 @@ const AGGREGATOR_CONTRACTS = {
     oogabooga: ["OogaBoogaAggregatorTraderV2", "OogaBoogaAggregatorTraderV1"],
     enso: ["EnsoAggregatorTraderV1"],
 };
+/** The deployments file, or `undefined` when it cannot be read. */
+export async function fetchDolomiteModuleDeployments() {
+    try {
+        const res = await fetch(DEPLOYMENTS_URL);
+        if (!res.ok)
+            return undefined;
+        return await res.json();
+    }
+    catch {
+        return undefined;
+    }
+}
+/**
+ * The three modern routers (`DepositWithdrawalRouter`, `BorrowPositionRouter`,
+ * `GenericTraderRouter`) are upgradeable proxies at one CREATE2 address per
+ * chain. data-sdk carries the same three as `DOLOMITE_ROUTER_DEFAULTS` and uses
+ * them only when a chain's row lacks the field, so publishing them here is what
+ * lets a redeploy land without an SDK release.
+ */
+const ROUTER_CONTRACTS = {
+    depositWithdrawalRouter: "DepositWithdrawalRouterProxy",
+    borrowPositionRouter: "BorrowPositionRouterProxy",
+    genericTraderRouter: "GenericTraderRouterProxy",
+};
+/** `{ [chainId]: { depositWithdrawalRouter, borrowPositionRouter, genericTraderRouter } }`. */
+export function extractDolomiteRouters(chainIds, deployments) {
+    const out = {};
+    if (!deployments)
+        return out;
+    for (const chainId of chainIds) {
+        const entry = {};
+        for (const [field, contract] of Object.entries(ROUTER_CONTRACTS)) {
+            const addr = deployments?.[contract]?.[chainId]?.address;
+            if (addr)
+                entry[field] = addr;
+        }
+        if (Object.keys(entry).length > 0)
+            out[chainId] = entry;
+    }
+    return out;
+}
 /**
  * Fetch the deployments file and build `{ [chainId]: { [aggregator]: address } }`.
  * Returns `{}` on failure (swaps/loops simply stay unavailable; base lending +
  * position ops are unaffected).
  */
-export async function fetchDolomiteAggregatorTraders(chainIds) {
-    let deployments;
-    try {
-        const res = await fetch(DEPLOYMENTS_URL);
-        if (!res.ok)
-            return {};
-        deployments = await res.json();
-    }
-    catch {
+export async function fetchDolomiteAggregatorTraders(chainIds, deployments) {
+    deployments ??= await fetchDolomiteModuleDeployments();
+    if (!deployments)
         return {};
-    }
     const out = {};
     for (const chainId of chainIds) {
         const entry = {};

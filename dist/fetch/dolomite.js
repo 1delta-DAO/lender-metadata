@@ -2,7 +2,7 @@ import { mergeData, sleep } from "../utils.js";
 import { DOLOMITE_DEPLOYMENTS } from "./dolomite/constants.js";
 import { fetchDolomiteMarkets } from "./dolomite/fetcher.js";
 import { getDolomiteSetter, fetchDolomiteEmode } from "./dolomite/emode.js";
-import { fetchDolomiteAggregatorTraders } from "./dolomite/aggregators.js";
+import { extractDolomiteRouters, fetchDolomiteAggregatorTraders, fetchDolomiteModuleDeployments, } from "./dolomite/aggregators.js";
 import { fetchDolomiteIsolation } from "./dolomite/isolation.js";
 const configFile = "./config/dolomite-margin.json";
 const emodeFile = "./config/dolomite-emode.json";
@@ -23,7 +23,11 @@ export class DolomiteUpdater {
         const chains = Object.entries(DOLOMITE_DEPLOYMENTS);
         // Aggregator traders (swap/loop wrappers) — one fetch from the
         // dolomite-margin-modules deployments, attached per chain below.
-        const aggregatorTraders = await fetchDolomiteAggregatorTraders(chains.map(([chainId]) => chainId));
+        // Same file carries the router proxies.
+        const chainIds = chains.map(([chainId]) => chainId);
+        const deployments = await fetchDolomiteModuleDeployments();
+        const aggregatorTraders = await fetchDolomiteAggregatorTraders(chainIds, deployments);
+        const routers = extractDolomiteRouters(chainIds, deployments);
         for (let i = 0; i < chains.length; i++) {
             const [chainId, addrs] = chains[i];
             let markets = {};
@@ -34,7 +38,7 @@ export class DolomiteUpdater {
             catch (e) {
                 console.log(`Dolomite: failed to fetch markets for chain ${chainId}:`, e?.shortMessage ?? e?.message ?? e);
             }
-            out[chainId] = { ...addrs, markets };
+            out[chainId] = { ...addrs, ...routers[chainId], markets };
             if (aggregatorTraders[chainId]) {
                 out[chainId].aggregatorTraders = aggregatorTraders[chainId];
             }

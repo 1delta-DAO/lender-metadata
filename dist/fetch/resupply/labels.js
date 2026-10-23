@@ -1,12 +1,12 @@
 // ============================================================================
 // Build display labels for Resupply pairs.
 //
-// Like Curvance, Resupply has NO file in this repo: its roster is discovered
-// from `ResupplyRegistry.getAllPairAddresses()` at runtime (governance adds
-// pairs — 7 appeared between the docs' published list and 2026-08 — and retires
-// them by zeroing `borrowLimit` rather than removing them), and the deployment
-// seed is a built-in in @1delta/data-sdk. So labels are the only Resupply
-// artifact this repo owns, and this module is their sole source.
+// Resupply has no markets file in this repo: its roster is discovered from
+// `ResupplyRegistry.getAllPairAddresses()` at runtime (governance adds pairs —
+// 7 appeared between the docs' published list and 2026-08 — and retires them
+// by zeroing `borrowLimit` rather than removing them). The deployment row is
+// `config/resupply.json`, written by `./config.ts`. This module is the sole
+// source of the pair labels.
 //
 // Self-contained (inline address, inline ABI, raw viem) for the same reason as
 // the Curvance builder: the published @1delta/abis and @1delta/data-sdk this
@@ -41,6 +41,7 @@
 // ============================================================================
 import { createPublicClient, http, fallback, } from "viem";
 import { mainnet } from "viem/chains";
+import { mergeData as deepMergeData } from "../../utils.js";
 /** Resupply is Ethereum-only. */
 export const RESUPPLY_CHAIN_ID = 1;
 /** The one discovery root — also the address `RouterSwapper` hardcodes. */
@@ -134,4 +135,32 @@ export function buildResupplyLabels(pairs) {
         shortNames[key] = p.label;
     }
     return { names, shortNames };
+}
+/**
+ * Daily-run wrapper (`update:dataset`). Governance adds pairs to the registry at
+ * any time, and a pair with no label renders as its raw key — the CurveLendV2
+ * crvUSD/syrupUSDC pair (~$4M borrowed) sat unlabelled until 2026-10-19 because
+ * `update:resupply-labels` was manual-only. Additive like that script: an empty
+ * discovery writes nothing, and the merge never drops a retired pair's label.
+ */
+export class ResupplyLabelsUpdater {
+    name = "Resupply Pair Labels";
+    defaults = {};
+    async fetchData() {
+        const pairs = await discoverResupplyPairs();
+        if (pairs.length === 0) {
+            console.log("Resupply: discovery returned no pairs — keeping labels");
+            return {};
+        }
+        const built = buildResupplyLabels(pairs);
+        return {
+            "./data/lender-labels.json": {
+                names: built.names,
+                shortNames: built.shortNames,
+            },
+        };
+    }
+    mergeData(oldData, data) {
+        return deepMergeData(oldData ?? {}, data ?? {});
+    }
 }

@@ -115,7 +115,10 @@ async function main() {
             params: bundle.params,
         });
         const brand = LENDER_BRAND_NAMES[lenderBrandKey(key)] ?? basket.brandName;
-        names[key] = `${brand} ${basket.name}`.trim();
+        // a basket named after its brand (Zodial's one group) must not read "Zodial Zodial"
+        names[key] = basket.name.startsWith(brand)
+            ? basket.name
+            : `${brand} ${basket.name}`.trim();
         shortNames[key] = basket.name;
         protocols[key] = brand;
     }

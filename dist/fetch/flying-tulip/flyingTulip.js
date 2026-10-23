@@ -27,10 +27,40 @@
 // generator unrunnable in the meantime.
 // ============================================================================
 import { createPublicClient, http, fallback, parseAbi, keccak256, toHex, } from "viem";
-/** Same CREATE2 addresses on Ethereum and Sonic — verified on-chain. */
-export const FT_CONFIG_REGISTRY = "0xA8777c3D446fa7F0b0FC97a80C1Ea1d37F1ca33E";
-export const FT_LENDING_LENS = "0x3682168023E6bA8D1F995FdA1D920827C5A8A43E";
-export const FT_CHAIN_IDS = [1, 146];
+/**
+ * Per-chain read surface. Ethereum and Sonic share CREATE2 addresses; BNB
+ * Chain (live 2026-10) is a SEPARATE deployment by a different deployer
+ * (`0x74cd6264…`), so its ConfigRegistry and LendingLens differ — the lens
+ * proxy reuses Ethereum's salt and its implementation (`0x054c80b9…`), which is
+ * how it was identified (verified on-chain 2026-10-21: `assetCfg(USDC)` and
+ * `assetState(USDC)` answer).
+ */
+export const FT_DEPLOYMENTS = {
+    1: {
+        configRegistry: "0xA8777c3D446fa7F0b0FC97a80C1Ea1d37F1ca33E",
+        lendingLens: "0x3682168023E6bA8D1F995FdA1D920827C5A8A43E",
+    },
+    146: {
+        configRegistry: "0xA8777c3D446fa7F0b0FC97a80C1Ea1d37F1ca33E",
+        lendingLens: "0x3682168023E6bA8D1F995FdA1D920827C5A8A43E",
+    },
+    56: {
+        configRegistry: "0xd41D2077b45d28706c42843cBC17439AEAa4Ae8B",
+        lendingLens: "0xc374d2ae274f31bf53c561d0b4024136cc692f48",
+    },
+};
+export const FT_CHAIN_IDS = [1, 146, 56];
+/**
+ * BNB Chain cannot be log-scanned on any free endpoint (dataseed / NodeReal
+ * answer "limit exceeded" for a full-history query, publicnode gates archive,
+ * blockrazor caps at 25 blocks), so its CANDIDATES come from Flying Tulip's own
+ * market API and every candidate is then validated against the live
+ * `assetCfg` — an address the registry does not list (zero IRM) is dropped.
+ * The values are always the chain's; the API only names the addresses.
+ */
+const FT_API_DISCOVERY = {
+    56: "https://api.flyingtulip.com/mm/lend?chainId=56",
+};
 /**
  * Endpoints chosen for `eth_getLogs` REACH, not latency — this is the repo's
  * standing "getLogs on free RPCs lies" rule. Both were validated against a
@@ -46,6 +76,7 @@ export const FT_CHAIN_IDS = [1, 146];
 const RPCS = {
     1: ["https://gateway.tenderly.co/public/mainnet", "https://eth.drpc.org"],
     146: ["https://rpc.soniclabs.com"],
+    56: ["https://bsc-dataseed.bnbchain.org", "https://binance.nodereal.io"],
 };
 /**
  * `AssetSet(address,(address,uint16,bool,address,bool,bool))`.
@@ -84,12 +115,15 @@ function clientFor(chainId) {
 }
 /** Enumerate every asset the ConfigRegistry has ever listed on `chainId`. */
 export async function discoverFlyingTulipAssets(chainId) {
+    const apiUrl = FT_API_DISCOVERY[chainId];
+    if (apiUrl)
+        return discoverViaApi(apiUrl);
     const client = clientFor(chainId);
     const logs = (await client.request({
         method: "eth_getLogs",
         params: [
             {
-                address: FT_CONFIG_REGISTRY,
+                address: FT_DEPLOYMENTS[chainId].configRegistry,
                 topics: [ASSET_SET_TOPIC],
                 fromBlock: "0x0",
                 toBlock: "latest",
@@ -105,9 +139,24 @@ export async function discoverFlyingTulipAssets(chainId) {
     }
     return [...seen];
 }
+async function discoverViaApi(url) {
+    const res = await fetch(url, { headers: { accept: "application/json" } });
+    if (!res.ok)
+        throw new Error(`Flying Tulip API ${res.status} for ${url}`);
+    const body = (await res.json());
+    const seen = new Set();
+    for (const chain of body?.data?.chains ?? []) {
+        for (const a of chain?.assets ?? []) {
+            if (typeof a?.address === "string")
+                seen.add(a.address.toLowerCase());
+        }
+    }
+    return [...seen];
+}
 /** Read the live config + state for a discovered roster. */
 export async function fetchFlyingTulipChain(chainId) {
     const client = clientFor(chainId);
+    const { configRegistry: FT_CONFIG_REGISTRY, lendingLens: FT_LENDING_LENS } = FT_DEPLOYMENTS[chainId];
     const addresses = await discoverFlyingTulipAssets(chainId);
     if (addresses.length === 0) {
         // Fail LOUDLY. There is no cached fallback and no view-based enumeration,
@@ -131,6 +180,10 @@ export async function fetchFlyingTulipChain(chainId) {
             read(address, ERC20_ABI, "decimals").catch(() => 18),
         ]);
         const cfg = await read(FT_LENDING_LENS, LENS_ABI, "assetCfg", [address]);
+        // API-discovered candidates (BNB) are only names: an address the registry
+        // never listed reads a zero IRM — not part of the book.
+        if (/^0x0{40}$/i.test(String(cfg[0])))
+            continue;
         const [supplyCap, borrowCap, depositPaused, withdrawPaused, borrowPaused] = await Promise.all([
             read(FT_LENDING_LENS, LENS_ABI, "supplyCap", [address]),
             read(FT_LENDING_LENS, LENS_ABI, "borrowCap", [address]),

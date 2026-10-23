@@ -98,6 +98,12 @@ export function normalizeGenericDescription(desc) {
     const coinbaseEquity = prefixStripped.match(/^Coinbase\s+([A-Z][A-Z0-9]{0,9})$/);
     if (coinbaseEquity)
         return `${coinbaseEquity[1]} / USD`;
+    // Chainlink's Robinhood Chain (4663) stock-token feeds: most read "RHNVDA / USD"
+    // (handled in symbolsMatch), some "Robinhood QQQ / USD" (the slash path above),
+    // and some "Robinhood SGOV-USD" with no slash at all.
+    const robinhoodDash = prefixStripped.match(/^Robinhood\s+([A-Z][A-Z0-9]{0,9})-([A-Z]{3,4})$/);
+    if (robinhoodDash)
+        return `${robinhoodDash[1]} / ${robinhoodDash[2]}`;
     // "TokenA-TokenB Exchange Rate"
     const erMatch = prefixStripped.match(/^(.+?)\s+[Ee]xchange\s+[Rr]ate$/i);
     if (erMatch) {
@@ -186,6 +192,11 @@ export function symbolsMatch(a, b) {
     if (!na || !nb)
         return false;
     if (na === nb)
+        return true;
+    // Robinhood Chain stock-token feeds prefix the ticker with "RH" ("RHNVDA / USD"
+    // prices NVDA). Only an exact "RH" + the other symbol matches.
+    const isRh = (feed, asset) => asset.length >= 2 && feed === `RH${asset}`;
+    if (isRh(na, nb) || isRh(nb, na))
         return true;
     // Last resort: an unmapped wrapped token vs its native feed symbol (WRON↔RON,
     // wrsETH↔rsETH). Only strip a leading "W" when a real symbol (len>=3) remains.
