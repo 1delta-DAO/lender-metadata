@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@1delta/abis':
-        specifier: ^0.0.56
-        version: 0.0.56
+        specifier: ^0.0.57
+        version: 0.0.57
       '@1delta/calldata-sdk':
-        specifier: ^0.0.235
-        version: 0.0.235(typescript@6.0.3)
+        specifier: ^0.0.238
+        version: 0.0.238(typescript@6.0.3)
       '@1delta/chain-registry':
         specifier: ^0.0.10
         version: 0.0.10
@@ -21,14 +21,14 @@ importers:
         specifier: ^0.0.67
         version: 0.0.67
       '@1delta/lender-registry':
-        specifier: ^0.0.55
-        version: 0.0.55
+        specifier: ^0.0.56
+        version: 0.0.56
       '@1delta/margin-fetcher':
-        specifier: ^5.0.138
-        version: 5.0.138(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
+        specifier: ^5.0.142
+        version: 5.0.142(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
       '@1delta/margin-fetcher-sol':
-        specifier: ^0.0.24
-        version: 0.0.24(@1delta/margin-fetcher@5.0.138(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12)))
+        specifier: ^0.0.27
+        version: 0.0.27(@1delta/margin-fetcher@5.0.142(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12)))
       '@1delta/providers':
         specifier: ^0.0.78
         version: 0.0.78(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
@@ -57,12 +57,12 @@ importers:
 
 packages:
 
-  '@1delta/abis@0.0.56':
-    resolution: {integrity: sha512-dmFRCw19cd8xD6zdpFmSIvoxZMK3yj7d4EqdjlBFzzaY7PF79WdBnxy26fupdQxfbFu4OlWyJ7WRKg+OggSD8g==}
+  '@1delta/abis@0.0.57':
+    resolution: {integrity: sha512-aIE4X6HOGPUiijEMQfKgaNfV4SWs/dogRz76fh/ZkYSox1vaLZXowLm5SrCPvtgrSMI9TL8tDqsqtmvO9VwCag==}
     engines: {node: '>=20'}
 
-  '@1delta/calldata-sdk@0.0.235':
-    resolution: {integrity: sha512-gJyzi8303YVWCF/AemL6FuGu+7OcZ09L/PVoHUiIxjzbcAMUTjeC8hxkkVA+VOlNxyhnqOz/4UVT1h2oV5DRAQ==}
+  '@1delta/calldata-sdk@0.0.238':
+    resolution: {integrity: sha512-csPQvvjHFJMozJ4XD5Gd2e1aGfd3rxgdtI+iDa6I08VoQOuMyNd8Xao2pOgGaR7j3lsT3PAH+kBUPxnpS2EPDw==}
     engines: {node: '>=20'}
     peerDependencies:
       '@1delta/universal-router': '*'
@@ -98,24 +98,20 @@ packages:
     resolution: {integrity: sha512-juUfEOKvbdmcoWsAjn6Wb0TPEHDMNwfK0c/PTEwzb+EX7N6jv6L/0mRiyF30iP+wuPVT1dlMAwfJ1ZdklMw4zA==}
     engines: {node: '>=20'}
 
-  '@1delta/lender-registry@0.0.53':
-    resolution: {integrity: sha512-rtjT62oUNxyEHfmLG/4oxuD9V92aHPvsQ+7qJLyl8vjrw6Al4brlvVFaoDqhoUd9dlUjC5ohpwwTKGzLpzrgbQ==}
+  '@1delta/lender-registry@0.0.56':
+    resolution: {integrity: sha512-BtgXCFm8lUeC4F7CFfpp59w1d13P/9AMxj8FTjwHSDZHutbbHeGSfTpG/TX5PXwlK0JxRl0ygOaDXnpWhCBahQ==}
     engines: {node: '>=20'}
 
-  '@1delta/lender-registry@0.0.55':
-    resolution: {integrity: sha512-qB5uF8CaxylLFaABq7Ynm+4NwgBdG4dnvP5mu+t0lOpjqj/XR5jekdZu9kL9yM0uOL8j8TotQ7y7oGlVbaInXw==}
-    engines: {node: '>=20'}
-
-  '@1delta/margin-fetcher-sol@0.0.24':
-    resolution: {integrity: sha512-u/reuT6oXXk7WjCkWL5DxFiq3l5h0zdUO1kK8zOfRVD2vnrH7I4ye/l75y9j1GQyumgf+ovDvlB0AS3fWKPv3g==}
+  '@1delta/margin-fetcher-sol@0.0.27':
+    resolution: {integrity: sha512-ix0fG86o0PFJkC49q+8zO+i+9BdxYSNTTajtWIqp59q8XoQy7icNZ4oTJg6FuLYyB3K/PvWopKLeeo+8bQOuOQ==}
     peerDependencies:
-      '@1delta/margin-fetcher': 5.0.127
+      '@1delta/margin-fetcher': 5.0.142
     peerDependenciesMeta:
       '@1delta/margin-fetcher':
         optional: true
 
-  '@1delta/margin-fetcher@5.0.138':
-    resolution: {integrity: sha512-TWgl4EHSskOZoVocESNTP3LeFbpGaMu3RBG34kNd6zQdPdXeK2L00W8EPIu6YMLVJArCtI0PZkI/g54PZDJgyA==}
+  '@1delta/margin-fetcher@5.0.142':
+    resolution: {integrity: sha512-LIouOYGdzOFy0F5Q82C8s4WWTiVKo0T3o7In8BGviIKdoc6P9zv+ox1+kdDaVWiU6fIUGJPnnpKpAt85+ULL5Q==}
 
   '@1delta/providers@0.0.78':
     resolution: {integrity: sha512-bxni3U598YV94h5/dzqze1oMYjx0rWuUDvXa8F2/5sr0Cmp+PmZhnwnAKj82c7JReR+bLfk5aA6BmcXJVXXWNw==}
@@ -804,16 +800,16 @@ packages:
 
 snapshots:
 
-  '@1delta/abis@0.0.56': {}
+  '@1delta/abis@0.0.57': {}
 
-  '@1delta/calldata-sdk@0.0.235(typescript@6.0.3)':
+  '@1delta/calldata-sdk@0.0.238(typescript@6.0.3)':
     dependencies:
-      '@1delta/abis': 0.0.56
+      '@1delta/abis': 0.0.57
       '@1delta/calldatalib': 0.0.57(viem@2.56.0(typescript@6.0.3))
       '@1delta/chain-registry': 0.0.10
       '@1delta/data-sdk': 0.0.67
       '@1delta/dex-registry': 0.0.108
-      '@1delta/lender-registry': 0.0.55
+      '@1delta/lender-registry': 0.0.56
       '@1delta/wnative': 0.0.14
       '@morpho-org/midnight-sdk': 1.3.0(@morpho-org/morpho-ts@2.10.0)(viem@2.56.0(typescript@6.0.3))
       '@morpho-org/morpho-ts': 2.10.0
@@ -844,26 +840,24 @@ snapshots:
 
   '@1delta/lender-registry@0.0.51': {}
 
-  '@1delta/lender-registry@0.0.53': {}
+  '@1delta/lender-registry@0.0.56': {}
 
-  '@1delta/lender-registry@0.0.55': {}
-
-  '@1delta/margin-fetcher-sol@0.0.24(@1delta/margin-fetcher@5.0.138(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12)))':
+  '@1delta/margin-fetcher-sol@0.0.27(@1delta/margin-fetcher@5.0.142(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12)))':
     dependencies:
       '@1delta/chain-registry': 0.0.10
-      '@1delta/lender-registry': 0.0.53
+      '@1delta/lender-registry': 0.0.56
       '@1delta/svm-kit': 0.0.4
     optionalDependencies:
-      '@1delta/margin-fetcher': 5.0.138(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
+      '@1delta/margin-fetcher': 5.0.142(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
 
-  '@1delta/margin-fetcher@5.0.138(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))':
+  '@1delta/margin-fetcher@5.0.142(@types/node@25.9.5)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))':
     dependencies:
-      '@1delta/abis': 0.0.56
-      '@1delta/calldata-sdk': 0.0.235(typescript@6.0.3)
+      '@1delta/abis': 0.0.57
+      '@1delta/calldata-sdk': 0.0.238(typescript@6.0.3)
       '@1delta/chain-registry': 0.0.10
       '@1delta/data-sdk': 0.0.67
       '@1delta/dex-registry': 0.0.108
-      '@1delta/lender-registry': 0.0.55
+      '@1delta/lender-registry': 0.0.56
       '@1delta/providers': 0.0.78(@types/node@25.9.5)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(tsx@4.23.12))
       '@1delta/proxy-fetch': 0.0.1
       '@1delta/wnative': 0.0.14

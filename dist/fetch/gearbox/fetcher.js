@@ -1,5 +1,5 @@
 import { stringToHex, zeroAddress } from "viem";
-import { multicallRetryUniversal } from "@1delta/providers";
+import { getEvmClientUniversal, multicallRetryUniversal } from "@1delta/providers";
 import { addressProviderV310Abi, marketCompressorAbi } from "./abi.js";
 const BOT_LIST_KEY = stringToHex("BOT_LIST", { size: 32 });
 // AddressProviderV310 is itself a v3.10-specific provider and stores all of its
@@ -14,24 +14,46 @@ const ADDRESS_PROVIDER_VERSION = 0n;
 export async function getV310CreditManagers(chainId, marketCompressor, configurators) {
     if (configurators.length === 0)
         return [];
-    const [markets] = (await multicallRetryUniversal({
-        chain: chainId,
-        calls: [
-            {
+    const filter = { configurators, pools: [], underlying: zeroAddress };
+    let markets;
+    try {
+        const [viaMulticall] = (await multicallRetryUniversal({
+            chain: chainId,
+            calls: [{ address: marketCompressor, name: "getMarkets", args: [filter] }],
+            abi: marketCompressorAbi,
+            allowFailure: false,
+        }));
+        if (Array.isArray(viaMulticall) && viaMulticall.length)
+            markets = viaMulticall;
+    }
+    catch {
+        // fall through to the direct call
+    }
+    // `getMarkets` walks every market of the configurators. On Monad the inner
+    // call runs out of gas inside Multicall3's `aggregate3` and comes back as an
+    // empty result rather than an error — a SILENT "no credit managers", which
+    // left all 21 Monad CMs without a label (the Curvance ProtocolReader trap).
+    // A direct `eth_call` has the full gas budget; rotate RPCs on failure.
+    let lastErr;
+    for (let rpcId = 0; !markets && rpcId < 4; rpcId++) {
+        try {
+            markets = (await getEvmClientUniversal({
+                chain: chainId,
+                rpcId,
+                timeoutMs: 30_000,
+            }).readContract({
                 address: marketCompressor,
-                name: "getMarkets",
-                args: [
-                    {
-                        configurators,
-                        pools: [],
-                        underlying: zeroAddress,
-                    },
-                ],
-            },
-        ],
-        abi: marketCompressorAbi,
-        allowFailure: false,
-    }));
+                abi: marketCompressorAbi,
+                functionName: "getMarkets",
+                args: [filter],
+            }));
+        }
+        catch (e) {
+            lastErr = e;
+        }
+    }
+    if (!markets)
+        throw lastErr ?? new Error(`getMarkets returned nothing on ${chainId}`);
     const out = [];
     for (const market of markets ?? []) {
         for (const suite of market.creditManagers ?? []) {
@@ -46,6 +68,9 @@ export async function getV310CreditManagers(chainId, marketCompressor, configura
                 name,
                 expirationDate: BigInt(facade?.expirationDate ?? 0),
                 isPaused: Boolean(facade?.isPaused),
+                poolSymbol: typeof market?.pool?.symbol === "string" && market.pool.symbol
+                    ? market.pool.symbol
+                    : undefined,
             });
         }
     }
