@@ -1559,6 +1559,33 @@
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": []
+    },
+    "0xaf22446124e566e54845f65b722e4dcbf12b650a": {
+      "spoke": "0xaf22446124e566e54845f65b722e4dcbf12b650a",
+      "oracle": "0xc918cc59e268000e93f63c5afff3e3cef98c6e97",
+      "label": "Spoke 0xaf22..650a",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 7,
+          "underlying": "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34",
+          "hub": "0xd07369fae4a5bb13c9ce446b052c7867b1abdf6e"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 3,
+          "underlying": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+          "hub": "0xd07369fae4a5bb13c9ce446b052c7867b1abdf6e"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 2,
+          "underlying": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+          "hub": "0xd07369fae4a5bb13c9ce446b052c7867b1abdf6e"
+        }
+      ]
     }
   }
 }

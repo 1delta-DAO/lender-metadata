@@ -5465,23 +5465,33 @@
     "56": [
       {
         "cToken": "0xea0096142fbb56aac0f594ed1d4de3e4de638f22",
-        "underlying": "0x55d398326f99059ff775485246999027b3197955"
+        "underlying": "0x55d398326f99059ff775485246999027b3197955",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0x6adb5e462ac6ea880246f24e3c47d23f70fccbf6",
-        "underlying": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
+        "underlying": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0x713bbaa44dc99e691f1f9fe8086fc328e94b6f27",
-        "underlying": "0xce24439f2d9c6a2289f741120fe202248b666666"
+        "underlying": "0xce24439f2d9c6a2289f741120fe202248b666666",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0xea32b70f4106d9ef6f0ff95f7422fa679494c362",
-        "underlying": "0x205812cdbed920aff76c6580abd681a46d11efc7"
+        "underlying": "0x205812cdbed920aff76c6580abd681a46d11efc7",
+        "mintPaused": false,
+        "borrowPaused": false
       },
       {
         "cToken": "0x259311a868b49cda457c1843f89d4dda33be0390",
-        "underlying": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8"
+        "underlying": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "mintPaused": false,
+        "borrowPaused": false
       }
     ]
   },

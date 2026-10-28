@@ -877,6 +877,24 @@
       "spoke": "0x6a37776b5e026dbdf043b4f933c323c84dd1b514",
       "reserveId": 2,
       "oracle": "0xeca623e8c923a103eef75cd127cc8bf8ff886cf5"
+    },
+    {
+      "underlying": "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34",
+      "spoke": "0xaf22446124e566e54845f65b722e4dcbf12b650a",
+      "reserveId": 0,
+      "oracle": "0xc918cc59e268000e93f63c5afff3e3cef98c6e97"
+    },
+    {
+      "underlying": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+      "spoke": "0xaf22446124e566e54845f65b722e4dcbf12b650a",
+      "reserveId": 1,
+      "oracle": "0xc918cc59e268000e93f63c5afff3e3cef98c6e97"
+    },
+    {
+      "underlying": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "spoke": "0xaf22446124e566e54845f65b722e4dcbf12b650a",
+      "reserveId": 2,
+      "oracle": "0xc918cc59e268000e93f63c5afff3e3cef98c6e97"
     }
   ]
 }
