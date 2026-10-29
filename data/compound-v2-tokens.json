@@ -5844,14 +5844,12 @@
       {
         "cToken": "0xef86384cf696929c3227428f539e740ee12fcdc7",
         "underlying": "0xf88506b0f1d30056b9e5580668d5875b9cd30f23",
-        "mintPaused": true,
         "borrowPaused": true
       },
       {
         "cToken": "0x959f30f765a44273eccaa0fac094160aa7c238e2",
         "underlying": "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
-        "mintPaused": false,
-        "borrowPaused": true
+        "mintPaused": false
       }
     ],
     "56": [
