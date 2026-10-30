@@ -208,7 +208,7 @@
       "spoke": "0x65407b940966954b23dfa3caa5c0702bb42984dc",
       "oracle": "0x0083421fd178749af2201dda5a7c3feb5790b80c",
       "label": "Gold",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 1,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -265,7 +265,7 @@
       "spoke": "0xd8b93635b8c6d0ff98cbe90b5988e3f2d1cd9da1",
       "oracle": "0xb3ce6e7b6d389a66ea4a3777ba07219d00fb3a9d",
       "label": "Forex",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 1,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -981,7 +981,7 @@
       "spoke": "0xad75ce6354f87f3135ce10621d385d8d1e2562c2",
       "oracle": "0x8cecc12b23ed45ec2a9b9eb57ea6974c0cae850b",
       "label": "PAXG Gold",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 1,
       "baseHubAttribution": "AAVE_V4_GLOBAL_DOLLAR",
       "reserves": [
         {
@@ -1223,7 +1223,7 @@
       "spoke": "0xb843bdc3a87a05e77e07df9fe48928b3a34b134d",
       "oracle": "0x6ffe98f3422041236c19923edb949f18a69e8a09",
       "label": "Main",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 1,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -1256,7 +1256,7 @@
       "spoke": "0x4164ebcaf74670aa74c8d4f59de6157c0780f1bb",
       "oracle": "0x2abd2b5c30d649273b3b762b0e1758bac8f87cfe",
       "label": "Forex",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 1,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -1415,7 +1415,7 @@
       "spoke": "0x435272ceff93a1e657e8abfdf0a13e95900a3a56",
       "oracle": "0x84b50b131a82da689c0205c00d603c1c92a5f8a4",
       "label": "Main",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 1,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -1460,7 +1460,7 @@
       "spoke": "0x3b517594277c67307cf2d7cbe6fe1d4399b68c41",
       "oracle": "0xb2216b2b2dc77e027afeaaaf965e323012757fa0",
       "label": "AVAX Correlated",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 1,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -1497,7 +1497,7 @@
       "spoke": "0x6a37776b5e026dbdf043b4f933c323c84dd1b514",
       "oracle": "0xeca623e8c923a103eef75cd127cc8bf8ff886cf5",
       "label": "Forex",
-      "dynamicConfigKeyMax": 0,
+      "dynamicConfigKeyMax": 1,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -1563,7 +1563,7 @@
     "0xaf22446124e566e54845f65b722e4dcbf12b650a": {
       "spoke": "0xaf22446124e566e54845f65b722e4dcbf12b650a",
       "oracle": "0xc918cc59e268000e93f63c5afff3e3cef98c6e97",
-      "label": "Spoke 0xaf22..650a",
+      "label": "Ethena Ecosystem",
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [

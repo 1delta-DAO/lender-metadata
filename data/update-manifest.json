@@ -1,20 +1,11 @@
 {
-  "version": "2026-10-28T09-02-59-002Z",
-  "generatedAt": "2026-10-28T09:02:59.002Z",
+  "version": "2026-10-30T18-55-02-741Z",
+  "generatedAt": "2026-10-30T18:55:02.741Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-type-oracles.json",
-    "./data/morpho-oracles-data.json",
-    "./data/aave-reserves.json",
-    "./data/aave-tokens.json",
-    "./config/aave-pools.json",
-    "./data/compound-v2-tokens.json",
-    "./data/compound-v2-c-tokens.json",
     "./data/euler-vaults.json",
     "./data/aave-v4-spokes.json",
-    "./data/aave-v4-oracles.json",
-    "./data/aave-v4-oracle-sources.json",
-    "./config/aave-v4-peripherals.json",
     "./data/lender-labels.json",
     "./data/silo-v3-markets.json",
     "./data/lender-labels.json",
@@ -23,7 +14,9 @@
     "./data/lender-labels.json",
     "./data/term-finance-markets.json",
     "./data/lender-labels.json",
-    "./config/inverse.json"
+    "./data/lender-labels.json",
+    "./config/inverse.json",
+    "./config/resupply.json"
   ],
   "results": [
     {
