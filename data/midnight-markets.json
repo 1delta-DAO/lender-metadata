@@ -2890,13 +2890,6 @@
       "loanDecimals": 6,
       "collateralParams": [
         {
-          "token": "0xd3fD63209FA2D55B07A0f6db36C2f43900be3094",
-          "lltv": "945000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x938D2eDb20425cF80F008E7ec314Eb456940Da15",
-          "decimals": 18
-        },
-        {
           "token": "0x09409fa71bCfd3f433571dbeec0C0A9C19B0d30E",
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
@@ -2911,6 +2904,13 @@
             "performanceFee": "0",
             "managementFee": "0"
           }
+        },
+        {
+          "token": "0xd3fD63209FA2D55B07A0f6db36C2f43900be3094",
+          "lltv": "945000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x938D2eDb20425cF80F008E7ec314Eb456940Da15",
+          "decimals": 18
         }
       ],
       "maturity": "1793372400",
@@ -2936,7 +2936,7 @@
       "marketFamilyId": "0xc9019900d3c49b0764995c71e4598d8ba7bfd8c4ccedfa0163a1de3ca9c619bd",
       "tenorSeriesId": "d2d99538-842e-45f1-8186-100279dba21a",
       "listed": false,
-      "name": "wsrUSD+vUSDC/USDC - 2026-10-30"
+      "name": "vUSDC+wsrUSD/USDC - 2026-10-30"
     },
     {
       "marketId": "0xc9d2637352778032cf8a486f9e8b32e85caba81c5b193aa302cd7c1650b7fc71",
