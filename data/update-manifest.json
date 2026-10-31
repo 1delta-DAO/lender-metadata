@@ -1,13 +1,11 @@
 {
-  "version": "2026-10-30T18-55-02-741Z",
-  "generatedAt": "2026-10-30T18:55:02.741Z",
+  "version": "2026-10-31T07-48-46-826Z",
+  "generatedAt": "2026-10-31T07:48:46.826Z",
   "updatedFiles": [
     "./data/lender-labels.json",
-    "./data/morpho-type-oracles.json",
+    "./data/morpho-oracles-data.json",
     "./data/euler-vaults.json",
-    "./data/aave-v4-spokes.json",
     "./data/lender-labels.json",
-    "./data/silo-v3-markets.json",
     "./data/lender-labels.json",
     "./data/lender-labels.json",
     "./data/midnight-markets.json",
@@ -15,8 +13,7 @@
     "./data/term-finance-markets.json",
     "./data/lender-labels.json",
     "./data/lender-labels.json",
-    "./config/inverse.json",
-    "./config/resupply.json"
+    "./config/inverse.json"
   ],
   "results": [
     {
