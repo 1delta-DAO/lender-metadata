@@ -1390,6 +1390,12 @@
           "assetId": 7,
           "underlying": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
           "hub": "0xa4d5947eb727a052bae69c593ffc84247ec9864e"
+        },
+        {
+          "reserveId": 8,
+          "assetId": 8,
+          "underlying": "0xb2000000000000000000007b9fcbd005511acbd5",
+          "hub": "0xa4d5947eb727a052bae69c593ffc84247ec9864e"
         }
       ]
     },
@@ -1415,7 +1421,7 @@
       "spoke": "0x435272ceff93a1e657e8abfdf0a13e95900a3a56",
       "oracle": "0x84b50b131a82da689c0205c00d603c1c92a5f8a4",
       "label": "Main",
-      "dynamicConfigKeyMax": 1,
+      "dynamicConfigKeyMax": 2,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
@@ -1460,7 +1466,7 @@
       "spoke": "0x3b517594277c67307cf2d7cbe6fe1d4399b68c41",
       "oracle": "0xb2216b2b2dc77e027afeaaaf965e323012757fa0",
       "label": "AVAX Correlated",
-      "dynamicConfigKeyMax": 1,
+      "dynamicConfigKeyMax": 2,
       "baseHubAttribution": "AAVE_V4_CORE",
       "reserves": [
         {
