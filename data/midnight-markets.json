@@ -1579,7 +1579,7 @@
       "marketFamilyId": "0x5ae4d97c74f34a5bbc39918f9b7677b69ebd0d021161efac02516a3d73e4432a",
       "tenorSeriesId": "0d4552a6-307e-4655-b551-2249604f0fc2",
       "listed": true,
-      "name": "USDC+WETH/USDC - 2026-12-25"
+      "name": "USDC+WETH/USDC - 2026-12-25 · Ethereum"
     },
     {
       "marketId": "0x79bb386572c3de21d3dc53272043b1463cd1cddd1d6871b708902b824da482c7",
@@ -4068,7 +4068,7 @@
       "marketFamilyId": "0x5ae4d97c74f34a5bbc39918f9b7677b69ebd0d021161efac02516a3d73e4432a",
       "tenorSeriesId": "0d4552a6-307e-4655-b551-2249604f0fc2",
       "listed": true,
-      "name": "USDC+WETH/USDC - 2027-01-29"
+      "name": "USDC+WETH/USDC - 2027-01-29 · Ethereum"
     },
     {
       "marketId": "0xf9c1a9849863863a87600beb24394985a04ad3256b0c750baee0841f35f7f0e2",
@@ -6785,18 +6785,18 @@
       "loanDecimals": 6,
       "collateralParams": [
         {
-          "token": "0x4200000000000000000000000000000000000006",
-          "lltv": "860000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0xFEa2D58cEfCb9fcb597723c6bAE66fFE4193aFE4",
-          "decimals": 18
-        },
-        {
           "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
           "oracle": "0x4429112b3C00b40Cf295db81cfcdE39d7d5ADC1d",
           "decimals": 6
+        },
+        {
+          "token": "0x4200000000000000000000000000000000000006",
+          "lltv": "860000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0xFEa2D58cEfCb9fcb597723c6bAE66fFE4193aFE4",
+          "decimals": 18
         }
       ],
       "maturity": "1801234800",
@@ -6822,7 +6822,7 @@
       "marketFamilyId": "0x92b18691b0c6c90f346b343ed0d14774d01a3547c9535e8da4e61935d53f6322",
       "tenorSeriesId": "eb8d3df5-7432-4542-9213-d89b00880d33",
       "listed": true,
-      "name": "WETH+USDC/USDC - 2027-01-29"
+      "name": "USDC+WETH/USDC - 2027-01-29 · Base"
     },
     {
       "marketId": "0x3f28cbc62413c92a994a78eed89212ebb876569e18c621a70efe4894bbed7e33",
@@ -8954,18 +8954,18 @@
       "loanDecimals": 6,
       "collateralParams": [
         {
-          "token": "0x4200000000000000000000000000000000000006",
-          "lltv": "860000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0xFEa2D58cEfCb9fcb597723c6bAE66fFE4193aFE4",
-          "decimals": 18
-        },
-        {
           "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
           "oracle": "0x4429112b3C00b40Cf295db81cfcdE39d7d5ADC1d",
           "decimals": 6
+        },
+        {
+          "token": "0x4200000000000000000000000000000000000006",
+          "lltv": "860000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0xFEa2D58cEfCb9fcb597723c6bAE66fFE4193aFE4",
+          "decimals": 18
         }
       ],
       "maturity": "1798210800",
@@ -8991,7 +8991,7 @@
       "marketFamilyId": "0x92b18691b0c6c90f346b343ed0d14774d01a3547c9535e8da4e61935d53f6322",
       "tenorSeriesId": "eb8d3df5-7432-4542-9213-d89b00880d33",
       "listed": true,
-      "name": "WETH+USDC/USDC - 2026-12-25"
+      "name": "USDC+WETH/USDC - 2026-12-25 · Base"
     },
     {
       "marketId": "0x9593c3a6dba45b6106af8dc8b45ba8c505d90d3d68a3d33f7c278dd921b637da",
