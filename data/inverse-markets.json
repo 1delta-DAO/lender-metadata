@@ -261,6 +261,19 @@
           "dailyLimit": "500000",
           "borrowPaused": false,
           "name": "ysyBOLD"
+        },
+        {
+          "address": "0x529203f9f07c66d2d96812e3d942387312fab0ee",
+          "collToken": "0xfa80c7349cc2357c42a64c2954b24b1a61c29435",
+          "collDecimals": 18,
+          "escrowImplementation": "0xd591d4573e867967596a934724aa8492b025a22c",
+          "collateralFactorBps": "8500",
+          "liquidationIncentiveBps": "500",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "500000",
+          "borrowPaused": false,
+          "name": "sSwanUSD"
         }
       ]
     }
