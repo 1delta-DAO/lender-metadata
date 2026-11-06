@@ -1317,6 +1317,50 @@
       "name": "USDC+ROY-ST-apyUSD/USDC - 2026-12-25"
     },
     {
+      "marketId": "0x68d1cdf5554d11d09e8ffd15a51f223cce588c367cf1787f8b7cb5a99047a1a9",
+      "loanToken": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0x6DFF69eb720986E98Bb3E8b26cb9E02Ec1a35D12",
+          "lltv": "915000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x0604084149dCB25a1739899624333D69dB1A507e",
+          "decimals": 18
+        },
+        {
+          "token": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+          "lltv": "980000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x8d1A84515B54C58bAc3b18315B6b1f17dA5cf6ca",
+          "decimals": 6
+        }
+      ],
+      "maturity": "1794553200",
+      "rcfThreshold": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0x0000000000000000000000000000000000000000",
+      "gating": {
+        "enter": "open",
+        "liquidator": "open",
+        "enterGate": "0x0000000000000000000000000000000000000000",
+        "liquidatorGate": "0x0000000000000000000000000000000000000000"
+      },
+      "settlementFeeCbp": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "continuousFee": "0",
+      "marketFamilyId": "0xa676dd45286adc25db937e8cb47f762ef2d71668c9f400a88bc375f53f907d4e",
+      "listed": false,
+      "name": "syzUSD+PYUSD/PYUSD - 2026-11-13"
+    },
+    {
       "marketId": "0x6a467e5d8482dbde25f057f33d8cb4366898e0a497877f46e26f33b7c2d4bf30",
       "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "loanDecimals": 6,
@@ -10165,6 +10209,13 @@
       "loanDecimals": 6,
       "collateralParams": [
         {
+          "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+          "lltv": "860000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x663BECd10daE6C4A3Dcd89F1d76c1174199639B9",
+          "decimals": 8
+        },
+        {
           "token": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC",
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
@@ -10179,13 +10230,6 @@
             "performanceFee": "0",
             "managementFee": "0"
           }
-        },
-        {
-          "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
-          "lltv": "860000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x663BECd10daE6C4A3Dcd89F1d76c1174199639B9",
-          "decimals": 8
         }
       ],
       "maturity": "1795046400",
@@ -10212,7 +10256,7 @@
       "tenorSeriesId": "e7041445-c77d-4406-922a-1f7f33dd6ac0",
       "listed": false,
       "deprecatedAt": "1787256155",
-      "name": "vUSDC+cbBTC/USDC - 2026-11-19"
+      "name": "cbBTC+vUSDC/USDC - 2026-11-19"
     },
     {
       "marketId": "0x77e1173af62e15bddc3db641673d25c3983df60ed45ee27841f0f67f7cb23861",
@@ -13859,13 +13903,6 @@
       "loanDecimals": 6,
       "collateralParams": [
         {
-          "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
-          "lltv": "860000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x663BECd10daE6C4A3Dcd89F1d76c1174199639B9",
-          "decimals": 8
-        },
-        {
           "token": "0xf6a70085b7f79FA76B04EbF7A2D7D87C3c5c04BC",
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
@@ -13880,6 +13917,13 @@
             "performanceFee": "0",
             "managementFee": "0"
           }
+        },
+        {
+          "token": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+          "lltv": "860000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x663BECd10daE6C4A3Dcd89F1d76c1174199639B9",
+          "decimals": 8
         }
       ],
       "maturity": "1797465600",
@@ -13906,7 +13950,7 @@
       "tenorSeriesId": "e7041445-c77d-4406-922a-1f7f33dd6ac0",
       "listed": false,
       "deprecatedAt": "1787256155",
-      "name": "cbBTC+vUSDC/USDC - 2026-12-17"
+      "name": "vUSDC+cbBTC/USDC - 2026-12-17"
     },
     {
       "marketId": "0xdc209b64f909313bd3f54133ac5716a0a3ea03f7faa6332f75d906de16bd2893",
