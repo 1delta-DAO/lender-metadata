@@ -171,7 +171,8 @@
       },
       {
         "underlying": "0x73A15FeD60Bf67631dC6cd7Bc5B6e8da8190aCF5",
-        "vault": "0xe3eb096CD9A87c271567b0134f6dE061c112A9E7"
+        "vault": "0xe3eb096CD9A87c271567b0134f6dE061c112A9E7",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -251,7 +252,8 @@
       },
       {
         "underlying": "0x437cc33344a0B27A429f795ff6B469C72698B291",
-        "vault": "0xea0C048c728578b1510EBDF9b692E8936D6Fbc90"
+        "vault": "0xea0C048c728578b1510EBDF9b692E8936D6Fbc90",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -435,7 +437,8 @@
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
-        "vault": "0xAb254591B63138247eCcDF82170Eb64890d36b1B"
+        "vault": "0xAb254591B63138247eCcDF82170Eb64890d36b1B",
+        "fixedRate": true
       },
       {
         "underlying": "0x2C537E5624e4af88A7ae4060C022609376C8D0EB",
@@ -463,7 +466,8 @@
       },
       {
         "underlying": "0x437cc33344a0B27A429f795ff6B469C72698B291",
-        "vault": "0x9c6e67fA86138Ab49359F595BfE4Fb163D0f16cc"
+        "vault": "0x9c6e67fA86138Ab49359F595BfE4Fb163D0f16cc",
+        "fixedRate": true
       },
       {
         "underlying": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD",
@@ -515,7 +519,8 @@
       },
       {
         "underlying": "0xDD629E5241CbC5919847783e6C96B2De4754e438",
-        "vault": "0x298966b32C968884F716F762f6759e8e5811aE14"
+        "vault": "0x298966b32C968884F716F762f6759e8e5811aE14",
+        "fixedRate": true
       },
       {
         "underlying": "0x18084fbA666a33d37592fA2633fD49a74DD93a88",
@@ -567,7 +572,8 @@
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
-        "vault": "0xB77e25555C2b3e6BCe5329D83eFD248534A907Aa"
+        "vault": "0xB77e25555C2b3e6BCe5329D83eFD248534A907Aa",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -819,7 +825,8 @@
       },
       {
         "underlying": "0x66a1E37c9b0eAddca17d3662D6c05F4DECf3e110",
-        "vault": "0x3A8992754E2EF51D8F90620d2766278af5C59b90"
+        "vault": "0x3A8992754E2EF51D8F90620d2766278af5C59b90",
+        "fixedRate": true
       },
       {
         "underlying": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
@@ -835,7 +842,8 @@
       },
       {
         "underlying": "0x3eE841F47947FEFbE510366E4bbb49e145484195",
-        "vault": "0xc60400289B32E840909795a063aeccFb093E0b47"
+        "vault": "0xc60400289B32E840909795a063aeccFb093E0b47",
+        "fixedRate": true
       },
       {
         "underlying": "0x45054c6753b4Bce40C5d54418DabC20b070F85bE",
@@ -851,7 +859,8 @@
       },
       {
         "underlying": "0x69000dFD5025E82f48Eb28325A2B88a241182CEd",
-        "vault": "0xd89489EEEC8A497E22e64e31c52e97AC9ffEa5FF"
+        "vault": "0xd89489EEEC8A497E22e64e31c52e97AC9ffEa5FF",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -883,7 +892,8 @@
       },
       {
         "underlying": "0x437cc33344a0B27A429f795ff6B469C72698B291",
-        "vault": "0x48Afe17cB6363fD1aaeA50a8CB652C5978972c96"
+        "vault": "0x48Afe17cB6363fD1aaeA50a8CB652C5978972c96",
+        "fixedRate": true
       },
       {
         "underlying": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
@@ -1087,11 +1097,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0xE27A96f4c9528e3d32E6f31c6aCa9281EbEA0338"
+        "vault": "0xE27A96f4c9528e3d32E6f31c6aCa9281EbEA0338",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x997733888e6F5606E9f0fd18c09e4b46549cC11e"
+        "vault": "0x997733888e6F5606E9f0fd18c09e4b46549cC11e",
+        "fixedRate": true
       },
       {
         "underlying": "0xaD55aebc9b8c03FC43cd9f62260391c13c23e7c0",
@@ -1099,15 +1111,18 @@
       },
       {
         "underlying": "0x90455bd11Ce8a67C57d467e634Dc142b8e4105Aa",
-        "vault": "0x75f66ed34c274eaD52CFA25De9388E98e12Edb33"
+        "vault": "0x75f66ed34c274eaD52CFA25De9388E98e12Edb33",
+        "fixedRate": true
       },
       {
         "underlying": "0x35D8949372D46B7a3D5A56006AE77B215fc69bC0",
-        "vault": "0xF037eeEBA7729c39114B9711c75FbccCa4A343C8"
+        "vault": "0xF037eeEBA7729c39114B9711c75FbccCa4A343C8",
+        "fixedRate": true
       },
       {
         "underlying": "0x73A15FeD60Bf67631dC6cd7Bc5B6e8da8190aCF5",
-        "vault": "0xd001f0a15D272542687b2677BA627f48A4333b5d"
+        "vault": "0xd001f0a15D272542687b2677BA627f48A4333b5d",
+        "fixedRate": true
       },
       {
         "underlying": "0x83e0698654dF4bC9F888c635ebE1382F0E4F7a61",
@@ -1251,27 +1266,33 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x959Ae4dD74fD525b33Ff0ff776B4b352abd48322"
+        "vault": "0x959Ae4dD74fD525b33Ff0ff776B4b352abd48322",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0xDF78489C3cFC738194afE34fb3F379c0A3E0c5Db"
+        "vault": "0xDF78489C3cFC738194afE34fb3F379c0A3E0c5Db",
+        "fixedRate": true
       },
       {
         "underlying": "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
-        "vault": "0xc943c1CDD7b3Fbb6A77f571698406b418C902f0c"
+        "vault": "0xc943c1CDD7b3Fbb6A77f571698406b418C902f0c",
+        "fixedRate": true
       },
       {
         "underlying": "0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD",
-        "vault": "0x17d4Fb15a85eC7042c23490A9D69F3D1e69Dd2A1"
+        "vault": "0x17d4Fb15a85eC7042c23490A9D69F3D1e69Dd2A1",
+        "fixedRate": true
       },
       {
         "underlying": "0x437cc33344a0B27A429f795ff6B469C72698B291",
-        "vault": "0xb85782faD5c5C5f88DbD1A69e2dCf8BF0c303bFb"
+        "vault": "0xb85782faD5c5C5f88DbD1A69e2dCf8BF0c303bFb",
+        "fixedRate": true
       },
       {
         "underlying": "0x07a36C630e3F072637da3445Da733B29958D8cAB",
-        "vault": "0x140AAE127acAcb5A54E4249c0ba879c39E33541c"
+        "vault": "0x140AAE127acAcb5A54E4249c0ba879c39E33541c",
+        "fixedRate": true
       },
       {
         "underlying": "0x136471a34f6ef19fE571EFFC1CA711fdb8E49f2b",
@@ -1283,15 +1304,18 @@
       },
       {
         "underlying": "0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812",
-        "vault": "0x59FbeBFA008b718234438548C9eF8D32706b5cE5"
+        "vault": "0x59FbeBFA008b718234438548C9eF8D32706b5cE5",
+        "fixedRate": true
       },
       {
         "underlying": "0x7751E2F4b8ae93EF6B79d86419d42FE3295A4559",
-        "vault": "0x8B69725A01Ea305b3240680d16bB8561373A96F3"
+        "vault": "0x8B69725A01Ea305b3240680d16bB8561373A96F3",
+        "fixedRate": true
       },
       {
         "underlying": "0xDD629E5241CbC5919847783e6C96B2De4754e438",
-        "vault": "0x1F39EDcEf393b0A8883772CDA202EEdeEc99d9c4"
+        "vault": "0x1F39EDcEf393b0A8883772CDA202EEdeEc99d9c4",
+        "fixedRate": true
       },
       {
         "underlying": "0x7CF7E938312AFEd7e9D7885783e642b1E1F8618C",
@@ -1307,7 +1331,8 @@
       },
       {
         "underlying": "0xdA67B4284609d2d48e5d10cfAc411572727dc1eD",
-        "vault": "0xc1fF5490651B9B8d0400B0146E7fb174B90E315B"
+        "vault": "0xc1fF5490651B9B8d0400B0146E7fb174B90E315B",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -1319,7 +1344,8 @@
       },
       {
         "underlying": "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
-        "vault": "0x328646cdfBaD730432620d845B8F5A2f7D786C01"
+        "vault": "0x328646cdfBaD730432620d845B8F5A2f7D786C01",
+        "fixedRate": true
       },
       {
         "underlying": "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
@@ -1335,7 +1361,8 @@
       },
       {
         "underlying": "0x09D4214C03D01F49544C0448DBE3A27f768F2b34",
-        "vault": "0x6DFC8ae855FA8Ab7bAbB81aB7c8a6DA7794f60fB"
+        "vault": "0x6DFC8ae855FA8Ab7bAbB81aB7c8a6DA7794f60fB",
+        "fixedRate": true
       },
       {
         "underlying": "0xd3fD63209FA2D55B07A0f6db36C2f43900be3094",
@@ -1367,7 +1394,8 @@
       },
       {
         "underlying": "0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD",
-        "vault": "0xc2d36F41841B420937643dcccbEa8163D4F59B6c"
+        "vault": "0xc2d36F41841B420937643dcccbEa8163D4F59B6c",
+        "fixedRate": true
       },
       {
         "underlying": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -1379,7 +1407,8 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x5647fbA0BB080d845d4CbcE84948A06E1f4Cdc86"
+        "vault": "0x5647fbA0BB080d845d4CbcE84948A06E1f4Cdc86",
+        "fixedRate": true
       },
       {
         "underlying": "0xbB51E2a15A9158EBE2b0Ceb8678511e063AB7a55",
@@ -1391,7 +1420,8 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x4964dFb7a710B2E8d6868CFa40229e705Ceb33CE"
+        "vault": "0x4964dFb7a710B2E8d6868CFa40229e705Ceb33CE",
+        "fixedRate": true
       },
       {
         "underlying": "0x030b69280892c888670EDCDCD8B69Fd8026A0BF3",
@@ -1403,11 +1433,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0xbeB594136510D778bB4b843E60A1984a64Bc40aE"
+        "vault": "0xbeB594136510D778bB4b843E60A1984a64Bc40aE",
+        "fixedRate": true
       },
       {
         "underlying": "0x7C1156E515aA1A2E851674120074968C905aAF37",
-        "vault": "0xCEBE3008BDBA095A08b3ea6d5600CFeFbFbb11EC"
+        "vault": "0xCEBE3008BDBA095A08b3ea6d5600CFeFbFbb11EC",
+        "fixedRate": true
       },
       {
         "underlying": "0x4737D9b4592B40d51e110b94c9C043c6654067Ae",
@@ -1423,7 +1455,8 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x98281466aBcF48eAAD8c6E22dEdD18A3426A93b4"
+        "vault": "0x98281466aBcF48eAAD8c6E22dEdD18A3426A93b4",
+        "fixedRate": true
       },
       {
         "underlying": "0x030b69280892c888670EDCDCD8B69Fd8026A0BF3",
@@ -1435,7 +1468,8 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x09136DAC538B54994170a6905507a74562A80ed3"
+        "vault": "0x09136DAC538B54994170a6905507a74562A80ed3",
+        "fixedRate": true
       },
       {
         "underlying": "0xbB51E2a15A9158EBE2b0Ceb8678511e063AB7a55",
@@ -1447,11 +1481,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0xF4Bc4239eDca81ed0d305701CB18A5Fd82cd06Ca"
+        "vault": "0xF4Bc4239eDca81ed0d305701CB18A5Fd82cd06Ca",
+        "fixedRate": true
       },
       {
         "underlying": "0x7C1156E515aA1A2E851674120074968C905aAF37",
-        "vault": "0xfc6f3A2Badb53973F69449Da690Cfef84dc4a359"
+        "vault": "0xfc6f3A2Badb53973F69449Da690Cfef84dc4a359",
+        "fixedRate": true
       },
       {
         "underlying": "0x4737D9b4592B40d51e110b94c9C043c6654067Ae",
@@ -1467,7 +1503,8 @@
       },
       {
         "underlying": "0xaD55aebc9b8c03FC43cd9f62260391c13c23e7c0",
-        "vault": "0xc455D77597353264E4BA9BED7Ac9daF8e05029C9"
+        "vault": "0xc455D77597353264E4BA9BED7Ac9daF8e05029C9",
+        "fixedRate": true
       },
       {
         "underlying": "0xaD55aebc9b8c03FC43cd9f62260391c13c23e7c0",
@@ -1483,7 +1520,8 @@
       },
       {
         "underlying": "0x933B9FfEE0Ad3Ef8E4DBb52688ea905826D73755",
-        "vault": "0x50588aEA583A9dF5076EE990329871296618eD58"
+        "vault": "0x50588aEA583A9dF5076EE990329871296618eD58",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -1551,7 +1589,8 @@
       },
       {
         "underlying": "0x07a36C630e3F072637da3445Da733B29958D8cAB",
-        "vault": "0xC51e90b48FD7fBfF316502b85A71e0EBb1ee5238"
+        "vault": "0xC51e90b48FD7fBfF316502b85A71e0EBb1ee5238",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -1567,11 +1606,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x3573A84Bee11D49A1CbCe2b291538dE7a7dD81c6"
+        "vault": "0x3573A84Bee11D49A1CbCe2b291538dE7a7dD81c6",
+        "fixedRate": true
       },
       {
         "underlying": "0xFa2B947eEc368f42195f24F36d2aF29f7c24CeC2",
-        "vault": "0x412D0E31790D77b6e7a7872a9fd6967B6E640229"
+        "vault": "0x412D0E31790D77b6e7a7872a9fd6967B6E640229",
+        "fixedRate": true
       },
       {
         "underlying": "0xc8CF6D7991f15525488b2A83Df53468D682Ba4B0",
@@ -1583,11 +1624,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x81f8ac1a4756BfE9D7ce138C0C3baD2Cb5E8a582"
+        "vault": "0x81f8ac1a4756BfE9D7ce138C0C3baD2Cb5E8a582",
+        "fixedRate": true
       },
       {
         "underlying": "0x865377367054516e17014CcdED1e7d814EDC9ce4",
-        "vault": "0xE668c3F45D126A72cf696Ff46054918Cf1337786"
+        "vault": "0xE668c3F45D126A72cf696Ff46054918Cf1337786",
+        "fixedRate": true
       },
       {
         "underlying": "0xb45ad160634c528Cc3D2926d9807104FA3157305",
@@ -1595,11 +1638,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x481D4909D7ca2eb27c4975f08dCE07DBeF0d3Fa7"
+        "vault": "0x481D4909D7ca2eb27c4975f08dCE07DBeF0d3Fa7",
+        "fixedRate": true
       },
       {
         "underlying": "0xE868084cf08F3c3db11f4B73a95473762d9463f7",
-        "vault": "0x1F46186AF85A967416b17380800c69860B7C516F"
+        "vault": "0x1F46186AF85A967416b17380800c69860B7C516F",
+        "fixedRate": true
       },
       {
         "underlying": "0x076BdA095a434a7B00733115A0D679DE6478d9f8",
@@ -1615,7 +1660,8 @@
       },
       {
         "underlying": "0x73A15FeD60Bf67631dC6cd7Bc5B6e8da8190aCF5",
-        "vault": "0x77633305032b6bDf3eBdB373b3bADcCb2786ce2f"
+        "vault": "0x77633305032b6bDf3eBdB373b3bADcCb2786ce2f",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -1691,7 +1737,8 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0xFbd4F1d0B2AF661bD43ef6577966daa6587f0b7c"
+        "vault": "0xFbd4F1d0B2AF661bD43ef6577966daa6587f0b7c",
+        "fixedRate": true
       },
       {
         "underlying": "0x271C616157e69A43B4977412A64183Cf110Edf16",
@@ -1719,7 +1766,8 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0xa94F9CE821C7bD57cc12991CB46ca19f5789278F"
+        "vault": "0xa94F9CE821C7bD57cc12991CB46ca19f5789278F",
+        "fixedRate": true
       },
       {
         "underlying": "0x271C616157e69A43B4977412A64183Cf110Edf16",
@@ -1735,31 +1783,38 @@
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0xbFdc482616787b420BC6C710212fE3167E7198e9"
+        "vault": "0xbFdc482616787b420BC6C710212fE3167E7198e9",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x3bFA6657982A9Ada1388CF798F3f211711Daf4E5"
+        "vault": "0x3bFA6657982A9Ada1388CF798F3f211711Daf4E5",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x122e9eA082D8c060Bb1a3476aa18B9E739fBbAAf"
+        "vault": "0x122e9eA082D8c060Bb1a3476aa18B9E739fBbAAf",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x75E695C60aF0780F8c9FA79e37946a02f4481c09"
+        "vault": "0x75E695C60aF0780F8c9FA79e37946a02f4481c09",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0xF2ef3e32FCF4BfE21266727281B73F95Cd520411"
+        "vault": "0xF2ef3e32FCF4BfE21266727281B73F95Cd520411",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x77710edfeDfB7e9186CBA71b258C75ea2AED5f84"
+        "vault": "0x77710edfeDfB7e9186CBA71b258C75ea2AED5f84",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x2dF9753E62f46B299F59E632bd18EdfE4970922e"
+        "vault": "0x2dF9753E62f46B299F59E632bd18EdfE4970922e",
+        "fixedRate": true
       },
       {
         "underlying": "0x66526197a4BAf496D97e1004e43c2C374Fb7d2E7",
@@ -1771,15 +1826,18 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x15A60a5300c1D9179d4c0e2B49bac6146794Ae1F"
+        "vault": "0x15A60a5300c1D9179d4c0e2B49bac6146794Ae1F",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x607589437A3b52f536706642a9b7c70192C37940"
+        "vault": "0x607589437A3b52f536706642a9b7c70192C37940",
+        "fixedRate": true
       },
       {
         "underlying": "0x09D4214C03D01F49544C0448DBE3A27f768F2b34",
-        "vault": "0xACD489AdEC33cd7c46FC448cf77376f1EaF5f3ab"
+        "vault": "0xACD489AdEC33cd7c46FC448cf77376f1EaF5f3ab",
+        "fixedRate": true
       },
       {
         "underlying": "0x738d1115B90efa71AE468F1287fc864775e23a31",
@@ -1787,11 +1845,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x58CD6Ae0Bd452d3219366C7ddD37cA1A12d2ff59"
+        "vault": "0x58CD6Ae0Bd452d3219366C7ddD37cA1A12d2ff59",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x7fD46A66b5Ed6dC395603678cf9BE8846e01Fe25"
+        "vault": "0x7fD46A66b5Ed6dC395603678cf9BE8846e01Fe25",
+        "fixedRate": true
       },
       {
         "underlying": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD",
@@ -1835,11 +1895,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0xc727069c0eb261Be642272fe3848518192683fFc"
+        "vault": "0xc727069c0eb261Be642272fe3848518192683fFc",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0xd90f695D98b6E1fAA7BA516A777fF12cc3C111a4"
+        "vault": "0xd90f695D98b6E1fAA7BA516A777fF12cc3C111a4",
+        "fixedRate": true
       },
       {
         "underlying": "0x19Ebd191f7A24ECE672ba13A302212b5eF7F35cb",
@@ -1879,11 +1941,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x3C75C170671acb394804DfAf63e4F9891C121625"
+        "vault": "0x3C75C170671acb394804DfAf63e4F9891C121625",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x22cC732cbca457F6811295bCE75B01822544bA52"
+        "vault": "0x22cC732cbca457F6811295bCE75B01822544bA52",
+        "fixedRate": true
       },
       {
         "underlying": "0x9FD7466f987Fd4C45a5BBDe22ED8aba5BC8D72d1",
@@ -1891,7 +1955,8 @@
       },
       {
         "underlying": "0x904673592a3FEbB74a30a73161e8C05A200C8961",
-        "vault": "0x9c6bDF412723ADF2798B163638083783506B26e3"
+        "vault": "0x9c6bDF412723ADF2798B163638083783506B26e3",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -1907,7 +1972,8 @@
       },
       {
         "underlying": "0x14cF922aa1512Adfc34409b63e18D391e4a86A2f",
-        "vault": "0x11E3B9ff241638A8eee962aC8225c66f9808E069"
+        "vault": "0x11E3B9ff241638A8eee962aC8225c66f9808E069",
+        "fixedRate": true
       },
       {
         "underlying": "0xDCD0f5ab30856F28385F641580Bbd85f88349124",
@@ -1927,15 +1993,18 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x53AfE3343f322c4189Ab69E0D048efd154259419"
+        "vault": "0x53AfE3343f322c4189Ab69E0D048efd154259419",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x09FcE883cC16894274802c01e3b9cD90EAE4e43d"
+        "vault": "0x09FcE883cC16894274802c01e3b9cD90EAE4e43d",
+        "fixedRate": true
       },
       {
         "underlying": "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
-        "vault": "0x6331D36C27D967c4261D59a8f80d58d03089810A"
+        "vault": "0x6331D36C27D967c4261D59a8f80d58d03089810A",
+        "fixedRate": true
       },
       {
         "underlying": "0xA62B204099277762d1669d283732dCc1B3AA96CE",
@@ -1959,7 +2028,8 @@
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
-        "vault": "0xF21cB5fA9242De8270526F1C9717A9b91dd44F03"
+        "vault": "0xF21cB5fA9242De8270526F1C9717A9b91dd44F03",
+        "fixedRate": true
       },
       {
         "underlying": "0xCAcd6fd266aF91b8AeD52aCCc382b4e165586E29",
@@ -1983,7 +2053,8 @@
       },
       {
         "underlying": "0x004E9C3EF86bc1ca1f0bB5C7662861Ee93350568",
-        "vault": "0x154ED44b252c58e5768f022C5143929329b28Ed9"
+        "vault": "0x154ED44b252c58e5768f022C5143929329b28Ed9",
+        "fixedRate": true
       },
       {
         "underlying": "0xa42C63686F45C124f2034152B4BB0CC63CE3Ff52",
@@ -2047,7 +2118,8 @@
       },
       {
         "underlying": "0x66a1E37c9b0eAddca17d3662D6c05F4DECf3e110",
-        "vault": "0xE27dC1Bdc3F47E44DdA0B90901F3ee61E43Ffe77"
+        "vault": "0xE27dC1Bdc3F47E44DdA0B90901F3ee61E43Ffe77",
+        "fixedRate": true
       },
       {
         "underlying": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
@@ -2083,11 +2155,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x6Fe7Fa90756434645F0b0428fDff78E99Dda0FBc"
+        "vault": "0x6Fe7Fa90756434645F0b0428fDff78E99Dda0FBc",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x35d4f830543700B7280084280ae3236f178E88e3"
+        "vault": "0x35d4f830543700B7280084280ae3236f178E88e3",
+        "fixedRate": true
       },
       {
         "underlying": "0xcCcc62962d17b8914c62D74FfB843d73B2a3cccC",
@@ -2111,7 +2185,8 @@
       },
       {
         "underlying": "0xE2Fc85BfB48C4cF147921fBE110cf92Ef9f26F94",
-        "vault": "0xf1BA8c5Ca5aB011d06f31e64DaD313d204aCb9Eb"
+        "vault": "0xf1BA8c5Ca5aB011d06f31e64DaD313d204aCb9Eb",
+        "fixedRate": true
       },
       {
         "underlying": "0x12fd502e2052CaFB41eccC5B596023d9978057d6",
@@ -2163,15 +2238,18 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x477d7feE2d9dca0bA8F7CbEAa7da219b5bb2d1a7"
+        "vault": "0x477d7feE2d9dca0bA8F7CbEAa7da219b5bb2d1a7",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x51147D1af05AEb441dE62db292f46580084c8380"
+        "vault": "0x51147D1af05AEb441dE62db292f46580084c8380",
+        "fixedRate": true
       },
       {
         "underlying": "0x9Cf12ccd6020b6888e4D4C4e4c7AcA33c1eB91f8",
-        "vault": "0x46DEA62E4D631ce3FaC68ECeC2b1C4bA1500075A"
+        "vault": "0x46DEA62E4D631ce3FaC68ECeC2b1C4bA1500075A",
+        "fixedRate": true
       },
       {
         "underlying": "0x89E93172AEF8261Db8437b90c3dCb61545a05317",
@@ -2203,11 +2281,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x8aFF4fe319c30475D27eC623D7d44bD5eCFe9616"
+        "vault": "0x8aFF4fe319c30475D27eC623D7d44bD5eCFe9616",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0xFa827C231062FA549143dF3C1b3584a016642630"
+        "vault": "0xFa827C231062FA549143dF3C1b3584a016642630",
+        "fixedRate": true
       },
       {
         "underlying": "0x9b5528528656DBC094765E2abB79F293c21191B9",
@@ -2219,11 +2299,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x2a356443FeE07703266066c6Bb1B11b82d8246AD"
+        "vault": "0x2a356443FeE07703266066c6Bb1B11b82d8246AD",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0xC11d6b78D8c609A6cbf66E89DBfea06b011B0AEf"
+        "vault": "0xC11d6b78D8c609A6cbf66E89DBfea06b011B0AEf",
+        "fixedRate": true
       },
       {
         "underlying": "0x7CF9DEC92ca9FD46f8d86e7798B72624Bc116C05",
@@ -2235,7 +2317,8 @@
       },
       {
         "underlying": "0xacA92E438df0B2401fF60dA7E4337B687a2435DA",
-        "vault": "0xACdee5667866cdDD287E1F49837D1B6D2ba8BD45"
+        "vault": "0xACdee5667866cdDD287E1F49837D1B6D2ba8BD45",
+        "fixedRate": true
       },
       {
         "underlying": "0x085780639CC2cACd35E474e71f4d000e2405d8f6",
@@ -2375,11 +2458,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x6f2598c99722428563F852F49002C6826316c751"
+        "vault": "0x6f2598c99722428563F852F49002C6826316c751",
+        "fixedRate": true
       },
       {
         "underlying": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        "vault": "0x806EeA930A2D5395829275e498c3a90eD56a4E7E"
+        "vault": "0x806EeA930A2D5395829275e498c3a90eD56a4E7E",
+        "fixedRate": true
       },
       {
         "underlying": "0xA19f6e0dF08a7917F2F8A33Db66D0AF31fF5ECA6",
@@ -2731,11 +2816,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x948d144bEC04acB6B95dA53dAe0f89EB9626AE62"
+        "vault": "0x948d144bEC04acB6B95dA53dAe0f89EB9626AE62",
+        "fixedRate": true
       },
       {
         "underlying": "0x4ba01f22827018b4772CD326C7627FB4956A7C00",
-        "vault": "0x67436338992Df2482cc6Ea60f434508Ec8669e38"
+        "vault": "0x67436338992Df2482cc6Ea60f434508Ec8669e38",
+        "fixedRate": true
       },
       {
         "underlying": "0x890A5122Aa1dA30fEC4286DE7904Ff808F0bd74A",
@@ -2811,11 +2898,13 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0xB6345a630d38B66737e8DFAb44734D7F0703073E"
+        "vault": "0xB6345a630d38B66737e8DFAb44734D7F0703073E",
+        "fixedRate": true
       },
       {
         "underlying": "0x4B86093042484C2AC65F372bf788FECCDc62891E",
-        "vault": "0xe0F2bEE393888640cFb0bC22FEcDa03620f92cD1"
+        "vault": "0xe0F2bEE393888640cFb0bC22FEcDa03620f92cD1",
+        "fixedRate": true
       },
       {
         "underlying": "0xf6b1117ec07684D3958caD8BEb1b302bfD21103f",
@@ -2999,7 +3088,8 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x1A1b6E836a81AD98C15180ebC565187b66C3bF4b"
+        "vault": "0x1A1b6E836a81AD98C15180ebC565187b66C3bF4b",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -3087,11 +3177,13 @@
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
-        "vault": "0xD5b4cd50dd2a7dbC74347E572f730fE1eB286a67"
+        "vault": "0xD5b4cd50dd2a7dbC74347E572f730fE1eB286a67",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x8bE237254C0832ff642aD0cB2bdfB8f79D7c7b1a"
+        "vault": "0x8bE237254C0832ff642aD0cB2bdfB8f79D7c7b1a",
+        "fixedRate": true
       },
       {
         "underlying": "0x66bCF6151D5558AfB47c38B20663589843156078",
@@ -3103,7 +3195,8 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0xed059CB7Eb6251093FaE10a4483519Ab159e28D9"
+        "vault": "0xed059CB7Eb6251093FaE10a4483519Ab159e28D9",
+        "fixedRate": true
       },
       {
         "underlying": "0xd359082848c1027257616038A1CdFA2a54438561",
@@ -3111,7 +3204,8 @@
       },
       {
         "underlying": "0xd359082848c1027257616038A1CdFA2a54438561",
-        "vault": "0x6A0485b788bF6547248e04D3fe63352A73e59570"
+        "vault": "0x6A0485b788bF6547248e04D3fe63352A73e59570",
+        "fixedRate": true
       },
       {
         "underlying": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
@@ -3143,7 +3237,8 @@
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-        "vault": "0x93F9b0478d8030f7968617B8C305BF3413f7f2a2"
+        "vault": "0x93F9b0478d8030f7968617B8C305BF3413f7f2a2",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -3207,15 +3302,18 @@
       },
       {
         "underlying": "0xC139190F447e929f090Edeb554D95AbB8b18aC1C",
-        "vault": "0x6c1Bed58F3b5a3ED21add776bA15d07AE6B27d0F"
+        "vault": "0x6c1Bed58F3b5a3ED21add776bA15d07AE6B27d0F",
+        "fixedRate": true
       },
       {
         "underlying": "0x80ac24aA929eaF5013f6436cdA2a7ba190f5Cc0b",
-        "vault": "0x42f619897FcC71C44BD64791e2221EBa5FF34325"
+        "vault": "0x42f619897FcC71C44BD64791e2221EBa5FF34325",
+        "fixedRate": true
       },
       {
         "underlying": "0x88B608C0596F7865d77812db732d4A804beC5639",
-        "vault": "0x4fc2DA909b91BD1DF877b14d39e0Cd177c0F1168"
+        "vault": "0x4fc2DA909b91BD1DF877b14d39e0Cd177c0F1168",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -3231,7 +3329,8 @@
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
-        "vault": "0xe9BA91e5EfDDdA4eE1ce99d4C7a8938924d47E7C"
+        "vault": "0xe9BA91e5EfDDdA4eE1ce99d4C7a8938924d47E7C",
+        "fixedRate": true
       },
       {
         "underlying": "0xbF4e3fbE8B60062A00C7a6B1D97d0d49c2971A19",
@@ -3327,7 +3426,8 @@
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
-        "vault": "0xdFa6451EAC51c913003bfeb52418F55376996A64"
+        "vault": "0xdFa6451EAC51c913003bfeb52418F55376996A64",
+        "fixedRate": true
       },
       {
         "underlying": "0x0B2456017C5Df2dFc0289740C4b352049892780C",
@@ -3363,7 +3463,8 @@
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
-        "vault": "0xE4266eD0ed99cB8e24CD3bAE221a336E09F0ce75"
+        "vault": "0xE4266eD0ed99cB8e24CD3bAE221a336E09F0ce75",
+        "fixedRate": true
       },
       {
         "underlying": "0x6a547b25534234bb79CE6961a23Db13DE154b6F4",
@@ -3375,7 +3476,8 @@
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
-        "vault": "0x1a33c2D526dE5b9C8A996C853beD593f9Dae4e95"
+        "vault": "0x1a33c2D526dE5b9C8A996C853beD593f9Dae4e95",
+        "fixedRate": true
       },
       {
         "underlying": "0xeCfaFdC7741323a945A163ed068B5a3C43483957",
@@ -3391,7 +3493,8 @@
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
-        "vault": "0xD5b786E64eB320940eEfB1570Fa4C82EC54dBf72"
+        "vault": "0xD5b786E64eB320940eEfB1570Fa4C82EC54dBf72",
+        "fixedRate": true
       },
       {
         "underlying": "0x497C761D268cBC2DB6f40CdB21B9AC019c37917D",
@@ -3515,7 +3618,8 @@
       },
       {
         "underlying": "0x11C235a2AE1643BAA66bf9A28Ad4e95700e68ae6",
-        "vault": "0x444d89B6033883988FD1Ce7aE280f23B475e0f11"
+        "vault": "0x444d89B6033883988FD1Ce7aE280f23B475e0f11",
+        "fixedRate": true
       },
       {
         "underlying": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -3739,11 +3843,13 @@
       },
       {
         "underlying": "0x2492D0006411Af6C8bbb1c8afc1B0197350a79e9",
-        "vault": "0x88A81184243c561026973d25384651E6cc0796A4"
+        "vault": "0x88A81184243c561026973d25384651E6cc0796A4",
+        "fixedRate": true
       },
       {
         "underlying": "0xAB3dBcD9B096C3fF76275038bf58eAC10D22C61f",
-        "vault": "0x10888BD509aC3e1f423D171008288462988827d5"
+        "vault": "0x10888BD509aC3e1f423D171008288462988827d5",
+        "fixedRate": true
       },
       {
         "underlying": "0xB0b84D294e0C75A6abe60171b70edEb2EFd14A1B",
@@ -3775,7 +3881,8 @@
       },
       {
         "underlying": "0xAB3dBcD9B096C3fF76275038bf58eAC10D22C61f",
-        "vault": "0xc4dB46B082B415c16C54c91c5750Df8e2f90EF36"
+        "vault": "0xc4dB46B082B415c16C54c91c5750Df8e2f90EF36",
+        "fixedRate": true
       },
       {
         "underlying": "0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
@@ -3783,7 +3890,8 @@
       },
       {
         "underlying": "0x2492D0006411Af6C8bbb1c8afc1B0197350a79e9",
-        "vault": "0x3135551ce7945c03C18df7985E089DDBC763cEE8"
+        "vault": "0x3135551ce7945c03C18df7985E089DDBC763cEE8",
+        "fixedRate": true
       },
       {
         "underlying": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
@@ -4007,7 +4115,8 @@
       },
       {
         "underlying": "0x55d398326f99059fF775485246999027B3197955",
-        "vault": "0xf4940CdE23c164f8CA8D536f3567337349b3208F"
+        "vault": "0xf4940CdE23c164f8CA8D536f3567337349b3208F",
+        "fixedRate": true
       },
       {
         "underlying": "0xA9eE28C80f960B889dFbd1902055218cBa016F75",
@@ -4617,7 +4726,8 @@
       },
       {
         "underlying": "0xf13DAcAdA8f45c2b2Cbf60eCb1D412d0C57bf2F8",
-        "vault": "0xaAc212446EF7EA7bbFa85681aE4848bCB96a90E2"
+        "vault": "0xaAc212446EF7EA7bbFa85681aE4848bCB96a90E2",
+        "fixedRate": true
       },
       {
         "underlying": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
@@ -4625,11 +4735,13 @@
       },
       {
         "underlying": "0xf13DAcAdA8f45c2b2Cbf60eCb1D412d0C57bf2F8",
-        "vault": "0x80Ad83C9067b49547ab5dB6cAF4f1e3ae34892b1"
+        "vault": "0x80Ad83C9067b49547ab5dB6cAF4f1e3ae34892b1",
+        "fixedRate": true
       },
       {
         "underlying": "0xf13DAcAdA8f45c2b2Cbf60eCb1D412d0C57bf2F8",
-        "vault": "0xf26dC2F1FE883b11Dd56700db594DfC32Eee95Bf"
+        "vault": "0xf26dC2F1FE883b11Dd56700db594DfC32Eee95Bf",
+        "fixedRate": true
       },
       {
         "underlying": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
@@ -4933,15 +5045,18 @@
       },
       {
         "underlying": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
-        "vault": "0x0606700dA427f04DD698B61D1307fc54493d90aD"
+        "vault": "0x0606700dA427f04DD698B61D1307fc54493d90aD",
+        "fixedRate": true
       },
       {
         "underlying": "0xe7cd86e13AC4309349F30B3435a9d337750fC82D",
-        "vault": "0x62c0316797db8a1Df41F22fd677D3B5f5bBBab68"
+        "vault": "0x62c0316797db8a1Df41F22fd677D3B5f5bBBab68",
+        "fixedRate": true
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
-        "vault": "0x3e624cD1c2c8eC9C3E34dd075a27F5BDB4463a9B"
+        "vault": "0x3e624cD1c2c8eC9C3E34dd075a27F5BDB4463a9B",
+        "fixedRate": true
       },
       {
         "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
@@ -4993,7 +5108,8 @@
       },
       {
         "underlying": "0xd18B7EC58Cdf4876f6AFebd3Ed1730e4Ce10414b",
-        "vault": "0xE418FecB353f606e5DB72A35bf5147DfaAE6A0fE"
+        "vault": "0xE418FecB353f606e5DB72A35bf5147DfaAE6A0fE",
+        "fixedRate": true
       },
       {
         "underlying": "0xC6De1DC0B59682bE906E5BcA14E385E74EE88168",
@@ -5001,7 +5117,8 @@
       },
       {
         "underlying": "0xd18B7EC58Cdf4876f6AFebd3Ed1730e4Ce10414b",
-        "vault": "0x19CE855d819B2a753d4CEcfFff9dCAac721f1FbB"
+        "vault": "0x19CE855d819B2a753d4CEcfFff9dCAac721f1FbB",
+        "fixedRate": true
       },
       {
         "underlying": "0x02b34a02db24179Ac2D77Ae20AA6215C7153E7f8",
@@ -5105,7 +5222,8 @@
       },
       {
         "underlying": "0xd18B7EC58Cdf4876f6AFebd3Ed1730e4Ce10414b",
-        "vault": "0xa0752257825A6444c48d71796BF657B2AFb1A212"
+        "vault": "0xa0752257825A6444c48d71796BF657B2AFb1A212",
+        "fixedRate": true
       },
       {
         "underlying": "0xd18B7EC58Cdf4876f6AFebd3Ed1730e4Ce10414b",
@@ -5407,11 +5525,13 @@
       },
       {
         "underlying": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
-        "vault": "0xF2F4796389Ae23f11973E6939500A6C9f01866CF"
+        "vault": "0xF2F4796389Ae23f11973E6939500A6C9f01866CF",
+        "fixedRate": true
       },
       {
         "underlying": "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
-        "vault": "0x9AE05f333A298Fcf4823A6CAd401c407617c45dd"
+        "vault": "0x9AE05f333A298Fcf4823A6CAd401c407617c45dd",
+        "fixedRate": true
       },
       {
         "underlying": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
@@ -5851,7 +5971,8 @@
       },
       {
         "underlying": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
-        "vault": "0x9A4B4F8C10fF344C1a7E1a9dFC297492ec4343E3"
+        "vault": "0x9A4B4F8C10fF344C1a7E1a9dFC297492ec4343E3",
+        "fixedRate": true
       },
       {
         "underlying": "0xb1e25689D55734FD3ffFc939c4C3Eb52DFf8A794",
@@ -5895,21 +6016,25 @@
       },
       {
         "underlying": "0x6047828dc181963ba44974801FF68e538dA5eaF9",
-        "vault": "0xAf2E837150e941B87296Ed7dca4a0c0b83C4242a"
+        "vault": "0xAf2E837150e941B87296Ed7dca4a0c0b83C4242a",
+        "fixedRate": true
       }
     ],
     "239": [
       {
         "underlying": "0x83235A46726803c1980A28cE283D90f6281b2530",
-        "vault": "0xF8B65DebBE84f52E7256AEdd251d067440E75023"
+        "vault": "0xF8B65DebBE84f52E7256AEdd251d067440E75023",
+        "fixedRate": true
       },
       {
         "underlying": "0xcEdc4054676d39716AEF0347b319487989797119",
-        "vault": "0xB17e948876d623e56d909717157664CE000f0a5C"
+        "vault": "0xB17e948876d623e56d909717157664CE000f0a5C",
+        "fixedRate": true
       },
       {
         "underlying": "0x67D6FeeC2936e3F014a087c442FdC4774C1C30C4",
-        "vault": "0x7545F4ee5d8D234E6e7e704C8e033D9740251BA6"
+        "vault": "0x7545F4ee5d8D234E6e7e704C8e033D9740251BA6",
+        "fixedRate": true
       },
       {
         "underlying": "0xb76d91340F5CE3577f0a056D29f6e3Eb4E88B140",
@@ -5993,11 +6118,13 @@
       },
       {
         "underlying": "0xb1b385542B6E80F77B94393Ba8342c3Af699f15c",
-        "vault": "0xcAA9c74f87D31bC280AF5666BdC868DEe2064fE8"
+        "vault": "0xcAA9c74f87D31bC280AF5666BdC868DEe2064fE8",
+        "fixedRate": true
       },
       {
         "underlying": "0xb1b385542B6E80F77B94393Ba8342c3Af699f15c",
-        "vault": "0xf205B7335d02bAF7c6dDc31BCA38894D7491d723"
+        "vault": "0xf205B7335d02bAF7c6dDc31BCA38894D7491d723",
+        "fixedRate": true
       },
       {
         "underlying": "0x2a52B289bA68bBd02676640aA9F605700c9e5699",
@@ -6362,7 +6489,8 @@
       },
       {
         "underlying": "0x7fA65bb90fCEc0FA82e009E65AA3736c376C2572",
-        "vault": "0xE96bE5E639bef4eDB4534a33d830Ec285d9049fb"
+        "vault": "0xE96bE5E639bef4eDB4534a33d830Ec285d9049fb",
+        "fixedRate": true
       },
       {
         "underlying": "0x4200000000000000000000000000000000000006",
@@ -6426,7 +6554,8 @@
       },
       {
         "underlying": "0x35E5dB674D8e93a03d814FA0ADa70731efe8a4b9",
-        "vault": "0x9E77a118a136EEe9ec1be1D34a2C89FB0e953545"
+        "vault": "0x9E77a118a136EEe9ec1be1D34a2C89FB0e953545",
+        "fixedRate": true
       },
       {
         "underlying": "0x5d746848005507DA0b1717C137A10C30AD9ee307",
@@ -6458,7 +6587,8 @@
       },
       {
         "underlying": "0x35E5dB674D8e93a03d814FA0ADa70731efe8a4b9",
-        "vault": "0x29Dbce367F5157B924Af5093617bb128477D7A5C"
+        "vault": "0x29Dbce367F5157B924Af5093617bb128477D7A5C",
+        "fixedRate": true
       },
       {
         "underlying": "0xC31389794Ffac23331E0D9F611b7953f90AA5fDC",
@@ -6714,15 +6844,18 @@
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        "vault": "0x30A837e313eab6aebA1DBaD3b2e0856EB15fF875"
+        "vault": "0x30A837e313eab6aebA1DBaD3b2e0856EB15fF875",
+        "fixedRate": true
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        "vault": "0x99A91De339d09396576D2b0d487AbD9261242887"
+        "vault": "0x99A91De339d09396576D2b0d487AbD9261242887",
+        "fixedRate": true
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        "vault": "0x692b9F0C2701699b7a352C9331DFAE6A6a163294"
+        "vault": "0x692b9F0C2701699b7a352C9331DFAE6A6a163294",
+        "fixedRate": true
       },
       {
         "underlying": "0x5d746848005507DA0b1717C137A10C30AD9ee307",
@@ -6822,7 +6955,8 @@
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        "vault": "0x085178078796Da17B191f9081b5E2fCCc79A7eE7"
+        "vault": "0x085178078796Da17B191f9081b5E2fCCc79A7eE7",
+        "fixedRate": true
       },
       {
         "underlying": "0x0000000f2eB9f69274678c76222B35eEc7588a65",
@@ -6842,11 +6976,13 @@
       },
       {
         "underlying": "0xafAEE977C1137297414D7dBb8c0DfA555017e292",
-        "vault": "0x8709D37a520047f65DCdd40F299b7aC88A2c9fBc"
+        "vault": "0x8709D37a520047f65DCdd40F299b7aC88A2c9fBc",
+        "fixedRate": true
       },
       {
         "underlying": "0xafAEE977C1137297414D7dBb8c0DfA555017e292",
-        "vault": "0xA1E6dAB1464d9Badfa2a44AcC819Cc352Ba1e61C"
+        "vault": "0xA1E6dAB1464d9Badfa2a44AcC819Cc352Ba1e61C",
+        "fixedRate": true
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
@@ -6990,7 +7126,8 @@
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        "vault": "0x400F61a78a54297c8e0b99527FA52B9A11bb2d6d"
+        "vault": "0x400F61a78a54297c8e0b99527FA52B9A11bb2d6d",
+        "fixedRate": true
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
@@ -6998,11 +7135,13 @@
       },
       {
         "underlying": "0x73756946591e41df84144d99F6298530633d4AA7",
-        "vault": "0xd6B16FcDFf2C67b54A32DE928d946E57E421C8BF"
+        "vault": "0xd6B16FcDFf2C67b54A32DE928d946E57E421C8BF",
+        "fixedRate": true
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        "vault": "0x1709623de7b19768cd893fEAAA4a4b74BcDeeD4F"
+        "vault": "0x1709623de7b19768cd893fEAAA4a4b74BcDeeD4F",
+        "fixedRate": true
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
@@ -7422,7 +7561,8 @@
       },
       {
         "underlying": "0x998078b86Ee9978b596dfe51bcEf26AB16abE15E",
-        "vault": "0x8e1eAFb469de4BFdc98b17160e5684E6a22C4DDf"
+        "vault": "0x8e1eAFb469de4BFdc98b17160e5684E6a22C4DDf",
+        "fixedRate": true
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
@@ -7430,7 +7570,8 @@
       },
       {
         "underlying": "0x998078b86Ee9978b596dfe51bcEf26AB16abE15E",
-        "vault": "0xFB95dBfE8E0d02a2999c7567467d2a7A18092946"
+        "vault": "0xFB95dBfE8E0d02a2999c7567467d2a7A18092946",
+        "fixedRate": true
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
@@ -7446,7 +7587,8 @@
       },
       {
         "underlying": "0xe48402050Fa19F3022cd73082944E07f6e40Bc63",
-        "vault": "0x92e7A96F92DBE377C5780dE7Ab4bb34175c3C13F"
+        "vault": "0x92e7A96F92DBE377C5780dE7Ab4bb34175c3C13F",
+        "fixedRate": true
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
@@ -7730,7 +7872,8 @@
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        "vault": "0x9088834063Db290c255cef5ca8e505E6854248a1"
+        "vault": "0x9088834063Db290c255cef5ca8e505E6854248a1",
+        "fixedRate": true
       },
       {
         "underlying": "0xcb585250f852C6c6bf90434AB21A00f02833a4af",
@@ -7742,7 +7885,8 @@
       },
       {
         "underlying": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        "vault": "0x35ebbCd3D7a0C6f80630ecB9CD7808a4cdCCC786"
+        "vault": "0x35ebbCd3D7a0C6f80630ecB9CD7808a4cdCCC786",
+        "fixedRate": true
       },
       {
         "underlying": "0xcb585250f852C6c6bf90434AB21A00f02833a4af",
@@ -8224,11 +8368,13 @@
       },
       {
         "underlying": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-        "vault": "0xc4b1F4292e5183799d74D6254B3780daeE76d6d3"
+        "vault": "0xc4b1F4292e5183799d74D6254B3780daeE76d6d3",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0xA17e4fD1B0F806915d3513F635134ee432Fd2A09"
+        "vault": "0xA17e4fD1B0F806915d3513F635134ee432Fd2A09",
+        "fixedRate": true
       },
       {
         "underlying": "0x0B2b2B2076d95dda7817e785989fE353fe955ef9",
@@ -8236,11 +8382,13 @@
       },
       {
         "underlying": "0x0A1a1A107E45b7Ced86833863f482BC5f4ed82EF",
-        "vault": "0xAADEA03f6D6F198Bdc9229bD8113aceD19031773"
+        "vault": "0xAADEA03f6D6F198Bdc9229bD8113aceD19031773",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x141A6f77ca186861BFB323b07012e80Ef4e09041"
+        "vault": "0x141A6f77ca186861BFB323b07012e80Ef4e09041",
+        "fixedRate": true
       },
       {
         "underlying": "0x6100E367285b01F48D07953803A2d8dCA5D19873",
@@ -8260,7 +8408,8 @@
       },
       {
         "underlying": "0x6eAf19b2FC24552925dB245F9Ff613157a7dbb4C",
-        "vault": "0x138c289Bb8b855CF271305C8bcf91DC31Ba30194"
+        "vault": "0x138c289Bb8b855CF271305C8bcf91DC31Ba30194",
+        "fixedRate": true
       },
       {
         "underlying": "0x0C60F630608a1406f5B049093B25032598b3DC4A",
@@ -8296,7 +8445,8 @@
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0xFA00aBfF8E404B4Fe939115409035F708a109842"
+        "vault": "0xFA00aBfF8E404B4Fe939115409035F708a109842",
+        "fixedRate": true
       },
       {
         "underlying": "0x2a52B289bA68bBd02676640aA9F605700c9e5699",
@@ -8308,7 +8458,8 @@
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x4718484ac9dc07fbbC078561e8f8Ef29e2a369CD"
+        "vault": "0x4718484ac9dc07fbbC078561e8f8Ef29e2a369CD",
+        "fixedRate": true
       },
       {
         "underlying": "0x35533f54740F1F1aA4179E57bA37039dfa16868B",
@@ -8320,7 +8471,8 @@
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x538f01e0BA3cf3aB5b3837A0d138a3F67b9b8235"
+        "vault": "0x538f01e0BA3cf3aB5b3837A0d138a3F67b9b8235",
+        "fixedRate": true
       },
       {
         "underlying": "0x58538e6A46E07434d7E7375Bc268D3cb839C0133",
@@ -8332,11 +8484,13 @@
       },
       {
         "underlying": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-        "vault": "0x36313192157C38A16e197f48c80346849AE3957A"
+        "vault": "0x36313192157C38A16e197f48c80346849AE3957A",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0xB0004aD99F0e383cC413bA69ACff7c229D930112"
+        "vault": "0xB0004aD99F0e383cC413bA69ACff7c229D930112",
+        "fixedRate": true
       },
       {
         "underlying": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
@@ -8376,11 +8530,13 @@
       },
       {
         "underlying": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-        "vault": "0x35b6f39affA0020c1736cdC764287bfd32Ee4324"
+        "vault": "0x35b6f39affA0020c1736cdC764287bfd32Ee4324",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x0D10591241F67449102ACF05CD9c480CfE43154c"
+        "vault": "0x0D10591241F67449102ACF05CD9c480CfE43154c",
+        "fixedRate": true
       },
       {
         "underlying": "0x02FCC4989B4C9D435b7ceD3fE1Ba4CF77BBb5Dd8",
@@ -8388,11 +8544,13 @@
       },
       {
         "underlying": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-        "vault": "0xd9e36ad27AfF5bBF2c65026462d45DF093554D38"
+        "vault": "0xd9e36ad27AfF5bBF2c65026462d45DF093554D38",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x8073b76bBd1B40F1Fb2b6AEf7A920B1914Bb86AB"
+        "vault": "0x8073b76bBd1B40F1Fb2b6AEf7A920B1914Bb86AB",
+        "fixedRate": true
       },
       {
         "underlying": "0x8dFb9A39dFab16bFFE77f15544B5bf03e377e419",
@@ -8400,7 +8558,8 @@
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0xf0A1bDf7e678144702feC359fa1A0eb50b0B8845"
+        "vault": "0xf0A1bDf7e678144702feC359fa1A0eb50b0B8845",
+        "fixedRate": true
       },
       {
         "underlying": "0xD516188daf64EFa04a8d60872F891f2cC811A561",
@@ -8408,11 +8567,13 @@
       },
       {
         "underlying": "0x0A1a1A107E45b7Ced86833863f482BC5f4ed82EF",
-        "vault": "0x8539f99dBC4F437C1F71de6920369B9cD46193Ff"
+        "vault": "0x8539f99dBC4F437C1F71de6920369B9cD46193Ff",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x98d6863fa1C247d529c94e53f521897ae9A6EBf0"
+        "vault": "0x98d6863fa1C247d529c94e53f521897ae9A6EBf0",
+        "fixedRate": true
       },
       {
         "underlying": "0xedac81b27790e0728f54dEa3B7718e5437E85353",
@@ -8420,11 +8581,13 @@
       },
       {
         "underlying": "0x0A1a1A107E45b7Ced86833863f482BC5f4ed82EF",
-        "vault": "0x4bFcf2aCC5Cb79EE2A00D08EDfB81eFD37cC2Fe5"
+        "vault": "0x4bFcf2aCC5Cb79EE2A00D08EDfB81eFD37cC2Fe5",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x66Ab62571Ccd31D911EeEfea85944895e30c0A3a"
+        "vault": "0x66Ab62571Ccd31D911EeEfea85944895e30c0A3a",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
@@ -8464,15 +8627,18 @@
       },
       {
         "underlying": "0x4ac60586C3e245fF5593cf99241395bf42509274",
-        "vault": "0xD59f6112375D60e45C2BA9dd5745870c1444362F"
+        "vault": "0xD59f6112375D60e45C2BA9dd5745870c1444362F",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x3799251bD81925cfcCF2992F10Af27A4e62Bf3F7"
+        "vault": "0x3799251bD81925cfcCF2992F10Af27A4e62Bf3F7",
+        "fixedRate": true
       },
       {
         "underlying": "0x29AD7fE4516909b9e498B5a65339e54791293234",
-        "vault": "0xF90Cf999dE728A582e154F926876b70e93a747B7"
+        "vault": "0xF90Cf999dE728A582e154F926876b70e93a747B7",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
@@ -8492,7 +8658,8 @@
       },
       {
         "underlying": "0x4ac60586C3e245fF5593cf99241395bf42509274",
-        "vault": "0x0E640d461c33fb4Eb90948d12f232D5221037a7c"
+        "vault": "0x0E640d461c33fb4Eb90948d12f232D5221037a7c",
+        "fixedRate": true
       },
       {
         "underlying": "0x8dFb9A39dFab16bFFE77f15544B5bf03e377e419",
@@ -8500,19 +8667,23 @@
       },
       {
         "underlying": "0x616185600989Bf8339b58aC9e539d49536598343",
-        "vault": "0x93827c26602b0573500D2eC80dB19D54EEf76BaB"
+        "vault": "0x93827c26602b0573500D2eC80dB19D54EEf76BaB",
+        "fixedRate": true
       },
       {
         "underlying": "0xf91c31299E998C5127Bc5F11e4a657FC0cF358CD",
-        "vault": "0x1aD2d433b5E95077EB2855EaB854B72eA9ee9d6c"
+        "vault": "0x1aD2d433b5E95077EB2855EaB854B72eA9ee9d6c",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0xb5526491742FEe67E9E0D0D8c619A95D422fd398"
+        "vault": "0xb5526491742FEe67E9E0D0D8c619A95D422fd398",
+        "fixedRate": true
       },
       {
         "underlying": "0xA29420057F3e3B9512D4786df135Da1674BD74D4",
-        "vault": "0x59a17923472DDf6a14AaCf58293152E8973A4CA7"
+        "vault": "0x59a17923472DDf6a14AaCf58293152E8973A4CA7",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
@@ -8544,7 +8715,8 @@
       },
       {
         "underlying": "0x6695c0f8706C5ACe3Bdf8995073179cCA47926dc",
-        "vault": "0xDa33Ba72A303C26515edE275a2521b469F97D71b"
+        "vault": "0xDa33Ba72A303C26515edE275a2521b469F97D71b",
+        "fixedRate": true
       },
       {
         "underlying": "0xC8A8DF9B210243c55D31c73090F06787aD0A1Bf6",
@@ -8572,19 +8744,23 @@
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0xa1B911B8F60F87AE04Cdd4E0C4C362522927E06c"
+        "vault": "0xa1B911B8F60F87AE04Cdd4E0C4C362522927E06c",
+        "fixedRate": true
       },
       {
         "underlying": "0x0A1a1A107E45b7Ced86833863f482BC5f4ed82EF",
-        "vault": "0x29E988EA5463A033AAFfa4d4E63639D402D119FF"
+        "vault": "0x29E988EA5463A033AAFfa4d4E63639D402D119FF",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0xB226618370A14b4A1FB2B04B2A6a507bc450C883"
+        "vault": "0xB226618370A14b4A1FB2B04B2A6a507bc450C883",
+        "fixedRate": true
       },
       {
         "underlying": "0xf91c31299E998C5127Bc5F11e4a657FC0cF358CD",
-        "vault": "0x27934d4879fc28a74703726eDae15F757E45A48a"
+        "vault": "0x27934d4879fc28a74703726eDae15F757E45A48a",
+        "fixedRate": true
       },
       {
         "underlying": "0xb31BeA5c2a43f942a3800558B1aa25978da75F8a",
@@ -8592,11 +8768,13 @@
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x3486F09cfA75466279A1e3Ea94BFac82481A368d"
+        "vault": "0x3486F09cfA75466279A1e3Ea94BFac82481A368d",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x24763A1D928fa41A520B8354980f0710087b0346"
+        "vault": "0x24763A1D928fa41A520B8354980f0710087b0346",
+        "fixedRate": true
       },
       {
         "underlying": "0xFFc953FEB92768E633a2530EF0a85F6334e1f7C6",
@@ -8624,7 +8802,8 @@
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x0a660B3Cbd7DF118501E7Bb0f2D6eC5E5e583Bf8"
+        "vault": "0x0a660B3Cbd7DF118501E7Bb0f2D6eC5E5e583Bf8",
+        "fixedRate": true
       },
       {
         "underlying": "0xb31BeA5c2a43f942a3800558B1aa25978da75F8a",
@@ -8636,7 +8815,8 @@
       },
       {
         "underlying": "0x616185600989Bf8339b58aC9e539d49536598343",
-        "vault": "0x7cB7B77414E656C6E46a9f00F0DC0cc2a2EA5C44"
+        "vault": "0x7cB7B77414E656C6E46a9f00F0DC0cc2a2EA5C44",
+        "fixedRate": true
       },
       {
         "underlying": "0x48F119b3fCA8244274531f2e06B74AC4B1F5fe58",
@@ -8648,7 +8828,8 @@
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0xb23377af59d4fC95cB8330eE2834Aa8241EEed03"
+        "vault": "0xb23377af59d4fC95cB8330eE2834Aa8241EEed03",
+        "fixedRate": true
       },
       {
         "underlying": "0xFFaF49f320b8Ae1Bb9Ea596197040077a3666105",
@@ -8660,7 +8841,8 @@
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x6A9E59545169BE88115671D7171967F8FbFfA0CD"
+        "vault": "0x6A9E59545169BE88115671D7171967F8FbFfA0CD",
+        "fixedRate": true
       },
       {
         "underlying": "0xceA23aB8FdE0b90e4D08EB68e8876E43933721D2",
@@ -8668,7 +8850,8 @@
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
-        "vault": "0x51d03b57f916EAf631892702A32a5378b93a6998"
+        "vault": "0x51d03b57f916EAf631892702A32a5378b93a6998",
+        "fixedRate": true
       },
       {
         "underlying": "0xF4F447E6AFa04c9D11Ef0e2fC0d7f19C24Ee55de",
@@ -8696,7 +8879,8 @@
       },
       {
         "underlying": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-        "vault": "0x91eFcF80eA1E2d61Cf94D12165CbFCd844Dd7cf8"
+        "vault": "0x91eFcF80eA1E2d61Cf94D12165CbFCd844Dd7cf8",
+        "fixedRate": true
       },
       {
         "underlying": "0x6cB8AA4C45CA82DC6a4f9F3899C662Eb8F9fd1C0",
@@ -8740,11 +8924,13 @@
       },
       {
         "underlying": "0x6100E367285b01F48D07953803A2d8dCA5D19873",
-        "vault": "0xe358fc62D0D02E26e095B16aDdCA7dDF3Aa16Dd9"
+        "vault": "0xe358fc62D0D02E26e095B16aDdCA7dDF3Aa16Dd9",
+        "fixedRate": true
       },
       {
         "underlying": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-        "vault": "0xec8493F5Af1fbE3b9bed25fc7B6f53c5bd161744"
+        "vault": "0xec8493F5Af1fbE3b9bed25fc7B6f53c5bd161744",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
@@ -8756,7 +8942,8 @@
       },
       {
         "underlying": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-        "vault": "0xa486BEea876d1d51Ca2fe7c875145221BdFee684"
+        "vault": "0xa486BEea876d1d51Ca2fe7c875145221BdFee684",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
@@ -8772,11 +8959,13 @@
       },
       {
         "underlying": "0xE556ABa6fe6036275Ec1f87eda296BE72C811BCE",
-        "vault": "0x7e3f88dbC26818418712DAB3dbF0514A90805d22"
+        "vault": "0x7e3f88dbC26818418712DAB3dbF0514A90805d22",
+        "fixedRate": true
       },
       {
         "underlying": "0x08EFCC2F3e61185D0EA7F8830B3FEc9Bfa2EE313",
-        "vault": "0x76F86B6f2c3D977fe66478c8fEB00b30f3A8Fee1"
+        "vault": "0x76F86B6f2c3D977fe66478c8fEB00b30f3A8Fee1",
+        "fixedRate": true
       },
       {
         "underlying": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
@@ -8902,15 +9091,18 @@
       },
       {
         "underlying": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
-        "vault": "0x6aFB8d3F6D4A34e9cB2f217317f4dc8e05Aa673b"
+        "vault": "0x6aFB8d3F6D4A34e9cB2f217317f4dc8e05Aa673b",
+        "fixedRate": true
       },
       {
         "underlying": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
-        "vault": "0x482C3E2530FAc8FE2c63AE007AD2695C6d685E98"
+        "vault": "0x482C3E2530FAc8FE2c63AE007AD2695C6d685E98",
+        "fixedRate": true
       },
       {
         "underlying": "0x0A1a1A107E45b7Ced86833863f482BC5f4ed82EF",
-        "vault": "0x7D9790403FA53eF3E3a3389c259D244BDc61B785"
+        "vault": "0x7D9790403FA53eF3E3a3389c259D244BDc61B785",
+        "fixedRate": true
       },
       {
         "underlying": "0x0B2b2B2076d95dda7817e785989fE353fe955ef9",
@@ -8918,7 +9110,8 @@
       },
       {
         "underlying": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-        "vault": "0x683B777A393BA94F3c903fba2b14A6b6fF80dbE7"
+        "vault": "0x683B777A393BA94F3c903fba2b14A6b6fF80dbE7",
+        "fixedRate": true
       },
       {
         "underlying": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
@@ -8926,15 +9119,18 @@
       },
       {
         "underlying": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
-        "vault": "0x937F6E3Dd6D964Ff07Bbc2C5D86c935a5a62f477"
+        "vault": "0x937F6E3Dd6D964Ff07Bbc2C5D86c935a5a62f477",
+        "fixedRate": true
       },
       {
         "underlying": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
-        "vault": "0xE3eD544DAce41e3515bA3874eE12d7c2aBC4bc86"
+        "vault": "0xE3eD544DAce41e3515bA3874eE12d7c2aBC4bc86",
+        "fixedRate": true
       },
       {
         "underlying": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-        "vault": "0x62Fd2B1f7C91635EF10f4A7Ba93267E45B936213"
+        "vault": "0x62Fd2B1f7C91635EF10f4A7Ba93267E45B936213",
+        "fixedRate": true
       },
       {
         "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
@@ -8970,7 +9166,8 @@
       },
       {
         "underlying": "0x0A1a1A107E45b7Ced86833863f482BC5f4ed82EF",
-        "vault": "0xAE0610296E15Db0e46840b46072552295D514eCE"
+        "vault": "0xAE0610296E15Db0e46840b46072552295D514eCE",
+        "fixedRate": true
       },
       {
         "underlying": "0xfDD22Ce6D1F66bc0Ec89b20BF16CcB6670F55A5a",
@@ -9038,7 +9235,8 @@
       },
       {
         "underlying": "0x62dDf301B21970e7Cc12c34cAAc9CE9bC975c0a9",
-        "vault": "0xFe3320fD1baCf38Bf74B84eF0ef7b34562926DDf"
+        "vault": "0xFe3320fD1baCf38Bf74B84eF0ef7b34562926DDf",
+        "fixedRate": true
       },
       {
         "underlying": "0x252b965400862d94BDa35FeCF7Ee0f204a53Cc36",
@@ -9046,7 +9244,8 @@
       },
       {
         "underlying": "0x4ecf61a6c2FaB8A047CEB3B3B263B401763e9D49",
-        "vault": "0x4aD21eBbB639c21ccd9F1eaF388Cd91D015E02ee"
+        "vault": "0x4aD21eBbB639c21ccd9F1eaF388Cd91D015E02ee",
+        "fixedRate": true
       },
       {
         "underlying": "0x5B2C615E22272234AACF187632a0531cA1243279",
@@ -9640,7 +9839,8 @@
       },
       {
         "underlying": "0x24dE8771bC5DdB3362Db529Fc3358F2df3A0E346",
-        "vault": "0x103C26AE2c7ED8Bd9f42448885B7B3193F67c503"
+        "vault": "0x103C26AE2c7ED8Bd9f42448885B7B3193F67c503",
+        "fixedRate": true
       },
       {
         "underlying": "0x06d47F3fb376649c3A9Dafe069B3D6E35572219E",
@@ -9648,7 +9848,8 @@
       },
       {
         "underlying": "0xaEb1FA0853c7C98EAb10fcF0EA669aE3d07FBB10",
-        "vault": "0xBDB32125Abad2CF61692059aFDc636e4EA972106"
+        "vault": "0xBDB32125Abad2CF61692059aFDc636e4EA972106",
+        "fixedRate": true
       },
       {
         "underlying": "0x24dE8771bC5DdB3362Db529Fc3358F2df3A0E346",
@@ -9692,7 +9893,8 @@
       },
       {
         "underlying": "0x24dE8771bC5DdB3362Db529Fc3358F2df3A0E346",
-        "vault": "0x27807C61F6b376754b7ce208AA8b17D2DA56d582"
+        "vault": "0x27807C61F6b376754b7ce208AA8b17D2DA56d582",
+        "fixedRate": true
       },
       {
         "underlying": "0x06d47F3fb376649c3A9Dafe069B3D6E35572219E",
@@ -9700,7 +9902,8 @@
       },
       {
         "underlying": "0xaEb1FA0853c7C98EAb10fcF0EA669aE3d07FBB10",
-        "vault": "0xA06e66646292b2C2042495B955fe07c4036f6635"
+        "vault": "0xA06e66646292b2C2042495B955fe07c4036f6635",
+        "fixedRate": true
       },
       {
         "underlying": "0x53FC82f14F009009b440a706e31c9021E1196A2F",
@@ -9796,7 +9999,8 @@
       },
       {
         "underlying": "0xB57B25851fE2311CC3fE511c8F10E868932e0680",
-        "vault": "0xA45189636c04388ADBb4D865100DD155e55682EC"
+        "vault": "0xA45189636c04388ADBb4D865100DD155e55682EC",
+        "fixedRate": true
       },
       {
         "underlying": "0x68088C91446c7bEa49ea7Dbd3B96Ce62B272DC96",
@@ -9816,11 +10020,13 @@
       },
       {
         "underlying": "0xB57B25851fE2311CC3fE511c8F10E868932e0680",
-        "vault": "0xe1E549C965A4A0514D9bf80161D32924b8694822"
+        "vault": "0xe1E549C965A4A0514D9bf80161D32924b8694822",
+        "fixedRate": true
       },
       {
         "underlying": "0xDBc5192A6B6FfEe7451301bb4ec312f844F02B4A",
-        "vault": "0x902714C7661697c873C76dEC426b63B2593ecc0a"
+        "vault": "0x902714C7661697c873C76dEC426b63B2593ecc0a",
+        "fixedRate": true
       },
       {
         "underlying": "0x580d5E1399157FD0d58218b7A514b60974F2AB01",
@@ -9852,7 +10058,8 @@
       },
       {
         "underlying": "0xDBc5192A6B6FfEe7451301bb4ec312f844F02B4A",
-        "vault": "0x9298D274A31803bb73c2A5E5EcDd101c581C4AfD"
+        "vault": "0x9298D274A31803bb73c2A5E5EcDd101c581C4AfD",
+        "fixedRate": true
       },
       {
         "underlying": "0x580d5E1399157FD0d58218b7A514b60974F2AB01",
@@ -10739,7 +10946,8 @@
       },
       {
         "underlying": "0xacA92E438df0B2401fF60dA7E4337B687a2435DA",
-        "vault": "0xA7ada0D422a8b5FA4A7947F2CB0eE2D32435647d"
+        "vault": "0xA7ada0D422a8b5FA4A7947F2CB0eE2D32435647d",
+        "fixedRate": true
       },
       {
         "underlying": "0x1789e0043623282D5DCc7F213d703C6D8BAfBB04",
@@ -10939,7 +11147,8 @@
       },
       {
         "underlying": "0x37c44fc08e403Efc0946C0623CB1164A52CE1576",
-        "vault": "0x3174A21ba5C45F3bd8bDc67C1FEf32F7de4514Dd"
+        "vault": "0x3174A21ba5C45F3bd8bDc67C1FEf32F7de4514Dd",
+        "fixedRate": true
       },
       {
         "underlying": "0x5C247948fD58Bb02B6c4678d9940F5e6B9af1127",
@@ -10947,7 +11156,8 @@
       },
       {
         "underlying": "0xacA92E438df0B2401fF60dA7E4337B687a2435DA",
-        "vault": "0xae8DA9d4e0959108766Bf7cF48ede8248Be9eFFF"
+        "vault": "0xae8DA9d4e0959108766Bf7cF48ede8248Be9eFFF",
+        "fixedRate": true
       },
       {
         "underlying": "0x5C247948fD58Bb02B6c4678d9940F5e6B9af1127",
@@ -10955,7 +11165,8 @@
       },
       {
         "underlying": "0xacA92E438df0B2401fF60dA7E4337B687a2435DA",
-        "vault": "0x9D0f1fBB7538E1B59059DC0978eE598c46bC9F78"
+        "vault": "0x9D0f1fBB7538E1B59059DC0978eE598c46bC9F78",
+        "fixedRate": true
       }
     ],
     "60808": [
@@ -11111,11 +11322,13 @@
       },
       {
         "underlying": "0x09D4214C03D01F49544C0448DBE3A27f768F2b34",
-        "vault": "0x45E310042661b9A2EFB08b39cA88819285C76DA1"
+        "vault": "0x45E310042661b9A2EFB08b39cA88819285C76DA1",
+        "fixedRate": true
       },
       {
         "underlying": "0x09D4214C03D01F49544C0448DBE3A27f768F2b34",
-        "vault": "0x109D6D1799f62216B4a7b0c6e245844AbD4DD281"
+        "vault": "0x109D6D1799f62216B4a7b0c6e245844AbD4DD281",
+        "fixedRate": true
       },
       {
         "underlying": "0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce",
@@ -11151,7 +11364,8 @@
       },
       {
         "underlying": "0xD10E65A5F8cA6f835F2B1832e37cF150fb955f23",
-        "vault": "0x28C96C7028451454729750171BD3Bb95D7261B5a"
+        "vault": "0x28C96C7028451454729750171BD3Bb95D7261B5a",
+        "fixedRate": true
       },
       {
         "underlying": "0x1cE0a25D13CE4d52071aE7e02Cf1F6606F4C79d3",
@@ -11179,7 +11393,8 @@
       },
       {
         "underlying": "0x1cE0a25D13CE4d52071aE7e02Cf1F6606F4C79d3",
-        "vault": "0x07346aE3245E04C96E33E8d8e02a638AaA08E719"
+        "vault": "0x07346aE3245E04C96E33E8d8e02a638AaA08E719",
+        "fixedRate": true
       },
       {
         "underlying": "0x1cE0a25D13CE4d52071aE7e02Cf1F6606F4C79d3",
@@ -11239,7 +11454,8 @@
       },
       {
         "underlying": "0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce",
-        "vault": "0xcd70599D3D8D1a6E3E4dD60D494dbF10E9b0F778"
+        "vault": "0xcd70599D3D8D1a6E3E4dD60D494dbF10E9b0F778",
+        "fixedRate": true
       },
       {
         "underlying": "0x1d22592F66Fc92e0a64eE9300eAeca548cd466c5",
