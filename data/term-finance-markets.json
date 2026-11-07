@@ -24,29 +24,6 @@
       "servicingFee": "0"
     },
     {
-      "termRepoId": "0x027603b7efe9c8e9b19d929814170c684cb0b36b4b16b7226111550219ea951b",
-      "servicer": "0x4f95a205514c8cc0f891bca6534fece269db9359",
-      "repoToken": "0x9e746a613c2171434c1ec35f44874d033803f29d",
-      "collateralManager": "0x40963f8b25d8b69e73a9cf54a48fe50d0f8cb3cb",
-      "purchaseToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-      "loanDecimals": 18,
-      "collateralParams": [
-        {
-          "token": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
-          "maintenanceRatio": "1052500000000000000",
-          "initialRatio": "1075000000000000000",
-          "decimals": 18,
-          "liquidatedDamages": "30000000000000000"
-        }
-      ],
-      "maturity": "1793289600",
-      "redemptionTimestamp": "1793376000",
-      "name": "WETH / weETH — 2026-10-29",
-      "endOfRepurchaseWindow": "1793372400",
-      "redemptionValue": "1000000000000000000",
-      "servicingFee": "0"
-    },
-    {
       "termRepoId": "0x03cdcc53f3240239bf7925b79f08017d6f8c9099b8c25a42a4e6de85a3b29894",
       "servicer": "0x8a4eb5e2c408c949c427f47f4a4b78e3786dd7b0",
       "repoToken": "0x98ce5a47c94b570f717c4017c5e5ed80efc3dd70",
@@ -529,29 +506,6 @@
       "redemptionTimestamp": "1797523200",
       "name": "USDC / cbBTC — 2026-12-16",
       "endOfRepurchaseWindow": "1797519600",
-      "redemptionValue": "1000000000000000000",
-      "servicingFee": "0"
-    },
-    {
-      "termRepoId": "0xf4944ef8d96458662aa8d776c3edbf7aa3a00569540968a1066b945ce6660f37",
-      "servicer": "0x6036c0c9c07bbf0613680af32c920ff8df5f4fee",
-      "repoToken": "0xea09fa60d6966ba015855943704b6569d1dc130a",
-      "collateralManager": "0xba80753c214694c109c2af1c0403258f7f038d74",
-      "purchaseToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-      "loanDecimals": 18,
-      "collateralParams": [
-        {
-          "token": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
-          "maintenanceRatio": "1100000000000000000",
-          "initialRatio": "1125000000000000000",
-          "decimals": 18,
-          "liquidatedDamages": "30000000000000000"
-        }
-      ],
-      "maturity": "1793289600",
-      "redemptionTimestamp": "1793376000",
-      "name": "WETH / wstETH — 2026-10-29",
-      "endOfRepurchaseWindow": "1793372400",
       "redemptionValue": "1000000000000000000",
       "servicingFee": "0"
     },

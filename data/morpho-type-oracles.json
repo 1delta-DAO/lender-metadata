@@ -11800,6 +11800,13 @@
         "collateralAssetDecimals": 8
       },
       {
+        "oracle": "0xB0edD39718FF2CfCB7215335179cb07364825D8f",
+        "loanAsset": "0x0dc4f92879b7670e5f4e4e6e3c801d229129d90d",
+        "collateralAsset": "0x3600000000000000000000000000000000000000",
+        "loanAssetDecimals": 18,
+        "collateralAssetDecimals": 6
+      },
+      {
         "oracle": "0x6B585b7217E29F11A3b743A6a7bB84754cbA6727",
         "loanAsset": "0x3600000000000000000000000000000000000000",
         "collateralAsset": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
