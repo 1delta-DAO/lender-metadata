@@ -8859,7 +8859,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -8883,7 +8883,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -9087,7 +9087,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -9101,7 +9101,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x080574d224e960c272e005aa03efbe793f317640",
@@ -9115,7 +9115,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -9157,7 +9157,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x276084527b801e00db8e4410504f9baf93f72c67",
@@ -9175,7 +9175,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -9199,7 +9199,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -9247,7 +9247,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -9261,7 +9261,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0xe8c831687ce8c9d015eb10b430d1a54faa0cb4ed",
@@ -9430,6 +9430,30 @@
       "type": 10000,
       "vaultId": 6
     },
+    "0x43d1ca906c72f09d96291b4913d7255e241f428d": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x9a0fda21276f245b89d2b7f1120f42e4466b1cb5",
+            "fToken": null
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "type": 10000,
+      "vaultId": 96
+    },
     "0x469d8c7990b9072eef05d6349224621a71176213": {
       "borrow": {
         "assets": [
@@ -9449,7 +9473,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x080574d224e960c272e005aa03efbe793f317640",
@@ -9467,7 +9491,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -9523,7 +9547,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -9547,7 +9571,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -9575,7 +9599,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -9703,7 +9727,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -9749,7 +9773,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x080574d224e960c272e005aa03efbe793f317640",
@@ -9859,7 +9883,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -9873,7 +9897,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0xf063bd202e45d6b2843102cb4ece339026645d4a",
@@ -9943,7 +9967,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -10029,7 +10053,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x276084527b801e00db8e4410504f9baf93f72c67",
@@ -10043,7 +10067,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -10057,7 +10081,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x080574d224e960c272e005aa03efbe793f317640",
@@ -10071,7 +10095,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -10095,7 +10119,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -10190,6 +10214,30 @@
       "type": 10000,
       "vaultId": 20
     },
+    "0x96b2a29823d475468ee6f15e07878adf79e8199b": {
+      "borrow": {
+        "assets": [
+          {
+            "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "supply": {
+        "assets": [
+          {
+            "underlying": "0x6760e0064eee21c89c21f6c00b752e37cb1cd6de",
+            "fToken": null
+          }
+        ],
+        "dex": null,
+        "smartLending": null
+      },
+      "type": 10000,
+      "vaultId": 97
+    },
     "0x97950bf81f5605d2d0be37f28a33a752d6f16bdf": {
       "borrow": {
         "assets": [
@@ -10255,7 +10303,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -10363,7 +10411,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -10419,7 +10467,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -10433,7 +10481,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x276084527b801e00db8e4410504f9baf93f72c67",
@@ -10519,7 +10567,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -10603,7 +10651,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -10675,7 +10723,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -10699,7 +10747,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -10713,7 +10761,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3381d456706474ebde92fb4685c0eaeb5033002e",
@@ -10727,7 +10775,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -10859,7 +10907,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -10883,7 +10931,7 @@
         "assets": [
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": null,
@@ -10897,7 +10945,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x276084527b801e00db8e4410504f9baf93f72c67",
@@ -11015,7 +11063,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -11075,7 +11123,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
@@ -11235,7 +11283,7 @@
           },
           {
             "underlying": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-            "fToken": "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03"
+            "fToken": "0x9b27d2bedc67237a038434a88e912c02a4afec80"
           }
         ],
         "dex": "0x3c0441b42195f4ad6aa9a0978e06096ea616cda7",
