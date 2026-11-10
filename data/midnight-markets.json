@@ -166,7 +166,7 @@
       ],
       "continuousFee": "0",
       "marketFamilyId": "0xf812121e26f7a88b15d17f7dfa0117f872aad1aa2b7263293f14e2f638aefeee",
-      "listed": true,
+      "listed": false,
       "name": "PT-fxSAVE-29OCT2026+USDC/USDC - 2026-12-25"
     },
     {
@@ -776,7 +776,7 @@
       ],
       "continuousFee": "0",
       "marketFamilyId": "0xf812121e26f7a88b15d17f7dfa0117f872aad1aa2b7263293f14e2f638aefeee",
-      "listed": true,
+      "listed": false,
       "name": "PT-fxSAVE-29OCT2026+USDC/USDC - 2026-11-27"
     },
     {
@@ -2852,43 +2852,6 @@
       "name": "USDC+wsrUSD/USDC - 2027-03-26"
     },
     {
-      "marketId": "0xb76a372991ec940f3b4ca16c7e966c54378242e0a0f81767161d290715052e14",
-      "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-      "loanDecimals": 6,
-      "collateralParams": [
-        {
-          "token": "0x997E2Efbce91D170B00EA402e35a66C887EE1da9",
-          "lltv": "860000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x9abd4961996b7957baA4Be82716d23BdfE541854",
-          "decimals": 6
-        }
-      ],
-      "maturity": "1794168420",
-      "rcfThreshold": "1000000000",
-      "enterGate": "0x22A6E2Ae2DD12Af7Cc19333e70C4Ba86675160Bd",
-      "liquidatorGate": "0x0000000000000000000000000000000000000000",
-      "gating": {
-        "enter": "unknown",
-        "liquidator": "open",
-        "enterGate": "0x22A6E2Ae2DD12Af7Cc19333e70C4Ba86675160Bd",
-        "liquidatorGate": "0x0000000000000000000000000000000000000000"
-      },
-      "settlementFeeCbp": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "continuousFee": "0",
-      "marketFamilyId": "0x3c7adbd9348f20d41f9a3d8e23fc6f46301775dc3f377e2f43a130b1148dd0b7",
-      "listed": false,
-      "name": "AUTO/USDC - 2026-11-08"
-    },
-    {
       "marketId": "0xba8c06892ec509d3be19262ddc40814d8e3e82ec7dab5e5c49e5d08ac1a6f277",
       "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "loanDecimals": 6,
@@ -3260,7 +3223,7 @@
       ],
       "continuousFee": "0",
       "marketFamilyId": "0xf812121e26f7a88b15d17f7dfa0117f872aad1aa2b7263293f14e2f638aefeee",
-      "listed": true,
+      "listed": false,
       "name": "PT-fxSAVE-29OCT2026+USDC/USDC - 2027-03-26"
     },
     {

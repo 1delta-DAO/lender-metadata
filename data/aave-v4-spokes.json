@@ -106,6 +106,12 @@
           "assetId": 6,
           "underlying": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
           "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
+        },
+        {
+          "reserveId": 14,
+          "assetId": 17,
+          "underlying": "0x72dfb2e44f59c5ad2bafe84314e5b99a7cd5075e",
+          "hub": "0xcca852bc40e560adc3b1cc58ca5b55638ce826c9"
         }
       ]
     },
@@ -995,6 +1001,12 @@
           "assetId": 3,
           "underlying": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
           "hub": "0x62d63197660c080236193ca60b70e49a08e90368"
+        },
+        {
+          "reserveId": 2,
+          "assetId": 6,
+          "underlying": "0x6c6494fd9962eb98b94ffa48f6679058f820700e",
+          "hub": "0x62d63197660c080236193ca60b70e49a08e90368"
         }
       ]
     },
@@ -1005,6 +1017,35 @@
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_GLOBAL_DOLLAR",
       "reserves": []
+    },
+    "0x092508a2eb395cb3861a3fdb65405744d706476f": {
+      "spoke": "0x092508a2eb395cb3861a3fdb65405744d706476f",
+      "oracle": "0x",
+      "label": "Spoke 0x0925..476f",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x115af1c2db26cd8eca3f29055e4e424af4edf616": {
+      "spoke": "0x115af1c2db26cd8eca3f29055e4e424af4edf616",
+      "oracle": "0x6b3800e96bb4aa38a879b2c143b6e2f5f2687b77",
+      "label": "Spoke 0x115a..f616",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_GLOBAL_DOLLAR",
+      "reserves": [
+        {
+          "reserveId": 0,
+          "assetId": 6,
+          "underlying": "0x6c6494fd9962eb98b94ffa48f6679058f820700e",
+          "hub": "0x62d63197660c080236193ca60b70e49a08e90368"
+        },
+        {
+          "reserveId": 1,
+          "assetId": 5,
+          "underlying": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+          "hub": "0x62d63197660c080236193ca60b70e49a08e90368"
+        }
+      ]
     }
   },
   "10": {
