@@ -38,6 +38,43 @@
       "name": "USD3/USDC - 2026-09-20"
     },
     {
+      "marketId": "0x0345450d862f689f611b4db3b660186db24cd48817913a2701c1b6d1f4dfbd2f",
+      "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+          "lltv": "860000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x00dc356BEA2F98CE67256f9a0eFaBFC4B9C52aC6",
+          "decimals": 18
+        }
+      ],
+      "maturity": "1798210800",
+      "rcfThreshold": "300000000000",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0x0000000000000000000000000000000000000000",
+      "gating": {
+        "enter": "open",
+        "liquidator": "open",
+        "enterGate": "0x0000000000000000000000000000000000000000",
+        "liquidatorGate": "0x0000000000000000000000000000000000000000"
+      },
+      "settlementFeeCbp": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "continuousFee": "0",
+      "marketFamilyId": "0x8994cab1ab9b957d21e8e37382706c7e79febfc3329a3a7122a3c13caab19e2f",
+      "listed": false,
+      "name": "wstETH/USDC - 2026-12-25"
+    },
+    {
       "marketId": "0x03ab85cb5ddca457463d9937d00236a3a180a5e8d8c0fa4a4bef0cba9181f9a5",
       "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "loanDecimals": 6,
@@ -166,7 +203,7 @@
       ],
       "continuousFee": "0",
       "marketFamilyId": "0xf812121e26f7a88b15d17f7dfa0117f872aad1aa2b7263293f14e2f638aefeee",
-      "listed": true,
+      "listed": false,
       "name": "PT-fxSAVE-29OCT2026+USDC/USDC - 2026-12-25"
     },
     {
@@ -776,7 +813,7 @@
       ],
       "continuousFee": "0",
       "marketFamilyId": "0xf812121e26f7a88b15d17f7dfa0117f872aad1aa2b7263293f14e2f638aefeee",
-      "listed": true,
+      "listed": false,
       "name": "PT-fxSAVE-29OCT2026+USDC/USDC - 2026-11-27"
     },
     {
@@ -913,43 +950,6 @@
       "tenorSeriesId": "b25ff8c8-84c1-4096-a791-fda746e9c14a",
       "listed": false,
       "name": "strUSD+vUSDC/USDC - 2026-11-27"
-    },
-    {
-      "marketId": "0x4733cbc7ac6dc823c9fa416d0f4eac83b9d0c6c1b16ee53ff74f7f28d0d20532",
-      "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-      "loanDecimals": 6,
-      "collateralParams": [
-        {
-          "token": "0x997E2Efbce91D170B00EA402e35a66C887EE1da9",
-          "lltv": "860000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x9abd4961996b7957baA4Be82716d23BdfE541854",
-          "decimals": 6
-        }
-      ],
-      "maturity": "1794315600",
-      "rcfThreshold": "1000000000",
-      "enterGate": "0x22A6E2Ae2DD12Af7Cc19333e70C4Ba86675160Bd",
-      "liquidatorGate": "0x0000000000000000000000000000000000000000",
-      "gating": {
-        "enter": "unknown",
-        "liquidator": "open",
-        "enterGate": "0x22A6E2Ae2DD12Af7Cc19333e70C4Ba86675160Bd",
-        "liquidatorGate": "0x0000000000000000000000000000000000000000"
-      },
-      "settlementFeeCbp": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "continuousFee": "0",
-      "marketFamilyId": "0x3c7adbd9348f20d41f9a3d8e23fc6f46301775dc3f377e2f43a130b1148dd0b7",
-      "listed": false,
-      "name": "AUTO/USDC - 2026-11-10 · #4733cbc7"
     },
     {
       "marketId": "0x48c46fd96089b51ec27b3be9ae6e4689673deba20fa3d9b33c38e63b525a3220",
@@ -1480,50 +1480,6 @@
       "name": "USDC+ROY-ST-apyUSD/USDC - 2026-12-25"
     },
     {
-      "marketId": "0x68d1cdf5554d11d09e8ffd15a51f223cce588c367cf1787f8b7cb5a99047a1a9",
-      "loanToken": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
-      "loanDecimals": 6,
-      "collateralParams": [
-        {
-          "token": "0x6DFF69eb720986E98Bb3E8b26cb9E02Ec1a35D12",
-          "lltv": "915000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x0604084149dCB25a1739899624333D69dB1A507e",
-          "decimals": 18
-        },
-        {
-          "token": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
-          "lltv": "980000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x8d1A84515B54C58bAc3b18315B6b1f17dA5cf6ca",
-          "decimals": 6
-        }
-      ],
-      "maturity": "1794553200",
-      "rcfThreshold": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
-      "enterGate": "0x0000000000000000000000000000000000000000",
-      "liquidatorGate": "0x0000000000000000000000000000000000000000",
-      "gating": {
-        "enter": "open",
-        "liquidator": "open",
-        "enterGate": "0x0000000000000000000000000000000000000000",
-        "liquidatorGate": "0x0000000000000000000000000000000000000000"
-      },
-      "settlementFeeCbp": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "continuousFee": "0",
-      "marketFamilyId": "0xa676dd45286adc25db937e8cb47f762ef2d71668c9f400a88bc375f53f907d4e",
-      "listed": false,
-      "name": "syzUSD+PYUSD/PYUSD - 2026-11-13"
-    },
-    {
       "marketId": "0x6a467e5d8482dbde25f057f33d8cb4366898e0a497877f46e26f33b7c2d4bf30",
       "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "loanDecimals": 6,
@@ -1791,6 +1747,50 @@
       "name": "USDC+WETH/USDC - 2026-12-25 · Ethereum"
     },
     {
+      "marketId": "0x77c30f81ea3f925981a20ef1f305bd27fbcbe674b9a8f1b5e516ecd9728732ad",
+      "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "lltv": "980000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x8d1A84515B54C58bAc3b18315B6b1f17dA5cf6ca",
+          "decimals": 6
+        },
+        {
+          "token": "0x58D97B57BB95320F9a05dC918Aef65434969c2B2",
+          "lltv": "625000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0xEEcD66e6C723c1506532a5f646cC8a502c026A2E",
+          "decimals": 18
+        }
+      ],
+      "maturity": "1798210800",
+      "rcfThreshold": "90000000000",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0x0000000000000000000000000000000000000000",
+      "gating": {
+        "enter": "open",
+        "liquidator": "open",
+        "enterGate": "0x0000000000000000000000000000000000000000",
+        "liquidatorGate": "0x0000000000000000000000000000000000000000"
+      },
+      "settlementFeeCbp": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "continuousFee": "0",
+      "marketFamilyId": "0x63ae1c1ae843fdd760c12c02819223212e318b112eb8102a5ab84786f41c1598",
+      "listed": true,
+      "name": "USDC+MORPHO/USDC - 2026-12-25"
+    },
+    {
       "marketId": "0x79bb386572c3de21d3dc53272043b1463cd1cddd1d6871b708902b824da482c7",
       "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "loanDecimals": 6,
@@ -1922,6 +1922,50 @@
       "marketFamilyId": "0xf45aae4c601ff5d741f140b01332bba8c61550b072dd01423a45ca62ca037d26",
       "listed": true,
       "name": "SYRUP+USDC/USDC - 2026-12-25"
+    },
+    {
+      "marketId": "0x83cadc4aee99103d905df358910fb3bfc119168bbdd67a2baff1ef066998e3ec",
+      "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "lltv": "980000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x8d1A84515B54C58bAc3b18315B6b1f17dA5cf6ca",
+          "decimals": 6
+        },
+        {
+          "token": "0xeCfaFdC7741323a945A163ed068B5a3C43483957",
+          "lltv": "915000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0x217d6DdCDB95112C51657F6270e8C079CFDB51f0",
+          "decimals": 6
+        }
+      ],
+      "maturity": "1796947200",
+      "rcfThreshold": "500000000000",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0x0000000000000000000000000000000000000000",
+      "gating": {
+        "enter": "open",
+        "liquidator": "open",
+        "enterGate": "0x0000000000000000000000000000000000000000",
+        "liquidatorGate": "0x0000000000000000000000000000000000000000"
+      },
+      "settlementFeeCbp": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "continuousFee": "0",
+      "marketFamilyId": "0x50f89f76b0edbe9e31aadf21fb58e4152093016ec530d86e029c21effde6a25f",
+      "listed": true,
+      "name": "USDC+PT-reUSD-10DEC2026/USDC - 2026-12-11"
     },
     {
       "marketId": "0x853a8ba15deb7243fa175a1048b5492c7f69a55a10c6c88a4a2bb111ccd32802",
@@ -2852,43 +2896,6 @@
       "name": "USDC+wsrUSD/USDC - 2027-03-26"
     },
     {
-      "marketId": "0xb76a372991ec940f3b4ca16c7e966c54378242e0a0f81767161d290715052e14",
-      "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-      "loanDecimals": 6,
-      "collateralParams": [
-        {
-          "token": "0x997E2Efbce91D170B00EA402e35a66C887EE1da9",
-          "lltv": "860000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x9abd4961996b7957baA4Be82716d23BdfE541854",
-          "decimals": 6
-        }
-      ],
-      "maturity": "1794168420",
-      "rcfThreshold": "1000000000",
-      "enterGate": "0x22A6E2Ae2DD12Af7Cc19333e70C4Ba86675160Bd",
-      "liquidatorGate": "0x0000000000000000000000000000000000000000",
-      "gating": {
-        "enter": "unknown",
-        "liquidator": "open",
-        "enterGate": "0x22A6E2Ae2DD12Af7Cc19333e70C4Ba86675160Bd",
-        "liquidatorGate": "0x0000000000000000000000000000000000000000"
-      },
-      "settlementFeeCbp": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "continuousFee": "0",
-      "marketFamilyId": "0x3c7adbd9348f20d41f9a3d8e23fc6f46301775dc3f377e2f43a130b1148dd0b7",
-      "listed": false,
-      "name": "AUTO/USDC - 2026-11-08"
-    },
-    {
       "marketId": "0xba8c06892ec509d3be19262ddc40814d8e3e82ec7dab5e5c49e5d08ac1a6f277",
       "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "loanDecimals": 6,
@@ -3260,7 +3267,7 @@
       ],
       "continuousFee": "0",
       "marketFamilyId": "0xf812121e26f7a88b15d17f7dfa0117f872aad1aa2b7263293f14e2f638aefeee",
-      "listed": true,
+      "listed": false,
       "name": "PT-fxSAVE-29OCT2026+USDC/USDC - 2027-03-26"
     },
     {
@@ -3753,43 +3760,6 @@
       "marketFamilyId": "0xf2b17d79e055484a636be13b2db99f6133fbc1eb4563a5a7ff05e53ecdd11ae2",
       "listed": true,
       "name": "SHIB+USDC/USDC - 2026-11-27"
-    },
-    {
-      "marketId": "0xe04acf9d0003dfaf477a8e47fe143ea4ae9263f07f2f4270bfd6a722023ad958",
-      "loanToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-      "loanDecimals": 6,
-      "collateralParams": [
-        {
-          "token": "0x997E2Efbce91D170B00EA402e35a66C887EE1da9",
-          "lltv": "860000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0x9abd4961996b7957baA4Be82716d23BdfE541854",
-          "decimals": 6
-        }
-      ],
-      "maturity": "1794340800",
-      "rcfThreshold": "1000000000",
-      "enterGate": "0x22A6E2Ae2DD12Af7Cc19333e70C4Ba86675160Bd",
-      "liquidatorGate": "0x0000000000000000000000000000000000000000",
-      "gating": {
-        "enter": "unknown",
-        "liquidator": "open",
-        "enterGate": "0x22A6E2Ae2DD12Af7Cc19333e70C4Ba86675160Bd",
-        "liquidatorGate": "0x0000000000000000000000000000000000000000"
-      },
-      "settlementFeeCbp": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "continuousFee": "0",
-      "marketFamilyId": "0x3c7adbd9348f20d41f9a3d8e23fc6f46301775dc3f377e2f43a130b1148dd0b7",
-      "listed": false,
-      "name": "AUTO/USDC - 2026-11-10 · #e04acf9d"
     },
     {
       "marketId": "0xe0efc89dc1f747ba502f6a4100b6b1db9ebd0d57569fd5a54771d3a026b6a27b",
@@ -4673,43 +4643,6 @@
       "marketFamilyId": "0x10104827b07c5b92c440b4d4bdbf4dc139c163b545fbe9eedaae4765b0ff383c",
       "listed": false,
       "name": "NVDA/USDG - 2026-11-27"
-    },
-    {
-      "marketId": "0x56e80c3637c9fd431038e08670ecc0213b4b427ef1105a0dfdd5d0d3ca76aae9",
-      "loanToken": "0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa",
-      "loanDecimals": 18,
-      "collateralParams": [
-        {
-          "token": "0x1373d1B2f086a873fD5E40Eb89Db11c3700B0000",
-          "lltv": "915000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0xE1964Ba4BFCA591D5F9595eE9285524147F2ef53",
-          "decimals": 18
-        }
-      ],
-      "maturity": "1793375100",
-      "rcfThreshold": "0",
-      "enterGate": "0x0000000000000000000000000000000000000000",
-      "liquidatorGate": "0x0000000000000000000000000000000000000000",
-      "gating": {
-        "enter": "open",
-        "liquidator": "open",
-        "enterGate": "0x0000000000000000000000000000000000000000",
-        "liquidatorGate": "0x0000000000000000000000000000000000000000"
-      },
-      "settlementFeeCbp": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "continuousFee": "0",
-      "marketFamilyId": "0x4e04ce5dbcafd6c5dee95bf63700fd7f79389ccb7f833e8d8dcdc5328ad74108",
-      "listed": false,
-      "name": "ORBIT/SPCX - 2026-10-30"
     },
     {
       "marketId": "0x5ab92902fca657e1964037c590eea0540413fcfd1215d32b13eb87d1e419b2d0",
@@ -6906,6 +6839,43 @@
       "name": "WETH/USDC - 2026-12-25"
     },
     {
+      "marketId": "0x2255c66146585fd5e04ec7318f0cc08576d89c333c344985f7ec64d808bb8d5d",
+      "loanToken": "0x4750ECf0f135e4fAEc92c8aC452d216b767cBDaC",
+      "loanDecimals": 6,
+      "collateralParams": [
+        {
+          "token": "0xBbdEBf2273B8Fa5e520A499D19e6FEe071Fd92d1",
+          "lltv": "945000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0xD8a809C4A2C09AED25d29aE89A6Dc1390B7fd938",
+          "decimals": 6
+        }
+      ],
+      "maturity": "1795791600",
+      "rcfThreshold": "0",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0xD712aE8276E5d97075718Ac3F31270f61A298335",
+      "gating": {
+        "enter": "open",
+        "liquidator": "unknown",
+        "enterGate": "0x0000000000000000000000000000000000000000",
+        "liquidatorGate": "0xD712aE8276E5d97075718Ac3F31270f61A298335"
+      },
+      "settlementFeeCbp": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "continuousFee": "0",
+      "marketFamilyId": "0x18d14e78c8e8b63165fdde241bd5c4ff0ba976de8acdfc9b3e017ecd92d80931",
+      "listed": false,
+      "name": "TESTRWA/TESTUSD - 2026-11-27"
+    },
+    {
       "marketId": "0x231d2f3434062c326e96d28780c7dbf146669b8014aaae60b6bea39546cb1872",
       "loanToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
       "loanDecimals": 6,
@@ -7320,6 +7290,60 @@
       "marketFamilyId": "0x5999d99bb6f515dd4fbf5f85a29d753445477d7529c267f6a9abeadfaa7e1909",
       "listed": false,
       "name": "cbBTC/USDC - 2026-07-31 · rcf 0"
+    },
+    {
+      "marketId": "0x2b97fd6ef72e48a6590cc4b67c627b4693285301b562b78d01495c9471bec53f",
+      "loanToken": "0x4200000000000000000000000000000000000006",
+      "loanDecimals": 18,
+      "collateralParams": [
+        {
+          "token": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+          "lltv": "945000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0xB03855Ad5AFD6B8db8091DD5551CAC4ed621d9E6",
+          "decimals": 18
+        },
+        {
+          "token": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "lltv": "980000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0xa02f629871be35d6db0F88C944cF955554Ec87c0",
+          "decimals": 18,
+          "collateralVault": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
+          "collateralVaultGated": true,
+          "collateralVaultSource": {
+            "kind": "morpho-blue",
+            "morpho": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+            "marketId": "0x84662b4f95b85d6b082b68d32cf71bb565b3f22f216a65509cc2ede7dccdfe8c",
+            "performanceFee": "0",
+            "managementFee": "0"
+          }
+        }
+      ],
+      "maturity": "1803654000",
+      "rcfThreshold": "4000000000000000000",
+      "enterGate": "0x0000000000000000000000000000000000000000",
+      "liquidatorGate": "0x0000000000000000000000000000000000000000",
+      "gating": {
+        "enter": "open",
+        "liquidator": "open",
+        "enterGate": "0x0000000000000000000000000000000000000000",
+        "liquidatorGate": "0x0000000000000000000000000000000000000000"
+      },
+      "settlementFeeCbp": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "continuousFee": "0",
+      "marketFamilyId": "0x997f1f3780de5ff952ed877f3255a64cc6b142cccc84b1fc9f12a1b4fafcd4a8",
+      "tenorSeriesId": "66a857ba-c4c5-4003-a3de-48b890a675cb",
+      "listed": false,
+      "name": "cbETH+vWETH/WETH - 2027-02-26"
     },
     {
       "marketId": "0x2e1f5991fd224fdf3ad078c49ab893495f414cc3bebc2fe69dc2712326142a6c",
@@ -8138,13 +8162,6 @@
       "loanDecimals": 18,
       "collateralParams": [
         {
-          "token": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
-          "lltv": "945000000000000000",
-          "liquidationCursor": "300000000000000000",
-          "oracle": "0xB03855Ad5AFD6B8db8091DD5551CAC4ed621d9E6",
-          "decimals": 18
-        },
-        {
           "token": "0xFa750DD0099eAdB72d401244De73ce7B89edf90F",
           "lltv": "980000000000000000",
           "liquidationCursor": "300000000000000000",
@@ -8159,6 +8176,13 @@
             "performanceFee": "0",
             "managementFee": "0"
           }
+        },
+        {
+          "token": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+          "lltv": "945000000000000000",
+          "liquidationCursor": "300000000000000000",
+          "oracle": "0xB03855Ad5AFD6B8db8091DD5551CAC4ed621d9E6",
+          "decimals": 18
         }
       ],
       "maturity": "1801234800",
@@ -8184,7 +8208,7 @@
       "marketFamilyId": "0x997f1f3780de5ff952ed877f3255a64cc6b142cccc84b1fc9f12a1b4fafcd4a8",
       "tenorSeriesId": "66a857ba-c4c5-4003-a3de-48b890a675cb",
       "listed": false,
-      "name": "cbETH+vWETH/WETH - 2027-01-29"
+      "name": "vWETH+cbETH/WETH - 2027-01-29"
     },
     {
       "marketId": "0x3d3d4e846dac759424a3cc39617bbab590c4978ec97e46894679a4f1ca80e90f",
