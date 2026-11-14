@@ -1005,6 +1005,22 @@
       "dynamicConfigKeyMax": 0,
       "baseHubAttribution": "AAVE_V4_GLOBAL_DOLLAR",
       "reserves": []
+    },
+    "0x092508a2eb395cb3861a3fdb65405744d706476f": {
+      "spoke": "0x092508a2eb395cb3861a3fdb65405744d706476f",
+      "oracle": "0x",
+      "label": "Spoke 0x0925..476f",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_CORE",
+      "reserves": []
+    },
+    "0x115af1c2db26cd8eca3f29055e4e424af4edf616": {
+      "spoke": "0x115af1c2db26cd8eca3f29055e4e424af4edf616",
+      "oracle": "0x6b3800e96bb4aa38a879b2c143b6e2f5f2687b77",
+      "label": "Spoke 0x115a..f616",
+      "dynamicConfigKeyMax": 0,
+      "baseHubAttribution": "AAVE_V4_GLOBAL_DOLLAR",
+      "reserves": []
     }
   },
   "10": {
