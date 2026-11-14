@@ -24,29 +24,6 @@
       "servicingFee": "0"
     },
     {
-      "termRepoId": "0x03cdcc53f3240239bf7925b79f08017d6f8c9099b8c25a42a4e6de85a3b29894",
-      "servicer": "0x8a4eb5e2c408c949c427f47f4a4b78e3786dd7b0",
-      "repoToken": "0x98ce5a47c94b570f717c4017c5e5ed80efc3dd70",
-      "collateralManager": "0x6ee66f142f101927bd1d3e66acd5f19c5be486ba",
-      "purchaseToken": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-      "loanDecimals": 6,
-      "collateralParams": [
-        {
-          "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
-          "maintenanceRatio": "1333333333333000000",
-          "initialRatio": "1500000000000000000",
-          "decimals": 6,
-          "liquidatedDamages": "80000000000000000"
-        }
-      ],
-      "maturity": "1793808000",
-      "redemptionTimestamp": "1793894400",
-      "name": "USDT / XAUt — 2026-11-04",
-      "endOfRepurchaseWindow": "1793890800",
-      "redemptionValue": "1000000000000000000",
-      "servicingFee": "0"
-    },
-    {
       "termRepoId": "0x07960a531277195195d011008db1fd0f81d8dd8abe7f7a6ffbf2f976b82be441",
       "servicer": "0xa7de1a7118e2bbe17c0928673966f466b18ade77",
       "repoToken": "0xf744b85a60d889b09e3a4ae033c1f899df02f148",
@@ -319,29 +296,6 @@
       "redemptionTimestamp": "1795795200",
       "name": "USDC / PT-strUSD-26NOV2026 — 2026-11-26",
       "endOfRepurchaseWindow": "1795791600",
-      "redemptionValue": "1000000000000000000",
-      "servicingFee": "0"
-    },
-    {
-      "termRepoId": "0x5a9db4c3172a9f4151ffc5275506bd5302f263761a12f044253bb14e3c13a4ab",
-      "servicer": "0xcd3983d26c8d05301dd688ce2e25e59bd8337e4d",
-      "repoToken": "0x90c3bd58438f4b28137a7f613b5b9ddbd9031fa6",
-      "collateralManager": "0xb8d66be430cd9125c017286355c56615f68db251",
-      "purchaseToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-      "loanDecimals": 6,
-      "collateralParams": [
-        {
-          "token": "0x280839980a7ed0d7717f64125fe241012e5f5815",
-          "maintenanceRatio": "1162790697700000000",
-          "initialRatio": "1300000000000000000",
-          "decimals": 18,
-          "liquidatedDamages": "60000000000000000"
-        }
-      ],
-      "maturity": "1793894400",
-      "redemptionTimestamp": "1793980800",
-      "name": "USDC / strUSD — 2026-11-05",
-      "endOfRepurchaseWindow": "1793977200",
       "redemptionValue": "1000000000000000000",
       "servicingFee": "0"
     },

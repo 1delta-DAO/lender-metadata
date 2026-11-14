@@ -25,6 +25,32 @@
       }
     },
     "perSpoke": {
+      "0x115af1c2db26cd8eca3f29055e4e424af4edf616": {
+        "spokeName": "Gold Correlated",
+        "spokeId": "MTo6MHgxMTVhRjFDMmRiMjZjRDhFQ2EzZjI5MDU1RTRFNDI0QUY0ZWRGNjE2",
+        "positionManagers": [
+          {
+            "name": "Unknown",
+            "address": "0x17a54b8d6d9c68e7fa1c7112ac998ea1ba51d11e",
+            "active": true
+          },
+          {
+            "name": "Unknown",
+            "address": "0x51305839ce822a7b4b12aa7d86ea7005052d575c",
+            "active": true
+          },
+          {
+            "name": "Unknown",
+            "address": "0x6c044c0d3801499bcabfad458b70880bc518e9f7",
+            "active": true
+          },
+          {
+            "name": "Aave Signature Gateway",
+            "address": "0xfbc184337dc6595d8bf62968bda46e7de7af9c3d",
+            "active": true
+          }
+        ]
+      },
       "0x3131fe68c4722e726fe6b2819ed68e514395b9a4": {
         "spokeName": "Kelp",
         "spokeId": "MTo6MHgzMTMxRkU2OEM0NzIyZTcyNmZlNkIyODE5RUQ2OGU1MTQzOTVCOWE0",
