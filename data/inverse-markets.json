@@ -274,6 +274,19 @@
           "dailyLimit": "500000",
           "borrowPaused": false,
           "name": "sSwanUSD"
+        },
+        {
+          "address": "0xccfd76343a09f9b12347efbceab8df8b4191524e",
+          "collToken": "0x123b0134930bd5cf8f26b3e3c621acbc791a294b",
+          "collDecimals": 18,
+          "escrowImplementation": "0x498838e3866c8da3d26eddf479642edf9df4e857",
+          "collateralFactorBps": "8500",
+          "liquidationIncentiveBps": "500",
+          "liquidationFactorBps": "10000",
+          "minDebt": "3000",
+          "dailyLimit": "500000",
+          "borrowPaused": false,
+          "name": "swanUSD-DOLA"
         }
       ]
     }
