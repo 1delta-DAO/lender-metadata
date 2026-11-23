@@ -69,6 +69,29 @@
         }
       ]
     },
+    "0x7f9dbdd3941fb9d33cffecf75f1beff147863021": {
+      "kind": "smart-lp",
+      "collateralToken": "0xb2ebbe4fc0c37425cfde99c7693a87e6c902987d",
+      "collateralSymbol": "USDS & USDT-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x0a935ea575bf50ce8dc0ff61ae24b21bbccfc554",
+      "dexInfo": "0xd2231a59936e39d48f5c0d735bf073c7ee3de02a",
+      "dexLp": "0x12d0218a282fc449eb910b39b47527296664a522",
+      "coins": [
+        {
+          "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "symbol": "USDT",
+          "decimals": 6,
+          "isNative": false
+        },
+        {
+          "address": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+          "symbol": "USDS",
+          "decimals": 18,
+          "isNative": false
+        }
+      ]
+    },
     "0x893666d84b374f96ab500f56728283eebb94a9ac": {
       "kind": "smart-lp",
       "collateralToken": "0x5432e4fe5736b9b7ddc1be34ac45bdb557f2be22",
@@ -88,6 +111,29 @@
           "address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
           "symbol": "cbBTC",
           "decimals": 8,
+          "isNative": false
+        }
+      ]
+    },
+    "0x94a58615a100604fde7fcac44258a5cd4b7c79e7": {
+      "kind": "smart-lp",
+      "collateralToken": "0x4772b3356791f8e584200429909f7295ef16e9fd",
+      "collateralSymbol": "USDS & PYUSD-SmartLP",
+      "collateralDecimals": 18,
+      "dex": "0x2bc918b6d3cb09cd415fa3ac74ce582f4cd853e4",
+      "dexInfo": "0xd2231a59936e39d48f5c0d735bf073c7ee3de02a",
+      "dexLp": "0x65cb8747a87afd4aef50221f97dec0f058f185ba",
+      "coins": [
+        {
+          "address": "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
+          "symbol": "PYUSD",
+          "decimals": 6,
+          "isNative": false
+        },
+        {
+          "address": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+          "symbol": "USDS",
+          "decimals": 18,
           "isNative": false
         }
       ]
@@ -295,6 +341,14 @@
           "isNative": true
         }
       ]
+    }
+  },
+  "4663": {
+    "0x42d9dd28d9e8cfcf4c684db0c21885d0760627b6": {
+      "kind": "native",
+      "collateralToken": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+      "collateralSymbol": "WETH",
+      "collateralDecimals": 18
     }
   }
 }

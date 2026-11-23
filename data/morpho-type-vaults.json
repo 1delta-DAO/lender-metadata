@@ -64,6 +64,12 @@
         "version": "v1"
       },
       {
+        "vault": "0x87e01662febb5145ff648c1fa7b73d81519d9c66",
+        "underlying": "0x55d398326f99059ff775485246999027b3197955",
+        "name": "Saturn USDT",
+        "version": "v1"
+      },
+      {
         "vault": "0x8a06ac91265dbebe6d4606f45b10993e9a571869",
         "underlying": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
         "name": "Lista USDC Vault",
@@ -151,6 +157,14 @@
         "vault": "0xfa27f172e0b6ebcef9c51abf817e2cb142fbe627",
         "underlying": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
         "name": "Gauntlet x Lista DAO USD1 Vault",
+        "version": "v1"
+      }
+    ],
+    "4663": [
+      {
+        "vault": "0xb03518022f7845e901f35ea39c64b0904cd36da8",
+        "underlying": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+        "name": "Lista USDG Vault",
         "version": "v1"
       }
     ]
