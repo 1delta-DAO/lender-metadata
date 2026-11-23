@@ -11,6 +11,7 @@ const BASE_URL = "https://api.lista.org/api/moolah/borrow/markets";
 const CHAIN_NAME_TO_ID = {
     bsc: "56",
     ethereum: "1",
+    robinhood: "4663",
 };
 export async function fetchListaMarkets(pageSize = 100) {
     const chainsParam = Object.keys(CHAIN_NAME_TO_ID).join(",");
