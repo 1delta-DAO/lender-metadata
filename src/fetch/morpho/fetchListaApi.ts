@@ -18,6 +18,7 @@ const BASE_URL = "https://api.lista.org/api/moolah/borrow/markets";
 const CHAIN_NAME_TO_ID: Record<string, string> = {
   bsc: "56",
   ethereum: "1",
+  robinhood: "4663",
 };
 
 type ListaVaultRaw = {

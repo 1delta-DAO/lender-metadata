@@ -84,6 +84,10 @@ const RPCS: Record<string, string[]> = {
     "https://bsc-dataseed.binance.org",
     "https://rpc.ankr.com/bsc",
   ],
+  "4663": [
+    "https://rpc.mainnet.chain.robinhood.com",
+    "https://robinhood-rpc.publicnode.com",
+  ],
 };
 
 const MOOLAH_ABI = [
