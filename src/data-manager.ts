@@ -69,7 +69,13 @@ export class DataManager {
    */
   async updateFromSource(
     updaterName: string,
-    options: UpdateOptions = {}
+    options: UpdateOptions = {},
+    /**
+     * Merged-but-unwritten data from earlier updaters in the same run, keyed by
+     * target file. Read in place of the on-disk copy so a file several updaters
+     * share (data/lender-labels.json) accumulates instead of last-writer-wins.
+     */
+    pending?: Map<string, any>
   ): Promise<{
     success: boolean;
     results?: { [file: string]: UpdateResult<any> };
@@ -101,9 +107,13 @@ export class DataManager {
           : incomingData;
 
         let existing: any = {};
-        try {
-          existing = await loadExisting(targetFile);
-        } catch {}
+        if (pending?.has(targetFile)) {
+          existing = pending.get(targetFile);
+        } else {
+          try {
+            existing = await loadExisting(targetFile);
+          } catch {}
+        }
 
         // Use the updater's defaults
         const defaults = updater.defaults || {};
@@ -122,6 +132,7 @@ export class DataManager {
           data: result,
           targetFile,
         };
+        pending?.set(targetFile, result);
 
         totalAdded += result.added;
         totalUpdated += result.updated;
@@ -148,12 +159,22 @@ export class DataManager {
    */
   async updateAll(options: UpdateOptions = {}): Promise<void> {
     const allResults: MultiFileUpdateResult[] = [];
+    // Nothing is written until every updater has run, so without this each
+    // updater merged onto the same stale disk copy and the LAST one to emit a
+    // shared file (ResupplyLabelsUpdater, for lender-labels.json) silently
+    // discarded every earlier updater's additions — Midnight, Term, Inverse
+    // and Silo labels stopped landing from 2026-10-19 on.
+    const pending = new Map<string, any>();
 
     for (const updater of this.updaters) {
       console.log(`Processing ${updater.name}...`);
 
       try {
-        const updateResult = await this.updateFromSource(updater.name, options);
+        const updateResult = await this.updateFromSource(
+          updater.name,
+          options,
+          pending
+        );
 
         if (updateResult.success && updateResult.results) {
           allResults.push(updateResult.results as any);

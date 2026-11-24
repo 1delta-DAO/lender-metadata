@@ -1,12 +1,28 @@
 {
-  "version": "2026-11-23T19-46-52-000Z",
-  "generatedAt": "2026-11-23T19:46:52.000Z",
+  "version": "2026-11-24T07-27-06-634Z",
+  "generatedAt": "2026-11-24T07:27:06.635Z",
   "updatedFiles": [
-    "./data/morpho-oracles-data.json"
+    "./data/lender-labels.json",
+    "./data/lender-labels.json"
   ],
   "results": [
     {
-      "targetFile": "./data/morpho-oracles-data.json"
+      "targetFile": "./config/silo-v3-peripherals.json"
+    },
+    {
+      "targetFile": "./data/silo-v3-markets.json"
+    },
+    {
+      "targetFile": "./data/lender-labels.json"
+    },
+    {
+      "targetFile": "./data/inverse-markets.json"
+    },
+    {
+      "targetFile": "./data/lender-labels.json"
+    },
+    {
+      "targetFile": "./config/inverse.json"
     }
   ]
 }
