@@ -1,0 +1,93 @@
+{
+  "FLEX": {
+    "1": {
+      "registry": "0x9117440a7D03238905d1C8908157Bd7a547c77c8",
+      "markets": [
+        {
+          "troveManager": "0x8ee72c388aA73096338EE18CD46a39D98b8983c9",
+          "lender": "0xD93Dade7Ac8b5d1687da5d074835cB4404Dee8bA",
+          "sortedTroves": "0xB3770984513c354744626e78F21c2188812Dc6F7",
+          "dutchDesk": "0xa22C420E266C790A3c83B163c0D82c48EC699211",
+          "leverageZapper": "0x1c0FEB0b97aD3938A0f308CB574D3b56998f0143",
+          "priceOracle": "0xDB8DBB6c0548341Aea85ebAAFa681B4A8c077D2e",
+          "collateral": "0x696d02Db93291651ED510704c9b286841d506987",
+          "borrowToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "collateralSymbol": "yvUSD",
+          "borrowSymbol": "USDC"
+        },
+        {
+          "troveManager": "0xADf4E0226d59aac20272023c04B4DcF5Ade7Fc6E",
+          "lender": "0xf4996Ca4190A1a3e7CF19AbE2F6eb712abd4a03C",
+          "sortedTroves": "0x268C2F12A22C0Ec8f8A4e4d3D8527Eb0cFc4C17b",
+          "dutchDesk": "0x8e5C69f8981C014fc5a438eA0D916F79c7B52A6D",
+          "leverageZapper": "0x1c0FEB0b97aD3938A0f308CB574D3b56998f0143",
+          "priceOracle": "0x405568114Ee8058d0ca1Bbe95DA1f929279BaE65",
+          "collateral": "0x23346B04a7f55b8760E5860AA5A77383D63491cD",
+          "borrowToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "collateralSymbol": "ysyBOLD",
+          "borrowSymbol": "USDC"
+        },
+        {
+          "troveManager": "0x7582b47486F75F5D675f260d357972cD0DbEeA2E",
+          "lender": "0xc1f281A3643F219636F97F6E687A33704950eC84",
+          "sortedTroves": "0x32aB709442FF0f9eaF341061ABa915E372e3d1a2",
+          "dutchDesk": "0x26f652aC77Ebb936EFD3B85B1D412677Ec8cEdae",
+          "leverageZapper": "0x1c0FEB0b97aD3938A0f308CB574D3b56998f0143",
+          "priceOracle": "0x01821e20e102A9c9878298fde6b87B1885Baa8B2",
+          "collateral": "0xBF319dDC2Edc1Eb6FDf9910E39b37Be221C8805F",
+          "borrowToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "collateralSymbol": "yvcrvUSD-2",
+          "borrowSymbol": "USDC"
+        },
+        {
+          "troveManager": "0xEe27D81Bd4f54bA978e5dC0C335fC25C00e8334C",
+          "lender": "0x0d57098e501D68905fC4B0A3397f7D4Aa4889E36",
+          "sortedTroves": "0x6e8354f67Ad715C04a22331A46A7f5697Ef85f8D",
+          "dutchDesk": "0x6ddE4736e8282c0750C402aeA31bb66d6242C11d",
+          "leverageZapper": "0x1c0FEB0b97aD3938A0f308CB574D3b56998f0143",
+          "priceOracle": "0x4E2cAD94B2139f03C65B5677A84C2aeAC259B96C",
+          "collateral": "0xAc37729B76db6438CE62042AE1270ee574CA7571",
+          "borrowToken": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "collateralSymbol": "yvWETH-2",
+          "borrowSymbol": "WETH"
+        },
+        {
+          "troveManager": "0x0D50e97b521D62E1509Ca408ADE621658c367bed",
+          "lender": "0xd3E15f39A381620c1400cEBd06CF92AD100E0071",
+          "sortedTroves": "0x3D7D3F54D745633C601137f543bE23d2bf3Bd03d",
+          "dutchDesk": "0x144d7D9b51A2518E5D708874efA931454d21a497",
+          "leverageZapper": "0x1c0FEB0b97aD3938A0f308CB574D3b56998f0143",
+          "priceOracle": "0xb11a3D2F05fc9424325ACBcB38eEC59e7745C297",
+          "collateral": "0xDBDC1Ef57537E34680B898E1FEBD3D68c7389bCB",
+          "borrowToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "collateralSymbol": "siUSD",
+          "borrowSymbol": "USDC"
+        },
+        {
+          "troveManager": "0x5fF405CC51705D609F7F2CCc2Bb36a66675938fC",
+          "lender": "0xa411c4D26EF24e8A727F1cdeeabf85F1fA50498D",
+          "sortedTroves": "0xBCdE234456E43568fd3dBB77097A9b342299eaf0",
+          "dutchDesk": "0xCdf20e354Eeb243Eb5F2543a931D874D325bf022",
+          "leverageZapper": "0x1c0FEB0b97aD3938A0f308CB574D3b56998f0143",
+          "priceOracle": "0xd70329b03B368529E6FeC2d231Af534Be4cD6432",
+          "collateral": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+          "borrowToken": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "collateralSymbol": "wstETH",
+          "borrowSymbol": "WETH"
+        },
+        {
+          "troveManager": "0x29e3962CB7a153bFB79c2a5b4466121422154ff9",
+          "lender": "0x25E69d5256b7c47541C203d2324BE2CD0898b507",
+          "sortedTroves": "0xa882F731b6a79e2f88f7bd561bAB63DcFe9c5D86",
+          "dutchDesk": "0x51b27FAE4F480200571C8d27F85832748F7C2603",
+          "leverageZapper": "0x1c0FEB0b97aD3938A0f308CB574D3b56998f0143",
+          "priceOracle": "0x29F3293720Ae1f43ffB9521d4d70EE748297EAbe",
+          "collateral": "0x88887bE419578051FF9F4eb6C858A951921D8888",
+          "borrowToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "collateralSymbol": "stcUSD",
+          "borrowSymbol": "USDC"
+        }
+      ]
+    }
+  }
+}

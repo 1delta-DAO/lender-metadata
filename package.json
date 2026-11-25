@@ -66,6 +66,7 @@
     "update:fraxlend-labels": "tsx src/update-fraxlend-labels.ts",
     "update:resupply-labels": "tsx src/update-resupply-labels.ts",
     "update:flying-tulip": "tsx src/update-flying-tulip.ts",
+    "update:flex": "tsx src/update-flex.ts",
     "update:solana-labels": "tsx src/update-solana-labels.ts"
   },
   "devDependencies": {
