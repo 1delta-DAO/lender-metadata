@@ -46,7 +46,13 @@ export class DataManager {
     /**
      * Update data from a specific source to multiple files
      */
-    async updateFromSource(updaterName, options = {}) {
+    async updateFromSource(updaterName, options = {}, 
+    /**
+     * Merged-but-unwritten data from earlier updaters in the same run, keyed by
+     * target file. Read in place of the on-disk copy so a file several updaters
+     * share (data/lender-labels.json) accumulates instead of last-writer-wins.
+     */
+    pending) {
         const updater = this.updaters.find((u) => u.name === updaterName);
         if (!updater) {
             return { success: false, error: `Updater '${updaterName}' not found` };
@@ -67,10 +73,15 @@ export class DataManager {
                     ? updater.transformData(incomingData)
                     : incomingData;
                 let existing = {};
-                try {
-                    existing = await loadExisting(targetFile);
+                if (pending?.has(targetFile)) {
+                    existing = pending.get(targetFile);
                 }
-                catch { }
+                else {
+                    try {
+                        existing = await loadExisting(targetFile);
+                    }
+                    catch { }
+                }
                 // Use the updater's defaults
                 const defaults = updater.defaults || {};
                 let result;
@@ -87,6 +98,7 @@ export class DataManager {
                     data: result,
                     targetFile,
                 };
+                pending?.set(targetFile, result);
                 totalAdded += result.added;
                 totalUpdated += result.updated;
                 console.log(`  ${fileKey}: +${result.added} added, ${result.updated} updated -> ${targetFile}`);
@@ -108,10 +120,16 @@ export class DataManager {
      */
     async updateAll(options = {}) {
         const allResults = [];
+        // Nothing is written until every updater has run, so without this each
+        // updater merged onto the same stale disk copy and the LAST one to emit a
+        // shared file (ResupplyLabelsUpdater, for lender-labels.json) silently
+        // discarded every earlier updater's additions — Midnight, Term, Inverse
+        // and Silo labels stopped landing from 2026-10-19 on.
+        const pending = new Map();
         for (const updater of this.updaters) {
             console.log(`Processing ${updater.name}...`);
             try {
-                const updateResult = await this.updateFromSource(updater.name, options);
+                const updateResult = await this.updateFromSource(updater.name, options, pending);
                 if (updateResult.success && updateResult.results) {
                     allResults.push(updateResult.results);
                     console.log(`${updateResult.results} updated across ${Object.keys(updateResult.results).length} files`);

@@ -1,7 +1,6 @@
 {
   "FLEX": {
     "1": {
-      "registry": "0x9117440a7D03238905d1C8908157Bd7a547c77c8",
       "markets": [
         {
           "troveManager": "0x8ee72c388aA73096338EE18CD46a39D98b8983c9",
@@ -87,7 +86,8 @@
           "collateralSymbol": "stcUSD",
           "borrowSymbol": "USDC"
         }
-      ]
+      ],
+      "registry": "0x9117440a7D03238905d1C8908157Bd7a547c77c8"
     }
   }
 }

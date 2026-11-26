@@ -20,6 +20,7 @@ import { TellerOracleDataUpdater } from "./fetch/teller-oracle-data.js";
 import { InverseUpdater } from "./fetch/inverse/inverse.js";
 import { ResupplyLabelsUpdater } from "./fetch/resupply/labels.js";
 import { ResupplyConfigUpdater } from "./fetch/resupply/config.js";
+import { FlexConfigUpdater } from "./fetch/flex/config.js";
 // ============================================================================
 // Usage Examples & Main Function
 // ============================================================================
@@ -72,6 +73,9 @@ async function main() {
     // ...and the deployment row (config/resupply.json), resolved from the
     // registry so a swapper redeploy is picked up here, not by an SDK release.
     manager.registerUpdater(new ResupplyConfigUpdater());
+    // Flex: the endorsed-market roster (config/flex.json) + labels, from the
+    // Flex Registry, so a newly endorsed market needs no SDK release.
+    manager.registerUpdater(new FlexConfigUpdater());
     // You can now update from specific sources:
     // await manager.updateFromSource("Morpho Blue Markets", { appendOnly: true });
     await manager.updateAll();
