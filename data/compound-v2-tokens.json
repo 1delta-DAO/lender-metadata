@@ -2871,20 +2871,15 @@
       },
       {
         "cToken": "0xe3502f1c2450ed1bb87b87a84af6742f60f41368",
-        "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7"
       },
       {
         "cToken": "0x5096e5cf4f151052acd615b2635e7fdb6db0763c",
-        "underlying": "0x6b175474e89094c44da98b954eedeac495271d0f",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0x6b175474e89094c44da98b954eedeac495271d0f"
       },
       {
         "cToken": "0xf5d682d42e16550cc5d8f48193243103d2ceaf0a",
         "underlying": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
-        "mintPaused": false,
         "borrowPaused": false
       },
       {
@@ -2926,7 +2921,6 @@
       {
         "cToken": "0xe550a6f792a8b6c07555378ea74063021885a33e",
         "underlying": "0x1c085195437738d73d75dc64bc5a3e098b7f93b1",
-        "mintPaused": false,
         "borrowPaused": false
       },
       {
@@ -2950,8 +2944,7 @@
       {
         "cToken": "0x2509bd3b69440d39238b464d09f9f04a61fd62c6",
         "underlying": "0x8bf591eae535f93a242d5a954d3cde648b48a5a8",
-        "mintPaused": false,
-        "borrowPaused": false
+        "mintPaused": false
       },
       {
         "cToken": "0x4342e9bf67f89dea0cf3c906f5113dd8b588ac6f",
@@ -2962,7 +2955,6 @@
       {
         "cToken": "0x77cca710e21a94b94a26a98ea23027d64e36b9d4",
         "underlying": "0xe85411c030fb32a9d8b14bbbc6cb19417391f711",
-        "mintPaused": false,
         "borrowPaused": false
       },
       {
@@ -4705,9 +4697,7 @@
     "1": [
       {
         "cToken": "0x8716554364f20bca783cb2baa744d39361fd1d8d",
-        "underlying": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
       },
       {
         "cToken": "0x7c8ff7d2a1372433726f879bd945ffb250b94c65",
@@ -4724,7 +4714,6 @@
       {
         "cToken": "0x8c3e3821259b82ffb32b2450a95d2dcbf161c24e",
         "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-        "mintPaused": false,
         "borrowPaused": false
       },
       {
@@ -4766,8 +4755,7 @@
       {
         "cToken": "0x325ceb02fe1c2ff816a83a5770ea0e88e2faecf2",
         "underlying": "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
-        "mintPaused": false,
-        "borrowPaused": false
+        "mintPaused": false
       },
       {
         "cToken": "0x25c20e6e110a1ce3febacc8b7e48368c7b2f0c91",
@@ -4826,13 +4814,11 @@
       {
         "cToken": "0xa836ce315b7a6bb19397ee996551659b1d92298e",
         "underlying": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
-        "mintPaused": false,
         "borrowPaused": false
       },
       {
         "cToken": "0xa0ee2baa024cc3aa1bc9395522d07b7970ca75b3",
         "underlying": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
-        "mintPaused": false,
         "borrowPaused": false
       },
       {
@@ -5590,14 +5576,11 @@
       {
         "cToken": "0xc82780db1257c788f262fbbda960b3706dfdcaf2",
         "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-        "mintPaused": false,
         "borrowPaused": false
       },
       {
         "cToken": "0xb4933af59868986316ed37fa865c829eba2df0c7",
-        "underlying": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee"
       },
       {
         "cToken": "0x76697f8eaea4be01c678376aab97498ee8f80d5c",
@@ -5620,7 +5603,6 @@
       {
         "cToken": "0xa854d35664c658280fff27b6edc6c4195c3229b3",
         "underlying": "0xbf5495efe5db9ce00f80364c8b423567e58d2110",
-        "mintPaused": false,
         "borrowPaused": false
       },
       {
@@ -5661,9 +5643,7 @@
     "1": [
       {
         "cToken": "0x62d9e2010cff87bae05b91d5e04605ef864abc3b",
-        "underlying": "0x8a47b431a7d947c6a3ed6e42d501803615a97eaa",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0x8a47b431a7d947c6a3ed6e42d501803615a97eaa"
       },
       {
         "cToken": "0xcca202a95e8096315e3f19e46e19e1b326634889",
@@ -5795,63 +5775,43 @@
     "1": [
       {
         "cToken": "0x27a94869341838d5783368a8503fda5fbcd7987c",
-        "underlying": "0x0000000000000000000000000000000000000000",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0x0000000000000000000000000000000000000000"
       },
       {
         "cToken": "0x85166b72c87697a6acff24101b43fd54fe28a179",
-        "underlying": "0x6b175474e89094c44da98b954eedeac495271d0f",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0x6b175474e89094c44da98b954eedeac495271d0f"
       },
       {
         "cToken": "0x5cfad792c4df1323188180778aec58e00eace32a",
-        "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7"
       },
       {
         "cToken": "0xf8e5b9738bf63adfff36a849f9b9c9617c8d8c1f",
-        "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       },
       {
         "cToken": "0xc12b9d620bfcb48be3e0ccbf0ea80c717333b46f",
-        "underlying": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
       },
       {
         "cToken": "0x82413f75f0da101e0fe7f6ff6cba3461f7e04f29",
-        "underlying": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
-        "mintPaused": false,
-        "borrowPaused": false
+        "underlying": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
       },
       {
         "cToken": "0x82de3959c09f665a82c794fafc1eb34cfcb555ee",
-        "underlying": "0xa1d0e215a23d7030842fc67ce582a6afa3ccab83",
-        "mintPaused": true,
-        "borrowPaused": true
+        "underlying": "0xa1d0e215a23d7030842fc67ce582a6afa3ccab83"
       },
       {
         "cToken": "0x690aa2591e57180cba5a6123e9d462907a5e1c95",
-        "underlying": "0xbbbbca6a901c926f240b89eacb641d8aec7aeafd",
-        "mintPaused": true,
-        "borrowPaused": true
+        "underlying": "0xbbbbca6a901c926f240b89eacb641d8aec7aeafd"
       },
       {
         "cToken": "0xef86384cf696929c3227428f539e740ee12fcdc7",
-        "underlying": "0xf88506b0f1d30056b9e5580668d5875b9cd30f23",
-        "mintPaused": true,
-        "borrowPaused": true
+        "underlying": "0xf88506b0f1d30056b9e5580668d5875b9cd30f23"
       },
       {
         "cToken": "0x959f30f765a44273eccaa0fac094160aa7c238e2",
-        "underlying": "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
-        "mintPaused": false,
-        "borrowPaused": true
+        "underlying": "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919"
       }
     ],
     "56": [

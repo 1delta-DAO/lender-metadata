@@ -18,8 +18,8 @@
         "oracle": "0x1738FCAe8D5A6aEf39985dF31Fe60e5Dc5e1a7b3"
       },
       "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
-        "description": "cbBTC / USD",
-        "oracle": "0x8df378453Ff9dEFFa513367CDF9b3B53726303e9"
+        "description": "cbBTC / USD SVR price feed",
+        "oracle": "0x8C74B2811D2F1aD65517ADB5C65773c1E520ed2f"
       }
     }
   },
@@ -754,8 +754,8 @@
         "oracle": "0x0090A563C4832E4E519F5f054483519b1A83c8C3"
       },
       "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
-        "description": "cBBTC / ETH SVR price feed",
-        "oracle": "0xc4A9fFF2152fe11FBB40F059100ce1271a330C51"
+        "description": "cbBTC / ETH SVR price feed",
+        "oracle": "0xc8E4c3F58d5FC4409522503927Ecea057EbbA1fc"
       },
       "0xedfa23602d0ec14714057867a78d01e94176bea0": {
         "description": "rsETH / ETH CAPO Price Feed",
