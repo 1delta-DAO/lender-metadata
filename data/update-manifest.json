@@ -1,17 +1,18 @@
 {
-  "version": "2026-11-26T14-15-00-013Z",
-  "generatedAt": "2026-11-26T14:15:00.013Z",
+  "version": "2026-11-28T09-46-08-331Z",
+  "generatedAt": "2026-11-28T09:46:08.331Z",
   "updatedFiles": [
     "./data/lender-labels.json",
     "./data/morpho-type-oracles.json",
     "./data/morpho-oracles-data.json",
+    "./data/compound-v3-oracles.json",
+    "./data/compound-v3-oracles-data.json",
+    "./data/compound-v2-tokens.json",
     "./data/euler-vaults.json",
-    "./data/lender-labels.json",
     "./data/midnight-markets.json",
     "./data/lender-labels.json",
-    "./data/inverse-markets.json",
-    "./config/inverse.json",
-    "./config/flex.json"
+    "./data/term-finance-markets.json",
+    "./config/inverse.json"
   ],
   "results": [
     {

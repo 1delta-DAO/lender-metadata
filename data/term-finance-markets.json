@@ -208,29 +208,6 @@
       "servicingFee": "0"
     },
     {
-      "termRepoId": "0x3797ab4614f6e43abfe181845529088b013360e20352134665499da8427cf1c5",
-      "servicer": "0x83ed1e323239ef9ba63b078f853193a9ad17525e",
-      "repoToken": "0x93aa34c2698de8c80d3239050e71fb7625fb5302",
-      "collateralManager": "0x42d70c8d8dcfdd3f3ccd0444faf0790f9466dda3",
-      "purchaseToken": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-      "loanDecimals": 6,
-      "collateralParams": [
-        {
-          "token": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
-          "maintenanceRatio": "1250000000000000000",
-          "initialRatio": "1500000000000000000",
-          "decimals": 8,
-          "liquidatedDamages": "80000000000000000"
-        }
-      ],
-      "maturity": "1795017600",
-      "redemptionTimestamp": "1795104000",
-      "name": "USDC / cbBTC — 2026-11-18",
-      "endOfRepurchaseWindow": "1795100400",
-      "redemptionValue": "1000000000000000000",
-      "servicingFee": "0"
-    },
-    {
       "termRepoId": "0x3eed3c4649b642e072bc1ac62a443b74b31bdbef8081abba9bc22cd6dbd9982a",
       "servicer": "0xc14751d5d89c0ec2b01f718a964ccf7f18e5756f",
       "repoToken": "0xc57bff7b4071864b416ac4ffe957e24f086db2c8",
